@@ -13,8 +13,10 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
-var Schedule = require('./models/schedule');
+var Schedule = require('./db/models/schedule');
 var config = require('./config');
+
+var Admin_RosterManagement_Routes = require('./api/roster');
 
 var app = express();
 
@@ -29,7 +31,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-// THIS IS WHERE EXPRESS API ROUTES GO
+app.use('/api/admin/roster/', Admin_RosterManagement_Routes);
 
 app.use(function(req, res) {
   Router.match({ routes: routes.default, location: req.url }, function(err, redirectLocation, renderProps) {

@@ -11,10 +11,9 @@ var lockoutSchema = mongoose.Schema({
     default: false
   }
   schedules: [{
-    type: Schema.ObjectId,
-    ref: 'schedule',
-    required: true
+    type: mongoose.Schema.ObjectId,
+    ref: 'schedule'
   }]
 });
 
-module.exports = mongoose.model('Lockout', lockoutSchema);
+module.exports = lockoutSchema;

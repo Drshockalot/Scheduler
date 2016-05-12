@@ -10,10 +10,9 @@ var weekSchema = mongoose.Schema({
     required: false
   },
   schedules: [{
-    type: Schema.ObjectId,
-    ref: 'schedule',
-    required: true
+    type: mongoose.Schema.ObjectId,
+    ref: 'schedule'
   }]
 });
 
-module.exports = mongoose.model('Week', weekSchema);
+module.exports = weekSchema;

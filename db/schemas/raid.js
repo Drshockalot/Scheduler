@@ -11,4 +11,4 @@ var raidSchema = mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Raid', raidSchema);
+module.exports = raidSchema;

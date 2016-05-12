@@ -4,12 +4,11 @@ var rosterSchema = mongoose.Schema({
   name: {
     type: String,
     required: true
-  }
+  },
   members: [{
-    type: Schema.ObjectId,
+    type: mongoose.Schema.ObjectId,
     ref: 'character'
-  }],
-
+  }]
 });
 
-module.exports = mongoose.model('Roster', rosterSchema);
+module.exports = rosterSchema;

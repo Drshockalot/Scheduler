@@ -8,12 +8,15 @@ var characterSchema = mongoose.Schema({
   class: {
     type: String,
     required: true
-  }
+  },
+  classColour: {
+    type: String,
+    required: true
+  },
   type: {
     type: String,
     enum: ['DPS', 'Healer', 'Tank'],
-
   }
 });
 
-module.exports = mongoose.model('Character', characterSchema);
+module.exports = characterSchema;

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
-import FooterStore from '../stores/FooterStore'
+import FooterStore from '../stores/FooterStore';
 import FooterActions from '../actions/FooterActions';
 
 class Footer extends React.Component {
@@ -26,7 +26,7 @@ class Footer extends React.Component {
   render() {
     let admins = this.state.admins.map((name) => {
       return (
-        <li>{name}</li>
+        <li key={name}>{name}</li>
       )
     });
 

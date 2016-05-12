@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var daySchema = require('./day');
 
 var scheduleSchema = mongoose.Schema({
   name: {
@@ -9,14 +10,18 @@ var scheduleSchema = mongoose.Schema({
     type: String,
     enum: ['DPS', 'Healer', 'Tank'],
     required: true
-  }
+  },
+  days: {
+    type: [daySchema],
+    required: false
+  },
   raid: {
-    type: Schema.ObjectId,
+    type: mongoose.Schema.ObjectId,
     ref: 'raid',
     required: true
-  }
+  },
   roster: {
-    type: Schema.ObjectId,
+    type: mongoose.Schema.ObjectId,
     ref: 'roster',
     required: true
   },
@@ -27,4 +32,4 @@ var scheduleSchema = mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Schedule', scheduleSchema);
+module.exports = scheduleSchema;
