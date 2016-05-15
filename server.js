@@ -19,6 +19,7 @@ var config = require('./config');
 var Admin_RosterManagement_Routes = require('./api/roster');
 
 var fs = require('fs');
+var db = require('./db/database');
 
 var app = express();
 
