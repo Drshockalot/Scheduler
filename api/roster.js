@@ -14,6 +14,20 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.post('/', function(req, res, next) {
+  var data = req.body;
+  var query = { 'name' : data.name };
+
+  roster.find(query, function(err, result) {
+    if (err) {
+      res.json({'status' : 'error', 'message' : err});
+    } else {
+      console.log(result);
+      res.json(result);
+    }
+  });
+});
+
 router.post('/add', function(req, res, next) {
   var data = req.body;
   console.log(data);

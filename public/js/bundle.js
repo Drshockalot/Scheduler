@@ -40,7 +40,7 @@ var FooterActions = function () {
 
 exports.default = _alt2.default.createActions(FooterActions);
 
-},{"../alt":8}],2:[function(require,module,exports){
+},{"../alt":11}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -99,7 +99,10 @@ var NavbarActions = function () {
 
 exports.default = _alt2.default.createActions(NavbarActions);
 
-},{"../alt":8,"underscore":"underscore"}],3:[function(require,module,exports){
+},{"../alt":11,"underscore":"underscore"}],3:[function(require,module,exports){
+"use strict";
+
+},{}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -113,6 +116,10 @@ var _alt = require('../../alt');
 var _alt2 = _interopRequireDefault(_alt);
 
 var _underscore = require('underscore');
+
+var _ViewRostersActions = require('./ViewRostersActions');
+
+var _ViewRostersActions2 = _interopRequireDefault(_ViewRostersActions);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -137,6 +144,7 @@ var AddRosterActions = function () {
       }).done(function (data) {
         (0, _underscore.assign)(rosterName, data);
         _this.addRosterSuccess(rosterName);
+        _ViewRostersActions2.default.updateRosterList();
       }).fail(function () {
         _this.addRosterFailure();
       });
@@ -148,7 +156,7 @@ var AddRosterActions = function () {
 
 exports.default = _alt2.default.createActions(AddRosterActions);
 
-},{"../../alt":8,"underscore":"underscore"}],4:[function(require,module,exports){
+},{"../../alt":11,"./ViewRostersActions":10,"underscore":"underscore"}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -171,7 +179,7 @@ var AdminActions = function AdminActions() {
 
 exports.default = _alt2.default.createActions(AdminActions);
 
-},{"../../alt":8}],5:[function(require,module,exports){
+},{"../../alt":11}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -194,7 +202,30 @@ var AdminSideNavActions = function AdminSideNavActions() {
 
 exports.default = _alt2.default.createActions(AdminSideNavActions);
 
-},{"../../alt":8}],6:[function(require,module,exports){
+},{"../../alt":11}],7:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _alt = require('../../alt');
+
+var _alt2 = _interopRequireDefault(_alt);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var RosterControlPanelActions = function RosterControlPanelActions() {
+  _classCallCheck(this, RosterControlPanelActions);
+
+  this.generateActions('updateCharacterClass', 'updateCharacterName', 'updateCharacterRole');
+};
+
+exports.default = _alt2.default.createActions(RosterControlPanelActions);
+
+},{"../../alt":11}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -217,7 +248,59 @@ var RosterManagementActions = function RosterManagementActions() {
 
 exports.default = _alt2.default.createActions(RosterManagementActions);
 
-},{"../../alt":8}],7:[function(require,module,exports){
+},{"../../alt":11}],9:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _alt = require('../../alt');
+
+var _alt2 = _interopRequireDefault(_alt);
+
+var _underscore = require('underscore');
+
+var _ViewRostersStore = require('../../stores/admin/ViewRostersStore');
+
+var _ViewRostersStore2 = _interopRequireDefault(_ViewRostersStore);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var RosterViewActions = function () {
+  function RosterViewActions() {
+    _classCallCheck(this, RosterViewActions);
+
+    this.generateActions('populateRosterListSuccess', 'populateRosterListFailure');
+  }
+
+  _createClass(RosterViewActions, [{
+    key: 'populateRosterList',
+    value: function populateRosterList(value) {
+      var _this = this;
+
+      $.ajax({
+        method: 'POST',
+        url: '/api/admin/roster/',
+        data: { 'name': value }
+      }).done(function (data) {
+        _this.populateRosterListSuccess(data);
+      }).fail(function () {
+        _this.populateRosterListFailure();
+      });
+    }
+  }]);
+
+  return RosterViewActions;
+}();
+
+exports.default = _alt2.default.createActions(RosterViewActions);
+
+},{"../../alt":11,"../../stores/admin/ViewRostersStore":35,"underscore":"underscore"}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -234,11 +317,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+//import RosterViewActions from './RosterViewActions';
+
 var ViewRostersActions = function () {
   function ViewRostersActions() {
     _classCallCheck(this, ViewRostersActions);
 
-    this.generateActions('updateRosterListSuccess', 'updateRosterListFailure');
+    this.generateActions('updateRosterListSuccess', 'updateRosterListFailure', 'updateCurrentRoster', 'updateCurrentRosterRaw');
   }
 
   _createClass(ViewRostersActions, [{
@@ -250,6 +335,7 @@ var ViewRostersActions = function () {
         url: '/api/admin/roster/'
       }).done(function (data) {
         _this.updateRosterListSuccess(data);
+        _this.updateCurrentRosterRaw(data[0].name);
       }).fail(function (jqXhr) {
         _this.updateRosterListFailure(jqXhr);
       });
@@ -261,7 +347,7 @@ var ViewRostersActions = function () {
 
 exports.default = _alt2.default.createActions(ViewRostersActions);
 
-},{"../../alt":8}],8:[function(require,module,exports){
+},{"../../alt":11}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -276,7 +362,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = new _alt2.default();
 
-},{"alt":"alt"}],9:[function(require,module,exports){
+},{"alt":"alt"}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -332,7 +418,7 @@ var App = function (_React$Component) {
 
 exports.default = App;
 
-},{"./Footer":10,"./Navbar":12,"react":"react"}],10:[function(require,module,exports){
+},{"./Footer":13,"./Navbar":15,"react":"react"}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -459,7 +545,7 @@ var Footer = function (_React$Component) {
 
 exports.default = Footer;
 
-},{"../actions/FooterActions":1,"../stores/FooterStore":20,"react":"react","react-router":"react-router"}],11:[function(require,module,exports){
+},{"../actions/FooterActions":1,"../stores/FooterStore":26,"react":"react","react-router":"react-router"}],14:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -505,7 +591,7 @@ var Home = function (_React$Component) {
 
 exports.default = Home;
 
-},{"react":"react"}],12:[function(require,module,exports){
+},{"react":"react"}],15:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -595,6 +681,14 @@ var Navbar = function (_React$Component) {
           history: this.props.history
         });
       }
+    }
+  }, {
+    key: 'handleLoginSubmit',
+    value: function handleLoginSubmit(event) {}
+  }, {
+    key: 'registerRedirect',
+    value: function registerRedirect() {
+      window.location = '/';
     }
   }, {
     key: 'render',
@@ -715,6 +809,38 @@ var Navbar = function (_React$Component) {
                 'Admin'
               )
             )
+          ),
+          _react2.default.createElement(
+            'form',
+            { ref: 'loginForm', className: 'form-inline navbar-form', onSubmit: this.handleLoginSubmit.bind(this) },
+            _react2.default.createElement(
+              'div',
+              { className: 'input-group' },
+              _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Username...', value: this.state.username, onChange: _NavbarActions2.default.updateUsername })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'input-group' },
+              _react2.default.createElement('input', { type: 'password', className: 'form-control', placeholder: 'Password...', value: this.state.password, onChange: _NavbarActions2.default.updatePassword })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'input-group' },
+              _react2.default.createElement(
+                'button',
+                { className: 'btn btn-default', onClick: this.handleLoginSubmit.bind(this) },
+                'Login'
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'input-group' },
+              _react2.default.createElement(
+                'button',
+                { className: 'btn btn-default', onClick: this.registerRedirect.bind(this) },
+                'Register'
+              )
+            )
           )
         )
       );
@@ -726,7 +852,26 @@ var Navbar = function (_React$Component) {
 
 exports.default = Navbar;
 
-},{"../actions/NavbarActions":2,"../stores/NavbarStore":21,"react":"react","react-router":"react-router"}],13:[function(require,module,exports){
+},{"../actions/NavbarActions":2,"../stores/NavbarStore":27,"react":"react","react-router":"react-router"}],16:[function(require,module,exports){
+'use strict';
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = require('react-router');
+
+var _RegisterActions = require('../actions/RegisterActions');
+
+var _RegisterActions2 = _interopRequireDefault(_RegisterActions);
+
+var _RegisterStore = require('../stores/RegisterStore');
+
+var _RegisterStore2 = _interopRequireDefault(_RegisterStore);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+},{"../actions/RegisterActions":3,"../stores/RegisterStore":28,"react":"react","react-router":"react-router"}],17:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -774,7 +919,6 @@ var AddRoster = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _AddRosterStore2.default.listen(this.onChange);
-      console.log(this.state);
     }
   }, {
     key: 'componentWillUnmount',
@@ -784,7 +928,6 @@ var AddRoster = function (_React$Component) {
   }, {
     key: 'onChange',
     value: function onChange(state) {
-      console.log(state);
       this.setState(state);
     }
   }, {
@@ -802,22 +945,35 @@ var AddRoster = function (_React$Component) {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        'form',
-        { onSubmit: this.handleSubmit.bind(this) },
+        'div',
+        { className: 'col-md-6' },
         _react2.default.createElement(
-          'div',
-          { className: 'form-group' },
-          _react2.default.createElement(
-            'label',
-            { htmlFor: 'rosterName' },
-            'Roster Name'
-          ),
-          _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'rosterName', placeholder: 'Main Raid, Alt Raid etc...', value: this.state.rosterName, onChange: _AddRosterActions2.default.updateRosterName })
+          'h3',
+          null,
+          'Add New Roster'
         ),
         _react2.default.createElement(
-          'button',
-          { type: 'submit', className: 'btn btn-default' },
-          'Submit'
+          'form',
+          { className: 'form-horizontal', onSubmit: this.handleSubmit.bind(this) },
+          _react2.default.createElement(
+            'div',
+            { className: 'form-group' },
+            _react2.default.createElement(
+              'label',
+              { className: 'col-sm-2 control-label', htmlFor: 'rosterName' },
+              'Name'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-sm-10' },
+              _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'rosterName', placeholder: 'Main Raid, Alt Raid etc...', value: this.state.rosterName, onChange: _AddRosterActions2.default.updateRosterName })
+            )
+          ),
+          _react2.default.createElement(
+            'button',
+            { type: 'submit', className: 'btn btn-default pull-right' },
+            'Submit'
+          )
         )
       );
     }
@@ -828,7 +984,7 @@ var AddRoster = function (_React$Component) {
 
 exports.default = AddRoster;
 
-},{"../../actions/admin/AddRosterActions":3,"../../stores/admin/AddRosterStore":22,"react":"react","react-router":"react-router"}],14:[function(require,module,exports){
+},{"../../actions/admin/AddRosterActions":4,"../../stores/admin/AddRosterStore":29,"react":"react","react-router":"react-router"}],18:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -907,7 +1063,7 @@ var Admin = function (_React$Component) {
 
 exports.default = Admin;
 
-},{"../../actions/admin/AdminActions":4,"../../stores/admin/AdminStore":24,"./AdminSideNav":15,"react":"react","react-router":"react-router"}],15:[function(require,module,exports){
+},{"../../actions/admin/AdminActions":5,"../../stores/admin/AdminStore":31,"./AdminSideNav":19,"react":"react","react-router":"react-router"}],19:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1003,7 +1159,259 @@ var AdminSideNav = function (_React$Component) {
 
 exports.default = AdminSideNav;
 
-},{"../../actions/admin/AdminSideNavActions":5,"../../stores/admin/AdminSideNavStore":23,"react":"react","react-router":"react-router"}],16:[function(require,module,exports){
+},{"../../actions/admin/AdminSideNavActions":6,"../../stores/admin/AdminSideNavStore":30,"react":"react","react-router":"react-router"}],20:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = require('react-router');
+
+var _RosterControlPanelStore = require('../../stores/admin/RosterControlPanelStore');
+
+var _RosterControlPanelStore2 = _interopRequireDefault(_RosterControlPanelStore);
+
+var _RosterControlPanelActions = require('../../actions/admin/RosterControlPanelActions');
+
+var _RosterControlPanelActions2 = _interopRequireDefault(_RosterControlPanelActions);
+
+var _ViewRostersStore = require('../../stores/admin/ViewRostersStore');
+
+var _ViewRostersStore2 = _interopRequireDefault(_ViewRostersStore);
+
+var _classnames = require('classnames');
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// import Autosize from 'Autosize';
+// import Autocomplete from 'Autocomplete';
+// import Combobox from 'Combobox';
+// import Mask from 'Mask';
+// import DatePicker from 'DatePicker';
+
+var RosterControlPanel = function (_React$Component) {
+  _inherits(RosterControlPanel, _React$Component);
+
+  function RosterControlPanel(props) {
+    _classCallCheck(this, RosterControlPanel);
+
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(RosterControlPanel).call(this, props));
+
+    _this.state = _RosterControlPanelStore2.default.getState();
+    _this.onChange = _this.onChange.bind(_this);
+    return _this;
+  }
+
+  _createClass(RosterControlPanel, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      _RosterControlPanelStore2.default.listen(this.onChange);
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      _RosterControlPanelStore2.default.unlisten(this.onChange);
+    }
+  }, {
+    key: 'onChange',
+    value: function onChange(state) {
+      this.setState(state);
+    }
+  }, {
+    key: 'handleAddCharacterSubmit',
+    value: function handleAddCharacterSubmit(e) {
+      e.preventDefault();
+      var currentRoster = _ViewRostersStore2.default.getState().currentRoster;
+
+      _RosterControlPanelActions2.default.addCharacterToRoster(currentRoster, this.state.addCharacter_Name, this.state.addCharacter_Class, this.state.addCharacter);
+    }
+  }, {
+    key: 'currentClassColour',
+    value: function currentClassColour() {
+      var currentClass = this.state.addCharacter_Class;
+      var arr = currentClass.split(" ");
+
+      var ret = '';
+      for (var i = 0; i < arr.length; ++i) {
+        ret += arr[i].toLowerCase();
+        ret += '-';
+      }
+
+      ret += 'color';
+      return ret;
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var classColour = this.currentClassColour();
+      var classColourClasses = (0, _classnames2.default)(classColour, { 'col-sm-2': true });
+
+      return _react2.default.createElement(
+        'div',
+        { className: 'col-md-6' },
+        _react2.default.createElement(
+          'h3',
+          null,
+          'Add Character To Roster'
+        ),
+        _react2.default.createElement(
+          'form',
+          { className: 'form-horizontal', onSubmit: this.handleAddCharacterSubmit.bind(this) },
+          _react2.default.createElement(
+            'div',
+            { className: 'form-group' },
+            _react2.default.createElement(
+              'label',
+              { className: 'col-sm-2 control-label', htmlFor: 'characterName' },
+              'Name'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-sm-10' },
+              _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'characterName', name: 'characterName', value: this.state.addCharacter_Name, onChange: _RosterControlPanelActions2.default.updateCharacterName })
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'form-group' },
+            _react2.default.createElement(
+              'label',
+              { className: 'col-sm-2 control-label', htmlFor: 'characterClass' },
+              'Class'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-sm-7' },
+              _react2.default.createElement(
+                'select',
+                { className: 'form-control', id: 'characterClass', value: this.state.addCharacter_Class, onChange: _RosterControlPanelActions2.default.updateCharacterClass },
+                _react2.default.createElement(
+                  'option',
+                  { value: 'Death Knight' },
+                  'Death Knight'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'Demon Hunter' },
+                  'Demon Hunter'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'Druid' },
+                  'Druid'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'Hunter' },
+                  'Hunter'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'Mage' },
+                  'Mage'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'Monk' },
+                  'Monk'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'Paladin' },
+                  'Paladin'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'Priest' },
+                  'Priest'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'Rogue' },
+                  'Rogue'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'Shaman' },
+                  'Shaman'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'Warlock' },
+                  'Warlock'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'Warrior' },
+                  'Warrior'
+                )
+              )
+            ),
+            _react2.default.createElement('div', { className: classColourClasses })
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'form-group' },
+            _react2.default.createElement(
+              'label',
+              { className: 'col-sm-2 control-label', htmlFor: 'characterRole' },
+              'Role'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-sm-10' },
+              _react2.default.createElement(
+                'select',
+                { className: 'form-control', id: 'characterRole', value: this.state.addCharacter_Role, onChange: _RosterControlPanelActions2.default.updateCharacterRole },
+                _react2.default.createElement(
+                  'option',
+                  { value: 'Tank' },
+                  'Tank'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'DPS' },
+                  'DPS'
+                ),
+                _react2.default.createElement(
+                  'option',
+                  { value: 'Healer' },
+                  'Healer'
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'button',
+            { type: 'submit', className: 'btn btn-default pull-right' },
+            'Submit'
+          )
+        )
+      );
+    }
+  }]);
+
+  return RosterControlPanel;
+}(_react2.default.Component);
+
+exports.default = RosterControlPanel;
+
+},{"../../actions/admin/RosterControlPanelActions":7,"../../stores/admin/RosterControlPanelStore":32,"../../stores/admin/ViewRostersStore":35,"classnames":36,"react":"react","react-router":"react-router"}],21:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1037,6 +1445,14 @@ var _AddRoster2 = _interopRequireDefault(_AddRoster);
 var _ViewRosters = require('./ViewRosters');
 
 var _ViewRosters2 = _interopRequireDefault(_ViewRosters);
+
+var _RosterView = require('./RosterView');
+
+var _RosterView2 = _interopRequireDefault(_RosterView);
+
+var _RosterControlPanel = require('./RosterControlPanel');
+
+var _RosterControlPanel2 = _interopRequireDefault(_RosterControlPanel);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1083,9 +1499,11 @@ var RosterManagement = function (_React$Component) {
         _react2.default.createElement(_AdminSideNav2.default, null),
         _react2.default.createElement(
           'div',
-          { className: 'col-md-6' },
+          { className: 'col-md-8' },
+          _react2.default.createElement(_ViewRosters2.default, null),
           _react2.default.createElement(_AddRoster2.default, null),
-          _react2.default.createElement(_ViewRosters2.default, null)
+          _react2.default.createElement(_RosterView2.default, null),
+          _react2.default.createElement(_RosterControlPanel2.default, null)
         )
       );
     }
@@ -1096,7 +1514,90 @@ var RosterManagement = function (_React$Component) {
 
 exports.default = RosterManagement;
 
-},{"../../actions/admin/RosterManagementActions":6,"../../stores/admin/RosterManagementStore":25,"./AddRoster":13,"./AdminSideNav":15,"./ViewRosters":17,"react":"react","react-router":"react-router"}],17:[function(require,module,exports){
+},{"../../actions/admin/RosterManagementActions":8,"../../stores/admin/RosterManagementStore":33,"./AddRoster":17,"./AdminSideNav":19,"./RosterControlPanel":20,"./RosterView":22,"./ViewRosters":23,"react":"react","react-router":"react-router"}],22:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = require('react-router');
+
+var _RosterViewStore = require('../../stores/admin/RosterViewStore');
+
+var _RosterViewStore2 = _interopRequireDefault(_RosterViewStore);
+
+var _RosterViewActions = require('../../actions/admin/RosterViewActions');
+
+var _RosterViewActions2 = _interopRequireDefault(_RosterViewActions);
+
+var _ViewRostersStore = require('../../stores/admin/ViewRostersStore');
+
+var _ViewRostersStore2 = _interopRequireDefault(_ViewRostersStore);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var RosterView = function (_React$Component) {
+  _inherits(RosterView, _React$Component);
+
+  function RosterView(props) {
+    _classCallCheck(this, RosterView);
+
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(RosterView).call(this, props));
+
+    _this.state = _RosterViewStore2.default.getState();
+    _this.onChange = _this.onChange.bind(_this);
+    return _this;
+  }
+
+  _createClass(RosterView, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      _RosterViewStore2.default.listen(this.onChange);
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      _RosterViewStore2.default.unlisten(this.onChange);
+    }
+  }, {
+    key: 'onChange',
+    value: function onChange(state) {
+      this.setState(state);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'col-md-6' },
+        _react2.default.createElement(
+          'h1',
+          null,
+          this.state.rosterName
+        )
+      );
+    }
+  }]);
+
+  return RosterView;
+}(_react2.default.Component);
+
+exports.default = RosterView;
+
+},{"../../actions/admin/RosterViewActions":9,"../../stores/admin/RosterViewStore":34,"../../stores/admin/ViewRostersStore":35,"react":"react","react-router":"react-router"}],23:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1118,6 +1619,10 @@ var _ViewRostersStore2 = _interopRequireDefault(_ViewRostersStore);
 var _ViewRostersActions = require('../../actions/admin/ViewRostersActions');
 
 var _ViewRostersActions2 = _interopRequireDefault(_ViewRostersActions);
+
+var _RosterViewActions = require('../../actions/admin/RosterViewActions');
+
+var _RosterViewActions2 = _interopRequireDefault(_RosterViewActions);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1157,9 +1662,14 @@ var ViewRosters = function (_React$Component) {
       this.setState(state);
     }
   }, {
+    key: 'handleCurrentRosterChange',
+    value: function handleCurrentRosterChange(e) {
+      _ViewRostersActions2.default.updateCurrentRoster(e.target.value);
+      _RosterViewActions2.default.populateRosterList(e.target.value);
+    }
+  }, {
     key: 'render',
     value: function render() {
-      console.log(this.state.rosterList);
       var rosterListCopy = this.state.rosterList;
       var arr = Object.keys(rosterListCopy).map(function (i) {
         return rosterListCopy[i];
@@ -1174,9 +1684,36 @@ var ViewRosters = function (_React$Component) {
       });
 
       return _react2.default.createElement(
-        'select',
-        { className: 'form-control' },
-        list
+        'div',
+        { className: 'col-md-6 form-horizontal' },
+        _react2.default.createElement(
+          'h3',
+          null,
+          'View Roster'
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'form-group' },
+          _react2.default.createElement(
+            'label',
+            { className: 'col-sm-2 control-label', htmlFor: 'rosterList' },
+            'Rosters'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'col-sm-6' },
+            _react2.default.createElement(
+              'select',
+              { name: 'rosterList', className: 'form-control', value: this.state.currentRoster, onChange: this.handleCurrentRosterChange },
+              list
+            )
+          ),
+          _react2.default.createElement(
+            'button',
+            { type: 'submit', className: 'btn btn-default' },
+            'DELETE'
+          )
+        )
       );
     }
   }]);
@@ -1186,7 +1723,7 @@ var ViewRosters = function (_React$Component) {
 
 exports.default = ViewRosters;
 
-},{"../../actions/admin/ViewRostersActions":7,"../../stores/admin/ViewRostersStore":26,"react":"react","react-router":"react-router"}],18:[function(require,module,exports){
+},{"../../actions/admin/RosterViewActions":9,"../../actions/admin/ViewRostersActions":10,"../../stores/admin/ViewRostersStore":35,"react":"react","react-router":"react-router"}],24:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -1216,7 +1753,7 @@ _reactDom2.default.render(_react2.default.createElement(
 
 //var Router = require('react-router').Router
 
-},{"./routes":19,"react":"react","react-dom":"react-dom","react-router":"react-router"}],19:[function(require,module,exports){
+},{"./routes":25,"react":"react","react-dom":"react-dom","react-router":"react-router"}],25:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1245,17 +1782,22 @@ var _RosterManagement = require('./components/admin/RosterManagement');
 
 var _RosterManagement2 = _interopRequireDefault(_RosterManagement);
 
+var _Register = require('./components/Register');
+
+var _Register2 = _interopRequireDefault(_Register);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = _react2.default.createElement(
   _reactRouter.Route,
   { component: _App2.default },
   _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Home2.default }),
+  _react2.default.createElement(_reactRouter.Route, { path: '/register', component: _Register2.default }),
   _react2.default.createElement(_reactRouter.Route, { path: '/admin', component: _Admin2.default }),
   _react2.default.createElement(_reactRouter.Route, { path: '/admin/roster', component: _RosterManagement2.default })
 );
 
-},{"./components/App":9,"./components/Home":11,"./components/admin/Admin":14,"./components/admin/RosterManagement":16,"react":"react","react-router":"react-router"}],20:[function(require,module,exports){
+},{"./components/App":12,"./components/Home":14,"./components/Register":16,"./components/admin/Admin":18,"./components/admin/RosterManagement":21,"react":"react","react-router":"react-router"}],26:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1303,7 +1845,7 @@ var FooterStore = function () {
 
 exports.default = _alt2.default.createStore(FooterStore);
 
-},{"../actions/FooterActions":1,"../alt":8}],21:[function(require,module,exports){
+},{"../actions/FooterActions":1,"../alt":11}],27:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1380,7 +1922,10 @@ var NavbarStore = function () {
 
 exports.default = _alt2.default.createStore(NavbarStore);
 
-},{"../actions/NavbarActions":2,"../alt":8}],22:[function(require,module,exports){
+},{"../actions/NavbarActions":2,"../alt":11}],28:[function(require,module,exports){
+"use strict";
+
+},{}],29:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1413,7 +1958,6 @@ var AddRosterStore = function () {
   _createClass(AddRosterStore, [{
     key: 'onUpdateRosterName',
     value: function onUpdateRosterName(e) {
-      console.log(e.target.value);
       this.rosterName = e.target.value;
     }
   }, {
@@ -1433,7 +1977,7 @@ var AddRosterStore = function () {
 
 exports.default = _alt2.default.createStore(AddRosterStore);
 
-},{"../../actions/admin/AddRosterActions":3,"../../alt":8}],23:[function(require,module,exports){
+},{"../../actions/admin/AddRosterActions":4,"../../alt":11}],30:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1460,7 +2004,7 @@ var AdminSideNavStore = function AdminSideNavStore() {
 
 exports.default = _alt2.default.createStore(AdminSideNavStore);
 
-},{"../../actions/admin/AdminSideNavActions":5,"../../alt":8}],24:[function(require,module,exports){
+},{"../../actions/admin/AdminSideNavActions":6,"../../alt":11}],31:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1487,7 +2031,60 @@ var AdminStore = function AdminStore() {
 
 exports.default = _alt2.default.createStore(AdminStore);
 
-},{"../../actions/admin/AdminActions":4,"../../alt":8}],25:[function(require,module,exports){
+},{"../../actions/admin/AdminActions":5,"../../alt":11}],32:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _alt = require('../../alt');
+
+var _alt2 = _interopRequireDefault(_alt);
+
+var _RosterControlPanelActions = require('../../actions/admin/RosterControlPanelActions');
+
+var _RosterControlPanelActions2 = _interopRequireDefault(_RosterControlPanelActions);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var RosterControlPanelStore = function () {
+  function RosterControlPanelStore() {
+    _classCallCheck(this, RosterControlPanelStore);
+
+    this.bindActions(_RosterControlPanelActions2.default);
+    this.addCharacter_Name = '';
+    this.addCharacter_Class = 'Death Knight';
+    this.addCharacter_Role = 'Tank';
+  }
+
+  _createClass(RosterControlPanelStore, [{
+    key: 'onUpdateCharacterName',
+    value: function onUpdateCharacterName(e) {
+      this.addCharacter_Name = e.target.value;
+    }
+  }, {
+    key: 'onUpdateCharacterClass',
+    value: function onUpdateCharacterClass(e) {
+      this.addCharacter_Class = e.target.value;
+    }
+  }, {
+    key: 'onUpdateCharacterRole',
+    value: function onUpdateCharacterRole(e) {
+      this.addCharacter_Role = e.target.value;
+    }
+  }]);
+
+  return RosterControlPanelStore;
+}();
+
+exports.default = _alt2.default.createStore(RosterControlPanelStore);
+
+},{"../../actions/admin/RosterControlPanelActions":7,"../../alt":11}],33:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1514,7 +2111,51 @@ var RosterManagementStore = function RosterManagementStore() {
 
 exports.default = _alt2.default.createStore(RosterManagementStore);
 
-},{"../../actions/admin/RosterManagementActions":6,"../../alt":8}],26:[function(require,module,exports){
+},{"../../actions/admin/RosterManagementActions":8,"../../alt":11}],34:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _alt = require('../../alt');
+
+var _alt2 = _interopRequireDefault(_alt);
+
+var _RosterViewActions = require('../../actions/admin/RosterViewActions');
+
+var _RosterViewActions2 = _interopRequireDefault(_RosterViewActions);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var RosterViewStore = function () {
+  function RosterViewStore() {
+    _classCallCheck(this, RosterViewStore);
+
+    this.bindActions(_RosterViewActions2.default);
+    this.roster = {};
+  }
+
+  _createClass(RosterViewStore, [{
+    key: 'onPopulateRosterListSuccess',
+    value: function onPopulateRosterListSuccess(data) {
+      this.roster = data;
+    }
+  }, {
+    key: 'onPopulateRosterListFailure',
+    value: function onPopulateRosterListFailure() {}
+  }]);
+
+  return RosterViewStore;
+}();
+
+exports.default = _alt2.default.createStore(RosterViewStore);
+
+},{"../../actions/admin/RosterViewActions":9,"../../alt":11}],35:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1531,6 +2172,10 @@ var _ViewRostersActions = require('../../actions/admin/ViewRostersActions');
 
 var _ViewRostersActions2 = _interopRequireDefault(_ViewRostersActions);
 
+var _RosterViewActions = require('../../actions/admin/RosterViewActions');
+
+var _RosterViewActions2 = _interopRequireDefault(_RosterViewActions);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1541,12 +2186,22 @@ var ViewRostersStore = function () {
 
     this.bindActions(_ViewRostersActions2.default);
     this.rosterList = {};
+    this.currentRoster = '';
   }
 
   _createClass(ViewRostersStore, [{
+    key: 'onUpdateCurrentRoster',
+    value: function onUpdateCurrentRoster(e) {
+      this.currentRoster = e;
+    }
+  }, {
+    key: 'onUpdateCurrentRosterRaw',
+    value: function onUpdateCurrentRosterRaw(name) {
+      this.currentRoster = name;
+    }
+  }, {
     key: 'onUpdateRosterListSuccess',
     value: function onUpdateRosterListSuccess(data) {
-      console.log(data);
       this.rosterList = data;
     }
   }, {
@@ -1561,7 +2216,57 @@ var ViewRostersStore = function () {
 
 exports.default = _alt2.default.createStore(ViewRostersStore);
 
-},{"../../actions/admin/ViewRostersActions":7,"../../alt":8}]},{},[18])
+},{"../../actions/admin/RosterViewActions":9,"../../actions/admin/ViewRostersActions":10,"../../alt":11}],36:[function(require,module,exports){
+/*!
+  Copyright (c) 2016 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+	'use strict';
+
+	var hasOwn = {}.hasOwnProperty;
+
+	function classNames () {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg)) {
+				classes.push(classNames.apply(null, arg));
+			} else if (argType === 'object') {
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(key);
+					}
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if (typeof module !== 'undefined' && module.exports) {
+		module.exports = classNames;
+	} else if (typeof define === 'function' && typeof define.amd === 'object' && define.amd) {
+		// register as 'classnames', consistent with npm package name
+		define('classnames', [], function () {
+			return classNames;
+		});
+	} else {
+		window.classNames = classNames;
+	}
+}());
+
+},{}]},{},[24])
 
 
 //# sourceMappingURL=bundle.js.map

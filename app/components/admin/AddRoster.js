@@ -12,7 +12,6 @@ class AddRoster extends React.Component {
 
   componentDidMount() {
     AddRosterStore.listen(this.onChange);
-    console.log(this.state);
   }
 
   componentWillUnmount() {
@@ -20,7 +19,6 @@ class AddRoster extends React.Component {
   }
 
   onChange(state) {
-    console.log(state);
     this.setState(state);
   }
 
@@ -36,13 +34,18 @@ class AddRoster extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit.bind(this)}>
-        <div className='form-group'>
-          <label htmlFor='rosterName'>Roster Name</label>
-          <input type="text" className='form-control' id='rosterName' placeholder='Main Raid, Alt Raid etc...' value={this.state.rosterName} onChange={AddRosterActions.updateRosterName}></input>
-        </div>
-        <button type='submit' className='btn btn-default'>Submit</button>
-      </form>
+      <div className='col-md-6'>
+        <h3>Add New Roster</h3>
+        <form className='form-horizontal' onSubmit={this.handleSubmit.bind(this)}>
+          <div className='form-group'>
+            <label className='col-sm-2 control-label' htmlFor='rosterName'>Name</label>
+            <div className='col-sm-10'>
+              <input type="text" className='form-control' id='rosterName' placeholder='Main Raid, Alt Raid etc...' value={this.state.rosterName} onChange={AddRosterActions.updateRosterName}></input>
+            </div>
+          </div>
+          <button type='submit' className='btn btn-default pull-right'>Submit</button>
+        </form>
+      </div>
     );
   }
 }

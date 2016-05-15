@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router';
 import ViewRostersStore from '../../stores/admin/ViewRostersStore';
 import ViewRostersActions from '../../actions/admin/ViewRostersActions';
+import RosterViewActions from '../../actions/admin/RosterViewActions';
 
 class ViewRosters extends React.Component {
   constructor(props) {
@@ -23,8 +24,12 @@ class ViewRosters extends React.Component {
     this.setState(state);
   }
 
+  handleCurrentRosterChange(e) {
+    ViewRostersActions.updateCurrentRoster(e.target.value);
+    RosterViewActions.populateRosterList(e.target.value);
+  }
+
   render() {
-    console.log(this.state.rosterList);
     var rosterListCopy = this.state.rosterList;
     var arr = Object.keys(rosterListCopy).map(function(i) {return rosterListCopy[i]});
 
@@ -35,9 +40,18 @@ class ViewRosters extends React.Component {
     });
 
     return (
-      <select className='form-control'>
-        {list}
-      </select>
+      <div className='col-md-6 form-horizontal'>
+        <h3>View Roster</h3>
+        <div className='form-group'>
+          <label className='col-sm-2 control-label' htmlFor='rosterList'>Rosters</label>
+          <div className='col-sm-6'>
+            <select name='rosterList' className='form-control' value={this.state.currentRoster} onChange={this.handleCurrentRosterChange}>
+              {list}
+            </select>
+          </div>
+          <button type='submit' className='btn btn-default'>DELETE</button>
+        </div>
+      </div>
     );
   }
 }

@@ -8031,3 +8031,62 @@ label {
   -webkit-animation-delay: -500ms;
           animation-delay: -500ms;
 }
+.death-knight-color {
+  height: 34px;
+  background-color: #C41F3B;
+}
+.demon-hunter-color {
+  height: 34px;
+  background-color: #A330C9;
+}
+.druid-color {
+  height: 34px;
+  background-color: #FF7D0A;
+}
+.hunter-color {
+  height: 34px;
+  background-color: #ABD473;
+}
+.mage-color {
+  height: 34px;
+  background-color: #69CCF0;
+}
+.monk-color {
+  height: 34px;
+  background-color: #00FF96;
+}
+.paladin-color {
+  height: 34px;
+  background-color: #F58CBA;
+}
+.priest-color {
+  height: 34px;
+  background-color: #FFFFFF;
+}
+.rogue-color {
+  height: 34px;
+  background-color: #FFF569;
+}
+.shaman-color {
+  height: 34px;
+  background-color: #0070DE;
+}
+.warlock-color {
+  height: 34px;
+  background-color: #9482C9;
+}
+.warrior-color {
+  height: 34px;
+  background-color: #C79C6E;
+}
+.sidebar {
+  height: 100%;
+  padding-right: 0;
+}
+.sidebar .nav {
+  width: 95%;
+}
+.sidebar li {
+  border-bottom: 1px solid;
+  border-bottom-color: #8e8d8f;
+}

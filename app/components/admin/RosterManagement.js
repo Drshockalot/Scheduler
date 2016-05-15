@@ -5,6 +5,8 @@ import RosterManagementActions from '../../actions/admin/RosterManagementActions
 import AdminSideNav from './AdminSideNav';
 import AddRoster from './AddRoster';
 import ViewRosters from './ViewRosters';
+import RosterView from './RosterView';
+import RosterControlPanel from './RosterControlPanel';
 
 class RosterManagement extends React.Component {
   constructor(props) {
@@ -29,9 +31,11 @@ class RosterManagement extends React.Component {
     return (
       <div className='container'>
         <AdminSideNav></AdminSideNav>
-        <div className='col-md-6'>
-          <AddRoster></AddRoster>
+        <div className='col-md-8'>
           <ViewRosters></ViewRosters>
+          <AddRoster></AddRoster>
+          <RosterView></RosterView>
+          <RosterControlPanel></RosterControlPanel>
         </div>
       </div>
     );

@@ -9,7 +9,6 @@ class AddRosterStore {
   }
 
   onUpdateRosterName(e) {
-    console.log(e.target.value)
     this.rosterName = e.target.value;
   }
 

@@ -3,7 +3,8 @@ var mongoose = require('mongoose');
 var rosterSchema = mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   members: [{
     type: mongoose.Schema.ObjectId,
