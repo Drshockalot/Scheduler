@@ -45,6 +45,7 @@
     "history": "^2.1.1",
     "mongoose": "^4.2.5",
     "morgan": "^1.6.1",
+    "passport-bnet": "^1.2.1",
     "react": "^15.0.2",
     "react-dom": "^15.0.2",
     "react-router": "^2.4.0",
