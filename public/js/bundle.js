@@ -733,8 +733,8 @@ var Navbar = function (_React$Component) {
           'li',
           null,
           _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/auth/bnet' },
+            'a',
+            { href: '/auth/bnet' },
             'Login'
           )
         );
@@ -754,8 +754,8 @@ var Navbar = function (_React$Component) {
               'li',
               null,
               _react2.default.createElement(
-                _reactRouter.Link,
-                { to: '/auth/bnet/logout' },
+                'a',
+                { href: '/auth/bnet/logout' },
                 'Logout'
               )
             ),
@@ -763,8 +763,8 @@ var Navbar = function (_React$Component) {
               'li',
               null,
               _react2.default.createElement(
-                _reactRouter.Link,
-                { to: '/auth/bnet/logout/hard' },
+                'a',
+                { href: '/auth/bnet/logout/hard' },
                 'Hard Logout'
               )
             )
