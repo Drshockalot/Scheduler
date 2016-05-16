@@ -100,7 +100,7 @@ var NavbarActions = function () {
       $.ajax({
         url: '/auth/bnet/status'
       }).done(function (data) {
-        _this3.actions.updateLoginStatus(data);
+        _this3.updateLoginStatus(data);
       }).fail(function () {});
     }
   }]);
