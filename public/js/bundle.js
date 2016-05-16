@@ -102,10 +102,10 @@ var NavbarActions = function () {
       }).done(function (data) {
         _this3.updateLoginStatus(data);
         if (data === '') {
-          window.location = '/';
+          //window.location = '/';
         }
       }).fail(function () {
-        window.location = '/';
+        //window.location = '/';
       });
     }
   }, {

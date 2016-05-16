@@ -45,10 +45,10 @@ class NavbarActions {
     }).done((data) => {
       this.updateLoginStatus(data);
       if(data === '') {
-        window.location = '/';
+        //window.location = '/';
       }
     }).fail(() => {
-      window.location = '/';
+      //window.location = '/';
     });
   }
 
