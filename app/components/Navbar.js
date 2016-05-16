@@ -72,7 +72,7 @@ class Navbar extends React.Component {
   }
 
   hardLogout() {
-    NavbarActions.hardLogout();
+    window.location = '/auth/bnet/logout/hard';
   }
 
   render() {

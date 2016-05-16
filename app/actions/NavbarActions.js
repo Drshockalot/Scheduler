@@ -51,16 +51,6 @@ class NavbarActions {
       //window.location = '/';
     });
   }
-
-  hardLogout() {
-    $.ajax({
-      url: 'https://eu.battle.net/en/?logout'
-    }).done(() => {
-      window.location = '/auth/bnet/logout';
-    }).fail(() => {
-      window.location = '/';
-    });
-  }
 }
 
 export default alt.createActions(NavbarActions);

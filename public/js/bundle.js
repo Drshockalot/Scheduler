@@ -108,17 +108,6 @@ var NavbarActions = function () {
         //window.location = '/';
       });
     }
-  }, {
-    key: 'hardLogout',
-    value: function hardLogout() {
-      $.ajax({
-        url: 'https://eu.battle.net/en/?logout'
-      }).done(function () {
-        window.location = '/auth/bnet/logout';
-      }).fail(function () {
-        window.location = '/';
-      });
-    }
   }]);
 
   return NavbarActions;
@@ -732,7 +721,7 @@ var Navbar = function (_React$Component) {
   }, {
     key: 'hardLogout',
     value: function hardLogout() {
-      _NavbarActions2.default.hardLogout();
+      window.location = '/auth/bnet/logout/hard';
     }
   }, {
     key: 'render',
