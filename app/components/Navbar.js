@@ -79,21 +79,17 @@ class Navbar extends React.Component {
     var profilePane;
 
     if(this.state.battleNetTag === '') {
-        profilePane = <div className='navbar-form'>
-          <div className='input-group'>
-            <button className='btn btn-default' onClick={this.bnetAuth}>Login</button>
-          </div>
-        </div>
+        profilePane = <li>
+          <Link to='/auth/bnet'>Login</Link>
+        </li>
     } else {
-        profilePane = <div className = 'navbar-form'>
-          <div className='input-group'>
-            <label>Welcome {this.state.battleNetTag}</label>
-            <button className='btn btn-default' onClick={this.logout}>Logout</button>
-          </div>
-          <div className='input-group'>
-            <button className='btn btn-default' onClick={this.hardLogout}>Hard Logout</button>
-          </div>
-        </div>
+        profilePane = <li className='dropdown'>
+          <Link to='/profile'>{this.state.battleNetTag}</Link>
+          <ul className='dropdown-menu'>
+            <li><Link to='/auth/bnet/logout'>Logout</Link></li>
+            <li><Link to='/auth/bnet/logout/hard'>Hard Logout</Link></li>
+          <ul>
+        </li>
     }
 
     return (
@@ -142,8 +138,8 @@ class Navbar extends React.Component {
               </ul>
             </li>
             <li><Link to='/admin'>Admin</Link></li>
-          </ul>
             {profilePane}
+          </ul>
         </div>
       </nav>
     );

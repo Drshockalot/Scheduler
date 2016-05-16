@@ -730,16 +730,12 @@ var Navbar = function (_React$Component) {
 
       if (this.state.battleNetTag === '') {
         profilePane = _react2.default.createElement(
-          'div',
-          { className: 'navbar-form' },
+          'li',
+          null,
           _react2.default.createElement(
-            'div',
-            { className: 'input-group' },
-            _react2.default.createElement(
-              'button',
-              { className: 'btn btn-default', onClick: this.bnetAuth },
-              'Login'
-            )
+            _reactRouter.Link,
+            { to: '/auth/bnet' },
+            'Login'
           )
         );
       } else {
@@ -888,9 +884,9 @@ var Navbar = function (_React$Component) {
                 { to: '/admin' },
                 'Admin'
               )
-            )
-          ),
-          profilePane
+            ),
+            profilePane
+          )
         )
       );
     }
