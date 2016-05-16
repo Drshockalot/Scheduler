@@ -55,6 +55,14 @@ app.use(cors());
 //     return res.sendStatus(204);
 // });
 
+app.use(cookieParser());
+app.use(session({ secret: 'blizzard',
+                  saveUninitialized: true,
+                  resave: true }));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use('/api/admin/roster/', Admin_RosterManagement_Routes);
 app.use('/auth/', Auth_Routes);
 
@@ -73,14 +81,6 @@ app.use(function(req, res) {
     }
   });
 });
-
-app.use(cookieParser());
-app.use(session({ secret: 'blizzard',
-                  saveUninitialized: true,
-                  resave: true }));
-
-app.use(passport.initialize());
-app.use(passport.session());
 
 require('ssl-root-cas')
   .inject()
