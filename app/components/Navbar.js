@@ -109,20 +109,9 @@ class Navbar extends React.Component {
             </li>
             <li><Link to='/admin'>Admin</Link></li>
           </ul>
-          <form ref='loginForm' className='form-inline navbar-form' onSubmit={this.handleLoginSubmit.bind(this)}>
-            <div className='input-group'>
-              <input type='text' className='form-control' placeholder='Username...' value={this.state.username} onChange={NavbarActions.updateUsername} />
+            <div className='input-group navbar-form'>
+              <button className='btn btn-default' onClick={NavbarActions.bnetAuth}>Login</button>
             </div>
-            <div className='input-group'>
-              <input type='password' className='form-control' placeholder='Password...' value={this.state.password} onChange={NavbarActions.updatePassword} />
-            </div>
-            <div className='input-group'>
-              <button className='btn btn-default' onClick={this.handleLoginSubmit.bind(this)}>Login</button>
-            </div>
-            <div className='input-group'>
-              <button className='btn btn-default' onClick={this.registerRedirect.bind(this)}>Register</button>
-            </div>
-          </form>
         </div>
       </nav>
     );

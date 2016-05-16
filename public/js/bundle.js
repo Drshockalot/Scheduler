@@ -92,6 +92,17 @@ var NavbarActions = function () {
         _this2.actions.getCharacterCountFail(jqXhr);
       });
     }
+  }, {
+    key: 'bnetAuth',
+    value: function bnetAuth() {
+      $.ajax({
+        url: '/auth/bnet'
+      }).done(function () {
+        console.log('success');
+      }).fail(function () {
+        console.log('failure');
+      });
+    }
   }]);
 
   return NavbarActions;
@@ -811,35 +822,12 @@ var Navbar = function (_React$Component) {
             )
           ),
           _react2.default.createElement(
-            'form',
-            { ref: 'loginForm', className: 'form-inline navbar-form', onSubmit: this.handleLoginSubmit.bind(this) },
+            'div',
+            { className: 'input-group navbar-form' },
             _react2.default.createElement(
-              'div',
-              { className: 'input-group' },
-              _react2.default.createElement('input', { type: 'text', className: 'form-control', placeholder: 'Username...', value: this.state.username, onChange: _NavbarActions2.default.updateUsername })
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'input-group' },
-              _react2.default.createElement('input', { type: 'password', className: 'form-control', placeholder: 'Password...', value: this.state.password, onChange: _NavbarActions2.default.updatePassword })
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'input-group' },
-              _react2.default.createElement(
-                'button',
-                { className: 'btn btn-default', onClick: this.handleLoginSubmit.bind(this) },
-                'Login'
-              )
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'input-group' },
-              _react2.default.createElement(
-                'button',
-                { className: 'btn btn-default', onClick: this.registerRedirect.bind(this) },
-                'Register'
-              )
+              'button',
+              { className: 'btn btn-default', onClick: _NavbarActions2.default.bnetAuth },
+              'Login'
             )
           )
         )

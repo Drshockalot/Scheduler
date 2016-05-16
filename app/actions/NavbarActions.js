@@ -37,6 +37,16 @@ class NavbarActions {
         this.actions.getCharacterCountFail(jqXhr)
       });
   }
+
+  bnetAuth() {
+    $.ajax({
+      url: '/auth/bnet'
+    }).done(() => {
+      console.log('success');
+    }).fail(() => {
+      console.log('failure');
+    });
+  }
 }
 
 export default alt.createActions(NavbarActions);

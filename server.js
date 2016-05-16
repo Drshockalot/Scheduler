@@ -17,9 +17,15 @@ var Schedule = require('./db/models/schedule');
 var config = require('./config');
 
 var Admin_RosterManagement_Routes = require('./api/roster');
+var Auth_Routes = require('./api/auth');
 
 var fs = require('fs');
-var db = require('./db/database');
+//var db = require('./db/database');
+
+var passport = require('./passport');
+
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 
 var app = express();
 
@@ -35,6 +41,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api/admin/roster/', Admin_RosterManagement_Routes);
+app.use('/auth/', Auth_Routes);
 
 app.use(function(req, res) {
   Router.match({ routes: routes.default, location: req.url }, function(err, redirectLocation, renderProps) {
@@ -51,6 +58,14 @@ app.use(function(req, res) {
     }
   });
 });
+
+app.use(cookieParser());
+app.use(session({ secret: 'blizzard',
+                  saveUninitialized: true,
+                  resave: true }));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 require('ssl-root-cas')
   .inject()
