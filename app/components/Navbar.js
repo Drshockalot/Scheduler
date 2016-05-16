@@ -74,7 +74,7 @@ class Navbar extends React.Component {
   render() {
     var profilePane;
 
-    if(this.state.battleNetTag !== '') {
+    if(this.state.battleNetTag === '') {
         profilePane = <div className='navbar-form'>
           <div className='input-group'>
             <button className='btn btn-default' onClick={this.bnetAuth}>Login</button>
