@@ -833,20 +833,24 @@ var Navbar = function (_React$Component) {
           ),
           _react2.default.createElement(
             'div',
-            { className: 'input-group navbar-form' },
+            { className: 'navbar-form' },
             _react2.default.createElement(
-              'button',
-              { className: 'btn btn-default', onClick: this.bnetAuth },
-              'Login'
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'input-group navbar-form' },
+              'div',
+              { className: 'input-group' },
+              _react2.default.createElement(
+                'button',
+                { className: 'btn btn-default', onClick: this.bnetAuth },
+                'Login'
+              )
+            ),
             _react2.default.createElement(
-              'button',
-              { className: 'btn btn-default', onClick: this.logout },
-              'Logout'
+              'div',
+              { className: 'input-group' },
+              _react2.default.createElement(
+                'button',
+                { className: 'btn btn-default', onClick: this.logout },
+                'Logout'
+              )
             )
           )
         )

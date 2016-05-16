@@ -117,11 +117,13 @@ class Navbar extends React.Component {
             </li>
             <li><Link to='/admin'>Admin</Link></li>
           </ul>
-            <div className='input-group navbar-form'>
-              <button className='btn btn-default' onClick={this.bnetAuth}>Login</button>
-            </div>
-            <div className='input-group navbar-form'>
-              <button className='btn btn-default' onClick={this.logout}>Logout</button>
+            <div className='navbar-form'>
+              <div className='input-group'>
+                <button className='btn btn-default' onClick={this.bnetAuth}>Login</button>
+              </div>
+              <div className='input-group'>
+                <button className='btn btn-default' onClick={this.logout}>Logout</button>
+              </div>
             </div>
         </div>
       </nav>

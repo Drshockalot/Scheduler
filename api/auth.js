@@ -5,6 +5,7 @@ var passport = require('passport');
 router.get('/bnet', passport.authenticate('bnet'));
 
 router.get('/bnet/callback', passport.authenticate('bnet', { failureRedirect: '/admin' }), function(req, res, next) {
+  console.log(req.user);
   res.redirect('/');
 });
 
