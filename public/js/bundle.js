@@ -702,6 +702,11 @@ var Navbar = function (_React$Component) {
       window.location = '/';
     }
   }, {
+    key: 'bnetAuth',
+    value: function bnetAuth() {
+      window.location = '/auth/bnet';
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -826,7 +831,7 @@ var Navbar = function (_React$Component) {
             { className: 'input-group navbar-form' },
             _react2.default.createElement(
               'button',
-              { className: 'btn btn-default', onClick: _NavbarActions2.default.bnetAuth },
+              { className: 'btn btn-default', onClick: this.bnetAuth },
               'Login'
             )
           )

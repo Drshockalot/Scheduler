@@ -58,7 +58,11 @@ class Navbar extends React.Component {
   }
 
   registerRedirect() {
-    window.location = '/'
+    window.location = '/';
+  }
+
+  bnetAuth() {
+    window.location = '/auth/bnet';
   }
 
   render() {
@@ -110,7 +114,7 @@ class Navbar extends React.Component {
             <li><Link to='/admin'>Admin</Link></li>
           </ul>
             <div className='input-group navbar-form'>
-              <button className='btn btn-default' onClick={NavbarActions.bnetAuth}>Login</button>
+              <button className='btn btn-default' onClick={this.bnetAuth}>Login</button>
             </div>
         </div>
       </nav>

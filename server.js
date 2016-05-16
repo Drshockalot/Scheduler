@@ -20,6 +20,7 @@ var Admin_RosterManagement_Routes = require('./api/roster');
 var Auth_Routes = require('./api/auth');
 
 var fs = require('fs');
+var cors = require('cors');
 //var db = require('./db/database');
 
 var passport = require('./passport');
@@ -40,6 +41,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(cors());
+
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, apikey");
+//     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+//     res.header("Access-Control-Max-Age", "86400");
+//
+//     if (req.method.toLowerCase() !== "options") {
+//         return next();
+//     }
+//     return res.sendStatus(204);
+// });
+
 app.use('/api/admin/roster/', Admin_RosterManagement_Routes);
 app.use('/auth/', Auth_Routes);
 
@@ -57,18 +72,6 @@ app.use(function(req, res) {
       res.status(404).send('Page Not Found')
     }
   });
-});
-
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, apikey");
-    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-    res.header("Access-Control-Max-Age", "86400");
-
-    if (req.method.toLowerCase() !== "options") {
-        return next();
-    }
-    return res.sendStatus(204);
 });
 
 app.use(cookieParser());
