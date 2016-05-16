@@ -84,7 +84,7 @@ class Navbar extends React.Component {
           </div>
         </div>
     } else {
-        profilePanel = <div className = 'navbar-form'>
+        profilePane = <div className = 'navbar-form'>
           Welcome {this.state.battleNetTag}
         </div>
     }

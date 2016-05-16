@@ -742,7 +742,7 @@ var Navbar = function (_React$Component) {
           )
         );
       } else {
-        profilePanel = _react2.default.createElement(
+        profilePane = _react2.default.createElement(
           'div',
           { className: 'navbar-form' },
           'Welcome ',
