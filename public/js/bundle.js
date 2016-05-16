@@ -743,8 +743,8 @@ var Navbar = function (_React$Component) {
           'li',
           { className: 'dropdown' },
           _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/profile' },
+            'a',
+            { href: '/profile', className: 'dropdown-toggle', 'data-toggle': 'dropdown' },
             this.state.battleNetTag
           ),
           _react2.default.createElement(
