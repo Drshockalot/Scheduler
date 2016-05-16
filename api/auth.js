@@ -14,9 +14,12 @@ router.get('/bnet/logout', function(req, res, next) {
   res.redirect('/');
 });
 
-router.get('/bnet/test', function(req, res, next) {
-  console.log(req.user);
-  res.redirect('/');
+router.get('/bnet/status', function(req, res, next) {
+  if(req.user == undefined) {
+    res.send('');
+  } else {
+    res.send(req.user.battletag);
+  }
 });
 
 module.exports = router;

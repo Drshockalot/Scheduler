@@ -10,7 +10,8 @@ class NavbarActions {
       'getCharacterCountSuccess',
       'getCharacterCountFail',
       'findCharacterSuccess',
-      'findCharacterFail'
+      'findCharacterFail',
+      'updateLoginStatus'
     );
   }
 
@@ -38,13 +39,13 @@ class NavbarActions {
       });
   }
 
-  bnetAuth() {
+  checkLogin() {
     $.ajax({
-      url: '/auth/bnet'
-    }).done(() => {
-      console.log('success');
+      url: '/auth/bnet/status'
+    }).done((data) => {
+      this.actions.updateLoginStatus(data);
     }).fail(() => {
-      console.log('failure');
+
     });
   }
 }

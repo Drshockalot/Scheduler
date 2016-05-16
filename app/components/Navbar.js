@@ -29,6 +29,8 @@ class Navbar extends React.Component {
         NavbarActions.updateAjaxAnimation('fadeOut');
       }, 750);
     });
+
+    NavbarActions.checkLogin();
   }
 
   componentWillUnmount() {
@@ -69,11 +71,24 @@ class Navbar extends React.Component {
     window.location = '/auth/bnet/logout';
   }
 
-  test() {
-    window.location = '/auth/bnet/test';
-  }
-
   render() {
+    var profilePane;
+
+    if(this.state.battleNetTag !== '') {
+        profilePane = <div className='navbar-form'>
+          <div className='input-group'>
+            <button className='btn btn-default' onClick={this.bnetAuth}>Login</button>
+          </div>
+          <div className='input-group'>
+            <button className='btn btn-default' onClick={this.logout}>Logout</button>
+          </div>
+        </div>
+    } else {
+        profilePanel = <div className = 'navbar-form'>
+          Welcome {this.state.battleNetTag}
+        </div>
+    }
+
     return (
       <nav className='navbar navbar-default navbar-static-top'>
         <div className='navbar-header'>
@@ -121,17 +136,7 @@ class Navbar extends React.Component {
             </li>
             <li><Link to='/admin'>Admin</Link></li>
           </ul>
-            <div className='navbar-form'>
-              <div className='input-group'>
-                <button className='btn btn-default' onClick={this.bnetAuth}>Login</button>
-              </div>
-              <div className='input-group'>
-                <button className='btn btn-default' onClick={this.logout}>Logout</button>
-              </div>
-              <div className='input-group'>
-                <button className='btn btn-default' onClick={this.test}>Test</button>
-              </div>
-            </div>
+            {profilePane}
         </div>
       </nav>
     );

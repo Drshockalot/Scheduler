@@ -63,7 +63,7 @@ var NavbarActions = function () {
   function NavbarActions() {
     _classCallCheck(this, NavbarActions);
 
-    this.generateActions('updateOnlineUsers', 'updateAjaxAnimation', 'updateSearchQuery', 'getCharacterCountSuccess', 'getCharacterCountFail', 'findCharacterSuccess', 'findCharacterFail');
+    this.generateActions('updateOnlineUsers', 'updateAjaxAnimation', 'updateSearchQuery', 'getCharacterCountSuccess', 'getCharacterCountFail', 'findCharacterSuccess', 'findCharacterFail', 'updateLoginStatus');
   }
 
   _createClass(NavbarActions, [{
@@ -93,15 +93,15 @@ var NavbarActions = function () {
       });
     }
   }, {
-    key: 'bnetAuth',
-    value: function bnetAuth() {
+    key: 'checkLogin',
+    value: function checkLogin() {
+      var _this3 = this;
+
       $.ajax({
-        url: '/auth/bnet'
-      }).done(function () {
-        console.log('success');
-      }).fail(function () {
-        console.log('failure');
-      });
+        url: '/auth/bnet/status'
+      }).done(function (data) {
+        _this3.actions.updateLoginStatus(data);
+      }).fail(function () {});
     }
   }]);
 
@@ -667,6 +667,8 @@ var Navbar = function (_React$Component) {
           _NavbarActions2.default.updateAjaxAnimation('fadeOut');
         }, 750);
       });
+
+      _NavbarActions2.default.checkLogin();
     }
   }, {
     key: 'componentWillUnmount',
@@ -712,13 +714,42 @@ var Navbar = function (_React$Component) {
       window.location = '/auth/bnet/logout';
     }
   }, {
-    key: 'test',
-    value: function test() {
-      window.location = '/auth/bnet/test';
-    }
-  }, {
     key: 'render',
     value: function render() {
+      var profilePane;
+
+      if (this.state.battleNetTag !== '') {
+        profilePane = _react2.default.createElement(
+          'div',
+          { className: 'navbar-form' },
+          _react2.default.createElement(
+            'div',
+            { className: 'input-group' },
+            _react2.default.createElement(
+              'button',
+              { className: 'btn btn-default', onClick: this.bnetAuth },
+              'Login'
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'input-group' },
+            _react2.default.createElement(
+              'button',
+              { className: 'btn btn-default', onClick: this.logout },
+              'Logout'
+            )
+          )
+        );
+      } else {
+        profilePanel = _react2.default.createElement(
+          'div',
+          { className: 'navbar-form' },
+          'Welcome ',
+          this.state.battleNetTag
+        );
+      }
+
       return _react2.default.createElement(
         'nav',
         { className: 'navbar navbar-default navbar-static-top' },
@@ -836,37 +867,7 @@ var Navbar = function (_React$Component) {
               )
             )
           ),
-          _react2.default.createElement(
-            'div',
-            { className: 'navbar-form' },
-            _react2.default.createElement(
-              'div',
-              { className: 'input-group' },
-              _react2.default.createElement(
-                'button',
-                { className: 'btn btn-default', onClick: this.bnetAuth },
-                'Login'
-              )
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'input-group' },
-              _react2.default.createElement(
-                'button',
-                { className: 'btn btn-default', onClick: this.logout },
-                'Logout'
-              )
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'input-group' },
-              _react2.default.createElement(
-                'button',
-                { className: 'btn btn-default', onClick: this.test },
-                'Test'
-              )
-            )
-          )
+          profilePane
         )
       );
     }
@@ -1900,6 +1901,7 @@ var NavbarStore = function () {
     this.onlineUsers = 0;
     this.searchQuery = '';
     this.ajaxAnimationClass = '';
+    this.battleNetTag = '';
   }
 
   _createClass(NavbarStore, [{
@@ -1939,6 +1941,11 @@ var NavbarStore = function () {
     key: 'onGetCharacterCountFail',
     value: function onGetCharacterCountFail(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onUpdateLoginStatus',
+    value: function onUpdateLoginStatus(data) {
+      this.battleNetTag = data;
     }
   }]);
 

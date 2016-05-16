@@ -8,6 +8,7 @@ class NavbarStore {
     this.onlineUsers = 0;
     this.searchQuery = '';
     this.ajaxAnimationClass = '';
+    this.battleNetTag = '';
   }
 
   onFindCharacterSuccess(payload) {
@@ -39,6 +40,10 @@ class NavbarStore {
 
   onGetCharacterCountFail(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
+  }
+
+  onUpdateLoginStatus(data) {
+    this.battleNetTag = data;
   }
 }
 
