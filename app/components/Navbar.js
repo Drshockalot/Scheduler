@@ -66,6 +66,10 @@ class Navbar extends React.Component {
   }
 
   logout() {
+    window.location = '/auth/bnet/logout';
+  }
+
+  test() {
     window.location = '/auth/bnet/test';
   }
 
@@ -123,6 +127,9 @@ class Navbar extends React.Component {
               </div>
               <div className='input-group'>
                 <button className='btn btn-default' onClick={this.logout}>Logout</button>
+              </div>
+              <div className='input-group'>
+                <button className='btn btn-default' onClick={this.test}>Test</button>
               </div>
             </div>
         </div>
