@@ -14,4 +14,9 @@ router.get('/bnet/logout', function(req, res, next) {
   res.redirect('/');
 });
 
+router.get('/bnet/test', function(req, res, next) {
+  console.log(req.user);
+  res.redirect('/');
+});
+
 module.exports = router;

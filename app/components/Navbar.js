@@ -66,7 +66,7 @@ class Navbar extends React.Component {
   }
 
   logout() {
-    window.location = '/auth/bnet/logout';
+    window.location = '/auth/bnet/test';
   }
 
   render() {
