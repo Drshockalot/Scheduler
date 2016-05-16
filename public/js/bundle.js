@@ -707,6 +707,11 @@ var Navbar = function (_React$Component) {
       window.location = '/auth/bnet';
     }
   }, {
+    key: 'logout',
+    value: function logout() {
+      window.location = '/auth/logout';
+    }
+  }, {
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -833,6 +838,15 @@ var Navbar = function (_React$Component) {
               'button',
               { className: 'btn btn-default', onClick: this.bnetAuth },
               'Login'
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'input-group navbar-form' },
+            _react2.default.createElement(
+              'button',
+              { className: 'btn btn-default', onClick: this.logout },
+              'Logout'
             )
           )
         )

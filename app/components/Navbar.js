@@ -65,6 +65,10 @@ class Navbar extends React.Component {
     window.location = '/auth/bnet';
   }
 
+  logout() {
+    window.location = '/auth/logout';
+  }
+
   render() {
     return (
       <nav className='navbar navbar-default navbar-static-top'>
@@ -115,6 +119,9 @@ class Navbar extends React.Component {
           </ul>
             <div className='input-group navbar-form'>
               <button className='btn btn-default' onClick={this.bnetAuth}>Login</button>
+            </div>
+            <div className='input-group navbar-form'>
+              <button className='btn btn-default' onClick={this.logout}>Logout</button>
             </div>
         </div>
       </nav>
