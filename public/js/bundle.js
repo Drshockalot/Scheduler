@@ -709,7 +709,7 @@ var Navbar = function (_React$Component) {
   }, {
     key: 'logout',
     value: function logout() {
-      window.location = '/auth/logout';
+      window.location = '/auth/bnet/logout';
     }
   }, {
     key: 'render',
