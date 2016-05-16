@@ -740,30 +740,33 @@ var Navbar = function (_React$Component) {
         );
       } else {
         profilePane = _react2.default.createElement(
-          'div',
-          { className: 'navbar-form' },
+          'li',
+          { className: 'dropdown' },
           _react2.default.createElement(
-            'div',
-            { className: 'input-group' },
-            _react2.default.createElement(
-              'label',
-              null,
-              'Welcome ',
-              this.state.battleNetTag
-            ),
-            _react2.default.createElement(
-              'button',
-              { className: 'btn btn-default', onClick: this.logout },
-              'Logout'
-            )
+            _reactRouter.Link,
+            { to: '/profile' },
+            this.state.battleNetTag
           ),
           _react2.default.createElement(
-            'div',
-            { className: 'input-group' },
+            'ul',
+            { className: 'dropdown-menu' },
             _react2.default.createElement(
-              'button',
-              { className: 'btn btn-default', onClick: this.hardLogout },
-              'Hard Logout'
+              'li',
+              null,
+              _react2.default.createElement(
+                _reactRouter.Link,
+                { to: '/auth/bnet/logout' },
+                'Logout'
+              )
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              _react2.default.createElement(
+                _reactRouter.Link,
+                { to: '/auth/bnet/logout/hard' },
+                'Hard Logout'
+              )
             )
           )
         );
