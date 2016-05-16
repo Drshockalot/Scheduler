@@ -733,7 +733,7 @@ var Navbar = function (_React$Component) {
     key: 'hardLogout',
     value: function hardLogout() {
       //NavbarActions.hardLogout();
-      window.location = 'eu.battle.net/en/?logout';
+      window.location = 'https://eu.battle.net/en/?logout';
     }
   }, {
     key: 'render',

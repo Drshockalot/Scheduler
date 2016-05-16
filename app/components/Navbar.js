@@ -73,7 +73,7 @@ class Navbar extends React.Component {
 
   hardLogout() {
     //NavbarActions.hardLogout();
-    window.location = 'eu.battle.net/en/?logout';
+    window.location = 'https://eu.battle.net/en/?logout';
   }
 
   render() {
