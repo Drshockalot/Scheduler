@@ -54,7 +54,7 @@ class NavbarActions {
 
   hardLogout() {
     $.ajax({
-      url: 'eu.battle.net/en/?logout'
+      url: 'https://eu.battle.net/en/?logout'
     }).done(() => {
       window.location = '/auth/bnet/logout';
     }).fail(() => {
