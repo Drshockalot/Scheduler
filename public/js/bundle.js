@@ -101,7 +101,23 @@ var NavbarActions = function () {
         url: '/auth/bnet/status'
       }).done(function (data) {
         _this3.updateLoginStatus(data);
-      }).fail(function () {});
+        if (data === '') {
+          window.location = '/';
+        }
+      }).fail(function () {
+        window.location = '/';
+      });
+    }
+  }, {
+    key: 'hardLogout',
+    value: function hardLogout() {
+      $.ajax({
+        url: 'eu.battle.net/en/?logout'
+      }).done(function () {
+        window.location = '/auth/bnet/logout';
+      }).fail(function () {
+        window.location = '/';
+      });
     }
   }]);
 
@@ -714,6 +730,11 @@ var Navbar = function (_React$Component) {
       window.location = '/auth/bnet/logout';
     }
   }, {
+    key: 'hardLogout',
+    value: function hardLogout() {
+      _NavbarActions2.default.hardLogout();
+    }
+  }, {
     key: 'render',
     value: function render() {
       var profilePane;
@@ -749,6 +770,15 @@ var Navbar = function (_React$Component) {
               'button',
               { className: 'btn btn-default', onClick: this.logout },
               'Logout'
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'input-group' },
+            _react2.default.createElement(
+              'button',
+              { className: 'btn btn-default', onClick: this.hardLogout },
+              'Hard Logout'
             )
           )
         );

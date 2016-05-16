@@ -71,6 +71,10 @@ class Navbar extends React.Component {
     window.location = '/auth/bnet/logout';
   }
 
+  hardLogout() {
+    NavbarActions.hardLogout();
+  }
+
   render() {
     var profilePane;
 
@@ -85,6 +89,9 @@ class Navbar extends React.Component {
           <div className='input-group'>
             <label>Welcome {this.state.battleNetTag}</label>
             <button className='btn btn-default' onClick={this.logout}>Logout</button>
+          </div>
+          <div className='input-group'>
+            <button className='btn btn-default' onClick={this.hardLogout}>Hard Logout</button>
           </div>
         </div>
     }

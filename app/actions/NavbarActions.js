@@ -44,8 +44,21 @@ class NavbarActions {
       url: '/auth/bnet/status'
     }).done((data) => {
       this.updateLoginStatus(data);
+      if(data === '') {
+        window.location = '/';
+      }
     }).fail(() => {
+      window.location = '/';
+    });
+  }
 
+  hardLogout() {
+    $.ajax({
+      url: 'eu.battle.net/en/?logout'
+    }).done(() => {
+      window.location = '/auth/bnet/logout';
+    }).fail(() => {
+      window.location = '/';
     });
   }
 }
