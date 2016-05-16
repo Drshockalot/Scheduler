@@ -730,23 +730,27 @@ var Navbar = function (_React$Component) {
               { className: 'btn btn-default', onClick: this.bnetAuth },
               'Login'
             )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'input-group' },
-            _react2.default.createElement(
-              'button',
-              { className: 'btn btn-default', onClick: this.logout },
-              'Logout'
-            )
           )
         );
       } else {
         profilePane = _react2.default.createElement(
           'div',
           { className: 'navbar-form' },
-          'Welcome ',
-          this.state.battleNetTag
+          _react2.default.createElement(
+            'div',
+            { className: 'input-group' },
+            _react2.default.createElement(
+              'label',
+              null,
+              'Welcome ',
+              this.state.battleNetTag
+            ),
+            _react2.default.createElement(
+              'button',
+              { className: 'btn btn-default', onClick: this.logout },
+              'Logout'
+            )
+          )
         );
       }
 

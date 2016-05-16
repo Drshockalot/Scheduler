@@ -79,13 +79,13 @@ class Navbar extends React.Component {
           <div className='input-group'>
             <button className='btn btn-default' onClick={this.bnetAuth}>Login</button>
           </div>
-          <div className='input-group'>
-            <button className='btn btn-default' onClick={this.logout}>Logout</button>
-          </div>
         </div>
     } else {
         profilePane = <div className = 'navbar-form'>
-          Welcome {this.state.battleNetTag}
+          <div className='input-group'>
+            <label>Welcome {this.state.battleNetTag}</label>
+            <button className='btn btn-default' onClick={this.logout}>Logout</button>
+          </div>
         </div>
     }
 
