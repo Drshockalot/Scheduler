@@ -11,8 +11,8 @@ passport.deserializeUser(function(obj, done) {
 
 passport.use(
   new BnetStrategy(
-    { clientID: '8fc24vcgky6r8yzja8a4efxncgu8z77g',
-      clientSecret: 'bkJrZJps6UVECcMw8EAWkVm83mcm8BNf',
+    { clientID: process.env.BNET_ID,
+      clientSecret: process.env.BNET_SECRET,
       scope: "wow.profile",
       callbackURL: "https://darkstormschedule.herokuapp.com/auth/bnet/callback" },
     function(accessToken, refreshToken, profile, done) {
