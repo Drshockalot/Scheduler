@@ -4,7 +4,12 @@ var passport = require('passport');
 
 router.get('/bnet', passport.authenticate('bnet'));
 
-router.get('/bnet/callback', passport.authenticate('bnet', { failureRedirect: '/' }), function(req, res, next) {
+router.get('/bnet/callback', passport.authenticate('bnet', { failureRedirect: '/admin' }), function(req, res, next) {
+  res.redirect('/');
+});
+
+router.get('/bnet/logout', function(req, res, next) {
+  req.logout();
   res.redirect('/');
 });
 
