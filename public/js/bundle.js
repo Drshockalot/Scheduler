@@ -745,7 +745,9 @@ var Navbar = function (_React$Component) {
           _react2.default.createElement(
             'a',
             { href: '/profile', className: 'dropdown-toggle', 'data-toggle': 'dropdown' },
-            this.state.battleNetTag
+            this.state.battleNetTag,
+            ' ',
+            _react2.default.createElement('span', { className: 'caret' })
           ),
           _react2.default.createElement(
             'ul',
