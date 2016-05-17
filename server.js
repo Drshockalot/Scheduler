@@ -21,7 +21,7 @@ var Auth_Routes = require('./api/auth');
 
 var fs = require('fs');
 var cors = require('cors');
-//var db = require('./db/database');
+var db = require('./db/database');
 
 var passport = require('./passport');
 
