@@ -1,12 +1,11 @@
-var knex = require('knex')({ client : 'postgresql',
-                            connection : { host : process.env.HEROKU_POSTGRESQL_BRONZE_HOST,
-                                           user : process.env.HEROKU_POSTGRESQL_BRONZE_USER,
-                                           port : 5432,
-                                           ssl : true,
-                                           password : process.env.HEROKU_POSTGRESQL_BRONZE_PASSWORD,
-                                           database : process.env.HEROKU_POSTGRESQL_BRONZE_DATABASE }});
+var config = require('./knexfile');
+
+var knex = require('knex')(config[development]);
 
 var bookshelf = require('bookshelf')(knex);
 bookshelf.plugin('registry');
 
-module.exports = bookshelf;
+module.exports.boolshelf = bookshelf;
+module.exports.knex = knex;
+
+knex.migrate.latest([config]);
