@@ -12,8 +12,8 @@ exports.up = function(knex, Promise) {
       table.string('name');
       table.string('class');
       table.string('rank');
-      table.class('main_role');
-      table.class('off_role');
+      table.string('main_role');
+      table.string('off_role');
       table.string('token');
       table.integer('average_ilvl');
       table.integer('user_id').references('id').inTable('user').onDelete('CASCADE');
@@ -54,8 +54,8 @@ exports.up = function(knex, Promise) {
     knex.schema.createTable('boss', function(table) {
       table.increments('id').primary();
       table.string('name');
-      table.string('raid_id').references('id').inTable('raid').onDelete('CASCADE');
-      table.sring('description');
+      table.integer('raid_id').references('id').inTable('raid').onDelete('CASCADE');
+      table.string('description');
     }),
     knex.schema.createTable('schedule_boss', function(table) {
       table.increments('id').primary();
