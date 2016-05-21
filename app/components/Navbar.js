@@ -75,6 +75,10 @@ class Navbar extends React.Component {
     window.location = '/auth/bnet/logout/hard';
   }
 
+  logLocation() {
+    console.log(window.location);
+  }
+
   render() {
     var profilePane;
 
@@ -91,7 +95,7 @@ class Navbar extends React.Component {
           </ul>
         </li>
     }
-    console.log(window.location);
+    logLocation();
     return (
       <nav className='navbar navbar-default navbar-static-top'>
         <div className='navbar-header'>
