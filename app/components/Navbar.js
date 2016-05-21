@@ -95,7 +95,7 @@ class Navbar extends React.Component {
           </ul>
         </li>
     }
-    logLocation();
+    this.logLocation();
     return (
       <nav className='navbar navbar-default navbar-static-top'>
         <div className='navbar-header'>
