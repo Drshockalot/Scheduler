@@ -8,7 +8,7 @@ class NavbarStore {
     this.onlineUsers = 0;
     this.searchQuery = '';
     this.ajaxAnimationClass = '';
-    this.accessToken = '';
+    this.accessToken = 'test';
     this.battleNetTag = '';
   }
 
@@ -45,7 +45,7 @@ class NavbarStore {
 
   onUpdateLoginStatus(data) {
     this.battleNetTag = data[0];
-    this.accessToken = data[1];
+    //this.accessToken = data[1];
   }
 }
 
