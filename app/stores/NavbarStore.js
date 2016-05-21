@@ -9,7 +9,7 @@ class NavbarStore {
     this.searchQuery = '';
     this.ajaxAnimationClass = '';
     this.battleNetTag = '';
-    this.accesstoken = '';
+    this.accesstoken = 'test';
   }
 
   onFindCharacterSuccess(payload) {
