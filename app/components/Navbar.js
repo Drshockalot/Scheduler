@@ -138,7 +138,7 @@ class Navbar extends React.Component {
               </ul>
             </li>
             <li><Link to='/admin'>Admin</Link></li>
-            {profilePane}
+            //{profilePane}
           </ul>
         </div>
       </nav>
