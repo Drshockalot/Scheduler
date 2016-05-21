@@ -44,7 +44,7 @@ class NavbarActions {
       url: '/auth/bnet/status'
     }).done((data) => {
       this.updateLoginStatus(data);
-      if(data === undefined) {
+      if(data === '') {
         //window.location = '/';
       }
     }).fail(() => {

@@ -4,9 +4,10 @@ import NavbarActions from '../actions/NavbarActions';
 class NavbarStore {
   constructor() {
     this.bindActions(NavbarActions);
+    this.totalCharacters = 0;
     this.onlineUsers = 0;
+    this.searchQuery = '';
     this.ajaxAnimationClass = '';
-    this.accessToken = 'test';
     this.battleNetTag = '';
   }
 
@@ -42,8 +43,7 @@ class NavbarStore {
   }
 
   onUpdateLoginStatus(data) {
-    this.battleNetTag = data[0];
-    //this.accessToken = data[1];
+    this.battleNetTag = data;
   }
 }
 
