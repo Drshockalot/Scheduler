@@ -6,7 +6,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Navbar history={this.props.history} url={this.props.location} />
+        <Navbar history={this.props.history}/>
         {this.props.children}
         <Footer />
       </div>
