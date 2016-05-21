@@ -82,57 +82,57 @@ app.use(function(req, res) {
   });
 });
 
-// require('ssl-root-cas')
-//   .inject()
-//   .addFile(path.join(__dirname, 'self-certs', 'server', 'my-private-root-ca.cert.pem'))
-//   ;
+require('ssl-root-cas')
+  .inject()
+  .addFile(path.join(__dirname, 'self-certs', 'server', 'my-private-root-ca.cert.pem'))
+  ;
 
-// var options = {
-//   key: fs.readFileSync(path.join(__dirname, 'self-certs', 'server', 'privkey.pem'))
-// // You don't need to specify `ca`, it's done by `ssl-root-cas`
-// //, ca: [ fs.readFileSync(path.join(__dirname, 'certs', 'server', 'my-root-ca.crt.pem'))]
-// , cert: fs.readFileSync(path.join(__dirname, 'self-certs', 'server', 'cert.pem'))
-// };
+var options = {
+  key: fs.readFileSync(path.join(__dirname, 'self-certs', 'server', 'privkey.pem'))
+// You don't need to specify `ca`, it's done by `ssl-root-cas`
+//, ca: [ fs.readFileSync(path.join(__dirname, 'certs', 'server', 'my-root-ca.crt.pem'))]
+, cert: fs.readFileSync(path.join(__dirname, 'self-certs', 'server', 'cert.pem'))
+};
 
 /**
  * Socket.io stuff.
  */
 var server = require('http').createServer(app);
-//var httpsServer = require('https').createServer(options, app);
+var httpsServer = require('https').createServer(options, app);
 var io = require('socket.io')(server);
-//var ioSecure = require('socket.io')(httpsServer);
+var ioSecure = require('socket.io')(httpsServer);
 var onlineUsers = 0;
 
 io.sockets.on('connection', function(socket) {
   onlineUsers++;
 
   io.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
-  //ioSecure.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
+  ioSecure.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
 
   socket.on('disconnect', function() {
     onlineUsers--;
     io.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
-    //ioSecure.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
+    ioSecure.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
   });
 });
 
-// ioSecure.sockets.on('connection', function(socket) {
-//   onlineUsers++;
-//
-//   io.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
-//   ioSecure.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
-//
-//   socket.on('disconnect', function() {
-//     onlineUsers--;
-//     io.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
-//     ioSecure.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
-//   });
-// });
+ioSecure.sockets.on('connection', function(socket) {
+  onlineUsers++;
+
+  io.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
+  ioSecure.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
+
+  socket.on('disconnect', function() {
+    onlineUsers--;
+    io.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
+    ioSecure.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
+  });
+});
 
 server.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
 });
 
-// httpsServer.listen(8443, function() {
-//   console.log('Express HTTPS server listening on port ' + 8443);
-// });
+httpsServer.listen(8443, function() {
+  console.log('Express HTTPS server listening on port ' + 8443);
+});
