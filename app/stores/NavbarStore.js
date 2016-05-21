@@ -8,8 +8,8 @@ class NavbarStore {
     this.onlineUsers = 0;
     this.searchQuery = '';
     this.ajaxAnimationClass = '';
-    this.battleNetTag = '';
     this.accessToken = '';
+    this.battleNetTag = '';
   }
 
   onFindCharacterSuccess(payload) {
