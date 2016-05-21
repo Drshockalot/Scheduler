@@ -6,6 +6,7 @@ class FooterStore {
     this.bindActions(FooterActions);
     this.characters = [];
     this.admins = ['Aeristial', 'Derp', 'Macio', 'Trallas', 'Xenorie'];
+    this.test = '';
   }
 
   onGetTopCharactersSuccess(data) {
