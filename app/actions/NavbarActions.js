@@ -45,9 +45,6 @@ class NavbarActions {
     }).done((data) => {
       console.log(data);
       this.updateLoginStatus(data);
-      if(data === undefined) {
-        //window.location = '/';
-      }
     }).fail(() => {
       //window.location = '/';
     });
