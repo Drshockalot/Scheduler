@@ -12,7 +12,6 @@ class Navbar extends React.Component {
 
   componentDidMount() {
     NavbarStore.listen(this.onChange);
-    //NavbarActions.getCharacterCount();
 
     let socket = io.connect();
 
@@ -30,7 +29,7 @@ class Navbar extends React.Component {
       }, 750);
     });
 
-    NavbarActions.checkLogin();
+    //NavbarActions.checkLogin();
   }
 
   componentWillUnmount() {
@@ -39,20 +38,6 @@ class Navbar extends React.Component {
 
   onChange(state) {
     this.setState(state);
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-
-    let searchQuery = this.state.searchQuery.trim();
-
-    if (searchQuery) {
-      NavbarActions.findCharacter({
-        searchQuery: searchQuery,
-        searchForm: this.refs.searchForm,
-        history: this.props.history
-      });
-    }
   }
 
   handleLoginSubmit(event) {
@@ -118,14 +103,6 @@ class Navbar extends React.Component {
           </Link>
         </div>
         <div id='navbar' className='navbar-collapse collapse'>
-          { /*<form ref='searchForm' className='navbar-form navbar-left animated' onSubmit={this.handleSubmit.bind(this)}>
-            <div className='input-group'>
-              <input type='text' className='form-control' placeholder={this.state.totalCharacters + ' characters'} value={this.state.searchQuery} onChange={NavbarActions.updateSearchQuery} />
-              <span className='input-group-btn'>
-                <button className='btn btn-default' onClick={this.handleSubmit.bind(this)}><span className='glyphicon glyphicon-search'></span></button>
-              </span>
-            </div>
-          </form>*/ }
           <ul className='nav navbar-nav'>
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/stats'>Roster</Link></li>
