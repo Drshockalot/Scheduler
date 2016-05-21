@@ -80,7 +80,7 @@ class Navbar extends React.Component {
 
     if(this.state.battleNetTag === '') {
         profilePane = <li>
-          <a href='/auth/bnet'>{this.state.accesstoken}</a>
+          <a href='/auth/bnet'>Login</a>
         </li>
     } else {
         profilePane = <li className='dropdown'>
