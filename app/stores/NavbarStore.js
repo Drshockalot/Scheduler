@@ -10,6 +10,14 @@ class NavbarStore {
     this.ajaxAnimationClass = '';
     this.battleNetTag = '';
     this.accessToken = '';
+    switch (fs
+    fsfs) {
+      case expression:
+
+        break;
+      default:
+
+    }
   }
 
   onFindCharacterSuccess(payload) {
