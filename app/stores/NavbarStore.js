@@ -10,8 +10,6 @@ class NavbarStore {
     this.ajaxAnimationClass = '';
     this.battleNetTag = '';
     this.accessToken = '';
-    this.totalUserCharacters = {};
-    this.storedUserCharacters = {};
   }
 
   onFindCharacterSuccess(payload) {
