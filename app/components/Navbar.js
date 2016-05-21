@@ -76,7 +76,7 @@ class Navbar extends React.Component {
   }
 
   logLocation() {
-    console.log(this.props.location.pathname);
+    console.log(this.props.routes[this.props.routes.length-1]);
   }
 
   render() {
