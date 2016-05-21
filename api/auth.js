@@ -23,7 +23,7 @@ router.get('/bnet/status', function(req, res, next) {
   if(req.user == undefined) {
     res.send('');
   } else {
-    res.send(req.user);
+    res.json(req.user);
   }
 });
 
