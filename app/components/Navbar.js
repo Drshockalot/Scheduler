@@ -30,7 +30,7 @@ class Navbar extends React.Component {
       }, 750);
     });
 
-    //NavbarActions.checkLogin();
+    NavbarActions.checkLogin();
   }
 
   componentWillUnmount() {
@@ -78,19 +78,19 @@ class Navbar extends React.Component {
   render() {
     var profilePane;
 
-    // if(this.state.battleNetTag === '') {
-    //     profilePane = <li>
-    //       <a href='/auth/bnet'>Login</a>
-    //     </li>
-    // } else {
-    //     profilePane = <li className='dropdown'>
-    //       <a href='/profile' className='dropdown-toggle' data-toggle='dropdown'>{this.state.battleNetTag} <span className='caret'></span></a>
-    //       <ul className='dropdown-menu'>
-    //         <li><a href='/auth/bnet/logout'>Logout</a></li>
-    //         <li><a href='/auth/bnet/logout/hard'>Hard Logout</a></li>
-    //       </ul>
-    //     </li>
-    // }
+    if(this.state.battleNetTag === '') {
+        profilePane = <li>
+          <a href='/auth/bnet'>Login</a>
+        </li>
+    } else {
+        profilePane = <li className='dropdown'>
+          <a href='/profile' className='dropdown-toggle' data-toggle='dropdown'>{this.state.battleNetTag} <span className='caret'></span></a>
+          <ul className='dropdown-menu'>
+            <li><a href='/auth/bnet/logout'>Logout</a></li>
+            <li><a href='/auth/bnet/logout/hard'>Hard Logout</a></li>
+          </ul>
+        </li>
+    }
 
     return (
       <nav className='navbar navbar-default navbar-static-top'>
@@ -138,7 +138,7 @@ class Navbar extends React.Component {
               </ul>
             </li>
             <li><Link to='/admin'>Admin</Link></li>
-            //{profilePane}
+            {profilePane}
           </ul>
         </div>
       </nav>
