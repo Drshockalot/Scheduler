@@ -76,7 +76,9 @@ class Navbar extends React.Component {
   }
 
   logLocation() {
-    console.log(this.props.routes[this.props.routes.length-1]);
+    var currentRoutes = this.context.router.getCurrentRoutes();
+    var activeRouteName = currentRoutes[currentRoutes.length - 1].name;
+    console.log(activeRouteName);
   }
 
   render() {
