@@ -91,17 +91,17 @@ exports.up = function(knex, Promise) {
 
 exports.down = function(knex, Promise) {
   return Promise.all([
-    knex.schema.dropTable('user');
-    knex.schema.dropTable('character');
-    knex.schema.dropTable('roster');
-    knex.schema.dropTable('roster_list');
-    knex.schema.dropTable('raid_week');
-    knex.schema.dropTable('schedule');
-    knex.schema.dropTable('raid');
-    knex.schema.dropTable('boss');
-    knex.schema.dropTable('schedule_boss');
-    knex.schema.dropTable('boss_schedule');
-    knex.schema.dropTable('raid_attendance');
-    knex.schema.dropTable('constants');
+    knex.schema.dropTable('user'),
+    knex.schema.dropTable('character'),
+    knex.schema.dropTable('roster'),
+    knex.schema.dropTable('roster_list'),
+    knex.schema.dropTable('raid_week'),
+    knex.schema.dropTable('schedule'),
+    knex.schema.dropTable('raid'),
+    knex.schema.dropTable('boss'),
+    knex.schema.dropTable('schedule_boss'),
+    knex.schema.dropTable('boss_schedule'),
+    knex.schema.dropTable('raid_attendance'),
+    knex.schema.dropTable('constants')
   ]);
 };
