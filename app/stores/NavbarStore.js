@@ -9,6 +9,9 @@ class NavbarStore {
     this.searchQuery = '';
     this.ajaxAnimationClass = '';
     this.battleNetTag = '';
+    this.accessToken = '';
+    this.totalUserCharacters = {};
+    this.storedUserCharacters = {};
   }
 
   onFindCharacterSuccess(payload) {
@@ -43,7 +46,8 @@ class NavbarStore {
   }
 
   onUpdateLoginStatus(data) {
-    this.battleNetTag = data;
+    this.battleNetTag = data.battletag;
+    this.accessToken = data.accesstoken;
   }
 }
 
