@@ -84,7 +84,7 @@ class Navbar extends React.Component {
         </li>
     } else {
         profilePane = <li className='dropdown'>
-          <a href='/profile' className='dropdown-toggle' data-toggle='dropdown'>{this.state.accessToken} <span className='caret'></span></a>
+          <a href='/profile' className='dropdown-toggle' data-toggle='dropdown'>{this.state.battleNetTag} <span className='caret'></span></a>
           <ul className='dropdown-menu'>
             <li><a href='/auth/bnet/logout'>Logout</a></li>
             <li><a href='/auth/bnet/logout/hard'>Hard Logout</a></li>
