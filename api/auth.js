@@ -19,7 +19,6 @@ router.get('/bnet/logout/hard', function(req, res, next) {
 });
 
 router.get('/bnet/status', function(req, res, next) {
-  console.log(req.user);
   if(req.user == undefined) {
     res.send('');
   } else {
