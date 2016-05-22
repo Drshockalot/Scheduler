@@ -116,9 +116,29 @@ var NavbarActions = function () {
 exports.default = _alt2.default.createActions(NavbarActions);
 
 },{"../alt":11,"underscore":"underscore"}],3:[function(require,module,exports){
-"use strict";
+'use strict';
 
-},{}],4:[function(require,module,exports){
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _alt = require('../alt');
+
+var _alt2 = _interopRequireDefault(_alt);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var RegisterActions = function RegisterActions() {
+  _classCallCheck(this, RegisterActions);
+
+  this.generateActions('test');
+};
+
+exports.default = _alt2.default.createActions(RegisterActions);
+
+},{"../alt":11}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -497,13 +517,11 @@ var Footer = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var admins = this.state.admins.map(function (name) {
-        return _react2.default.createElement(
-          'li',
-          { key: name },
-          name
-        );
-      });
+      // let admins = this.state.admins.map((name) => {
+      //   return (
+      //     <li key={name}>{name}</li>
+      //   )
+      // });
 
       return _react2.default.createElement(
         'footer',
@@ -544,11 +562,7 @@ var Footer = function (_React$Component) {
                   'Admins'
                 )
               ),
-              _react2.default.createElement(
-                'ul',
-                { className: 'list-inline' },
-                admins
-              )
+              _react2.default.createElement('ul', { className: 'list-inline' })
             )
           )
         )
@@ -597,7 +611,7 @@ var Home = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'alert alert-info' },
-        'Hello from Home Component'
+        'Hello from Home test and again AND AGAIN'
       );
     }
   }]);
@@ -655,7 +669,6 @@ var Navbar = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _NavbarStore2.default.listen(this.onChange);
-      //NavbarActions.getCharacterCount();
 
       var socket = io.connect();
 
@@ -673,7 +686,7 @@ var Navbar = function (_React$Component) {
         }, 750);
       });
 
-      _NavbarActions2.default.checkLogin();
+      //NavbarActions.checkLogin();
     }
   }, {
     key: 'componentWillUnmount',
@@ -684,21 +697,6 @@ var Navbar = function (_React$Component) {
     key: 'onChange',
     value: function onChange(state) {
       this.setState(state);
-    }
-  }, {
-    key: 'handleSubmit',
-    value: function handleSubmit(event) {
-      event.preventDefault();
-
-      var searchQuery = this.state.searchQuery.trim();
-
-      if (searchQuery) {
-        _NavbarActions2.default.findCharacter({
-          searchQuery: searchQuery,
-          searchForm: this.refs.searchForm,
-          history: this.props.history
-        });
-      }
     }
   }, {
     key: 'handleLoginSubmit',
@@ -905,6 +903,12 @@ exports.default = Navbar;
 },{"../actions/NavbarActions":2,"../stores/NavbarStore":27,"react":"react","react-router":"react-router"}],16:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
@@ -920,6 +924,52 @@ var _RegisterStore = require('../stores/RegisterStore');
 var _RegisterStore2 = _interopRequireDefault(_RegisterStore);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Register = function (_React$Component) {
+  _inherits(Register, _React$Component);
+
+  function Register(props) {
+    _classCallCheck(this, Register);
+
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Register).call(this, props));
+
+    _this.state = _RegisterStore2.default.getState();
+    _this.onChange = _this.onChange.bind(_this);
+    return _this;
+  }
+
+  _createClass(Register, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      _RegisterStore2.default.listen(this.onChange);
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      _RegisterStore2.default.unlisten(this.onChange);
+    }
+  }, {
+    key: 'onChange',
+    value: function onChange(state) {
+      this.setState(state);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      false;
+    }
+  }]);
+
+  return Register;
+}(_react2.default.Component);
+
+exports.default = Register;
 
 },{"../actions/RegisterActions":3,"../stores/RegisterStore":28,"react":"react","react-router":"react-router"}],17:[function(require,module,exports){
 'use strict';
@@ -1926,6 +1976,7 @@ var NavbarStore = function () {
     this.searchQuery = '';
     this.ajaxAnimationClass = '';
     this.battleNetTag = '';
+    this.accesstoken = '';
   }
 
   _createClass(NavbarStore, [{
@@ -1979,9 +2030,34 @@ var NavbarStore = function () {
 exports.default = _alt2.default.createStore(NavbarStore);
 
 },{"../actions/NavbarActions":2,"../alt":11}],28:[function(require,module,exports){
-"use strict";
+'use strict';
 
-},{}],29:[function(require,module,exports){
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _alt = require('../alt');
+
+var _alt2 = _interopRequireDefault(_alt);
+
+var _RegisterActions = require('../actions/RegisterActions');
+
+var _RegisterActions2 = _interopRequireDefault(_RegisterActions);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var RegisterStore = function RegisterStore() {
+  _classCallCheck(this, RegisterStore);
+
+  this.bindActions(_RegisterActions2.default);
+  this.test = '';
+};
+
+exports.default = _alt2.default.createStore(RegisterStore);
+
+},{"../actions/RegisterActions":3,"../alt":11}],29:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

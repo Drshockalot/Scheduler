@@ -9,6 +9,7 @@ import Register from './components/Register';
 export default (
   <Route component={App}>
     <Route path='/' component={Home} />
+    <Route path='/register' component={Register} />
     <Route path='/admin' component={Admin} />
     <Route path='/admin/roster' component={RosterManagement} />
   </Route>
