@@ -2020,7 +2020,8 @@ var NavbarStore = function () {
   }, {
     key: 'onUpdateLoginStatus',
     value: function onUpdateLoginStatus(data) {
-      console.log(data);
+      console.log(data.battletag);
+      console.log(data.token);
       this.battleNetTag = data;
       this.accesstoken = 'test';
     }

@@ -44,7 +44,8 @@ class NavbarStore {
   }
 
   onUpdateLoginStatus(data) {
-    console.log(data);
+    console.log(data.battletag);
+    console.log(data.token);
     this.battleNetTag = data;
     this.accesstoken = 'test';
   }
