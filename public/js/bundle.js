@@ -100,10 +100,7 @@ var NavbarActions = function () {
       $.ajax({
         url: '/auth/bnet/status'
       }).done(function (data) {
-        _this3.updateLoginStatus(JSON.stringify(data));
-        if (data === '') {
-          //window.location = '/';
-        }
+        _this3.updateLoginStatus(data);
       }).fail(function () {
         //window.location = '/';
       });
@@ -726,7 +723,7 @@ var Navbar = function (_React$Component) {
     value: function render() {
       var profilePane;
 
-      if (this.state.battleNetTag) {
+      if (!this.state.battleNetTag) {
         profilePane = _react2.default.createElement(
           'li',
           null,

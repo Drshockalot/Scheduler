@@ -63,7 +63,7 @@ class Navbar extends React.Component {
   render() {
     var profilePane;
 
-    if(this.state.battleNetTag) {
+    if(!this.state.battleNetTag) {
         profilePane = <li>
           <a href='/auth/bnet'>Login</a>
         </li>

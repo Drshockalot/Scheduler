@@ -43,10 +43,7 @@ class NavbarActions {
     $.ajax({
       url: '/auth/bnet/status'
     }).done((data) => {
-      this.updateLoginStatus(JSON.stringify(data));
-      if(data === '') {
-        //window.location = '/';
-      }
+      this.updateLoginStatus(data);
     }).fail(() => {
       //window.location = '/';
     });
