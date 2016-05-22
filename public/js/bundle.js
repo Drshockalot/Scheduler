@@ -1976,7 +1976,7 @@ var NavbarStore = function () {
     this.searchQuery = '';
     this.ajaxAnimationClass = '';
     this.battletag = '';
-    this.accesstoken = '';
+    this.accessToken = '';
   }
 
   _createClass(NavbarStore, [{
