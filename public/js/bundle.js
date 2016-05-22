@@ -2019,7 +2019,7 @@ var NavbarStore = function () {
     value: function onUpdateLoginStatus(data) {
       console.log(data);
       //console.log(data.token);
-      this.battleNetTag = data;
+      this.battleNetTag = data.battletag;
       //this.accesstoken = data.token;
     }
   }]);
