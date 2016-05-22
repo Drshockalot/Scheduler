@@ -100,7 +100,7 @@ var NavbarActions = function () {
       $.ajax({
         url: '/auth/bnet/status'
       }).done(function (data) {
-        _this3.updateLoginStatus(data);
+        _this3.updateLoginStatus(JSON.stringify(data));
         if (data === '') {
           //window.location = '/';
         }
@@ -2020,10 +2020,10 @@ var NavbarStore = function () {
   }, {
     key: 'onUpdateLoginStatus',
     value: function onUpdateLoginStatus(data) {
-      console.log(data.battletag);
-      console.log(data.token);
-      this.battleNetTag = data.battletag;
-      this.accesstoken = data.token;
+      console.log(data);
+      //console.log(data.token);
+      this.battleNetTag = data;
+      //this.accesstoken = data.token;
     }
   }]);
 
