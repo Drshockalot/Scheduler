@@ -1,5 +1,6 @@
 import alt from '../alt';
 import {assign} from 'underscore';
+import { browserHistory } from 'react-router'
 
 class NavbarActions {
   constructor() {
@@ -51,6 +52,10 @@ class NavbarActions {
     }).fail(() => {
       //window.location = '/';
     });
+  }
+
+  navigateProfile() {
+    browserHistory.push('/profile');
   }
 }
 
