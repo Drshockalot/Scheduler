@@ -47,7 +47,7 @@ class NavbarStore {
     console.log(data);
     //console.log(data.token);
     this.battleNetTag = data.battletag;
-    //this.accesstoken = data.token;
+    this.accesstoken = data.token;
   }
 }
 
