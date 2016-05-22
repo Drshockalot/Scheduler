@@ -726,7 +726,7 @@ var Navbar = function (_React$Component) {
     value: function render() {
       var profilePane;
 
-      if (this.state.battleNetTag === "") {
+      if (this.state.battleNetTag) {
         profilePane = _react2.default.createElement(
           'li',
           null,
