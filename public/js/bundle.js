@@ -63,7 +63,7 @@ var NavbarActions = function () {
   function NavbarActions() {
     _classCallCheck(this, NavbarActions);
 
-    this.generateActions('updateOnlineUsers', 'updateAjaxAnimation', 'updateSearchQuery', 'getCharacterCountSuccess', 'getCharacterCountFail', 'findCharacterSuccess', 'findCharacterFail', 'updateLoginStatus');
+    this.generateActions('updateOnlineUsers', 'updateAjaxAnimation', 'updateSearchQuery', 'getCharacterCountSuccess', 'getCharacterCountFail', 'findCharacterSuccess', 'findCharacterFail', 'updateBattletag', 'updateAccessToken');
   }
 
   _createClass(NavbarActions, [{
@@ -100,7 +100,8 @@ var NavbarActions = function () {
       $.ajax({
         url: '/auth/bnet/status'
       }).done(function (data) {
-        _this3.updateLoginStatus(data);
+        _this3.updateBattletag(data.battletag);
+        _this3.updateAccessToken(data.token);
       }).fail(function () {
         //window.location = '/';
       });
@@ -723,7 +724,7 @@ var Navbar = function (_React$Component) {
     value: function render() {
       var profilePane;
 
-      if (!this.state.battleNetTag) {
+      if (!this.state.battletag) {
         profilePane = _react2.default.createElement(
           'li',
           null,
@@ -740,7 +741,7 @@ var Navbar = function (_React$Component) {
           _react2.default.createElement(
             'a',
             { href: '/profile', className: 'dropdown-toggle', 'data-toggle': 'dropdown' },
-            this.state.battleNetTag,
+            this.state.battletag,
             ' ',
             _react2.default.createElement('span', { className: 'caret' })
           ),
@@ -1972,7 +1973,7 @@ var NavbarStore = function () {
     this.onlineUsers = 0;
     this.searchQuery = '';
     this.ajaxAnimationClass = '';
-    this.battleNetTag = '';
+    this.battletag = '';
     this.accesstoken = '';
   }
 
@@ -2015,13 +2016,16 @@ var NavbarStore = function () {
       toastr.error(jqXhr.responseJSON.message);
     }
   }, {
-    key: 'onUpdateLoginStatus',
-    value: function onUpdateLoginStatus(data) {
+    key: 'onUpdateBattletag',
+    value: function onUpdateBattletag(data) {
       console.log(data);
-      //var test = data.token;
-      //console.log(data.token);
-      this.battleNetTag = data.battletag;
-      //this.accesstoken = data.token;
+      this.battletag = data.battletag;
+    }
+  }, {
+    key: 'onUpdateAccessToken',
+    value: function onUpdateAccessToken(data) {
+      console.log(data);
+      this.accessToken = data;
     }
   }]);
 

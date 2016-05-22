@@ -8,7 +8,7 @@ class NavbarStore {
     this.onlineUsers = 0;
     this.searchQuery = '';
     this.ajaxAnimationClass = '';
-    this.battleNetTag = '';
+    this.battletag = '';
     this.accesstoken = '';
   }
 
@@ -43,12 +43,14 @@ class NavbarStore {
     toastr.error(jqXhr.responseJSON.message);
   }
 
-  onUpdateLoginStatus(data) {
+  onUpdateBattletag(data) {
     console.log(data);
-    //var test = data.token;
-    //console.log(data.token);
-    this.battleNetTag = data.battletag;
-    //this.accesstoken = data.token;
+    this.battletag = data.battletag;
+  }
+
+  onUpdateAccessToken(data) {
+    console.log(data);
+    this.accessToken = data;
   }
 }
 

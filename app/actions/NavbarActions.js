@@ -11,7 +11,8 @@ class NavbarActions {
       'getCharacterCountFail',
       'findCharacterSuccess',
       'findCharacterFail',
-      'updateLoginStatus'
+      'updateBattletag',
+      'updateAccessToken'
     );
   }
 
@@ -43,7 +44,8 @@ class NavbarActions {
     $.ajax({
       url: '/auth/bnet/status'
     }).done((data) => {
-      this.updateLoginStatus(data);
+      this.updateBattletag(data.battletag);
+      this.updateAccessToken(data.token);
     }).fail(() => {
       //window.location = '/';
     });
