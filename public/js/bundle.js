@@ -100,8 +100,10 @@ var NavbarActions = function () {
       $.ajax({
         url: '/auth/bnet/status'
       }).done(function (data) {
-        _this3.updateBattletag(data.battletag);
-        _this3.updateAccessToken(data.token);
+        if (data) {
+          _this3.updateBattletag(data.battletag);
+          _this3.updateAccessToken(data.token);
+        }
       }).fail(function () {
         //window.location = '/';
       });

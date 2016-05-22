@@ -44,8 +44,10 @@ class NavbarActions {
     $.ajax({
       url: '/auth/bnet/status'
     }).done((data) => {
-      this.updateBattletag(data.battletag);
-      this.updateAccessToken(data.token);
+      if(data) {
+        this.updateBattletag(data.battletag);
+        this.updateAccessToken(data.token);
+      }
     }).fail(() => {
       //window.location = '/';
     });
