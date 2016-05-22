@@ -724,6 +724,11 @@ var Navbar = function (_React$Component) {
       window.location = '/auth/bnet/logout/hard';
     }
   }, {
+    key: 'navigateProfile',
+    value: function navigateProfile() {
+      this.props.history.push('/profile');
+    }
+  }, {
     key: 'render',
     value: function render() {
       var profilePane;
@@ -775,7 +780,7 @@ var Navbar = function (_React$Component) {
               null,
               _react2.default.createElement(
                 'a',
-                { href: '/profile' },
+                { onClick: this.navigateProfile },
                 'Profile'
               )
             )
@@ -975,7 +980,7 @@ var Profile = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'container' },
         'Profile Page'
       );
     }
