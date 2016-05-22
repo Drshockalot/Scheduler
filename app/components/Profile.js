@@ -24,7 +24,9 @@ class Profile extends React.Component {
 
   render() {
     return (
-      false
+      <div>
+        Profile Page
+      </div>
     );
   }
 }

@@ -973,7 +973,11 @@ var Profile = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      return false;
+      return _react2.default.createElement(
+        'div',
+        null,
+        'Profile Page'
+      );
     }
   }]);
 
