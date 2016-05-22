@@ -73,6 +73,7 @@ class Navbar extends React.Component {
           <ul className='dropdown-menu'>
             <li><a href='/auth/bnet/logout'>Logout</a></li>
             <li><a href='/auth/bnet/logout/hard'>Hard Logout</a></li>
+            <li><a href='/profile'>Profile</a></li>
           </ul>
         </li>
     }

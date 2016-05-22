@@ -126,19 +126,21 @@ var _alt = require('../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
 
+var _underscore = require('underscore');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var RegisterActions = function RegisterActions() {
-  _classCallCheck(this, RegisterActions);
+var ProfileActions = function ProfileActions() {
+  _classCallCheck(this, ProfileActions);
 
-  this.generateActions('test');
+  this.generateActions('placeholder');
 };
 
-exports.default = _alt2.default.createActions(RegisterActions);
+exports.default = _alt2.default.createActions(ProfileActions);
 
-},{"../alt":11}],4:[function(require,module,exports){
+},{"../alt":11,"underscore":"underscore"}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -767,6 +769,15 @@ var Navbar = function (_React$Component) {
                 { href: '/auth/bnet/logout/hard' },
                 'Hard Logout'
               )
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              _react2.default.createElement(
+                'a',
+                { href: '/profile' },
+                'Profile'
+              )
             )
           )
         );
@@ -915,13 +926,13 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouter = require('react-router');
 
-var _RegisterActions = require('../actions/RegisterActions');
+var _ProfileStore = require('../stores/ProfileStore');
 
-var _RegisterActions2 = _interopRequireDefault(_RegisterActions);
+var _ProfileStore2 = _interopRequireDefault(_ProfileStore);
 
-var _RegisterStore = require('../stores/RegisterStore');
+var _ProfileActions = require('../actions/ProfileActions');
 
-var _RegisterStore2 = _interopRequireDefault(_RegisterStore);
+var _ProfileActions2 = _interopRequireDefault(_ProfileActions);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -931,28 +942,28 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Register = function (_React$Component) {
-  _inherits(Register, _React$Component);
+var Profile = function (_React$Component) {
+  _inherits(Profile, _React$Component);
 
-  function Register(props) {
-    _classCallCheck(this, Register);
+  function Profile(props) {
+    _classCallCheck(this, Profile);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Register).call(this, props));
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Profile).call(this, props));
 
-    _this.state = _RegisterStore2.default.getState();
+    _this.state = _ProfileStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
     return _this;
   }
 
-  _createClass(Register, [{
+  _createClass(Profile, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      _RegisterStore2.default.listen(this.onChange);
+      _ProfileStore2.default.listen(this.onChange);
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
-      _RegisterStore2.default.unlisten(this.onChange);
+      NavbarStore.unlisten(this.onChange);
     }
   }, {
     key: 'onChange',
@@ -962,16 +973,16 @@ var Register = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      false;
+      return false;
     }
   }]);
 
-  return Register;
+  return Profile;
 }(_react2.default.Component);
 
-exports.default = Register;
+exports.default = Profile;
 
-},{"../actions/RegisterActions":3,"../stores/RegisterStore":28,"react":"react","react-router":"react-router"}],17:[function(require,module,exports){
+},{"../actions/ProfileActions":3,"../stores/ProfileStore":28,"react":"react","react-router":"react-router"}],17:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1882,9 +1893,9 @@ var _RosterManagement = require('./components/admin/RosterManagement');
 
 var _RosterManagement2 = _interopRequireDefault(_RosterManagement);
 
-var _Register = require('./components/Register');
+var _Profile = require('./components/Profile');
 
-var _Register2 = _interopRequireDefault(_Register);
+var _Profile2 = _interopRequireDefault(_Profile);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1892,12 +1903,12 @@ exports.default = _react2.default.createElement(
   _reactRouter.Route,
   { component: _App2.default },
   _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Home2.default }),
-  _react2.default.createElement(_reactRouter.Route, { path: '/register', component: _Register2.default }),
+  _react2.default.createElement(_reactRouter.Route, { path: '/profile', component: _Profile2.default }),
   _react2.default.createElement(_reactRouter.Route, { path: '/admin', component: _Admin2.default }),
   _react2.default.createElement(_reactRouter.Route, { path: '/admin/roster', component: _RosterManagement2.default })
 );
 
-},{"./components/App":12,"./components/Home":14,"./components/Register":16,"./components/admin/Admin":18,"./components/admin/RosterManagement":21,"react":"react","react-router":"react-router"}],26:[function(require,module,exports){
+},{"./components/App":12,"./components/Home":14,"./components/Profile":16,"./components/admin/Admin":18,"./components/admin/RosterManagement":21,"react":"react","react-router":"react-router"}],26:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2047,24 +2058,23 @@ var _alt = require('../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
 
-var _RegisterActions = require('../actions/RegisterActions');
+var _ProfileActions = require('../actions/ProfileActions');
 
-var _RegisterActions2 = _interopRequireDefault(_RegisterActions);
+var _ProfileActions2 = _interopRequireDefault(_ProfileActions);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var RegisterStore = function RegisterStore() {
-  _classCallCheck(this, RegisterStore);
+var ProfileStore = function ProfileStore() {
+  _classCallCheck(this, ProfileStore);
 
-  this.bindActions(_RegisterActions2.default);
-  this.test = '';
+  this.bindActions(_ProfileActions2.default);
 };
 
-exports.default = _alt2.default.createStore(RegisterStore);
+exports.default = _alt2.default.createStore(ProfileStore);
 
-},{"../actions/RegisterActions":3,"../alt":11}],29:[function(require,module,exports){
+},{"../actions/ProfileActions":3,"../alt":11}],29:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
