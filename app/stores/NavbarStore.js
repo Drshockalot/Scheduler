@@ -45,7 +45,7 @@ class NavbarStore {
 
   onUpdateBattletag(data) {
     console.log(data);
-    this.battletag = data.battletag;
+    this.battletag = data;
   }
 
   onUpdateAccessToken(data) {

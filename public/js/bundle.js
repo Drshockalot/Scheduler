@@ -2021,7 +2021,7 @@ var NavbarStore = function () {
     key: 'onUpdateBattletag',
     value: function onUpdateBattletag(data) {
       console.log(data);
-      this.battletag = data.battletag;
+      this.battletag = data;
     }
   }, {
     key: 'onUpdateAccessToken',
