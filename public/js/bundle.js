@@ -2018,9 +2018,10 @@ var NavbarStore = function () {
     key: 'onUpdateLoginStatus',
     value: function onUpdateLoginStatus(data) {
       console.log(data);
+      var test = data.token;
       //console.log(data.token);
       this.battleNetTag = data.battletag;
-      this.accesstoken = data.token;
+      //this.accesstoken = data.token;
     }
   }]);
 
