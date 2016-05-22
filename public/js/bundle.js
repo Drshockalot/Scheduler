@@ -611,7 +611,7 @@ var Home = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'alert alert-info' },
-        'Hello from Home test and again AND AGAIN'
+        'Hello from Home test 1'
       );
     }
   }]);
@@ -686,7 +686,7 @@ var Navbar = function (_React$Component) {
         }, 750);
       });
 
-      //NavbarActions.checkLogin();
+      _NavbarActions2.default.checkLogin();
     }
   }, {
     key: 'componentWillUnmount',
@@ -2020,7 +2020,8 @@ var NavbarStore = function () {
   }, {
     key: 'onUpdateLoginStatus',
     value: function onUpdateLoginStatus(data) {
-      this.battleNetTag = data;
+      this.battleNetTag = data.battletag;
+      this.accesstoken = data.token;
     }
   }]);
 

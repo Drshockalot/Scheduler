@@ -29,7 +29,7 @@ class Navbar extends React.Component {
       }, 750);
     });
 
-    //NavbarActions.checkLogin();
+    NavbarActions.checkLogin();
   }
 
   componentWillUnmount() {

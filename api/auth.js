@@ -22,7 +22,7 @@ router.get('/bnet/status', function(req, res, next) {
   if(req.user == undefined) {
     res.send('');
   } else {
-    res.send(req.user.battletag);
+    res.json(req.user);
   }
 });
 
