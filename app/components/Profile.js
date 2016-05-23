@@ -36,7 +36,7 @@ class Profile extends React.Component {
       Object.keys(retrievedCharactersCopy).map(function(i) {
         if(retrievedCharactersCopy[i].realm === "Zenedar") {
             //return retrievedCharactersCopy[i];
-            arr.push(etrievedCharactersCopy[i]);
+            arr.push(retrievedCharactersCopy[i]);
         }
       });
       console.log(arr);
