@@ -152,14 +152,24 @@ var ProfileActions = function () {
   function ProfileActions() {
     _classCallCheck(this, ProfileActions);
 
-    this.generateActions('populateRetreivedCharacters');
+    this.generateActions('populateRetrievedCharactersSuccess', 'populateRetrievedCharactersFailure');
   }
 
   _createClass(ProfileActions, [{
-    key: 'retreiveProfileCharacters',
-    value: function retreiveProfileCharacters() {
-      bnet.account.wow({ origin: 'eu', access_token: _NavbarStore2.default.getState().accessToken }, function (data) {
-        this.populateRetreivedCharacters(data);
+    key: 'retrieveProfileCharacters',
+    value: function retrieveProfileCharacters() {
+      var _this = this;
+
+      // bnet.account.wow({ origin: 'eu', access_token: NavbarStore.getState().accessToken }, function(err, body, res) {
+      //   this.populateRetreivedCharacters(data);
+      // });
+      $.ajax({
+        method: 'GET',
+        url: 'https://eu.api.battle.net/wow/users/characters?locale=en_GB&apikey=' + process.env.BNET_ID + '&access_token=' + _NavbarStore2.default.getState().accessToken
+      }).done(function (data) {
+        _this.populateRetrievedCharactersSuccess(data);
+      }).fail(function (jqXhr) {
+        _this.populateRetrievedCharactersFailure(jqXhr);
       });
     }
   }]);
@@ -1008,14 +1018,14 @@ var Profile = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      // var retreivedCharactersList;
+      // var retrievedCharactersList;
       // var storedCharactersList;
       //
-      // if(this.state.retreivedCharacters) {
-      //   var retreivedCharactersCopy = this.state.retreivedCharacters;
-      //   var arr = Object.keys(retreivedCharactersCopy).map(function(i) {return retreivedCharactersCopy[i]});
+      // if(this.state.retrievedCharacters) {
+      //   var retrievedCharactersCopy = this.state.retrievedCharacters;
+      //   var arr = Object.keys(retrievedCharactersCopy).map(function(i) {return retrievedCharactersCopy[i]});
       //
-      //   retreivedCharactersList = arr.map((character) => {
+      //   retrievedCharactersList = arr.map((character) => {
       //     return (
       //
       //     )
@@ -1030,8 +1040,8 @@ var Profile = function (_React$Component) {
           { className: 'row' },
           _react2.default.createElement(
             'div',
-            { className: 'btn btn-primary', onClick: _ProfileActions2.default.retreiveProfileCharacters },
-            'Retreive Characters'
+            { className: 'btn btn-primary', onClick: _ProfileActions2.default.retrieveProfileCharacters },
+            'Retrieve Characters'
           ),
           _react2.default.createElement(
             'div',
@@ -2143,14 +2153,19 @@ var ProfileStore = function () {
     _classCallCheck(this, ProfileStore);
 
     this.bindActions(_ProfileActions2.default);
-    this.retreivedCharacters = null;
+    this.retrievedCharacters = null;
     this.storedCharacters = null;
   }
 
   _createClass(ProfileStore, [{
-    key: 'onPopulateRetreivedCharacters',
-    value: function onPopulateRetreivedCharacters(data) {
-      this.retreivedCharacters = data;
+    key: 'onPopulateRetrievedCharactersSuccess',
+    value: function onPopulateRetrievedCharactersSuccess(data) {
+      this.retrievedCharacters = data;
+    }
+  }, {
+    key: 'onPopulateRetrievedCharactersFailure',
+    value: function onPopulateRetrievedCharactersFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
     }
   }]);
 

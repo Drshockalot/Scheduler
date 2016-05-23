@@ -24,14 +24,14 @@ class Profile extends React.Component {
   }
 
   render() {
-    // var retreivedCharactersList;
+    // var retrievedCharactersList;
     // var storedCharactersList;
     //
-    // if(this.state.retreivedCharacters) {
-    //   var retreivedCharactersCopy = this.state.retreivedCharacters;
-    //   var arr = Object.keys(retreivedCharactersCopy).map(function(i) {return retreivedCharactersCopy[i]});
+    // if(this.state.retrievedCharacters) {
+    //   var retrievedCharactersCopy = this.state.retrievedCharacters;
+    //   var arr = Object.keys(retrievedCharactersCopy).map(function(i) {return retrievedCharactersCopy[i]});
     //
-    //   retreivedCharactersList = arr.map((character) => {
+    //   retrievedCharactersList = arr.map((character) => {
     //     return (
     //
     //     )
@@ -42,7 +42,7 @@ class Profile extends React.Component {
     return (
       <div className='container'>
         <div className='row'>
-          <div className='btn btn-primary' onClick={ProfileActions.retreiveProfileCharacters}>Retreive Characters</div>
+          <div className='btn btn-primary' onClick={ProfileActions.retrieveProfileCharacters}>Retrieve Characters</div>
           <div className='col-md-11'>
             <h3>Characters</h3>
           </div>

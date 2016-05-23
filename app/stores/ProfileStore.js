@@ -4,12 +4,16 @@ import ProfileActions from '../actions/ProfileActions';
 class ProfileStore {
   constructor() {
     this.bindActions(ProfileActions);
-    this.retreivedCharacters = null;
+    this.retrievedCharacters = null;
     this.storedCharacters = null;
   }
 
-  onPopulateRetreivedCharacters(data) {
-    this.retreivedCharacters = data;
+  onPopulateRetrievedCharactersSuccess(data) {
+    this.retrievedCharacters = data;
+  }
+
+  onPopulateRetrievedCharactersFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
   }
 }
 

@@ -6,13 +6,22 @@ import NavbarStore from '../stores/NavbarStore';
 class ProfileActions {
   constructor() {
     this.generateActions(
-      'populateRetreivedCharacters'
+      'populateRetrievedCharactersSuccess',
+      'populateRetrievedCharactersFailure'
     );
   }
 
-  retreiveProfileCharacters() {
-    bnet.account.wow({ origin: 'eu', access_token: NavbarStore.getState().accessToken }, function(data) {
-      this.populateRetreivedCharacters(data);
+  retrieveProfileCharacters() {
+    // bnet.account.wow({ origin: 'eu', access_token: NavbarStore.getState().accessToken }, function(err, body, res) {
+    //   this.populateRetreivedCharacters(data);
+    // });
+    $.ajax({
+      method: 'GET',
+      url: 'https://eu.api.battle.net/wow/users/characters?locale=en_GB&apikey=' + process.env.BNET_ID + '&access_token=' + NavbarStore.getState().accessToken
+    }).done((data) => {
+      this.populateRetrievedCharactersSuccess(data);
+    }).fail((jqXhr) => {
+      this.populateRetrievedCharactersFailure(jqXhr);
     });
   }
 }
