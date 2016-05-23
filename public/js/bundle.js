@@ -1032,7 +1032,7 @@ var Profile = function (_React$Component) {
             return retrievedCharactersCopy[i];
           }
         });
-
+        console.log(arr);
         retrievedCharactersList = arr.map(function (character) {
           var characterRace = _.findWhere(races, { id: character.race }).name;
           var characterClass = _.findWhere(classes, { id: character.class }).name;
