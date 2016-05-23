@@ -1040,23 +1040,27 @@ var Profile = function (_React$Component) {
           var characterClass = _.findWhere(classes, { id: character.class }).name;
           return _react2.default.createElement(
             'tr',
-            null,
+            { key: character.name },
             _react2.default.createElement(
               'td',
-              null,
-              'character.name'
+              { key: character.name },
+              character.name
             ),
             _react2.default.createElement(
               'td',
-              null,
-              'characterClass'
+              { key: characterClass },
+              characterClass
             ),
             _react2.default.createElement(
               'td',
-              null,
-              'characterRace'
+              { key: characterRace },
+              characterRace
             ),
-            _react2.default.createElement('td', null)
+            _react2.default.createElement(
+              'td',
+              { key: 'main/alt' },
+              'main/alt buttons'
+            )
           );
         });
       }

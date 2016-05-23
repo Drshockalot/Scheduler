@@ -44,11 +44,11 @@ class Profile extends React.Component {
         var characterRace = _.findWhere(races, { id : character.race }).name;
         var characterClass = _.findWhere(classes, { id : character.class }).name;
         return (
-          <tr>
-            <td>character.name</td>
-            <td>characterClass</td>
-            <td>characterRace</td>
-            <td></td>
+          <tr key={character.name}>
+            <td key={character.name}>{character.name}</td>
+            <td key={characterClass}>{characterClass}</td>
+            <td key={characterRace}>{characterRace}</td>
+            <td key='main/alt'>main/alt buttons</td>
           </tr>
         );
       });
