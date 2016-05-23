@@ -987,6 +987,10 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var classes = require('../../utility/WowClasses');
+var races = require('../../utility/WowRaces');
+var _ = require('underscore');
+
 var Profile = function (_React$Component) {
   _inherits(Profile, _React$Component);
 
@@ -1018,19 +1022,42 @@ var Profile = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      // var retrievedCharactersList;
-      // var storedCharactersList;
-      //
-      // if(this.state.retrievedCharacters) {
-      //   var retrievedCharactersCopy = this.state.retrievedCharacters;
-      //   var arr = Object.keys(retrievedCharactersCopy).map(function(i) {return retrievedCharactersCopy[i]});
-      //
-      //   retrievedCharactersList = arr.map((character) => {
-      //     return (
-      //
-      //     )
-      //   });
-      // }
+      var retrievedCharactersList;
+      var storedCharactersList;
+
+      if (this.state.retrievedCharacters) {
+        var retrievedCharactersCopy = this.state.retrievedCharacters;
+        var arr = Object.keys(retrievedCharactersCopy).map(function (i) {
+          if (retrievedCharactersCopy[i].realm === "Zenedar") {
+            return retrievedCharactersCopy[i];
+          }
+        });
+
+        retrievedCharactersList = arr.map(function (character) {
+          var characterRace = _.findWhere(races, { id: character.race }).name;
+          var characterClass = _.findWhere(classes, { id: character.class }).name;
+          return _react2.default.createElement(
+            'tr',
+            null,
+            _react2.default.createElement(
+              'td',
+              null,
+              'character.name'
+            ),
+            _react2.default.createElement(
+              'td',
+              null,
+              'characterClass'
+            ),
+            _react2.default.createElement(
+              'td',
+              null,
+              'characterRace'
+            ),
+            _react2.default.createElement('td', null)
+          );
+        });
+      }
 
       return _react2.default.createElement(
         'div',
@@ -1040,16 +1067,49 @@ var Profile = function (_React$Component) {
           { className: 'row' },
           _react2.default.createElement(
             'div',
-            { className: 'btn btn-primary', onClick: _ProfileActions2.default.retrieveProfileCharacters },
-            'Retrieve Characters'
+            { className: 'col-md-2' },
+            _react2.default.createElement(
+              'div',
+              { className: 'btn btn-primary', onClick: _ProfileActions2.default.retrieveProfileCharacters },
+              'Retrieve Characters'
+            )
           ),
           _react2.default.createElement(
             'div',
-            { className: 'col-md-11' },
+            { className: 'col-md-10' },
             _react2.default.createElement(
               'h3',
               null,
               'Characters'
+            ),
+            _react2.default.createElement(
+              'table',
+              { className: 'table' },
+              _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                  'td',
+                  null,
+                  'Name>'
+                ),
+                _react2.default.createElement(
+                  'td',
+                  null,
+                  'Class'
+                ),
+                _react2.default.createElement(
+                  'td',
+                  null,
+                  'Race'
+                ),
+                _react2.default.createElement(
+                  'td',
+                  null,
+                  'Role'
+                )
+              ),
+              retrievedCharactersList
             )
           )
         )
@@ -1062,7 +1122,7 @@ var Profile = function (_React$Component) {
 
 exports.default = Profile;
 
-},{"../actions/ProfileActions":3,"../stores/NavbarStore":27,"../stores/ProfileStore":28,"react":"react","react-router":"react-router"}],17:[function(require,module,exports){
+},{"../../utility/WowClasses":356,"../../utility/WowRaces":357,"../actions/ProfileActions":3,"../stores/NavbarStore":27,"../stores/ProfileStore":28,"react":"react","react-router":"react-router","underscore":"underscore"}],17:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2160,7 +2220,7 @@ var ProfileStore = function () {
   _createClass(ProfileStore, [{
     key: 'onPopulateRetrievedCharactersSuccess',
     value: function onPopulateRetrievedCharactersSuccess(data) {
-      this.retrievedCharacters = data;
+      this.retrievedCharacters = data.characters;
     }
   }, {
     key: 'onPopulateRetrievedCharactersFailure',
@@ -67501,6 +67561,146 @@ function extend() {
 
     return target
 }
+
+},{}],356:[function(require,module,exports){
+"use strict";
+
+module.exports = [{
+    "id": 3,
+    "mask": 4,
+    "powerType": "focus",
+    "name": "Hunter"
+}, {
+    "id": 4,
+    "mask": 8,
+    "powerType": "energy",
+    "name": "Rogue"
+}, {
+    "id": 1,
+    "mask": 1,
+    "powerType": "rage",
+    "name": "Warrior"
+}, {
+    "id": 2,
+    "mask": 2,
+    "powerType": "mana",
+    "name": "Paladin"
+}, {
+    "id": 7,
+    "mask": 64,
+    "powerType": "mana",
+    "name": "Shaman"
+}, {
+    "id": 8,
+    "mask": 128,
+    "powerType": "mana",
+    "name": "Mage"
+}, {
+    "id": 5,
+    "mask": 16,
+    "powerType": "mana",
+    "name": "Priest"
+}, {
+    "id": 6,
+    "mask": 32,
+    "powerType": "runic-power",
+    "name": "Death Knight"
+}, {
+    "id": 11,
+    "mask": 1024,
+    "powerType": "mana",
+    "name": "Druid"
+}, {
+    "id": 9,
+    "mask": 256,
+    "powerType": "mana",
+    "name": "Warlock"
+}, {
+    "id": 10,
+    "mask": 512,
+    "powerType": "energy",
+    "name": "Monk"
+}];
+
+},{}],357:[function(require,module,exports){
+"use strict";
+
+module.exports = [{
+    "id": 1,
+    "mask": 1,
+    "side": "alliance",
+    "name": "Human"
+}, {
+    "id": 2,
+    "mask": 2,
+    "side": "horde",
+    "name": "Orc"
+}, {
+    "id": 3,
+    "mask": 4,
+    "side": "alliance",
+    "name": "Dwarf"
+}, {
+    "id": 4,
+    "mask": 8,
+    "side": "alliance",
+    "name": "Night Elf"
+}, {
+    "id": 5,
+    "mask": 16,
+    "side": "horde",
+    "name": "Undead"
+}, {
+    "id": 6,
+    "mask": 32,
+    "side": "horde",
+    "name": "Tauren"
+}, {
+    "id": 7,
+    "mask": 64,
+    "side": "alliance",
+    "name": "Gnome"
+}, {
+    "id": 8,
+    "mask": 128,
+    "side": "horde",
+    "name": "Troll"
+}, {
+    "id": 9,
+    "mask": 256,
+    "side": "horde",
+    "name": "Goblin"
+}, {
+    "id": 10,
+    "mask": 512,
+    "side": "horde",
+    "name": "Blood Elf"
+}, {
+    "id": 11,
+    "mask": 1024,
+    "side": "alliance",
+    "name": "Draenei"
+}, {
+    "id": 22,
+    "mask": 2097152,
+    "side": "alliance",
+    "name": "Worgen"
+}, {
+    "id": 24,
+    "mask": 8388608,
+    "side": "neutral",
+    "name": "Pandaren"
+}, {
+    "id": 25,
+    "mask": 16777216,
+    "side": "alliance",
+    "name": "Pandaren"
+}, {
+    "id": 26,
+    "mask": 33554432,
+    "side": "horde",
+    "name": "Pandaren"
+}];
 
 },{}]},{},[24])
 
