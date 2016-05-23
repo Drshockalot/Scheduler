@@ -1086,30 +1086,34 @@ var Profile = function (_React$Component) {
               'table',
               { className: 'table' },
               _react2.default.createElement(
-                'tr',
+                'tbody',
                 null,
                 _react2.default.createElement(
-                  'td',
+                  'tr',
                   null,
-                  'Name>'
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    'Name'
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    'Class'
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    'Race'
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    'Role'
+                  )
                 ),
-                _react2.default.createElement(
-                  'td',
-                  null,
-                  'Class'
-                ),
-                _react2.default.createElement(
-                  'td',
-                  null,
-                  'Race'
-                ),
-                _react2.default.createElement(
-                  'td',
-                  null,
-                  'Role'
-                )
-              ),
-              retrievedCharactersList
+                retrievedCharactersList
+              )
             )
           )
         )

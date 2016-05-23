@@ -62,13 +62,15 @@ class Profile extends React.Component {
           <div className='col-md-10'>
             <h3>Characters</h3>
             <table className='table'>
-              <tr>
-                <td>Name></td>
-                <td>Class</td>
-                <td>Race</td>
-                <td>Role</td>
-              </tr>
-              {retrievedCharactersList}
+              <tbody>
+                <tr>
+                  <td>Name</td>
+                  <td>Class</td>
+                  <td>Race</td>
+                  <td>Role</td>
+                </tr>
+                {retrievedCharactersList}
+              </tbody>
             </table>
           </div>
         </div>
