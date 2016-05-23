@@ -12,12 +12,12 @@ var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 
-var mongoose = require('mongoose');
-var Schedule = require('./db/models/schedule');
-var config = require('./config');
+// var mongoose = require('mongoose');
+// var config = require('./config');
 
 var Admin_RosterManagement_Routes = require('./api/roster');
 var Auth_Routes = require('./api/auth');
+var User_Routes = require('./api/user');
 
 var fs = require('fs');
 var cors = require('cors');
@@ -65,6 +65,7 @@ app.use(passport.session());
 
 app.use('/api/admin/roster/', Admin_RosterManagement_Routes);
 app.use('/auth/', Auth_Routes);
+app.use('/user/', User_Routes);
 
 app.use(function(req, res) {
   Router.match({ routes: routes.default, location: req.url }, function(err, redirectLocation, renderProps) {

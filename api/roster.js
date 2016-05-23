@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var roster = require('../db/models/roster');
+var roster = require('../db/mongo/models/roster');
 
 router.get('/', function(req, res, next) {
   roster.find({})/*.populate('members')*/.exec(function(err, result){

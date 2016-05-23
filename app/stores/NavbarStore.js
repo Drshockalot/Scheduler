@@ -44,13 +44,15 @@ class NavbarStore {
   }
 
   onUpdateBattletag(data) {
-    console.log(data);
     this.battletag = data;
   }
 
   onUpdateAccessToken(data) {
-    console.log(data);
     this.accessToken = data;
+  }
+
+  onCheckLoginFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
   }
 }
 

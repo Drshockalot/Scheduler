@@ -65,49 +65,31 @@ var NavbarActions = function () {
   function NavbarActions() {
     _classCallCheck(this, NavbarActions);
 
-    this.generateActions('updateOnlineUsers', 'updateAjaxAnimation', 'updateSearchQuery', 'getCharacterCountSuccess', 'getCharacterCountFail', 'findCharacterSuccess', 'findCharacterFail', 'updateBattletag', 'updateAccessToken');
+    this.generateActions('updateOnlineUsers', 'updateAjaxAnimation', 'updateSearchQuery', 'getCharacterCountSuccess', 'getCharacterCountFail', 'findCharacterSuccess', 'findCharacterFail', 'updateBattletag', 'updateAccessToken', 'checkLoginFailure');
   }
 
   _createClass(NavbarActions, [{
-    key: 'findCharacter',
-    value: function findCharacter(payload) {
-      var _this = this;
-
-      $.ajax({
-        url: '/api/characters/search',
-        data: { name: payload.searchQuery }
-      }).done(function (data) {
-        (0, _underscore.assign)(payload, data);
-        _this.actions.findCharacterSuccess(payload);
-      }).fail(function () {
-        _this.actions.findCharacterFail(payload);
-      });
-    }
-  }, {
-    key: 'getCharacterCount',
-    value: function getCharacterCount() {
-      var _this2 = this;
-
-      $.ajax({ url: '/api/characters/count' }).done(function (data) {
-        _this2.actions.getCharacterCountSuccess(data);
-      }).fail(function (jqXhr) {
-        _this2.actions.getCharacterCountFail(jqXhr);
-      });
-    }
-  }, {
     key: 'checkLogin',
     value: function checkLogin() {
-      var _this3 = this;
+      var _this = this;
 
       $.ajax({
         url: '/auth/bnet/status'
       }).done(function (data) {
         if (data) {
-          _this3.updateBattletag(data.battletag);
-          _this3.updateAccessToken(data.token);
+          _this.updateBattletag(data.battletag);
+          _this.updateAccessToken(data.token);
+          // $.ajax({
+          //   method: 'POST',
+          //   url: ''
+          // }).done((data) => {
+          //
+          // }).fail((jqXhr) => {
+          //
+          // });
         }
-      }).fail(function () {
-        //window.location = '/';
+      }).fail(function (jqXhr) {
+        _this.checkLoginFailure(jqXhr);
       });
     }
   }, {
@@ -2202,14 +2184,17 @@ var NavbarStore = function () {
   }, {
     key: 'onUpdateBattletag',
     value: function onUpdateBattletag(data) {
-      console.log(data);
       this.battletag = data;
     }
   }, {
     key: 'onUpdateAccessToken',
     value: function onUpdateAccessToken(data) {
-      console.log(data);
       this.accessToken = data;
+    }
+  }, {
+    key: 'onCheckLoginFailure',
+    value: function onCheckLoginFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
     }
   }]);
 
