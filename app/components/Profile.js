@@ -35,11 +35,10 @@ class Profile extends React.Component {
       var arr = [];
       Object.keys(retrievedCharactersCopy).map(function(i) {
         if(retrievedCharactersCopy[i].realm === "Zenedar") {
-            //return retrievedCharactersCopy[i];
             arr.push(retrievedCharactersCopy[i]);
         }
       });
-      console.log(arr);
+
       retrievedCharactersList = arr.map((character) => {
         var characterRace = _.findWhere(races, { id : character.race }).name;
         var characterClass = _.findWhere(classes, { id : character.class }).name;
@@ -66,10 +65,10 @@ class Profile extends React.Component {
             <table className='table'>
               <tbody>
                 <tr>
-                  <td>Name</td>
-                  <td>Class</td>
-                  <td>Race</td>
-                  <td>Role</td>
+                  <td><strong>Name</strong></td>
+                  <td><strong>Class</strong></td>
+                  <td><strong>Race</strong></td>
+                  <td><strong>Role</strong></td>
                 </tr>
                 {retrievedCharactersList}
               </tbody>

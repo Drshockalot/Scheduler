@@ -560,11 +560,13 @@ var Footer = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      // let admins = this.state.admins.map((name) => {
-      //   return (
-      //     <li key={name}>{name}</li>
-      //   )
-      // });
+      var admins = this.state.admins.map(function (name) {
+        return _react2.default.createElement(
+          'li',
+          { key: name },
+          name
+        );
+      });
 
       return _react2.default.createElement(
         'footer',
@@ -605,7 +607,11 @@ var Footer = function (_React$Component) {
                   'Admins'
                 )
               ),
-              _react2.default.createElement('ul', { className: 'list-inline' })
+              _react2.default.createElement(
+                'ul',
+                { className: 'list-inline' },
+                admins
+              )
             )
           )
         )
@@ -1030,11 +1036,10 @@ var Profile = function (_React$Component) {
         var arr = [];
         Object.keys(retrievedCharactersCopy).map(function (i) {
           if (retrievedCharactersCopy[i].realm === "Zenedar") {
-            //return retrievedCharactersCopy[i];
             arr.push(retrievedCharactersCopy[i]);
           }
         });
-        console.log(arr);
+
         retrievedCharactersList = arr.map(function (character) {
           var characterRace = _.findWhere(races, { id: character.race }).name;
           var characterClass = _.findWhere(classes, { id: character.class }).name;
@@ -1100,22 +1105,38 @@ var Profile = function (_React$Component) {
                   _react2.default.createElement(
                     'td',
                     null,
-                    'Name'
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Name'
+                    )
                   ),
                   _react2.default.createElement(
                     'td',
                     null,
-                    'Class'
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Class'
+                    )
                   ),
                   _react2.default.createElement(
                     'td',
                     null,
-                    'Race'
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Race'
+                    )
                   ),
                   _react2.default.createElement(
                     'td',
                     null,
-                    'Role'
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Role'
+                    )
                   )
                 ),
                 retrievedCharactersList

@@ -24,11 +24,11 @@ class Footer extends React.Component {
   }
 
   render() {
-    // let admins = this.state.admins.map((name) => {
-    //   return (
-    //     <li key={name}>{name}</li>
-    //   )
-    // });
+    let admins = this.state.admins.map((name) => {
+      return (
+        <li key={name}>{name}</li>
+      );
+    });
 
     return (
       <footer>
@@ -41,7 +41,7 @@ class Footer extends React.Component {
             <div className='col-sm-7 hidden-xs'>
               <h2 className='lead'><strong>Admins</strong></h2>
               <ul className='list-inline'>
-
+                {admins}
               </ul>
             </div>
           </div>
