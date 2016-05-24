@@ -22,8 +22,7 @@ class ProfileActions {
     });
   }
 
-  confirmMainCharacter(event) {
-    var character = event.target.value;
+  confirmMainCharacter(character) {
     console.log(character);
     character.rank = 'main';
     character.battletag = NavbarStore.getState().battletag;
@@ -41,7 +40,6 @@ class ProfileActions {
   }
 
     confirmAltCharacter(event) {
-      var character = event.target.value;
       console.log(character);
       character.rank = 'alt';
       character.battletag = NavbarStore.getState().battletag;

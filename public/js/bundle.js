@@ -154,8 +154,7 @@ var ProfileActions = function () {
     }
   }, {
     key: 'confirmMainCharacter',
-    value: function confirmMainCharacter(event) {
-      var character = event.target.value;
+    value: function confirmMainCharacter(character) {
       console.log(character);
       character.rank = 'main';
       character.battletag = _NavbarStore2.default.getState().battletag;
@@ -169,7 +168,6 @@ var ProfileActions = function () {
   }, {
     key: 'confirmAltCharacter',
     value: function confirmAltCharacter(event) {
-      var character = event.target.value;
       console.log(character);
       character.rank = 'alt';
       character.battletag = _NavbarStore2.default.getState().battletag;
