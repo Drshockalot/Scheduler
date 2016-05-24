@@ -1074,12 +1074,16 @@ var Profile = function (_React$Component) {
               { key: 'main/alt' },
               _react2.default.createElement(
                 'button',
-                { className: 'btn btn-primary', value: character, onClick: _ProfileActions2.default.confirmMainCharacter },
+                { className: 'btn btn-primary', onClick: function onClick() {
+                    return _ProfileActions2.default.confirmMainCharacter(character);
+                  } },
                 'Main'
               ),
               _react2.default.createElement(
                 'button',
-                { className: 'btn btn-default', value: character, onClick: _ProfileActions2.default.confirmAltCharacter },
+                { className: 'btn btn-default', onClick: function onClick() {
+                    return _ProfileActions2.default.confirmAltCharacter(character);
+                  } },
                 'Alt'
               )
             )
