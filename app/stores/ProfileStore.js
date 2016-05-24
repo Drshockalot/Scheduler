@@ -6,6 +6,8 @@ class ProfileStore {
     this.bindActions(ProfileActions);
     this.retrievedCharacters = null;
     this.storedCharacters = null;
+    this.confirmedAlts = null;
+    this.confirmedMain = null;
   }
 
   onPopulateRetrievedCharactersSuccess(data) {

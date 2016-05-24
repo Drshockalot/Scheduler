@@ -1059,12 +1059,12 @@ var Profile = function (_React$Component) {
               'td',
               { key: 'main/alt' },
               _react2.default.createElement(
-                Button,
+                'button',
                 { className: 'btn btn-primary', value: mainCharacter, onClick: _ProfileActions2.default.confirmCharacter },
                 'Main'
               ),
               _react2.default.createElement(
-                Button,
+                'button',
                 { className: 'btn btn-default', value: altCharacter, onClick: _ProfileActions2.default.confirmCharacter },
                 'Alt'
               )
@@ -2263,6 +2263,8 @@ var ProfileStore = function () {
     this.bindActions(_ProfileActions2.default);
     this.retrievedCharacters = null;
     this.storedCharacters = null;
+    this.confirmedAlts = null;
+    this.confirmedMain = null;
   }
 
   _createClass(ProfileStore, [{
