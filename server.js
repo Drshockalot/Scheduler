@@ -58,7 +58,9 @@ app.use(cors());
 app.use(cookieParser());
 app.use(session({ secret: 'blizzard',
                   saveUninitialized: true,
-                  resave: true }));
+                  resave: true,
+                  maxAge: 3600000
+                }));
 
 app.use(passport.initialize());
 app.use(passport.session());

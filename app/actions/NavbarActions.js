@@ -32,7 +32,6 @@ class NavbarActions {
           url: '/api/user/log',
           data: { battletag: data.battletag, role: 'member' }
         }).done((result) => {
-          console.log(result);
           this.checkUserSuccess(result.data.user.role);
         }).fail((jqXhr) => {
           this.checkUserFailure(jqXhr);
