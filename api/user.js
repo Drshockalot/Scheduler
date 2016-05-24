@@ -6,7 +6,7 @@ var User = require('./../db/postgres/user');
 
 router.post('/log', function(req, res, next) {
   User.forge()
-      .query('whereIn', 'battletag', user.battletag)
+      .query('whereIn', 'battletag', req.body.battletag)
       .fetch()
       .then(function(user) {
         if(!user) {
