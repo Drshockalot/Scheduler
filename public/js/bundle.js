@@ -1036,8 +1036,10 @@ var Profile = function (_React$Component) {
         retrievedCharactersList = arr.map(function (character) {
           var characterRace = _.findWhere(races, { id: character.race }).name;
           var characterClass = _.findWhere(classes, { id: character.class }).name;
-          var altCharacter = character.rank = 'main';
-          var mainCharacter = character.rank = 'alt';
+          character.rank = 'alt';
+          var altCharacter = character;
+          character.rank = 'main';
+          var mainCharacter = character;
           return _react2.default.createElement(
             'tr',
             { key: character.name },
