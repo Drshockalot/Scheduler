@@ -24,6 +24,7 @@ class ProfileActions {
 
   confirmCharacter(event) {
     var character = event.target.value;
+    console.log(character);
     character.battletag = NavbarStore.getState().battletag;
     console.log(character);
     $.ajax({
