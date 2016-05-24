@@ -11,6 +11,8 @@ router.post('/log', function(req, res, next) {
       .query('whereIn', 'battletag', user.battletag)
       .fetch()
       .then(function(user) {
+        console.log(user);
+        console.log(user.toJSON());
         if(!user) {
           User.forge(user)
               .save()
