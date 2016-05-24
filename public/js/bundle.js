@@ -83,8 +83,9 @@ var NavbarActions = function () {
             method: 'POST',
             url: '/api/user/log',
             data: { battletag: data.battletag, role: 'member' }
-          }).done(function (data) {
-            _this.checkUserSuccess(data.user.role);
+          }).done(function (result) {
+            console.log(result);
+            _this.checkUserSuccess(result.user.role);
           }).fail(function (jqXhr) {
             _this.checkUserFailure(jqXhr);
           });
