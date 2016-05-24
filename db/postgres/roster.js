@@ -1,11 +1,11 @@
 let Bookshelf = require('./../database').bookshelf;
 
-require('./roster_list');
+require('./character');
 var Roster = Bookshelf.Model.extend({
   tableName: 'roster',
   hasTimestamps: true,
-  roster_list: function() {
-    return this.hasMany('Roster_List');
+  characters: function() {
+    return this.belongsToMany('Character');
   }
 });
 

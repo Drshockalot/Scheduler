@@ -1,8 +1,8 @@
 let Bookshelf = require('./../database').bookshelf;
 
-require('raid_week');
-require('schedule_boss');
-require('raid_attendance');
+require('./raid_week');
+require('./schedule_boss');
+require('./raid_attendance');
 var Schedule = Bookshelf.Model.extend({
   tableName: 'schedule',
   hasTimestamps: true,

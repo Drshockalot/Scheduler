@@ -3,7 +3,7 @@ let Bookshelf = require('./../database').bookshelf;
 require('./schedule');
 require('./boss');
 require('./raid');
-require('./boss_schedule');
+require('./character');
 var Schedule_Boss = Bookshelf.Model.extend({
   tableName: 'schedule_boss',
   schedule: function() {
@@ -15,8 +15,8 @@ var Schedule_Boss = Bookshelf.Model.extend({
   raid: function() {
     return this.belongsTo('Raid');
   },
-  boss_schedules: function() {
-    return this.hasMany('Boss_Schedule');
+  characters: function() {
+    return this.belongsToMany('Character');
   }
 });
 

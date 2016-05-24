@@ -1,19 +1,19 @@
 let Bookshelf = require('./../database').bookshelf;
 
-require('./roster_list');
+require('./roster');
 require('./user');
-require('./boss_schedule');
+require('./schedule_boss');
 var Character = Bookshelf.Model.extend({
   tableName: 'character',
   hasTimestamps: true,
   user: function() {
     return this.belongsTo('User');
   },
-  roster_list: function() {
-    return this.hasMany('Roster_List');
+  rosters: function() {
+    return this.belongsToMany('Roster');
   },
-  boss_schedules: function() {
-    return this.hasMany('Boss_Schedule');
+  schedule_bosses: function() {
+    return this.belongsToMany('Schedule_Boss');
   }
 });
 
