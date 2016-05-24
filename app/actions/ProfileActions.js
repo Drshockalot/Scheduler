@@ -22,9 +22,10 @@ class ProfileActions {
     });
   }
 
-  confirmCharacter(event) {
+  confirmMainCharacter(event) {
     var character = event.target.value;
     console.log(character);
+    character.rank = 'main';
     character.battletag = NavbarStore.getState().battletag;
     console.log(character);
     $.ajax({
@@ -36,6 +37,24 @@ class ProfileActions {
     }).fail((jqXhr) => {
 
     });
+
+  }
+
+    confirmAltCharacter(event) {
+      var character = event.target.value;
+      console.log(character);
+      character.rank = 'alt';
+      character.battletag = NavbarStore.getState().battletag;
+      console.log(character);
+      $.ajax({
+        method: 'POST',
+        url: '/api/character/confirm',
+        data: character
+      }).done((result) => {
+
+      }).fail((jqXhr) => {
+
+      });
   }
 }
 

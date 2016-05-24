@@ -153,10 +153,25 @@ var ProfileActions = function () {
       });
     }
   }, {
-    key: 'confirmCharacter',
-    value: function confirmCharacter(event) {
+    key: 'confirmMainCharacter',
+    value: function confirmMainCharacter(event) {
       var character = event.target.value;
       console.log(character);
+      character.rank = 'main';
+      character.battletag = _NavbarStore2.default.getState().battletag;
+      console.log(character);
+      $.ajax({
+        method: 'POST',
+        url: '/api/character/confirm',
+        data: character
+      }).done(function (result) {}).fail(function (jqXhr) {});
+    }
+  }, {
+    key: 'confirmAltCharacter',
+    value: function confirmAltCharacter(event) {
+      var character = event.target.value;
+      console.log(character);
+      character.rank = 'alt';
       character.battletag = _NavbarStore2.default.getState().battletag;
       console.log(character);
       $.ajax({
@@ -1036,10 +1051,6 @@ var Profile = function (_React$Component) {
         retrievedCharactersList = arr.map(function (character) {
           var characterRace = _.findWhere(races, { id: character.race }).name;
           var characterClass = _.findWhere(classes, { id: character.class }).name;
-          character.rank = 'alt';
-          var altCharacter = character;
-          character.rank = 'main';
-          var mainCharacter = character;
           return _react2.default.createElement(
             'tr',
             { key: character.name },
@@ -1063,12 +1074,12 @@ var Profile = function (_React$Component) {
               { key: 'main/alt' },
               _react2.default.createElement(
                 'button',
-                { className: 'btn btn-primary', value: mainCharacter, onClick: _ProfileActions2.default.confirmCharacter },
+                { className: 'btn btn-primary', value: character, onClick: _ProfileActions2.default.confirmMainCharacter },
                 'Main'
               ),
               _react2.default.createElement(
                 'button',
-                { className: 'btn btn-default', value: altCharacter, onClick: _ProfileActions2.default.confirmCharacter },
+                { className: 'btn btn-default', value: character, onClick: _ProfileActions2.default.confirmAltCharacter },
                 'Alt'
               )
             )
