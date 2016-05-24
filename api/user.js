@@ -5,18 +5,12 @@ var _ = require('underscore');
 var User = require('./../db/postgres/user');
 
 router.post('/log', function(req, res, next) {
-  var user = req.body;
-  console.log(req.body.battletag);
-  console.log(req.body.role);
-  console.log(user);
   User.forge()
       .query('whereIn', 'battletag', user.battletag)
       .fetch()
       .then(function(user) {
-        console.log(user);
-        console.log(user.toJSON());
         if(!user) {
-          User.forge(user)
+          User.forge({ battletag: req.body.battletag, role: req.body.role })
               .save()
               .then(function(user) {
                 res.json({error: false, data: {message: 'New User saved', user: user.toJSON()}})
