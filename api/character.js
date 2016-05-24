@@ -5,7 +5,7 @@ var _ = require('underscore');
 var Character = require('./../db/postgres/character');
 var User = require('./../db/postgres/user');
 
-router.post('confirm', function(req, res, next) {
+router.post('/confirm', function(req, res, next) {
   User.forge()
       .fetch({'withRelated': ['characters']})
       .then(function(user) {
