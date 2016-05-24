@@ -13,7 +13,7 @@ router.post('/log', function(req, res, next) {
           User.forge({ battletag: req.body.battletag, role: req.body.role })
               .save()
               .then(function(user) {
-                res.json({error: false, data: {message: 'New User saved', user: user.toJSON()}})
+                res.json({error: false, data: {message: 'New User saved', user: user.toJSON()}});
               })
               .catch(function(err) {
                 res.status(500).json({error: true, data: {message: err.message}});

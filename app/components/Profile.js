@@ -42,12 +42,17 @@ class Profile extends React.Component {
       retrievedCharactersList = arr.map((character) => {
         var characterRace = _.findWhere(races, { id : character.race }).name;
         var characterClass = _.findWhere(classes, { id : character.class }).name;
+        var altCharacter = character.rank = 'main';
+        var mainCharacter = character.rank = 'alt';
         return (
           <tr key={character.name}>
             <td key={character.name}>{character.name}</td>
             <td key={characterClass}>{characterClass}</td>
             <td key={characterRace}>{characterRace}</td>
-            <td key='main/alt'>main/alt buttons</td>
+            <td key='main/alt'>
+              <Button className='btn btn-primary' value={mainCharacter} onClick={ProfileActions.confirmCharacter}>Main</Button>
+              <Button className='btn btn-default' value={altCharacter} onClick={ProfileActions.confirmCharacter}>Alt</Button>
+            </td>
           </tr>
         );
       });
@@ -68,7 +73,7 @@ class Profile extends React.Component {
                   <td><strong>Name</strong></td>
                   <td><strong>Class</strong></td>
                   <td><strong>Race</strong></td>
-                  <td><strong>Role</strong></td>
+                  <td><strong>Rank</strong></td>
                 </tr>
                 {retrievedCharactersList}
               </tbody>

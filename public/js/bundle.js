@@ -143,9 +143,6 @@ var ProfileActions = function () {
     value: function retrieveProfileCharacters() {
       var _this = this;
 
-      // bnet.account.wow({ origin: 'eu', access_token: NavbarStore.getState().accessToken }, function(err, body, res) {
-      //   this.populateRetreivedCharacters(data);
-      // });
       $.ajax({
         method: 'GET',
         url: 'https://eu.api.battle.net/wow/user/characters?locale=en_GB&apikey=8fc24vcgky6r8yzja8a4efxncgu8z77g&access_token=' + _NavbarStore2.default.getState().accessToken
@@ -154,6 +151,18 @@ var ProfileActions = function () {
       }).fail(function (jqXhr) {
         _this.populateRetrievedCharactersFailure(jqXhr);
       });
+    }
+  }, {
+    key: 'confirmCharacter',
+    value: function confirmCharacter(event) {
+      var character = event.target.value;
+      character.battletag = _NavbarStore2.default.getState().battletag;
+      console.log(character);
+      $.ajax({
+        method: 'POST',
+        url: '/api/character/confirm',
+        data: character
+      }).done(function (result) {}).fail(function (jqXhr) {});
     }
   }]);
 
@@ -1026,6 +1035,8 @@ var Profile = function (_React$Component) {
         retrievedCharactersList = arr.map(function (character) {
           var characterRace = _.findWhere(races, { id: character.race }).name;
           var characterClass = _.findWhere(classes, { id: character.class }).name;
+          var altCharacter = character.rank = 'main';
+          var mainCharacter = character.rank = 'alt';
           return _react2.default.createElement(
             'tr',
             { key: character.name },
@@ -1047,7 +1058,16 @@ var Profile = function (_React$Component) {
             _react2.default.createElement(
               'td',
               { key: 'main/alt' },
-              'main/alt buttons'
+              _react2.default.createElement(
+                Button,
+                { className: 'btn btn-primary', value: mainCharacter, onClick: _ProfileActions2.default.confirmCharacter },
+                'Main'
+              ),
+              _react2.default.createElement(
+                Button,
+                { className: 'btn btn-default', value: altCharacter, onClick: _ProfileActions2.default.confirmCharacter },
+                'Alt'
+              )
             )
           );
         });
@@ -1118,7 +1138,7 @@ var Profile = function (_React$Component) {
                     _react2.default.createElement(
                       'strong',
                       null,
-                      'Role'
+                      'Rank'
                     )
                   )
                 ),

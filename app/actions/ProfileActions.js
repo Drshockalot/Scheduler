@@ -12,9 +12,6 @@ class ProfileActions {
   }
 
   retrieveProfileCharacters() {
-    // bnet.account.wow({ origin: 'eu', access_token: NavbarStore.getState().accessToken }, function(err, body, res) {
-    //   this.populateRetreivedCharacters(data);
-    // });
     $.ajax({
       method: 'GET',
       url: 'https://eu.api.battle.net/wow/user/characters?locale=en_GB&apikey=8fc24vcgky6r8yzja8a4efxncgu8z77g&access_token=' + NavbarStore.getState().accessToken
@@ -22,6 +19,21 @@ class ProfileActions {
       this.populateRetrievedCharactersSuccess(data);
     }).fail((jqXhr) => {
       this.populateRetrievedCharactersFailure(jqXhr);
+    });
+  }
+
+  confirmCharacter(event) {
+    var character = event.target.value;
+    character.battletag = NavbarStore.getState().battletag;
+    console.log(character);
+    $.ajax({
+      method: 'POST',
+      url: '/api/character/confirm',
+      data: character
+    }).done((result) => {
+
+    }).fail((jqXhr) => {
+
     });
   }
 }

@@ -18,6 +18,7 @@ var bodyParser = require('body-parser');
 var Admin_RosterManagement_Routes = require('./api/roster');
 var Auth_Routes = require('./api/auth');
 var User_Routes = require('./api/user');
+var Character_Routes = require('./api/character');
 
 var fs = require('fs');
 var cors = require('cors');
@@ -68,6 +69,8 @@ app.use(passport.session());
 app.use('/api/admin/roster/', Admin_RosterManagement_Routes);
 app.use('/auth/', Auth_Routes);
 app.use('/api/user/', User_Routes);
+app.use('/api/character', Character_Routes);
+
 
 app.use(function(req, res) {
   Router.match({ routes: routes.default, location: req.url }, function(err, redirectLocation, renderProps) {
