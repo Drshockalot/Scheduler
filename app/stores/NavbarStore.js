@@ -10,6 +10,7 @@ class NavbarStore {
     this.ajaxAnimationClass = '';
     this.battletag = '';
     this.accessToken = '';
+    this.userRole = '';
   }
 
   onFindCharacterSuccess(payload) {
@@ -52,6 +53,14 @@ class NavbarStore {
   }
 
   onCheckLoginFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
+
+  onCheckUserSuccess(role) {
+    this.userRole = role;
+  }
+
+  onCheckUserFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
   }
 }

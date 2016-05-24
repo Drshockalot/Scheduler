@@ -14,7 +14,9 @@ class NavbarActions {
       'findCharacterFail',
       'updateBattletag',
       'updateAccessToken',
-      'checkLoginFailure'
+      'checkLoginFailure',
+      'checkUserSuccess',
+      'checkUserFailure'
     );
   }
 
@@ -25,14 +27,15 @@ class NavbarActions {
       if(data) {
         this.updateBattletag(data.battletag);
         this.updateAccessToken(data.token);
-        // $.ajax({
-        //   method: 'POST',
-        //   url: ''
-        // }).done((data) => {
-        //
-        // }).fail((jqXhr) => {
-        //
-        // });
+        $.ajax({
+          method: 'POST',
+          url: '/api/user/log',
+          data: { battletag: data.battletag, role: 'member' }
+        }).done((data) => {
+          this.checkUserSuccess(data.user.role);
+        }).fail((jqXhr) => {
+          this.checkUserFailure(jqXhr);
+        });
       }
     }).fail((jqXhr) => {
       this.checkLoginFailure(jqXhr);

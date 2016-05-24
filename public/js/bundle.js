@@ -65,7 +65,7 @@ var NavbarActions = function () {
   function NavbarActions() {
     _classCallCheck(this, NavbarActions);
 
-    this.generateActions('updateOnlineUsers', 'updateAjaxAnimation', 'updateSearchQuery', 'getCharacterCountSuccess', 'getCharacterCountFail', 'findCharacterSuccess', 'findCharacterFail', 'updateBattletag', 'updateAccessToken', 'checkLoginFailure');
+    this.generateActions('updateOnlineUsers', 'updateAjaxAnimation', 'updateSearchQuery', 'getCharacterCountSuccess', 'getCharacterCountFail', 'findCharacterSuccess', 'findCharacterFail', 'updateBattletag', 'updateAccessToken', 'checkLoginFailure', 'checkUserSuccess', 'checkUserFailure');
   }
 
   _createClass(NavbarActions, [{
@@ -79,14 +79,15 @@ var NavbarActions = function () {
         if (data) {
           _this.updateBattletag(data.battletag);
           _this.updateAccessToken(data.token);
-          // $.ajax({
-          //   method: 'POST',
-          //   url: ''
-          // }).done((data) => {
-          //
-          // }).fail((jqXhr) => {
-          //
-          // });
+          $.ajax({
+            method: 'POST',
+            url: '/api/user/log',
+            data: { battletag: data.battletag, role: 'member' }
+          }).done(function (data) {
+            _this.checkUserSuccess(data.user.role);
+          }).fail(function (jqXhr) {
+            _this.checkUserFailure(jqXhr);
+          });
         }
       }).fail(function (jqXhr) {
         _this.checkLoginFailure(jqXhr);
@@ -2141,6 +2142,7 @@ var NavbarStore = function () {
     this.ajaxAnimationClass = '';
     this.battletag = '';
     this.accessToken = '';
+    this.userRole = '';
   }
 
   _createClass(NavbarStore, [{
@@ -2194,6 +2196,16 @@ var NavbarStore = function () {
   }, {
     key: 'onCheckLoginFailure',
     value: function onCheckLoginFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onCheckUserSuccess',
+    value: function onCheckUserSuccess(role) {
+      this.userRole = role;
+    }
+  }, {
+    key: 'onCheckUserFailure',
+    value: function onCheckUserFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
     }
   }]);
