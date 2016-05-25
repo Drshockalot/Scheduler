@@ -18,7 +18,7 @@ router.post('/confirm', function(req, res, next) {
         });
         console.log("Characters Array");
         console.log(charactersArr);
-        if(charactersJSON) {
+        if(charactersArr.length > 0) {
           console.log('In if');
           let count = _.countBy(charactersArr, function(character) {
             return character.rank;
