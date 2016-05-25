@@ -37,7 +37,7 @@ class ProfileActions {
       this.confirmCharacterSuccess(result);
       $.ajax({
         method: 'GET',
-        url: '/api/character/confirmed/' + NavbarStore.getState().battletag
+        url: '/api/character/confirmed/' + encodeURIComponent(NavbarStore.getState().battletag)
       }).done((result_) => {
         console.log(result_);
         this.updateStoredCharactersSuccess(result_);

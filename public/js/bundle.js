@@ -167,7 +167,7 @@ var ProfileActions = function () {
         _this2.confirmCharacterSuccess(result);
         $.ajax({
           method: 'GET',
-          url: '/api/character/confirmed/' + _NavbarStore2.default.getState().battletag
+          url: '/api/character/confirmed/' + encodeURIComponent(_NavbarStore2.default.getState().battletag)
         }).done(function (result_) {
           console.log(result_);
           _this2.updateStoredCharactersSuccess(result_);
