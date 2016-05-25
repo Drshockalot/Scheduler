@@ -22,12 +22,12 @@ router.post('/confirm', function(req, res, next) {
           });
           console.log(count);
           if(req.body.rank === "main" && count.main == 1) {
-            res.json({error: false, data: { message: 'You already have one main', character: characters.toJSON()}});
+            res.json({error: false, data: { message: 'You already have one main', characters: characters}});
             return;
           }
 
           if(req.body.rank === "alt" && count.main == 2) {
-            res.json({error: false, data: { message: 'You already have two alts', character: characters.toJSON()}});
+            res.json({error: false, data: { message: 'You already have two alts', characters: characters}});
             return;
           }
 
