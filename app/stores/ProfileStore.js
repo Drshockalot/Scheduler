@@ -22,7 +22,7 @@ class ProfileStore {
     if (result.character) {
       toastr.success(result.data.character.name + 'is now a confirmed character', 'Character Confirmed');
     } else {
-      toastr.warn(result.data.message, 'Character Unconfirmed');
+      toastr.warning(result.data.message, 'Character Unconfirmed');
     }
   }
 

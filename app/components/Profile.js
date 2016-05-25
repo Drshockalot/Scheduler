@@ -16,6 +16,7 @@ class Profile extends React.Component {
 
   componentDidMount() {
     ProfileStore.listen(this.onChange);
+    ProfileActions.getStoredCharacters();
   }
 
   componentWillUnmount() {

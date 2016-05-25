@@ -50,6 +50,19 @@ class ProfileActions {
       this.confirmCharacterFailure(jqXhr);
     });
   }
+
+  getStoredCharacters() {
+    $.ajax({
+      method: 'GET',
+      url: '/api/character/confirmed/' + encodeURIComponent(NavbarStore.getState().battletag)
+    }).done((result) => {
+      console.log(result);
+      this.updateStoredCharactersSuccess(result);
+    }).fail((jqXhr) => {
+      console.log(jqXhr);
+      this.updateStoredCharactersFailure(jqXhr);
+    });
+  }
 }
 
 export default alt.createActions(ProfileActions);

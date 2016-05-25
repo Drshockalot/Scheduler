@@ -180,6 +180,22 @@ var ProfileActions = function () {
         _this2.confirmCharacterFailure(jqXhr);
       });
     }
+  }, {
+    key: 'getStoredCharacters',
+    value: function getStoredCharacters() {
+      var _this3 = this;
+
+      $.ajax({
+        method: 'GET',
+        url: '/api/character/confirmed/' + encodeURIComponent(_NavbarStore2.default.getState().battletag)
+      }).done(function (result) {
+        console.log(result);
+        _this3.updateStoredCharactersSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this3.updateStoredCharactersFailure(jqXhr);
+      });
+    }
   }]);
 
   return ProfileActions;
@@ -1022,6 +1038,7 @@ var Profile = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _ProfileStore2.default.listen(this.onChange);
+      _ProfileActions2.default.getStoredCharacters();
     }
   }, {
     key: 'componentWillUnmount',
@@ -2303,7 +2320,7 @@ var ProfileStore = function () {
       if (result.character) {
         toastr.success(result.data.character.name + 'is now a confirmed character', 'Character Confirmed');
       } else {
-        toastr.warn(result.data.message, 'Character Unconfirmed');
+        toastr.warning(result.data.message, 'Character Unconfirmed');
       }
     }
   }, {
