@@ -27,7 +27,7 @@ class ProfileStore {
   }
 
   onUpdateStoredCharactersSuccess(characters) {
-    this.storedCharacters = characters;
+    this.storedCharacters = characters.data;
   }
 
   onUpdateStoredCharactersFailure(jqXhr) {

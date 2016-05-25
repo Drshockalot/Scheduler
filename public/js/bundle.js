@@ -2310,7 +2310,7 @@ var ProfileStore = function () {
   }, {
     key: 'onUpdateStoredCharactersSuccess',
     value: function onUpdateStoredCharactersSuccess(characters) {
-      this.storedCharacters = characters;
+      this.storedCharacters = characters.data;
     }
   }, {
     key: 'onUpdateStoredCharactersFailure',

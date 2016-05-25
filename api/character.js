@@ -22,7 +22,7 @@ router.post('/confirm/:battletag', function(req, res, next) {
             return;
           }
 
-          if(req.body.rank === "alt" && count.main == 2) {
+          if(req.body.rank === "alt" && count.alt == 2) {
             res.json({error: false, data: { message: 'You already have two alts', characters: characters}});
             return;
           }
