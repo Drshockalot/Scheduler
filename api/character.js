@@ -34,6 +34,7 @@ router.post('/confirm', function(req, res, next) {
           Character.forge({ name: characterInput.name,
                             class: characterInput.class,
                             rank: characterInput.rank,
+                            user_id: user.get('id'),
                             confirmed: 0})
                    .save()
                    .then(function(character) {
@@ -48,6 +49,7 @@ router.post('/confirm', function(req, res, next) {
           Character.forge({ name: characterInput.name,
                             class: characterInput.class,
                             rank: characterInput.rank,
+                            user_id: user.get('id'),
                             confirmed: 0})
                    .save()
                    .then(function(character) {
