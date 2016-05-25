@@ -10,7 +10,7 @@ router.post('/confirm', function(req, res, next) {
       .fetch({'withRelated': ['characters']})
       .then(function(user) {
         console.log(user.toJSON());
-        var charactersJSON = user.related('characters');
+        var charactersJSON = user.related('characters').toJSON();
         console.log(charactersJSON);
         var charactersArr = Object.key(charactersJSON).map(function(i) {
           return charactersJSON[i];
