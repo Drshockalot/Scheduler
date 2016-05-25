@@ -10,13 +10,13 @@ router.post('/confirm', function(req, res, next) {
       .fetch({'withRelated': ['characters']})
       .then(function(user) {
         console.log(user.toJSON());
-        var charactersJSON = user.related('characters').toJSON();
+        var characters = user.related('characters').toJSON();
         console.log("Characters JSON");
-        console.log(charactersJSON);
-        console.log('arr length' + charactersJSON.characters.length);
-        if(charactersJSON.characters.length > 0) {
+        console.log(characters);
+        console.log('arr length' + characters.length);
+        if(characters.length > 0) {
           console.log('In if');
-          let count = _.countBy(charactersJSON.characters, function(character) {
+          let count = _.countBy(characters, function(character) {
             return character.rank;
           });
           console.log(count);
