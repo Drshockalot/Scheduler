@@ -6,6 +6,7 @@ var Character = require('./../db/postgres/character');
 var User = require('./../db/postgres/user');
 
 router.post('/confirm', function(req, res, next) {
+  var characterInput = req.body;
   User.forge()
       .fetch({'withRelated': ['characters']})
       .then(function(user) {
@@ -30,9 +31,9 @@ router.post('/confirm', function(req, res, next) {
             return;
           }
 
-          Character.forge({ name: character.name,
-                            class: character.class,
-                            rank: character.rank,
+          Character.forge({ name: characterInput.name,
+                            class: characterInput.class,
+                            rank: characterInput.rank,
                             confirmed: 0})
                    .save()
                    .then(function(character) {
@@ -44,9 +45,9 @@ router.post('/confirm', function(req, res, next) {
                    });
         } else {
           console.log('In Else');
-          Character.forge({ name: character.name,
-                            class: character.class,
-                            rank: character.rank,
+          Character.forge({ name: characterInput.name,
+                            class: characterInput.class,
+                            rank: characterInput.rank,
                             confirmed: 0})
                    .save()
                    .then(function(character) {
