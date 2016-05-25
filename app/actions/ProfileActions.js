@@ -32,9 +32,9 @@ class ProfileActions {
       url: '/api/character/confirm',
       data: character
     }).done((result) => {
-
+      console.log(result);
     }).fail((jqXhr) => {
-
+      console.log(jqXhr);
     });
 
   }

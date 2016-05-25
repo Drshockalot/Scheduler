@@ -163,7 +163,11 @@ var ProfileActions = function () {
         method: 'POST',
         url: '/api/character/confirm',
         data: character
-      }).done(function (result) {}).fail(function (jqXhr) {});
+      }).done(function (result) {
+        console.log(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+      });
     }
   }, {
     key: 'confirmAltCharacter',

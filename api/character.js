@@ -13,7 +13,7 @@ router.post('/confirm', function(req, res, next) {
         var charactersJSON = user.related('characters').toJSON();
         console.log("Characters JSON");
         console.log(charactersJSON);
-
+        console.log('arr length' + charactersJSON.characters.length);
         if(charactersJSON.characters.length > 0) {
           console.log('In if');
           let count = _.countBy(charactersJSON.characters, function(character) {
