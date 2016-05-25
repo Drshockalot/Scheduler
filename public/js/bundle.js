@@ -2299,8 +2299,12 @@ var ProfileStore = function () {
     }
   }, {
     key: 'onConfirmCharacterSuccess',
-    value: function onConfirmCharacterSuccess(character) {
-      toastr.success(character.name + 'is now a confirmed character', 'Character Confirmed');
+    value: function onConfirmCharacterSuccess(result) {
+      if (result.character) {
+        toastr.success(result.data.character.name + 'is now a confirmed character', 'Character Confirmed');
+      } else {
+        toastr.warn(result.data.message, 'Character Unconfirmed');
+      }
     }
   }, {
     key: 'onConfirmCharacterFailure',

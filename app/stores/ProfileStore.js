@@ -18,8 +18,12 @@ class ProfileStore {
     toastr.error(jqXhr.responseJSON.message);
   }
 
-  onConfirmCharacterSuccess(character) {
-    toastr.success(character.name + 'is now a confirmed character', 'Character Confirmed');
+  onConfirmCharacterSuccess(result) {
+    if (result.character) {
+      toastr.success(result.data.character.name + 'is now a confirmed character', 'Character Confirmed');
+    } else {
+      toastr.warn(result.data.message, 'Character Unconfirmed');
+    }
   }
 
   onConfirmCharacterFailure(jqXhr) {
