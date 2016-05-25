@@ -5,9 +5,9 @@ var _ = require('underscore');
 var Character = require('./../db/postgres/character');
 var User = require('./../db/postgres/user');
 
-router.post('/confirm', function(req, res, next) {
+router.post('/confirm/:battletag', function(req, res, next) {
   var characterInput = req.body;
-  User.forge()
+  User.forge({ battletag: req.params.battletag })
       .fetch({'withRelated': ['characters']})
       .then(function(user) {
         var characters = user.related('characters').toJSON();
@@ -59,6 +59,7 @@ router.post('/confirm', function(req, res, next) {
 });
 
 router.get('/confirmed/:battletag', function(req, res, next) {
+  console.log(req.params.battletag);
   User.forge({ battletag: req.params.battletag })
       .fetch({'withRelated': ['characters']})
       .then(function(user) {
