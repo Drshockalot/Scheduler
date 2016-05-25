@@ -17,6 +17,22 @@ class ProfileStore {
   onPopulateRetrievedCharactersFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
   }
+
+  onConfirmCharacterSuccess(character) {
+    toastr.success(characer.name + 'is now a confirmed character', 'Character Confirmed');
+  }
+
+  onConfirmCharacterFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
+
+  onUpdateStoredCharactersSuccess(characters) {
+    this.storedCharacters = characters;
+  }
+
+  onUpdateStoredCharactersFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
 }
 
 export default alt.createStore(ProfileStore);

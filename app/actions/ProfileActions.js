@@ -7,7 +7,11 @@ class ProfileActions {
   constructor() {
     this.generateActions(
       'populateRetrievedCharactersSuccess',
-      'populateRetrievedCharactersFailure'
+      'populateRetrievedCharactersFailure',
+      'confirmCharacterSuccess',
+      'confirmCharacterFailure',
+      'updateStoredCharactersSuccess',
+      'updateStoredCharactersFailure'
     );
   }
 
@@ -22,37 +26,29 @@ class ProfileActions {
     });
   }
 
-  confirmMainCharacter(character) {
-    console.log(character);
-    character.rank = 'main';
+  confirmCharacter(character) {
     character.battletag = NavbarStore.getState().battletag;
-    console.log(character);
     $.ajax({
       method: 'POST',
       url: '/api/character/confirm',
       data: character
     }).done((result) => {
       console.log(result);
+      this.confirmCharacterSuccess(result);
+      $.ajax({
+        method: 'GET',
+        url: '/api/character/confirmed/' + NavbarStore.getState().battletag
+      }).done((result_) => {
+        console.log(result_);
+        this.updateStoredCharactersSuccess(result_);
+      }).fail((jqXhr_) => {
+        console.log(jqXhr_);
+        this.updateStoredCharactersFailure(jqXhr_);
+      });
     }).fail((jqXhr) => {
       console.log(jqXhr);
+      this.confirmCharacterFailure(jqXhr);
     });
-
-  }
-
-    confirmAltCharacter(event) {
-      console.log(character);
-      character.rank = 'alt';
-      character.battletag = NavbarStore.getState().battletag;
-      console.log(character);
-      $.ajax({
-        method: 'POST',
-        url: '/api/character/confirm',
-        data: character
-      }).done((result) => {
-
-      }).fail((jqXhr) => {
-
-      });
   }
 }
 

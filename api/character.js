@@ -10,17 +10,13 @@ router.post('/confirm', function(req, res, next) {
   User.forge()
       .fetch({'withRelated': ['characters']})
       .then(function(user) {
-        console.log(user.toJSON());
         var characters = user.related('characters').toJSON();
-        console.log("Characters JSON");
-        console.log(characters);
-        console.log('arr length' + characters.length);
+
         if(characters.length > 0) {
-          console.log('In if');
           let count = _.countBy(characters, function(character) {
             return character.rank;
           });
-          console.log(count);
+
           if(req.body.rank === "main" && count.main == 1) {
             res.json({error: false, data: { message: 'You already have one main', characters: characters}});
             return;
@@ -38,14 +34,12 @@ router.post('/confirm', function(req, res, next) {
                             confirmed: 0})
                    .save()
                    .then(function(character) {
-                     console.log(character);
                      res.json({error: false, data: {message: 'Character confirmed', character: character.toJSON()}});
                    })
                    .catch(function(err) {
                      res.status(500).json({error: true, data: {message: err.message}});
                    });
         } else {
-          console.log('In Else');
           Character.forge({ name: characterInput.name,
                             class: characterInput.class,
                             rank: characterInput.rank,
@@ -53,7 +47,6 @@ router.post('/confirm', function(req, res, next) {
                             confirmed: 0})
                    .save()
                    .then(function(character) {
-                     console.log(character);
                      res.json({error: false, data: {message: 'Character confirmed', character: character.toJSON()}});
                    })
                    .catch(function(err) {
@@ -63,6 +56,18 @@ router.post('/confirm', function(req, res, next) {
       }).catch(function(err) {
         res.status(500).json({error: true, data: {message: err.message}});
       })
+});
+
+router.get('/confirmed/:battletag', function(req, res, next) {
+  User.forge({ battletag: req.params.battletag })
+      .fetch({'withRelated': ['characters']})
+      .then(function(user) {
+        var characters = user.related('characters');
+        res.json({error: false, data: characters.toJSON()});
+      })
+      .catch(function(err) {
+        res.status(500).json({error: true, data: {message: err.message}});
+      });
 });
 
 module.exports = router;

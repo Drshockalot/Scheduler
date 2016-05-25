@@ -135,7 +135,7 @@ var ProfileActions = function () {
   function ProfileActions() {
     _classCallCheck(this, ProfileActions);
 
-    this.generateActions('populateRetrievedCharactersSuccess', 'populateRetrievedCharactersFailure');
+    this.generateActions('populateRetrievedCharactersSuccess', 'populateRetrievedCharactersFailure', 'confirmCharacterSuccess', 'confirmCharacterFailure', 'updateStoredCharactersSuccess', 'updateStoredCharactersFailure');
   }
 
   _createClass(ProfileActions, [{
@@ -153,34 +153,32 @@ var ProfileActions = function () {
       });
     }
   }, {
-    key: 'confirmMainCharacter',
-    value: function confirmMainCharacter(character) {
-      console.log(character);
-      character.rank = 'main';
+    key: 'confirmCharacter',
+    value: function confirmCharacter(character) {
+      var _this2 = this;
+
       character.battletag = _NavbarStore2.default.getState().battletag;
-      console.log(character);
       $.ajax({
         method: 'POST',
         url: '/api/character/confirm',
         data: character
       }).done(function (result) {
         console.log(result);
+        _this2.confirmCharacterSuccess(result);
+        $.ajax({
+          method: 'GET',
+          url: '/api/character/confirmed/' + _NavbarStore2.default.getState().battletag
+        }).done(function (result_) {
+          console.log(result_);
+          _this2.updateStoredCharactersSuccess(result_);
+        }).fail(function (jqXhr_) {
+          console.log(jqXhr_);
+          _this2.updateStoredCharactersFailure(jqXhr_);
+        });
       }).fail(function (jqXhr) {
         console.log(jqXhr);
+        _this2.confirmCharacterFailure(jqXhr);
       });
-    }
-  }, {
-    key: 'confirmAltCharacter',
-    value: function confirmAltCharacter(event) {
-      console.log(character);
-      character.rank = 'alt';
-      character.battletag = _NavbarStore2.default.getState().battletag;
-      console.log(character);
-      $.ajax({
-        method: 'POST',
-        url: '/api/character/confirm',
-        data: character
-      }).done(function (result) {}).fail(function (jqXhr) {});
     }
   }]);
 
@@ -1077,14 +1075,16 @@ var Profile = function (_React$Component) {
               _react2.default.createElement(
                 'button',
                 { className: 'btn btn-primary', onClick: function onClick() {
-                    return _ProfileActions2.default.confirmMainCharacter(character);
+                    character.rank = 'main';
+                    _ProfileActions2.default.confirmCharacter(character);
                   } },
                 'Main'
               ),
               _react2.default.createElement(
                 'button',
                 { className: 'btn btn-default', onClick: function onClick() {
-                    return _ProfileActions2.default.confirmAltCharacter(character);
+                    character.rank = 'alt';
+                    _ProfileActions2.default.confirmAltCharacter(character);
                   } },
                 'Alt'
               )
@@ -2295,6 +2295,26 @@ var ProfileStore = function () {
   }, {
     key: 'onPopulateRetrievedCharactersFailure',
     value: function onPopulateRetrievedCharactersFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onConfirmCharacterSuccess',
+    value: function onConfirmCharacterSuccess(character) {
+      toastr.success(characer.name + 'is now a confirmed character', 'Character Confirmed');
+    }
+  }, {
+    key: 'onConfirmCharacterFailure',
+    value: function onConfirmCharacterFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onUpdateStoredCharactersSuccess',
+    value: function onUpdateStoredCharactersSuccess(characters) {
+      this.storedCharacters = characters;
+    }
+  }, {
+    key: 'onUpdateStoredCharactersFailure',
+    value: function onUpdateStoredCharactersFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
     }
   }]);
