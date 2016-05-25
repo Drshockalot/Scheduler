@@ -160,7 +160,7 @@ var ProfileActions = function () {
       character.battletag = _NavbarStore2.default.getState().battletag;
       $.ajax({
         method: 'POST',
-        url: '/api/character/confirm',
+        url: '/api/character/confirm/' + encodeURIComponent(_NavbarStore2.default.getState().battletag),
         data: character
       }).done(function (result) {
         console.log(result);

@@ -30,7 +30,7 @@ class ProfileActions {
     character.battletag = NavbarStore.getState().battletag;
     $.ajax({
       method: 'POST',
-      url: '/api/character/confirm',
+      url: '/api/character/confirm/' + encodeURIComponent(NavbarStore.getState().battletag),
       data: character
     }).done((result) => {
       console.log(result);
