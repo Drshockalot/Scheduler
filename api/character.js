@@ -9,15 +9,19 @@ router.post('/confirm', function(req, res, next) {
   User.forge()
       .fetch({'withRelated': ['characters']})
       .then(function(user) {
+        console.log(user.toJSON());
         var charactersJSON = user.related('characters');
+        console.log(charactersJSON);
         var charactersArr = Object.key(charactersJSON).map(function(i) {
           return charactersJSON[i];
         });
+        console.log(charactersArr);
         if(characters) {
+          console.log('In if');
           let count = _.countBy(charactersArr, function(character) {
             return character.rank;
           });
-
+          console.log(count);
           if(req.body.rank === "main" && count.main == 1) {
             res.json({error: false, data: { message: 'You already have one main', character: characters.toJSON()}});
             return;
@@ -34,13 +38,26 @@ router.post('/confirm', function(req, res, next) {
                             confirmed: 0})
                    .save()
                    .then(function(character) {
-                     res.json({error: false, data: {message: 'Character confirmed', character: character.toJSON()}})
+                     console.log(character);
+                     res.json({error: false, data: {message: 'Character confirmed', character: character.toJSON()}});
                    })
                    .catch(function(err) {
                      res.status(500).json({error: true, data: {message: err.message}});
                    });
         } else {
-          user.attach(req.body);
+          console.log('In Else');
+          Character.forge({ name: character.name,
+                            class: character.class,
+                            rank: character.rank,
+                            confirmed: 0})
+                   .save()
+                   .then(function(character) {
+                     console.log(character);
+                     res.json({error: false, data: {message: 'Character confirmed', character: character.toJSON()}});
+                   })
+                   .catch(function(err) {
+                     res.status(500).json({error: true, data: {message: err.message}});
+                   });
         }
       }).catch(function(err) {
         res.status(500).json({error: true, data: {message: err.message}});
