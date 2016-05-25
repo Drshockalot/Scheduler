@@ -1084,7 +1084,7 @@ var Profile = function (_React$Component) {
                 'button',
                 { className: 'btn btn-default', onClick: function onClick() {
                     character.rank = 'alt';
-                    _ProfileActions2.default.confirmAltCharacter(character);
+                    _ProfileActions2.default.confirmCharacter(character);
                   } },
                 'Alt'
               )
