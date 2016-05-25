@@ -11,12 +11,14 @@ router.post('/confirm', function(req, res, next) {
       .then(function(user) {
         console.log(user.toJSON());
         var charactersJSON = user.related('characters').toJSON();
+        console.log("Characters JSON");
         console.log(charactersJSON);
         var charactersArr = Object.key(charactersJSON).map(function(i) {
           return charactersJSON[i];
         });
+        console.log("Characters Array");
         console.log(charactersArr);
-        if(characters) {
+        if(charactersJSON) {
           console.log('In if');
           let count = _.countBy(charactersArr, function(character) {
             return character.rank;
