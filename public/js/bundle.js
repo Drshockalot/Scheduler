@@ -2300,7 +2300,7 @@ var ProfileStore = function () {
   }, {
     key: 'onConfirmCharacterSuccess',
     value: function onConfirmCharacterSuccess(character) {
-      toastr.success(characer.name + 'is now a confirmed character', 'Character Confirmed');
+      toastr.success(character.name + 'is now a confirmed character', 'Character Confirmed');
     }
   }, {
     key: 'onConfirmCharacterFailure',
