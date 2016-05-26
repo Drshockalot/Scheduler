@@ -31,7 +31,7 @@ router.post('/confirm/:battletag', function(req, res, next) {
 
           var sameCharacter = _.findWhere(characters, { name: req.body.name});
 
-          if(sameCharacter !== undefined) {
+          if(sameCharacter === undefined) {
             Character.forge({ name: characterInput.name,
                               class: characterInput.class,
                               rank: characterInput.rank,
