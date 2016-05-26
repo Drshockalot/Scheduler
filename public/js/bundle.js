@@ -1141,11 +1141,7 @@ var Profile = function (_React$Component) {
                   { className: 'col-sm-2 control-label' },
                   'Class'
                 ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'col-sm-10' },
-                  _.findWhere(classes, { id: character.class }).name
-                )
+                _react2.default.createElement('div', { className: 'col-sm-10' })
               ),
               _react2.default.createElement(
                 'div',
