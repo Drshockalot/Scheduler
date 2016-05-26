@@ -1105,6 +1105,11 @@ var Profile = function (_React$Component) {
             ),
             _react2.default.createElement(
               'td',
+              { key: character.realm },
+              character.realm
+            ),
+            _react2.default.createElement(
+              'td',
               { key: 'main/alt' },
               _react2.default.createElement(
                 'button',
@@ -1348,7 +1353,7 @@ var Profile = function (_React$Component) {
             _react2.default.createElement(
               'h3',
               null,
-              'Zenedar Characters'
+              'Level 100 Characters'
             ),
             _react2.default.createElement(
               'table',
@@ -1384,6 +1389,15 @@ var Profile = function (_React$Component) {
                       'strong',
                       null,
                       'Race'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Realm'
                     )
                   ),
                   _react2.default.createElement(
@@ -2582,7 +2596,7 @@ var ProfileStore = function () {
   }, {
     key: 'onSaveStoredCharacterDetailsSuccess',
     value: function onSaveStoredCharacterDetailsSuccess(value) {
-      toastr.success(value.data.character.name + 'has been updated', 'Character Data Saved');
+      toastr.success(value.data.character.name + ' has been updated', 'Character Data Saved');
     }
   }, {
     key: 'onSaveStoredCharacterDetailsFailure',
@@ -2592,7 +2606,7 @@ var ProfileStore = function () {
   }, {
     key: 'onDeleteStoredCharacterSuccess',
     value: function onDeleteStoredCharacterSuccess(value) {
-      toastr.success(value + 'has been deleted', 'Character Deleted');
+      toastr.success(value + ' has been deleted', 'Character Deleted');
     }
   }, {
     key: 'onDeleteStoredCharacterFailure',

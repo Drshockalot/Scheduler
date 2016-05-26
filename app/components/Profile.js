@@ -48,6 +48,7 @@ class Profile extends React.Component {
             <td key={character.name}>{character.name}</td>
             <td key={characterClass}>{characterClass}</td>
             <td key={characterRace}>{characterRace}</td>
+            <td key={character.realm}>{character.realm}</td>
             <td key='main/alt'>
               <button className='btn btn-primary' onClick={() => {
                 character.rank = 'main';
@@ -142,13 +143,14 @@ class Profile extends React.Component {
             <div className='btn btn-primary' onClick={ProfileActions.retrieveProfileCharacters}>Retrieve Characters</div>
           </div>
           <div className='col-md-10'>
-            <h3>Zenedar Characters</h3>
+            <h3>Level 100 Characters</h3>
             <table className='table'>
               <tbody>
                 <tr>
                   <td><strong>Name</strong></td>
                   <td><strong>Class</strong></td>
                   <td><strong>Race</strong></td>
+                  <td><strong>Realm</strong></td>
                   <td><strong>Rank</strong></td>
                 </tr>
                 {retrievedCharactersList}

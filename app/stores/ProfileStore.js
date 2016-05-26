@@ -47,7 +47,7 @@ class ProfileStore {
   }
 
   onSaveStoredCharacterDetailsSuccess(value) {
-    toastr.success(value.data.character.name + 'has been updated', 'Character Data Saved');
+    toastr.success(value.data.character.name + ' has been updated', 'Character Data Saved');
   }
 
   onSaveStoredCharacterDetailsFailure(jqXhr) {
@@ -55,7 +55,7 @@ class ProfileStore {
   }
 
   onDeleteStoredCharacterSuccess(value) {
-    toastr.success(value + 'has been deleted', 'Character Deleted');
+    toastr.success(value + ' has been deleted', 'Character Deleted');
   }
 
   onDeleteStoredCharacterFailure(jqXhr) {
