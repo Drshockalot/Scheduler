@@ -66,9 +66,11 @@ class ProfileActions {
       url: '/api/character/' + character.id,
       data: character
     }).done((result) => {
+      console.log(result);
       this.saveStoredCharacterDetailsSuccess(result);
       this.getStoredCharacters();
     }).fail((jqXhr) => {
+      console.log(jqXhr);
       this.saveStoredCharacterDetailsFailure(jqXhr);
     });
   }

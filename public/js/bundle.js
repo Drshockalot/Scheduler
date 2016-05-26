@@ -196,9 +196,11 @@ var ProfileActions = function () {
         url: '/api/character/' + character.id,
         data: character
       }).done(function (result) {
+        console.log(result);
         _this4.saveStoredCharacterDetailsSuccess(result);
         _this4.getStoredCharacters();
       }).fail(function (jqXhr) {
+        console.log(jqXhr);
         _this4.saveStoredCharacterDetailsFailure(jqXhr);
       });
     }
