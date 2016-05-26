@@ -19,7 +19,7 @@ class ProfileStore {
   }
 
   onConfirmCharacterSuccess(result) {
-    if (result.character) {
+    if (result.data.character) {
       toastr.success(result.data.character.name + 'is now a confirmed character', 'Character Confirmed');
     } else {
       toastr.warning(result.data.message, 'Character Unconfirmed');
