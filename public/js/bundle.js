@@ -1105,11 +1105,6 @@ var Profile = function (_React$Component) {
 
       if (this.state.storedCharacters.length > 0) {
         storedCharactersList = this.state.storedCharacters.map(function (character, index) {
-          console.log(character);
-          console.log(index);
-          console.log(character.class);
-          var characterClass = _.findWhere(classes, { id: parseInt(character.class) });
-          console.log(characterClass);
           return _react2.default.createElement(
             'div',
             { className: 'col-md-4' },
@@ -1149,7 +1144,7 @@ var Profile = function (_React$Component) {
                 _react2.default.createElement(
                   'div',
                   { className: 'col-sm-6' },
-                  characterClass
+                  _.findWhere(classes, { id: parseInt(character.class) })
                 )
               ),
               _react2.default.createElement(
