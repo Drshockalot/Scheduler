@@ -68,7 +68,7 @@ class Profile extends React.Component {
         return (
           <div className='col-md-4'>
             <div className='col-sm-offset-6 col-sm-6'>
-              <h3>{character.rank}</h3>
+              <h2>{character.rank}</h2>
             </div>
             <form onSubmit={e => {
               e.preventDefault();
@@ -76,13 +76,13 @@ class Profile extends React.Component {
             }} className='form-horizontal'>
               <div className='form-group'>
                 <label className='col-sm-6 control-label'>Name</label>
-                <div className='col-sm-6'>
+                <div className='col-sm-6 form-control'>
                   {character.name}
                 </div>
               </div>
               <div className='form-group'>
                 <label className='col-sm-6 control-label'>Class</label>
-                <div className='col-sm-6'>
+                <div className='col-sm-6 form-control'>
                   {_.findWhere(classes, { id : parseInt(character.class) }).name}
                 </div>
               </div>
@@ -108,21 +108,25 @@ class Profile extends React.Component {
               </div>
               <div className='form-group'>
                 <label className='col-sm-6 control-label'>Average ilvl</label>
-                <div className='col-sm-6'>
+                <div className='col-sm-6 form-control'>
                   {character.average_ilvl}
                 </div>
               </div>
               <div className='form-group'>
                 <label className='col-sm-6 control-label'>Admin Confirmed</label>
-                <div className='col-sm-6'>
+                <div className='col-sm-6 form-control'>
                   {character.confirmed}
                 </div>
               </div>
-              <div className='col-sm-offset-6 col-sm-6'>
-                <button type='submit' className='btn btn-default'>Save</button>
+              <div className='form-group'>
+                <div className='col-sm-offset-6 col-sm-6'>
+                  <button type='submit' className='btn btn-default'>Save</button>
+                </div>
               </div>
-              <div className='col-sm-offset-6 col-sm-6'>
-                <button type='submit' className='btn btn-danger'>Delete</button>
+              <div className='form-group'>
+                <div className='col-sm-offset-6 col-sm-6'>
+                  <button type='submit' className='btn btn-danger'>Delete</button>
+                </div>
               </div>
             </form>
           </div>

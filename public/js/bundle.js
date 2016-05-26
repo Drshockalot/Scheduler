@@ -1112,7 +1112,7 @@ var Profile = function (_React$Component) {
               'div',
               { className: 'col-sm-offset-6 col-sm-6' },
               _react2.default.createElement(
-                'h3',
+                'h2',
                 null,
                 character.rank
               )
@@ -1133,7 +1133,7 @@ var Profile = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6' },
+                  { className: 'col-sm-6 form-control' },
                   character.name
                 )
               ),
@@ -1147,7 +1147,7 @@ var Profile = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6' },
+                  { className: 'col-sm-6 form-control' },
                   _.findWhere(classes, { id: parseInt(character.class) }).name
                 )
               ),
@@ -1229,7 +1229,7 @@ var Profile = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6' },
+                  { className: 'col-sm-6 form-control' },
                   character.average_ilvl
                 )
               ),
@@ -1243,26 +1243,34 @@ var Profile = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6' },
+                  { className: 'col-sm-6 form-control' },
                   character.confirmed
                 )
               ),
               _react2.default.createElement(
                 'div',
-                { className: 'col-sm-offset-6 col-sm-6' },
+                { className: 'form-group' },
                 _react2.default.createElement(
-                  'button',
-                  { type: 'submit', className: 'btn btn-default' },
-                  'Save'
+                  'div',
+                  { className: 'col-sm-offset-6 col-sm-6' },
+                  _react2.default.createElement(
+                    'button',
+                    { type: 'submit', className: 'btn btn-default' },
+                    'Save'
+                  )
                 )
               ),
               _react2.default.createElement(
                 'div',
-                { className: 'col-sm-offset-6 col-sm-6' },
+                { className: 'form-group' },
                 _react2.default.createElement(
-                  'button',
-                  { type: 'submit', className: 'btn btn-danger' },
-                  'Delete'
+                  'div',
+                  { className: 'col-sm-offset-6 col-sm-6' },
+                  _react2.default.createElement(
+                    'button',
+                    { type: 'submit', className: 'btn btn-danger' },
+                    'Delete'
+                  )
                 )
               )
             )
