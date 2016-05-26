@@ -85,7 +85,7 @@ router.put('/:characterid', function(req, res, next) {
   Character.forge({ id: req.params.characterid })
            .fetch({ require: true })
            .then(function(currentCharacter) {
-             character.save({
+             currentCharacter.save({
                main_role: req.body.main_role || currentCharacter.get('main_role'),
                off_role: req.body.off_role || currentCharacter.get('off_role'),
                average_ilvl: req.body.average_ilvl || currentCharacter.get('average_ilvl')
