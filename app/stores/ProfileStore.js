@@ -20,7 +20,7 @@ class ProfileStore {
 
   onConfirmCharacterSuccess(result) {
     if (result.data.responseCode === 2) {
-      toastr.success(result.data.character.name + 'is now a confirmed character', 'Character Confirmed');
+      toastr.success(result.data.character.name + ' is now a confirmed character', 'Character Confirmed');
     } else if (result.data.responseCode === 1) {
       toastr.warning(result.data.message, 'Character Unconfirmed');
     } else if (result.data.responseCode === 3) {
@@ -63,6 +63,10 @@ class ProfileStore {
   }
 
   onDeleteStoredCharacterFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
+
+  onRetrieveAverageIlvlFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
   }
 }

@@ -135,7 +135,7 @@ var ProfileActions = function () {
   function ProfileActions() {
     _classCallCheck(this, ProfileActions);
 
-    this.generateActions('populateRetrievedCharactersSuccess', 'populateRetrievedCharactersFailure', 'confirmCharacterSuccess', 'confirmCharacterFailure', 'updateStoredCharactersSuccess', 'updateStoredCharactersFailure', 'handleMainRoleChange', 'handleOffRoleChange', 'saveStoredCharacterDetailsSuccess', 'saveStoredCharacterDetailsFailure', 'deleteStoredCharacterSuccess', 'deleteStoredCharacterFailure');
+    this.generateActions('populateRetrievedCharactersSuccess', 'populateRetrievedCharactersFailure', 'confirmCharacterSuccess', 'confirmCharacterFailure', 'updateStoredCharactersSuccess', 'updateStoredCharactersFailure', 'handleMainRoleChange', 'handleOffRoleChange', 'saveStoredCharacterDetailsSuccess', 'saveStoredCharacterDetailsFailure', 'deleteStoredCharacterSuccess', 'deleteStoredCharacterFailure', 'retrieveAverageIlvlFailure');
   }
 
   _createClass(ProfileActions, [{
@@ -219,6 +219,21 @@ var ProfileActions = function () {
         _this5.getStoredCharacters();
       }).fail(function (jqXhr) {
         _this5.deleteStoredCharacterFailure(jqXhr);
+      });
+    }
+  }, {
+    key: 'updateIlvlForCharacter',
+    value: function updateIlvlForCharacter(character) {
+      var _this6 = this;
+
+      $.ajax({
+        method: 'GET',
+        url: 'https://eu.api.battle.net/wow/character/' + character.realm + '/' + character.name + '?fields=items&locale=en_GB&apikey=8fc24vcgky6r8yzja8a4efxncgu8z77g'
+      }).done(function (result) {
+        character.average_ilvl = result.items.averageItemLevel;
+        _this6.saveStoredCharacterDetails(character);
+      }).fail(function (jqXhr) {
+        _this6.retrieveAverageIlvlFailure(jqXhr);
       });
     }
   }]);
@@ -1325,6 +1340,21 @@ var Profile = function (_React$Component) {
                         _ProfileActions2.default.deleteStoredCharacter(_this2.state.storedCharacters[index]);
                       } },
                     'Delete'
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'form-group' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-sm-offset-6 col-sm-6' },
+                  _react2.default.createElement(
+                    'button',
+                    { className: 'btn btn-info', onClick: function onClick() {
+                        _ProfileActions2.default.updateIlvlForCharacter(_this2.state.storedCharacters[index]);
+                      } },
+                    'Update ilvl'
                   )
                 )
               )
@@ -2564,7 +2594,7 @@ var ProfileStore = function () {
     key: 'onConfirmCharacterSuccess',
     value: function onConfirmCharacterSuccess(result) {
       if (result.data.responseCode === 2) {
-        toastr.success(result.data.character.name + 'is now a confirmed character', 'Character Confirmed');
+        toastr.success(result.data.character.name + ' is now a confirmed character', 'Character Confirmed');
       } else if (result.data.responseCode === 1) {
         toastr.warning(result.data.message, 'Character Unconfirmed');
       } else if (result.data.responseCode === 3) {
@@ -2616,6 +2646,11 @@ var ProfileStore = function () {
   }, {
     key: 'onDeleteStoredCharacterFailure',
     value: function onDeleteStoredCharacterFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onRetrieveAverageIlvlFailure',
+    value: function onRetrieveAverageIlvlFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
     }
   }]);

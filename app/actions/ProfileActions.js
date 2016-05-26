@@ -17,7 +17,8 @@ class ProfileActions {
       'saveStoredCharacterDetailsSuccess',
       'saveStoredCharacterDetailsFailure',
       'deleteStoredCharacterSuccess',
-      'deleteStoredCharacterFailure'
+      'deleteStoredCharacterFailure',
+      'retrieveAverageIlvlFailure'
     );
   }
 
@@ -86,6 +87,18 @@ class ProfileActions {
       this.getStoredCharacters();
     }).fail((jqXhr) => {
       this.deleteStoredCharacterFailure(jqXhr);
+    });
+  }
+
+  updateIlvlForCharacter(character) {
+    $.ajax({
+      method: 'GET',
+      url: 'https://eu.api.battle.net/wow/character/' + character.realm + '/' + character.name + '?fields=items&locale=en_GB&apikey=8fc24vcgky6r8yzja8a4efxncgu8z77g'
+    }).done((result) => {
+      character.average_ilvl = result.items.averageItemLevel;
+      this.saveStoredCharacterDetails(character);
+    }).fail((jqXhr) => {
+      this.retrieveAverageIlvlFailure(jqXhr);
     });
   }
 }
