@@ -1134,7 +1134,11 @@ var Profile = function (_React$Component) {
                     _ProfileActions2.default.confirmCharacter(character);
                   } },
                 'Main'
-              ),
+              )
+            ),
+            _react2.default.createElement(
+              'td',
+              null,
               _react2.default.createElement(
                 'button',
                 { className: 'btn btn-default', onClick: function onClick() {
