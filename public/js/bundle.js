@@ -1129,11 +1129,11 @@ var Profile = function (_React$Component) {
                 _react2.default.createElement(
                   'label',
                   { className: 'col-sm-6 control-label' },
-                  'Name'
+                  'Name:'
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6 control-label' },
+                  { className: 'col-sm-6 control-label pull-left' },
                   character.name
                 )
               ),
@@ -1143,11 +1143,11 @@ var Profile = function (_React$Component) {
                 _react2.default.createElement(
                   'label',
                   { className: 'col-sm-6 control-label' },
-                  'Class'
+                  'Class:'
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6 control-label' },
+                  { className: 'col-sm-6 control-label pull-left' },
                   _.findWhere(classes, { id: parseInt(character.class) }).name
                 )
               ),
@@ -1157,7 +1157,7 @@ var Profile = function (_React$Component) {
                 _react2.default.createElement(
                   'label',
                   { className: 'col-sm-6 control-label' },
-                  'Main Role'
+                  'Main Role:'
                 ),
                 _react2.default.createElement(
                   'div',
@@ -1191,7 +1191,7 @@ var Profile = function (_React$Component) {
                 _react2.default.createElement(
                   'label',
                   { className: 'col-sm-6 control-label' },
-                  'Off Role'
+                  'Off Role:'
                 ),
                 _react2.default.createElement(
                   'div',
@@ -1225,11 +1225,11 @@ var Profile = function (_React$Component) {
                 _react2.default.createElement(
                   'label',
                   { className: 'col-sm-6 control-label' },
-                  'Average ilvl'
+                  'Average ilvl:'
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6 control-label' },
+                  { className: 'col-sm-6 control-label pull-left' },
                   character.average_ilvl
                 )
               ),
@@ -1239,11 +1239,11 @@ var Profile = function (_React$Component) {
                 _react2.default.createElement(
                   'label',
                   { className: 'col-sm-6 control-label' },
-                  'Admin Confirmed'
+                  'Admin Confirmed:'
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6 control-label' },
+                  { className: 'col-sm-6 control-label pull-left' },
                   character.confirmed
                 )
               ),

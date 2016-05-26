@@ -75,19 +75,19 @@ class Profile extends React.Component {
               ProfileActions.updateStoredCharacter(this.state.storedCharacters[index]);
             }} className='form-horizontal'>
               <div className='form-group'>
-                <label className='col-sm-6 control-label'>Name</label>
-                <div className='col-sm-6 control-label'>
+                <label className='col-sm-6 control-label'>Name:</label>
+                <div className='col-sm-6 control-label pull-left'>
                   {character.name}
                 </div>
               </div>
               <div className='form-group'>
-                <label className='col-sm-6 control-label'>Class</label>
-                <div className='col-sm-6 control-label'>
+                <label className='col-sm-6 control-label'>Class:</label>
+                <div className='col-sm-6 control-label pull-left'>
                   {_.findWhere(classes, { id : parseInt(character.class) }).name}
                 </div>
               </div>
               <div className='form-group'>
-                <label className='col-sm-6 control-label'>Main Role</label>
+                <label className='col-sm-6 control-label'>Main Role:</label>
                 <div className='col-sm-6'>
                   <select className='form-control' id='main-role' value={this.state.storedCharacters[index].main_role} onChange={e => {ProfileActions.handleMainRoleChange(e.target.value, index)}}>
                     <option key='Tank' value='Tank'>Tank</option>
@@ -97,7 +97,7 @@ class Profile extends React.Component {
                 </div>
               </div>
               <div className='form-group'>
-                <label className='col-sm-6 control-label'>Off Role</label>
+                <label className='col-sm-6 control-label'>Off Role:</label>
                 <div className='col-sm-6'>
                   <select className='form-control' id='off-role' value={this.state.storedCharacters[index].off_role} onChange={e => {ProfileActions.handleOffRoleChange(e.target.value, index)}}>
                     <option key='Tank' value='Tank'>Tank</option>
@@ -107,14 +107,14 @@ class Profile extends React.Component {
                 </div>
               </div>
               <div className='form-group'>
-                <label className='col-sm-6 control-label'>Average ilvl</label>
-                <div className='col-sm-6 control-label'>
+                <label className='col-sm-6 control-label'>Average ilvl:</label>
+                <div className='col-sm-6 control-label pull-left'>
                   {character.average_ilvl}
                 </div>
               </div>
               <div className='form-group'>
-                <label className='col-sm-6 control-label'>Admin Confirmed</label>
-                <div className='col-sm-6 control-label'>
+                <label className='col-sm-6 control-label'>Admin Confirmed:</label>
+                <div className='col-sm-6 control-label pull-left'>
                   {character.confirmed}
                 </div>
               </div>
