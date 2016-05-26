@@ -725,6 +725,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var classes = require('./../../utility/WowClasses');
+
 var Navbar = function (_React$Component) {
   _inherits(Navbar, _React$Component);
 
@@ -828,26 +830,17 @@ var Navbar = function (_React$Component) {
               null,
               _react2.default.createElement(
                 'a',
-                { href: '/auth/bnet/logout' },
-                'Logout'
-              )
-            ),
-            _react2.default.createElement(
-              'li',
-              null,
-              _react2.default.createElement(
-                'a',
-                { href: '/auth/bnet/logout/hard' },
-                'Hard Logout'
-              )
-            ),
-            _react2.default.createElement(
-              'li',
-              null,
-              _react2.default.createElement(
-                'a',
                 { onClick: _NavbarActions2.default.navigateProfile },
                 'Profile'
+              )
+            ),
+            _react2.default.createElement(
+              'li',
+              null,
+              _react2.default.createElement(
+                'a',
+                { href: '/auth/bnet/logout' },
+                'Logout'
               )
             )
           )
@@ -982,7 +975,7 @@ var Navbar = function (_React$Component) {
 
 exports.default = Navbar;
 
-},{"../actions/NavbarActions":2,"../stores/NavbarStore":27,"react":"react","react-router":"react-router"}],16:[function(require,module,exports){
+},{"../actions/NavbarActions":2,"../stores/NavbarStore":27,"./../../utility/WowClasses":356,"react":"react","react-router":"react-router"}],16:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

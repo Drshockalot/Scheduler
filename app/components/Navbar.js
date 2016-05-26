@@ -3,6 +3,8 @@ import {Link} from 'react-router';
 import NavbarStore from '../stores/NavbarStore';
 import NavbarActions from '../actions/NavbarActions';
 
+var classes = require('./../../utility/WowClasses');
+
 class Navbar extends React.Component {
   constructor(props) {
     super(props);
@@ -71,9 +73,8 @@ class Navbar extends React.Component {
         profilePane = <li className='dropdown'>
           <a href='/profile' className='dropdown-toggle' data-toggle='dropdown'>{this.state.battletag} <span className='caret'></span></a>
           <ul className='dropdown-menu'>
-            <li><a href='/auth/bnet/logout'>Logout</a></li>
-            <li><a href='/auth/bnet/logout/hard'>Hard Logout</a></li>
             <li><a onClick={NavbarActions.navigateProfile}>Profile</a></li>
+            <li><a href='/auth/bnet/logout'>Logout</a></li>
           </ul>
         </li>
     }
