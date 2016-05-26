@@ -81,7 +81,7 @@ class Profile extends React.Component {
               <div className='form-group'>
                 <label className='col-sm-6 control-label'>Class</label>
                 <div className='col-sm-6'>
-                  {_.findWhere(classes, { id : parseInt(character.class) })}
+                  {_.findWhere(classes, { id : parseInt(character.class) }).name}
                 </div>
               </div>
               <div className='form-group'>
