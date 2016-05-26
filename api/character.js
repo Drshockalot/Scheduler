@@ -86,9 +86,9 @@ router.put('/:characterid', function(req, res, next) {
            .fetch({ require: true })
            .then(function(currentCharacter) {
              character.save({
-               main_role: req.body.main_role,
-               off_role: req.body.off_role,
-               average_ilvl: req.body.average_ilvl
+               main_role: req.body.main_role || currentCharacter.get('main_role'),
+               off_role: req.body.off_role || currentCharacter.get('off_role'),
+               average_ilvl: req.body.average_ilvl || currentCharacter.get('average_ilvl')
              })
              .then(function(savedCharacter) {
                res.json({error: false, data: {message: "Character updated", character: savedCharacter}});
