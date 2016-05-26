@@ -31,6 +31,10 @@ router.post('/confirm/:battletag', function(req, res, next) {
                             class: characterInput.class,
                             rank: characterInput.rank,
                             user_id: user.get('id'),
+                            average_ilvl: 0,
+                            main_role: "Tank",
+                            off_role: "Tank",
+                            token: _.findWhere(classes, { id: parseInt(characterInput.class)}).token,
                             confirmed: 0})
                    .save()
                    .then(function(character) {

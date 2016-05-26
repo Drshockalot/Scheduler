@@ -1109,9 +1109,13 @@ var Profile = function (_React$Component) {
             'div',
             { className: 'col-md-4' },
             _react2.default.createElement(
-              'h4',
-              null,
-              character.rank
+              'div',
+              { className: 'col-sm-offset-6 col-sm-6' },
+              _react2.default.createElement(
+                'h3',
+                null,
+                character.rank
+              )
             ),
             _react2.default.createElement(
               'form',
@@ -1241,6 +1245,24 @@ var Profile = function (_React$Component) {
                   'div',
                   { className: 'col-sm-6' },
                   character.confirmed
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-offset-6 col-sm-6' },
+                _react2.default.createElement(
+                  'button',
+                  { type: 'submit', className: 'btn btn-default' },
+                  'Save'
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-offset-6 col-sm-6' },
+                _react2.default.createElement(
+                  'button',
+                  { type: 'submit', className: 'btn btn-danger' },
+                  'Delete'
                 )
               )
             )
@@ -2493,15 +2515,12 @@ var ProfileStore = function () {
   }, {
     key: 'onHandleMainRoleChange',
     value: function onHandleMainRoleChange(value) {
-      console.log(value[0]);
-      console.log(value[1]);
-      console.log(this.storedCharacters[value[1]]);
       this.storedCharacters[value[1]].main_role = value[0];
     }
   }, {
     key: 'onHandleOffRoleChange',
-    value: function onHandleOffRoleChange(value, index) {
-      this.storedCharacters[index].off_role = value;
+    value: function onHandleOffRoleChange(value) {
+      this.storedCharacters[value[1]].off_role = value[0];
     }
   }]);
 
@@ -67845,57 +67864,68 @@ module.exports = [{
     "id": 3,
     "mask": 4,
     "powerType": "focus",
-    "name": "Hunter"
+    "name": "Hunter",
+    "token": "prot"
 }, {
     "id": 4,
     "mask": 8,
     "powerType": "energy",
-    "name": "Rogue"
+    "name": "Rogue",
+    "token": "vanq"
 }, {
     "id": 1,
     "mask": 1,
     "powerType": "rage",
-    "name": "Warrior"
+    "name": "Warrior",
+    "token": "prot"
 }, {
     "id": 2,
     "mask": 2,
     "powerType": "mana",
-    "name": "Paladin"
+    "name": "Paladin",
+    "token": "conq"
 }, {
     "id": 7,
     "mask": 64,
     "powerType": "mana",
-    "name": "Shaman"
+    "name": "Shaman",
+    "token": "prot"
 }, {
     "id": 8,
     "mask": 128,
     "powerType": "mana",
-    "name": "Mage"
+    "name": "Mage",
+    "token": "vanq"
 }, {
     "id": 5,
     "mask": 16,
     "powerType": "mana",
-    "name": "Priest"
+    "name": "Priest",
+    "token": "conq"
 }, {
     "id": 6,
     "mask": 32,
     "powerType": "runic-power",
-    "name": "Death Knight"
+    "name": "Death Knight",
+    "token": "prot"
 }, {
     "id": 11,
     "mask": 1024,
     "powerType": "mana",
-    "name": "Druid"
+    "name": "Druid",
+    "token": "vanq"
 }, {
     "id": 9,
     "mask": 256,
     "powerType": "mana",
-    "name": "Warlock"
+    "name": "Warlock",
+    "token": "conq"
 }, {
     "id": 10,
     "mask": 512,
     "powerType": "energy",
-    "name": "Monk"
+    "name": "Monk",
+    "token": "prot"
 }];
 
 },{}],357:[function(require,module,exports){

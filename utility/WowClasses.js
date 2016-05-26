@@ -3,55 +3,66 @@ module.exports = [
         "id": 3,
         "mask": 4,
         "powerType": "focus",
-        "name": "Hunter"
+        "name": "Hunter",
+        "token": "prot"
     }, {
         "id": 4,
         "mask": 8,
         "powerType": "energy",
-        "name": "Rogue"
+        "name": "Rogue",
+        "token": "vanq"
     }, {
         "id": 1,
         "mask": 1,
         "powerType": "rage",
-        "name": "Warrior"
+        "name": "Warrior",
+        "token": "prot"
     }, {
         "id": 2,
         "mask": 2,
         "powerType": "mana",
-        "name": "Paladin"
+        "name": "Paladin",
+        "token": "conq"
     }, {
         "id": 7,
         "mask": 64,
         "powerType": "mana",
-        "name": "Shaman"
+        "name": "Shaman",
+        "token": "prot"
     }, {
         "id": 8,
         "mask": 128,
         "powerType": "mana",
-        "name": "Mage"
+        "name": "Mage",
+        "token": "vanq"
     }, {
         "id": 5,
         "mask": 16,
         "powerType": "mana",
-        "name": "Priest"
+        "name": "Priest",
+        "token": "conq"
     }, {
         "id": 6,
         "mask": 32,
         "powerType": "runic-power",
-        "name": "Death Knight"
+        "name": "Death Knight",
+        "token": "prot"
     }, {
         "id": 11,
         "mask": 1024,
         "powerType": "mana",
-        "name": "Druid"
+        "name": "Druid",
+        "token": "vanq"
     }, {
         "id": 9,
         "mask": 256,
         "powerType": "mana",
-        "name": "Warlock"
+        "name": "Warlock",
+        "token": "conq"
     }, {
         "id": 10,
         "mask": 512,
         "powerType": "energy",
-        "name": "Monk"
+        "name": "Monk",
+        "token": "prot"
     }];

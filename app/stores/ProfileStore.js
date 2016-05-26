@@ -39,14 +39,11 @@ class ProfileStore {
   }
 
   onHandleMainRoleChange(value) {
-    console.log(value[0]);
-    console.log(value[1]);
-    console.log(this.storedCharacters[value[1]]);
     this.storedCharacters[value[1]].main_role = value[0];
   }
 
-  onHandleOffRoleChange(value, index) {
-    this.storedCharacters[index].off_role = value;
+  onHandleOffRoleChange(value) {
+    this.storedCharacters[value[1]].off_role = value[0];
   }
 }
 

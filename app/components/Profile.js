@@ -67,7 +67,9 @@ class Profile extends React.Component {
       storedCharactersList = this.state.storedCharacters.map((character, index) => {
         return (
           <div className='col-md-4'>
-            <h4>{character.rank}</h4>
+            <div className='col-sm-offset-6 col-sm-6'>
+              <h3>{character.rank}</h3>
+            </div>
             <form onSubmit={e => {
               e.preventDefault();
               ProfileActions.updateStoredCharacter(this.state.storedCharacters[index]);
@@ -115,6 +117,12 @@ class Profile extends React.Component {
                 <div className='col-sm-6'>
                   {character.confirmed}
                 </div>
+              </div>
+              <div className='col-sm-offset-6 col-sm-6'>
+                <button type='submit' className='btn btn-default'>Save</button>
+              </div>
+              <div className='col-sm-offset-6 col-sm-6'>
+                <button type='submit' className='btn btn-danger'>Delete</button>
               </div>
             </form>
           </div>
