@@ -2562,10 +2562,14 @@ var ProfileStore = function () {
   }, {
     key: 'onConfirmCharacterSuccess',
     value: function onConfirmCharacterSuccess(result) {
-      if (result.data.character) {
+      if (result.data.responseCode === 2) {
         toastr.success(result.data.character.name + 'is now a confirmed character', 'Character Confirmed');
-      } else {
+      } else if (result.data.responseCode === 1) {
         toastr.warning(result.data.message, 'Character Unconfirmed');
+      } else if (result.data.responseCode === 3) {
+        toastr.success(result.data.character.name + ' ' + result.data.message, 'Character Confirmed');
+      } else if (result.data.responseCode === 4) {
+        toastr.warning(result.data.character.name + ' ' + result.data.message, 'Character Not Confirmed');
       }
     }
   }, {

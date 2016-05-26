@@ -20,32 +20,57 @@ router.post('/confirm/:battletag', function(req, res, next) {
           });
 
           if(req.body.rank === "main" && count.main == 1) {
-            res.json({error: false, data: { message: 'You already have one main', characters: characters}});
+            res.json({error: false, data: { message: 'You already have one main', responseCode: 1, characters: characters}});
             return;
           }
 
           if(req.body.rank === "alt" && count.alt == 2) {
-            res.json({error: false, data: { message: 'You already have two alts', characters: characters}});
+            res.json({error: false, data: { message: 'You already have two alts', responseCode: 1, characters: characters}});
             return;
           }
 
-          Character.forge({ name: characterInput.name,
-                            class: characterInput.class,
-                            rank: characterInput.rank,
-                            user_id: user.get('id'),
-                            average_ilvl: 0,
-                            main_role: "Tank",
-                            off_role: "Tank",
-                            token: _.findWhere(classes, { id: parseInt(characterInput.class)}).token,
-                            confirmed: 0,
-                            realm: characterInput.realm})
-                   .save()
-                   .then(function(character) {
-                     res.json({error: false, data: {message: 'Character confirmed', character: character.toJSON()}});
-                   })
-                   .catch(function(err) {
-                     res.status(500).json({error: true, data: {message: err.message}});
-                   });
+          var sameCharacter = _.findWhere(characters, { name: req.body.name});
+
+          if(sameCharacter !== undefined) {
+            Character.forge({ name: characterInput.name,
+                              class: characterInput.class,
+                              rank: characterInput.rank,
+                              user_id: user.get('id'),
+                              average_ilvl: 0,
+                              main_role: "Tank",
+                              off_role: "Tank",
+                              token: _.findWhere(classes, { id: parseInt(characterInput.class)}).token,
+                              confirmed: 0,
+                              realm: characterInput.realm})
+                     .save()
+                     .then(function(character) {
+                       res.json({error: false, data: {message: 'Character confirmed', responseCode: 2, character: character.toJSON()}});
+                     })
+                     .catch(function(err) {
+                       res.status(500).json({error: true, data: {message: err.message}});
+                     });
+          } else {
+            if(sameCharacter.rank !== req.body.rank) {
+              Character.forge({ id: sameCharacter.id })
+                       .fetch({ require: true })
+                       .then(function(currentCharacter) {
+                         currentCharacter.save({
+                           rank: req.body.rank || currentCharacter.get('rank')
+                         })
+                         .then(function(savedCharacter) {
+                           res.json({error: false, data: {message: 'has switched to your' + savedCharacter.rank, responseCode: 3, character: savedCharacter}});
+                         })
+                         .catch(function(err) {
+                           res.status(500).json({error: true, data: {message: err.message}});
+                         });
+                       })
+                       .catch(function(err) {
+                         res.status(500).json({error: true, data: {message: err.message}});
+                       });
+            } else {
+              res.json({error: false, data: {message: 'is already your' + sameCharacter.rank, responseCode: 4, character: sameCharacter}});
+            }
+          }
         } else {
           Character.forge({ name: characterInput.name,
                             class: characterInput.class,
@@ -59,7 +84,7 @@ router.post('/confirm/:battletag', function(req, res, next) {
                             realm: characterInput.realm})
                    .save()
                    .then(function(character) {
-                     res.json({error: false, data: {message: 'Character confirmed', character: character.toJSON()}});
+                     res.json({error: false, data: {message: 'Character confirmed', responseCode: 2, character: character.toJSON()}});
                    })
                    .catch(function(err) {
                      res.status(500).json({error: true, data: {message: err.message}});
@@ -67,7 +92,7 @@ router.post('/confirm/:battletag', function(req, res, next) {
         }
       }).catch(function(err) {
         res.status(500).json({error: true, data: {message: err.message}});
-      })
+      });
 });
 
 router.get('/confirmed/:battletag', function(req, res, next) {
