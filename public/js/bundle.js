@@ -1108,7 +1108,7 @@ var Profile = function (_React$Component) {
           console.log(character);
           console.log(index);
           console.log(character.class);
-          var characterClass = _.findWhere(classes, { id: character.class });
+          var characterClass = _.findWhere(classes, { id: parseInt(character.class) });
           console.log(characterClass);
           return _react2.default.createElement(
             'div',
