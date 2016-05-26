@@ -1146,7 +1146,7 @@ var Profile = function (_React$Component) {
                 _react2.default.createElement(
                   'div',
                   { className: 'col-sm-10' },
-                  _.findWhere(classes, { id: character.race }).name
+                  _.findWhere(classes, { id: character.class }).name
                 )
               ),
               _react2.default.createElement(
