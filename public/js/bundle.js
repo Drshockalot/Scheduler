@@ -1133,7 +1133,7 @@ var Profile = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6 control-label pull-left' },
+                  { className: 'col-sm-6 control-label text-left' },
                   character.name
                 )
               ),
@@ -1147,7 +1147,7 @@ var Profile = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6 control-label pull-left' },
+                  { className: 'col-sm-6 control-label text-left' },
                   _.findWhere(classes, { id: parseInt(character.class) }).name
                 )
               ),
@@ -1229,7 +1229,7 @@ var Profile = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6 control-label pull-left' },
+                  { className: 'col-sm-6 control-label text-left' },
                   character.average_ilvl
                 )
               ),
@@ -1243,7 +1243,7 @@ var Profile = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6 control-label pull-left' },
+                  { className: 'col-sm-6 control-label text-left' },
                   character.confirmed
                 )
               ),
