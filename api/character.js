@@ -5,6 +5,8 @@ var _ = require('underscore');
 var Character = require('./../db/postgres/character');
 var User = require('./../db/postgres/user');
 
+var classes = require('./../utility/WowClasses');
+
 router.post('/confirm/:battletag', function(req, res, next) {
   var characterInput = req.body;
   User.forge({ battletag: req.params.battletag })
