@@ -1107,6 +1107,9 @@ var Profile = function (_React$Component) {
         storedCharactersList = this.state.storedCharacters.map(function (character, index) {
           console.log(character);
           console.log(index);
+          console.log(character.class);
+          var characterClass = _.findWhere(classes, { id: character.class }).name;
+          console.log(characterClass);
           return _react2.default.createElement(
             'div',
             { className: 'col-md-4' },
@@ -1126,12 +1129,12 @@ var Profile = function (_React$Component) {
                 { className: 'form-group' },
                 _react2.default.createElement(
                   'label',
-                  { className: 'col-sm-2 control-label' },
+                  { className: 'col-sm-6 control-label' },
                   'Name'
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-10' },
+                  { className: 'col-sm-6' },
                   character.name
                 )
               ),
@@ -1140,13 +1143,13 @@ var Profile = function (_React$Component) {
                 { className: 'form-group' },
                 _react2.default.createElement(
                   'label',
-                  { className: 'col-sm-2 control-label' },
+                  { className: 'col-sm-6 control-label' },
                   'Class'
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-10' },
-                  _.findWhere(classes, { id: character.class }).name
+                  { className: 'col-sm-6' },
+                  characterClass
                 )
               ),
               _react2.default.createElement(
@@ -1154,12 +1157,12 @@ var Profile = function (_React$Component) {
                 { className: 'form-group' },
                 _react2.default.createElement(
                   'label',
-                  { className: 'col-sm-2 control-label' },
+                  { className: 'col-sm-6 control-label' },
                   'Main Role'
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-10' },
+                  { className: 'col-sm-6' },
                   _react2.default.createElement(
                     'select',
                     { className: 'form-control', id: 'main-role', value: _this2.state.storedCharacters[index].main_role, onChange: function onChange(e) {
@@ -1188,12 +1191,12 @@ var Profile = function (_React$Component) {
                 { className: 'form-group' },
                 _react2.default.createElement(
                   'label',
-                  { className: 'col-sm-2 control-label' },
+                  { className: 'col-sm-6 control-label' },
                   'Off Role'
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-10' },
+                  { className: 'col-sm-6' },
                   _react2.default.createElement(
                     'select',
                     { className: 'form-control', id: 'off-role', value: _this2.state.storedCharacters[index].off_role, onChange: function onChange(e) {
@@ -1222,12 +1225,12 @@ var Profile = function (_React$Component) {
                 { className: 'form-group' },
                 _react2.default.createElement(
                   'label',
-                  { className: 'col-sm-2 control-label' },
+                  { className: 'col-sm-6 control-label' },
                   'Admin Confirmed'
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-10' },
+                  { className: 'col-sm-6' },
                   character.confirmed
                 )
               )
