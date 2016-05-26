@@ -65,6 +65,8 @@ class Profile extends React.Component {
 
     if(this.state.storedCharacters.length > 0) {
       storedCharactersList = this.state.storedCharacters.map((character, index) => {
+        console.log(character);
+        console.log(index);
         return (
           <div className='col-md-4'>
             <h4>{character.rank}</h4>
@@ -81,7 +83,7 @@ class Profile extends React.Component {
               <div className='form-group'>
                 <label className='col-sm-2 control-label'>Class</label>
                 <div className='col-sm-10'>
-
+                  {_.findWhere(classes, { id: character.class }).name}
                 </div>
               </div>
               <div className='form-group'>

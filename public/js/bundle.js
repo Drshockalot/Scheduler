@@ -1105,6 +1105,8 @@ var Profile = function (_React$Component) {
 
       if (this.state.storedCharacters.length > 0) {
         storedCharactersList = this.state.storedCharacters.map(function (character, index) {
+          console.log(character);
+          console.log(index);
           return _react2.default.createElement(
             'div',
             { className: 'col-md-4' },
@@ -1141,7 +1143,11 @@ var Profile = function (_React$Component) {
                   { className: 'col-sm-2 control-label' },
                   'Class'
                 ),
-                _react2.default.createElement('div', { className: 'col-sm-10' })
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-sm-10' },
+                  _.findWhere(classes, { id: character.class }).name
+                )
               ),
               _react2.default.createElement(
                 'div',
