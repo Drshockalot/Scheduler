@@ -58,7 +58,7 @@ router.post('/confirm/:battletag', function(req, res, next) {
                            rank: req.body.rank || currentCharacter.get('rank')
                          })
                          .then(function(savedCharacter) {
-                           res.json({error: false, data: {message: 'has switched to your ' + savedCharacter.rank, responseCode: 3, character: savedCharacter}});
+                           res.json({error: false, data: {message: 'has switched to your ' + savedCharacter.toJSON().rank, responseCode: 3, character: savedCharacter}});
                          })
                          .catch(function(err) {
                            res.status(500).json({error: true, data: {message: err.message}});
