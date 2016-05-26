@@ -98,8 +98,8 @@ class Profile extends React.Component {
                 <label className='col-sm-6 control-label'>Off Role</label>
                 <div className='col-sm-6'>
                   <select className='form-control' id='off-role' value={this.state.storedCharacters[index].off_role} onChange={e => {ProfileActions.handleOffRoleChange(e.target.value, index)}}>
-                    <option value='Tank'>Tank</option>
-                    <option value='Healer'>Healer</option>
+                    <option key='Tank' value='Tank'>Tank</option>
+                    <option key='Healer' value='Healer'>Healer</option>
                     <option value='DPS'>DPS</option>
                   </select>
                 </div>

@@ -38,11 +38,11 @@ class ProfileStore {
     toastr.error(jqXhr.responseJSON.message);
   }
 
-  onHandleMainRoleChange(value, index) {
-    console.log(value);
-    console.log(index);
-    console.log(this.storedCharacters[index]);
-    this.storedCharacters[index].main_role = value;
+  onHandleMainRoleChange(value) {
+    console.log(value[0]);
+    console.log(value[1]);
+    console.log(this.storedCharacters[value[1]]);
+    this.storedCharacters[value[1]].main_role = value[0];
   }
 
   onHandleOffRoleChange(value, index) {

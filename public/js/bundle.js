@@ -1199,12 +1199,12 @@ var Profile = function (_React$Component) {
                       } },
                     _react2.default.createElement(
                       'option',
-                      { value: 'Tank' },
+                      { key: 'Tank', value: 'Tank' },
                       'Tank'
                     ),
                     _react2.default.createElement(
                       'option',
-                      { value: 'Healer' },
+                      { key: 'Healer', value: 'Healer' },
                       'Healer'
                     ),
                     _react2.default.createElement(
@@ -2492,11 +2492,11 @@ var ProfileStore = function () {
     }
   }, {
     key: 'onHandleMainRoleChange',
-    value: function onHandleMainRoleChange(value, index) {
-      console.log(value);
-      console.log(index);
-      console.log(this.storedCharacters[index]);
-      this.storedCharacters[index].main_role = value;
+    value: function onHandleMainRoleChange(value) {
+      console.log(value[0]);
+      console.log(value[1]);
+      console.log(this.storedCharacters[value[1]]);
+      this.storedCharacters[value[1]].main_role = value[0];
     }
   }, {
     key: 'onHandleOffRoleChange',
