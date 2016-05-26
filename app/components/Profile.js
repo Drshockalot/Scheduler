@@ -63,58 +63,58 @@ class Profile extends React.Component {
       });
     }
 
-    // if(this.state.storedCharacters) {
-    //   storedCharactersList = this.state.storedCharacters.map((character, index) => {
-    //     return (
-    //       <div className='col-md-4'>
-    //         <h4>{character.rank}</h4>
-    //         <form onSubmit={e => {
-    //           e.preventDefault();
-    //           ProfileActions.updateStoredCharacter(this.state.storedCharacters[index]);
-    //         }} className='form-horizontal'>
-    //           <div className='form-group'>
-    //             <label className='col-sm-2 control-label'>Name</label>
-    //             <div className='col-sm-10'>
-    //               {character.name}
-    //             </div>
-    //           </div>
-    //           <div className='form-group'>
-    //             <label className='col-sm-2 control-label'>Class</label>
-    //             <div className='col-sm-10'>
-    //
-    //             </div>
-    //           </div>
-    //           <div className='form-group'>
-    //             <label className='col-sm-2 control-label'>Main Role</label>
-    //             <div className='col-sm-10'>
-    //               <select className='form-control' id='main-role' value={this.state.storedCharacters[index].main_role} onChange={e => {ProfileActions.handleMainRoleChange(e.target.value, index)}}>
-    //                 <option value='Tank'>Tank</option>
-    //                 <option value='Healer'>Healer</option>
-    //                 <option value='DPS'>DPS</option>
-    //               </select>
-    //             </div>
-    //           </div>
-    //           <div className='form-group'>
-    //             <label className='col-sm-2 control-label'>Off Role</label>
-    //             <div className='col-sm-10'>
-    //               <select className='form-control' id='off-role' value={this.state.storedCharacters[index].off_role} onChange={e => {ProfileActions.handleOffRoleChange(e.target.value, index)}}>
-    //                 <option value='Tank'>Tank</option>
-    //                 <option value='Healer'>Healer</option>
-    //                 <option value='DPS'>DPS</option>
-    //               </select>
-    //             </div>
-    //           </div>
-    //           <div className='form-group'>
-    //             <label className='col-sm-2 control-label'>Admin Confirmed</label>
-    //             <div className='col-sm-10'>
-    //               {character.confirmed}
-    //             </div>
-    //           </div>
-    //         </form>
-    //       </div>
-    //     );
-    //   })
-    // }
+    if(this.state.storedCharacters.length > 0) {
+      storedCharactersList = this.state.storedCharacters.map((character, index) => {
+        return (
+          <div className='col-md-4'>
+            <h4>{character.rank}</h4>
+            <form onSubmit={e => {
+              e.preventDefault();
+              ProfileActions.updateStoredCharacter(this.state.storedCharacters[index]);
+            }} className='form-horizontal'>
+              <div className='form-group'>
+                <label className='col-sm-2 control-label'>Name</label>
+                <div className='col-sm-10'>
+                  {character.name}
+                </div>
+              </div>
+              <div className='form-group'>
+                <label className='col-sm-2 control-label'>Class</label>
+                <div className='col-sm-10'>
+                  {_.findWhere(classes, { id: character.class }).name}
+                </div>
+              </div>
+              <div className='form-group'>
+                <label className='col-sm-2 control-label'>Main Role</label>
+                <div className='col-sm-10'>
+                  <select className='form-control' id='main-role' value={this.state.storedCharacters[index].main_role} onChange={e => {ProfileActions.handleMainRoleChange(e.target.value, index)}}>
+                    <option value='Tank'>Tank</option>
+                    <option value='Healer'>Healer</option>
+                    <option value='DPS'>DPS</option>
+                  </select>
+                </div>
+              </div>
+              <div className='form-group'>
+                <label className='col-sm-2 control-label'>Off Role</label>
+                <div className='col-sm-10'>
+                  <select className='form-control' id='off-role' value={this.state.storedCharacters[index].off_role} onChange={e => {ProfileActions.handleOffRoleChange(e.target.value, index)}}>
+                    <option value='Tank'>Tank</option>
+                    <option value='Healer'>Healer</option>
+                    <option value='DPS'>DPS</option>
+                  </select>
+                </div>
+              </div>
+              <div className='form-group'>
+                <label className='col-sm-2 control-label'>Admin Confirmed</label>
+                <div className='col-sm-10'>
+                  {character.confirmed}
+                </div>
+              </div>
+            </form>
+          </div>
+        );
+      })
+    }
 
     return (
       <div className='container'>

@@ -5,7 +5,7 @@ class ProfileStore {
   constructor() {
     this.bindActions(ProfileActions);
     this.retrievedCharacters = null;
-    this.storedCharacters = null;
+    this.storedCharacters = [];
     this.confirmedAlts = null;
     this.confirmedMain = null;
   }
