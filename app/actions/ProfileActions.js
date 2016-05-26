@@ -18,7 +18,8 @@ class ProfileActions {
       'saveStoredCharacterDetailsFailure',
       'deleteStoredCharacterSuccess',
       'deleteStoredCharacterFailure',
-      'retrieveAverageIlvlFailure'
+      'retrieveAverageIlvlFailure',
+      'updateCharacterIlvl'
     );
   }
 
@@ -97,6 +98,7 @@ class ProfileActions {
     }).done((result) => {
       character.average_ilvl = result.items.averageItemLevel;
       this.saveStoredCharacterDetails(character);
+      this.updateCharacterIlvl(result.items.averageItemLevel, index);
     }).fail((jqXhr) => {
       this.retrieveAverageIlvlFailure(jqXhr);
     });

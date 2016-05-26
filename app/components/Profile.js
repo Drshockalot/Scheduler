@@ -135,7 +135,7 @@ class Profile extends React.Component {
               <div className='form-group'>
                 <div className='col-sm-offset-6 col-sm-6'>
                   <button className='btn btn-info' onClick={() => {
-                    ProfileActions.updateIlvlForCharacter(this.state.storedCharacters[index]);
+                    ProfileActions.updateIlvlForCharacter(this.state.storedCharacters[index], index);
                   }}>Update ilvl</button>
                 </div>
               </div>

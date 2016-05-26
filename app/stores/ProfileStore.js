@@ -69,6 +69,11 @@ class ProfileStore {
   onRetrieveAverageIlvlFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
   }
+
+  onUpdateCharacterIlvl(values) {
+    this.storedCharacters[value[1]].average_ilvl = value[0];
+    toastr.success('Character ilvl has been updated', 'Character Confirmed');
+  }
 }
 
 export default alt.createStore(ProfileStore);

@@ -135,7 +135,7 @@ var ProfileActions = function () {
   function ProfileActions() {
     _classCallCheck(this, ProfileActions);
 
-    this.generateActions('populateRetrievedCharactersSuccess', 'populateRetrievedCharactersFailure', 'confirmCharacterSuccess', 'confirmCharacterFailure', 'updateStoredCharactersSuccess', 'updateStoredCharactersFailure', 'handleMainRoleChange', 'handleOffRoleChange', 'saveStoredCharacterDetailsSuccess', 'saveStoredCharacterDetailsFailure', 'deleteStoredCharacterSuccess', 'deleteStoredCharacterFailure', 'retrieveAverageIlvlFailure');
+    this.generateActions('populateRetrievedCharactersSuccess', 'populateRetrievedCharactersFailure', 'confirmCharacterSuccess', 'confirmCharacterFailure', 'updateStoredCharactersSuccess', 'updateStoredCharactersFailure', 'handleMainRoleChange', 'handleOffRoleChange', 'saveStoredCharacterDetailsSuccess', 'saveStoredCharacterDetailsFailure', 'deleteStoredCharacterSuccess', 'deleteStoredCharacterFailure', 'retrieveAverageIlvlFailure', 'updateCharacterIlvl');
   }
 
   _createClass(ProfileActions, [{
@@ -232,6 +232,7 @@ var ProfileActions = function () {
       }).done(function (result) {
         character.average_ilvl = result.items.averageItemLevel;
         _this6.saveStoredCharacterDetails(character);
+        _this6.updateCharacterIlvl(result.items.averageItemLevel, index);
       }).fail(function (jqXhr) {
         _this6.retrieveAverageIlvlFailure(jqXhr);
       });
@@ -1356,7 +1357,7 @@ var Profile = function (_React$Component) {
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-info', onClick: function onClick() {
-                        _ProfileActions2.default.updateIlvlForCharacter(_this2.state.storedCharacters[index]);
+                        _ProfileActions2.default.updateIlvlForCharacter(_this2.state.storedCharacters[index], index);
                       } },
                     'Update ilvl'
                   )
@@ -2656,6 +2657,12 @@ var ProfileStore = function () {
     key: 'onRetrieveAverageIlvlFailure',
     value: function onRetrieveAverageIlvlFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onUpdateCharacterIlvl',
+    value: function onUpdateCharacterIlvl(values) {
+      this.storedCharacters[value[1]].average_ilvl = value[0];
+      toastr.success('Character ilvl has been updated', 'Character Confirmed');
     }
   }]);
 
