@@ -76,13 +76,13 @@ class Profile extends React.Component {
             }} className='form-horizontal'>
               <div className='form-group'>
                 <label className='col-sm-6 control-label'>Name</label>
-                <div className='col-sm-6'>
+                <div className='col-sm-6 control-label'>
                   {character.name}
                 </div>
               </div>
               <div className='form-group'>
                 <label className='col-sm-6 control-label'>Class</label>
-                <div className='col-sm-6'>
+                <div className='col-sm-6 control-label'>
                   {_.findWhere(classes, { id : parseInt(character.class) }).name}
                 </div>
               </div>
@@ -108,13 +108,13 @@ class Profile extends React.Component {
               </div>
               <div className='form-group'>
                 <label className='col-sm-6 control-label'>Average ilvl</label>
-                <div className='col-sm-6'>
+                <div className='col-sm-6 control-label'>
                   {character.average_ilvl}
                 </div>
               </div>
               <div className='form-group'>
                 <label className='col-sm-6 control-label'>Admin Confirmed</label>
-                <div className='col-sm-6'>
+                <div className='col-sm-6 control-label'>
                   {character.confirmed}
                 </div>
               </div>
