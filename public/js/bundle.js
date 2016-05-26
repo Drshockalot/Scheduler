@@ -1165,12 +1165,12 @@ var Profile = function (_React$Component) {
                       } },
                     _react2.default.createElement(
                       'option',
-                      { value: 'Tank' },
+                      { key: 'Tank', value: 'Tank' },
                       'Tank'
                     ),
                     _react2.default.createElement(
                       'option',
-                      { value: 'Healer' },
+                      { key: 'Healer', value: 'Healer' },
                       'Healer'
                     ),
                     _react2.default.createElement(
@@ -1213,6 +1213,20 @@ var Profile = function (_React$Component) {
                       'DPS'
                     )
                   )
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'form-group' },
+                _react2.default.createElement(
+                  'label',
+                  { className: 'col-sm-6 control-label' },
+                  'Average ilvl'
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-sm-6' },
+                  character.average_ilvl
                 )
               ),
               _react2.default.createElement(

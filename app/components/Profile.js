@@ -88,8 +88,8 @@ class Profile extends React.Component {
                 <label className='col-sm-6 control-label'>Main Role</label>
                 <div className='col-sm-6'>
                   <select className='form-control' id='main-role' value={this.state.storedCharacters[index].main_role} onChange={e => {ProfileActions.handleMainRoleChange(e.target.value, index)}}>
-                    <option value='Tank'>Tank</option>
-                    <option value='Healer'>Healer</option>
+                    <option key='Tank' value='Tank'>Tank</option>
+                    <option key='Healer' value='Healer'>Healer</option>
                     <option value='DPS'>DPS</option>
                   </select>
                 </div>
@@ -102,6 +102,12 @@ class Profile extends React.Component {
                     <option value='Healer'>Healer</option>
                     <option value='DPS'>DPS</option>
                   </select>
+                </div>
+              </div>
+              <div className='form-group'>
+                <label className='col-sm-6 control-label'>Average ilvl</label>
+                <div className='col-sm-6'>
+                  {character.average_ilvl}
                 </div>
               </div>
               <div className='form-group'>
