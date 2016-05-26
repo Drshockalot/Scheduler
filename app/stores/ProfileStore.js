@@ -71,7 +71,7 @@ class ProfileStore {
   }
 
   onUpdateCharacterIlvl(values) {
-    this.storedCharacters[value[1]].average_ilvl = value[0];
+    this.storedCharacters[values[1]].average_ilvl = values[0];
     toastr.success('Character ilvl has been updated', 'Character Confirmed');
   }
 }
