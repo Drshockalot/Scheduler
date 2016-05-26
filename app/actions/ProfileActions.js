@@ -70,7 +70,7 @@ class ProfileActions {
     }).done((result) => {
       console.log(result);
       this.saveStoredCharacterDetailsSuccess(result);
-      this.getStoredCharacters();
+      //this.getStoredCharacters();
     }).fail((jqXhr) => {
       console.log(jqXhr);
       this.saveStoredCharacterDetailsFailure(jqXhr);

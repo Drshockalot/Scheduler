@@ -199,7 +199,7 @@ var ProfileActions = function () {
       }).done(function (result) {
         console.log(result);
         _this4.saveStoredCharacterDetailsSuccess(result);
-        _this4.getStoredCharacters();
+        //this.getStoredCharacters();
       }).fail(function (jqXhr) {
         console.log(jqXhr);
         _this4.saveStoredCharacterDetailsFailure(jqXhr);
