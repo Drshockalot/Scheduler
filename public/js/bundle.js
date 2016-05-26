@@ -1125,7 +1125,7 @@ var Profile = function (_React$Component) {
             ),
             _react2.default.createElement(
               'td',
-              { key: 'main-button' },
+              { key: 'main/alt' },
               _react2.default.createElement(
                 'button',
                 { className: 'btn btn-primary', onClick: function onClick() {
@@ -1133,11 +1133,7 @@ var Profile = function (_React$Component) {
                     _ProfileActions2.default.confirmCharacter(character);
                   } },
                 'Main'
-              )
-            ),
-            _react2.default.createElement(
-              'td',
-              { key: 'alt-button' },
+              ),
               _react2.default.createElement(
                 'button',
                 { className: 'btn btn-default', onClick: function onClick() {

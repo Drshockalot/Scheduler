@@ -49,13 +49,11 @@ class Profile extends React.Component {
             <td key={characterClass}>{characterClass}</td>
             <td key={characterRace}>{characterRace}</td>
             <td key={character.realm}>{character.realm}</td>
-            <td key='main-button'>
+            <td key='main/alt'>
               <button className='btn btn-primary' onClick={() => {
                 character.rank = 'main';
                 ProfileActions.confirmCharacter(character);
               }}>Main</button>
-            </td>
-            <td key='alt-button'>
               <button className='btn btn-default' onClick={() => {
                 character.rank = 'alt';
                 ProfileActions.confirmCharacter(character);
