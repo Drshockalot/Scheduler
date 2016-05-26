@@ -135,7 +135,7 @@ var ProfileActions = function () {
   function ProfileActions() {
     _classCallCheck(this, ProfileActions);
 
-    this.generateActions('populateRetrievedCharactersSuccess', 'populateRetrievedCharactersFailure', 'confirmCharacterSuccess', 'confirmCharacterFailure', 'updateStoredCharactersSuccess', 'updateStoredCharactersFailure');
+    this.generateActions('populateRetrievedCharactersSuccess', 'populateRetrievedCharactersFailure', 'confirmCharacterSuccess', 'confirmCharacterFailure', 'updateStoredCharactersSuccess', 'updateStoredCharactersFailure', 'handleMainRoleChange', 'handleOffRoleChange');
   }
 
   _createClass(ProfileActions, [{
@@ -1053,6 +1053,8 @@ var Profile = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       var retrievedCharactersList;
       var storedCharactersList;
 
@@ -1110,6 +1112,137 @@ var Profile = function (_React$Component) {
         });
       }
 
+      if (this.state.storedCharacters) {
+        storedCharactersList = his.state.storedCharacters.map(function (character, index) {
+          return _react2.default.createElement(
+            'div',
+            { className: 'col-md-4' },
+            _react2.default.createElement(
+              'h4',
+              null,
+              character.rank
+            ),
+            _react2.default.createElement(
+              'form',
+              { onSubmit: function onSubmit(e) {
+                  e.preventDefault();
+                  _ProfileActions2.default.updateStoredCharacter(_this2.state.storedCharacters[index]);
+                }, className: 'form-horizontal' },
+              _react2.default.createElement(
+                'div',
+                { className: 'form-group' },
+                _react2.default.createElement(
+                  'label',
+                  { className: 'col-sm-2 control-label' },
+                  'Name'
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-sm-10' },
+                  character.name
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'form-group' },
+                _react2.default.createElement(
+                  'label',
+                  { className: 'col-sm-2 control-label' },
+                  'Class'
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-sm-10' },
+                  _.findWhere(classes, { id: character.race }).name
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'form-group' },
+                _react2.default.createElement(
+                  'label',
+                  { className: 'col-sm-2 control-label' },
+                  'Main Role'
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-sm-10' },
+                  _react2.default.createElement(
+                    'select',
+                    { className: 'form-control', id: 'main-role', value: _this2.state.storedCharacters[index].main_role, onChange: function onChange(e) {
+                        _ProfileActions2.default.handleMainRoleChange(e.target.value, index);
+                      } },
+                    _react2.default.createElement(
+                      'option',
+                      { value: 'Tank' },
+                      'Tank'
+                    ),
+                    _react2.default.createElement(
+                      'option',
+                      { value: 'Healer' },
+                      'Healer'
+                    ),
+                    _react2.default.createElement(
+                      'option',
+                      { value: 'DPS' },
+                      'DPS'
+                    )
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'form-group' },
+                _react2.default.createElement(
+                  'label',
+                  { className: 'col-sm-2 control-label' },
+                  'Off Role'
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-sm-10' },
+                  _react2.default.createElement(
+                    'select',
+                    { className: 'form-control', id: 'off-role', value: _this2.state.storedCharacters[index].off_role, onChange: function onChange(e) {
+                        _ProfileActions2.default.handleOffRoleChange(e.target.value, index);
+                      } },
+                    _react2.default.createElement(
+                      'option',
+                      { value: 'Tank' },
+                      'Tank'
+                    ),
+                    _react2.default.createElement(
+                      'option',
+                      { value: 'Healer' },
+                      'Healer'
+                    ),
+                    _react2.default.createElement(
+                      'option',
+                      { value: 'DPS' },
+                      'DPS'
+                    )
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'form-group' },
+                _react2.default.createElement(
+                  'label',
+                  { className: 'col-sm-2 control-label' },
+                  'Admin Confirmed'
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-sm-10' },
+                  character.confirmed
+                )
+              )
+            )
+          );
+        });
+      }
+
       return _react2.default.createElement(
         'div',
         { className: 'container' },
@@ -1131,7 +1264,7 @@ var Profile = function (_React$Component) {
             _react2.default.createElement(
               'h3',
               null,
-              'Characters'
+              'Zenedar Characters'
             ),
             _react2.default.createElement(
               'table',
@@ -1183,6 +1316,20 @@ var Profile = function (_React$Component) {
               )
             )
           )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'row' },
+          _react2.default.createElement(
+            'h3',
+            null,
+            'Confirmed Characters'
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'row' },
+          storedCharactersList
         )
       );
     }
@@ -2337,6 +2484,16 @@ var ProfileStore = function () {
     key: 'onUpdateStoredCharactersFailure',
     value: function onUpdateStoredCharactersFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onHandleMainRoleChange',
+    value: function onHandleMainRoleChange(value, index) {
+      this.storedCharacters[index].main_role = value;
+    }
+  }, {
+    key: 'onHandleOffRoleChange',
+    value: function onHandleOffRoleChange(value, index) {
+      this.storedCharacters[index].off_role = value;
     }
   }]);
 

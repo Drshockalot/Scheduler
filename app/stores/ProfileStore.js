@@ -37,6 +37,14 @@ class ProfileStore {
   onUpdateStoredCharactersFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
   }
+
+  onHandleMainRoleChange(value, index) {
+    this.storedCharacters[index].main_role = value;
+  }
+
+  onHandleOffRoleChange(value, index) {
+    this.storedCharacters[index].off_role = value;
+  }
 }
 
 export default alt.createStore(ProfileStore);

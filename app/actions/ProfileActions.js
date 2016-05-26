@@ -11,7 +11,9 @@ class ProfileActions {
       'confirmCharacterSuccess',
       'confirmCharacterFailure',
       'updateStoredCharactersSuccess',
-      'updateStoredCharactersFailure'
+      'updateStoredCharactersFailure',
+      'handleMainRoleChange',
+      'handleOffRoleChange'
     );
   }
 
