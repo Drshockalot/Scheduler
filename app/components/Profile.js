@@ -96,7 +96,7 @@ class Profile extends React.Component {
                   <select className='form-control' id='main-role' value={this.state.storedCharacters[index].main_role} onChange={e => {ProfileActions.handleMainRoleChange(e.target.value, index)}}>
                     <option key='Tank' value='Tank'>Tank</option>
                     <option key='Healer' value='Healer'>Healer</option>
-                    <option value='DPS'>DPS</option>
+                    <option key='DPS' value='DPS'>DPS</option>
                   </select>
                 </div>
               </div>
@@ -106,7 +106,7 @@ class Profile extends React.Component {
                   <select className='form-control' id='off-role' value={this.state.storedCharacters[index].off_role} onChange={e => {ProfileActions.handleOffRoleChange(e.target.value, index)}}>
                     <option key='Tank' value='Tank'>Tank</option>
                     <option key='Healer' value='Healer'>Healer</option>
-                    <option value='DPS'>DPS</option>
+                    <option key='DPS' value='DPS'>DPS</option>
                   </select>
                 </div>
               </div>

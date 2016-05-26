@@ -1250,7 +1250,7 @@ var Profile = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                       'option',
-                      { value: 'DPS' },
+                      { key: 'DPS', value: 'DPS' },
                       'DPS'
                     )
                   )
@@ -1288,7 +1288,7 @@ var Profile = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                       'option',
-                      { value: 'DPS' },
+                      { key: 'DPS', value: 'DPS' },
                       'DPS'
                     )
                   )
