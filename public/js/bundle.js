@@ -1209,6 +1209,24 @@ var Profile = function (_React$Component) {
                   _react2.default.createElement(
                     'strong',
                     null,
+                    'Realm:'
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-sm-6 control-label text-left' },
+                  character.realm
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'form-group' },
+                _react2.default.createElement(
+                  'label',
+                  { className: 'col-sm-6 control-label' },
+                  _react2.default.createElement(
+                    'strong',
+                    null,
                     'Main Role:'
                   )
                 ),

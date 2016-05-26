@@ -85,6 +85,12 @@ class Profile extends React.Component {
                 </div>
               </div>
               <div className='form-group'>
+                <label className='col-sm-6 control-label'><strong>Realm:</strong></label>
+                <div className='col-sm-6 control-label text-left'>
+                  {character.realm}
+                </div>
+              </div>
+              <div className='form-group'>
                 <label className='col-sm-6 control-label'><strong>Main Role:</strong></label>
                 <div className='col-sm-6'>
                   <select className='form-control' id='main-role' value={this.state.storedCharacters[index].main_role} onChange={e => {ProfileActions.handleMainRoleChange(e.target.value, index)}}>
