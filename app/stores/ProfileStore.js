@@ -45,6 +45,22 @@ class ProfileStore {
   onHandleOffRoleChange(value) {
     this.storedCharacters[value[1]].off_role = value[0];
   }
+
+  onSaveStoredCharacterDetailsSuccess(value) {
+    toastr.success(value.data.character.name + 'has been updated', 'Character Data Saved');
+  }
+
+  onSaveStoredCharacterDetailsFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
+
+  onDeleteStoredCharacterSuccess(value) {
+    toastr.success(value + 'has been deleted', 'Character Deleted');
+  }
+
+  onDeleteStoredCharacterFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
 }
 
 export default alt.createStore(ProfileStore);

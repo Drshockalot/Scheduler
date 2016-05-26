@@ -13,7 +13,11 @@ class ProfileActions {
       'updateStoredCharactersSuccess',
       'updateStoredCharactersFailure',
       'handleMainRoleChange',
-      'handleOffRoleChange'
+      'handleOffRoleChange',
+      'saveStoredCharacterDetailsSuccess',
+      'saveStoredCharacterDetailsFailure',
+      'deleteStoredCharacterSuccess',
+      'deleteStoredCharacterFailure'
     );
   }
 
@@ -28,31 +32,6 @@ class ProfileActions {
     });
   }
 
-  confirmCharacter(character) {
-    character.battletag = NavbarStore.getState().battletag;
-    $.ajax({
-      method: 'POST',
-      url: '/api/character/confirm/' + encodeURIComponent(NavbarStore.getState().battletag),
-      data: character
-    }).done((result) => {
-      console.log(result);
-      this.confirmCharacterSuccess(result);
-      $.ajax({
-        method: 'GET',
-        url: '/api/character/confirmed/' + encodeURIComponent(NavbarStore.getState().battletag)
-      }).done((result_) => {
-        console.log(result_);
-        this.updateStoredCharactersSuccess(result_);
-      }).fail((jqXhr_) => {
-        console.log(jqXhr_);
-        this.updateStoredCharactersFailure(jqXhr_);
-      });
-    }).fail((jqXhr) => {
-      console.log(jqXhr);
-      this.confirmCharacterFailure(jqXhr);
-    });
-  }
-
   getStoredCharacters() {
     $.ajax({
       method: 'GET',
@@ -63,6 +42,47 @@ class ProfileActions {
     }).fail((jqXhr) => {
       console.log(jqXhr);
       this.updateStoredCharactersFailure(jqXhr);
+    });
+  }
+
+  confirmCharacter(character) {
+    character.battletag = NavbarStore.getState().battletag;
+    $.ajax({
+      method: 'POST',
+      url: '/api/character/confirm/' + encodeURIComponent(NavbarStore.getState().battletag),
+      data: character
+    }).done((result) => {
+      this.confirmCharacterSuccess(result);
+      this.getStoredCharacters();
+    }).fail((jqXhr) => {
+      console.log(jqXhr);
+      this.confirmCharacterFailure(jqXhr);
+    });
+  }
+
+  saveStoredCharacterDetails(character) {
+    $.ajax({
+      method: 'PUT',
+      url: '/api/character/' + character.id,
+      data: character
+    }).done((result) => {
+      this.saveStoredCharacterDetailsSuccess(result);
+      this.getStoredCharacters();
+    }).fail((jqXhr) => {
+      this.saveStoredCharacterDetailsFailure(jqXhr);
+    });
+  }
+
+  deleteStoredCharacter(character) {
+    $.ajax({
+      method: 'DELETE',
+      url: '/api/character/' + character.id,
+      data: character
+    }).done((result) => {
+      this.deleteStoredCharacterSuccess(character.name);
+      this.getStoredCharacters();
+    }).fail((jqXhr) => {
+      this.deleteStoredCharacterFailure(jqXhr);
     });
   }
 }

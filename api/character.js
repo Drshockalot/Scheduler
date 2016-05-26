@@ -35,7 +35,8 @@ router.post('/confirm/:battletag', function(req, res, next) {
                             main_role: "Tank",
                             off_role: "Tank",
                             token: _.findWhere(classes, { id: parseInt(characterInput.class)}).token,
-                            confirmed: 0})
+                            confirmed: 0,
+                            realm: characterInput.realm})
                    .save()
                    .then(function(character) {
                      res.json({error: false, data: {message: 'Character confirmed', character: character.toJSON()}});
@@ -48,7 +49,12 @@ router.post('/confirm/:battletag', function(req, res, next) {
                             class: characterInput.class,
                             rank: characterInput.rank,
                             user_id: user.get('id'),
-                            confirmed: 0})
+                            average_ilvl: 0,
+                            main_role: "Tank",
+                            off_role: "Tank",
+                            token: _.findWhere(classes, { id: parseInt(characterInput.class)}).token,
+                            confirmed: 0,
+                            realm: characterInput.realm})
                    .save()
                    .then(function(character) {
                      res.json({error: false, data: {message: 'Character confirmed', character: character.toJSON()}});
@@ -73,6 +79,44 @@ router.get('/confirmed/:battletag', function(req, res, next) {
       .catch(function(err) {
         res.status(500).json({error: true, data: {message: err.message}});
       });
+});
+
+router.put('/:characterid', function(req, res, next) {
+  Character.forge({ id: req.params.characterid })
+           .fetch({ require: true })
+           .then(function(currentCharacter) {
+             character.save({
+               main_role: req.body.main_role,
+               off_role: req.body.off_role,
+               average_ilvl: req.body.average_ilvl
+             })
+             .then(function(savedCharacter) {
+               res.json({error: false, data: {message: "Character updated", character: savedCharacter}});
+             })
+             .catch(function(err) {
+               res.status(500).json({error: true, data: {message: err.message}});
+             })
+           })
+           .catch(function(err) {
+             res.status(500).json({error: true, data: {message: err.message}});
+           });
+});
+
+router.delete('/:characterid', function(req, res, next) {
+  Character.forge({ id: req.params.characterid })
+           .fetch({ require: true })
+           .then(function(character) {
+             character.destroy()
+                      .then(function() {
+                        res.json({error: false, data: {message: "Character deleted"}});
+                      })
+                      .catch(function(err) {
+                        res.status(500).json({error: true, data: {message: err.message}});
+                      })
+           })
+           .catch(function(err) {
+             res.status(500).json({error: true, data: {message: err.message}});
+           });
 });
 
 module.exports = router;

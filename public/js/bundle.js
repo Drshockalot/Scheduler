@@ -135,7 +135,7 @@ var ProfileActions = function () {
   function ProfileActions() {
     _classCallCheck(this, ProfileActions);
 
-    this.generateActions('populateRetrievedCharactersSuccess', 'populateRetrievedCharactersFailure', 'confirmCharacterSuccess', 'confirmCharacterFailure', 'updateStoredCharactersSuccess', 'updateStoredCharactersFailure', 'handleMainRoleChange', 'handleOffRoleChange');
+    this.generateActions('populateRetrievedCharactersSuccess', 'populateRetrievedCharactersFailure', 'confirmCharacterSuccess', 'confirmCharacterFailure', 'updateStoredCharactersSuccess', 'updateStoredCharactersFailure', 'handleMainRoleChange', 'handleOffRoleChange', 'saveStoredCharacterDetailsSuccess', 'saveStoredCharacterDetailsFailure', 'deleteStoredCharacterSuccess', 'deleteStoredCharacterFailure');
   }
 
   _createClass(ProfileActions, [{
@@ -153,9 +153,25 @@ var ProfileActions = function () {
       });
     }
   }, {
+    key: 'getStoredCharacters',
+    value: function getStoredCharacters() {
+      var _this2 = this;
+
+      $.ajax({
+        method: 'GET',
+        url: '/api/character/confirmed/' + encodeURIComponent(_NavbarStore2.default.getState().battletag)
+      }).done(function (result) {
+        console.log(result);
+        _this2.updateStoredCharactersSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this2.updateStoredCharactersFailure(jqXhr);
+      });
+    }
+  }, {
     key: 'confirmCharacter',
     value: function confirmCharacter(character) {
-      var _this2 = this;
+      var _this3 = this;
 
       character.battletag = _NavbarStore2.default.getState().battletag;
       $.ajax({
@@ -163,37 +179,43 @@ var ProfileActions = function () {
         url: '/api/character/confirm/' + encodeURIComponent(_NavbarStore2.default.getState().battletag),
         data: character
       }).done(function (result) {
-        console.log(result);
-        _this2.confirmCharacterSuccess(result);
-        $.ajax({
-          method: 'GET',
-          url: '/api/character/confirmed/' + encodeURIComponent(_NavbarStore2.default.getState().battletag)
-        }).done(function (result_) {
-          console.log(result_);
-          _this2.updateStoredCharactersSuccess(result_);
-        }).fail(function (jqXhr_) {
-          console.log(jqXhr_);
-          _this2.updateStoredCharactersFailure(jqXhr_);
-        });
+        _this3.confirmCharacterSuccess(result);
+        _this3.getStoredCharacters();
       }).fail(function (jqXhr) {
         console.log(jqXhr);
-        _this2.confirmCharacterFailure(jqXhr);
+        _this3.confirmCharacterFailure(jqXhr);
       });
     }
   }, {
-    key: 'getStoredCharacters',
-    value: function getStoredCharacters() {
-      var _this3 = this;
+    key: 'saveStoredCharacterDetails',
+    value: function saveStoredCharacterDetails(character) {
+      var _this4 = this;
 
       $.ajax({
-        method: 'GET',
-        url: '/api/character/confirmed/' + encodeURIComponent(_NavbarStore2.default.getState().battletag)
+        method: 'PUT',
+        url: '/api/character/' + character.id,
+        data: character
       }).done(function (result) {
-        console.log(result);
-        _this3.updateStoredCharactersSuccess(result);
+        _this4.saveStoredCharacterDetailsSuccess(result);
+        _this4.getStoredCharacters();
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
-        _this3.updateStoredCharactersFailure(jqXhr);
+        _this4.saveStoredCharacterDetailsFailure(jqXhr);
+      });
+    }
+  }, {
+    key: 'deleteStoredCharacter',
+    value: function deleteStoredCharacter(character) {
+      var _this5 = this;
+
+      $.ajax({
+        method: 'DELETE',
+        url: '/api/character/' + character.id,
+        data: character
+      }).done(function (result) {
+        _this5.deleteStoredCharacterSuccess(character.name);
+        _this5.getStoredCharacters();
+      }).fail(function (jqXhr) {
+        _this5.deleteStoredCharacterFailure(jqXhr);
       });
     }
   }]);
@@ -1053,7 +1075,7 @@ var Profile = function (_React$Component) {
         var retrievedCharactersCopy = this.state.retrievedCharacters;
         var arr = [];
         Object.keys(retrievedCharactersCopy).map(function (i) {
-          if (retrievedCharactersCopy[i].realm === "Zenedar") {
+          if (retrievedCharactersCopy[i].level === 100) {
             arr.push(retrievedCharactersCopy[i]);
           }
         });
@@ -1118,18 +1140,19 @@ var Profile = function (_React$Component) {
               )
             ),
             _react2.default.createElement(
-              'form',
-              { onSubmit: function onSubmit(e) {
-                  e.preventDefault();
-                  _ProfileActions2.default.updateStoredCharacter(_this2.state.storedCharacters[index]);
-                }, className: 'form-horizontal' },
+              'div',
+              { className: 'form-horizontal' },
               _react2.default.createElement(
                 'div',
                 { className: 'form-group' },
                 _react2.default.createElement(
                   'label',
                   { className: 'col-sm-6 control-label' },
-                  'Name:'
+                  _react2.default.createElement(
+                    'strong',
+                    null,
+                    'Name:'
+                  )
                 ),
                 _react2.default.createElement(
                   'div',
@@ -1143,7 +1166,11 @@ var Profile = function (_React$Component) {
                 _react2.default.createElement(
                   'label',
                   { className: 'col-sm-6 control-label' },
-                  'Class:'
+                  _react2.default.createElement(
+                    'strong',
+                    null,
+                    'Class:'
+                  )
                 ),
                 _react2.default.createElement(
                   'div',
@@ -1157,7 +1184,11 @@ var Profile = function (_React$Component) {
                 _react2.default.createElement(
                   'label',
                   { className: 'col-sm-6 control-label' },
-                  'Main Role:'
+                  _react2.default.createElement(
+                    'strong',
+                    null,
+                    'Main Role:'
+                  )
                 ),
                 _react2.default.createElement(
                   'div',
@@ -1191,7 +1222,11 @@ var Profile = function (_React$Component) {
                 _react2.default.createElement(
                   'label',
                   { className: 'col-sm-6 control-label' },
-                  'Off Role:'
+                  _react2.default.createElement(
+                    'strong',
+                    null,
+                    'Off Role:'
+                  )
                 ),
                 _react2.default.createElement(
                   'div',
@@ -1225,7 +1260,11 @@ var Profile = function (_React$Component) {
                 _react2.default.createElement(
                   'label',
                   { className: 'col-sm-6 control-label' },
-                  'Average ilvl:'
+                  _react2.default.createElement(
+                    'strong',
+                    null,
+                    'Average ilvl:'
+                  )
                 ),
                 _react2.default.createElement(
                   'div',
@@ -1239,7 +1278,11 @@ var Profile = function (_React$Component) {
                 _react2.default.createElement(
                   'label',
                   { className: 'col-sm-6 control-label' },
-                  'Admin Confirmed:'
+                  _react2.default.createElement(
+                    'strong',
+                    null,
+                    'Admin Confirmed:'
+                  )
                 ),
                 _react2.default.createElement(
                   'div',
@@ -1255,7 +1298,9 @@ var Profile = function (_React$Component) {
                   { className: 'col-sm-offset-6 col-sm-6' },
                   _react2.default.createElement(
                     'button',
-                    { type: 'submit', className: 'btn btn-default' },
+                    { className: 'btn btn-default', onClick: function onClick() {
+                        _ProfileActions2.default.saveStoredCharacterDetails(_this2.state.storedCharacters[index]);
+                      } },
                     'Save'
                   )
                 )
@@ -1268,7 +1313,9 @@ var Profile = function (_React$Component) {
                   { className: 'col-sm-offset-6 col-sm-6' },
                   _react2.default.createElement(
                     'button',
-                    { type: 'submit', className: 'btn btn-danger' },
+                    { className: 'btn btn-danger', onClick: function onClick() {
+                        _ProfileActions2.default.deleteStoredCharacter(_this2.state.storedCharacters[index]);
+                      } },
                     'Delete'
                   )
                 )
@@ -2529,6 +2576,26 @@ var ProfileStore = function () {
     key: 'onHandleOffRoleChange',
     value: function onHandleOffRoleChange(value) {
       this.storedCharacters[value[1]].off_role = value[0];
+    }
+  }, {
+    key: 'onSaveStoredCharacterDetailsSuccess',
+    value: function onSaveStoredCharacterDetailsSuccess(value) {
+      toastr.success(value.data.character.name + 'has been updated', 'Character Data Saved');
+    }
+  }, {
+    key: 'onSaveStoredCharacterDetailsFailure',
+    value: function onSaveStoredCharacterDetailsFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onDeleteStoredCharacterSuccess',
+    value: function onDeleteStoredCharacterSuccess(value) {
+      toastr.success(value + 'has been deleted', 'Character Deleted');
+    }
+  }, {
+    key: 'onDeleteStoredCharacterFailure',
+    value: function onDeleteStoredCharacterFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
     }
   }]);
 

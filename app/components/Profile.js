@@ -35,7 +35,7 @@ class Profile extends React.Component {
       var retrievedCharactersCopy = this.state.retrievedCharacters;
       var arr = [];
       Object.keys(retrievedCharactersCopy).map(function(i) {
-        if(retrievedCharactersCopy[i].realm === "Zenedar") {
+        if(retrievedCharactersCopy[i].level === 100) {
             arr.push(retrievedCharactersCopy[i]);
         }
       });
@@ -70,24 +70,21 @@ class Profile extends React.Component {
             <div className='col-sm-offset-6 col-sm-6'>
               <h2>{character.rank}</h2>
             </div>
-            <form onSubmit={e => {
-              e.preventDefault();
-              ProfileActions.updateStoredCharacter(this.state.storedCharacters[index]);
-            }} className='form-horizontal'>
+            <div className='form-horizontal'>
               <div className='form-group'>
-                <label className='col-sm-6 control-label'>Name:</label>
+                <label className='col-sm-6 control-label'><strong>Name:</strong></label>
                 <div className='col-sm-6 control-label text-left'>
                   {character.name}
                 </div>
               </div>
               <div className='form-group'>
-                <label className='col-sm-6 control-label'>Class:</label>
+                <label className='col-sm-6 control-label'><strong>Class:</strong></label>
                 <div className='col-sm-6 control-label text-left'>
                   {_.findWhere(classes, { id : parseInt(character.class) }).name}
                 </div>
               </div>
               <div className='form-group'>
-                <label className='col-sm-6 control-label'>Main Role:</label>
+                <label className='col-sm-6 control-label'><strong>Main Role:</strong></label>
                 <div className='col-sm-6'>
                   <select className='form-control' id='main-role' value={this.state.storedCharacters[index].main_role} onChange={e => {ProfileActions.handleMainRoleChange(e.target.value, index)}}>
                     <option key='Tank' value='Tank'>Tank</option>
@@ -97,7 +94,7 @@ class Profile extends React.Component {
                 </div>
               </div>
               <div className='form-group'>
-                <label className='col-sm-6 control-label'>Off Role:</label>
+                <label className='col-sm-6 control-label'><strong>Off Role:</strong></label>
                 <div className='col-sm-6'>
                   <select className='form-control' id='off-role' value={this.state.storedCharacters[index].off_role} onChange={e => {ProfileActions.handleOffRoleChange(e.target.value, index)}}>
                     <option key='Tank' value='Tank'>Tank</option>
@@ -107,28 +104,32 @@ class Profile extends React.Component {
                 </div>
               </div>
               <div className='form-group'>
-                <label className='col-sm-6 control-label'>Average ilvl:</label>
+                <label className='col-sm-6 control-label'><strong>Average ilvl:</strong></label>
                 <div className='col-sm-6 control-label text-left'>
                   {character.average_ilvl}
                 </div>
               </div>
               <div className='form-group'>
-                <label className='col-sm-6 control-label'>Admin Confirmed:</label>
+                <label className='col-sm-6 control-label'><strong>Admin Confirmed:</strong></label>
                 <div className='col-sm-6 control-label text-left'>
                   {character.confirmed}
                 </div>
               </div>
               <div className='form-group'>
                 <div className='col-sm-offset-6 col-sm-6'>
-                  <button type='submit' className='btn btn-default'>Save</button>
+                  <button className='btn btn-default' onClick={() => {
+                    ProfileActions.saveStoredCharacterDetails(this.state.storedCharacters[index]);
+                  }}>Save</button>
                 </div>
               </div>
               <div className='form-group'>
                 <div className='col-sm-offset-6 col-sm-6'>
-                  <button type='submit' className='btn btn-danger'>Delete</button>
+                  <button className='btn btn-danger' onClick={() => {
+                    ProfileActions.deleteStoredCharacter(this.state.storedCharacters[index]);
+                  }}>Delete</button>
                 </div>
               </div>
-            </form>
+            </div>
           </div>
         );
       })
