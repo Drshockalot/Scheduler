@@ -52,6 +52,7 @@ class ProfileActions {
       url: '/api/character/confirm/' + encodeURIComponent(NavbarStore.getState().battletag),
       data: character
     }).done((result) => {
+      console.log(result);
       this.confirmCharacterSuccess(result);
       this.getStoredCharacters();
     }).fail((jqXhr) => {

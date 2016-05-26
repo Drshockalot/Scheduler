@@ -179,6 +179,7 @@ var ProfileActions = function () {
         url: '/api/character/confirm/' + encodeURIComponent(_NavbarStore2.default.getState().battletag),
         data: character
       }).done(function (result) {
+        console.log(result);
         _this3.confirmCharacterSuccess(result);
         _this3.getStoredCharacters();
       }).fail(function (jqXhr) {
