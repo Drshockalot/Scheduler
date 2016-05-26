@@ -3,8 +3,6 @@ import {Link} from 'react-router';
 import NavbarStore from '../stores/NavbarStore';
 import NavbarActions from '../actions/NavbarActions';
 
-var classes = require('./../../utility/WowClasses');
-
 class Navbar extends React.Component {
   constructor(props) {
     super(props);

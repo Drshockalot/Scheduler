@@ -725,8 +725,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var classes = require('./../../utility/WowClasses');
-
 var Navbar = function (_React$Component) {
   _inherits(Navbar, _React$Component);
 
@@ -975,7 +973,7 @@ var Navbar = function (_React$Component) {
 
 exports.default = Navbar;
 
-},{"../actions/NavbarActions":2,"../stores/NavbarStore":27,"./../../utility/WowClasses":356,"react":"react","react-router":"react-router"}],16:[function(require,module,exports){
+},{"../actions/NavbarActions":2,"../stores/NavbarStore":27,"react":"react","react-router":"react-router"}],16:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1046,8 +1044,6 @@ var Profile = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
-
       var retrievedCharactersList;
       var storedCharactersList;
 
@@ -1105,136 +1101,58 @@ var Profile = function (_React$Component) {
         });
       }
 
-      if (this.state.storedCharacters) {
-        storedCharactersList = this.state.storedCharacters.map(function (character, index) {
-          return _react2.default.createElement(
-            'div',
-            { className: 'col-md-4' },
-            _react2.default.createElement(
-              'h4',
-              null,
-              character.rank
-            ),
-            _react2.default.createElement(
-              'form',
-              { onSubmit: function onSubmit(e) {
-                  e.preventDefault();
-                  _ProfileActions2.default.updateStoredCharacter(_this2.state.storedCharacters[index]);
-                }, className: 'form-horizontal' },
-              _react2.default.createElement(
-                'div',
-                { className: 'form-group' },
-                _react2.default.createElement(
-                  'label',
-                  { className: 'col-sm-2 control-label' },
-                  'Name'
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'col-sm-10' },
-                  character.name
-                )
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'form-group' },
-                _react2.default.createElement(
-                  'label',
-                  { className: 'col-sm-2 control-label' },
-                  'Class'
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'col-sm-10' },
-                  _.findWhere(classes, { id: character.class }).name
-                )
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'form-group' },
-                _react2.default.createElement(
-                  'label',
-                  { className: 'col-sm-2 control-label' },
-                  'Main Role'
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'col-sm-10' },
-                  _react2.default.createElement(
-                    'select',
-                    { className: 'form-control', id: 'main-role', value: _this2.state.storedCharacters[index].main_role, onChange: function onChange(e) {
-                        _ProfileActions2.default.handleMainRoleChange(e.target.value, index);
-                      } },
-                    _react2.default.createElement(
-                      'option',
-                      { value: 'Tank' },
-                      'Tank'
-                    ),
-                    _react2.default.createElement(
-                      'option',
-                      { value: 'Healer' },
-                      'Healer'
-                    ),
-                    _react2.default.createElement(
-                      'option',
-                      { value: 'DPS' },
-                      'DPS'
-                    )
-                  )
-                )
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'form-group' },
-                _react2.default.createElement(
-                  'label',
-                  { className: 'col-sm-2 control-label' },
-                  'Off Role'
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'col-sm-10' },
-                  _react2.default.createElement(
-                    'select',
-                    { className: 'form-control', id: 'off-role', value: _this2.state.storedCharacters[index].off_role, onChange: function onChange(e) {
-                        _ProfileActions2.default.handleOffRoleChange(e.target.value, index);
-                      } },
-                    _react2.default.createElement(
-                      'option',
-                      { value: 'Tank' },
-                      'Tank'
-                    ),
-                    _react2.default.createElement(
-                      'option',
-                      { value: 'Healer' },
-                      'Healer'
-                    ),
-                    _react2.default.createElement(
-                      'option',
-                      { value: 'DPS' },
-                      'DPS'
-                    )
-                  )
-                )
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'form-group' },
-                _react2.default.createElement(
-                  'label',
-                  { className: 'col-sm-2 control-label' },
-                  'Admin Confirmed'
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'col-sm-10' },
-                  character.confirmed
-                )
-              )
-            )
-          );
-        });
-      }
+      // if(this.state.storedCharacters) {
+      //   storedCharactersList = this.state.storedCharacters.map((character, index) => {
+      //     return (
+      //       <div className='col-md-4'>
+      //         <h4>{character.rank}</h4>
+      //         <form onSubmit={e => {
+      //           e.preventDefault();
+      //           ProfileActions.updateStoredCharacter(this.state.storedCharacters[index]);
+      //         }} className='form-horizontal'>
+      //           <div className='form-group'>
+      //             <label className='col-sm-2 control-label'>Name</label>
+      //             <div className='col-sm-10'>
+      //               {character.name}
+      //             </div>
+      //           </div>
+      //           <div className='form-group'>
+      //             <label className='col-sm-2 control-label'>Class</label>
+      //             <div className='col-sm-10'>
+      //
+      //             </div>
+      //           </div>
+      //           <div className='form-group'>
+      //             <label className='col-sm-2 control-label'>Main Role</label>
+      //             <div className='col-sm-10'>
+      //               <select className='form-control' id='main-role' value={this.state.storedCharacters[index].main_role} onChange={e => {ProfileActions.handleMainRoleChange(e.target.value, index)}}>
+      //                 <option value='Tank'>Tank</option>
+      //                 <option value='Healer'>Healer</option>
+      //                 <option value='DPS'>DPS</option>
+      //               </select>
+      //             </div>
+      //           </div>
+      //           <div className='form-group'>
+      //             <label className='col-sm-2 control-label'>Off Role</label>
+      //             <div className='col-sm-10'>
+      //               <select className='form-control' id='off-role' value={this.state.storedCharacters[index].off_role} onChange={e => {ProfileActions.handleOffRoleChange(e.target.value, index)}}>
+      //                 <option value='Tank'>Tank</option>
+      //                 <option value='Healer'>Healer</option>
+      //                 <option value='DPS'>DPS</option>
+      //               </select>
+      //             </div>
+      //           </div>
+      //           <div className='form-group'>
+      //             <label className='col-sm-2 control-label'>Admin Confirmed</label>
+      //             <div className='col-sm-10'>
+      //               {character.confirmed}
+      //             </div>
+      //           </div>
+      //         </form>
+      //       </div>
+      //     );
+      //   })
+      // }
 
       return _react2.default.createElement(
         'div',
