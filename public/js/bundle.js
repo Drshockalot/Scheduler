@@ -1113,7 +1113,7 @@ var Profile = function (_React$Component) {
       }
 
       if (this.state.storedCharacters) {
-        storedCharactersList = his.state.storedCharacters.map(function (character, index) {
+        storedCharactersList = this.state.storedCharacters.map(function (character, index) {
           return _react2.default.createElement(
             'div',
             { className: 'col-md-4' },

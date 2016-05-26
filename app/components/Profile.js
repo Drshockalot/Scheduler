@@ -64,7 +64,7 @@ class Profile extends React.Component {
     }
 
     if(this.state.storedCharacters) {
-      storedCharactersList = his.state.storedCharacters.map((character, index) => {
+      storedCharactersList = this.state.storedCharacters.map((character, index) => {
         return (
           <div className='col-md-4'>
             <h4>{character.rank}</h4>
