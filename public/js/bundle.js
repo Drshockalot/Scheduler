@@ -197,11 +197,9 @@ var ProfileActions = function () {
         url: '/api/character/' + character.id,
         data: character
       }).done(function (result) {
-        console.log(result);
         _this4.saveStoredCharacterDetailsSuccess(result);
         //this.getStoredCharacters();
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this4.saveStoredCharacterDetailsFailure(jqXhr);
       });
     }
@@ -223,7 +221,7 @@ var ProfileActions = function () {
     }
   }, {
     key: 'updateIlvlForCharacter',
-    value: function updateIlvlForCharacter(character) {
+    value: function updateIlvlForCharacter(character, index) {
       var _this6 = this;
 
       $.ajax({

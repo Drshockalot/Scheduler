@@ -69,11 +69,9 @@ class ProfileActions {
       url: '/api/character/' + character.id,
       data: character
     }).done((result) => {
-      console.log(result);
       this.saveStoredCharacterDetailsSuccess(result);
       //this.getStoredCharacters();
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.saveStoredCharacterDetailsFailure(jqXhr);
     });
   }
@@ -91,7 +89,7 @@ class ProfileActions {
     });
   }
 
-  updateIlvlForCharacter(character) {
+  updateIlvlForCharacter(character, index) {
     $.ajax({
       method: 'GET',
       url: 'https://eu.api.battle.net/wow/character/' + character.realm + '/' + character.name + '?fields=items&locale=en_GB&apikey=8fc24vcgky6r8yzja8a4efxncgu8z77g'
