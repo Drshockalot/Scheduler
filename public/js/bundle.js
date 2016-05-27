@@ -1907,135 +1907,138 @@ var CharacterManagement = function (_React$Component) {
     key: 'render',
     value: function render() {
       var characterConfirmationList;
-      characterConfirmationList = this.state.UserCharacterList.map(function (user, index) {
-        var characterList = user.characters.map(function (character, index) {
-          var characterClass = _underscore2.default.findWhere(classes, { id: character.class }).name;
-          var characterRace = _underscore2.default.findWhere(races, { id: character.race }).name;
-          var btn;
-          if (character.confirmed) {
-            btn = _react2.default.createElement(
-              'button',
-              { value: character.id, className: 'btn btn-success', onClick: function onClick(e) {
-                  _CharacterManagementActions2.default.confirmCharacter(e.target.value);
-                } },
-              'Confirm'
+
+      if (this.state.UserCharacterList) {
+        characterConfirmationList = this.state.UserCharacterList.map(function (user, index) {
+          var characterList = user.characters.map(function (character, index) {
+            var characterClass = _underscore2.default.findWhere(classes, { id: character.class }).name;
+            var characterRace = _underscore2.default.findWhere(races, { id: character.race }).name;
+            var btn;
+            if (character.confirmed) {
+              btn = _react2.default.createElement(
+                'button',
+                { value: character.id, className: 'btn btn-success', onClick: function onClick(e) {
+                    _CharacterManagementActions2.default.confirmCharacter(e.target.value);
+                  } },
+                'Confirm'
+              );
+            } else {
+              btn = _react2.default.createElement(
+                'button',
+                { value: character.id, className: 'btn btn-danger', onClick: function onClick(e) {
+                    _CharacterManagementActions2.default.unconfirmCharacter(e.target.value);
+                  } },
+                'Unconfirm'
+              );
+            }
+            return _react2.default.createElement(
+              'tr',
+              null,
+              _react2.default.createElement(
+                'td',
+                { key: character.name },
+                character.name
+              ),
+              _react2.default.createElement(
+                'td',
+                { key: characterClass },
+                characterClass
+              ),
+              _react2.default.createElement(
+                'td',
+                { key: characterRace },
+                characterRace
+              ),
+              _react2.default.createElement(
+                'td',
+                { key: character.realm },
+                character.realm
+              ),
+              _react2.default.createElement(
+                'td',
+                { key: character.rank },
+                character.rank
+              ),
+              _react2.default.createElement(
+                'td',
+                { key: 'buttons' },
+                btn
+              )
             );
-          } else {
-            btn = _react2.default.createElement(
-              'button',
-              { value: character.id, className: 'btn btn-danger', onClick: function onClick(e) {
-                  _CharacterManagementActions2.default.unconfirmCharacter(e.target.value);
-                } },
-              'Unconfirm'
-            );
-          }
+          });
           return _react2.default.createElement(
-            'tr',
-            null,
+            'div',
+            { className: 'row' },
             _react2.default.createElement(
-              'td',
-              { key: character.name },
-              character.name
+              'h4',
+              null,
+              _react2.default.createElement(
+                'strong',
+                null,
+                user.battletag
+              )
             ),
             _react2.default.createElement(
-              'td',
-              { key: characterClass },
-              characterClass
-            ),
-            _react2.default.createElement(
-              'td',
-              { key: characterRace },
-              characterRace
-            ),
-            _react2.default.createElement(
-              'td',
-              { key: character.realm },
-              character.realm
-            ),
-            _react2.default.createElement(
-              'td',
-              { key: character.rank },
-              character.rank
-            ),
-            _react2.default.createElement(
-              'td',
-              { key: 'buttons' },
-              btn
+              'table',
+              { className: 'table' },
+              _react2.default.createElement(
+                'tbody',
+                null,
+                _react2.default.createElement(
+                  'tr',
+                  null,
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Name'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Class'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Race'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Realm'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Rank'
+                    )
+                  )
+                ),
+                characterConfirmationList
+              )
             )
           );
         });
-        return _react2.default.createElement(
-          'div',
-          { className: 'row' },
-          _react2.default.createElement(
-            'h4',
-            null,
-            _react2.default.createElement(
-              'strong',
-              null,
-              user.battletag
-            )
-          ),
-          _react2.default.createElement(
-            'table',
-            { className: 'table' },
-            _react2.default.createElement(
-              'tbody',
-              null,
-              _react2.default.createElement(
-                'tr',
-                null,
-                _react2.default.createElement(
-                  'td',
-                  null,
-                  _react2.default.createElement(
-                    'strong',
-                    null,
-                    'Name'
-                  )
-                ),
-                _react2.default.createElement(
-                  'td',
-                  null,
-                  _react2.default.createElement(
-                    'strong',
-                    null,
-                    'Class'
-                  )
-                ),
-                _react2.default.createElement(
-                  'td',
-                  null,
-                  _react2.default.createElement(
-                    'strong',
-                    null,
-                    'Race'
-                  )
-                ),
-                _react2.default.createElement(
-                  'td',
-                  null,
-                  _react2.default.createElement(
-                    'strong',
-                    null,
-                    'Realm'
-                  )
-                ),
-                _react2.default.createElement(
-                  'td',
-                  null,
-                  _react2.default.createElement(
-                    'strong',
-                    null,
-                    'Rank'
-                  )
-                )
-              ),
-              characterConfirmationList
-            )
-          )
-        );
-      });
+      }
 
       return _react2.default.createElement(
         'div',
