@@ -1913,7 +1913,7 @@ var CharacterManagement = function (_React$Component) {
           var characterList = user.characters.map(function (character, index) {
             var characterClass = _underscore2.default.findWhere(classes, { id: parseInt(character.class) }).name;
             var btn;
-            if (character.confirmed) {
+            if (character.confirmed == 0) {
               btn = _react2.default.createElement(
                 'button',
                 { value: character.id, className: 'btn btn-success', onClick: function onClick(e) {

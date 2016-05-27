@@ -36,7 +36,7 @@ class CharacterManagement extends React.Component {
         var characterList = user.characters.map(function(character, index) {
           var characterClass = _.findWhere(classes, { id: parseInt(character.class) }).name;
           var btn;
-          if(character.confirmed) {
+          if(character.confirmed == 0) {
             btn = <button value={character.id} className='btn btn-success' onClick={e => {
               CharacterManagementActions.confirmCharacter(e.target.value);
             }}>Confirm</button>
