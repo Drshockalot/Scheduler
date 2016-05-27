@@ -8095,7 +8095,7 @@ label {
   height: 70%;
   margin-left: -250px;
   overflow-y: auto;
-  background: #eeeeee;
+  background: #F0F3F4;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
@@ -8127,7 +8127,7 @@ label {
 .sidebar-nav li a {
   display: block;
   text-decoration: none;
-  color: #999999;
+  color: #050607;
 }
 .sidebar-nav li a:hover {
   text-decoration: none;

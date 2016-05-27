@@ -1696,7 +1696,7 @@ var Admin = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _AdminStore2.default.listen(this.onChange);
-      if (_NavbarStore2.default.getState().userRole === 'member') {
+      if (_NavbarStore2.default.getState().userRole === 'member' || _NavbarStore2.default.getState().userRole === '') {
         _reactRouter.browserHistory.push('/');
         toastr.error('You do not have authorization to access Admin', 'YOU SHALL NOT PASS!!');
       }
