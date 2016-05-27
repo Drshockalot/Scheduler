@@ -1674,6 +1674,7 @@ var Admin = function (_React$Component) {
       _AdminStore2.default.listen(this.onChange);
       if (_NavbarStore2.default.getState().userRole === 'member') {
         _reactRouter.browserHistory.push('/?accessRedirect=true');
+        toastr.error('You do not have authorization to access Admin', 'YOU SHALL NOT PASS!!');
       }
     }
   }, {

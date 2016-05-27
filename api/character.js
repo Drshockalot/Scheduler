@@ -68,7 +68,7 @@ router.post('/confirm/:battletag', function(req, res, next) {
                          res.status(500).json({error: true, data: {message: err.message}});
                        });
             } else {
-              res.json({error: false, data: {message: 'is already your' + sameCharacter.rank, responseCode: 4, character: sameCharacter}});
+              res.json({error: false, data: {message: 'is already your ' + sameCharacter.rank, responseCode: 4, character: sameCharacter}});
             }
           }
         } else {

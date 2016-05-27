@@ -17,6 +17,7 @@ class Admin extends React.Component {
     AdminStore.listen(this.onChange);
     if (NavbarStore.getState().userRole === 'member') {
       browserHistory.push('/?accessRedirect=true');
+      toastr.error('You do not have authorization to access Admin', 'YOU SHALL NOT PASS!!');
     }
   }
 
