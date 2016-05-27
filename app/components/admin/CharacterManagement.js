@@ -75,9 +75,9 @@ class CharacterManagement extends React.Component {
     }
 
     return (
-      <div className='wrapper'>
+      <div id='wrapper'>
         <AdminSideNav></AdminSideNav>
-        <div className='page-content-wrapper'>
+        <div id='page-content-wrapper'>
           <div className='container-fluid'>
             <div className='row'>
               <h3>Character Confirmation</h3>

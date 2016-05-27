@@ -1791,7 +1791,7 @@ var AdminSideNav = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'sidebar-wrapper' },
+        { id: 'sidebar-wrapper' },
         _react2.default.createElement(
           'ul',
           { className: 'sidebar-nav' },
@@ -2027,11 +2027,11 @@ var CharacterManagement = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'wrapper' },
+        { id: 'wrapper' },
         _react2.default.createElement(_AdminSideNav2.default, null),
         _react2.default.createElement(
           'div',
-          { className: 'page-content-wrapper' },
+          { id: 'page-content-wrapper' },
           _react2.default.createElement(
             'div',
             { className: 'container-fluid' },
