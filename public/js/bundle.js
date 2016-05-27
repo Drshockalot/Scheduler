@@ -2018,7 +2018,7 @@ var CharacterManagement = function (_React$Component) {
                     )
                   )
                 ),
-                characterConfirmationList
+                characterList
               )
             )
           );

@@ -66,7 +66,7 @@ class CharacterManagement extends React.Component {
                   <td><strong>Realm</strong></td>
                   <td><strong>Rank</strong></td>
                 </tr>
-                {characterConfirmationList}
+                {characterList}
               </tbody>
             </table>
           </div>
