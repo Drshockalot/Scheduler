@@ -1859,6 +1859,10 @@ var _AdminSideNav = require('./AdminSideNav');
 
 var _AdminSideNav2 = _interopRequireDefault(_AdminSideNav);
 
+var _underscore = require('underscore');
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1866,6 +1870,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var classes = require('./../../../utility/WowClasses');
+var races = require('./../../../utility/WowRaces');
 
 var CharacterManagement = function (_React$Component) {
   _inherits(CharacterManagement, _React$Component);
@@ -1900,6 +1907,135 @@ var CharacterManagement = function (_React$Component) {
     key: 'render',
     value: function render() {
       var characterConfirmationList;
+      characterConfirmationList = his.state.UserCharacterList.map(function (user, index) {
+        var characterList = user.characters.map(function (character, index) {
+          var characterClass = _underscore2.default.findWhere(classes, { id: character.class }).name;
+          var characterRace = _underscore2.default.findWhere(races, { id: character.race }).name;
+          var btn;
+          if (character.confirmed) {
+            btn = _react2.default.createElement(
+              'button',
+              { value: character.id, className: 'btn btn-success', onClick: function onClick(e) {
+                  _CharacterManagementActions2.default.confirmCharacter(e.target.value);
+                } },
+              'Confirm'
+            );
+          } else {
+            btn = _react2.default.createElement(
+              'button',
+              { value: character.id, className: 'btn btn-danger', onClick: function onClick(e) {
+                  _CharacterManagementActions2.default.unconfirmCharacter(e.target.value);
+                } },
+              'Unconfirm'
+            );
+          }
+          return _react2.default.createElement(
+            'tr',
+            null,
+            _react2.default.createElement(
+              'td',
+              { key: character.name },
+              character.name
+            ),
+            _react2.default.createElement(
+              'td',
+              { key: characterClass },
+              characterClass
+            ),
+            _react2.default.createElement(
+              'td',
+              { key: characterRace },
+              characterRace
+            ),
+            _react2.default.createElement(
+              'td',
+              { key: character.realm },
+              character.realm
+            ),
+            _react2.default.createElement(
+              'td',
+              { key: character.rank },
+              character.rank
+            ),
+            _react2.default.createElement(
+              'td',
+              { key: 'buttons' },
+              btn
+            )
+          );
+        });
+        return _react2.default.createElement(
+          'div',
+          { className: 'row' },
+          _react2.default.createElement(
+            'h4',
+            null,
+            _react2.default.createElement(
+              'strong',
+              null,
+              user.battletag
+            )
+          ),
+          _react2.default.createElement(
+            'table',
+            { className: 'table' },
+            _react2.default.createElement(
+              'tbody',
+              null,
+              _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement(
+                  'td',
+                  null,
+                  _react2.default.createElement(
+                    'strong',
+                    null,
+                    'Name'
+                  )
+                ),
+                _react2.default.createElement(
+                  'td',
+                  null,
+                  _react2.default.createElement(
+                    'strong',
+                    null,
+                    'Class'
+                  )
+                ),
+                _react2.default.createElement(
+                  'td',
+                  null,
+                  _react2.default.createElement(
+                    'strong',
+                    null,
+                    'Race'
+                  )
+                ),
+                _react2.default.createElement(
+                  'td',
+                  null,
+                  _react2.default.createElement(
+                    'strong',
+                    null,
+                    'Realm'
+                  )
+                ),
+                _react2.default.createElement(
+                  'td',
+                  null,
+                  _react2.default.createElement(
+                    'strong',
+                    null,
+                    'Rank'
+                  )
+                )
+              ),
+              characterConfirmationList
+            )
+          )
+        );
+      });
 
       return _react2.default.createElement(
         'div',
@@ -1913,7 +2049,8 @@ var CharacterManagement = function (_React$Component) {
             null,
             'Character Confirmation'
           )
-        )
+        ),
+        characterConfirmationList
       );
     }
   }]);
@@ -1923,7 +2060,7 @@ var CharacterManagement = function (_React$Component) {
 
 exports.default = CharacterManagement;
 
-},{"./../../actions/admin/CharacterManagementActions":7,"./../../stores/admin/CharacterManagementStore":34,"./AdminSideNav":20,"react":"react","react-router":"react-router"}],22:[function(require,module,exports){
+},{"./../../../utility/WowClasses":40,"./../../../utility/WowRaces":41,"./../../actions/admin/CharacterManagementActions":7,"./../../stores/admin/CharacterManagementStore":34,"./AdminSideNav":20,"react":"react","react-router":"react-router","underscore":"underscore"}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

@@ -150,8 +150,6 @@ router.get('/admin/confirmation', function(req, res, next) {
   User.forge()
       .fetchAll({'withRelated': ['characters']})
       .then(function(users) {
-        console.log(users);
-        console.log(users.toJSON());
         if(users) {
           res.json({error: false, data: {message: "Characters retreived", users: users.toJSON()}});
         } else {
