@@ -6,3 +6,5 @@ class CharacterManagementStore {
     this.bindActions(CharacterManagementActions);
   }
 }
+
+export default alt.createStore(CharacterManagementStore);

@@ -1673,7 +1673,7 @@ var Admin = function (_React$Component) {
     value: function componentDidMount() {
       _AdminStore2.default.listen(this.onChange);
       if (_NavbarStore2.default.getState().userRole === 'member') {
-        _reactRouter.browserHistory.push('/?accessRedirect=true');
+        _reactRouter.browserHistory.push('/');
         toastr.error('You do not have authorization to access Admin', 'YOU SHALL NOT PASS!!');
       }
     }
@@ -2903,6 +2903,10 @@ exports.default = _alt2.default.createStore(AdminStore);
 },{"../../actions/admin/AdminActions":5,"../../alt":12}],34:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _alt = require('./../../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
@@ -2920,6 +2924,8 @@ var CharacterManagementStore = function CharacterManagementStore() {
 
   this.bindActions(_CharacterManagementActions2.default);
 };
+
+exports.default = _alt2.default.createStore(CharacterManagementStore);
 
 },{"./../../actions/admin/CharacterManagementActions":7,"./../../alt":12}],35:[function(require,module,exports){
 'use strict';
