@@ -148,7 +148,7 @@ router.delete('/:characterid', function(req, res, next) {
 
 router.get('/admin/confirmation', function(req, res, next) {
   User.forge()
-      .fetch({'withRelated': ['characters']})
+      .fetch()
       .then(function(users) {
         console.log(users);
         console.log(users.toJSON());
