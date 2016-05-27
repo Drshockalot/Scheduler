@@ -1911,8 +1911,8 @@ var CharacterManagement = function (_React$Component) {
       if (this.state.UserCharacterList) {
         characterConfirmationList = this.state.UserCharacterList.map(function (user, index) {
           var characterList = user.characters.map(function (character, index) {
-            var characterClass = _underscore2.default.findWhere(classes, { id: character.class }).name;
-            var characterRace = _underscore2.default.findWhere(races, { id: character.race }).name;
+            var characterClass = _underscore2.default.findWhere(classes, { id: parseInt(character.class) }).name;
+            var characterRace = _underscore2.default.findWhere(races, { id: parseInt(character.race) }).name;
             var btn;
             if (character.confirmed) {
               btn = _react2.default.createElement(
