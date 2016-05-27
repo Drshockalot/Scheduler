@@ -1,6 +1,5 @@
 import alt from '../alt';
 import {assign} from 'underscore';
-var bnet = require('battlenet-api')(process.env.BNET_ID);
 import NavbarStore from '../stores/NavbarStore';
 
 class ProfileActions {
@@ -70,7 +69,6 @@ class ProfileActions {
       data: character
     }).done((result) => {
       this.saveStoredCharacterDetailsSuccess(result);
-      //this.getStoredCharacters();
     }).fail((jqXhr) => {
       this.saveStoredCharacterDetailsFailure(jqXhr);
     });

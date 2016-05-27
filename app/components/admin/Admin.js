@@ -3,6 +3,8 @@ import {Link} from 'react-router';
 import AdminStore from '../../stores/admin/AdminStore';
 import AdminActions from '../../actions/admin/AdminActions';
 import AdminSideNav from './AdminSideNav';
+import NavbarStore from './../../stores/NavbarStore';
+import { browserHistory } from 'react-router';
 
 class Admin extends React.Component {
   constructor(props) {
@@ -13,6 +15,9 @@ class Admin extends React.Component {
 
   componentDidMount() {
     AdminStore.listen(this.onChange);
+    if (NavbarStore.getState().userRole === 'member') {
+      browserHistory.push('/?accessRedirect=true');
+    }
   }
 
   componentWillUnmount() {
