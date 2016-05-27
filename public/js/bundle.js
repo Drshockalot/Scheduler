@@ -2001,6 +2001,16 @@ var CharacterManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'td',
+                { key: character.main_role },
+                character.main_role
+              ),
+              _react2.default.createElement(
+                'td',
+                { key: character.off_role },
+                character.off_role
+              ),
+              _react2.default.createElement(
+                'td',
                 { key: 'buttons' },
                 btn
               )
@@ -2061,6 +2071,24 @@ var CharacterManagement = function (_React$Component) {
                       'strong',
                       null,
                       'Rank'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Main Role'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Off Role'
                     )
                   )
                 ),
