@@ -4,7 +4,11 @@ class CharacterManagementActions {
   constructor() {
     this.generateActions(
       'getCharactersForConfirmationSuccess',
-      'getCharactersForConfirmationFailure'
+      'getCharactersForConfirmationFailure',
+      'confirmCharacterSuccess',
+      'confirmCharacterFailure',
+      'unconfirmCharacterSuccess',
+      'unconfirmCharacterFailure'
     );
   }
 
@@ -18,6 +22,30 @@ class CharacterManagementActions {
     }).fail((jqXhr) => {
       console.log(jqXhr);
       this.getCharactersForConfirmationFailure(jqXhr);
+    });
+  }
+
+  confirmCharacter(characterid) {
+    $.ajax({
+      method: 'PUT',
+      url: '/api/character/admin/confirm/' + characterid
+    }).done((result) => {
+      this.confirmCharacterSuccess(result);
+      this.getCharactersForConfirmation();
+    }).fail((jqXhr) => {
+      this.confirmCharacterFailure(jqXhr);
+    });
+  }
+
+  unconfirmCharacter(chracterid) {
+    $.ajax({
+      method: 'DELETE',
+      url: '/api/character/admin/unconfirm/' + characterid
+    }).done((result) => {
+      this.unconfirmCharacterSuccess(result);
+      this.getCharactersForConfirmation();
+    }).fail((jqXhr) => {
+      this.unconfirmCharacterFailure(jqXhr);
     });
   }
 }

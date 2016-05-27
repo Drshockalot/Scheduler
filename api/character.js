@@ -161,4 +161,42 @@ router.get('/admin/confirmation', function(req, res, next) {
       });
 });
 
+router.put('/admin/confirm/:characterid', function(req, res, next) {
+  Character.forge({ id: req.params.characterid })
+           .fetch({ require: true })
+           .then(function(currentCharacter) {
+             currentCharacter.save({
+               confirmed: 1
+             })
+             .then(function(character) {
+               res.json({error: false, data: {message: "Character Confirmed", character: character}});
+             })
+             .catch(function(err) {
+               res.status(500).json({error: true, data: {message: err.message}});
+             });
+           })
+           .catch(function(err) {
+             res.status(500).json({error: true, data: {message: err.message}});
+           });
+});
+
+router.delete('/admin/unconfirm/:characterid', function(req, res, next) {
+  Character.forge({ id: req.params.characterid })
+           .fetch({ require: true })
+           .then(function(currentCharacter) {
+             currentCharacter.save({
+               confirmed: 0
+             })
+             .then(function(character) {
+               res.json({error: false, data: {message: "Character Unconfirmed", character: character}});
+             })
+             .catch(function(err) {
+               res.status(500).json({error: true, data: {message: err.message}});
+             });
+           })
+           .catch(function(err) {
+             res.status(500).json({error: true, data: {message: err.message}});
+           });
+});
+
 module.exports = router;

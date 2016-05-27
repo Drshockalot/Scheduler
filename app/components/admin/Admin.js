@@ -13,12 +13,15 @@ class Admin extends React.Component {
     this.onChange = this.onChange.bind(this);
   }
 
-  componentDidMount() {
-    AdminStore.listen(this.onChange);
+  componentWillMount() {
     if (NavbarStore.getState().userRole === 'member' || NavbarStore.getState().userRole === '') {
       browserHistory.push('/');
       toastr.error('You do not have authorization to access Admin', 'YOU SHALL NOT PASS!!');
     }
+  }
+
+  componentDidMount() {
+    AdminStore.listen(this.onChange);
   }
 
   componentWillUnmount() {

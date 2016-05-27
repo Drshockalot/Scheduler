@@ -3,6 +3,8 @@ import {Link} from 'react-router';
 import CharacterManagementStore from './../../stores/admin/CharacterManagementStore';
 import CharacterManagementActions from './../../actions/admin/CharacterManagementActions';
 import AdminSideNav from './AdminSideNav';
+import NavbarStore from './../../stores/NavbarStore';
+import { browserHistory } from 'react-router';
 import _ from 'underscore';
 
 var classes = require('./../../../utility/WowClasses');
@@ -13,6 +15,13 @@ class CharacterManagement extends React.Component {
     super(props);
     this.state = CharacterManagementStore.getState();
     this.onChange = this.onChange.bind(this);
+  }
+
+  componentWillMount() {
+    if (NavbarStore.getState().userRole === 'member' || NavbarStore.getState().userRole === '') {
+      browserHistory.push('/');
+      toastr.error('You do not have authorization to access Admin', 'YOU SHALL NOT PASS!!');
+    }
   }
 
   componentDidMount() {

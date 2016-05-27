@@ -14,6 +14,22 @@ class CharacterManagementStore {
   onGetCharactersForConfirmationFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
   }
+
+  onConfirmCharacterSuccess(result) {
+    toastr.success(result.data.character.name + ' has been confirmed', "Character Confirmed");
+  }
+
+  onConfirmCharacterFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
+
+  onUnconfirmCharacterSuccess(result) {
+    toastr.success(result.data.character.name + ' has been unconfirmed', "Character Unconfirmed");
+  }
+
+  onUnconfirmCharacterFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
 }
 
 export default alt.createStore(CharacterManagementStore);

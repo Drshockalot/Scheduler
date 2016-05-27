@@ -359,7 +359,7 @@ var CharacterManagementActions = function () {
   function CharacterManagementActions() {
     _classCallCheck(this, CharacterManagementActions);
 
-    this.generateActions('getCharactersForConfirmationSuccess', 'getCharactersForConfirmationFailure');
+    this.generateActions('getCharactersForConfirmationSuccess', 'getCharactersForConfirmationFailure', 'confirmCharacterSuccess', 'confirmCharacterFailure', 'unconfirmCharacterSuccess', 'unconfirmCharacterFailure');
   }
 
   _createClass(CharacterManagementActions, [{
@@ -376,6 +376,36 @@ var CharacterManagementActions = function () {
       }).fail(function (jqXhr) {
         console.log(jqXhr);
         _this.getCharactersForConfirmationFailure(jqXhr);
+      });
+    }
+  }, {
+    key: 'confirmCharacter',
+    value: function confirmCharacter(characterid) {
+      var _this2 = this;
+
+      $.ajax({
+        method: 'PUT',
+        url: '/api/character/admin/confirm/' + characterid
+      }).done(function (result) {
+        _this2.confirmCharacterSuccess(result);
+        _this2.getCharactersForConfirmation();
+      }).fail(function (jqXhr) {
+        _this2.confirmCharacterFailure(jqXhr);
+      });
+    }
+  }, {
+    key: 'unconfirmCharacter',
+    value: function unconfirmCharacter(chracterid) {
+      var _this3 = this;
+
+      $.ajax({
+        method: 'DELETE',
+        url: '/api/character/admin/unconfirm/' + characterid
+      }).done(function (result) {
+        _this3.unconfirmCharacterSuccess(result);
+        _this3.getCharactersForConfirmation();
+      }).fail(function (jqXhr) {
+        _this3.unconfirmCharacterFailure(jqXhr);
       });
     }
   }]);
@@ -1693,13 +1723,17 @@ var Admin = function (_React$Component) {
   }
 
   _createClass(Admin, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      _AdminStore2.default.listen(this.onChange);
+    key: 'componentWillMount',
+    value: function componentWillMount() {
       if (_NavbarStore2.default.getState().userRole === 'member' || _NavbarStore2.default.getState().userRole === '') {
         _reactRouter.browserHistory.push('/');
         toastr.error('You do not have authorization to access Admin', 'YOU SHALL NOT PASS!!');
       }
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      _AdminStore2.default.listen(this.onChange);
     }
   }, {
     key: 'componentWillUnmount',
@@ -1859,6 +1893,10 @@ var _AdminSideNav = require('./AdminSideNav');
 
 var _AdminSideNav2 = _interopRequireDefault(_AdminSideNav);
 
+var _NavbarStore = require('./../../stores/NavbarStore');
+
+var _NavbarStore2 = _interopRequireDefault(_NavbarStore);
+
 var _underscore = require('underscore');
 
 var _underscore2 = _interopRequireDefault(_underscore);
@@ -1888,6 +1926,14 @@ var CharacterManagement = function (_React$Component) {
   }
 
   _createClass(CharacterManagement, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      if (_NavbarStore2.default.getState().userRole === 'member' || _NavbarStore2.default.getState().userRole === '') {
+        _reactRouter.browserHistory.push('/');
+        toastr.error('You do not have authorization to access Admin', 'YOU SHALL NOT PASS!!');
+      }
+    }
+  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _CharacterManagementStore2.default.listen(this.onChange);
@@ -2056,7 +2102,7 @@ var CharacterManagement = function (_React$Component) {
 
 exports.default = CharacterManagement;
 
-},{"./../../../utility/WowClasses":40,"./../../../utility/WowRaces":41,"./../../actions/admin/CharacterManagementActions":7,"./../../stores/admin/CharacterManagementStore":34,"./AdminSideNav":20,"react":"react","react-router":"react-router","underscore":"underscore"}],22:[function(require,module,exports){
+},{"./../../../utility/WowClasses":40,"./../../../utility/WowRaces":41,"./../../actions/admin/CharacterManagementActions":7,"./../../stores/NavbarStore":29,"./../../stores/admin/CharacterManagementStore":34,"./AdminSideNav":20,"react":"react","react-router":"react-router","underscore":"underscore"}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2351,6 +2397,10 @@ var _RosterControlPanel = require('./RosterControlPanel');
 
 var _RosterControlPanel2 = _interopRequireDefault(_RosterControlPanel);
 
+var _NavbarStore = require('./../../stores/NavbarStore');
+
+var _NavbarStore2 = _interopRequireDefault(_NavbarStore);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2373,6 +2423,14 @@ var RosterManagement = function (_React$Component) {
   }
 
   _createClass(RosterManagement, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      if (_NavbarStore2.default.getState().userRole === 'member' || _NavbarStore2.default.getState().userRole === '') {
+        _reactRouter.browserHistory.push('/');
+        toastr.error('You do not have authorization to access Admin', 'YOU SHALL NOT PASS!!');
+      }
+    }
+  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _RosterManagementStore2.default.listen(this.onChange);
@@ -2411,7 +2469,7 @@ var RosterManagement = function (_React$Component) {
 
 exports.default = RosterManagement;
 
-},{"../../actions/admin/RosterManagementActions":9,"../../stores/admin/RosterManagementStore":36,"./AddRoster":18,"./AdminSideNav":20,"./RosterControlPanel":22,"./RosterView":24,"./ViewRosters":25,"react":"react","react-router":"react-router"}],24:[function(require,module,exports){
+},{"../../actions/admin/RosterManagementActions":9,"../../stores/admin/RosterManagementStore":36,"./../../stores/NavbarStore":29,"./AddRoster":18,"./AdminSideNav":20,"./RosterControlPanel":22,"./RosterView":24,"./ViewRosters":25,"react":"react","react-router":"react-router"}],24:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3113,6 +3171,26 @@ var CharacterManagementStore = function () {
   }, {
     key: 'onGetCharactersForConfirmationFailure',
     value: function onGetCharactersForConfirmationFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onConfirmCharacterSuccess',
+    value: function onConfirmCharacterSuccess(result) {
+      toastr.success(result.data.character.name + ' has been confirmed', "Character Confirmed");
+    }
+  }, {
+    key: 'onConfirmCharacterFailure',
+    value: function onConfirmCharacterFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onUnconfirmCharacterSuccess',
+    value: function onUnconfirmCharacterSuccess(result) {
+      toastr.success(result.data.character.name + ' has been unconfirmed', "Character Unconfirmed");
+    }
+  }, {
+    key: 'onUnconfirmCharacterFailure',
+    value: function onUnconfirmCharacterFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
     }
   }]);

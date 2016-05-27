@@ -7,12 +7,21 @@ import AddRoster from './AddRoster';
 import ViewRosters from './ViewRosters';
 import RosterView from './RosterView';
 import RosterControlPanel from './RosterControlPanel';
+import NavbarStore from './../../stores/NavbarStore';
+import { browserHistory } from 'react-router';
 
 class RosterManagement extends React.Component {
   constructor(props) {
     super(props);
     this.state = RosterManagementStore.getState();
     this.onChange = this.onChange.bind(this);
+  }
+
+  componentWillMount() {
+    if (NavbarStore.getState().userRole === 'member' || NavbarStore.getState().userRole === '') {
+      browserHistory.push('/');
+      toastr.error('You do not have authorization to access Admin', 'YOU SHALL NOT PASS!!');
+    }
   }
 
   componentDidMount() {
