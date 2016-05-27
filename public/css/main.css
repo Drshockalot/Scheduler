@@ -8092,10 +8092,10 @@ label {
   position: fixed;
   left: 250px;
   width: 0;
-  height: 100%;
+  height: 70%;
   margin-left: -250px;
   overflow-y: auto;
-  background: #000;
+  background: #eeeeee;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
