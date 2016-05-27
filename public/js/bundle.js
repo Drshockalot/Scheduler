@@ -2027,18 +2027,26 @@ var CharacterManagement = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'container' },
+        { className: 'wrapper' },
         _react2.default.createElement(_AdminSideNav2.default, null),
         _react2.default.createElement(
           'div',
-          { className: 'row' },
+          { className: 'page-content-wrapper' },
           _react2.default.createElement(
-            'h3',
-            null,
-            'Character Confirmation'
+            'div',
+            { className: 'container-fluid' },
+            _react2.default.createElement(
+              'div',
+              { className: 'row' },
+              _react2.default.createElement(
+                'h3',
+                null,
+                'Character Confirmation'
+              )
+            ),
+            characterConfirmationList
           )
-        ),
-        characterConfirmationList
+        )
       );
     }
   }]);
