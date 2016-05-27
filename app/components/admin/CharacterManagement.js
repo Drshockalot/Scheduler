@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router';
 import CharacterManagementStore from './../../stores/admin/CharacterManagementStore';
 import CharacterManagementActions from './../../actions/admin/CharacterManagementActions';
+import AdminSideNav from './AdminSideNav';
 
 class CharacterManagement extends React.Component {
   constructor(props) {
@@ -25,7 +26,6 @@ class CharacterManagement extends React.Component {
 
   render() {
     var characterConfirmationList;
-
 
 
 
