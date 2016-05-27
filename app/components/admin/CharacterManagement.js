@@ -35,7 +35,6 @@ class CharacterManagement extends React.Component {
       characterConfirmationList = this.state.UserCharacterList.map(function(user, index) {
         var characterList = user.characters.map(function(character, index) {
           var characterClass = _.findWhere(classes, { id: parseInt(character.class) }).name;
-          var characterRace = _.findWhere(races, { id: parseInt(character.race) }).name;
           var btn;
           if(character.confirmed) {
             btn = <button value={character.id} className='btn btn-success' onClick={e => {
@@ -50,7 +49,6 @@ class CharacterManagement extends React.Component {
             <tr>
               <td key={character.name}>{character.name}</td>
               <td key={characterClass}>{characterClass}</td>
-              <td key={characterRace}>{characterRace}</td>
               <td key={character.realm}>{character.realm}</td>
               <td key={character.rank}>{character.rank}</td>
               <td key='buttons'>{btn}</td>
@@ -65,7 +63,6 @@ class CharacterManagement extends React.Component {
                 <tr>
                   <td><strong>Name</strong></td>
                   <td><strong>Class</strong></td>
-                  <td><strong>Race</strong></td>
                   <td><strong>Realm</strong></td>
                   <td><strong>Rank</strong></td>
                 </tr>

@@ -1912,7 +1912,6 @@ var CharacterManagement = function (_React$Component) {
         characterConfirmationList = this.state.UserCharacterList.map(function (user, index) {
           var characterList = user.characters.map(function (character, index) {
             var characterClass = _underscore2.default.findWhere(classes, { id: parseInt(character.class) }).name;
-            var characterRace = _underscore2.default.findWhere(races, { id: parseInt(character.race) }).name;
             var btn;
             if (character.confirmed) {
               btn = _react2.default.createElement(
@@ -1943,11 +1942,6 @@ var CharacterManagement = function (_React$Component) {
                 'td',
                 { key: characterClass },
                 characterClass
-              ),
-              _react2.default.createElement(
-                'td',
-                { key: characterRace },
-                characterRace
               ),
               _react2.default.createElement(
                 'td',
@@ -2003,15 +1997,6 @@ var CharacterManagement = function (_React$Component) {
                       'strong',
                       null,
                       'Class'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'td',
-                    null,
-                    _react2.default.createElement(
-                      'strong',
-                      null,
-                      'Race'
                     )
                   ),
                   _react2.default.createElement(
