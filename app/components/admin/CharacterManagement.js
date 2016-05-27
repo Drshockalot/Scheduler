@@ -60,8 +60,8 @@ class CharacterManagement extends React.Component {
               <td key={characterClass}>{characterClass}</td>
               <td key={character.realm}>{character.realm}</td>
               <td key={character.rank}>{character.rank}</td>
-              <td key={character.main_role}>{character.main_role}</td>
-              <td key={character.off_role}>{character.off_role}</td>
+              <td key={character.main_role + 'main'}>{character.main_role}</td>
+              <td key={character.off_role + 'off'}>{character.off_role}</td>
               <td key='buttons'>{btn}</td>
             </tr>
           );

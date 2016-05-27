@@ -2001,12 +2001,12 @@ var CharacterManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'td',
-                { key: character.main_role },
+                { key: character.main_role + 'main' },
                 character.main_role
               ),
               _react2.default.createElement(
                 'td',
-                { key: character.off_role },
+                { key: character.off_role + 'off' },
                 character.off_role
               ),
               _react2.default.createElement(
