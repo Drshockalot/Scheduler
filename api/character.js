@@ -146,4 +146,19 @@ router.delete('/:characterid', function(req, res, next) {
            });
 });
 
+router.get('/admin/confirmation', function(req, res, next) {
+  User.forge()
+      .fetch({'withRelated': ['characters']})
+      .then(function(users) {
+        if(users) {
+          res.json({error: false, data: {message: "Characters retreived", users: users.toJSON()}});
+        } else {
+          res.json({error: true, data: {message: "No Characters Found", users: {}}});
+        }
+      })
+      .catch(function(err) {
+        res.status(500).json({error: true, data: {message: err.message}});
+      });
+});
+
 module.exports = router;

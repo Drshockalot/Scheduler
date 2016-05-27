@@ -345,6 +345,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _alt = require('./../../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
@@ -353,11 +355,33 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var CharacterManagementActions = function CharacterManagementActions() {
-  _classCallCheck(this, CharacterManagementActions);
+var CharacterManagementActions = function () {
+  function CharacterManagementActions() {
+    _classCallCheck(this, CharacterManagementActions);
 
-  this.generateActions('placeholder');
-};
+    this.generateActions('getCharactersForConfirmationSuccess', 'getCharactersForConfirmationFailure');
+  }
+
+  _createClass(CharacterManagementActions, [{
+    key: 'getCharactersForConfirmation',
+    value: function getCharactersForConfirmation() {
+      var _this = this;
+
+      $.ajax({
+        method: 'GET',
+        url: '/api/character/admin/confirmation'
+      }).done(function (result) {
+        console.log(result);
+        _this.getCharactersForConfirmationSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this.getCharactersForConfirmationFailure(jqXhr);
+      });
+    }
+  }]);
+
+  return CharacterManagementActions;
+}();
 
 exports.default = _alt2.default.createActions(CharacterManagementActions);
 
@@ -1856,6 +1880,7 @@ var CharacterManagement = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _CharacterManagementStore2.default.listen(this.onChange);
+      _CharacterManagementActions2.default.getCharactersForConfirmation();
     }
   }, {
     key: 'componentWillUnmount',
@@ -1870,8 +1895,22 @@ var CharacterManagement = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var characterConfirmationList;
 
-      return false;
+      return _react2.default.createElement(
+        'div',
+        { className: 'container' },
+        _react2.default.createElement(AdminSideNav, null),
+        _react2.default.createElement(
+          'div',
+          { className: 'row' },
+          _react2.default.createElement(
+            'h3',
+            null,
+            'Character Confirmation'
+          )
+        )
+      );
     }
   }]);
 
@@ -2907,6 +2946,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _alt = require('./../../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
@@ -2919,11 +2960,28 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var CharacterManagementStore = function CharacterManagementStore() {
-  _classCallCheck(this, CharacterManagementStore);
+var CharacterManagementStore = function () {
+  function CharacterManagementStore() {
+    _classCallCheck(this, CharacterManagementStore);
 
-  this.bindActions(_CharacterManagementActions2.default);
-};
+    this.bindActions(_CharacterManagementActions2.default);
+    this.UserCharacterList = null;
+  }
+
+  _createClass(CharacterManagementStore, [{
+    key: 'onGetCharactersForConfirmationSuccess',
+    value: function onGetCharactersForConfirmationSuccess(result) {
+      this.UserCharacterList = result.data.users;
+    }
+  }, {
+    key: 'onGetCharactersForConfirmationFailure',
+    value: function onGetCharactersForConfirmationFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }]);
+
+  return CharacterManagementStore;
+}();
 
 exports.default = _alt2.default.createStore(CharacterManagementStore);
 

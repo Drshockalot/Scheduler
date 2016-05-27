@@ -12,7 +12,7 @@ class CharacterManagement extends React.Component {
 
   componentDidMount() {
     CharacterManagementStore.listen(this.onChange);
-
+    CharacterManagementActions.getCharactersForConfirmation();
   }
 
   componentWillUnmount() {
@@ -24,9 +24,18 @@ class CharacterManagement extends React.Component {
   }
 
   render() {
+    var characterConfirmationList;
+
+
+
 
     return (
-      false
+      <div className='container'>
+        <AdminSideNav></AdminSideNav>
+        <div className='row'>
+          <h3>Character Confirmation</h3>
+        </div>
+      </div>
     );
   }
 }
