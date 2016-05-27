@@ -30,7 +30,7 @@ class CharacterManagement extends React.Component {
 
   render() {
     var characterConfirmationList;
-    characterConfirmationList = his.state.UserCharacterList.map(function(user, index) {
+    characterConfirmationList = this.state.UserCharacterList.map(function(user, index) {
       var characterList = user.characters.map(function(character, index) {
         var characterClass = _.findWhere(classes, { id: character.class }).name;
         var characterRace = _.findWhere(races, { id: character.race }).name;
