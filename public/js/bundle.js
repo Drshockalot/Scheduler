@@ -1791,10 +1791,10 @@ var AdminSideNav = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'col-md-2 sidebar' },
+        { className: 'sidebar-wrapper' },
         _react2.default.createElement(
           'ul',
-          { className: 'nav' },
+          { className: 'sidebar-nav' },
           _react2.default.createElement(
             'li',
             null,
