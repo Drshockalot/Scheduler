@@ -395,7 +395,7 @@ var CharacterManagementActions = function () {
     }
   }, {
     key: 'unconfirmCharacter',
-    value: function unconfirmCharacter(chracterid) {
+    value: function unconfirmCharacter(characterid) {
       var _this3 = this;
 
       $.ajax({

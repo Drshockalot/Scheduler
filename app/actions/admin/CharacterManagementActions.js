@@ -37,7 +37,7 @@ class CharacterManagementActions {
     });
   }
 
-  unconfirmCharacter(chracterid) {
+  unconfirmCharacter(characterid) {
     $.ajax({
       method: 'DELETE',
       url: '/api/character/admin/unconfirm/' + characterid
