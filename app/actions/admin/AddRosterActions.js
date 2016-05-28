@@ -6,6 +6,7 @@ class AddRosterActions {
   constructor() {
     this.generateActions(
       'updateRosterName',
+      'updateRosterDescription',
       'addRosterSuccess',
       'addRosterFailure'
     );
@@ -14,11 +15,9 @@ class AddRosterActions {
   addRoster(rosterName) {
     $.ajax({
       method: 'POST',
-      url: '/api/admin/roster/add',
-      data: { 'name' : rosterName }
+      url: '/api/roster/admin/' + rosterName,
     }).done((data) => {
-      assign(rosterName, data);
-      this.addRosterSuccess(rosterName);
+      this.addRosterSuccess(data);
       ViewRostersActions.updateRosterList();
     }).fail(() => {
       this.addRosterFailure();

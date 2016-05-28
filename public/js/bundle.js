@@ -265,7 +265,7 @@ var AddRosterActions = function () {
   function AddRosterActions() {
     _classCallCheck(this, AddRosterActions);
 
-    this.generateActions('updateRosterName', 'addRosterSuccess', 'addRosterFailure');
+    this.generateActions('updateRosterName', 'updateRosterDescription', 'addRosterSuccess', 'addRosterFailure');
   }
 
   _createClass(AddRosterActions, [{
@@ -275,11 +275,9 @@ var AddRosterActions = function () {
 
       $.ajax({
         method: 'POST',
-        url: '/api/admin/roster/add',
-        data: { 'name': rosterName }
+        url: '/api/roster/admin/' + rosterName
       }).done(function (data) {
-        (0, _underscore.assign)(rosterName, data);
-        _this.addRosterSuccess(rosterName);
+        _this.addRosterSuccess(data);
         _ViewRostersActions2.default.updateRosterList();
       }).fail(function () {
         _this.addRosterFailure();
@@ -1163,7 +1161,7 @@ var Profile = function (_React$Component) {
         var retrievedCharactersCopy = this.state.retrievedCharacters;
         var arr = [];
         Object.keys(retrievedCharactersCopy).map(function (i) {
-          if (retrievedCharactersCopy[i].level === 100) {
+          if (retrievedCharactersCopy[i].level === 100 && retrievedCharactersCopy[i].guild === "Darkstorm") {
             arr.push(retrievedCharactersCopy[i]);
           }
         });
@@ -1625,6 +1623,8 @@ var AddRoster = function (_React$Component) {
 
       if (rosterName) {
         _AddRosterActions2.default.addRoster(rosterName);
+      } else {
+        toastr.error("You must supply a name for a Roster to add it", "Silly Pineapple");
       }
     }
   }, {
@@ -1653,6 +1653,20 @@ var AddRoster = function (_React$Component) {
               'div',
               { className: 'col-sm-10' },
               _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'rosterName', placeholder: 'Main Raid, Alt Raid etc...', value: this.state.rosterName, onChange: _AddRosterActions2.default.updateRosterName })
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'form-group' },
+            _react2.default.createElement(
+              'label',
+              { className: 'col-sm-2 control-label', htmlFor: 'rosterDescription' },
+              'Description'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-sm-10' },
+              _react2.default.createElement('textarea', { name: 'description', value: this.state.rosterDescription, onChange: _AddRosterActions2.default.updateRosterDescription })
             )
           ),
           _react2.default.createElement(
@@ -2478,15 +2492,30 @@ var RosterManagement = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'container' },
+        { className: 'wrapper' },
         _react2.default.createElement(_AdminSideNav2.default, null),
         _react2.default.createElement(
           'div',
-          { className: 'col-md-8' },
-          _react2.default.createElement(_ViewRosters2.default, null),
-          _react2.default.createElement(_AddRoster2.default, null),
-          _react2.default.createElement(_RosterView2.default, null),
-          _react2.default.createElement(_RosterControlPanel2.default, null)
+          { id: 'page-content-wrapper' },
+          _react2.default.createElement(
+            'div',
+            { className: 'container-fluid' },
+            _react2.default.createElement(
+              'div',
+              { className: 'row' },
+              _react2.default.createElement(
+                'h3',
+                null,
+                'Add New Roster'
+              ),
+              _react2.default.createElement(_AddRoster2.default, null),
+              _react2.default.createElement(
+                'h3',
+                null,
+                'ManageRosters'
+              )
+            )
+          )
         )
       );
     }
@@ -3083,7 +3112,7 @@ var AddRosterStore = function () {
 
     this.bindActions(_AddRosterActions2.default);
     this.rosterName = '';
-    this.addRosterResultMessage = '';
+    this.rosterDescription = '';
   }
 
   _createClass(AddRosterStore, [{
@@ -3092,10 +3121,13 @@ var AddRosterStore = function () {
       this.rosterName = e.target.value;
     }
   }, {
-    key: 'onAddRosterSuccess',
-    value: function onAddRosterSuccess(rosterName) {
-      this.addRosterResultMessage = rosterName + ' has successfully been added';
+    key: 'onUpdateRosterDescription',
+    value: function onUpdateRosterDescription(e) {
+      this.rosterDescription = e.target.value;
     }
+  }, {
+    key: 'onAddRosterSuccess',
+    value: function onAddRosterSuccess(rosterName) {}
   }, {
     key: 'onAddRosterFailure',
     value: function onAddRosterFailure() {

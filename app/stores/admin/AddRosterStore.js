@@ -5,15 +5,19 @@ class AddRosterStore {
   constructor() {
     this.bindActions(AddRosterActions);
     this.rosterName = '';
-    this.addRosterResultMessage = '';
+    this.rosterDescription = '';
   }
 
   onUpdateRosterName(e) {
     this.rosterName = e.target.value;
   }
 
+  onUpdateRosterDescription(e) {
+    this.rosterDescription = e.target.value;
+  }
+
   onAddRosterSuccess(rosterName) {
-    this.addRosterResultMessage = rosterName + ' has successfully been added';
+    
   }
 
   onAddRosterFailure() {

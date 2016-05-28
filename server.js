@@ -15,7 +15,7 @@ var bodyParser = require('body-parser');
 // var mongoose = require('mongoose');
 // var config = require('./config');
 
-var Admin_RosterManagement_Routes = require('./api/roster');
+var Roster_Routes = require('./api/roster');
 var Auth_Routes = require('./api/auth');
 var User_Routes = require('./api/user');
 var Character_Routes = require('./api/character');
@@ -66,7 +66,7 @@ app.use(session({ secret: 'blizzard',
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/api/admin/roster/', Admin_RosterManagement_Routes);
+app.use('/api/routes/', Roster_Routes);
 app.use('/auth/', Auth_Routes);
 app.use('/api/user/', User_Routes);
 app.use('/api/character/', Character_Routes);

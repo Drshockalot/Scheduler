@@ -29,6 +29,8 @@ class AddRoster extends React.Component {
 
     if (rosterName) {
       AddRosterActions.addRoster(rosterName);
+    } else {
+      toastr.error("You must supply a name for a Roster to add it", "Silly Pineapple");
     }
   }
 
@@ -41,6 +43,12 @@ class AddRoster extends React.Component {
             <label className='col-sm-2 control-label' htmlFor='rosterName'>Name</label>
             <div className='col-sm-10'>
               <input type="text" className='form-control' id='rosterName' placeholder='Main Raid, Alt Raid etc...' value={this.state.rosterName} onChange={AddRosterActions.updateRosterName}></input>
+            </div>
+          </div>
+          <div className='form-group'>
+            <label className='col-sm-2 control-label' htmlFor='rosterDescription'>Description</label>
+            <div className='col-sm-10'>
+              <textarea name='description' value={this.state.rosterDescription} onChange={AddRosterActions.updateRosterDescription} />
             </div>
           </div>
           <button type='submit' className='btn btn-default pull-right'>Submit</button>

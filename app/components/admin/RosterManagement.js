@@ -38,13 +38,16 @@ class RosterManagement extends React.Component {
 
   render() {
     return (
-      <div className='container'>
+      <div className='wrapper'>
         <AdminSideNav></AdminSideNav>
-        <div className='col-md-8'>
-          <ViewRosters></ViewRosters>
-          <AddRoster></AddRoster>
-          <RosterView></RosterView>
-          <RosterControlPanel></RosterControlPanel>
+        <div id='page-content-wrapper'>
+          <div className='container-fluid'>
+            <div className='row'>
+              <h3>Add New Roster</h3>
+                <AddRoster></AddRoster>
+              <h3>ManageRosters</h3>
+            </div>
+          </div>
         </div>
       </div>
     );
