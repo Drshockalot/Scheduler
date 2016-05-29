@@ -2482,6 +2482,7 @@ var RosterManagement = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _RosterManagementStore2.default.listen(this.onChange);
+      getAllRosters();
     }
   }, {
     key: 'componentWillUnmount',
@@ -2496,6 +2497,16 @@ var RosterManagement = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var rosterList = this.state.rosterList.map(function (roster, index) {
+        return _react2.default.createElement(
+          'option',
+          { key: roster.name },
+          roster.name
+        );
+      });
+
+      var includedRosterCaracters, excludedRosterCharacters;
+
       return _react2.default.createElement(
         'div',
         { className: 'wrapper' },
@@ -2514,11 +2525,126 @@ var RosterManagement = function (_React$Component) {
                 null,
                 'Add New Roster'
               ),
-              _react2.default.createElement(_AddRoster2.default, null),
+              _react2.default.createElement(_AddRoster2.default, null)
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'row' },
               _react2.default.createElement(
                 'h3',
                 null,
                 'ManageRosters'
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'form-group' },
+                _react2.default.createElement(
+                  'select',
+                  { name: 'roster-list', className: 'form-control', value: this.state.selectedRoster, onChange: _RosterManagementActions2.default.updateSelectedRoster },
+                  rosterList
+                )
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'row' },
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-6' },
+                _react2.default.createElement(
+                  'h4',
+                  null,
+                  'Included'
+                ),
+                _react2.default.createElement(
+                  'table',
+                  { className: 'table' },
+                  _react2.default.createElement(
+                    'tbody',
+                    null,
+                    _react2.default.createElement(
+                      'tr',
+                      null,
+                      _react2.default.createElement(
+                        'td',
+                        null,
+                        _react2.default.createElement(
+                          'strong',
+                          null,
+                          'Name'
+                        )
+                      ),
+                      _react2.default.createElement(
+                        'td',
+                        null,
+                        _react2.default.createElement(
+                          'strong',
+                          null,
+                          'Main Role'
+                        )
+                      ),
+                      _react2.default.createElement(
+                        'td',
+                        null,
+                        _react2.default.createElement(
+                          'strong',
+                          null,
+                          'Off Role'
+                        )
+                      )
+                    ),
+                    includedRosterCaracters
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-6' },
+                _react2.default.createElement(
+                  'h4',
+                  null,
+                  'Excluded'
+                ),
+                _react2.default.createElement(
+                  'table',
+                  { className: 'table' },
+                  _react2.default.createElement(
+                    'tbody',
+                    null,
+                    _react2.default.createElement(
+                      'tr',
+                      null,
+                      _react2.default.createElement(
+                        'td',
+                        null,
+                        _react2.default.createElement(
+                          'strong',
+                          null,
+                          'Name'
+                        )
+                      ),
+                      _react2.default.createElement(
+                        'td',
+                        null,
+                        _react2.default.createElement(
+                          'strong',
+                          null,
+                          'Main Role'
+                        )
+                      ),
+                      _react2.default.createElement(
+                        'td',
+                        null,
+                        _react2.default.createElement(
+                          'strong',
+                          null,
+                          'Off Role'
+                        )
+                      )
+                    ),
+                    excludedRosterCharacters
+                  )
+                )
               )
             )
           )
@@ -3344,6 +3470,8 @@ var RosterManagementStore = function RosterManagementStore() {
   _classCallCheck(this, RosterManagementStore);
 
   this.bindActions(_RosterManagementActions2.default);
+  this.rosterList = [];
+  this.selectedRoster = '';
 };
 
 exports.default = _alt2.default.createStore(RosterManagementStore);

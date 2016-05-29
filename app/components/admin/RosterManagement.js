@@ -26,6 +26,7 @@ class RosterManagement extends React.Component {
 
   componentDidMount() {
     RosterManagementStore.listen(this.onChange);
+    getAllRosters();
   }
 
   componentWillUnmount() {
@@ -37,6 +38,15 @@ class RosterManagement extends React.Component {
   }
 
   render() {
+    var rosterList = this.state.rosterList.map(function(roster, index) {
+      return (
+        <option key={roster.name}>{roster.name}</option>
+      );
+    });
+
+    var includedRosterCaracters, excludedRosterCharacters;
+
+
     return (
       <div className='wrapper'>
         <AdminSideNav></AdminSideNav>
@@ -44,8 +54,43 @@ class RosterManagement extends React.Component {
           <div className='container-fluid'>
             <div className='row'>
               <h3>Add New Roster</h3>
-                <AddRoster></AddRoster>
+              <AddRoster></AddRoster>
+            </div>
+            <div className='row'>
               <h3>ManageRosters</h3>
+              <div className='form-group'>
+                <select name='roster-list' className='form-control' value={this.state.selectedRoster} onChange={RosterManagementActions.updateSelectedRoster}>
+                  {rosterList}
+                </select>
+              </div>
+            </div>
+            <div className='row'>
+              <div className='col-sm-6'>
+                <h4>Included</h4>
+                <table className='table'>
+                  <tbody>
+                    <tr>
+                      <td><strong>Name</strong></td>
+                      <td><strong>Main Role</strong></td>
+                      <td><strong>Off Role</strong></td>
+                    </tr>
+                    {includedRosterCaracters}
+                  </tbody>
+                </table>
+              </div>
+              <div className='col-sm-6'>
+                <h4>Excluded</h4>
+                <table className='table'>
+                  <tbody>
+                    <tr>
+                      <td><strong>Name</strong></td>
+                      <td><strong>Main Role</strong></td>
+                      <td><strong>Off Role</strong></td>
+                    </tr>
+                    {excludedRosterCharacters}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
