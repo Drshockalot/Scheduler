@@ -26,9 +26,14 @@ class AddRoster extends React.Component {
     e.preventDefault();
 
     let rosterName = this.state.rosterName.trim();
+    let rosterDescription = this.state.rosterDescription.trim();
 
-    if (rosterName) {
-      AddRosterActions.addRoster(rosterName);
+    let roster = {};
+    roster.name = rosterName;
+    roster.description = rosterDescription;
+
+    if (roster.name != '') {
+      AddRosterActions.addRoster(roster);
     } else {
       toastr.error("You must supply a name for a Roster to add it", "Silly Pineapple");
     }

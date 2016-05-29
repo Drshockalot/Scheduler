@@ -270,12 +270,13 @@ var AddRosterActions = function () {
 
   _createClass(AddRosterActions, [{
     key: 'addRoster',
-    value: function addRoster(rosterName) {
+    value: function addRoster(roster) {
       var _this = this;
 
       $.ajax({
         method: 'POST',
-        url: '/api/roster/admin/' + rosterName
+        url: '/api/roster/admin',
+        data: roster
       }).done(function (data) {
         _this.addRosterSuccess(data);
         _ViewRostersActions2.default.updateRosterList();
@@ -1620,9 +1621,14 @@ var AddRoster = function (_React$Component) {
       e.preventDefault();
 
       var rosterName = this.state.rosterName.trim();
+      var rosterDescription = this.state.rosterDescription.trim();
 
-      if (rosterName) {
-        _AddRosterActions2.default.addRoster(rosterName);
+      var roster = {};
+      roster.name = rosterName;
+      roster.description = rosterDescription;
+
+      if (roster.name != '') {
+        _AddRosterActions2.default.addRoster(roster);
       } else {
         toastr.error("You must supply a name for a Roster to add it", "Silly Pineapple");
       }
@@ -3127,7 +3133,9 @@ var AddRosterStore = function () {
     }
   }, {
     key: 'onAddRosterSuccess',
-    value: function onAddRosterSuccess(rosterName) {}
+    value: function onAddRosterSuccess(result) {
+      toastr.success('Roster: ' + result.data.roster.name + ' has been created', "Roster Creation Successful");
+    }
   }, {
     key: 'onAddRosterFailure',
     value: function onAddRosterFailure() {

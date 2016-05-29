@@ -16,8 +16,8 @@ class AddRosterStore {
     this.rosterDescription = e.target.value;
   }
 
-  onAddRosterSuccess(rosterName) {
-    
+  onAddRosterSuccess(result) {
+    toastr.success('Roster: ' + result.data.roster.name + ' has been created', "Roster Creation Successful");
   }
 
   onAddRosterFailure() {

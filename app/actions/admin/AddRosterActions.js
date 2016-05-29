@@ -12,10 +12,11 @@ class AddRosterActions {
     );
   }
 
-  addRoster(rosterName) {
+  addRoster(roster) {
     $.ajax({
       method: 'POST',
-      url: '/api/roster/admin/' + rosterName,
+      url: '/api/roster/admin',
+      data: roster
     }).done((data) => {
       this.addRosterSuccess(data);
       ViewRostersActions.updateRosterList();
