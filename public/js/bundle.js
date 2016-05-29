@@ -2554,7 +2554,7 @@ var RosterManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'div',
-                { classname: 'col-md-4' },
+                { className: 'col-md-4' },
                 _react2.default.createElement(
                   'div',
                   { className: 'form-group' },
