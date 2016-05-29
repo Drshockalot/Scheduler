@@ -1,6 +1,5 @@
 import alt from '../../alt';
 import {assign} from 'underscore';
-import ViewRostersActions from './ViewRostersActions';
 
 class AddRosterActions {
   constructor() {
@@ -19,7 +18,6 @@ class AddRosterActions {
       data: roster
     }).done((data) => {
       this.addRosterSuccess(data);
-      ViewRostersActions.updateRosterList();
     }).fail(() => {
       this.addRosterFailure();
     });

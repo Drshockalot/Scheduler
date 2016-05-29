@@ -18,6 +18,8 @@ class AddRosterStore {
 
   onAddRosterSuccess(result) {
     toastr.success('Roster: ' + result.data.roster.name + ' has been created', "Roster Creation Successful");
+    this.rosterName = '';
+    this.rosterDescription = '';
   }
 
   onAddRosterFailure() {

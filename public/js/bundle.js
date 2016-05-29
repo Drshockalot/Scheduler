@@ -253,10 +253,6 @@ var _alt2 = _interopRequireDefault(_alt);
 
 var _underscore = require('underscore');
 
-var _ViewRostersActions = require('./ViewRostersActions');
-
-var _ViewRostersActions2 = _interopRequireDefault(_ViewRostersActions);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -279,7 +275,6 @@ var AddRosterActions = function () {
         data: roster
       }).done(function (data) {
         _this.addRosterSuccess(data);
-        _ViewRostersActions2.default.updateRosterList();
       }).fail(function () {
         _this.addRosterFailure();
       });
@@ -291,7 +286,7 @@ var AddRosterActions = function () {
 
 exports.default = _alt2.default.createActions(AddRosterActions);
 
-},{"../../alt":12,"./ViewRostersActions":11,"underscore":"underscore"}],5:[function(require,module,exports){
+},{"../../alt":12,"underscore":"underscore"}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3282,6 +3277,8 @@ var AddRosterStore = function () {
     key: 'onAddRosterSuccess',
     value: function onAddRosterSuccess(result) {
       toastr.success('Roster: ' + result.data.roster.name + ' has been created', "Roster Creation Successful");
+      this.rosterName = '';
+      this.rosterDescription = '';
     }
   }, {
     key: 'onAddRosterFailure',
