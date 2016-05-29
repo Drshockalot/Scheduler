@@ -2509,7 +2509,7 @@ var RosterManagement = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { className: 'wrapper' },
+        { id: 'wrapper' },
         _react2.default.createElement(_AdminSideNav2.default, null),
         _react2.default.createElement(
           'div',

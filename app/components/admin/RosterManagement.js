@@ -48,7 +48,7 @@ class RosterManagement extends React.Component {
 
 
     return (
-      <div className='wrapper'>
+      <div id='wrapper'>
         <AdminSideNav></AdminSideNav>
         <div id='page-content-wrapper'>
           <div className='container-fluid'>
