@@ -468,7 +468,7 @@ var RosterManagementActions = function () {
 
       $.ajax({
         method: 'GET',
-        url: '/api/roster/admin/'
+        url: '/api/roster/admin'
       }).done(function (result) {
         _this.getAllRostersSuccess(result);
       }).fail(function (jqXhr) {

@@ -11,7 +11,7 @@ class RosterManagementActions {
   getAllRosters() {
     $.ajax({
       method: 'GET',
-      url: '/api/roster/admin/'
+      url: '/api/roster/admin'
     }).done((result) => {
       this.getAllRostersSuccess(result);
     }).fail((jqXhr) => {

@@ -5,7 +5,7 @@ var Roster = require('./../db/postgres/roster');
 
 var _ = require('underscore');
 
-router.post('/admin/:rostername', function(req, res, next) {
+router.post('/admin', function(req, res, next) {
   Roster.forge({
     name: req.body.name,
     description: req.body.description || ''
