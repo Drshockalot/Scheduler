@@ -444,6 +444,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _alt = require('../../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
@@ -452,11 +454,31 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var RosterManagementActions = function RosterManagementActions() {
-  _classCallCheck(this, RosterManagementActions);
+var RosterManagementActions = function () {
+  function RosterManagementActions() {
+    _classCallCheck(this, RosterManagementActions);
 
-  this.generateActions('placeholder');
-};
+    this.generateActions('getAllRostersSuccess', 'getAllRostersFailure');
+  }
+
+  _createClass(RosterManagementActions, [{
+    key: 'getAllRosters',
+    value: function getAllRosters() {
+      var _this = this;
+
+      $.ajax({
+        method: 'GET',
+        url: '/api/roster/admin/'
+      }).done(function (result) {
+        _this.getAllRostersSuccess(result);
+      }).fail(function (jqXhr) {
+        _this.getAllRostersFailure(jqXhr);
+      });
+    }
+  }]);
+
+  return RosterManagementActions;
+}();
 
 exports.default = _alt2.default.createActions(RosterManagementActions);
 
@@ -1640,11 +1662,6 @@ var AddRoster = function (_React$Component) {
         'div',
         { className: 'col-md-6' },
         _react2.default.createElement(
-          'h3',
-          null,
-          'Add New Roster'
-        ),
-        _react2.default.createElement(
           'form',
           { className: 'form-horizontal', onSubmit: this.handleSubmit.bind(this) },
           _react2.default.createElement(
@@ -1672,7 +1689,7 @@ var AddRoster = function (_React$Component) {
             _react2.default.createElement(
               'div',
               { className: 'col-sm-10' },
-              _react2.default.createElement('textarea', { name: 'description', value: this.state.rosterDescription, onChange: _AddRosterActions2.default.updateRosterDescription })
+              _react2.default.createElement('textarea', { className: 'form-control', name: 'description', value: this.state.rosterDescription, onChange: _AddRosterActions2.default.updateRosterDescription })
             )
           ),
           _react2.default.createElement(
@@ -2537,11 +2554,15 @@ var RosterManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'div',
-                { className: 'form-group' },
+                { classname: 'col-md-4' },
                 _react2.default.createElement(
-                  'select',
-                  { name: 'roster-list', className: 'form-control', value: this.state.selectedRoster, onChange: _RosterManagementActions2.default.updateSelectedRoster },
-                  rosterList
+                  'div',
+                  { className: 'form-group' },
+                  _react2.default.createElement(
+                    'select',
+                    { name: 'roster-list', className: 'form-control', value: this.state.selectedRoster, onChange: _RosterManagementActions2.default.updateSelectedRoster },
+                    rosterList
+                  )
                 )
               )
             ),
@@ -3454,6 +3475,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _alt = require('../../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
@@ -3466,13 +3489,29 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var RosterManagementStore = function RosterManagementStore() {
-  _classCallCheck(this, RosterManagementStore);
+var RosterManagementStore = function () {
+  function RosterManagementStore() {
+    _classCallCheck(this, RosterManagementStore);
 
-  this.bindActions(_RosterManagementActions2.default);
-  this.rosterList = [];
-  this.selectedRoster = '';
-};
+    this.bindActions(_RosterManagementActions2.default);
+    this.rosterList = [];
+    this.selectedRoster = '';
+  }
+
+  _createClass(RosterManagementStore, [{
+    key: 'onGetAllRostersSuccess',
+    value: function onGetAllRostersSuccess(result) {
+      this.rosterList = result.data.rosters;
+    }
+  }, {
+    key: 'onGetAllRostersFailure',
+    value: function onGetAllRostersFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }]);
+
+  return RosterManagementStore;
+}();
 
 exports.default = _alt2.default.createStore(RosterManagementStore);
 

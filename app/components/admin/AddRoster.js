@@ -42,7 +42,6 @@ class AddRoster extends React.Component {
   render() {
     return (
       <div className='col-md-6'>
-        <h3>Add New Roster</h3>
         <form className='form-horizontal' onSubmit={this.handleSubmit.bind(this)}>
           <div className='form-group'>
             <label className='col-sm-2 control-label' htmlFor='rosterName'>Name</label>
@@ -53,7 +52,7 @@ class AddRoster extends React.Component {
           <div className='form-group'>
             <label className='col-sm-2 control-label' htmlFor='rosterDescription'>Description</label>
             <div className='col-sm-10'>
-              <textarea name='description' value={this.state.rosterDescription} onChange={AddRosterActions.updateRosterDescription} />
+              <textarea className='form-control' name='description' value={this.state.rosterDescription} onChange={AddRosterActions.updateRosterDescription} />
             </div>
           </div>
           <button type='submit' className='btn btn-default pull-right'>Submit</button>

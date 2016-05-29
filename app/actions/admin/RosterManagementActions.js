@@ -3,8 +3,20 @@ import alt from '../../alt';
 class RosterManagementActions {
   constructor() {
     this.generateActions(
-      'placeholder'
+      'getAllRostersSuccess',
+      'getAllRostersFailure'
     );
+  }
+
+  getAllRosters() {
+    $.ajax({
+      method: 'GET',
+      url: '/api/roster/admin/'
+    }).done((result) => {
+      this.getAllRostersSuccess(result);
+    }).fail((jqXhr) => {
+      this.getAllRostersFailure(jqXhr);
+    });
   }
 }
 

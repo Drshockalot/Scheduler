@@ -66,7 +66,7 @@ app.use(session({ secret: 'blizzard',
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/api/routes/', Roster_Routes);
+app.use('/api/roster/', Roster_Routes);
 app.use('/auth/', Auth_Routes);
 app.use('/api/user/', User_Routes);
 app.use('/api/character/', Character_Routes);
