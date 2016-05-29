@@ -13,9 +13,11 @@ class RosterManagementActions {
       method: 'GET',
       url: '/api/roster/admin'
     }).done((result) => {
-      this.getAllRostersSuccess(result);
+      //this.getAllRostersSuccess(result);
+      console.log(result);
     }).fail((jqXhr) => {
-      this.getAllRostersFailure(jqXhr);
+      //this.getAllRostersFailure(jqXhr);
+      console.log(jqXhr);
     });
   }
 }

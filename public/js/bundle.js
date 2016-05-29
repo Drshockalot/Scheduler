@@ -464,15 +464,15 @@ var RosterManagementActions = function () {
   _createClass(RosterManagementActions, [{
     key: 'getAllRosters',
     value: function getAllRosters() {
-      var _this = this;
-
       $.ajax({
         method: 'GET',
         url: '/api/roster/admin'
       }).done(function (result) {
-        _this.getAllRostersSuccess(result);
+        //this.getAllRostersSuccess(result);
+        console.log(result);
       }).fail(function (jqXhr) {
-        _this.getAllRostersFailure(jqXhr);
+        //this.getAllRostersFailure(jqXhr);
+        console.log(jqXhr);
       });
     }
   }]);
