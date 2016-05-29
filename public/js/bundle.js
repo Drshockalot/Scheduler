@@ -2499,7 +2499,7 @@ var RosterManagement = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _RosterManagementStore2.default.listen(this.onChange);
-      getAllRosters();
+      _RosterManagementActions2.default.getAllRosters();
     }
   }, {
     key: 'componentWillUnmount',

@@ -26,7 +26,7 @@ class RosterManagement extends React.Component {
 
   componentDidMount() {
     RosterManagementStore.listen(this.onChange);
-    getAllRosters();
+    RosterManagementActions.getAllRosters();
   }
 
   componentWillUnmount() {
