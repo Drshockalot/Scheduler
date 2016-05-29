@@ -1,5 +1,6 @@
 import alt from '../../alt';
 import {assign} from 'underscore';
+import RosterManagementActions from './RosterManagementActions';
 
 class AddRosterActions {
   constructor() {
@@ -18,6 +19,7 @@ class AddRosterActions {
       data: roster
     }).done((data) => {
       this.addRosterSuccess(data);
+      RosterManagementActions.getAllRosters();
     }).fail(() => {
       this.addRosterFailure();
     });

@@ -57,7 +57,7 @@ class RosterManagement extends React.Component {
               <AddRoster></AddRoster>
             </div>
             <div className='row'>
-              <h3>ManageRosters</h3>
+              <h3>Manage Rosters</h3>
               <div className='col-md-4'>
                 <div className='form-group'>
                   <select name='roster-list' className='form-control' value={this.state.selectedRoster} onChange={RosterManagementActions.updateSelectedRoster}>
