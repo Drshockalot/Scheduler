@@ -2570,7 +2570,7 @@ var RosterManagement = function (_React$Component) {
           { key: roster.id },
           roster.name
         );
-      });
+      }, this);
 
       var includedCaracters = this.state.includedRosterCaracters.map(function (character, index) {
         return _react2.default.createElement(

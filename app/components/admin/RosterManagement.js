@@ -46,7 +46,7 @@ class RosterManagement extends React.Component {
       return (
         <option key={roster.id}>{roster.name}</option>
       );
-    });
+    }, this);
 
     var includedCaracters = this.state.includedRosterCaracters.map(function(character, index) {
       return (
