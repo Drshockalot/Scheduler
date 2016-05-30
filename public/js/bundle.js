@@ -454,11 +454,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+var _ = require('underscore');
+
 var RosterManagementActions = function () {
   function RosterManagementActions() {
     _classCallCheck(this, RosterManagementActions);
 
-    this.generateActions('getAllRostersSuccess', 'getAllRostersFailure');
+    this.generateActions('getAllRostersSuccess', 'getAllRostersFailure', 'updateSelectedRosterSuccess', 'updateSelectedRosterFailure', 'removeCharacterFromRosterSuccess', 'removeCharacterFromRosterFailure', 'addCharacterToRosterSuccess', 'addCharacterToRosterFailure');
   }
 
   _createClass(RosterManagementActions, [{
@@ -475,6 +477,48 @@ var RosterManagementActions = function () {
         _this.getAllRostersFailure(jqXhr);
       });
     }
+  }, {
+    key: 'updateSelectedRoster',
+    value: function updateSelectedRoster(rosterName, rosterList) {
+      var _this2 = this;
+
+      $.ajax({
+        method: 'GET',
+        url: '/api/roster/admin/' + _.findWhere(rosterList, { name: rostername }).id
+      }).done(function (result) {
+        _this2.updateSelectedRosterSuccess(result);
+      }).fail(function (jqXhr) {
+        _this2.updateSelectedRosterFailure(jqXhr);
+      });
+    }
+  }, {
+    key: 'removeCharacterFromRoster',
+    value: function removeCharacterFromRoster(characterid, rosterid) {
+      var _this3 = this;
+
+      $.ajax({
+        method: 'PUT',
+        url: '/api/roster/admin/unlink/' + characterid + '/' + rosterid
+      }).done(function (result) {
+        _this3.removeCharacterFromRosterSuccess(result);
+      }).fail(function (jqXhr) {
+        _this3.removeCharacterFromRosterFailure(jqXhr);
+      });
+    }
+  }, {
+    key: 'addCharacterToRoster',
+    value: function addCharacterToRoster(characterid, rosterid) {
+      var _this4 = this;
+
+      $.ajax({
+        method: 'PUT',
+        url: '/api/roster/admin/link/' + characterid + '/' + rosterid
+      }).done(function (result) {
+        _this4.addCharacterToRosterSuccess(result);
+      }).fail(function (jqXhr) {
+        _this4.addCharacterToRosterFailure(jqXhr);
+      });
+    }
   }]);
 
   return RosterManagementActions;
@@ -482,7 +526,7 @@ var RosterManagementActions = function () {
 
 exports.default = _alt2.default.createActions(RosterManagementActions);
 
-},{"../../alt":12}],10:[function(require,module,exports){
+},{"../../alt":12,"underscore":"underscore"}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2514,15 +2558,85 @@ var RosterManagement = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
+      var currentRosterId;
       var rosterList = this.state.rosterList.map(function (roster, index) {
+        if (roster.name === this.state.selectedRoster) {
+          currentRosterId = roster.id;
+        }
         return _react2.default.createElement(
           'option',
-          { key: roster.name },
+          { key: roster.id },
           roster.name
         );
       });
 
-      var includedRosterCaracters, excludedRosterCharacters;
+      var includedCaracters = this.state.includedRosterCaracters.map(function (character, index) {
+        return _react2.default.createElement(
+          'tr',
+          null,
+          _react2.default.createElement(
+            'td',
+            { key: character.name },
+            character.name
+          ),
+          _react2.default.createElement(
+            'td',
+            { key: character.main_role + 'main' },
+            character.main_role
+          ),
+          _react2.default.createElement(
+            'td',
+            { key: character.off_role + 'off' },
+            character.off_role
+          ),
+          _react2.default.createElement(
+            'td',
+            { key: 'button' },
+            _react2.default.createElement(
+              'button',
+              { value: character.id, className: 'btn btn-danger', onClick: function onClick(e) {
+                  _RosterManagementActions2.default.removeCharacterFromRoster(character.id, currentRosterId);
+                } },
+              'Remove'
+            )
+          )
+        );
+      });
+
+      var excludedCharacters = this.state.excludedRosterCharacters.map(function (character, index) {
+        return _react2.default.createElement(
+          'tr',
+          null,
+          _react2.default.createElement(
+            'td',
+            { key: character.name },
+            character.name
+          ),
+          _react2.default.createElement(
+            'td',
+            { key: character.main_role + 'main' },
+            character.main_role
+          ),
+          _react2.default.createElement(
+            'td',
+            { key: character.off_role + 'off' },
+            character.off_role
+          ),
+          _react2.default.createElement(
+            'td',
+            { key: 'button' },
+            _react2.default.createElement(
+              'button',
+              { value: character.id, className: 'btn btn-success', onClick: function onClick(e) {
+                  _RosterManagementActions2.default.addCharacterToRoster(character.id, currentRosterId);
+                } },
+              'Add'
+            )
+          )
+        );
+      });
 
       return _react2.default.createElement(
         'div',
@@ -2560,7 +2674,9 @@ var RosterManagement = function (_React$Component) {
                   { className: 'form-group' },
                   _react2.default.createElement(
                     'select',
-                    { name: 'roster-list', className: 'form-control', value: this.state.selectedRoster, onChange: _RosterManagementActions2.default.updateSelectedRoster },
+                    { name: 'roster-list', className: 'form-control', value: this.state.selectedRoster, onChange: function onChange(e) {
+                        _RosterManagementActions2.default.updateSelectedRoster(e.target.value, _this2.state.rosterList);
+                      } },
                     rosterList
                   )
                 )
@@ -2614,7 +2730,7 @@ var RosterManagement = function (_React$Component) {
                         )
                       )
                     ),
-                    includedRosterCaracters
+                    includedCaracters
                   )
                 )
               ),
@@ -2663,7 +2779,7 @@ var RosterManagement = function (_React$Component) {
                         )
                       )
                     ),
-                    excludedRosterCharacters
+                    excludedCharacters
                   )
                 )
               )
@@ -3498,18 +3614,47 @@ var RosterManagementStore = function () {
     this.bindActions(_RosterManagementActions2.default);
     this.rosterList = [];
     this.selectedRoster = '';
+    this.includedRosterCaracters = [];
+    this.excludedRosterCharacters = [];
   }
 
   _createClass(RosterManagementStore, [{
     key: 'onGetAllRostersSuccess',
     value: function onGetAllRostersSuccess(result) {
       this.rosterList = result.data.rosters;
+      if (this.selectedRoster === '') {
+        this.selectedRoster = this.rosterList[0].name;
+      }
     }
   }, {
     key: 'onGetAllRostersFailure',
     value: function onGetAllRostersFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
     }
+  }, {
+    key: 'onUpdateSelectedRosterSuccess',
+    value: function onUpdateSelectedRosterSuccess(result) {
+      this.selectedRoster = result.data.roster.name;
+      this.includedRosterCaracters = result.data.includedCharacters;
+      this.excludedRosterCharacters = result.data.excludedCharacters;
+    }
+  }, {
+    key: 'onUpdateSelectedRosterFailure',
+    value: function onUpdateSelectedRosterFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onRemoveCharacterFromRosterSuccess',
+    value: function onRemoveCharacterFromRosterSuccess(result) {}
+  }, {
+    key: 'onRemoveCharacterFromRosterFailure',
+    value: function onRemoveCharacterFromRosterFailure(jqXhr) {}
+  }, {
+    key: 'onAddCharacterToRosterSuccess',
+    value: function onAddCharacterToRosterSuccess(result) {}
+  }, {
+    key: 'onAddCharacterToRosterFailure',
+    value: function onAddCharacterToRosterFailure(jqXhr) {}
   }]);
 
   return RosterManagementStore;

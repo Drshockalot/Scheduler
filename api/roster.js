@@ -57,4 +57,27 @@ router.get('/admin/:rosterid', function(req, res, next) {
         });
 });
 
+router.put('/admin/link/:characterid/:rosterid', function(req, res, next) {
+  Roster.forge({ id: req.params.rosterid })
+        .fetch({'withRelated': ['characters']})
+        .then(function(roster) {
+          roster.characters().attach(req.params.characterid);
+          res.json({error: false, data: {message: 'Character Added To Roster', roster: roster}});
+        })
+        .catch(function(err) {
+          res.status(500).json({error: true, data: {message: err.message}});
+        });
+});
+
+router.put('/admin/unlink/:characterid/:rosterid', function(req, res, next) {
+  Roster.forge({ id: req.params.rosterid })
+        .fetch({'withRelated': ['characters']})
+        .then(function(roster) {
+          roster.characters().detach(req.params.characterid);
+        })
+        .catch(function(err) {
+          res.status(500).json({error: true, data: {message: err.message}});
+        });
+});
+
 module.exports = router;

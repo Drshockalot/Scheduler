@@ -1,10 +1,18 @@
 import alt from '../../alt';
 
+var _ = require('underscore');
+
 class RosterManagementActions {
   constructor() {
     this.generateActions(
       'getAllRostersSuccess',
-      'getAllRostersFailure'
+      'getAllRostersFailure',
+      'updateSelectedRosterSuccess',
+      'updateSelectedRosterFailure',
+      'removeCharacterFromRosterSuccess',
+      'removeCharacterFromRosterFailure',
+      'addCharacterToRosterSuccess',
+      'addCharacterToRosterFailure'
     );
   }
 
@@ -16,6 +24,39 @@ class RosterManagementActions {
       this.getAllRostersSuccess(result);
     }).fail((jqXhr) => {
       this.getAllRostersFailure(jqXhr);
+    });
+  }
+
+  updateSelectedRoster(rosterName, rosterList) {
+    $.ajax({
+      method: 'GET',
+      url: '/api/roster/admin/' + _.findWhere(rosterList, { name: rostername}).id
+    }).done((result) => {
+      this.updateSelectedRosterSuccess(result);
+    }).fail((jqXhr) => {
+      this.updateSelectedRosterFailure(jqXhr);
+    });
+  }
+
+  removeCharacterFromRoster(characterid, rosterid) {
+    $.ajax({
+      method: 'PUT',
+      url: '/api/roster/admin/unlink/' + characterid + '/' + rosterid
+    }).done((result) => {
+      this.removeCharacterFromRosterSuccess(result);
+    }).fail((jqXhr) => {
+      this.removeCharacterFromRosterFailure(jqXhr);
+    });
+  }
+
+  addCharacterToRoster(characterid, rosterid) {
+    $.ajax({
+      method: 'PUT',
+      url: '/api/roster/admin/link/' + characterid + '/' + rosterid
+    }).done((result) => {
+      this.addCharacterToRosterSuccess(result);
+    }).fail((jqXhr) => {
+      this.addCharacterToRosterFailure(jqXhr);
     });
   }
 }

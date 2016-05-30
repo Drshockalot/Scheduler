@@ -38,14 +38,41 @@ class RosterManagement extends React.Component {
   }
 
   render() {
+    var currentRosterId;
     var rosterList = this.state.rosterList.map(function(roster, index) {
+      if(roster.name === this.state.selectedRoster) {
+        currentRosterId = roster.id;
+      }
       return (
-        <option key={roster.name}>{roster.name}</option>
+        <option key={roster.id}>{roster.name}</option>
       );
     });
 
-    var includedRosterCaracters, excludedRosterCharacters;
+    var includedCaracters = this.state.includedRosterCaracters.map(function(character, index) {
+      return (
+        <tr>
+          <td key={character.name}>{character.name}</td>
+          <td key={character.main_role + 'main'}>{character.main_role}</td>
+          <td key={character.off_role + 'off'}>{character.off_role}</td>
+          <td key='button'><button value={character.id} className='btn btn-danger' onClick={e => {
+            RosterManagementActions.removeCharacterFromRoster(character.id, currentRosterId);
+          }}>Remove</button></td>
+        </tr>
+      );
+    });
 
+    var excludedCharacters = this.state.excludedRosterCharacters.map(function(character, index) {
+      return (
+        <tr>
+          <td key={character.name}>{character.name}</td>
+          <td key={character.main_role + 'main'}>{character.main_role}</td>
+          <td key={character.off_role + 'off'}>{character.off_role}</td>
+          <td key='button'><button value={character.id} className='btn btn-success' onClick={e => {
+            RosterManagementActions.addCharacterToRoster(character.id, currentRosterId);
+          }}>Add</button></td>
+        </tr>
+      );
+    });
 
     return (
       <div id='wrapper'>
@@ -60,7 +87,9 @@ class RosterManagement extends React.Component {
               <h3>Manage Rosters</h3>
               <div className='col-md-4'>
                 <div className='form-group'>
-                  <select name='roster-list' className='form-control' value={this.state.selectedRoster} onChange={RosterManagementActions.updateSelectedRoster}>
+                  <select name='roster-list' className='form-control' value={this.state.selectedRoster} onChange={e => {
+                    RosterManagementActions.updateSelectedRoster(e.target.value, this.state.rosterList);
+                  }}>
                     {rosterList}
                   </select>
                 </div>
@@ -76,7 +105,7 @@ class RosterManagement extends React.Component {
                       <td><strong>Main Role</strong></td>
                       <td><strong>Off Role</strong></td>
                     </tr>
-                    {includedRosterCaracters}
+                    {includedCaracters}
                   </tbody>
                 </table>
               </div>
@@ -89,7 +118,7 @@ class RosterManagement extends React.Component {
                       <td><strong>Main Role</strong></td>
                       <td><strong>Off Role</strong></td>
                     </tr>
-                    {excludedRosterCharacters}
+                    {excludedCharacters}
                   </tbody>
                 </table>
               </div>
