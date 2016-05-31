@@ -32,7 +32,7 @@ class RosterManagementStore {
   }
 
   onRemoveCharacterFromRosterSuccess(result) {
-    
+
   }
 
   onRemoveCharacterFromRosterFailure(jqXhr) {

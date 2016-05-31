@@ -45,9 +45,9 @@ router.get('/admin/:rosterid', function(req, res, next) {
                    .then(function(characters) {
                      var excludedCharacters = _.without(characters.toJSON(), includedCharacters);
 
-                     res.json({error: false, data: {message: 'Roster Characters Compiled', data: { roster: roster.toJSON(),
-                                                                                                   includedCharacters: includedCharacters,
-                                                                                                   excludedCharacters: excludedCharacters}}});
+                     res.json({error: false, data: {message: 'Roster Characters Compiled', roster: roster.toJSON(),
+                                                                                           includedCharacters: includedCharacters,
+                                                                                           excludedCharacters: excludedCharacters}});
                    })
                    .catch(function(err) {
                      res.status(500).json({error: true, data: {message: err.message}});
