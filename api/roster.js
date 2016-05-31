@@ -46,7 +46,7 @@ router.get('/admin/:rosterid', function(req, res, next) {
                      var excludedCharacters = [];
                      var fullCharacterList = characters.toJSON();
                      fullCharacterList.map(function(character, index) {
-                       if(!(_.findWhere(includedCharacters, { name: fullCharacterList[index]}))) {
+                       if(!(_.findWhere(includedCharacters, { name: fullCharacterList[index].name}))) {
                          excludedCharacters.push(fullCharacterList[index]);
                        }
                      });
