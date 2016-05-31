@@ -43,7 +43,13 @@ router.get('/admin/:rosterid', function(req, res, next) {
           Character.forge()
                    .fetchAll({ required: true })
                    .then(function(characters) {
-                     var excludedCharacters = _.without(characters.toJSON(), includedCharacters);
+                     var excludedCharacters = [];
+                     var fullCharacterList = characters.toJSON();
+                     fullCharacterList.map(function(character, index) {
+                       if(!(_.findWhere(includedCharacters, { name: fullCharacterList[index]}))) {
+                         excludedCharacters.push(fullCharacterList[index]);
+                       }
+                     });
 
                      res.json({error: false, data: {message: 'Roster Characters Compiled', roster: roster.toJSON(),
                                                                                            includedCharacters: includedCharacters,
