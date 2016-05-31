@@ -40,6 +40,19 @@ class RosterManagementActions {
     });
   }
 
+  updateRosterListAfterCharacterChange(rosterid) {
+    $.ajax({
+      method: 'GET',
+      url: '/api/roster/admin/' + rosterid
+    }).done((result) => {
+      console.log(result);
+      this.updateSelectedRosterSuccess(result);
+    }).fail((jqXhr) => {
+      console.log(jqXhr);
+      this.updateSelectedRosterFailure(jqXhr);
+    });
+  }
+
   removeCharacterFromRoster(characterid, rosterid) {
     $.ajax({
       method: 'PUT',
@@ -47,6 +60,7 @@ class RosterManagementActions {
     }).done((result) => {
       console.log(result);
       this.removeCharacterFromRosterSuccess(result);
+      updateRosterListAfterCharacterChange(rosterid);
     }).fail((jqXhr) => {
       console.log(jqXhr);
       this.removeCharacterFromRosterFailure(jqXhr);
@@ -60,6 +74,7 @@ class RosterManagementActions {
     }).done((result) => {
       console.log(result);
       this.addCharacterToRosterSuccess(result);
+      updateRosterListAfterCharacterChange(rosterid);
     }).fail((jqXhr) => {
       console.log(jqXhr);
       this.addCharacterToRosterFailure(jqXhr);

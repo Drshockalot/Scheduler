@@ -494,35 +494,53 @@ var RosterManagementActions = function () {
       });
     }
   }, {
+    key: 'updateRosterListAfterCharacterChange',
+    value: function updateRosterListAfterCharacterChange(rosterid) {
+      var _this3 = this;
+
+      $.ajax({
+        method: 'GET',
+        url: '/api/roster/admin/' + rosterid
+      }).done(function (result) {
+        console.log(result);
+        _this3.updateSelectedRosterSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this3.updateSelectedRosterFailure(jqXhr);
+      });
+    }
+  }, {
     key: 'removeCharacterFromRoster',
     value: function removeCharacterFromRoster(characterid, rosterid) {
-      var _this3 = this;
+      var _this4 = this;
 
       $.ajax({
         method: 'PUT',
         url: '/api/roster/admin/unlink/' + characterid + '/' + rosterid
       }).done(function (result) {
         console.log(result);
-        _this3.removeCharacterFromRosterSuccess(result);
+        _this4.removeCharacterFromRosterSuccess(result);
+        updateRosterListAfterCharacterChange(rosterid);
       }).fail(function (jqXhr) {
         console.log(jqXhr);
-        _this3.removeCharacterFromRosterFailure(jqXhr);
+        _this4.removeCharacterFromRosterFailure(jqXhr);
       });
     }
   }, {
     key: 'addCharacterToRoster',
     value: function addCharacterToRoster(characterid, rosterid) {
-      var _this4 = this;
+      var _this5 = this;
 
       $.ajax({
         method: 'PUT',
         url: '/api/roster/admin/link/' + characterid + '/' + rosterid
       }).done(function (result) {
         console.log(result);
-        _this4.addCharacterToRosterSuccess(result);
+        _this5.addCharacterToRosterSuccess(result);
+        updateRosterListAfterCharacterChange(rosterid);
       }).fail(function (jqXhr) {
         console.log(jqXhr);
-        _this4.addCharacterToRosterFailure(jqXhr);
+        _this5.addCharacterToRosterFailure(jqXhr);
       });
     }
   }]);

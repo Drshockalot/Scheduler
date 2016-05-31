@@ -51,7 +51,7 @@ router.get('/admin/:rosterid', function(req, res, next) {
                    })
                    .catch(function(err) {
                      res.status(500).json({error: true, data: {message: err.message}});
-                   })
+                   });
         })
         .catch(function(err) {
           res.status(500).json({error: true, data: {message: err.message}});
