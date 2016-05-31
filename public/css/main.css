@@ -8172,7 +8172,7 @@ label {
   }
 }
 textarea {
-  resize: none;
+  resize: vertical;
   max-height: 200px;
   width: 100%;
 }

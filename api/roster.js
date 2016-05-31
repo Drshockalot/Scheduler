@@ -42,9 +42,9 @@ router.get('/admin/:rosterid', function(req, res, next) {
           Character.forge()
                    .fetchAll({ required: true})
                    .then(function(characters) {
-                     var excludedCharacters = _.without(characters, includedCharacters);
+                     var excludedCharacters = _.without(characters.toJSON(), includedCharacters);
 
-                     res.json({error: false, data: {message: 'Roster Characters Compiled', data: { roster: roster,
+                     res.json({error: false, data: {message: 'Roster Characters Compiled', data: { roster: roster.toJSON(),
                                                                                                    includedCharacters: includedCharacters,
                                                                                                    excludedCharacters: excludedCharacters}}});
                    })
