@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var Roster = require('./../db/postgres/roster');
+var Character = require('./../db/postgres/character');
 
 var _ = require('underscore');
 
