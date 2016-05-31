@@ -520,7 +520,7 @@ var RosterManagementActions = function () {
       }).done(function (result) {
         console.log(result);
         _this4.removeCharacterFromRosterSuccess(result);
-        updateRosterListAfterCharacterChange(rosterid);
+        _this4.updateRosterListAfterCharacterChange(rosterid);
       }).fail(function (jqXhr) {
         console.log(jqXhr);
         _this4.removeCharacterFromRosterFailure(jqXhr);
@@ -537,7 +537,7 @@ var RosterManagementActions = function () {
       }).done(function (result) {
         console.log(result);
         _this5.addCharacterToRosterSuccess(result);
-        updateRosterListAfterCharacterChange(rosterid);
+        _this5.updateRosterListAfterCharacterChange(rosterid);
       }).fail(function (jqXhr) {
         console.log(jqXhr);
         _this5.addCharacterToRosterFailure(jqXhr);

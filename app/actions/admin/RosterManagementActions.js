@@ -60,7 +60,7 @@ class RosterManagementActions {
     }).done((result) => {
       console.log(result);
       this.removeCharacterFromRosterSuccess(result);
-      updateRosterListAfterCharacterChange(rosterid);
+      this.updateRosterListAfterCharacterChange(rosterid);
     }).fail((jqXhr) => {
       console.log(jqXhr);
       this.removeCharacterFromRosterFailure(jqXhr);
@@ -74,7 +74,7 @@ class RosterManagementActions {
     }).done((result) => {
       console.log(result);
       this.addCharacterToRosterSuccess(result);
-      updateRosterListAfterCharacterChange(rosterid);
+      this.updateRosterListAfterCharacterChange(rosterid);
     }).fail((jqXhr) => {
       console.log(jqXhr);
       this.addCharacterToRosterFailure(jqXhr);
