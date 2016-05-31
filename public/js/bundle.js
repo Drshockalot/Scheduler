@@ -484,7 +484,7 @@ var RosterManagementActions = function () {
 
       $.ajax({
         method: 'GET',
-        url: '/api/roster/admin/' + _.findWhere(rosterList, { name: rostername }).id
+        url: '/api/roster/admin/' + _.findWhere(rosterList, { name: rosterName }).id
       }).done(function (result) {
         _this2.updateSelectedRosterSuccess(result);
       }).fail(function (jqXhr) {

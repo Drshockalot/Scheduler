@@ -30,7 +30,7 @@ class RosterManagementActions {
   updateSelectedRoster(rosterName, rosterList) {
     $.ajax({
       method: 'GET',
-      url: '/api/roster/admin/' + _.findWhere(rosterList, { name: rostername}).id
+      url: '/api/roster/admin/' + _.findWhere(rosterList, { name: rosterName}).id
     }).done((result) => {
       this.updateSelectedRosterSuccess(result);
     }).fail((jqXhr) => {
