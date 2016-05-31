@@ -81,6 +81,7 @@ router.put('/admin/unlink/:characterid/:rosterid', function(req, res, next) {
         .fetch({'withRelated': ['characters']})
         .then(function(roster) {
           roster.characters().detach(req.params.characterid);
+          res.json({error: false, data: {message: 'Character Removed From Roster', roster: roster}});
         })
         .catch(function(err) {
           res.status(500).json({error: true, data: {message: err.message}});
