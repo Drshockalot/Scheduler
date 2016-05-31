@@ -40,7 +40,7 @@ router.get('/admin/:rosterid', function(req, res, next) {
         .then(function(roster) {
           var includedCharacters = roster.related('characters').toJSON();
           Character.forge()
-                   .fetchAll({ required: true})
+                   .fetchAll({ required: true })
                    .then(function(characters) {
                      var excludedCharacters = _.without(characters.toJSON(), includedCharacters);
 

@@ -32,8 +32,10 @@ class RosterManagementActions {
       method: 'GET',
       url: '/api/roster/admin/' + _.findWhere(rosterList, { name: rosterName}).id
     }).done((result) => {
+      console.log(result);
       this.updateSelectedRosterSuccess(result);
     }).fail((jqXhr) => {
+      console.log(jqXhr);
       this.updateSelectedRosterFailure(jqXhr);
     });
   }
@@ -43,8 +45,10 @@ class RosterManagementActions {
       method: 'PUT',
       url: '/api/roster/admin/unlink/' + characterid + '/' + rosterid
     }).done((result) => {
+      console.log(result);
       this.removeCharacterFromRosterSuccess(result);
     }).fail((jqXhr) => {
+      console.log(jqXhr);
       this.removeCharacterFromRosterFailure(jqXhr);
     });
   }
@@ -54,8 +58,10 @@ class RosterManagementActions {
       method: 'PUT',
       url: '/api/roster/admin/link/' + characterid + '/' + rosterid
     }).done((result) => {
+      console.log(result);
       this.addCharacterToRosterSuccess(result);
     }).fail((jqXhr) => {
+      console.log(jqXhr);
       this.addCharacterToRosterFailure(jqXhr);
     });
   }

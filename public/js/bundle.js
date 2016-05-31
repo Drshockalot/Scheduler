@@ -486,8 +486,10 @@ var RosterManagementActions = function () {
         method: 'GET',
         url: '/api/roster/admin/' + _.findWhere(rosterList, { name: rosterName }).id
       }).done(function (result) {
+        console.log(result);
         _this2.updateSelectedRosterSuccess(result);
       }).fail(function (jqXhr) {
+        console.log(jqXhr);
         _this2.updateSelectedRosterFailure(jqXhr);
       });
     }
@@ -500,8 +502,10 @@ var RosterManagementActions = function () {
         method: 'PUT',
         url: '/api/roster/admin/unlink/' + characterid + '/' + rosterid
       }).done(function (result) {
+        console.log(result);
         _this3.removeCharacterFromRosterSuccess(result);
       }).fail(function (jqXhr) {
+        console.log(jqXhr);
         _this3.removeCharacterFromRosterFailure(jqXhr);
       });
     }
@@ -514,8 +518,10 @@ var RosterManagementActions = function () {
         method: 'PUT',
         url: '/api/roster/admin/link/' + characterid + '/' + rosterid
       }).done(function (result) {
+        console.log(result);
         _this4.addCharacterToRosterSuccess(result);
       }).fail(function (jqXhr) {
+        console.log(jqXhr);
         _this4.addCharacterToRosterFailure(jqXhr);
       });
     }
