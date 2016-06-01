@@ -3669,16 +3669,24 @@ var RosterManagementStore = function () {
     }
   }, {
     key: 'onRemoveCharacterFromRosterSuccess',
-    value: function onRemoveCharacterFromRosterSuccess(result) {}
+    value: function onRemoveCharacterFromRosterSuccess(result) {
+      toastr.success('Character removed from the ' + result.data.roster.name + ' roster', 'Success');
+    }
   }, {
     key: 'onRemoveCharacterFromRosterFailure',
-    value: function onRemoveCharacterFromRosterFailure(jqXhr) {}
+    value: function onRemoveCharacterFromRosterFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
   }, {
     key: 'onAddCharacterToRosterSuccess',
-    value: function onAddCharacterToRosterSuccess(result) {}
+    value: function onAddCharacterToRosterSuccess(result) {
+      toastr.success('Character added to the ' + result.data.roster.name + ' roster', 'Success');
+    }
   }, {
     key: 'onAddCharacterToRosterFailure',
-    value: function onAddCharacterToRosterFailure(jqXhr) {}
+    value: function onAddCharacterToRosterFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
   }]);
 
   return RosterManagementStore;

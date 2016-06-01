@@ -32,19 +32,19 @@ class RosterManagementStore {
   }
 
   onRemoveCharacterFromRosterSuccess(result) {
-
+    toastr.success('Character removed from the ' + result.data.roster.name + ' roster', 'Success');
   }
 
   onRemoveCharacterFromRosterFailure(jqXhr) {
-
+    toastr.error(jqXhr.responseJSON.message);
   }
 
   onAddCharacterToRosterSuccess(result) {
-
+    toastr.success('Character added to the ' + result.data.roster.name + ' roster', 'Success');
   }
 
   onAddCharacterToRosterFailure(jqXhr) {
-
+    toastr.error(jqXhr.responseJSON.message);
   }
 }
 
