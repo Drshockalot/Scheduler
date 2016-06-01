@@ -12,7 +12,9 @@ class RosterManagementActions {
       'removeCharacterFromRosterSuccess',
       'removeCharacterFromRosterFailure',
       'addCharacterToRosterSuccess',
-      'addCharacterToRosterFailure'
+      'addCharacterToRosterFailure',
+      'setSelectedRosterName',
+      'getSelectedRosterName'
     );
   }
 
@@ -22,6 +24,8 @@ class RosterManagementActions {
       url: '/api/roster/admin'
     }).done((result) => {
       this.getAllRostersSuccess(result);
+      this.setSelectedRosterName(result.data.rosters[0].name);
+      this.updateRosterListAfterCharacterChange(result.data.rosters[0].id);
     }).fail((jqXhr) => {
       this.getAllRostersFailure(jqXhr);
     });

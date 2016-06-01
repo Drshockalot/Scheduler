@@ -12,9 +12,6 @@ class RosterManagementStore {
 
   onGetAllRostersSuccess(result) {
     this.rosterList = result.data.rosters;
-    if(this.selectedRoster === '') {
-      this.selectedRoster= this.rosterList[0].name;
-    }
   }
 
   onGetAllRostersFailure(jqXhr) {

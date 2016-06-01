@@ -460,7 +460,7 @@ var RosterManagementActions = function () {
   function RosterManagementActions() {
     _classCallCheck(this, RosterManagementActions);
 
-    this.generateActions('getAllRostersSuccess', 'getAllRostersFailure', 'updateSelectedRosterSuccess', 'updateSelectedRosterFailure', 'removeCharacterFromRosterSuccess', 'removeCharacterFromRosterFailure', 'addCharacterToRosterSuccess', 'addCharacterToRosterFailure');
+    this.generateActions('getAllRostersSuccess', 'getAllRostersFailure', 'updateSelectedRosterSuccess', 'updateSelectedRosterFailure', 'removeCharacterFromRosterSuccess', 'removeCharacterFromRosterFailure', 'addCharacterToRosterSuccess', 'addCharacterToRosterFailure', 'setSelectedRosterName', 'getSelectedRosterName');
   }
 
   _createClass(RosterManagementActions, [{
@@ -473,6 +473,8 @@ var RosterManagementActions = function () {
         url: '/api/roster/admin'
       }).done(function (result) {
         _this.getAllRostersSuccess(result);
+        _this.setSelectedRosterName(result.data.rosters[0].name);
+        _this.updateRosterListAfterCharacterChange(result.data.rosters[0].id);
       }).fail(function (jqXhr) {
         _this.getAllRostersFailure(jqXhr);
       });
@@ -3646,9 +3648,6 @@ var RosterManagementStore = function () {
     key: 'onGetAllRostersSuccess',
     value: function onGetAllRostersSuccess(result) {
       this.rosterList = result.data.rosters;
-      if (this.selectedRoster === '') {
-        this.selectedRoster = this.rosterList[0].name;
-      }
     }
   }, {
     key: 'onGetAllRostersFailure',
