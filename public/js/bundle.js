@@ -2560,6 +2560,9 @@ var RosterManagement = function (_React$Component) {
   _createClass(RosterManagement, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
+      if (!_reactRouter.browserHistory) {
+        window.location = '/';
+      }
       if (_NavbarStore2.default.getState().userRole === 'member' || _NavbarStore2.default.getState().userRole === '') {
         _reactRouter.browserHistory.push('/');
         toastr.error('You do not have authorization to access Admin', 'YOU SHALL NOT PASS!!');
