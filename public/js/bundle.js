@@ -2560,7 +2560,7 @@ var RosterManagement = function (_React$Component) {
   _createClass(RosterManagement, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
-      if (!_reactRouter.browserHistory) {
+      if (_reactRouter.browserHistory === undefined) {
         window.location = '/';
       }
       if (_NavbarStore2.default.getState().userRole === 'member' || _NavbarStore2.default.getState().userRole === '') {

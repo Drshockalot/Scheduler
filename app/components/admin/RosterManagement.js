@@ -18,7 +18,7 @@ class RosterManagement extends React.Component {
   }
 
   componentWillMount() {
-    if (!browserHistory) {
+    if (browserHistory === undefined) {
       window.location = '/';
     }
     if (NavbarStore.getState().userRole === 'member' || NavbarStore.getState().userRole === '') {
