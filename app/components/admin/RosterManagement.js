@@ -18,9 +18,6 @@ class RosterManagement extends React.Component {
   }
 
   componentWillMount() {
-    if (browserHistory === undefined) {
-      window.location = '/';
-    }
     if (NavbarStore.getState().userRole === 'member' || NavbarStore.getState().userRole === '') {
       browserHistory.push('/');
       toastr.error('You do not have authorization to access Admin', 'YOU SHALL NOT PASS!!');
@@ -28,6 +25,10 @@ class RosterManagement extends React.Component {
   }
 
   componentDidMount() {
+    if (NavbarStore.getState().userRole === 'member' || NavbarStore.getState().userRole === '') {
+      browserHistory.push('/');
+      toastr.error('You do not have authorization to access Admin', 'YOU SHALL NOT PASS!!');
+    }
     RosterManagementStore.listen(this.onChange);
     RosterManagementActions.getAllRosters();
   }
