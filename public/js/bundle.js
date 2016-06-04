@@ -1940,6 +1940,15 @@ var AdminSideNav = function (_React$Component) {
             'li',
             null,
             _react2.default.createElement(
+              'strong',
+              null,
+              'Admin'
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
               _reactRouter.Link,
               { to: '/admin/roster' },
               'Roster Management'
@@ -2568,10 +2577,6 @@ var RosterManagement = function (_React$Component) {
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      if (_NavbarStore2.default.getState().userRole === 'member' || _NavbarStore2.default.getState().userRole === '') {
-        _reactRouter.browserHistory.push('/');
-        toastr.error('You do not have authorization to access Admin', 'YOU SHALL NOT PASS!!');
-      }
       _RosterManagementStore2.default.listen(this.onChange);
       _RosterManagementActions2.default.getAllRosters();
     }
