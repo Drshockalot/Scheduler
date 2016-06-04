@@ -4,9 +4,6 @@ import RosterManagementStore from '../../stores/admin/RosterManagementStore';
 import RosterManagementActions from '../../actions/admin/RosterManagementActions';
 import AdminSideNav from './AdminSideNav';
 import AddRoster from './AddRoster';
-import ViewRosters from './ViewRosters';
-import RosterView from './RosterView';
-import RosterControlPanel from './RosterControlPanel';
 import NavbarStore from './../../stores/NavbarStore';
 import { browserHistory } from 'react-router';
 
