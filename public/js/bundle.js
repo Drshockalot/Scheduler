@@ -432,7 +432,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 var RaidWeekManagementActions = function RaidWeekManagementActions() {
   _classCallCheck(this, RaidWeekManagementActions);
 
-  this.generateActions('selectedRaidWeekChanged');
+  this.generateActions('selectedDayChanged', 'nextYear', 'prevYear', 'goToToday');
 };
 
 exports.default = _alt2.default.createActions(RaidWeekManagementActions);
@@ -2212,6 +2212,10 @@ var _NavbarStore2 = _interopRequireDefault(_NavbarStore);
 
 var _reactYearlyCalendar = require('react-yearly-calendar');
 
+var _moment = require('moment');
+
+var _moment2 = _interopRequireDefault(_moment);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2230,6 +2234,11 @@ var RaidWeekManagement = function (_React$Component) {
 
     _this.state = _RaidWeekManagementStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
+
+    var today = (0, _moment2.default)();
+
+    _this.state.selectedYear = today.year();
+    _this.state.selectedDate = today;
     return _this;
   }
 
@@ -2284,7 +2293,18 @@ var RaidWeekManagement = function (_React$Component) {
               _react2.default.createElement(
                 'div',
                 { className: 'col-md-12' },
-                _react2.default.createElement(_reactYearlyCalendar.Calendar, { onDatePicked: _RaidWeekManagementActions2.default.selectedRaidWeekChanged, firstDayOfWeek: 3 })
+                _react2.default.createElement(_reactYearlyCalendar.CalendarControls, {
+                  year: this.state.selectedYear,
+                  showTodayButton: true,
+                  onPrevYear: _RaidWeekManagementActions2.default.PrevYear(),
+                  onNextYear: _RaidWeekManagementActions2.default.NextYear(),
+                  goToToday: _RaidWeekManagementActions2.default.goToToday()
+                }),
+                _react2.default.createElement(_reactYearlyCalendar.Calendar, { year: this.state.selectedYear,
+                  selectedDay: this.state.selectedDay,
+                  onPickDate: _RaidWeekManagementActions2.default.selectedDayChanged,
+                  firstDayOfWeek: 3
+                })
               )
             )
           )
@@ -2298,7 +2318,7 @@ var RaidWeekManagement = function (_React$Component) {
 
 exports.default = RaidWeekManagement;
 
-},{"./../../actions/admin/RaidWeekManagementActions":8,"./../../stores/NavbarStore":27,"./../../stores/admin/RaidWeekManagementStore":33,"./AdminSideNav":19,"react":"react","react-router":"react-router","react-yearly-calendar":41}],22:[function(require,module,exports){
+},{"./../../actions/admin/RaidWeekManagementActions":8,"./../../stores/NavbarStore":27,"./../../stores/admin/RaidWeekManagementStore":33,"./AdminSideNav":19,"moment":36,"react":"react","react-router":"react-router","react-yearly-calendar":41}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3274,6 +3294,10 @@ var _RaidWeekManagementActions = require('./../../actions/admin/RaidWeekManageme
 
 var _RaidWeekManagementActions2 = _interopRequireDefault(_RaidWeekManagementActions);
 
+var _moment = require('moment');
+
+var _moment2 = _interopRequireDefault(_moment);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3283,13 +3307,32 @@ var RaidWeekManagementStore = function () {
     _classCallCheck(this, RaidWeekManagementStore);
 
     this.bindActions(_RaidWeekManagementActions2.default);
-    this.selectedRaidWeek = null;
+    this.selectedYear = null;
+    this.selectedDay = null;
   }
 
   _createClass(RaidWeekManagementStore, [{
-    key: 'onSelectedRaidWeekChanged',
-    value: function onSelectedRaidWeekChanged(date) {
-      this.selectedRaidWeek = date;
+    key: 'onSelectedDayChanged',
+    value: function onSelectedDayChanged(date) {
+      this.selectedDay = date;
+    }
+  }, {
+    key: 'onNextYear',
+    value: function onNextYear() {
+      this.year++;
+    }
+  }, {
+    key: 'onPrevYear',
+    value: function onPrevYear() {
+      this.year--;
+    }
+  }, {
+    key: 'onGoToToday',
+    value: function onGoToToday() {
+      var today = (0, _moment2.default)();
+
+      this.selectedDay = today;
+      this.selectedYear = today.year();
     }
   }]);
 
@@ -3298,7 +3341,7 @@ var RaidWeekManagementStore = function () {
 
 exports.default = _alt2.default.createStore(RaidWeekManagementStore);
 
-},{"./../../actions/admin/RaidWeekManagementActions":8,"./../../alt":11}],34:[function(require,module,exports){
+},{"./../../actions/admin/RaidWeekManagementActions":8,"./../../alt":11,"moment":36}],34:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

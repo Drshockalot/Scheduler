@@ -6,12 +6,18 @@ import AdminSideNav from './AdminSideNav';
 import NavbarStore from './../../stores/NavbarStore';
 import { browserHistory } from 'react-router';
 import {Calendar, CalendarControls} from 'react-yearly-calendar';
+import moment from 'moment';
 
 class RaidWeekManagement extends React.Component {
   constructor(props) {
     super(props);
     this.state = RaidWeekManagementStore.getState();
     this.onChange = this.onChange.bind(this);
+
+    var today = moment();
+
+    this.state.selectedYear = today.year();
+    this.state.selectedDate = today;
   }
 
   componentWillMount() {
@@ -44,7 +50,18 @@ class RaidWeekManagement extends React.Component {
             </div>
             <div className='row'>
               <div className='col-md-12'>
-                <Calendar onDatePicked={RaidWeekManagementActions.selectedRaidWeekChanged} firstDayOfWeek={3} />
+                <CalendarControls
+                          year={this.state.selectedYear}
+                          showTodayButton={true}
+                          onPrevYear={RaidWeekManagementActions.PrevYear()}
+                          onNextYear={RaidWeekManagementActions.NextYear()}
+                          goToToday={RaidWeekManagementActions.goToToday()}
+                />
+                <Calendar year={this.state.selectedYear}
+                          selectedDay={this.state.selectedDay}
+                          onPickDate={RaidWeekManagementActions.selectedDayChanged}
+                          firstDayOfWeek={3}
+                />
               </div>
             </div>
           </div>

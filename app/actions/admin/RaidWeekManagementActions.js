@@ -3,7 +3,10 @@ import alt from './../../alt';
 class RaidWeekManagementActions {
   constructor() {
     this.generateActions(
-      'selectedRaidWeekChanged'
+      'selectedDayChanged',
+      'nextYear',
+      'prevYear',
+      'goToToday'
     );
   }
 }

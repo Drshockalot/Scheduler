@@ -1,14 +1,31 @@
 import alt from './../../alt';
 import RaidWeekManagementActions from './../../actions/admin/RaidWeekManagementActions';
+import moment from 'moment';
 
 class RaidWeekManagementStore {
   constructor() {
     this.bindActions(RaidWeekManagementActions);
-    this.selectedRaidWeek = null;
+    this.selectedYear = null;
+    this.selectedDay = null;
   }
 
-  onSelectedRaidWeekChanged(date) {
-    this.selectedRaidWeek = date;
+  onSelectedDayChanged(date) {
+    this.selectedDay = date;
+  }
+
+  onNextYear() {
+    this.year++;
+  }
+
+  onPrevYear() {
+    this.year--;
+  }
+
+  onGoToToday() {
+    var today = moment();
+
+    this.selectedDay = today;
+    this.selectedYear = today.year();
   }
 }
 

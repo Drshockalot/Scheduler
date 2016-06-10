@@ -49,6 +49,7 @@
     "gulp-util": "^3.0.7",
     "history": "^2.1.1",
     "knex": "^0.11.3",
+    "moment": "^2.13.0",
     "mongoose": "^4.2.5",
     "morgan": "^1.6.1",
     "passport": "^0.3.2",
