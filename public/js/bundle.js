@@ -2263,11 +2263,7 @@ var RaidWeekManagement = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _RaidWeekManagementStore2.default.listen(this.onChange);
-
-      var today = (0, _moment2.default)();
-
-      this.state.selectedYear = today.year();
-      this.state.selectedDate = today;
+      _RaidWeekManagementActions2.default.goToToday();
     }
   }, {
     key: 'componentWillUnmount',
@@ -3335,12 +3331,12 @@ var RaidWeekManagementStore = function () {
   }, {
     key: 'onNextYear',
     value: function onNextYear() {
-      this.selectedYear++;
+      this.selectedYear = this.selectedYear + 1;
     }
   }, {
     key: 'onPrevYear',
     value: function onPrevYear() {
-      this.selectedYear--;
+      this.selectedYear = this.selectedYear - 1;
     }
   }, {
     key: 'onGoToToday',
