@@ -1,15 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router';
-import ScheduleManagementStore from './../../stores/admin/ScheduleManagementStore';
-import ScheduleManagementActions from './../../actions/admin/ScheduleManagementActions';
+import RaidWeekManagementStore from './../../stores/admin/RaidWeekManagementStore';
+import RaidWeekManagementActions from './../../actions/admin/RaidWeekManagementActions';
 import AdminSideNav from './AdminSideNav';
 import NavbarStore from './../../stores/NavbarStore';
 import { browserHistory } from 'react-router';
+import {Calendar, CalendarControls} from 'react-yearly-calendar';
 
-class ScheduleManagement extends React.Component {
+class RaidWeekManagement extends React.Component {
   constructor(props) {
     super(props);
-    this.state = ScheduleManagementStore.getState();
+    this.state = RaidWeekManagementStore.getState();
     this.onChange = this.onChange.bind(this);
   }
 
@@ -21,7 +22,7 @@ class ScheduleManagement extends React.Component {
   }
 
   componentDidMount() {
-    ScheduleManagementStore.listen(this.onChange);
+    RaidWeekManagementStore.listen(this.onChange);
   }
 
   componentWillUnmount() {
@@ -39,13 +40,18 @@ class ScheduleManagement extends React.Component {
         <div id='page-content-wrapper'>
           <div className='container-fluid'>
             <div className='row'>
-
+              <h3>Add New Raid Week</h3>
+            </div>
+            <div className='row'>
+              <div className='col-md-12'>
+                <Calendar onDatePicked={RaidWeekManagementActions.selectedRaidWeekChanged} firstDayOfWeek={3} />
+              </div>
             </div>
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default ScheduleManagement;
+export default RaidWeekManagement;

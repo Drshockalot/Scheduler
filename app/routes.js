@@ -7,6 +7,7 @@ import RosterManagement from './components/admin/RosterManagement';
 import Profile from './components/Profile';
 import CharacterManagement from './components/admin/CharacterManagement';
 import ScheduleManagement from './components/admin/ScheduleManagement';
+import RaidWeekManagement from './components/admin/RaidWeekManagement';
 
 export default (
   <Route component={App}>
@@ -16,5 +17,6 @@ export default (
     <Route path='/admin/roster' component={RosterManagement} />
     <Route path='/admin/character' component={CharacterManagement} />
     <Route path='/admin/schedule' component={ScheduleManagement} />
+    <Route path='/admin/raidweek' component={RaidWeekManagement} />
   </Route>
 );

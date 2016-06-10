@@ -30,6 +30,7 @@ class AdminSideNav extends React.Component {
           <li><Link to='/admin/roster'>Roster Management</Link></li>
           <li><Link to='/admin/schedule'>Schedule Management</Link></li>
           <li><Link to='/admin/character'>Character Management</Link></li>
+          <li><Link to='/admin/raidweek'>Raid Week Management</Link></li>
         </ul>
       </div>
     );
