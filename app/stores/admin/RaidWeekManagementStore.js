@@ -14,11 +14,11 @@ class RaidWeekManagementStore {
   }
 
   onNextYear() {
-    this.year++;
+    this.selectedYear++;
   }
 
   onPrevYear() {
-    this.year--;
+    this.selectedYear--;
   }
 
   onGoToToday() {

@@ -59,7 +59,7 @@ class RaidWeekManagement extends React.Component {
                 />
                 <Calendar year={this.state.selectedYear}
                           selectedDay={this.state.selectedDay}
-                          onPickDate={date => RaidWeekManagementActions.changeSelectedDay(date)}
+                          onPickDate={(date) => RaidWeekManagementActions.changeSelectedDay(date)}
                           firstDayOfWeek={3}
                 />
               </div>

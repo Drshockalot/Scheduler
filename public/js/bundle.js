@@ -3334,12 +3334,12 @@ var RaidWeekManagementStore = function () {
   }, {
     key: 'onNextYear',
     value: function onNextYear() {
-      this.year++;
+      this.selectedYear++;
     }
   }, {
     key: 'onPrevYear',
     value: function onPrevYear() {
-      this.year--;
+      this.selectedYear--;
     }
   }, {
     key: 'onGoToToday',
