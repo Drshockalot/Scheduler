@@ -26,7 +26,7 @@ class RaidWeekManagement extends React.Component {
   }
 
   componentWillUnmount() {
-    ScheduleManagementStore.unlisten(this.onChange);
+    RaidWeekManagementStore.unlisten(this.onChange);
   }
 
   onChange(state) {

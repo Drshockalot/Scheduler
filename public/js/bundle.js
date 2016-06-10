@@ -2249,7 +2249,7 @@ var RaidWeekManagement = function (_React$Component) {
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
-      ScheduleManagementStore.unlisten(this.onChange);
+      _RaidWeekManagementStore2.default.unlisten(this.onChange);
     }
   }, {
     key: 'onChange',
