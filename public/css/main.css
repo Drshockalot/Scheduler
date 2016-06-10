@@ -98,7 +98,6 @@ div.calendar-controls .control {
 }
 div.calendar-controls .today {
   position: absolute;
-  right: 15px;
   line-height: 35px;
   font-size: 0.6em;
   text-transform: uppercase;
