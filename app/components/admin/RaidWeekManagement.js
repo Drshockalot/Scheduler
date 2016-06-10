@@ -13,11 +13,6 @@ class RaidWeekManagement extends React.Component {
     super(props);
     this.state = RaidWeekManagementStore.getState();
     this.onChange = this.onChange.bind(this);
-
-    var today = moment();
-
-    this.state.selectedYear = today.year();
-    this.state.selectedDate = today;
   }
 
   componentWillMount() {
@@ -29,6 +24,11 @@ class RaidWeekManagement extends React.Component {
 
   componentDidMount() {
     RaidWeekManagementStore.listen(this.onChange);
+
+    var today = moment();
+
+    this.state.selectedYear = today.year();
+    this.state.selectedDate = today;
   }
 
   componentWillUnmount() {
