@@ -5,8 +5,8 @@ import moment from 'moment';
 class RaidWeekManagementStore {
   constructor() {
     this.bindActions(RaidWeekManagementActions);
-    this.selectedYear = null;
-    this.selectedDay = null;
+    this.selectedYear = moment().year();
+    this.selectedDay = moment();
   }
 
   onSelectedDayChanged(date) {

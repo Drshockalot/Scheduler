@@ -14,6 +14,10 @@ class RaidWeekManagementActions {
     this.selectedDayChanged(date);
     return 0;
   }
+
+  createNewRaidWeek(startingDate) {
+
+  }
 }
 
 export default alt.createActions(RaidWeekManagementActions);

@@ -24,7 +24,7 @@ class RaidWeekManagement extends React.Component {
 
   componentDidMount() {
     RaidWeekManagementStore.listen(this.onChange);
-    RaidWeekManagementActions.goToToday();
+    //RaidWeekManagementActions.goToToday();
   }
 
   componentWillUnmount() {
@@ -80,8 +80,7 @@ class RaidWeekManagement extends React.Component {
                 <Calendar year={this.state.selectedYear}
                           selectedDay={this.state.selectedDay}
                           onPickDate={(date) => RaidWeekManagementActions.changeSelectedDay(date)}
-                          firstDayOfWeek={0}
-                          customClasses={customCSS}
+                          firstDayOfWeek={3}
                 />
               </div>
               <button value={this.state.selectedDay} className='btn btn-primary' onClick={(e) => RaidWeekManagementActions.createNewRaidWeek(e.target.value)}>Add New Raid Week</button>

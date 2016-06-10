@@ -444,6 +444,9 @@ var RaidWeekManagementActions = function () {
       this.selectedDayChanged(date);
       return 0;
     }
+  }, {
+    key: 'createNewRaidWeek',
+    value: function createNewRaidWeek(startingDate) {}
   }]);
 
   return RaidWeekManagementActions;
@@ -2263,7 +2266,7 @@ var RaidWeekManagement = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _RaidWeekManagementStore2.default.listen(this.onChange);
-      _RaidWeekManagementActions2.default.goToToday();
+      //RaidWeekManagementActions.goToToday();
     }
   }, {
     key: 'componentWillUnmount',
@@ -2335,8 +2338,7 @@ var RaidWeekManagement = function (_React$Component) {
                   onPickDate: function onPickDate(date) {
                     return _RaidWeekManagementActions2.default.changeSelectedDay(date);
                   },
-                  firstDayOfWeek: 0,
-                  customClasses: customCSS
+                  firstDayOfWeek: 3
                 })
               ),
               _react2.default.createElement(
@@ -3348,8 +3350,8 @@ var RaidWeekManagementStore = function () {
     _classCallCheck(this, RaidWeekManagementStore);
 
     this.bindActions(_RaidWeekManagementActions2.default);
-    this.selectedYear = null;
-    this.selectedDay = null;
+    this.selectedYear = (0, _moment2.default)().year();
+    this.selectedDay = (0, _moment2.default)();
   }
 
   _createClass(RaidWeekManagementStore, [{
