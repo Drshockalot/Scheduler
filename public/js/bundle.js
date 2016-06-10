@@ -442,6 +442,7 @@ var RaidWeekManagementActions = function () {
     key: 'changeSelectedDay',
     value: function changeSelectedDay(date) {
       this.selectedDayChanged(date);
+      return 0;
     }
   }]);
 

@@ -12,6 +12,7 @@ class RaidWeekManagementActions {
 
   changeSelectedDay(date) {
     this.selectedDayChanged(date);
+    return 0;
   }
 }
 
