@@ -36,7 +36,7 @@ class RaidWeekManagement extends React.Component {
   }
 
   render() {
-    const customClasses = {
+    var customCSS = {
       holidays: [
         "2016-04-25",
         "2016-05-01",
@@ -81,10 +81,13 @@ class RaidWeekManagement extends React.Component {
                           selectedDay={this.state.selectedDay}
                           onPickDate={(date) => RaidWeekManagementActions.changeSelectedDay(date)}
                           firstDayOfWeek={0}
-                          customClasses={customClasses}
+                          customClasses={customCSS}
                 />
-                <button value={this.state.selectedDay} className='btn btn-primary' onClick={(e) => RaidWeekManagementActions.createNewRaidWeek(e.target.value)}>Add New Raid Week</button>
               </div>
+              <button value={this.state.selectedDay} className='btn btn-primary' onClick={(e) => RaidWeekManagementActions.createNewRaidWeek(e.target.value)}>Add New Raid Week</button>
+            </div>
+            <div className='row'>
+
             </div>
           </div>
         </div>

@@ -2278,7 +2278,7 @@ var RaidWeekManagement = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var customClasses = {
+      var customCSS = {
         holidays: ["2016-04-25", "2016-05-01", "2016-06-02", "2016-08-15", "2016-11-01"],
         spring: {
           start: "2016-03-21",
@@ -2336,17 +2336,18 @@ var RaidWeekManagement = function (_React$Component) {
                     return _RaidWeekManagementActions2.default.changeSelectedDay(date);
                   },
                   firstDayOfWeek: 0,
-                  customClasses: customClasses
-                }),
-                _react2.default.createElement(
-                  'button',
-                  { value: this.state.selectedDay, className: 'btn btn-primary', onClick: function onClick(e) {
-                      return _RaidWeekManagementActions2.default.createNewRaidWeek(e.target.value);
-                    } },
-                  'Add New Raid Week'
-                )
+                  customClasses: customCSS
+                })
+              ),
+              _react2.default.createElement(
+                'button',
+                { value: this.state.selectedDay, className: 'btn btn-primary', onClick: function onClick(e) {
+                    return _RaidWeekManagementActions2.default.createNewRaidWeek(e.target.value);
+                  } },
+                'Add New Raid Week'
               )
-            )
+            ),
+            _react2.default.createElement('div', { className: 'row' })
           )
         )
       );
