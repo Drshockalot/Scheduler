@@ -9,6 +9,10 @@ class RaidWeekManagementActions {
       'goToToday'
     );
   }
+
+  changeSelectedDay(date) {
+    this.selectedDayChanged(date);
+  }
 }
 
 export default alt.createActions(RaidWeekManagementActions);

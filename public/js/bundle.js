@@ -421,6 +421,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _alt = require('./../../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
@@ -429,11 +431,22 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var RaidWeekManagementActions = function RaidWeekManagementActions() {
-  _classCallCheck(this, RaidWeekManagementActions);
+var RaidWeekManagementActions = function () {
+  function RaidWeekManagementActions() {
+    _classCallCheck(this, RaidWeekManagementActions);
 
-  this.generateActions('selectedDayChanged', 'nextYear', 'prevYear', 'goToToday');
-};
+    this.generateActions('selectedDayChanged', 'nextYear', 'prevYear', 'goToToday');
+  }
+
+  _createClass(RaidWeekManagementActions, [{
+    key: 'changeSelectedDay',
+    value: function changeSelectedDay(date) {
+      this.selectedDayChanged(date);
+    }
+  }]);
+
+  return RaidWeekManagementActions;
+}();
 
 exports.default = _alt2.default.createActions(RaidWeekManagementActions);
 
@@ -2302,7 +2315,9 @@ var RaidWeekManagement = function (_React$Component) {
                 }),
                 _react2.default.createElement(_reactYearlyCalendar.Calendar, { year: this.state.selectedYear,
                   selectedDay: this.state.selectedDay,
-                  onPickDate: _RaidWeekManagementActions2.default.selectedDayChanged,
+                  onPickDate: function onPickDate(date) {
+                    return _RaidWeekManagementActions2.default.changeSelectedDay(date);
+                  },
                   firstDayOfWeek: 3
                 })
               )
