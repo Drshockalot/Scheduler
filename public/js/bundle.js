@@ -2341,6 +2341,7 @@ var RaidWeekManagement = function (_React$Component) {
                   firstDayOfWeek: 3
                 })
               ),
+              _react2.default.createElement('br', null),
               _react2.default.createElement(
                 'button',
                 { value: this.state.selectedDay, className: 'btn btn-primary', onClick: function onClick(e) {
