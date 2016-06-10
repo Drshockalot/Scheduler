@@ -36,6 +36,30 @@ class RaidWeekManagement extends React.Component {
   }
 
   render() {
+    const customClasses = {
+      holidays: [
+        "2016-04-25",
+        "2016-05-01",
+        "2016-06-02",
+        "2016-08-15",
+        "2016-11-01"
+      ],
+      spring: {
+        start: "2016-03-21",
+        end: "2016-6-20"
+      },
+      summer: {
+        start: "2016-06-21",
+        end: "2016-09-22"
+      },
+      autumn: {
+        start: "2016-09-23",
+        end: "2016-12-21"
+      },
+      weekend: "Sat,Sun",
+      winter: day => day.isBefore( moment([2016,2,21]) ) || day.isAfter( moment([2016,11,21]))
+    }
+
     return (
       <div id='wrapper'>
         <AdminSideNav />
@@ -56,8 +80,10 @@ class RaidWeekManagement extends React.Component {
                 <Calendar year={this.state.selectedYear}
                           selectedDay={this.state.selectedDay}
                           onPickDate={(date) => RaidWeekManagementActions.changeSelectedDay(date)}
-                          firstDayOfWeek={3}
+                          firstDayOfWeek={0}
+                          customClasses={customClasses}
                 />
+                <button value={this.state.selectedDay} className='btn btn-primary' onClick={(e) => RaidWeekManagementActions.createNewRaidWeek(e.target.value)}>Add New Raid Week</button>
               </div>
             </div>
           </div>
