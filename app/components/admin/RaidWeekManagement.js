@@ -49,7 +49,7 @@ class RaidWeekManagement extends React.Component {
               <h3>Add New Raid Week</h3>
             </div>
             <div className='row'>
-              <div className='col-md-12'>
+              <div id='calendar'>
                 <CalendarControls
                           year={this.state.selectedYear}
                           showTodayButton={true}

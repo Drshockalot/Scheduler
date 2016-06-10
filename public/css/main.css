@@ -103,6 +103,18 @@ div.calendar-controls .today {
   font-size: 0.6em;
   text-transform: uppercase;
 }
+div#calendar {
+  position: relative;
+  border-radius: 5px;
+  border: 1px solid #5A5A5A;
+  background-color: white;
+  overflow: hidden;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.

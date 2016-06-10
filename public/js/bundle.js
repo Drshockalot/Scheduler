@@ -2292,7 +2292,7 @@ var RaidWeekManagement = function (_React$Component) {
               { className: 'row' },
               _react2.default.createElement(
                 'div',
-                { className: 'col-md-12' },
+                { id: 'calendar' },
                 _react2.default.createElement(_reactYearlyCalendar.CalendarControls, {
                   year: this.state.selectedYear,
                   showTodayButton: true,
