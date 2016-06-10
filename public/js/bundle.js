@@ -2296,9 +2296,9 @@ var RaidWeekManagement = function (_React$Component) {
                 _react2.default.createElement(_reactYearlyCalendar.CalendarControls, {
                   year: this.state.selectedYear,
                   showTodayButton: true,
-                  onPrevYear: _RaidWeekManagementActions2.default.PrevYear(),
-                  onNextYear: _RaidWeekManagementActions2.default.NextYear(),
-                  goToToday: _RaidWeekManagementActions2.default.goToToday()
+                  onPrevYear: _RaidWeekManagementActions2.default.prevYear,
+                  onNextYear: _RaidWeekManagementActions2.default.nextYear,
+                  goToToday: _RaidWeekManagementActions2.default.goToToday
                 }),
                 _react2.default.createElement(_reactYearlyCalendar.Calendar, { year: this.state.selectedYear,
                   selectedDay: this.state.selectedDay,

@@ -53,9 +53,9 @@ class RaidWeekManagement extends React.Component {
                 <CalendarControls
                           year={this.state.selectedYear}
                           showTodayButton={true}
-                          onPrevYear={RaidWeekManagementActions.PrevYear()}
-                          onNextYear={RaidWeekManagementActions.NextYear()}
-                          goToToday={RaidWeekManagementActions.goToToday()}
+                          onPrevYear={RaidWeekManagementActions.prevYear}
+                          onNextYear={RaidWeekManagementActions.nextYear}
+                          goToToday={RaidWeekManagementActions.goToToday}
                 />
                 <Calendar year={this.state.selectedYear}
                           selectedDay={this.state.selectedDay}
