@@ -42,7 +42,7 @@ class RaidWeekManagement extends React.Component {
           <td>{moment(raidweek.start).format('DD MM YYYY')}</td>
           <td>{moment(raidweek.end).format('DD MM YYYY')}</td>
           <td>{moment(raidweek.start).format('W')}</td>
-          <td><input type='checkbox' checked={this.state.raidweeks[index].wednesday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'wednesday')} /></td>
+          <td><input type='checkbox' checked={this.state.raidweeks[index].wednesday} onChange={() => {RaidWeekManagementActions.toggleRaidWeekDay(index, 'wednesday')}} /></td>
           <td></td>
           <td></td>
           <td></td>

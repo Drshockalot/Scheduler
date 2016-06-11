@@ -2342,7 +2342,7 @@ var RaidWeekManagement = function (_React$Component) {
             'td',
             null,
             _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].wednesday, onChange: function onChange() {
-                return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'wednesday');
+                _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'wednesday');
               } })
           ),
           _react2.default.createElement('td', null),
