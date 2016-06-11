@@ -449,8 +449,8 @@ var RaidWeekManagementActions = function () {
     value: function createNewRaidWeek(startingDate) {
       var _this = this;
 
-      var start = startingDate.format('DD MM YYYY');
-      var end = startingDate.add(7, 'days').format('DD MM YYYY');
+      var start = startingDate.format('MM DD YYYY');
+      var end = startingDate.add(7, 'days').format('MM DD YYYY');
       $.ajax({
         method: 'POST',
         url: '/api/raidweek/admin',
