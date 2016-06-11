@@ -7,6 +7,7 @@ class RaidWeekManagementStore {
     this.bindActions(RaidWeekManagementActions);
     this.selectedYear = moment().year();
     this.selectedDay = moment();
+    this.raidweeks = [];
   }
 
   onSelectedDayChanged(date) {
@@ -26,6 +27,14 @@ class RaidWeekManagementStore {
 
     this.selectedDay = today;
     this.selectedYear = today.year();
+  }
+
+  onCreateNewRaidWeekSuccess(result) {
+    this.raidweeks = result;
+  }
+
+  onCreateNewRaidWeekFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
   }
 }
 

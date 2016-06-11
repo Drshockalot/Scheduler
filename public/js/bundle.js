@@ -435,7 +435,7 @@ var RaidWeekManagementActions = function () {
   function RaidWeekManagementActions() {
     _classCallCheck(this, RaidWeekManagementActions);
 
-    this.generateActions('selectedDayChanged', 'nextYear', 'prevYear', 'goToToday');
+    this.generateActions('selectedDayChanged', 'nextYear', 'prevYear', 'goToToday', 'createNewRaidWeekSuccess', 'createNewRaidWeekFailure');
   }
 
   _createClass(RaidWeekManagementActions, [{
@@ -446,7 +446,21 @@ var RaidWeekManagementActions = function () {
     }
   }, {
     key: 'createNewRaidWeek',
-    value: function createNewRaidWeek(startingDate) {}
+    value: function createNewRaidWeek(startingDate) {
+      var _this = this;
+
+      var start = startingDate.format('DD MM YYYY');
+      var end = startingDate.add(7, 'days').format('DD MM YYYY');
+      $.ajax({
+        method: 'POST',
+        url: '/api/raidweek/admin',
+        data: { start: start, end: end }
+      }).done(function (result) {
+        _this.createNewRaidWeekSuccess(result);
+      }).fail(function (jqXhr) {
+        _this.createNewRaidWeekFailure(jqXhr);
+      });
+    }
   }]);
 
   return RaidWeekManagementActions;
@@ -2281,25 +2295,16 @@ var RaidWeekManagement = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var customCSS = {
-        holidays: ["2016-04-25", "2016-05-01", "2016-06-02", "2016-08-15", "2016-11-01"],
-        spring: {
-          start: "2016-03-21",
-          end: "2016-6-20"
-        },
-        summer: {
-          start: "2016-06-21",
-          end: "2016-09-22"
-        },
-        autumn: {
-          start: "2016-09-23",
-          end: "2016-12-21"
-        },
-        weekend: "Sat,Sun",
-        winter: function winter(day) {
-          return day.isBefore((0, _moment2.default)([2016, 2, 21])) || day.isAfter((0, _moment2.default)([2016, 11, 21]));
-        }
-      };
+      // var raidweeklist = this.state.raidweeks.map(function(raidweek, index) {
+      //   return (
+      //     <tr>
+      //       <td>{raidweek.start}</td>
+      //       <td>{raidweek.end}</td>
+      //       <td></td>
+      //       <td></td>
+      //     </tr>
+      //   );
+      // });
 
       return _react2.default.createElement(
         'div',
@@ -2350,7 +2355,58 @@ var RaidWeekManagement = function (_React$Component) {
                 'Add New Raid Week'
               )
             ),
-            _react2.default.createElement('div', { className: 'row' })
+            _react2.default.createElement(
+              'div',
+              { className: 'row' },
+              _react2.default.createElement(
+                'h3',
+                null,
+                'Manage Raid Weeks'
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'row' },
+              _react2.default.createElement(
+                'table',
+                { className: 'table' },
+                _react2.default.createElement(
+                  'tbody',
+                  null,
+                  _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'Start'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'End'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'Week No.'
+                      )
+                    )
+                  )
+                )
+              )
+            )
           )
         )
       );
@@ -3353,6 +3409,7 @@ var RaidWeekManagementStore = function () {
     this.bindActions(_RaidWeekManagementActions2.default);
     this.selectedYear = (0, _moment2.default)().year();
     this.selectedDay = (0, _moment2.default)();
+    this.raidweeks = [];
   }
 
   _createClass(RaidWeekManagementStore, [{
@@ -3377,6 +3434,16 @@ var RaidWeekManagementStore = function () {
 
       this.selectedDay = today;
       this.selectedYear = today.year();
+    }
+  }, {
+    key: 'onCreateNewRaidWeekSuccess',
+    value: function onCreateNewRaidWeekSuccess(result) {
+      this.raidweeks = result;
+    }
+  }, {
+    key: 'onCreateNewRaidWeekFailure',
+    value: function onCreateNewRaidWeekFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
     }
   }]);
 

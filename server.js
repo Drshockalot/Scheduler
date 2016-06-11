@@ -19,6 +19,7 @@ var Roster_Routes = require('./api/roster');
 var Auth_Routes = require('./api/auth');
 var User_Routes = require('./api/user');
 var Character_Routes = require('./api/character');
+var RaidWeek_Routes = require('./api/raidweek');
 
 var fs = require('fs');
 var cors = require('cors');
@@ -70,6 +71,7 @@ app.use('/api/roster/', Roster_Routes);
 app.use('/auth/', Auth_Routes);
 app.use('/api/user/', User_Routes);
 app.use('/api/character/', Character_Routes);
+app.use('/api/raidweek/', RaidWeek_Routes);
 
 
 app.use(function(req, res) {
