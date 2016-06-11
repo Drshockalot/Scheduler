@@ -71,7 +71,7 @@ class RaidWeekManagement extends React.Component {
                 />
               </div>
               <br />
-              <button value={this.state.selectedDay} className='btn btn-primary' onClick={(e) => RaidWeekManagementActions.createNewRaidWeek(e.target.value)}>Add New Raid Week</button>
+              <button className='btn btn-primary' onClick={() => RaidWeekManagementActions.createNewRaidWeek(this.state.selectedDay)}>Add New Raid Week</button>
             </div>
             <div className='row'>
               <h3>Manage Raid Weeks</h3>
@@ -84,7 +84,7 @@ class RaidWeekManagement extends React.Component {
                     <td><strong>End</strong></td>
                     <td><strong>Week No.</strong></td>
                   </tr>
-                  
+
                 </tbody>
               </table>
             </div>

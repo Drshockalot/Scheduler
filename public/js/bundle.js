@@ -2295,6 +2295,8 @@ var RaidWeekManagement = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       // var raidweeklist = this.state.raidweeks.map(function(raidweek, index) {
       //   return (
       //     <tr>
@@ -2349,8 +2351,8 @@ var RaidWeekManagement = function (_React$Component) {
               _react2.default.createElement('br', null),
               _react2.default.createElement(
                 'button',
-                { value: this.state.selectedDay, className: 'btn btn-primary', onClick: function onClick(e) {
-                    return _RaidWeekManagementActions2.default.createNewRaidWeek(e.target.value);
+                { className: 'btn btn-primary', onClick: function onClick() {
+                    return _RaidWeekManagementActions2.default.createNewRaidWeek(_this2.state.selectedDay);
                   } },
                 'Add New Raid Week'
               )
