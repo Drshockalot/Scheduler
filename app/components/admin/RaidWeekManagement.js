@@ -54,7 +54,7 @@ class RaidWeekManagement extends React.Component {
           </td>
         </tr>
       );
-    });
+    }, this);
 
     return (
       <div id='wrapper'>
@@ -99,6 +99,7 @@ class RaidWeekManagement extends React.Component {
                     <td><strong>S</strong></td>
                     <td><strong>M</strong></td>
                     <td><strong>T</strong></td>
+                    <td></td>
                   </tr>
                   {raidweeklist}
                 </tbody>

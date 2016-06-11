@@ -2363,7 +2363,7 @@ var RaidWeekManagement = function (_React$Component) {
             )
           )
         );
-      });
+      }, this);
 
       return _react2.default.createElement(
         'div',
@@ -2524,7 +2524,8 @@ var RaidWeekManagement = function (_React$Component) {
                         null,
                         'T'
                       )
-                    )
+                    ),
+                    _react2.default.createElement('td', null)
                   ),
                   raidweeklist
                 )
