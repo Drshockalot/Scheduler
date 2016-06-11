@@ -435,7 +435,7 @@ var RaidWeekManagementActions = function () {
   function RaidWeekManagementActions() {
     _classCallCheck(this, RaidWeekManagementActions);
 
-    this.generateActions('selectedDayChanged', 'nextYear', 'prevYear', 'goToToday', 'createNewRaidWeekSuccess', 'createNewRaidWeekFailure', 'getAllRaidWeeksSuccess', 'getAllRaidWeeksFailure');
+    this.generateActions('selectedDayChanged', 'nextYear', 'prevYear', 'goToToday', 'createNewRaidWeekSuccess', 'createNewRaidWeekFailure', 'getAllRaidWeeksSuccess', 'getAllRaidWeeksFailure', 'toggleRaidWeekDay');
   }
 
   _createClass(RaidWeekManagementActions, [{
@@ -2342,7 +2342,7 @@ var RaidWeekManagement = function (_React$Component) {
             'td',
             null,
             _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].wednesday, onChange: function onChange() {
-                return (0, _RaidWeekManagementActions2.default)(index, 'wednesday');
+                return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'wednesday');
               } })
           ),
           _react2.default.createElement('td', null),
@@ -3558,6 +3558,11 @@ var RaidWeekManagementStore = function () {
 
       this.selectedDay = today;
       this.selectedYear = today.year();
+    }
+  }, {
+    key: 'onToggleRaidWeekDay',
+    value: function onToggleRaidWeekDay(index, day) {
+      this.raidweeks[index][day] = !this.raidweeks[index][day];
     }
   }, {
     key: 'onGetAllRaidWeeksSuccess',

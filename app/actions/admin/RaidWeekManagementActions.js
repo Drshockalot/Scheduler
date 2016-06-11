@@ -10,7 +10,8 @@ class RaidWeekManagementActions {
       'createNewRaidWeekSuccess',
       'createNewRaidWeekFailure',
       'getAllRaidWeeksSuccess',
-      'getAllRaidWeeksFailure'
+      'getAllRaidWeeksFailure',
+      'toggleRaidWeekDay'
     );
   }
 
