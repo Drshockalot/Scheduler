@@ -449,8 +449,8 @@ var RaidWeekManagementActions = function () {
     value: function createNewRaidWeek(startingDate) {
       var _this = this;
 
-      var start = startingDate.format('MM DD YYYY');
-      var end = startingDate.add(7, 'days').format('MM DD YYYY');
+      var start = startingDate.format('YYYY MM DD');
+      var end = startingDate.add(6, 'days').format('YYYY MM DD');
       $.ajax({
         method: 'POST',
         url: '/api/raidweek/admin',
@@ -2299,16 +2299,38 @@ var RaidWeekManagement = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      // var raidweeklist = this.state.raidweeks.map(function(raidweek, index) {
-      //   return (
-      //     <tr>
-      //       <td>{raidweek.start}</td>
-      //       <td>{raidweek.end}</td>
-      //       <td></td>
-      //       <td></td>
-      //     </tr>
-      //   );
-      // });
+      var raidweeklist = this.state.raidweeks.map(function (raidweek, index) {
+        return _react2.default.createElement(
+          'tr',
+          null,
+          _react2.default.createElement(
+            'td',
+            null,
+            (0, _moment2.default)(raidweek.start).format('DD MM YYYY')
+          ),
+          _react2.default.createElement(
+            'td',
+            null,
+            (0, _moment2.default)(raidweek.end).format('DD MM YYYY')
+          ),
+          _react2.default.createElement(
+            'td',
+            null,
+            (0, _moment2.default)(raidweek.start).format('W')
+          ),
+          _react2.default.createElement(
+            'td',
+            null,
+            _react2.default.createElement(
+              'button',
+              { onClick: function onClick() {
+                  return _RaidWeekManagementActions2.default.saveRaidWeek(index);
+                } },
+              'Save'
+            )
+          )
+        );
+      });
 
       return _react2.default.createElement(
         'div',
@@ -2407,7 +2429,8 @@ var RaidWeekManagement = function (_React$Component) {
                         'Week No.'
                       )
                     )
-                  )
+                  ),
+                  raidweeklist
                 )
               )
             )

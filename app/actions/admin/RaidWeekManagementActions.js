@@ -18,8 +18,8 @@ class RaidWeekManagementActions {
   }
 
   createNewRaidWeek(startingDate) {
-    var start = startingDate.format('MM DD YYYY')
-    var end = startingDate.add(7, 'days').format('MM DD YYYY');
+    var start = startingDate.format('YYYY MM DD')
+    var end = startingDate.add(6, 'days').format('YYYY MM DD');
     $.ajax({
       method: 'POST',
       url: '/api/raidweek/admin',

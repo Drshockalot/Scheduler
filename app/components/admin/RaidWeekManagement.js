@@ -36,16 +36,18 @@ class RaidWeekManagement extends React.Component {
   }
 
   render() {
-    // var raidweeklist = this.state.raidweeks.map(function(raidweek, index) {
-    //   return (
-    //     <tr>
-    //       <td>{raidweek.start}</td>
-    //       <td>{raidweek.end}</td>
-    //       <td></td>
-    //       <td></td>
-    //     </tr>
-    //   );
-    // });
+    var raidweeklist = this.state.raidweeks.map(function(raidweek, index) {
+      return (
+        <tr>
+          <td>{moment(raidweek.start).format('DD MM YYYY')}</td>
+          <td>{moment(raidweek.end).format('DD MM YYYY')}</td>
+          <td>{moment(raidweek.start).format('W')}</td>
+          <td>
+            <button onClick={() => RaidWeekManagementActions.saveRaidWeek(index)}>Save</button>
+          </td>
+        </tr>
+      );
+    });
 
     return (
       <div id='wrapper'>
@@ -84,7 +86,7 @@ class RaidWeekManagement extends React.Component {
                     <td><strong>End</strong></td>
                     <td><strong>Week No.</strong></td>
                   </tr>
-
+                  {raidweeklist}
                 </tbody>
               </table>
             </div>
