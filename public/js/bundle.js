@@ -3483,7 +3483,7 @@ var RaidWeekManagementStore = function () {
   }, {
     key: 'onGetAllRaidWeeksSuccess',
     value: function onGetAllRaidWeeksSuccess(result) {
-      this.raidweeks = result;
+      this.raidweeks = result.data.raidweeks;
     }
   }, {
     key: 'onGetAllRaidWeeksFailure',
@@ -3493,7 +3493,7 @@ var RaidWeekManagementStore = function () {
   }, {
     key: 'onCreateNewRaidWeekSuccess',
     value: function onCreateNewRaidWeekSuccess(result) {
-      this.raidweeks = result;
+      this.raidweeks = result.data.raidweeks;
     }
   }, {
     key: 'onCreateNewRaidWeekFailure',

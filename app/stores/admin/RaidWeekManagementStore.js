@@ -30,7 +30,7 @@ class RaidWeekManagementStore {
   }
 
   onGetAllRaidWeeksSuccess(result) {
-    this.raidweeks = result;
+    this.raidweeks = result.data.raidweeks;
   }
 
   onGetAllRaidWeeksFailure(jqXhr) {
@@ -38,7 +38,7 @@ class RaidWeekManagementStore {
   }
 
   onCreateNewRaidWeekSuccess(result) {
-    this.raidweeks = result;
+    this.raidweeks = result.data.raidweeks;
   }
 
   onCreateNewRaidWeekFailure(jqXhr) {
