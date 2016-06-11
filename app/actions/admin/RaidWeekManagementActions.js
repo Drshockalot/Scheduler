@@ -25,8 +25,9 @@ class RaidWeekManagementActions {
       url: '/api/raidweek/admin',
       data: {start: start, end: end}
     }).done((result) => {
-      this.createNewRaidWeekSuccess(result);
       console.log(result);
+      this.createNewRaidWeekSuccess(result);
+
     }).fail((jqXhr) => {
       this.createNewRaidWeekFailure(jqXhr);
       console.log(jqXhr);

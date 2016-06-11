@@ -456,8 +456,8 @@ var RaidWeekManagementActions = function () {
         url: '/api/raidweek/admin',
         data: { start: start, end: end }
       }).done(function (result) {
-        _this.createNewRaidWeekSuccess(result);
         console.log(result);
+        _this.createNewRaidWeekSuccess(result);
       }).fail(function (jqXhr) {
         _this.createNewRaidWeekFailure(jqXhr);
         console.log(jqXhr);
