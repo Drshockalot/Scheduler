@@ -42,8 +42,15 @@ class RaidWeekManagement extends React.Component {
           <td>{moment(raidweek.start).format('DD MM YYYY')}</td>
           <td>{moment(raidweek.end).format('DD MM YYYY')}</td>
           <td>{moment(raidweek.start).format('W')}</td>
+          <td><input type='checkbox' checked={this.state.raidweeks[index].wednesday} onChange={() => RaidWeekManagementActions(index, 'wednesday')} /></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
           <td>
-            <button onClick={() => RaidWeekManagementActions.saveRaidWeek(index)}>Save</button>
+            <button className='btn btn-primary' onClick={() => RaidWeekManagementActions.saveRaidWeek(this.state.raidweeks[index])}>Save</button>
           </td>
         </tr>
       );
@@ -85,6 +92,13 @@ class RaidWeekManagement extends React.Component {
                     <td><strong>Start</strong></td>
                     <td><strong>End</strong></td>
                     <td><strong>Week No.</strong></td>
+                    <td><strong>W</strong></td>
+                    <td><strong>T</strong></td>
+                    <td><strong>F</strong></td>
+                    <td><strong>S</strong></td>
+                    <td><strong>S</strong></td>
+                    <td><strong>M</strong></td>
+                    <td><strong>T</strong></td>
                   </tr>
                   {raidweeklist}
                 </tbody>

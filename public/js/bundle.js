@@ -2315,9 +2315,11 @@ var RaidWeekManagement = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var raidweeklist = this.state.raidweeks.map(function (raidweek, index) {
+        var _this2 = this;
+
         return _react2.default.createElement(
           'tr',
           null,
@@ -2339,10 +2341,23 @@ var RaidWeekManagement = function (_React$Component) {
           _react2.default.createElement(
             'td',
             null,
+            _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].wednesday, onChange: function onChange() {
+                return (0, _RaidWeekManagementActions2.default)(index, 'wednesday');
+              } })
+          ),
+          _react2.default.createElement('td', null),
+          _react2.default.createElement('td', null),
+          _react2.default.createElement('td', null),
+          _react2.default.createElement('td', null),
+          _react2.default.createElement('td', null),
+          _react2.default.createElement('td', null),
+          _react2.default.createElement(
+            'td',
+            null,
             _react2.default.createElement(
               'button',
-              { onClick: function onClick() {
-                  return _RaidWeekManagementActions2.default.saveRaidWeek(index);
+              { className: 'btn btn-primary', onClick: function onClick() {
+                  return _RaidWeekManagementActions2.default.saveRaidWeek(_this2.state.raidweeks[index]);
                 } },
               'Save'
             )
@@ -2394,7 +2409,7 @@ var RaidWeekManagement = function (_React$Component) {
               _react2.default.createElement(
                 'button',
                 { className: 'btn btn-primary', onClick: function onClick() {
-                    return _RaidWeekManagementActions2.default.createNewRaidWeek(_this2.state.selectedDay);
+                    return _RaidWeekManagementActions2.default.createNewRaidWeek(_this3.state.selectedDay);
                   } },
                 'Add New Raid Week'
               )
@@ -2445,6 +2460,69 @@ var RaidWeekManagement = function (_React$Component) {
                         'strong',
                         null,
                         'Week No.'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'W'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'T'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'F'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'S'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'S'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'M'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'T'
                       )
                     )
                   ),
