@@ -24,7 +24,7 @@ class RaidWeekManagement extends React.Component {
 
   componentDidMount() {
     RaidWeekManagementStore.listen(this.onChange);
-    //RaidWeekManagementActions.goToToday();
+    RaidWeekManagementActions.getAllRaidWeeks();
   }
 
   componentWillUnmount() {

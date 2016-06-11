@@ -8,12 +8,28 @@ class RaidWeekManagementActions {
       'prevYear',
       'goToToday',
       'createNewRaidWeekSuccess',
-      'createNewRaidWeekFailure'
+      'createNewRaidWeekFailure',
+      'getAllRaidWeeksSuccess',
+      'getAllRaidWeeksFailure'
     );
   }
 
   changeSelectedDay(date) {
     this.selectedDayChanged(date);
+    return 0;
+  }
+
+  getAllRaidWeeks() {
+    $.ajax({
+      method: 'GET',
+      url: '/api/raidweek',
+    }).done((result) => {
+      console.log(result);
+      this.getAllRaidWeeksSuccess(result);
+    }).fail((jqXhr) => {
+      console.log(jqXhr);
+      this.getAllRaidWeeksFailure(jqXhr);
+    });
     return 0;
   }
 
@@ -27,11 +43,11 @@ class RaidWeekManagementActions {
     }).done((result) => {
       console.log(result);
       this.createNewRaidWeekSuccess(result);
-
     }).fail((jqXhr) => {
-      this.createNewRaidWeekFailure(jqXhr);
       console.log(jqXhr);
+      this.createNewRaidWeekFailure(jqXhr);
     });
+    return 0;
   }
 }
 

@@ -435,7 +435,7 @@ var RaidWeekManagementActions = function () {
   function RaidWeekManagementActions() {
     _classCallCheck(this, RaidWeekManagementActions);
 
-    this.generateActions('selectedDayChanged', 'nextYear', 'prevYear', 'goToToday', 'createNewRaidWeekSuccess', 'createNewRaidWeekFailure');
+    this.generateActions('selectedDayChanged', 'nextYear', 'prevYear', 'goToToday', 'createNewRaidWeekSuccess', 'createNewRaidWeekFailure', 'getAllRaidWeeksSuccess', 'getAllRaidWeeksFailure');
   }
 
   _createClass(RaidWeekManagementActions, [{
@@ -445,9 +445,26 @@ var RaidWeekManagementActions = function () {
       return 0;
     }
   }, {
+    key: 'getAllRaidWeeks',
+    value: function getAllRaidWeeks() {
+      var _this = this;
+
+      $.ajax({
+        method: 'GET',
+        url: '/api/raidweek'
+      }).done(function (result) {
+        console.log(result);
+        _this.getAllRaidWeeksSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this.getAllRaidWeeksFailure(jqXhr);
+      });
+      return 0;
+    }
+  }, {
     key: 'createNewRaidWeek',
     value: function createNewRaidWeek(startingDate) {
-      var _this = this;
+      var _this2 = this;
 
       var start = startingDate.format('YYYY MM DD');
       var end = startingDate.add(6, 'days').format('YYYY MM DD');
@@ -457,11 +474,12 @@ var RaidWeekManagementActions = function () {
         data: { start: start, end: end }
       }).done(function (result) {
         console.log(result);
-        _this.createNewRaidWeekSuccess(result);
+        _this2.createNewRaidWeekSuccess(result);
       }).fail(function (jqXhr) {
-        _this.createNewRaidWeekFailure(jqXhr);
         console.log(jqXhr);
+        _this2.createNewRaidWeekFailure(jqXhr);
       });
+      return 0;
     }
   }]);
 
@@ -2282,7 +2300,7 @@ var RaidWeekManagement = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _RaidWeekManagementStore2.default.listen(this.onChange);
-      //RaidWeekManagementActions.goToToday();
+      _RaidWeekManagementActions2.default.getAllRaidWeeks();
     }
   }, {
     key: 'componentWillUnmount',
@@ -3461,6 +3479,16 @@ var RaidWeekManagementStore = function () {
 
       this.selectedDay = today;
       this.selectedYear = today.year();
+    }
+  }, {
+    key: 'onGetAllRaidWeeksSuccess',
+    value: function onGetAllRaidWeeksSuccess(result) {
+      this.raidweeks = result;
+    }
+  }, {
+    key: 'onGetAllRaidWeeksFailure',
+    value: function onGetAllRaidWeeksFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
     }
   }, {
     key: 'onCreateNewRaidWeekSuccess',

@@ -29,6 +29,14 @@ class RaidWeekManagementStore {
     this.selectedYear = today.year();
   }
 
+  onGetAllRaidWeeksSuccess(result) {
+    this.raidweeks = result;
+  }
+
+  onGetAllRaidWeeksFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
+
   onCreateNewRaidWeekSuccess(result) {
     this.raidweeks = result;
   }
