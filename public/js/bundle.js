@@ -2351,17 +2351,43 @@ var RaidWeekManagement = function (_React$Component) {
       var _this3 = this;
 
       var today = (0, _moment2.default)();
-      var daysToSubractToLastWednesday = 0 - (1 - today.isoWeekday()) + 3;
-      console.log(daysToSubractToLastWednesday);
-      var daysToAddToNextWednesday = 0 - (today.isoWeekday() - 1) + 3;
-      console.log(daysToAddToNextWednesday);
-      var lastWednesday = today.subtract('days', daysToSubractToLastWednesday);
-      console.log(lastWednesday);
-      var nextWednesday = today.add('days', daysToAddToNextWednesday);
-      console.log(nextWednesday);
+      var todayDay = today.isoWeekday();
+      var weekBeginning, weekEnd;
+      switch (todayDay) {
+        case 1:
+          weekBeginning = today.subtract('days', 5);
+          weekEnd = today.add('days', 1);
+          break;
+        case 2:
+          weekBeginning = today.subtract('days', 6);
+          weekEnd = today.add('days', 0);
+          break;
+        case 3:
+          weekBeginning = today.subtract('days', 0);
+          weekEnd = today.add('days', 6);
+          break;
+        case 4:
+          weekBeginning = today.subtract('days', 1);
+          weekEnd = today.add('days', 5);
+          break;
+        case 5:
+          weekBeginning = today.subtract('days', 2);
+          weekEnd = today.add('days', 4);
+          break;
+        case 6:
+          weekBeginning = today.subtract('days', 3);
+          weekEnd = today.add('days', 3);
+          break;
+        case 7:
+          weekBeginning = today.subtract('days', 2);
+          weekEnd = today.add('days', 4);
+          break;
+      }
+      console.log(weekBeginning);
+      console.log(weekEnd);
       var customCSS = {
         selectedweek: function selectedweek(day) {
-          return day.isAfter(lastWednesday) || day.isBefore(nextWednesday);
+          return day.isAfter(weekBeginning) || day.isBefore(weekEnd);
         }
       };
 
