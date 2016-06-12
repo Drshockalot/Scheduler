@@ -2384,8 +2384,6 @@ var RaidWeekManagement = function (_React$Component) {
           weekEnd = copyToAdd.add('days', 2);
           break;
       }
-      console.log(weekBeginning);
-      console.log(weekEnd);
       var customCSS = {
         selectedweek: {
           start: weekBeginning.format('YYYY[-]MM[-]DD'),
@@ -2525,7 +2523,7 @@ var RaidWeekManagement = function (_React$Component) {
                   onPickDate: function onPickDate(date) {
                     return _RaidWeekManagementActions2.default.changeSelectedDay(date);
                   },
-                  firstDayOfWeek: 3,
+                  firstDayOfWeek: 0,
                   customClasses: customCSS
                 })
               ),

@@ -70,8 +70,6 @@ class RaidWeekManagement extends React.Component {
         weekEnd = copyToAdd.add('days', 2);
         break;
     }
-    console.log(weekBeginning);
-    console.log(weekEnd);
     const customCSS = {
       selectedweek: {
         start: weekBeginning.format('YYYY[-]MM[-]DD'),
@@ -122,7 +120,7 @@ class RaidWeekManagement extends React.Component {
                 <Calendar year={this.state.selectedYear}
                           selectedDay={this.state.selectedDay}
                           onPickDate={(date) => RaidWeekManagementActions.changeSelectedDay(date)}
-                          firstDayOfWeek={3}
+                          firstDayOfWeek={0}
                           customClasses={customCSS}
                 />
               </div>
