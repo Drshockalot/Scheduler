@@ -2355,32 +2355,32 @@ var RaidWeekManagement = function (_React$Component) {
       var weekBeginning, weekEnd;
       switch (todayDay) {
         case 1:
-          weekBeginning = (0, _moment2.default)().subtract('days', 6);
+          weekBeginning = (0, _moment2.default)().subtract('days', 5);
           weekEnd = (0, _moment2.default)().add('days', 1);
           break;
         case 2:
-          weekBeginning = (0, _moment2.default)().subtract('days', 7);
+          weekBeginning = (0, _moment2.default)().subtract('days', 6);
           weekEnd = (0, _moment2.default)().add('days', 0);
           break;
         case 3:
           weekBeginning = (0, _moment2.default)().subtract('days', 0);
-          weekEnd = (0, _moment2.default)().add('days', 7);
+          weekEnd = (0, _moment2.default)().add('days', 6);
           break;
         case 4:
           weekBeginning = (0, _moment2.default)().subtract('days', 1);
-          weekEnd = (0, _moment2.default)().add('days', 6);
+          weekEnd = (0, _moment2.default)().add('days', 5);
           break;
         case 5:
           weekBeginning = (0, _moment2.default)().subtract('days', 2);
-          weekEnd = (0, _moment2.default)().add('days', 5);
+          weekEnd = (0, _moment2.default)().add('days', 4);
           break;
         case 6:
           weekBeginning = (0, _moment2.default)().subtract('days', 3);
-          weekEnd = (0, _moment2.default)().add('days', 4);
+          weekEnd = (0, _moment2.default)().add('days', 3);
           break;
         case 7:
           weekBeginning = (0, _moment2.default)().subtract('days', 4);
-          weekEnd = (0, _moment2.default)().add('days', 3);
+          weekEnd = (0, _moment2.default)().add('days', 2);
           break;
       }
       console.log(weekBeginning);

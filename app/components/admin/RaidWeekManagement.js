@@ -41,32 +41,32 @@ class RaidWeekManagement extends React.Component {
     var weekBeginning, weekEnd;
     switch(todayDay) {
       case 1:
-        weekBeginning = moment().subtract('days', 6);
+        weekBeginning = moment().subtract('days', 5);
         weekEnd = moment().add('days', 1);
         break;
       case 2:
-        weekBeginning = moment().subtract('days', 7);
+        weekBeginning = moment().subtract('days', 6);
         weekEnd = moment().add('days', 0);
         break;
       case 3:
         weekBeginning = moment().subtract('days', 0);
-        weekEnd = moment().add('days', 7);
+        weekEnd = moment().add('days', 6);
         break;
       case 4:
         weekBeginning = moment().subtract('days', 1);
-        weekEnd = moment().add('days', 6);
+        weekEnd = moment().add('days', 5);
         break;
       case 5:
         weekBeginning = moment().subtract('days', 2);
-        weekEnd = moment().add('days', 5);
+        weekEnd = moment().add('days', 4);
         break;
       case 6:
         weekBeginning = moment().subtract('days', 3);
-        weekEnd = moment().add('days', 4);
+        weekEnd = moment().add('days', 3);
         break;
       case 7:
         weekBeginning = moment().subtract('days', 4);
-        weekEnd = moment().add('days', 3);
+        weekEnd = moment().add('days', 2);
         break;
     }
     console.log(weekBeginning);
