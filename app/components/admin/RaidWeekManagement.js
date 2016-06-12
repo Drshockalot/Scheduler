@@ -72,7 +72,8 @@ class RaidWeekManagement extends React.Component {
     console.log(weekBeginning);
     console.log(weekEnd);
     const customCSS = {
-      selectedweek: day => day.isAfter(moment(weekBeginning.format('DD MM YYYY'))) || day.isBefore(moment(weekEnd.format('DD MM YYYY')))
+      selectedweek: day => day.isAfter(moment([weekBeginning.year(), weekBeginning.month(), weekBeginning.day()])) ||
+                           day.isBefore(moment([weekEnd.year(), weekEnd.month(), weekEnd.day()]))
     };
 
     var raidweeklist = this.state.raidweeks.map(function(raidweek, index) {
