@@ -38,9 +38,13 @@ class RaidWeekManagement extends React.Component {
   render() {
     var today = moment();
     var daysToSubractToLastWednesday = 0 - (1 - today.isoWeekday()) + 9;
+    console.log(daysToSubractToLastWednesday);
     var daysToAddToNextWednesday = 0 - (today.isoWeekday() - 1) + 9;
+    console.log(daysToAddToNextWednesday);
     var lastWednesday = today.subtract('days', daysToSubractToLastWednesday);
-    var nextWednesday = today.subtract('days', daysToAddToNextWednesday);
+    console.log(lastWednesday);
+    var nextWednesday = today.add('days', daysToAddToNextWednesday);
+    console.log(nextWednesday)
     const customCSS = {
       selectedweek: day => day.isAfter(lastWednesday) || day.isBefore(nextWednesday)
     };
