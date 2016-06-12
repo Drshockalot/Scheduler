@@ -2350,10 +2350,9 @@ var RaidWeekManagement = function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      var today = (0, _moment2.default)();
-      var todayDay = today.isoWeekday();
+      var chosenDay = this.state.selectedDay.isoWeekday();
       var weekBeginning, weekEnd;
-      switch (todayDay) {
+      switch (chosenDay) {
         case 1:
           weekBeginning = (0, _moment2.default)().subtract('days', 5);
           weekEnd = (0, _moment2.default)().add('days', 1);
@@ -2386,8 +2385,9 @@ var RaidWeekManagement = function (_React$Component) {
       console.log(weekBeginning);
       console.log(weekEnd);
       var customCSS = {
-        selectedweek: function selectedweek(day) {
-          return day.isAfter((0, _moment2.default)([weekBeginning.year(), weekBeginning.month(), weekBeginning.day()])) || day.isBefore((0, _moment2.default)([weekEnd.year(), weekEnd.month(), weekEnd.day()]));
+        selectedweek: {
+          start: weekBeginning.format('YYYY[-]MM[-]DD'),
+          end: weekEnd.format('YYYY[-]MM[-]DD')
         }
       };
 

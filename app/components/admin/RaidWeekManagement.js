@@ -36,10 +36,9 @@ class RaidWeekManagement extends React.Component {
   }
 
   render() {
-    var today = moment();
-    var todayDay = today.isoWeekday();
+    var chosenDay = this.state.selectedDay.isoWeekday();
     var weekBeginning, weekEnd;
-    switch(todayDay) {
+    switch(chosenDay) {
       case 1:
         weekBeginning = moment().subtract('days', 5);
         weekEnd = moment().add('days', 1);
@@ -72,8 +71,10 @@ class RaidWeekManagement extends React.Component {
     console.log(weekBeginning);
     console.log(weekEnd);
     const customCSS = {
-      selectedweek: day => day.isAfter(moment([weekBeginning.year(), weekBeginning.month(), weekBeginning.day()])) ||
-                           day.isBefore(moment([weekEnd.year(), weekEnd.month(), weekEnd.day()]))
+      selectedweek: {
+        start: weekBeginning.format('YYYY[-]MM[-]DD'),
+        end: weekEnd.format('YYYY[-]MM[-]DD')
+      }
     };
 
     var raidweeklist = this.state.raidweeks.map(function(raidweek, index) {
