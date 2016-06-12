@@ -2387,7 +2387,7 @@ var RaidWeekManagement = function (_React$Component) {
       console.log(weekEnd);
       var customCSS = {
         selectedweek: function selectedweek(day) {
-          return day.isAfter(weekBeginning) || day.isBefore(weekEnd);
+          return day.isAfter((0, _moment2.default)(weekBeginning.format('DD MM YYYY'))) || day.isBefore((0, _moment2.default)(weekEnd.format('DD MM YYYY')));
         }
       };
 
