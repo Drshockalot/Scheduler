@@ -2351,8 +2351,8 @@ var RaidWeekManagement = function (_React$Component) {
       var _this3 = this;
 
       var chosenDay = this.state.selectedDay.isoWeekday();
-      var copyToAdd = this.state.selectedDay;
-      var copyToSub = this.state.selectedDay;
+      var copyToAdd = (0, _moment2.default)(this.state.selectedDay);
+      var copyToSub = (0, _moment2.default)(this.state.selectedDay);
       var weekBeginning, weekEnd;
       switch (chosenDay) {
         case 1:
