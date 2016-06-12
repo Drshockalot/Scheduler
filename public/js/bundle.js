@@ -2351,8 +2351,8 @@ var RaidWeekManagement = function (_React$Component) {
       var _this3 = this;
 
       var today = (0, _moment2.default)();
-      var daysToSubractToLastWednesday = 0 - (1 - today.isoWeekDay()) + 9;
-      var daysToAddToNextWednesday = 0 - (today.isoWeekDay() - 1) + 9;
+      var daysToSubractToLastWednesday = 0 - (1 - today.isoWeekday()) + 9;
+      var daysToAddToNextWednesday = 0 - (today.isoWeekday() - 1) + 9;
       var lastWednesday = today.subtract('days', daysToSubractToLastWednesday);
       var nextWednesday = today.subtract('days', daysToAddToNextWednesday);
       var customCSS = {
