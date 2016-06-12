@@ -2348,8 +2348,6 @@ var RaidWeekManagement = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
-
       var chosenDay = this.state.selectedDay.isoWeekday();
       var copyToAdd = (0, _moment2.default)(this.state.selectedDay);
       var copyToSub = (0, _moment2.default)(this.state.selectedDay);
@@ -2531,7 +2529,7 @@ var RaidWeekManagement = function (_React$Component) {
               _react2.default.createElement(
                 'button',
                 { className: 'btn btn-primary', onClick: function onClick() {
-                    return _RaidWeekManagementActions2.default.createNewRaidWeek(_this3.state.selectedDay);
+                    return _RaidWeekManagementActions2.default.createNewRaidWeek(weekBeginning);
                   } },
                 'Add New Raid Week'
               )
