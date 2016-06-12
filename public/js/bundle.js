@@ -2350,6 +2350,17 @@ var RaidWeekManagement = function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
+      var today = (0, _moment2.default)();
+      var daysToSubractToLastWednesday = 0 - (1 - today.isoWeekDay()) + 9;
+      var daysToAddToNextWednesday = 0 - (today.isoWeekDay() - 1) + 9;
+      var lastWednesday = today.subtract('days', daysToSubractToLastWednesday);
+      var nextWednesday = today.subtract('days', daysToAddToNextWednesday);
+      var customCSS = {
+        selectedweek: function selectedweek(day) {
+          return day.isAfter(lastWednesday) || day.isBefore(nextWednesday);
+        }
+      };
+
       var raidweeklist = this.state.raidweeks.map(function (raidweek, index) {
         var _this2 = this;
 
@@ -2482,7 +2493,8 @@ var RaidWeekManagement = function (_React$Component) {
                   onPickDate: function onPickDate(date) {
                     return _RaidWeekManagementActions2.default.changeSelectedDay(date);
                   },
-                  firstDayOfWeek: 3
+                  firstDayOfWeek: 3,
+                  customClasses: customCSS
                 })
               ),
               _react2.default.createElement('br', null),

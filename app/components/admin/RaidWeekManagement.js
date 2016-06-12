@@ -36,6 +36,15 @@ class RaidWeekManagement extends React.Component {
   }
 
   render() {
+    var today = moment();
+    var daysToSubractToLastWednesday = 0 - (1 - today.isoWeekDay()) + 9;
+    var daysToAddToNextWednesday = 0 - (today.isoWeekDay() - 1) + 9;
+    var lastWednesday = today.subtract('days', daysToSubractToLastWednesday);
+    var nextWednesday = today.subtract('days', daysToAddToNextWednesday);
+    const customCSS = {
+      selectedweek: day => day.isAfter(lastWednesday) || day.isBefore(nextWednesday)
+    };
+
     var raidweeklist = this.state.raidweeks.map(function(raidweek, index) {
       return (
         <tr>
@@ -80,6 +89,7 @@ class RaidWeekManagement extends React.Component {
                           selectedDay={this.state.selectedDay}
                           onPickDate={(date) => RaidWeekManagementActions.changeSelectedDay(date)}
                           firstDayOfWeek={3}
+                          customClasses={customCSS}
                 />
               </div>
               <br />
