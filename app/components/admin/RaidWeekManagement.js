@@ -42,13 +42,13 @@ class RaidWeekManagement extends React.Component {
           <td>{moment(raidweek.start).format('DD MM YYYY')}</td>
           <td>{moment(raidweek.end).format('DD MM YYYY')}</td>
           <td>{moment(raidweek.start).format('W')}</td>
-          <td><input type='checkbox' checked={this.state.raidweeks[index].wednesday} onChange={() => {RaidWeekManagementActions.toggleRaidWeekDay(index, 'wednesday')}} /></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td><input type='checkbox' checked={this.state.raidweeks[index].wednesday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'wednesday')} /></td>
+          <td><input type='checkbox' checked={this.state.raidweeks[index].thursday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'thursday')} /></td>
+          <td><input type='checkbox' checked={this.state.raidweeks[index].friday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'friday')} /></td>
+          <td><input type='checkbox' checked={this.state.raidweeks[index].saturday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'saturday')} /></td>
+          <td><input type='checkbox' checked={this.state.raidweeks[index].sunday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'sunday')} /></td>
+          <td><input type='checkbox' checked={this.state.raidweeks[index].monday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'monday')} /></td>
+          <td><input type='checkbox' checked={this.state.raidweeks[index].tuesday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'tuesday')} /></td>
           <td>
             <button className='btn btn-primary' onClick={() => RaidWeekManagementActions.saveRaidWeek(this.state.raidweeks[index])}>Save</button>
           </td>

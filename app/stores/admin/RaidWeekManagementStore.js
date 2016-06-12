@@ -29,8 +29,8 @@ class RaidWeekManagementStore {
     this.selectedYear = today.year();
   }
 
-  onToggleRaidWeekDay(index, day) {
-    this.raidweeks[index][day] = !this.raidweeks[index][day];
+  onToggleRaidWeekDay(value) {
+    this.raidweeks[value[0]][value[1]] = !this.raidweeks[value[0]][value[1]];
   }
 
   onGetAllRaidWeeksSuccess(result) {

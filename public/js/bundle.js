@@ -2342,15 +2342,51 @@ var RaidWeekManagement = function (_React$Component) {
             'td',
             null,
             _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].wednesday, onChange: function onChange() {
-                _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'wednesday');
+                return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'wednesday');
               } })
           ),
-          _react2.default.createElement('td', null),
-          _react2.default.createElement('td', null),
-          _react2.default.createElement('td', null),
-          _react2.default.createElement('td', null),
-          _react2.default.createElement('td', null),
-          _react2.default.createElement('td', null),
+          _react2.default.createElement(
+            'td',
+            null,
+            _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].thursday, onChange: function onChange() {
+                return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'thursday');
+              } })
+          ),
+          _react2.default.createElement(
+            'td',
+            null,
+            _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].friday, onChange: function onChange() {
+                return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'friday');
+              } })
+          ),
+          _react2.default.createElement(
+            'td',
+            null,
+            _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].saturday, onChange: function onChange() {
+                return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'saturday');
+              } })
+          ),
+          _react2.default.createElement(
+            'td',
+            null,
+            _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].sunday, onChange: function onChange() {
+                return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'sunday');
+              } })
+          ),
+          _react2.default.createElement(
+            'td',
+            null,
+            _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].monday, onChange: function onChange() {
+                return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'monday');
+              } })
+          ),
+          _react2.default.createElement(
+            'td',
+            null,
+            _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].tuesday, onChange: function onChange() {
+                return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'tuesday');
+              } })
+          ),
           _react2.default.createElement(
             'td',
             null,
@@ -3561,8 +3597,8 @@ var RaidWeekManagementStore = function () {
     }
   }, {
     key: 'onToggleRaidWeekDay',
-    value: function onToggleRaidWeekDay(index, day) {
-      this.raidweeks[index][day] = !this.raidweeks[index][day];
+    value: function onToggleRaidWeekDay(value) {
+      this.raidweeks[value[0]][value[1]] = !this.raidweeks[value[0]][value[1]];
     }
   }, {
     key: 'onGetAllRaidWeeksSuccess',
