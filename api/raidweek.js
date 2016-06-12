@@ -55,4 +55,21 @@ router.post('/admin', function(req, res, next) {
             });
 });
 
+router.delete('/admin/:raidweekid', function(req, res, next) {
+  Raid_Week.forge({id: req.params.raidweekid})
+           .fetch({require: true})
+           .then(function(raidweek) {
+             raidweek.destroy()
+                     .then(function() {
+                       res.json({error: false, data: {message: "Raid Week deleted"}});
+                     })
+                     .catch(function(err) {
+                       res.status(500).json({error: true, data: {message: err.message}});
+                     });
+           })
+           .catch(function(err) {
+             res.status(500).json({error: true, data: {message: err.message}});
+           });
+});
+
 module.exports = router;

@@ -435,7 +435,7 @@ var RaidWeekManagementActions = function () {
   function RaidWeekManagementActions() {
     _classCallCheck(this, RaidWeekManagementActions);
 
-    this.generateActions('selectedDayChanged', 'nextYear', 'prevYear', 'goToToday', 'createNewRaidWeekSuccess', 'createNewRaidWeekFailure', 'getAllRaidWeeksSuccess', 'getAllRaidWeeksFailure', 'toggleRaidWeekDay');
+    this.generateActions('selectedDayChanged', 'nextYear', 'prevYear', 'goToToday', 'createNewRaidWeekSuccess', 'createNewRaidWeekFailure', 'getAllRaidWeeksSuccess', 'getAllRaidWeeksFailure', 'toggleRaidWeekDay', 'deleteRaidWeekSuccess', 'deleteRaidWeekFailure');
   }
 
   _createClass(RaidWeekManagementActions, [{
@@ -480,6 +480,22 @@ var RaidWeekManagementActions = function () {
         _this2.createNewRaidWeekFailure(jqXhr);
       });
       return 0;
+    }
+  }, {
+    key: 'deleteRaidWeek',
+    value: function deleteRaidWeek(id) {
+      var _this3 = this;
+
+      $.ajax({
+        method: 'DELETE',
+        url: '/api/raidweek/admin/' + id
+      }).done(function (result) {
+        console.log(result);
+        _this3.deleteRaidWeekSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this3.deleteRaidWeekFailure(jqXhr);
+      });
     }
   }]);
 
@@ -2397,6 +2413,17 @@ var RaidWeekManagement = function (_React$Component) {
                 } },
               'Save'
             )
+          ),
+          _react2.default.createElement(
+            'td',
+            null,
+            _react2.default.createElement(
+              'button',
+              { value: raidweek.id, className: 'btn btn-danger', onClick: function onClick(e) {
+                  return _RaidWeekManagementActions2.default.deleteRaidWeek(e.target.value);
+                } },
+              'Delete'
+            )
           )
         );
       }, this);
@@ -3618,6 +3645,16 @@ var RaidWeekManagementStore = function () {
   }, {
     key: 'onCreateNewRaidWeekFailure',
     value: function onCreateNewRaidWeekFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onDeleteRaidWeekSuccess',
+    value: function onDeleteRaidWeekSuccess(result) {
+      toastr.success('Raid Week deleted', 'Success');
+    }
+  }, {
+    key: 'onDeleteRaidWeekFailure',
+    value: function onDeleteRaidWeekFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
     }
   }]);

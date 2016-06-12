@@ -48,6 +48,14 @@ class RaidWeekManagementStore {
   onCreateNewRaidWeekFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
   }
+
+  onDeleteRaidWeekSuccess(result) {
+    toastr.success('Raid Week deleted', 'Success');
+  }
+
+  onDeleteRaidWeekFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
 }
 
 export default alt.createStore(RaidWeekManagementStore);

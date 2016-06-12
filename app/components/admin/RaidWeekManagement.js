@@ -52,6 +52,9 @@ class RaidWeekManagement extends React.Component {
           <td>
             <button className='btn btn-primary' onClick={() => RaidWeekManagementActions.saveRaidWeek(this.state.raidweeks[index])}>Save</button>
           </td>
+          <td>
+            <button value={raidweek.id} className='btn btn-danger' onClick={(e) => RaidWeekManagementActions.deleteRaidWeek(e.target.value)}>Delete</button>
+          </td>
         </tr>
       );
     }, this);
