@@ -39,8 +39,8 @@ class RaidWeekManagement extends React.Component {
     var raidweeklist = this.state.raidweeks.map(function(raidweek, index) {
       return (
         <tr>
-          <td>{moment(raidweek.start).format('DD MM YYYY')}</td>
-          <td>{moment(raidweek.end).format('DD MM YYYY')}</td>
+          <td>{moment(raidweek.start).format('DD[/]MM[/]YYYY')}</td>
+          <td>{moment(raidweek.end).format('DD[/]MM[/]YYYY')}</td>
           <td>{moment(raidweek.start).format('W')}</td>
           <td><input type='checkbox' checked={this.state.raidweeks[index].wednesday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'wednesday')} /></td>
           <td><input type='checkbox' checked={this.state.raidweeks[index].thursday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'thursday')} /></td>
@@ -50,7 +50,7 @@ class RaidWeekManagement extends React.Component {
           <td><input type='checkbox' checked={this.state.raidweeks[index].monday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'monday')} /></td>
           <td><input type='checkbox' checked={this.state.raidweeks[index].tuesday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'tuesday')} /></td>
           <td>
-            <button className='btn btn-primary' onClick={() => RaidWeekManagementActions.saveRaidWeek(this.state.raidweeks[index])}>Save</button>
+            <button className='btn btn-primary' onClick={() => RaidWeekManagementActions.updateRaidWeek(this.state.raidweeks[index])}>Save</button>
           </td>
           <td>
             <button value={raidweek.id} className='btn btn-danger' onClick={(e) => RaidWeekManagementActions.deleteRaidWeek(e.target.value)}>Delete</button>

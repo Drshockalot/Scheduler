@@ -2359,12 +2359,12 @@ var RaidWeekManagement = function (_React$Component) {
           _react2.default.createElement(
             'td',
             null,
-            (0, _moment2.default)(raidweek.start).format('DD MM YYYY')
+            (0, _moment2.default)(raidweek.start).format('DD[/]MM[/]YYYY')
           ),
           _react2.default.createElement(
             'td',
             null,
-            (0, _moment2.default)(raidweek.end).format('DD MM YYYY')
+            (0, _moment2.default)(raidweek.end).format('DD[/]MM[/]YYYY')
           ),
           _react2.default.createElement(
             'td',
@@ -2426,7 +2426,7 @@ var RaidWeekManagement = function (_React$Component) {
             _react2.default.createElement(
               'button',
               { className: 'btn btn-primary', onClick: function onClick() {
-                  return _RaidWeekManagementActions2.default.saveRaidWeek(_this2.state.raidweeks[index]);
+                  return _RaidWeekManagementActions2.default.updateRaidWeek(_this2.state.raidweeks[index]);
                 } },
               'Save'
             )
