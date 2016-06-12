@@ -14,7 +14,7 @@ table.calendar thead {
 table.calendar thead th {
   font-weight: normal;
   text-align: center;
-  padding: 10px 6px;
+  padding: 10px 0px;
 }
 table.calendar thead th.bolder {
   font-weight: bold;
