@@ -103,6 +103,7 @@ class RaidWeekManagement extends React.Component {
                     <td><strong>M</strong></td>
                     <td><strong>T</strong></td>
                     <td></td>
+                    <td></td>
                   </tr>
                   {raidweeklist}
                 </tbody>

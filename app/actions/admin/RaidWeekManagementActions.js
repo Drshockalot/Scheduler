@@ -13,7 +13,9 @@ class RaidWeekManagementActions {
       'getAllRaidWeeksFailure',
       'toggleRaidWeekDay',
       'deleteRaidWeekSuccess',
-      'deleteRaidWeekFailure'
+      'deleteRaidWeekFailure',
+      'updateRaidWeekSuccess',
+      'updateRaidWeekFailure'
     );
   }
 
@@ -51,6 +53,20 @@ class RaidWeekManagementActions {
       this.createNewRaidWeekFailure(jqXhr);
     });
     return 0;
+  }
+
+  updateRaidWeek(raidweek) {
+    $.ajax({
+      method: 'PUT',
+      url: '/api/raidweek/admin',
+      data: raidweek
+    }).done((result) => {
+      console.log(result);
+      this.updateRaidWeekSuccess(result);
+    }).fail((jqXhr) => {
+      console.log(jqXhr);
+      this.updateRaidWeekFailure(jqXhr);
+    });
   }
 
   deleteRaidWeek(id) {

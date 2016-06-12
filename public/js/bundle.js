@@ -435,7 +435,7 @@ var RaidWeekManagementActions = function () {
   function RaidWeekManagementActions() {
     _classCallCheck(this, RaidWeekManagementActions);
 
-    this.generateActions('selectedDayChanged', 'nextYear', 'prevYear', 'goToToday', 'createNewRaidWeekSuccess', 'createNewRaidWeekFailure', 'getAllRaidWeeksSuccess', 'getAllRaidWeeksFailure', 'toggleRaidWeekDay', 'deleteRaidWeekSuccess', 'deleteRaidWeekFailure');
+    this.generateActions('selectedDayChanged', 'nextYear', 'prevYear', 'goToToday', 'createNewRaidWeekSuccess', 'createNewRaidWeekFailure', 'getAllRaidWeeksSuccess', 'getAllRaidWeeksFailure', 'toggleRaidWeekDay', 'deleteRaidWeekSuccess', 'deleteRaidWeekFailure', 'updateRaidWeekSuccess', 'updateRaidWeekFailure');
   }
 
   _createClass(RaidWeekManagementActions, [{
@@ -482,19 +482,36 @@ var RaidWeekManagementActions = function () {
       return 0;
     }
   }, {
+    key: 'updateRaidWeek',
+    value: function updateRaidWeek(raidweek) {
+      var _this3 = this;
+
+      $.ajax({
+        method: 'PUT',
+        url: '/api/raidweek/admin',
+        data: raidweek
+      }).done(function (result) {
+        console.log(result);
+        _this3.updateRaidWeekSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this3.updateRaidWeekFailure(jqXhr);
+      });
+    }
+  }, {
     key: 'deleteRaidWeek',
     value: function deleteRaidWeek(id) {
-      var _this3 = this;
+      var _this4 = this;
 
       $.ajax({
         method: 'DELETE',
         url: '/api/raidweek/admin/' + id
       }).done(function (result) {
         console.log(result);
-        _this3.deleteRaidWeekSuccess(result);
+        _this4.deleteRaidWeekSuccess(result);
       }).fail(function (jqXhr) {
         console.log(jqXhr);
-        _this3.deleteRaidWeekFailure(jqXhr);
+        _this4.deleteRaidWeekFailure(jqXhr);
       });
     }
   }]);
@@ -2588,6 +2605,7 @@ var RaidWeekManagement = function (_React$Component) {
                         'T'
                       )
                     ),
+                    _react2.default.createElement('td', null),
                     _react2.default.createElement('td', null)
                   ),
                   raidweeklist
@@ -3648,9 +3666,21 @@ var RaidWeekManagementStore = function () {
       toastr.error(jqXhr.responseJSON.message);
     }
   }, {
+    key: 'onUpdateRaidWeekSuccess',
+    value: function onUpdateRaidWeekSuccess(result) {
+      toastr.success('Raid Week updated', 'Success');
+      this.raidweeks = result.data.raidweeks;
+    }
+  }, {
+    key: 'onUpdateRaidWeekFailure',
+    value: function onUpdateRaidWeekFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
     key: 'onDeleteRaidWeekSuccess',
     value: function onDeleteRaidWeekSuccess(result) {
       toastr.success('Raid Week deleted', 'Success');
+      this.raidweeks = result.data.raidweeks;
     }
   }, {
     key: 'onDeleteRaidWeekFailure',
