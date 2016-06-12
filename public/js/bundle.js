@@ -2523,7 +2523,7 @@ var RaidWeekManagement = function (_React$Component) {
                   onPickDate: function onPickDate(date) {
                     return _RaidWeekManagementActions2.default.changeSelectedDay(date);
                   },
-                  firstDayOfWeek: 0,
+                  firstDayOfWeek: 3,
                   customClasses: customCSS
                 })
               ),
