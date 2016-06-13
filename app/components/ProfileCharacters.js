@@ -3,7 +3,7 @@ import {Link} from 'react-router';
 import ProfileCharactersStore from '../stores/ProfileCharactersStore';
 import ProfileCharactersActions from '../actions/ProfileCharactersActions';
 import NavbarStore from '../stores/NavbarStore';
-import ProfileSideNav from './Profilesidenav';
+import ProfileSideNav from './ProfileSidenav';
 var classes = require('../../utility/WowClasses');
 var races = require('../../utility/WowRaces');
 var _ = require('underscore');
