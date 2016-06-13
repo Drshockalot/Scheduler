@@ -3,6 +3,7 @@ import {Link} from 'react-router';
 import ProfileCharactersStore from '../stores/ProfileCharactersStore';
 import ProfileCharactersActions from '../actions/ProfileCharactersActions';
 import NavbarStore from '../stores/NavbarStore';
+import ProfileSideNav from './Profilesidenav';
 var classes = require('../../utility/WowClasses');
 var races = require('../../utility/WowRaces');
 var _ = require('underscore');
@@ -151,32 +152,37 @@ class ProfileCharacters extends React.Component {
     }
 
     return (
-      <div className='container'>
-        <div className='row'>
-          <div className='col-md-2'>
-            <div className='btn btn-primary' onClick={ProfileCharactersActions.retrieveProfileCharacters}>Retrieve Characters</div>
+      <div id='wrapper'>
+      <ProfileSideNav />
+        <div id='page-content-wrapper'>
+          <div className='container-fluid'>
+            <div className='row'>
+              <div className='col-md-2'>
+                <div className='btn btn-primary' onClick={ProfileCharactersActions.retrieveProfileCharacters}>Retrieve Characters</div>
+              </div>
+              <div className='col-md-10'>
+                <h3>Level 100 Characters</h3>
+                <table className='table'>
+                  <tbody>
+                    <tr>
+                      <td><strong>Name</strong></td>
+                      <td><strong>Class</strong></td>
+                      <td><strong>Race</strong></td>
+                      <td><strong>Realm</strong></td>
+                      <td><strong>Rank</strong></td>
+                    </tr>
+                    {retrievedCharactersList}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div className='row'>
+              <h3>Confirmed Characters</h3>
+            </div>
+            <div className='row'>
+              {storedCharactersList}
+            </div>
           </div>
-          <div className='col-md-10'>
-            <h3>Level 100 Characters</h3>
-            <table className='table'>
-              <tbody>
-                <tr>
-                  <td><strong>Name</strong></td>
-                  <td><strong>Class</strong></td>
-                  <td><strong>Race</strong></td>
-                  <td><strong>Realm</strong></td>
-                  <td><strong>Rank</strong></td>
-                </tr>
-                {retrievedCharactersList}
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div className='row'>
-          <h3>Confirmed Characters</h3>
-        </div>
-        <div className='row'>
-          {storedCharactersList}
         </div>
       </div>
     );

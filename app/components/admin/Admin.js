@@ -34,8 +34,15 @@ class Admin extends React.Component {
 
   render() {
     return (
-      <div className='container'>
-        <AdminSideNav></AdminSideNav>
+      <div id='wrapper'>
+      <AdminSideNav />
+        <div id='page-content-wrapper'>
+          <div className='container-fluid'>
+            <div className='row'>
+
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

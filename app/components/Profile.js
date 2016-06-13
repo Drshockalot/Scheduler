@@ -26,8 +26,15 @@ class Profile extends React.Component {
 
   render() {
     return (
-      <div className='container'>
-        <ProfileSideNav />
+      <div id='wrapper'>
+      <ProfileSideNav />
+        <div id='page-content-wrapper'>
+          <div className='container-fluid'>
+            <div className='row'>
+
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
