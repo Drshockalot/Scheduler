@@ -1803,7 +1803,7 @@ var ProfileSidenav = function (_React$Component) {
   _createClass(ProfileSidenav, [{
     key: 'render',
     value: function render() {
-      _react2.default.createElement(
+      return _react2.default.createElement(
         'div',
         { id: 'sidebar-wrapper' },
         _react2.default.createElement(
