@@ -32,12 +32,12 @@ class ProfileCharacters extends React.Component {
     var retrievedCharactersList;
     var storedCharactersList;
 
-    if(this.state.retrievedCharacters) {
+    if(this.state.retrievedCharacters.length > 0) {
       var retrievedCharactersCopy = this.state.retrievedCharacters;
       var arr = [];
       Object.keys(retrievedCharactersCopy).map(function(i) {
         if(retrievedCharactersCopy[i].level === 100 &&
-           retrievedCharactersCopy[i].guild === "Darkstorm") {
+           retrievedCharactersCopy[i].guild === "DarkStorm") {
             arr.push(retrievedCharactersCopy[i]);
         }
       });
