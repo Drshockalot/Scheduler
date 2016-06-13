@@ -1,23 +1,23 @@
 import React from 'react';
 import {Link} from 'react-router';
-import ProfileStore from '../stores/ProfileStore';
-import ProfileActions from '../actions/ProfileActions';
+import ProfileRaidWeeksStore from '../stores/ProfileRaidWeeksStore';
+import ProfileRaidWeeksActions from '../actions/ProfileRaidWeeksActions';
 import NavbarStore from '../stores/NavbarStore';
 import ProfileSideNav from './ProfileSidenav';
 
-class Profile extends React.Component {
+class ProfileRaidWeeks extends React.Component {
   constructor(props) {
     super(props);
-    this.state = ProfileStore.getState();
+    this.state = ProfileRaidWeeksStore.getState();
     this.onChange = this.onChange.bind(this);
   }
 
   componentDidMount() {
-    ProfileStore.listen(this.onChange);
+    ProfileRaidWeeksStore.listen(this.onChange);
   }
 
   componentWillUnmount() {
-    ProfileStore.unlisten(this.onChange);
+    ProfileRaidWeeksStore.unlisten(this.onChange);
   }
 
   onChange(state) {
@@ -40,4 +40,4 @@ class Profile extends React.Component {
   }
 }
 
-export default Profile;
+export default ProfileRaidWeeks;

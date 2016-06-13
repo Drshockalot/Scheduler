@@ -43,6 +43,7 @@ class RaidWeekManagementStore {
 
   onCreateNewRaidWeekSuccess(result) {
     this.raidweeks = result.data.raidweeks;
+    toastr.success('Raid Week created', 'Success');
   }
 
   onCreateNewRaidWeekFailure(jqXhr) {
@@ -50,8 +51,8 @@ class RaidWeekManagementStore {
   }
 
   onUpdateRaidWeekSuccess(result) {
-    toastr.success('Raid Week updated', 'Success');
     this.raidweeks = result.data.raidweeks;
+    toastr.success('Raid Week updated', 'Success');
   }
 
   onUpdateRaidWeekFailure(jqXhr) {
@@ -59,8 +60,8 @@ class RaidWeekManagementStore {
   }
 
   onDeleteRaidWeekSuccess(result) {
-    toastr.success('Raid Week deleted', 'Success');
     this.raidweeks = result.data.raidweeks;
+    toastr.success('Raid Week deleted', 'Success');
   }
 
   onDeleteRaidWeekFailure(jqXhr) {
