@@ -4,10 +4,8 @@ import ProfileCharactersActions from '../actions/ProfileCharactersActions';
 class ProfileCharactersStore {
   constructor() {
     this.bindActions(ProfileCharactersActions);
-    this.retrievedCharacters = null;
+    this.retrievedCharacters = [];
     this.storedCharacters = [];
-    this.confirmedAlts = null;
-    this.confirmedMain = null;
   }
 
   onPopulateRetrievedCharactersSuccess(data) {

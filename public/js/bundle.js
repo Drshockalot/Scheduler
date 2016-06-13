@@ -3595,10 +3595,8 @@ var ProfileCharactersStore = function () {
     _classCallCheck(this, ProfileCharactersStore);
 
     this.bindActions(_ProfileCharactersActions2.default);
-    this.retrievedCharacters = null;
+    this.retrievedCharacters = [];
     this.storedCharacters = [];
-    this.confirmedAlts = null;
-    this.confirmedMain = null;
   }
 
   _createClass(ProfileCharactersStore, [{
