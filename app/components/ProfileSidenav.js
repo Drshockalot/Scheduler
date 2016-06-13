@@ -6,7 +6,7 @@ class ProfileSidenav extends React.Component {
     return (
       <div id='sidebar-wrapper'>
         <ul className='sidebar-nav'>
-          <li><strong>Profile</strong></li>
+          <li><Link to='/profile'><strong>Profile</strong></Link></li>
           <li><Link to='/profile/character'>Characters</Link></li>
           <li><Link to='/profile/schedule'>Schedules</Link></li>
           <li><Link to='/profile/roster'>Rosters</Link></li>

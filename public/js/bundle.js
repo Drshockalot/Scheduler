@@ -1906,9 +1906,13 @@ var ProfileSidenav = function (_React$Component) {
             'li',
             null,
             _react2.default.createElement(
-              'strong',
-              null,
-              'Profile'
+              _reactRouter.Link,
+              { to: '/profile' },
+              _react2.default.createElement(
+                'strong',
+                null,
+                'Profile'
+              )
             )
           ),
           _react2.default.createElement(
@@ -2258,9 +2262,13 @@ var AdminSideNav = function (_React$Component) {
             'li',
             null,
             _react2.default.createElement(
-              'strong',
-              null,
-              'Admin'
+              _reactRouter.Link,
+              { to: '/admin' },
+              _react2.default.createElement(
+                'strong',
+                null,
+                'Admin'
+              )
             )
           ),
           _react2.default.createElement(

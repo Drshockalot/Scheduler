@@ -26,7 +26,7 @@ class AdminSideNav extends React.Component {
     return (
       <div id='sidebar-wrapper'>
         <ul className='sidebar-nav'>
-          <li><strong>Admin</strong></li>
+          <li><Link to='/admin'><strong>Admin</strong></Link></li>
           <li><Link to='/admin/roster'>Roster Management</Link></li>
           <li><Link to='/admin/schedule'>Schedule Management</Link></li>
           <li><Link to='/admin/character'>Character Management</Link></li>
