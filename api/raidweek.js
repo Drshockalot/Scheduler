@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var _ = require('underscore');
 
-var User_Attendance = require('./../db/postgres/user_availability');
+var User_Availability = require('./../db/postgres/user_availability');
 var User = require('./../db/postgres/user');
 var Raid_Week = require('./../db/postgres/raid_week');
 
@@ -27,16 +27,16 @@ router.get('/user/:battletag', function(req, res, next) {
            .then(function(raidweeks) {
               if(raidweeks) {
                 User.forge({battletag: req.params.battletag})
-                    .fetch({'withRelated': ['user_attendance']})
+                    .fetch({'withRelated': ['user_availability']})
                     .then(function(user) {
                       if(user) {
                         res.json({error: false, data: {message: "data found", raidweeks: raidweeks.toJSON(),
                                                                               user: user.toJSON(),
-                                                                              user_attendance: user.related('user_attendance').toJSON()}});
+                                                                              user_availability: user.related('user_availability').toJSON()}});
                       } else {
                         res.json({error: true, data: {message: "No User Found", raidweeks: {},
                                                                                 user: {},
-                                                                                user_attendance: {}}});
+                                                                                user_availability: {}}});
                       }
                     })
                     .catch(function(err) {
@@ -45,7 +45,7 @@ router.get('/user/:battletag', function(req, res, next) {
               } else {
                 res.json({error: true, data: {message: "No Raid Weeks Found", raidweeks: {},
                                                                               user: {},
-                                                                              user_attendance: {}}});
+                                                                              user_availability: {}}});
               }
            })
            .catch(function(err) {
