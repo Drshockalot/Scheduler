@@ -21,8 +21,36 @@ router.get('/', function(req, res, next) {
            });
 });
 
-router.post('/user', function(req, res, next) {
-
+router.get('/user/:battletag', function(req, res, next) {
+  Raid_Week.forge()
+           .fetchAll({require: true})
+           .then(function(raidweeks) {
+              if(raidweeks) {
+                User.forge({battletag: req.params.battletag})
+                    .fetch({'withRelated': ['user_attendance']})
+                    .then(function(user) {
+                      if(user) {
+                        res.json({error: false, data: {message: "data found", raidweeks: raidweeks.toJSON(),
+                                                                              user: user.toJSON(),
+                                                                              user_attendance: user.related('user_attendance').toJSON()}});
+                      } else {
+                        res.json({error: true, data: {message: "No User Found", raidweeks: {},
+                                                                                user: {},
+                                                                                user_attendance: {}}});
+                      }
+                    })
+                    .catch(function(err) {
+                      res.status(500).json({error: true, data: {message: err.message}});
+                    });
+              } else {
+                res.json({error: true, data: {message: "No Raid Weeks Found", raidweeks: {},
+                                                                              user: {},
+                                                                              user_attendance: {}}});
+              }
+           })
+           .catch(function(err) {
+             res.status(500).json({error: true, data: {message: err.message}});
+           });
 });
 
 router.post('/admin', function(req, res, next) {

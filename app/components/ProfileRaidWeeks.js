@@ -14,6 +14,7 @@ class ProfileRaidWeeks extends React.Component {
 
   componentDidMount() {
     ProfileRaidWeeksStore.listen(this.onChange);
+    ProfileRaidWeeksActions.getAllRaidWeekInfo();
   }
 
   componentWillUnmount() {
@@ -25,6 +26,13 @@ class ProfileRaidWeeks extends React.Component {
   }
 
   render() {
+    var raidweeklist;
+    if(this.state.raidweeks.length > 0) {
+      raidweeklist = this.state.raidweeks.map(function(raidweek, index) {
+
+      }, this);
+    }
+
     return (
       <div id='wrapper'>
       <ProfileSideNav />
