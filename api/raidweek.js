@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var _ = require('underscore');
 
-var User_Attendance = require('./../db/postgres/user_attendance');
+var User_Attendance = require('./../db/postgres/user_availability');
 var User = require('./../db/postgres/user');
 var Raid_Week = require('./../db/postgres/raid_week');
 

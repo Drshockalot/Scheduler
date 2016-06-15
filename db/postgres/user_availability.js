@@ -2,8 +2,8 @@ let Bookshelf = require('./../database').bookshelf;
 
 require('./user');
 require('./raid_week');
-var User_Attendance = Bookshelf.Model.extend({
-  tableName: 'User_Attendance',
+var User_Availability = Bookshelf.Model.extend({
+  tableName: 'user_availability',
   hasTimestamps: true,
   user: function() {
     return this.belongsTo('User');
@@ -13,4 +13,4 @@ var User_Attendance = Bookshelf.Model.extend({
   }
 });
 
-module.exports = Bookshelf.model('User_Attendance', User_Attendance);
+module.exports = Bookshelf.model('User_Availability', User_Availability);

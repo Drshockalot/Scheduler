@@ -2,7 +2,7 @@ let Bookshelf = require('./../database').bookshelf;
 
 require('./character');
 require('./raid_attendance');
-require('./user_attendance');
+require('./user_availability');
 var User = Bookshelf.Model.extend({
   tableName: 'user',
   hasTimestamps: true,
@@ -12,8 +12,8 @@ var User = Bookshelf.Model.extend({
   raid_attendance: function() {
     return this.hasMany('Raid_Attendance');
   },
-  user_attendance: function() {
-    return this.hasMany('User_Attendance');
+  user_availability: function() {
+    return this.hasMany('User_Availability');
   }
 });
 
