@@ -1946,11 +1946,7 @@ var ProfileRaidWeeks = function (_React$Component) {
               null,
               _react2.default.createElement('td', null),
               _react2.default.createElement('td', null),
-              _react2.default.createElement(
-                'td',
-                null,
-                'Your Availability:'
-              ),
+              _react2.default.createElement('td', null),
               _react2.default.createElement(
                 'td',
                 null,
@@ -2216,7 +2212,7 @@ var ProfileRaidWeeks = function (_React$Component) {
             _react2.default.createElement(
               'h3',
               null,
-              'Your Availability'
+              'Raid Week Availability'
             ),
             raidweeklist
           )
