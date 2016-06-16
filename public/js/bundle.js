@@ -1914,6 +1914,8 @@ var ProfileRaidWeeks = function (_React$Component) {
       var raidweeklist;
       if (this.state.raidweeks.length > 0) {
         raidweeklist = this.state.raidweeks.map(function (raidweek, index) {
+          var _this2 = this;
+
           var user_availabilityRow;
           var user_availability = _.findWhere(this.state.user_availability, { raid_week_id: raidweek.id });
           if (user_availability) {
@@ -1977,7 +1979,9 @@ var ProfileRaidWeeks = function (_React$Component) {
                 null,
                 _react2.default.createElement(
                   'button',
-                  { className: 'btn btn-primary', onClick: _ProfileRaidWeeksActions2.default.saveUserAvailability(_.findWhere(this.state.user_availability, { raid_week_id: raidweek.id })) },
+                  { className: 'btn btn-primary', onClick: function onClick() {
+                      return _ProfileRaidWeeksActions2.default.saveUserAvailability(_.findWhere(_this2.state.user_availability, { raid_week_id: raidweek.id }));
+                    } },
                   'Save'
                 )
               )
@@ -2001,7 +2005,9 @@ var ProfileRaidWeeks = function (_React$Component) {
                 null,
                 _react2.default.createElement(
                   'button',
-                  { className: 'btn btn-primary', onClick: _ProfileRaidWeeksActions2.default.createUserAvailability(raidweek) },
+                  { className: 'btn btn-primary', onClick: function onClick() {
+                      return _ProfileRaidWeeksActions2.default.createUserAvailability(raidweek);
+                    } },
                   'Create'
                 )
               )

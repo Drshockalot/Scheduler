@@ -47,7 +47,7 @@ class ProfileRaidWeeks extends React.Component {
               <td><input type='checkbox' checked={user_availability.monday} onChange={() => ProfileRaidWeeksActions.toggleUserAvailabilityDay(user_availability.id, 'monday')} /></td>
               <td><input type='checkbox' checked={user_availability.tuesday} onChange={() => ProfileRaidWeeksActions.toggleUserAvailabilityDay(user_availability.id, 'tuesday')} /></td>
               <td>
-                <button className='btn btn-primary' onClick={ProfileRaidWeeksActions.saveUserAvailability(_.findWhere(this.state.user_availability, { raid_week_id: raidweek.id }))}>Save</button>
+                <button className='btn btn-primary' onClick={() => ProfileRaidWeeksActions.saveUserAvailability(_.findWhere(this.state.user_availability, { raid_week_id: raidweek.id }))}>Save</button>
               </td>
             </tr>
           );
@@ -65,7 +65,7 @@ class ProfileRaidWeeks extends React.Component {
               <td></td>
               <td></td>
               <td>
-                <button className='btn btn-primary' onClick={ProfileRaidWeeksActions.createUserAvailability(raidweek)}>Create</button>
+                <button className='btn btn-primary' onClick={() => ProfileRaidWeeksActions.createUserAvailability(raidweek)}>Create</button>
               </td>
             </tr>
           );
