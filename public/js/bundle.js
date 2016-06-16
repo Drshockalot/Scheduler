@@ -286,15 +286,21 @@ var _NavbarStore = require('../stores/NavbarStore');
 
 var _NavbarStore2 = _interopRequireDefault(_NavbarStore);
 
+var _ProfileRaidWeeksStore = require('../stores/ProfileRaidWeeksStore');
+
+var _ProfileRaidWeeksStore2 = _interopRequireDefault(_ProfileRaidWeeksStore);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var _ = require('underscore');
 
 var ProfileRaidWeeksActions = function () {
   function ProfileRaidWeeksActions() {
     _classCallCheck(this, ProfileRaidWeeksActions);
 
-    this.generateActions('getAllRaidWeekInfoSuccess', 'getAllRaidWeekInfoFailure');
+    this.generateActions('getAllRaidWeekInfoSuccess', 'getAllRaidWeekInfoFailure', 'toggleUserAvailabilityDay', 'saveUserAvailabilitySuccess', 'saveUserAvailabilityFailure');
   }
 
   _createClass(ProfileRaidWeeksActions, [{
@@ -313,6 +319,41 @@ var ProfileRaidWeeksActions = function () {
         _this.getAllRaidWeekInfoFailure(jqXhr);
       });
     }
+  }, {
+    key: 'createUserAvailability',
+    value: function createUserAvailability(raidweek) {
+      var _this2 = this;
+
+      raidweek.battletag = _NavbarStore2.default.getState().battletag;
+      $.ajax({
+        method: 'POST',
+        url: '/api/raidweek/user',
+        data: raidweek
+      }).done(function (result) {
+        console.log(result);
+        _this2.createUserAvailabilitySuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(result);
+        _this2.createUserAvailabilityFailure(jqXhr);
+      });
+    }
+  }, {
+    key: 'saveUserAvailability',
+    value: function saveUserAvailability(ua) {
+      var _this3 = this;
+
+      $.ajax({
+        method: 'PUT',
+        url: '/api/raidweek/user',
+        data: ua
+      }).done(function (result) {
+        console.log(result);
+        _this3.saveUserAvailabilitySuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this3.saveUserAvailabilityFailure(jqXhr);
+      });
+    }
   }]);
 
   return ProfileRaidWeeksActions;
@@ -320,7 +361,7 @@ var ProfileRaidWeeksActions = function () {
 
 exports.default = _alt2.default.createActions(ProfileRaidWeeksActions);
 
-},{"../alt":13,"../stores/NavbarStore":32,"underscore":"underscore"}],6:[function(require,module,exports){
+},{"../alt":13,"../stores/NavbarStore":32,"../stores/ProfileRaidWeeksStore":34,"underscore":"underscore"}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1824,6 +1865,10 @@ var _ProfileSidenav = require('./ProfileSidenav');
 
 var _ProfileSidenav2 = _interopRequireDefault(_ProfileSidenav);
 
+var _moment = require('moment');
+
+var _moment2 = _interopRequireDefault(_moment);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1831,6 +1876,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _ = require('underscore');
 
 var ProfileRaidWeeks = function (_React$Component) {
   _inherits(ProfileRaidWeeks, _React$Component);
@@ -1866,7 +1913,262 @@ var ProfileRaidWeeks = function (_React$Component) {
     value: function render() {
       var raidweeklist;
       if (this.state.raidweeks.length > 0) {
-        raidweeklist = this.state.raidweeks.map(function (raidweek, index) {}, this);
+        raidweeklist = this.state.raidweeks.map(function (raidweek, index) {
+          var user_availabilityRow;
+          var user_availability = _.findWhere(this.state.user_availability, { raid_week_id: raidweek.id });
+          if (user_availability) {
+            user_availabilityRow = _react2.default.createElement(
+              'tr',
+              null,
+              _react2.default.createElement('td', null),
+              _react2.default.createElement('td', null),
+              _react2.default.createElement('td', null),
+              _react2.default.createElement(
+                'td',
+                null,
+                _react2.default.createElement('input', { type: 'checkbox', checked: user_availability.wednesday, onChange: function onChange() {
+                    return _ProfileRaidWeeksActions2.default.toggleUserAvailabilityDay(user_availability.id, 'wednesday');
+                  } })
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                _react2.default.createElement('input', { type: 'checkbox', checked: user_availability.thursday, onChange: function onChange() {
+                    return _ProfileRaidWeeksActions2.default.toggleUserAvailabilityDay(user_availability.id, 'thursday');
+                  } })
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                _react2.default.createElement('input', { type: 'checkbox', checked: user_availability.friday, onChange: function onChange() {
+                    return _ProfileRaidWeeksActions2.default.toggleUserAvailabilityDay(user_availability.id, 'friday');
+                  } })
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                _react2.default.createElement('input', { type: 'checkbox', checked: user_availability.saturday, onChange: function onChange() {
+                    return _ProfileRaidWeeksActions2.default.toggleUserAvailabilityDay(user_availability.id, 'saturday');
+                  } })
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                _react2.default.createElement('input', { type: 'checkbox', checked: user_availability.sunday, onChange: function onChange() {
+                    return _ProfileRaidWeeksActions2.default.toggleUserAvailabilityDay(user_availability.id, 'sunday');
+                  } })
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                _react2.default.createElement('input', { type: 'checkbox', checked: user_availability.monday, onChange: function onChange() {
+                    return _ProfileRaidWeeksActions2.default.toggleUserAvailabilityDay(user_availability.id, 'monday');
+                  } })
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                _react2.default.createElement('input', { type: 'checkbox', checked: user_availability.tuesday, onChange: function onChange() {
+                    return _ProfileRaidWeeksActions2.default.toggleUserAvailabilityDay(user_availability.id, 'tuesday');
+                  } })
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                _react2.default.createElement(
+                  'button',
+                  { className: 'btn btn-primary', onClick: _ProfileRaidWeeksActions2.default.saveUserAvailability(_.findWhere(this.state.user_availability, { raid_week_id: raidweek.id })) },
+                  'Save'
+                )
+              )
+            );
+          } else {
+            user_availabilityRow = _react2.default.createElement(
+              'tr',
+              null,
+              _react2.default.createElement('td', null),
+              _react2.default.createElement('td', null),
+              _react2.default.createElement('td', null),
+              _react2.default.createElement('td', null),
+              _react2.default.createElement('td', null),
+              _react2.default.createElement('td', null),
+              _react2.default.createElement('td', null),
+              _react2.default.createElement('td', null),
+              _react2.default.createElement('td', null),
+              _react2.default.createElement('td', null),
+              _react2.default.createElement(
+                'td',
+                null,
+                _react2.default.createElement(
+                  'button',
+                  { className: 'btn btn-primary', onClick: _ProfileRaidWeeksActions2.default.createUserAvailability(raidweek) },
+                  'Create'
+                )
+              )
+            );
+          }
+          return _react2.default.createElement(
+            'div',
+            { className: 'row' },
+            _react2.default.createElement(
+              'table',
+              { className: 'table' },
+              _react2.default.createElement(
+                'tbody',
+                null,
+                _react2.default.createElement(
+                  'tr',
+                  null,
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Start'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'End'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Week No.'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'W'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'T'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'F'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'S'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'S'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'M'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'T'
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  'tr',
+                  null,
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    (0, _moment2.default)(raidweek.start).format('DD[/]MM[/]YYYY')
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    (0, _moment2.default)(raidweek.end).format('DD[/]MM[/]YYYY')
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    (0, _moment2.default)(raidweek.start).format('W')
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement('input', { type: 'checkbox', checked: raidweek.wednesday, disabled: 'disabled' })
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement('input', { type: 'checkbox', checked: raidweek.thursday, disabled: 'disabled' })
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement('input', { type: 'checkbox', checked: raidweek.friday, disabled: 'disabled' })
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement('input', { type: 'checkbox', checked: raidweek.saturday, disabled: 'disabled' })
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement('input', { type: 'checkbox', checked: raidweek.sunday, disabled: 'disabled' })
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement('input', { type: 'checkbox', checked: raidweek.monday, disabled: 'disabled' })
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement('input', { type: 'checkbox', checked: raidweek.tuesday, disabled: 'disabled' })
+                  )
+                ),
+                user_availabilityRow
+              )
+            )
+          );
+        }, this);
       }
 
       return _react2.default.createElement(
@@ -1879,7 +2181,7 @@ var ProfileRaidWeeks = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'container-fluid' },
-            _react2.default.createElement('div', { className: 'row' })
+            raidweeklist
           )
         )
       );
@@ -1891,7 +2193,7 @@ var ProfileRaidWeeks = function (_React$Component) {
 
 exports.default = ProfileRaidWeeks;
 
-},{"../actions/ProfileRaidWeeksActions":5,"../stores/NavbarStore":32,"../stores/ProfileRaidWeeksStore":34,"./ProfileSidenav":21,"react":"react","react-router":"react-router"}],21:[function(require,module,exports){
+},{"../actions/ProfileRaidWeeksActions":5,"../stores/NavbarStore":32,"../stores/ProfileRaidWeeksStore":34,"./ProfileSidenav":21,"moment":43,"react":"react","react-router":"react-router","underscore":"underscore"}],21:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3826,17 +4128,49 @@ var ProfileRaidWeeksStore = function () {
 
     this.bindActions(_ProfileRaidWeeksActions2.default);
     this.raidweeks = [];
-    this.userRaidweeks = [];
+    this.user_availability = [];
   }
 
   _createClass(ProfileRaidWeeksStore, [{
     key: 'onGetAllRaidWeekInfoSuccess',
     value: function onGetAllRaidWeekInfoSuccess(result) {
       this.raidweeks = result.data.raidweeks;
+      this.user_availability = result.data.user_availability;
     }
   }, {
     key: 'onGetAllRaidWeekInfoFailure',
     value: function onGetAllRaidWeekInfoFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onToggleUserAvailabilityDay',
+    value: function onToggleUserAvailabilityDay(values) {
+      // var user_availability = _.findWhere(this.user_availability, {id: values[0]});
+      // user_availability[day] = !user_availability[day];
+      for (obj in this.user_availability) {
+        if (values[0] == obj.id) {
+          obj[day] = !obj[day];
+        }
+      }
+    }
+  }, {
+    key: 'onCreateUserAvailabilitySuccess',
+    value: function onCreateUserAvailabilitySuccess(result) {
+      this.user_availability = result.data.user_availability;
+    }
+  }, {
+    key: 'onCreateUserAvailabilityFailure',
+    value: function onCreateUserAvailabilityFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onSaveUserAvailabilitySuccess',
+    value: function onSaveUserAvailabilitySuccess(result) {
+      this.user_availability = result.data.user_availability;
+    }
+  }, {
+    key: 'onSaveUserAvailabilityFailure',
+    value: function onSaveUserAvailabilityFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
     }
   }]);
