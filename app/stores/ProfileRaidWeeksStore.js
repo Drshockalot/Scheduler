@@ -20,7 +20,7 @@ class ProfileRaidWeeksStore {
   onToggleUserAvailabilityDay(values) {
     // var user_availability = _.findWhere(this.user_availability, {id: values[0]});
     // user_availability[day] = !user_availability[day];
-    for(obj in this.user_availability) {
+    for(var obj in this.user_availability) {
       if(values[0] == obj.id) {
         obj[day] = !obj[day];
       }
