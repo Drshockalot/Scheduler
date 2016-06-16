@@ -300,7 +300,7 @@ var ProfileRaidWeeksActions = function () {
   function ProfileRaidWeeksActions() {
     _classCallCheck(this, ProfileRaidWeeksActions);
 
-    this.generateActions('getAllRaidWeekInfoSuccess', 'getAllRaidWeekInfoFailure', 'toggleUserAvailabilityDay', 'saveUserAvailabilitySuccess', 'saveUserAvailabilityFailure');
+    this.generateActions('getAllRaidWeekInfoSuccess', 'getAllRaidWeekInfoFailure', 'toggleUserAvailabilityDay', 'saveUserAvailabilitySuccess', 'saveUserAvailabilityFailure', 'createUserAvailabilitySuccess', 'createUserAvailabilityFailure');
   }
 
   _createClass(ProfileRaidWeeksActions, [{

@@ -11,7 +11,9 @@ class ProfileRaidWeeksActions {
       'getAllRaidWeekInfoFailure',
       'toggleUserAvailabilityDay',
       'saveUserAvailabilitySuccess',
-      'saveUserAvailabilityFailure'
+      'saveUserAvailabilityFailure',
+      'createUserAvailabilitySuccess',
+      'createUserAvailabilityFailure'
     );
   }
 
