@@ -38,7 +38,7 @@ class ProfileRaidWeeksActions {
       console.log(result);
       this.createUserAvailabilitySuccess(result);
     }).fail((jqXhr) => {
-      console.log(result);
+      console.log(jqXhr);
       this.createUserAvailabilityFailure(jqXhr);
     });
   }

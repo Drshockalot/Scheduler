@@ -333,7 +333,7 @@ var ProfileRaidWeeksActions = function () {
         console.log(result);
         _this2.createUserAvailabilitySuccess(result);
       }).fail(function (jqXhr) {
-        console.log(result);
+        console.log(jqXhr);
         _this2.createUserAvailabilityFailure(jqXhr);
       });
     }
