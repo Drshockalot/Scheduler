@@ -92,11 +92,13 @@ var NavbarActions = function () {
       }).fail(function (jqXhr) {
         _this.checkLoginFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'navigateProfile',
     value: function navigateProfile() {
       _reactRouter.browserHistory.push('/profile');
+      return 0;
     }
   }]);
 
@@ -177,6 +179,7 @@ var ProfileCharactersActions = function () {
       }).fail(function (jqXhr) {
         _this.populateRetrievedCharactersFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'getStoredCharacters',
@@ -193,6 +196,7 @@ var ProfileCharactersActions = function () {
         console.log(jqXhr);
         _this2.updateStoredCharactersFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'confirmCharacter',
@@ -212,6 +216,7 @@ var ProfileCharactersActions = function () {
         console.log(jqXhr);
         _this3.confirmCharacterFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'saveStoredCharacterDetails',
@@ -227,6 +232,7 @@ var ProfileCharactersActions = function () {
       }).fail(function (jqXhr) {
         _this4.saveStoredCharacterDetailsFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'deleteStoredCharacter',
@@ -243,6 +249,7 @@ var ProfileCharactersActions = function () {
       }).fail(function (jqXhr) {
         _this5.deleteStoredCharacterFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'updateIlvlForCharacter',
@@ -259,6 +266,7 @@ var ProfileCharactersActions = function () {
       }).fail(function (jqXhr) {
         _this6.retrieveAverageIlvlFailure(jqXhr);
       });
+      return 0;
     }
   }]);
 
@@ -318,6 +326,7 @@ var ProfileRaidWeeksActions = function () {
         console.log(jqXhr);
         _this.getAllRaidWeekInfoFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'createUserAvailability',
@@ -336,6 +345,7 @@ var ProfileRaidWeeksActions = function () {
         console.log(jqXhr);
         _this2.createUserAvailabilityFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'saveUserAvailability',
@@ -353,6 +363,7 @@ var ProfileRaidWeeksActions = function () {
         console.log(jqXhr);
         _this3.saveUserAvailabilityFailure(jqXhr);
       });
+      return 0;
     }
   }]);
 
@@ -406,6 +417,7 @@ var AddRosterActions = function () {
       }).fail(function () {
         _this.addRosterFailure();
       });
+      return 0;
     }
   }]);
 
@@ -499,6 +511,7 @@ var CharacterManagementActions = function () {
         console.log(jqXhr);
         _this.getCharactersForConfirmationFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'confirmCharacter',
@@ -514,6 +527,7 @@ var CharacterManagementActions = function () {
       }).fail(function (jqXhr) {
         _this2.confirmCharacterFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'unconfirmCharacter',
@@ -529,6 +543,7 @@ var CharacterManagementActions = function () {
       }).fail(function (jqXhr) {
         _this3.unconfirmCharacterFailure(jqXhr);
       });
+      return 0;
     }
   }]);
 
@@ -620,6 +635,7 @@ var RaidWeekManagementActions = function () {
         console.log(jqXhr);
         _this3.updateRaidWeekFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'deleteRaidWeek',
@@ -636,6 +652,7 @@ var RaidWeekManagementActions = function () {
         console.log(jqXhr);
         _this4.deleteRaidWeekFailure(jqXhr);
       });
+      return 0;
     }
   }]);
 
@@ -685,6 +702,7 @@ var RosterManagementActions = function () {
       }).fail(function (jqXhr) {
         _this.getAllRostersFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'updateSelectedRoster',
@@ -701,6 +719,7 @@ var RosterManagementActions = function () {
         console.log(jqXhr);
         _this2.updateSelectedRosterFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'updateRosterListAfterCharacterChange',
@@ -717,6 +736,7 @@ var RosterManagementActions = function () {
         console.log(jqXhr);
         _this3.updateSelectedRosterFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'removeCharacterFromRoster',
@@ -734,6 +754,7 @@ var RosterManagementActions = function () {
         console.log(jqXhr);
         _this4.removeCharacterFromRosterFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'addCharacterToRoster',
@@ -751,6 +772,7 @@ var RosterManagementActions = function () {
         console.log(jqXhr);
         _this5.addCharacterToRosterFailure(jqXhr);
       });
+      return 0;
     }
   }]);
 
@@ -1924,7 +1946,11 @@ var ProfileRaidWeeks = function (_React$Component) {
               null,
               _react2.default.createElement('td', null),
               _react2.default.createElement('td', null),
-              _react2.default.createElement('td', null),
+              _react2.default.createElement(
+                'td',
+                null,
+                'Your Availability:'
+              ),
               _react2.default.createElement(
                 'td',
                 null,
@@ -2187,6 +2213,11 @@ var ProfileRaidWeeks = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'container-fluid' },
+            _react2.default.createElement(
+              'h3',
+              null,
+              'Your Availability'
+            ),
             raidweeklist
           )
         )

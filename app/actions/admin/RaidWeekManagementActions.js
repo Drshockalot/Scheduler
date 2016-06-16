@@ -67,6 +67,7 @@ class RaidWeekManagementActions {
       console.log(jqXhr);
       this.updateRaidWeekFailure(jqXhr);
     });
+    return 0;
   }
 
   deleteRaidWeek(id) {
@@ -80,6 +81,7 @@ class RaidWeekManagementActions {
       console.log(jqXhr);
       this.deleteRaidWeekFailure(jqXhr);
     });
+    return 0;
   }
 }
 

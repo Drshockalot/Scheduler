@@ -31,6 +31,7 @@ class ProfileCharactersActions {
     }).fail((jqXhr) => {
       this.populateRetrievedCharactersFailure(jqXhr);
     });
+    return 0;
   }
 
   getStoredCharacters() {
@@ -44,6 +45,7 @@ class ProfileCharactersActions {
       console.log(jqXhr);
       this.updateStoredCharactersFailure(jqXhr);
     });
+    return 0;
   }
 
   confirmCharacter(character) {
@@ -60,6 +62,7 @@ class ProfileCharactersActions {
       console.log(jqXhr);
       this.confirmCharacterFailure(jqXhr);
     });
+    return 0;
   }
 
   saveStoredCharacterDetails(character) {
@@ -72,6 +75,7 @@ class ProfileCharactersActions {
     }).fail((jqXhr) => {
       this.saveStoredCharacterDetailsFailure(jqXhr);
     });
+    return 0;
   }
 
   deleteStoredCharacter(character) {
@@ -85,6 +89,7 @@ class ProfileCharactersActions {
     }).fail((jqXhr) => {
       this.deleteStoredCharacterFailure(jqXhr);
     });
+    return 0;
   }
 
   updateIlvlForCharacter(character, index) {
@@ -98,6 +103,7 @@ class ProfileCharactersActions {
     }).fail((jqXhr) => {
       this.retrieveAverageIlvlFailure(jqXhr);
     });
+    return 0;
   }
 }
 

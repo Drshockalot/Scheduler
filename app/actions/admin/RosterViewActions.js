@@ -20,6 +20,7 @@ class RosterViewActions {
     }).fail(() => {
       this.populateRosterListFailure();
     });
+    return 0;
   }
 }
 

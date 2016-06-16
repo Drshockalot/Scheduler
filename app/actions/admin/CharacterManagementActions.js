@@ -23,6 +23,7 @@ class CharacterManagementActions {
       console.log(jqXhr);
       this.getCharactersForConfirmationFailure(jqXhr);
     });
+    return 0;
   }
 
   confirmCharacter(characterid) {
@@ -35,6 +36,7 @@ class CharacterManagementActions {
     }).fail((jqXhr) => {
       this.confirmCharacterFailure(jqXhr);
     });
+    return 0;
   }
 
   unconfirmCharacter(characterid) {
@@ -47,6 +49,7 @@ class CharacterManagementActions {
     }).fail((jqXhr) => {
       this.unconfirmCharacterFailure(jqXhr);
     });
+    return 0;
   }
 }
 

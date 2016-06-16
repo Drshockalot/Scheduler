@@ -23,6 +23,7 @@ class AddRosterActions {
     }).fail(() => {
       this.addRosterFailure();
     });
+    return 0;
   }
 }
 

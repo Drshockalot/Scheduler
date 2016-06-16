@@ -38,7 +38,7 @@ class ProfileRaidWeeks extends React.Component {
             <tr>
               <td></td>
               <td></td>
-              <td></td>
+              <td>Your Availability:</td>
               <td><input type='checkbox' checked={user_availability.wednesday} onChange={() => ProfileRaidWeeksActions.toggleUserAvailabilityDay(user_availability.id, 'wednesday')} /></td>
               <td><input type='checkbox' checked={user_availability.thursday} onChange={() => ProfileRaidWeeksActions.toggleUserAvailabilityDay(user_availability.id, 'thursday')} /></td>
               <td><input type='checkbox' checked={user_availability.friday} onChange={() => ProfileRaidWeeksActions.toggleUserAvailabilityDay(user_availability.id, 'friday')} /></td>
@@ -111,6 +111,7 @@ class ProfileRaidWeeks extends React.Component {
       <ProfileSideNav />
         <div id='page-content-wrapper'>
           <div className='container-fluid'>
+            <h3>Your Availability</h3>
             {raidweeklist}
           </div>
         </div>

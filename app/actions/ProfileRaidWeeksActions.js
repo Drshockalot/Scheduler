@@ -28,6 +28,7 @@ class ProfileRaidWeeksActions {
       console.log(jqXhr);
       this.getAllRaidWeekInfoFailure(jqXhr);
     });
+    return 0;
   }
 
   createUserAvailability(raidweek) {
@@ -43,6 +44,7 @@ class ProfileRaidWeeksActions {
       console.log(jqXhr);
       this.createUserAvailabilityFailure(jqXhr);
     });
+    return 0;
   }
 
   saveUserAvailability(ua) {
@@ -57,6 +59,7 @@ class ProfileRaidWeeksActions {
       console.log(jqXhr);
       this.saveUserAvailabilityFailure(jqXhr);
     });
+    return 0;
   }
 }
 

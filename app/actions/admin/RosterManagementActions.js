@@ -29,6 +29,7 @@ class RosterManagementActions {
     }).fail((jqXhr) => {
       this.getAllRostersFailure(jqXhr);
     });
+    return 0;
   }
 
   updateSelectedRoster(rosterName, rosterList) {
@@ -42,6 +43,7 @@ class RosterManagementActions {
       console.log(jqXhr);
       this.updateSelectedRosterFailure(jqXhr);
     });
+    return 0;
   }
 
   updateRosterListAfterCharacterChange(rosterid) {
@@ -55,6 +57,7 @@ class RosterManagementActions {
       console.log(jqXhr);
       this.updateSelectedRosterFailure(jqXhr);
     });
+    return 0;
   }
 
   removeCharacterFromRoster(characterid, rosterid) {
@@ -69,6 +72,7 @@ class RosterManagementActions {
       console.log(jqXhr);
       this.removeCharacterFromRosterFailure(jqXhr);
     });
+    return 0;
   }
 
   addCharacterToRoster(characterid, rosterid) {
@@ -83,6 +87,7 @@ class RosterManagementActions {
       console.log(jqXhr);
       this.addCharacterToRosterFailure(jqXhr);
     });
+    return 0;
   }
 }
 

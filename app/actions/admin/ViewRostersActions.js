@@ -20,6 +20,7 @@ class ViewRostersActions {
     }).fail((jqXhr) => {
       this.updateRosterListFailure(jqXhr);
     });
+    return 0;
   }
 }
 

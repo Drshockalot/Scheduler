@@ -40,10 +40,12 @@ class NavbarActions {
     }).fail((jqXhr) => {
       this.checkLoginFailure(jqXhr);
     });
+    return 0;
   }
 
   navigateProfile() {
     browserHistory.push('/profile');
+    return 0;
   }
 }
 
