@@ -4155,7 +4155,7 @@ var ProfileRaidWeeksStore = function () {
       // user_availability[day] = !user_availability[day];
       for (var obj in this.user_availability) {
         if (values[0] == obj.id) {
-          obj[day] = !obj[day];
+          obj[values[1]] = !obj[values[1]];
         }
       }
     }
