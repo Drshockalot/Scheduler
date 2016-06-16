@@ -102,7 +102,7 @@ router.put('/user', function(req, res, next) {
                          User_Availability.forge()
                                           .fetchAll({require: true})
                                           .then(function(allUa) {
-                                            res.json({error: false, data: {message: "User Attendance saved", user_attendance: allUa}});
+                                            res.json({error: false, data: {message: "User Attendance saved", user_availability: allUa}});
                                           })
                                           .catch(function(err) {
                                             res.status(500).json({error: true, data: {message: err.message}});
