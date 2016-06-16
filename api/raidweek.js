@@ -57,7 +57,7 @@ router.post('/user', function(req, res, next) {
   User.forge({battletag: req.body.battletag })
       .fetch({required: true})
       .then(function(user) {
-        User_Availability.forge({ user_id: user.id(),
+        User_Availability.forge({ user_id: user.get('id'),
                                   raid_week_id: req.body.id,
                                   wednesday: req.body.wednesday,
                                   thursday: req.body.thursday,
@@ -68,7 +68,7 @@ router.post('/user', function(req, res, next) {
                                   tuesday: req.body.tuesday})
                           .save()
                           .then(function(ua) {
-                            User_Availability.forge({user_id: user.id()})
+                            User_Availability.forge({user_id: user.get('id')})
                                              .fetchAll({require: true})
                                              .then(function(allUaForUser) {
                                                res.json({error: false, data: {message: 'User_availability created', user_availability: allUaForUser.toJSON(),
