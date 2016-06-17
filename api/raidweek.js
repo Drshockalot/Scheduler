@@ -69,7 +69,7 @@ router.post('/user', function(req, res, next) {
                           .save()
                           .then(function(ua) {
                             User_Availability.forge({user_id: user.get('id')})
-                                             .fetchAll({require: true})
+                                             .fetch({require: true})
                                              .then(function(allUaForUser) {
                                                res.json({error: false, data: {message: 'User_availability created', user_availability: allUaForUser.toJSON(),
                                                                                                                     user: user.toJSON()}});
@@ -100,7 +100,7 @@ router.put('/user', function(req, res, next) {
                                tuesday: req.body.tuesday })
                        .then(function(savedUa) {
                          User_Availability.forge()
-                                          .fetchAll({require: true})
+                                          .fetch({require: true})
                                           .then(function(allUa) {
                                             res.json({error: false, data: {message: "User Attendance saved", user_availability: allUa}});
                                           })

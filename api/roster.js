@@ -3,8 +3,27 @@ var router = express.Router();
 
 var Roster = require('./../db/postgres/roster');
 var Character = require('./../db/postgres/character');
+var User = require('./../db/postgres/user');
 
 var _ = require('underscore');
+
+router.get('/:battletag', function(req, res, next) {
+  User.forge({battletag: req.params.battletag})
+      .fetch({require: true})
+      .then(function(user) {
+        Character.forge({ user_id: user.get('id')})
+                 .fetch({'withRelated': ['rosters']})
+                 .then(function(characters) {
+                   res.json({error: false, data: {message: 'Data returned', characters: characters.toJSON()}});
+                 })
+                 .catch(function(err) {
+                   res.status(500).json({error: true, data: {message: err.message}});
+                 });
+      })
+      .catch(function(err) {
+        res.status(500).json({error: true, data: {message: err.message}});
+      });
+});
 
 router.post('/admin', function(req, res, next) {
   Roster.forge({
