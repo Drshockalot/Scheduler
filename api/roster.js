@@ -41,7 +41,7 @@ router.post('/admin', function(req, res, next) {
 
 router.get('/admin', function(req, res, next) {
   Roster.forge()
-        .fetchAll({ require: true })
+        .fetchAll()
         .then(function(rosters) {
           if(rosters) {
             res.json({error: false, data: {message: 'Rosters Retrieved', rosters: rosters.toJSON()}});
