@@ -55,7 +55,7 @@ router.get('/user/:battletag', function(req, res, next) {
 
 router.post('/user', function(req, res, next) {
   User.forge({battletag: req.body.battletag })
-      .fetch({required: true})
+      .fetch({require: true})
       .then(function(user) {
         User_Availability.forge({ user_id: user.get('id'),
                                   raid_week_id: req.body.id,
@@ -68,7 +68,7 @@ router.post('/user', function(req, res, next) {
                                   tuesday: req.body.tuesday})
                           .save()
                           .then(function(ua) {
-                            User_Availability.forge({user_id: user.get('id')})
+                            User_Availability.where({user_id: user.get('id')})
                                              .fetch({require: true})
                                              .then(function(allUaForUser) {
                                                res.json({error: false, data: {message: 'User_availability created', user_availability: allUaForUser.toJSON(),
@@ -88,33 +88,40 @@ router.post('/user', function(req, res, next) {
 });
 
 router.put('/user', function(req, res, next) {
-  User_Availability.forge({ id: req.body.id })
-                   .fetch({require: true})
-                   .then(function(ua) {
-                     ua.save({ wednesday: req.body.wednesday,
-                               thursday: req.body.thursday,
-                               friday: req.body.friday,
-                               saturday: req.body.saturday,
-                               sunday: req.body.sunday,
-                               monday: req.body.monday,
-                               tuesday: req.body.tuesday })
-                       .then(function(savedUa) {
-                         User_Availability.forge()
-                                          .fetch({require: true})
-                                          .then(function(allUa) {
-                                            res.json({error: false, data: {message: "User Attendance saved", user_availability: allUa}});
-                                          })
-                                          .catch(function(err) {
-                                            res.status(500).json({error: true, data: {message: err.message}});
-                                          });
-                       })
-                       .catch(function(err) {
-                         res.status(500).json({error: true, data: {message: err.message}});
-                       });
-                   })
-                   .catch(function(err) {
-                     res.status(500).json({error: true, data: {message: err.message}});
-                   });
+  User.forge({battletag: req.body.battletag })
+      .fetch({require: true})
+      .then(function(user) {
+        User_Availability.forge({ id: req.body.id })
+                         .fetch({require: true})
+                         .then(function(ua) {
+                           ua.save({ wednesday: req.body.wednesday,
+                                     thursday: req.body.thursday,
+                                     friday: req.body.friday,
+                                     saturday: req.body.saturday,
+                                     sunday: req.body.sunday,
+                                     monday: req.body.monday,
+                                     tuesday: req.body.tuesday })
+                             .then(function(savedUa) {
+                               User_Availability.where({user_id: user.get('id')})
+                                                .fetchAll({require: true})
+                                                .then(function(allUa) {
+                                                  res.json({error: false, data: {message: "User Attendance saved", user_availability: allUa}});
+                                                })
+                                                .catch(function(err) {
+                                                  res.status(500).json({error: true, data: {message: err.message}});
+                                                });
+                             })
+                             .catch(function(err) {
+                               res.status(500).json({error: true, data: {message: err.message}});
+                             });
+                         })
+                         .catch(function(err) {
+                           res.status(500).json({error: true, data: {message: err.message}});
+                         });
+      })
+      .catch(function(err) {
+        res.status(500).json({error: true, data: {message: err.message}});
+      });
 });
 
 router.post('/admin', function(req, res, next) {

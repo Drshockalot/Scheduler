@@ -48,6 +48,7 @@ class ProfileRaidWeeksActions {
   }
 
   saveUserAvailability(ua) {
+    ua.battletag = NavbarStore.getState().battletag;
     $.ajax({
       method: 'PUT',
       url: '/api/raidweek/user',

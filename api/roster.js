@@ -8,10 +8,10 @@ var User = require('./../db/postgres/user');
 var _ = require('underscore');
 
 router.get('/:battletag', function(req, res, next) {
-  User.forge({battletag: req.params.battletag})
+  User.where({battletag: req.params.battletag})
       .fetch({require: true})
       .then(function(user) {
-        Character.forge({ user_id: user.get('id')})
+        Character.where({ user_id: user.get('id')})
                  .fetch({'withRelated': ['rosters']})
                  .then(function(characters) {
                    res.json({error: false, data: {message: 'Data returned', characters: characters.toJSON()}});

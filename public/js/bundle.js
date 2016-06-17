@@ -352,6 +352,7 @@ var ProfileRaidWeeksActions = function () {
     value: function saveUserAvailability(ua) {
       var _this3 = this;
 
+      ua.battletag = _NavbarStore2.default.getState().battletag;
       $.ajax({
         method: 'PUT',
         url: '/api/raidweek/user',
