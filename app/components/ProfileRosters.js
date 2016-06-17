@@ -26,17 +26,24 @@ class ProfileRosters extends React.Component {
   }
 
   render() {
-    // var list;
-    // if(this.state.characters.length > 0) {
-    //   list = this.state.characters.map(function(character, index) {
-    //     return (
-    //       <div className='col-md-4'>
-    //         <h4>{character.name}</h4>
-    //
-    //       </div>
-    //     );
-    //   }, this);
-    // }
+    var list;
+    if(this.state.characters.length > 0) {
+      list = this.state.characters.map(function(character, index) {
+        var rosters;
+        rosters = characters.rosters.map(function(roster, index) {
+          return (
+            <div className='text-center'>{roster.name}</div>
+          );
+        });
+        return (
+          <div className='col-md-4'>
+            <h4 className='text-center'>{character.name}</h4>
+            <br />
+            {rosters}
+          </div>
+        );
+      }, this);
+    }
 
     return (
       <div id='wrapper'>
@@ -45,7 +52,7 @@ class ProfileRosters extends React.Component {
           <div className='container-fluid'>
             <h3>Character Rosters</h3>
             <div className='row'>
-
+              {list}
             </div>
           </div>
         </div>

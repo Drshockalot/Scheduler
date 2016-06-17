@@ -2351,17 +2351,30 @@ var ProfileRosters = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      // var list;
-      // if(this.state.characters.length > 0) {
-      //   list = this.state.characters.map(function(character, index) {
-      //     return (
-      //       <div className='col-md-4'>
-      //         <h4>{character.name}</h4>
-      //
-      //       </div>
-      //     );
-      //   }, this);
-      // }
+      var list;
+      if (this.state.characters.length > 0) {
+        list = this.state.characters.map(function (character, index) {
+          var rosters;
+          rosters = characters.rosters.map(function (roster, index) {
+            return _react2.default.createElement(
+              'div',
+              { className: 'text-center' },
+              roster.name
+            );
+          });
+          return _react2.default.createElement(
+            'div',
+            { className: 'col-md-4' },
+            _react2.default.createElement(
+              'h4',
+              { className: 'text-center' },
+              character.name
+            ),
+            _react2.default.createElement('br', null),
+            rosters
+          );
+        }, this);
+      }
 
       return _react2.default.createElement(
         'div',
@@ -2378,7 +2391,11 @@ var ProfileRosters = function (_React$Component) {
               null,
               'Character Rosters'
             ),
-            _react2.default.createElement('div', { className: 'row' })
+            _react2.default.createElement(
+              'div',
+              { className: 'row' },
+              list
+            )
           )
         )
       );
