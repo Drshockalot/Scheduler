@@ -2355,7 +2355,7 @@ var ProfileRosters = function (_React$Component) {
       if (this.state.characters.length > 0) {
         list = this.state.characters.map(function (character, index) {
           var rosters;
-          if (rosters.length > 0) {
+          if (character.rosters.length > 0) {
             rosters = character.rosters.map(function (roster, index) {
               return _react2.default.createElement(
                 'div',
