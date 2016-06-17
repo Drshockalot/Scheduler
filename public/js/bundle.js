@@ -780,7 +780,7 @@ var RosterManagementActions = function () {
 
       $.ajax({
         method: 'GET',
-        url: '/api/roster/admin'
+        url: '/api/roster/admin/all'
       }).done(function (result) {
         _this.getAllRostersSuccess(result);
         _this.setSelectedRosterName(result.data.rosters[0].name);

@@ -39,7 +39,7 @@ router.post('/admin', function(req, res, next) {
         });
 });
 
-router.get('/admin', function(req, res, next) {
+router.get('/admin/all', function(req, res, next) {
   Roster.forge()
         .fetchAll()
         .then(function(rosters) {

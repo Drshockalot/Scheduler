@@ -21,7 +21,7 @@ class RosterManagementActions {
   getAllRosters() {
     $.ajax({
       method: 'GET',
-      url: '/api/roster/admin'
+      url: '/api/roster/admin/all'
     }).done((result) => {
       this.getAllRostersSuccess(result);
       this.setSelectedRosterName(result.data.rosters[0].name);
