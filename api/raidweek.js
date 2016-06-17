@@ -69,7 +69,7 @@ router.post('/user', function(req, res, next) {
                           .save()
                           .then(function(ua) {
                             User_Availability.where({user_id: user.get('id')})
-                                             .fetch({require: true})
+                                             .fetchAll({require: true})
                                              .then(function(allUaForUser) {
                                                res.json({error: false, data: {message: 'User_availability created', user_availability: allUaForUser.toJSON(),
                                                                                                                     user: user.toJSON()}});
