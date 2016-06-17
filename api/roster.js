@@ -12,7 +12,7 @@ router.get('/:battletag', function(req, res, next) {
       .fetch({require: true})
       .then(function(user) {
         Character.forge({ user_id: user.get('id')})
-                 .fetch({'withRelated': ['rosters']})
+                 .fetchAll({'withRelated': ['rosters']})
                  .then(function(characters) {
                    res.json({error: false, data: {message: 'Data returned', characters: characters.toJSON()}});
                  })
