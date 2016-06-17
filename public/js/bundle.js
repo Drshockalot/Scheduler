@@ -5,8 +5,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _alt = require('../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
@@ -15,28 +13,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var FooterActions = function () {
-  function FooterActions() {
-    _classCallCheck(this, FooterActions);
+var FooterActions = function FooterActions() {
+  _classCallCheck(this, FooterActions);
 
-    this.generateActions('getTopCharactersSuccess', 'getTopCharactersFail');
-  }
-
-  _createClass(FooterActions, [{
-    key: 'getTopCharacters',
-    value: function getTopCharacters() {
-      // $.ajax({ url: '/api/characters/top' })
-      //   .done((data) => {
-      //     this.actions.getTopCharactersSuccess(data)
-      //   })
-      //   .fail((jqXhr) => {
-      //     this.actions.getTopCharactersFail(jqXhr)
-      //   });
-    }
-  }]);
-
-  return FooterActions;
-}();
+  this.generateActions('placeholder');
+};
 
 exports.default = _alt2.default.createActions(FooterActions);
 
@@ -1000,7 +981,6 @@ var Footer = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _FooterStore2.default.listen(this.onChange);
-      _FooterActions2.default.getTopCharacters();
     }
   }, {
     key: 'componentWillUnmount',
@@ -3274,6 +3254,11 @@ var RaidManagement = function (_React$Component) {
               'div',
               { className: 'row' },
               _react2.default.createElement(
+                'h3',
+                null,
+                'Add Raid'
+              ),
+              _react2.default.createElement(
                 'div',
                 { className: 'col-md-6' },
                 _react2.default.createElement(
@@ -4270,8 +4255,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _alt = require('../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
@@ -4284,30 +4267,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var FooterStore = function () {
-  function FooterStore() {
-    _classCallCheck(this, FooterStore);
+var FooterStore = function FooterStore() {
+  _classCallCheck(this, FooterStore);
 
-    this.bindActions(_FooterActions2.default);
-    this.characters = [];
-    this.admins = ['Aeristial', 'Derp', 'Macio', 'Trallas', 'Xenorie'];
-  }
-
-  _createClass(FooterStore, [{
-    key: 'onGetTopCharactersSuccess',
-    value: function onGetTopCharactersSuccess(data) {
-      this.characters = data.slice(0, 5);
-    }
-  }, {
-    key: 'onGetTopCharactersFail',
-    value: function onGetTopCharactersFail(jqXhr) {
-      // Handle multiple response formats, fallback to HTTP status code number.
-      toastr.error(jqXhr.responseJSON && jqXhr.responseJSON.message || jqXhr.responseText || jqXhr.statusText);
-    }
-  }]);
-
-  return FooterStore;
-}();
+  this.bindActions(_FooterActions2.default);
+  this.admins = ['Aeristial', 'Derp', 'Macio', 'Trallas', 'Xenorie'];
+};
 
 exports.default = _alt2.default.createStore(FooterStore);
 

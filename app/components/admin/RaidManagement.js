@@ -39,6 +39,7 @@ class RaidManagement extends React.Component {
         <div id='page-content-wrapper'>
           <div className='container-fluid'>
             <div className='row'>
+              <h3>Add Raid</h3>
               <div className='col-md-6'>
                 <form className='form-horizontal'>
                   <div className='form-group'>
