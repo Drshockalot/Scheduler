@@ -2355,20 +2355,41 @@ var ProfileRosters = function (_React$Component) {
       if (this.state.characters.length > 0) {
         list = this.state.characters.map(function (character, index) {
           var rosters;
-          rosters = character.rosters.map(function (roster, index) {
-            return _react2.default.createElement(
+          if (rosters.length > 0) {
+            rosters = character.rosters.map(function (roster, index) {
+              return _react2.default.createElement(
+                'div',
+                { className: 'text-center' },
+                _react2.default.createElement(
+                  'i',
+                  null,
+                  roster.name
+                )
+              );
+            });
+          } else {
+            rosters = _react2.default.createElement(
               'div',
               { className: 'text-center' },
-              roster.name
+              _react2.default.createElement(
+                'i',
+                null,
+                'No Rosters'
+              )
             );
-          });
+          }
+
           return _react2.default.createElement(
             'div',
             { className: 'col-md-4' },
             _react2.default.createElement(
               'h4',
               { className: 'text-center' },
-              character.name
+              _react2.default.createElement(
+                'strong',
+                null,
+                character.name
+              )
             ),
             _react2.default.createElement('br', null),
             rosters

@@ -30,14 +30,21 @@ class ProfileRosters extends React.Component {
     if(this.state.characters.length > 0) {
       list = this.state.characters.map(function(character, index) {
         var rosters;
-        rosters = character.rosters.map(function(roster, index) {
-          return (
-            <div className='text-center'>{roster.name}</div>
+        if(rosters.length > 0) {
+          rosters = character.rosters.map(function(roster, index) {
+            return (
+              <div className='text-center'><i>{roster.name}</i></div>
+            );
+          });
+        } else {
+          rosters = (
+            <div className='text-center'><i>No Rosters</i></div>
           );
-        });
+        }
+
         return (
           <div className='col-md-4'>
-            <h4 className='text-center'>{character.name}</h4>
+            <h4 className='text-center'><strong>{character.name}</strong></h4>
             <br />
             {rosters}
           </div>
