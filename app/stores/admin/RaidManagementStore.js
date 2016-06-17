@@ -6,6 +6,7 @@ class RaidManagementStore {
     this.bindActions(RaidManagementActions);
     this.formRaidName = '';
     this.formRaidDescription = '';
+    this.raids = [];
   }
 
   onUpdateFormRaidName(e) {
@@ -14,6 +15,15 @@ class RaidManagementStore {
 
   onUpdateFormRaidDescription(e) {
     this.formRaidDescription = e.target.value;
+  }
+
+  onCreateRaidSuccess(result) {
+    this.raids = result.data.raids;
+    toastr.success('Raid Created', 'Success');
+  }
+
+  onCreateRaidFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
   }
 }
 

@@ -33,6 +33,11 @@ class RaidManagement extends React.Component {
   }
 
   render() {
+    var raidList;
+    if(this.state.raidList.length > 0) {
+
+    }
+
     return (
       <div id='wrapper'>
       <AdminSideNav />
@@ -60,7 +65,9 @@ class RaidManagement extends React.Component {
             </div>
             <div className='row'>
               <div className='col-md-6'>
-
+                <select className='form-control' value={this.state.selectedRaid} onChange={e => RaidManagementActions.updateRaidView(e.target.value, this.state.raids)}>
+                  
+                </select>
               </div>
               <div className='col-md-6'>
 

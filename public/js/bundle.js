@@ -594,6 +594,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _alt = require('../../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
@@ -602,11 +604,37 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var RaidManagementActions = function RaidManagementActions() {
-  _classCallCheck(this, RaidManagementActions);
+var RaidManagementActions = function () {
+  function RaidManagementActions() {
+    _classCallCheck(this, RaidManagementActions);
 
-  this.generateActions('updateFormRaidName', 'updateFormRaidDescription');
-};
+    this.generateActions('updateFormRaidName', 'updateFormRaidDescription', 'createRaidSuccess', 'createRaidFailure');
+  }
+
+  _createClass(RaidManagementActions, [{
+    key: 'createRaid',
+    value: function createRaid(raidName, raidDescription) {
+      var _this = this;
+
+      var data = {};
+      data.name = raidName;
+      data.description = raidDescription;
+      $.ajax({
+        method: 'POST',
+        url: '/api/raid/admin',
+        data: data
+      }).done(function (result) {
+        console.log(result);
+        _this.createRaidSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this.createRaidFailure(jqXhr);
+      });
+    }
+  }]);
+
+  return RaidManagementActions;
+}();
 
 exports.default = _alt2.default.createActions(RaidManagementActions);
 
@@ -758,6 +786,7 @@ var RosterManagementActions = function () {
         _this.setSelectedRosterName(result.data.rosters[0].name);
         _this.updateRosterListAfterCharacterChange(result.data.rosters[0].id);
       }).fail(function (jqXhr) {
+        console.log(jqXhr);
         _this.getAllRostersFailure(jqXhr);
       });
       return 0;
@@ -3240,6 +3269,9 @@ var RaidManagement = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
+      var raidList;
+      if (this.state.raidList.length > 0) {}
+
       return _react2.default.createElement(
         'div',
         { id: 'wrapper' },
@@ -3305,7 +3337,13 @@ var RaidManagement = function (_React$Component) {
             _react2.default.createElement(
               'div',
               { className: 'row' },
-              _react2.default.createElement('div', { className: 'col-md-6' }),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-md-6' },
+                _react2.default.createElement('select', { className: 'form-control', value: this.state.selectedRaid, onChange: function onChange(e) {
+                    return _RaidManagementActions2.default.updateRaidView(e.target.value, _this2.state.raids);
+                  } })
+              ),
               _react2.default.createElement('div', { className: 'col-md-6' })
             )
           )
@@ -4862,6 +4900,7 @@ var RaidManagementStore = function () {
     this.bindActions(_RaidManagementActions2.default);
     this.formRaidName = '';
     this.formRaidDescription = '';
+    this.raids = [];
   }
 
   _createClass(RaidManagementStore, [{
@@ -4873,6 +4912,17 @@ var RaidManagementStore = function () {
     key: 'onUpdateFormRaidDescription',
     value: function onUpdateFormRaidDescription(e) {
       this.formRaidDescription = e.target.value;
+    }
+  }, {
+    key: 'onCreateRaidSuccess',
+    value: function onCreateRaidSuccess(result) {
+      this.raids = result.data.raids;
+      toastr.success('Raid Created', 'Success');
+    }
+  }, {
+    key: 'onCreateRaidFailure',
+    value: function onCreateRaidFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
     }
   }]);
 

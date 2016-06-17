@@ -20,6 +20,8 @@ var Auth_Routes = require('./api/auth');
 var User_Routes = require('./api/user');
 var Character_Routes = require('./api/character');
 var RaidWeek_Routes = require('./api/raidweek');
+var Raid_Routes = require('./api/raid');
+var Boss_Routes = require('./api/boss');
 
 var fs = require('fs');
 var cors = require('cors');
@@ -72,7 +74,8 @@ app.use('/auth/', Auth_Routes);
 app.use('/api/user/', User_Routes);
 app.use('/api/character/', Character_Routes);
 app.use('/api/raidweek/', RaidWeek_Routes);
-
+app.use('/api/raid/', Raid_Routes);
+app.use('/api/boss/', Boss_Routes);
 
 app.use(function(req, res) {
   Router.match({ routes: routes.default, location: req.url }, function(err, redirectLocation, renderProps) {

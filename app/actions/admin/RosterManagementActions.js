@@ -27,6 +27,7 @@ class RosterManagementActions {
       this.setSelectedRosterName(result.data.rosters[0].name);
       this.updateRosterListAfterCharacterChange(result.data.rosters[0].id);
     }).fail((jqXhr) => {
+      console.log(jqXhr);
       this.getAllRostersFailure(jqXhr);
     });
     return 0;
