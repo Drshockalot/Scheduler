@@ -2355,7 +2355,7 @@ var ProfileRosters = function (_React$Component) {
       if (this.state.characters.length > 0) {
         list = this.state.characters.map(function (character, index) {
           var rosters;
-          rosters = characters.rosters.map(function (roster, index) {
+          rosters = character.rosters.map(function (roster, index) {
             return _react2.default.createElement(
               'div',
               { className: 'text-center' },
