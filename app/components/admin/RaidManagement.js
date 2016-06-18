@@ -45,7 +45,10 @@ class RaidManagement extends React.Component {
           if(raid.bosses && raid.bosses.length > 0) {
             raidBossList = raid.bosses.map(function(boss, index) {
               return (
-                <div className='text-center'>{boss.name}</div>
+                <tr>
+                  <td>{boss.name}</td>
+                  <td>{boss.description}</td>
+                </tr>
               );
             });
           }
@@ -89,7 +92,15 @@ class RaidManagement extends React.Component {
                   {raidOptionList}
                 </select>
                 <br />
-                {raidBossList}
+                <table className='table'>
+                  <tbody>
+                    <tr>
+                      <td><strong>Name</strong></td>
+                      <td><strong>Description</strong></td>
+                    </tr>
+                    {raidBossList}
+                  </tbody>
+                </table>
               </div>
               <div className='col-md-6'>
                 <h3>Add Boss</h3>

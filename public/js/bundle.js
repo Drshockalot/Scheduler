@@ -3318,9 +3318,18 @@ var RaidManagement = function (_React$Component) {
             if (raid.bosses && raid.bosses.length > 0) {
               raidBossList = raid.bosses.map(function (boss, index) {
                 return _react2.default.createElement(
-                  'div',
-                  { className: 'text-center' },
-                  boss.name
+                  'tr',
+                  null,
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    boss.name
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    boss.description
+                  )
                 );
               });
             }
@@ -3415,7 +3424,37 @@ var RaidManagement = function (_React$Component) {
                   raidOptionList
                 ),
                 _react2.default.createElement('br', null),
-                raidBossList
+                _react2.default.createElement(
+                  'table',
+                  { className: 'table' },
+                  _react2.default.createElement(
+                    'tbody',
+                    null,
+                    _react2.default.createElement(
+                      'tr',
+                      null,
+                      _react2.default.createElement(
+                        'td',
+                        null,
+                        _react2.default.createElement(
+                          'strong',
+                          null,
+                          'Name'
+                        )
+                      ),
+                      _react2.default.createElement(
+                        'td',
+                        null,
+                        _react2.default.createElement(
+                          'strong',
+                          null,
+                          'Description'
+                        )
+                      )
+                    ),
+                    raidBossList
+                  )
+                )
               ),
               _react2.default.createElement(
                 'div',
