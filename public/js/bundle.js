@@ -3307,8 +3307,8 @@ var RaidManagement = function (_React$Component) {
 
           return _react2.default.createElement(
             'option',
-            { key: roster.id, value: roster.name },
-            roster.name
+            { key: raid.id, value: raid.name },
+            raid.name
           );
         }, this);
       }

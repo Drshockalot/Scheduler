@@ -52,7 +52,7 @@ class RaidManagement extends React.Component {
         }
 
         return (
-          <option key={roster.id} value={roster.name}>{roster.name}</option>
+          <option key={raid.id} value={raid.name}>{raid.name}</option>
         );
       }, this);
     }
