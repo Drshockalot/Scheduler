@@ -3335,7 +3335,7 @@ var RaidManagement = function (_React$Component) {
                   'Add Raid'
                 ),
                 _react2.default.createElement(
-                  'form',
+                  'div',
                   { className: 'form-horizontal' },
                   _react2.default.createElement(
                     'div',
@@ -3400,7 +3400,7 @@ var RaidManagement = function (_React$Component) {
                   'Add Boss'
                 ),
                 _react2.default.createElement(
-                  'form',
+                  'div',
                   { className: 'form-horizontal' },
                   _react2.default.createElement(
                     'div',

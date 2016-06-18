@@ -65,7 +65,7 @@ class RaidManagement extends React.Component {
             <div className='row'>
               <div className='col-md-6'>
                 <h3>Add Raid</h3>
-                <form className='form-horizontal'>
+                <div className='form-horizontal'>
                   <div className='form-group'>
                     <label className='col-sm-2 control-label' htmlFor='raidName'>Name</label>
                     <div className='col-sm-10'>
@@ -79,7 +79,7 @@ class RaidManagement extends React.Component {
                     </div>
                   </div>
                   <button className='btn btn-default pull-right' onClick={() => RaidManagementActions.createRaid(this.state.formRaidName, this.state.formRaidDescription)}>Submit</button>
-                </form>
+                </div>
               </div>
             </div>
             <div className='row'>
@@ -92,7 +92,7 @@ class RaidManagement extends React.Component {
               </div>
               <div className='col-md-6'>
                 <h3>Add Boss</h3>
-                <form className='form-horizontal'>
+                <div className='form-horizontal'>
                   <div className='form-group'>
                     <label className='col-sm-2 control-label' htmlFor='bossName'>Name</label>
                     <div className='col-sm-10'>
@@ -106,7 +106,7 @@ class RaidManagement extends React.Component {
                     </div>
                   </div>
                   <button className='btn btn-default pull-right' onClick={() => RaidManagementActions.createBoss(this.state.formBossName, this.state.formBossDescription)}>Submit</button>
-                </form>
+                </div>
               </div>
             </div>
             <div className='row'>
