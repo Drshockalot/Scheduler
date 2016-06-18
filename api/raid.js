@@ -6,7 +6,7 @@ var Boss = require('./../db/postgres/boss');
 
 router.get('/', function(req, res, next) {
   Raid.forge()
-      .fetchAll({require: true})
+      .fetchAll({'withRelated': ['bosses']})
       .then(function(raids) {
         if(raids) {
           res.json({error: false, data: {message: "Raids retrieved", raids: raids.toJSON()}});

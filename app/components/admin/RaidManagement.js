@@ -42,7 +42,7 @@ class RaidManagement extends React.Component {
         if(raid.name === this.state.selectedRaid) {
           currentRaidId = raid.id;
 
-          if(raid.bosses.length > 0) {
+          if(raid.bosses && raid.bosses.length > 0) {
             raidBossList = raid.bosses.map(function(boss, index) {
               return (
                 <div className='text-center'>{boss.name}</div>
@@ -84,6 +84,7 @@ class RaidManagement extends React.Component {
             </div>
             <div className='row'>
               <div className='col-md-6'>
+                <h3>Raids</h3>
                 <select className='form-control' value={this.state.selectedRaid} onChange={e => RaidManagementActions.updateSelectedRaid(e.target.value)}>
                   {raidOptionList}
                 </select>

@@ -3294,7 +3294,7 @@ var RaidManagement = function (_React$Component) {
           if (raid.name === this.state.selectedRaid) {
             currentRaidId = raid.id;
 
-            if (raid.bosses.length > 0) {
+            if (raid.bosses && raid.bosses.length > 0) {
               raidBossList = raid.bosses.map(function (boss, index) {
                 return _react2.default.createElement(
                   'div',
@@ -3381,6 +3381,11 @@ var RaidManagement = function (_React$Component) {
               _react2.default.createElement(
                 'div',
                 { className: 'col-md-6' },
+                _react2.default.createElement(
+                  'h3',
+                  null,
+                  'Raids'
+                ),
                 _react2.default.createElement(
                   'select',
                   { className: 'form-control', value: this.state.selectedRaid, onChange: function onChange(e) {
