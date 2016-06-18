@@ -5,6 +5,8 @@ class RaidManagementActions {
     this.generateActions(
       'updateFormRaidName',
       'updateFormRaidDescription',
+      'updateFormBossName',
+      'updateFormBossDescription',
       'createRaidSuccess',
       'createRaidFailure',
       'loadRaidsSuccess',

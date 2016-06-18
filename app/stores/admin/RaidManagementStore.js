@@ -20,6 +20,14 @@ class RaidManagementStore {
     this.formRaidDescription = e.target.value;
   }
 
+  onUpdateFormBossName(e) {
+    this.formBossName = e.target.value;
+  }
+
+  onUpdateFormBossDescription(e) {
+    this.formBossDescription = e.target.value;
+  }
+
   onUpdateSelectedRaid(value) {
     this.selectedRaid = value;
   }

@@ -608,7 +608,7 @@ var RaidManagementActions = function () {
   function RaidManagementActions() {
     _classCallCheck(this, RaidManagementActions);
 
-    this.generateActions('updateFormRaidName', 'updateFormRaidDescription', 'createRaidSuccess', 'createRaidFailure', 'loadRaidsSuccess', 'loadRaidsFailure', 'updateSelectedRaid', 'createBossSuccess', 'createBossFailure');
+    this.generateActions('updateFormRaidName', 'updateFormRaidDescription', 'updateFormBossName', 'updateFormBossDescription', 'createRaidSuccess', 'createRaidFailure', 'loadRaidsSuccess', 'loadRaidsFailure', 'updateSelectedRaid', 'createBossSuccess', 'createBossFailure');
   }
 
   _createClass(RaidManagementActions, [{
@@ -5036,6 +5036,16 @@ var RaidManagementStore = function () {
     key: 'onUpdateFormRaidDescription',
     value: function onUpdateFormRaidDescription(e) {
       this.formRaidDescription = e.target.value;
+    }
+  }, {
+    key: 'onUpdateFormBossName',
+    value: function onUpdateFormBossName(e) {
+      this.formBossName = e.target.value;
+    }
+  }, {
+    key: 'onUpdateFormBossDescription',
+    value: function onUpdateFormBossDescription(e) {
+      this.formBossDescription = e.target.value;
     }
   }, {
     key: 'onUpdateSelectedRaid',
