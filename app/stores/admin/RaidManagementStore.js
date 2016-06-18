@@ -37,10 +37,19 @@ class RaidManagementStore {
 
   onCreateRaidSuccess(result) {
     this.raids = result.data.raids;
-    toastr.success('Raid Created', 'Success');
+    toastr.success('Raid created', 'Success');
   }
 
   onCreateRaidFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
+
+  onCreateBossSuccess(result) {
+    this.raids = result.data.raids;
+    toastr.success('Boss created', Success);
+  }
+
+  onCreateBossFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
   }
 }

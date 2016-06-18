@@ -9,7 +9,9 @@ class RaidManagementActions {
       'createRaidFailure',
       'loadRaidsSuccess',
       'loadRaidsFailure',
-      'updateSelectedRaid'
+      'updateSelectedRaid',
+      'createBossSuccess',
+      'createBossFailure'
     );
   }
 
@@ -40,6 +42,24 @@ class RaidManagementActions {
     }).fail((jqXhr) => {
       console.log(jqXhr);
       this.createRaidFailure(jqXhr);
+    });
+  }
+
+  createBoss(bossName, bossDescription, raidId) {
+    var data = {};
+    data.name = bossName;
+    data.description = bossDescription;
+    data.raidId = raidId;
+    $.ajax({
+      method: 'POST',
+      url: '/api/boss/admin',
+      data: data
+    }).done((result) => {
+      console.log(result);
+      this.createBossSuccess(result);
+    }).fail((jqXhr) => {
+      console.log(jqXhr);
+      this.createBossFailure(jqXhr);
     });
   }
 }

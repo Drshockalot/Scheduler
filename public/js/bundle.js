@@ -608,7 +608,7 @@ var RaidManagementActions = function () {
   function RaidManagementActions() {
     _classCallCheck(this, RaidManagementActions);
 
-    this.generateActions('updateFormRaidName', 'updateFormRaidDescription', 'createRaidSuccess', 'createRaidFailure', 'loadRaidsSuccess', 'loadRaidsFailure', 'updateSelectedRaid');
+    this.generateActions('updateFormRaidName', 'updateFormRaidDescription', 'createRaidSuccess', 'createRaidFailure', 'loadRaidsSuccess', 'loadRaidsFailure', 'updateSelectedRaid', 'createBossSuccess', 'createBossFailure');
   }
 
   _createClass(RaidManagementActions, [{
@@ -645,6 +645,27 @@ var RaidManagementActions = function () {
       }).fail(function (jqXhr) {
         console.log(jqXhr);
         _this2.createRaidFailure(jqXhr);
+      });
+    }
+  }, {
+    key: 'createBoss',
+    value: function createBoss(bossName, bossDescription, raidId) {
+      var _this3 = this;
+
+      var data = {};
+      data.name = bossName;
+      data.description = bossDescription;
+      data.raidId = raidId;
+      $.ajax({
+        method: 'POST',
+        url: '/api/boss/admin',
+        data: data
+      }).done(function (result) {
+        console.log(result);
+        _this3.createBossSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this3.createBossFailure(jqXhr);
       });
     }
   }]);
@@ -3438,7 +3459,7 @@ var RaidManagement = function (_React$Component) {
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-default pull-right', onClick: function onClick() {
-                        return _RaidManagementActions2.default.createBoss(_this2.state.formBossName, _this2.state.formBossDescription);
+                        return _RaidManagementActions2.default.createBoss(_this2.state.formBossName, _this2.state.formBossDescription, currentRaidId);
                       } },
                     'Submit'
                   )
@@ -5038,11 +5059,22 @@ var RaidManagementStore = function () {
     key: 'onCreateRaidSuccess',
     value: function onCreateRaidSuccess(result) {
       this.raids = result.data.raids;
-      toastr.success('Raid Created', 'Success');
+      toastr.success('Raid created', 'Success');
     }
   }, {
     key: 'onCreateRaidFailure',
     value: function onCreateRaidFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onCreateBossSuccess',
+    value: function onCreateBossSuccess(result) {
+      this.raids = result.data.raids;
+      toastr.success('Boss created', Success);
+    }
+  }, {
+    key: 'onCreateBossFailure',
+    value: function onCreateBossFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
     }
   }]);

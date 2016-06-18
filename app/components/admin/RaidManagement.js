@@ -106,7 +106,7 @@ class RaidManagement extends React.Component {
                       <textarea className='form-control' name='bossDescription' value={this.state.formBossDescription} onChange={RaidManagementActions.updateFormBossDescription} />
                     </div>
                   </div>
-                  <button className='btn btn-default pull-right' onClick={() => RaidManagementActions.createBoss(this.state.formBossName, this.state.formBossDescription)}>Submit</button>
+                  <button className='btn btn-default pull-right' onClick={() => RaidManagementActions.createBoss(this.state.formBossName, this.state.formBossDescription, currentRaidId)}>Submit</button>
                 </div>
               </div>
             </div>
