@@ -608,13 +608,29 @@ var RaidManagementActions = function () {
   function RaidManagementActions() {
     _classCallCheck(this, RaidManagementActions);
 
-    this.generateActions('updateFormRaidName', 'updateFormRaidDescription', 'createRaidSuccess', 'createRaidFailure');
+    this.generateActions('updateFormRaidName', 'updateFormRaidDescription', 'createRaidSuccess', 'createRaidFailure', 'loadRaidsSuccess', 'loadRaidsFailure', 'updateSelectedRaid');
   }
 
   _createClass(RaidManagementActions, [{
+    key: 'loadRaids',
+    value: function loadRaids() {
+      var _this = this;
+
+      $.ajax({
+        method: 'GET',
+        url: '/api/raid'
+      }).done(function (result) {
+        console.log(result);
+        _this.loadRaidsSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this.loadRaidsFailure(jqXhr);
+      });
+    }
+  }, {
     key: 'createRaid',
     value: function createRaid(raidName, raidDescription) {
-      var _this = this;
+      var _this2 = this;
 
       var data = {};
       data.name = raidName;
@@ -625,10 +641,10 @@ var RaidManagementActions = function () {
         data: data
       }).done(function (result) {
         console.log(result);
-        _this.createRaidSuccess(result);
+        _this2.createRaidSuccess(result);
       }).fail(function (jqXhr) {
         console.log(jqXhr);
-        _this.createRaidFailure(jqXhr);
+        _this2.createRaidFailure(jqXhr);
       });
     }
   }]);
@@ -3253,6 +3269,7 @@ var RaidManagement = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _RaidManagementStore2.default.listen(this.onChange);
+      _RaidManagementActions2.default.loadRaids();
     }
   }, {
     key: 'componentWillUnmount',
@@ -3269,8 +3286,32 @@ var RaidManagement = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      var raidList;
-      if (this.state.raidList.length > 0) {}
+      var currentRaidId;
+      var raidOptionList;
+      var raidBossList;
+      if (this.state.raids.length > 0) {
+        raidOptionList = this.state.raids.map(function (raid, index) {
+          if (raid.name === this.state.selectedRaid) {
+            currentRaidId = raid.id;
+
+            if (raid.bosses.length > 0) {
+              raidBossList = raid.bosses.map(function (boss, index) {
+                return _react2.default.createElement(
+                  'div',
+                  { className: 'text-center' },
+                  boss.name
+                );
+              });
+            }
+          }
+
+          return _react2.default.createElement(
+            'option',
+            { key: roster.id, value: roster.name },
+            roster.name
+          );
+        }, this);
+      }
 
       return _react2.default.createElement(
         'div',
@@ -3286,13 +3327,13 @@ var RaidManagement = function (_React$Component) {
               'div',
               { className: 'row' },
               _react2.default.createElement(
-                'h3',
-                null,
-                'Add Raid'
-              ),
-              _react2.default.createElement(
                 'div',
                 { className: 'col-md-6' },
+                _react2.default.createElement(
+                  'h3',
+                  null,
+                  'Add Raid'
+                ),
                 _react2.default.createElement(
                   'form',
                   { className: 'form-horizontal' },
@@ -3321,13 +3362,13 @@ var RaidManagement = function (_React$Component) {
                     _react2.default.createElement(
                       'div',
                       { className: 'col-sm-10' },
-                      _react2.default.createElement('textarea', { className: 'form-control', name: 'description', value: this.state.formRaidDescription, onChange: _RaidManagementActions2.default.updateFormRaidDescription })
+                      _react2.default.createElement('textarea', { className: 'form-control', name: 'raidDescription', value: this.state.formRaidDescription, onChange: _RaidManagementActions2.default.updateFormRaidDescription })
                     )
                   ),
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-default pull-right', onClick: function onClick() {
-                        return _RaidManagementActions2.default.createRaid(_this2.state.raidName, _this2.state.raidDescription);
+                        return _RaidManagementActions2.default.createRaid(_this2.state.formRaidName, _this2.state.formRaidDescription);
                       } },
                     'Submit'
                   )
@@ -3340,12 +3381,66 @@ var RaidManagement = function (_React$Component) {
               _react2.default.createElement(
                 'div',
                 { className: 'col-md-6' },
-                _react2.default.createElement('select', { className: 'form-control', value: this.state.selectedRaid, onChange: function onChange(e) {
-                    return _RaidManagementActions2.default.updateRaidView(e.target.value, _this2.state.raids);
-                  } })
+                _react2.default.createElement(
+                  'select',
+                  { className: 'form-control', value: this.state.selectedRaid, onChange: function onChange(e) {
+                      return _RaidManagementActions2.default.updateSelectedRaid(e.target.value);
+                    } },
+                  raidOptionList
+                ),
+                _react2.default.createElement('br', null),
+                raidBossList
               ),
-              _react2.default.createElement('div', { className: 'col-md-6' })
-            )
+              _react2.default.createElement(
+                'div',
+                { className: 'col-md-6' },
+                _react2.default.createElement(
+                  'h3',
+                  null,
+                  'Add Boss'
+                ),
+                _react2.default.createElement(
+                  'form',
+                  { className: 'form-horizontal' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'form-group' },
+                    _react2.default.createElement(
+                      'label',
+                      { className: 'col-sm-2 control-label', htmlFor: 'bossName' },
+                      'Name'
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-10' },
+                      _react2.default.createElement('input', { type: 'text', className: 'form-control', id: 'bossName', placeholder: '...', value: this.state.formBossName, onChange: _RaidManagementActions2.default.updateFormBossName })
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'form-group' },
+                    _react2.default.createElement(
+                      'label',
+                      { className: 'col-sm-2 control-label', htmlFor: 'bossDescription' },
+                      'Description'
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-10' },
+                      _react2.default.createElement('textarea', { className: 'form-control', name: 'bossDescription', value: this.state.formBossDescription, onChange: _RaidManagementActions2.default.updateFormBossDescription })
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'button',
+                    { className: 'btn btn-default pull-right', onClick: function onClick() {
+                        return _RaidManagementActions2.default.createBoss(_this2.state.formBossName, _this2.state.formBossDescription);
+                      } },
+                    'Submit'
+                  )
+                )
+              )
+            ),
+            _react2.default.createElement('div', { className: 'row' })
           )
         )
       );
@@ -4901,6 +4996,9 @@ var RaidManagementStore = function () {
     this.formRaidName = '';
     this.formRaidDescription = '';
     this.raids = [];
+    this.selectedRaid = '';
+    this.bossName = '';
+    this.bossDescription = '';
   }
 
   _createClass(RaidManagementStore, [{
@@ -4912,6 +5010,24 @@ var RaidManagementStore = function () {
     key: 'onUpdateFormRaidDescription',
     value: function onUpdateFormRaidDescription(e) {
       this.formRaidDescription = e.target.value;
+    }
+  }, {
+    key: 'onUpdateSelectedRaid',
+    value: function onUpdateSelectedRaid(value) {
+      this.selectedRaid = value;
+    }
+  }, {
+    key: 'onLoadRaidsSuccess',
+    value: function onLoadRaidsSuccess(result) {
+      this.raids = result.data.raids;
+      if (this.raids.length > 0) {
+        this.selectedRaid = this.raids[0].name;
+      }
+    }
+  }, {
+    key: 'onLoadRaidsFailure',
+    value: function onLoadRaidsFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
     }
   }, {
     key: 'onCreateRaidSuccess',

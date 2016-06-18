@@ -6,8 +6,24 @@ class RaidManagementActions {
       'updateFormRaidName',
       'updateFormRaidDescription',
       'createRaidSuccess',
-      'createRaidFailure'
+      'createRaidFailure',
+      'loadRaidsSuccess',
+      'loadRaidsFailure',
+      'updateSelectedRaid'
     );
+  }
+
+  loadRaids() {
+    $.ajax({
+      method: 'GET',
+      url: '/api/raid'
+    }).done((result) => {
+      console.log(result);
+      this.loadRaidsSuccess(result);
+    }).fail((jqXhr) => {
+      console.log(jqXhr);
+      this.loadRaidsFailure(jqXhr);
+    });
   }
 
   createRaid(raidName, raidDescription) {

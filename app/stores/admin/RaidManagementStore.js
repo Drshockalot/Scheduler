@@ -7,6 +7,9 @@ class RaidManagementStore {
     this.formRaidName = '';
     this.formRaidDescription = '';
     this.raids = [];
+    this.selectedRaid = '';
+    this.bossName = '';
+    this.bossDescription = '';
   }
 
   onUpdateFormRaidName(e) {
@@ -15,6 +18,21 @@ class RaidManagementStore {
 
   onUpdateFormRaidDescription(e) {
     this.formRaidDescription = e.target.value;
+  }
+
+  onUpdateSelectedRaid(value) {
+    this.selectedRaid = value;
+  }
+
+  onLoadRaidsSuccess(result) {
+    this.raids = result.data.raids;
+    if(this.raids.length > 0) {
+      this.selectedRaid = this.raids[0].name;
+    }
+  }
+
+  onLoadRaidsFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
   }
 
   onCreateRaidSuccess(result) {
