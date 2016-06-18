@@ -46,7 +46,7 @@ class RaidManagementStore {
 
   onCreateBossSuccess(result) {
     this.raids = result.data.raids;
-    toastr.success('Boss created', Success);
+    toastr.success('Boss created', 'Success');
   }
 
   onCreateBossFailure(jqXhr) {
