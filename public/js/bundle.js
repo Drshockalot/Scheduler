@@ -3465,7 +3465,7 @@ var RaidManagement = function (_React$Component) {
                   { className: 'row' },
                   _react2.default.createElement(
                     'div',
-                    { classname: 'col-md-10' },
+                    { className: 'col-md-10' },
                     _react2.default.createElement(
                       'select',
                       { className: 'form-control', value: this.state.selectedRaid, onChange: function onChange(e) {

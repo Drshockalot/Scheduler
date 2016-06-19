@@ -92,7 +92,7 @@ class RaidManagement extends React.Component {
               <div className='col-md-6'>
                 <h3>Raids</h3>
                 <div className='row'>
-                  <div classname='col-md-10'>
+                  <div className='col-md-10'>
                     <select className='form-control' value={this.state.selectedRaid} onChange={e => RaidManagementActions.updateSelectedRaid(e.target.value)}>
                       {raidOptionList}
                     </select>
