@@ -16,7 +16,9 @@ class RaidManagementActions {
       'createBossFailure',
       'editBoss',
       'deleteBossSuccess',
-      'deleteBossFailure'
+      'deleteBossFailure',
+      'deleteRaidSuccess',
+      'deleteRaidFailure'
     );
   }
 

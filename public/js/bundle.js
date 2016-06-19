@@ -608,7 +608,7 @@ var RaidManagementActions = function () {
   function RaidManagementActions() {
     _classCallCheck(this, RaidManagementActions);
 
-    this.generateActions('updateFormRaidName', 'updateFormRaidDescription', 'updateFormBossName', 'updateFormBossDescription', 'createRaidSuccess', 'createRaidFailure', 'loadRaidsSuccess', 'loadRaidsFailure', 'updateSelectedRaid', 'createBossSuccess', 'createBossFailure', 'editBoss', 'deleteBossSuccess', 'deleteBossFailure');
+    this.generateActions('updateFormRaidName', 'updateFormRaidDescription', 'updateFormBossName', 'updateFormBossDescription', 'createRaidSuccess', 'createRaidFailure', 'loadRaidsSuccess', 'loadRaidsFailure', 'updateSelectedRaid', 'createBossSuccess', 'createBossFailure', 'editBoss', 'deleteBossSuccess', 'deleteBossFailure', 'deleteRaidSuccess', 'deleteRaidFailure');
   }
 
   _createClass(RaidManagementActions, [{
