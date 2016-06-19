@@ -24,4 +24,28 @@ router.post('/admin', function(req, res, next) {
       });
 });
 
+router.delete('/admin', function(req, res, next) {
+  Boss.forge({id: req.body.id})
+      .fetch({require: true})
+      .then(function(boss) {
+        boss.destroy()
+            .then(function() {
+              Raid.forge()
+                  .fetchAll({'withRelated': ['bosses']})
+                  .then(function(raids) {
+                    res.json({error: false, data: {message: 'Boss deleted', raids: raids.toJSON()}});
+                  })
+                  .catch(function(err) {
+                    res.status(500).json({error: true, data: {message: err.message}});
+                  })
+            })
+            .catch(function(err) {
+              res.status(500).json({error: true, data: {message: err.message}});
+            });
+      })
+      .catch(function(err) {
+        res.status(500).json({error: true, data: {message: err.message}});
+      });
+});
+
 module.exports = router;

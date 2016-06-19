@@ -13,7 +13,10 @@ class RaidManagementActions {
       'loadRaidsFailure',
       'updateSelectedRaid',
       'createBossSuccess',
-      'createBossFailure'
+      'createBossFailure',
+      'editBoss',
+      'deleteBossSuccess',
+      'deleteBossFailure'
     );
   }
 
@@ -47,6 +50,19 @@ class RaidManagementActions {
     });
   }
 
+  deleteRaid(raidId) {
+    $.ajax({
+      method: 'DELETE',
+      url: '/api/raid/admin/' + raidId
+    }).done((result) => {
+      console.log(result);
+      this.deleteRaidSuccess(result);
+    }).fail((jqXhr) => {
+      console.log(jqXhr);
+      this.deleteRaidFailure(jqXhr);
+    });
+  }
+
   createBoss(bossName, bossDescription, raidId) {
     var data = {};
     data.name = bossName;
@@ -62,6 +78,20 @@ class RaidManagementActions {
     }).fail((jqXhr) => {
       console.log(jqXhr);
       this.createBossFailure(jqXhr);
+    });
+  }
+
+  deleteBoss(boss) {
+    $.ajax({
+      method: 'DELETE',
+      url: '/api/boss/admin',
+      data: boss
+    }).done((result) => {
+      console.log(result);
+      this.deleteBossSuccess(result);
+    }).fail((jqXhr) => {
+      console.log(jqXhr);
+      this.deleteBossFailure(jqXhr);
     });
   }
 }

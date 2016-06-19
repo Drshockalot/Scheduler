@@ -48,6 +48,9 @@ class RaidManagement extends React.Component {
                 <tr>
                   <td>{boss.name}</td>
                   <td>{boss.description}</td>
+                  <td>
+                    <button className='btn btn-danger' onClick={() => RaidManagementActions.deleteBoss(boss)}>Delete</button>
+                  </td>
                 </tr>
               );
             });
@@ -88,15 +91,24 @@ class RaidManagement extends React.Component {
             <div className='row'>
               <div className='col-md-6'>
                 <h3>Raids</h3>
-                <select className='form-control' value={this.state.selectedRaid} onChange={e => RaidManagementActions.updateSelectedRaid(e.target.value)}>
-                  {raidOptionList}
-                </select>
+                <div className='row'>
+                  <div classname='col-md-10'>
+                    <select className='form-control' value={this.state.selectedRaid} onChange={e => RaidManagementActions.updateSelectedRaid(e.target.value)}>
+                      {raidOptionList}
+                    </select>
+                  </div>
+                  <div className='col-md-2'>
+                    <button className='btn btn-danger' onClick={() => RaidManagementActions.deleteRaid(currentRaidId)}>Delete</button>
+                  </div>
+                </div>
                 <br />
                 <table className='table'>
                   <tbody>
                     <tr>
                       <td><strong>Name</strong></td>
                       <td><strong>Description</strong></td>
+                      <td></td>
+                      <td></td>
                     </tr>
                     {raidBossList}
                   </tbody>

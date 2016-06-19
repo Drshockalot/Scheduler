@@ -60,6 +60,32 @@ class RaidManagementStore {
   onCreateBossFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
   }
+
+  onEditBoss(boss) {
+    this.formBossName = boss.name;
+    this.formBossDescription = boss.description;
+  }
+
+  onDeleteBossSuccess(result) {
+    this.raids = result.data.raids;
+    toastr.success('Boss deleted', 'Success');
+  }
+
+  onDeleteBossFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
+
+  onDeleteRaidSuccess(result) {
+    this.raids = result.data.raids;
+    if(this.raids.length > 0) {
+      this.selectedRaid = this.raids[0].name;
+    }
+    toastr.success('Raid deleted', 'Success');
+  }
+
+  onDeleteRaidFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
 }
 
 export default alt.createStore(RaidManagementStore);

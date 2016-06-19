@@ -42,4 +42,28 @@ router.post('/admin', function(req, res, next) {
       });
 });
 
+router.delete('/admin/:raidid', function(req, res, next) {
+  Raid.forge({id: req.params.raidid})
+      .fetch({require: true})
+      .then(function(raid) {
+        raid.destroy()
+            .then(function() {
+              Raid.forge()
+                  .fetchAll({'withRelated': ['bosses']})
+                  .then(function(raids) {
+                    res.json({error: false, data: {message: "Raid deleted", raids: raids.toJSON()}});
+                  })
+                  .catch(function(err) {
+                    res.status(500).json({error: true, data: {message: err.message}});
+                  });
+            })
+            .catch(function(err) {
+              res.status(500).json({error: true, data: {message: err.message}});
+            });
+      })
+      .catch(function(err) {
+        res.status(500).json({error: true, data: {message: err.message}});
+      });
+});
+
 module.exports = router;

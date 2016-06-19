@@ -608,7 +608,7 @@ var RaidManagementActions = function () {
   function RaidManagementActions() {
     _classCallCheck(this, RaidManagementActions);
 
-    this.generateActions('updateFormRaidName', 'updateFormRaidDescription', 'updateFormBossName', 'updateFormBossDescription', 'createRaidSuccess', 'createRaidFailure', 'loadRaidsSuccess', 'loadRaidsFailure', 'updateSelectedRaid', 'createBossSuccess', 'createBossFailure');
+    this.generateActions('updateFormRaidName', 'updateFormRaidDescription', 'updateFormBossName', 'updateFormBossDescription', 'createRaidSuccess', 'createRaidFailure', 'loadRaidsSuccess', 'loadRaidsFailure', 'updateSelectedRaid', 'createBossSuccess', 'createBossFailure', 'editBoss', 'deleteBossSuccess', 'deleteBossFailure');
   }
 
   _createClass(RaidManagementActions, [{
@@ -648,9 +648,25 @@ var RaidManagementActions = function () {
       });
     }
   }, {
+    key: 'deleteRaid',
+    value: function deleteRaid(raidId) {
+      var _this3 = this;
+
+      $.ajax({
+        method: 'DELETE',
+        url: '/api/raid/admin/' + raidId
+      }).done(function (result) {
+        console.log(result);
+        _this3.deleteRaidSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this3.deleteRaidFailure(jqXhr);
+      });
+    }
+  }, {
     key: 'createBoss',
     value: function createBoss(bossName, bossDescription, raidId) {
-      var _this3 = this;
+      var _this4 = this;
 
       var data = {};
       data.name = bossName;
@@ -662,10 +678,27 @@ var RaidManagementActions = function () {
         data: data
       }).done(function (result) {
         console.log(result);
-        _this3.createBossSuccess(result);
+        _this4.createBossSuccess(result);
       }).fail(function (jqXhr) {
         console.log(jqXhr);
-        _this3.createBossFailure(jqXhr);
+        _this4.createBossFailure(jqXhr);
+      });
+    }
+  }, {
+    key: 'deleteBoss',
+    value: function deleteBoss(boss) {
+      var _this5 = this;
+
+      $.ajax({
+        method: 'DELETE',
+        url: '/api/boss/admin',
+        data: boss
+      }).done(function (result) {
+        console.log(result);
+        _this5.deleteBossSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this5.deleteBossFailure(jqXhr);
       });
     }
   }]);
@@ -3329,6 +3362,17 @@ var RaidManagement = function (_React$Component) {
                     'td',
                     null,
                     boss.description
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    _react2.default.createElement(
+                      'button',
+                      { className: 'btn btn-danger', onClick: function onClick() {
+                          return _RaidManagementActions2.default.deleteBoss(boss);
+                        } },
+                      'Delete'
+                    )
                   )
                 );
               });
@@ -3417,11 +3461,30 @@ var RaidManagement = function (_React$Component) {
                   'Raids'
                 ),
                 _react2.default.createElement(
-                  'select',
-                  { className: 'form-control', value: this.state.selectedRaid, onChange: function onChange(e) {
-                      return _RaidManagementActions2.default.updateSelectedRaid(e.target.value);
-                    } },
-                  raidOptionList
+                  'div',
+                  { className: 'row' },
+                  _react2.default.createElement(
+                    'div',
+                    { classname: 'col-md-10' },
+                    _react2.default.createElement(
+                      'select',
+                      { className: 'form-control', value: this.state.selectedRaid, onChange: function onChange(e) {
+                          return _RaidManagementActions2.default.updateSelectedRaid(e.target.value);
+                        } },
+                      raidOptionList
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'col-md-2' },
+                    _react2.default.createElement(
+                      'button',
+                      { className: 'btn btn-danger', onClick: function onClick() {
+                          return _RaidManagementActions2.default.deleteRaid(currentRaidId);
+                        } },
+                      'Delete'
+                    )
+                  )
                 ),
                 _react2.default.createElement('br', null),
                 _react2.default.createElement(
@@ -3450,7 +3513,9 @@ var RaidManagement = function (_React$Component) {
                           null,
                           'Description'
                         )
-                      )
+                      ),
+                      _react2.default.createElement('td', null),
+                      _react2.default.createElement('td', null)
                     ),
                     raidBossList
                   )
@@ -5124,6 +5189,37 @@ var RaidManagementStore = function () {
   }, {
     key: 'onCreateBossFailure',
     value: function onCreateBossFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onEditBoss',
+    value: function onEditBoss(boss) {
+      this.formBossName = boss.name;
+      this.formBossDescription = boss.description;
+    }
+  }, {
+    key: 'onDeleteBossSuccess',
+    value: function onDeleteBossSuccess(result) {
+      this.raids = result.data.raids;
+      toastr.success('Boss deleted', 'Success');
+    }
+  }, {
+    key: 'onDeleteBossFailure',
+    value: function onDeleteBossFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onDeleteRaidSuccess',
+    value: function onDeleteRaidSuccess(result) {
+      this.raids = result.data.raids;
+      if (this.raids.length > 0) {
+        this.selectedRaid = this.raids[0].name;
+      }
+      toastr.success('Raid deleted', 'Success');
+    }
+  }, {
+    key: 'onDeleteRaidFailure',
+    value: function onDeleteRaidFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
     }
   }]);
