@@ -5173,6 +5173,8 @@ var RaidManagementStore = function () {
     key: 'onCreateRaidSuccess',
     value: function onCreateRaidSuccess(result) {
       this.raids = result.data.raids;
+      this.formRaidName = '';
+      this.formRaidDescription = '';
       toastr.success('Raid created', 'Success');
     }
   }, {
@@ -5184,6 +5186,8 @@ var RaidManagementStore = function () {
     key: 'onCreateBossSuccess',
     value: function onCreateBossSuccess(result) {
       this.raids = result.data.raids;
+      this.formBossName = '';
+      this.formBossDescription = '';
       toastr.success('Boss created', 'Success');
     }
   }, {

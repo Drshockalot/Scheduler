@@ -45,6 +45,8 @@ class RaidManagementStore {
 
   onCreateRaidSuccess(result) {
     this.raids = result.data.raids;
+    this.formRaidName = '';
+    this.formRaidDescription = '';
     toastr.success('Raid created', 'Success');
   }
 
@@ -54,6 +56,8 @@ class RaidManagementStore {
 
   onCreateBossSuccess(result) {
     this.raids = result.data.raids;
+    this.formBossName = '';
+    this.formBossDescription = '';
     toastr.success('Boss created', 'Success');
   }
 
