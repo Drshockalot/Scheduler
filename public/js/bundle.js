@@ -945,6 +945,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _alt = require('./../../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
@@ -953,11 +955,53 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var ScheduleManagementActions = function ScheduleManagementActions() {
-  _classCallCheck(this, ScheduleManagementActions);
+var ScheduleManagementActions = function () {
+  function ScheduleManagementActions() {
+    _classCallCheck(this, ScheduleManagementActions);
 
-  this.generateActions('placeholder');
-};
+    this.generateActions('updateFormRaidWeek', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeek', 'updateSelectedSchedule', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure');
+  }
+
+  _createClass(ScheduleManagementActions, [{
+    key: 'loadComponentData',
+    value: function loadComponentData() {
+      var _this = this;
+
+      $.ajax({
+        method: 'GET',
+        url: '/api/schedule'
+      }).done(function (result) {
+        console.log(result);
+        _this.loadComponentDataSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this.loadComponentDataFailure(jqXhr);
+      });
+    }
+  }, {
+    key: 'createSchedule',
+    value: function createSchedule(raidWeekId, scheduleName, scheduleDescription) {
+      var _this2 = this;
+
+      var data = { raidWeekId: raidWeekId,
+        scheduleName: scheduleName,
+        scheduleDescription: scheduleDescription };
+      $.ajax({
+        method: 'POST',
+        url: '/api/schedule/admin',
+        data: data
+      }).done(function (result) {
+        console.log(result);
+        _this2.createScheduleSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this2.createScheduleFailure(jqXhr);
+      });
+    }
+  }]);
+
+  return ScheduleManagementActions;
+}();
 
 exports.default = _alt2.default.createActions(ScheduleManagementActions);
 
@@ -4366,6 +4410,7 @@ var ScheduleManagement = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _ScheduleManagementStore2.default.listen(this.onChange);
+      _ScheduleManagementActions2.default.loadComponentData();
     }
   }, {
     key: 'componentWillUnmount',
@@ -4380,6 +4425,50 @@ var ScheduleManagement = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
+      var raidWeekOptions, selectedRaidWeekOptions, selectedScheduleOptions;
+      var formRaidWeekId, selectedRaidWeekId, selectedScheduleId;
+      if (this.state.raidweeks.length > 0) {
+        raidWeekOptions = this.state.raidweeks.map(function (raidweek, index) {
+          if (moment(raidweek.start).format('W') === moment(this.state.formRaidWeek.start).format('W')) {
+            formRaidWeekId = raidweek.id;
+          }
+
+          return _react2.default.createElement(
+            'option',
+            { key: raidweek.id, value: raidweek },
+            moment(raidweek.start.format('W'))
+          );
+        }, this);
+
+        selectedRaidWeekOptions = this.state.raidweeks.map(function (raidweek, index) {
+          if (moment(raidweek.start).format('W') === moment(this.state.selectedRaidWeek.start).format('W')) {
+            selectedRaidWeekId = raidweek.id;
+          }
+
+          return _react2.default.createElement(
+            'option',
+            { key: raidweek.id, value: raidweek },
+            moment(raidweek.start.format('W'))
+          );
+        }, this);
+      }
+
+      if (this.state.schedules.length > 0) {
+        selectedScheduleOptions = this.state.schedules.map(function (schedule, index) {
+          if (schedule.name === this.state.selectedSchedule.name) {
+            selectedScheduleId = schedule.id;
+          }
+
+          return _react2.default.createElement(
+            'option',
+            { key: schedule.id, value: schedule },
+            schedule.name
+          );
+        }, this);
+      }
+
       return _react2.default.createElement(
         'div',
         { id: 'wrapper' },
@@ -4390,7 +4479,107 @@ var ScheduleManagement = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'container-fluid' },
-            _react2.default.createElement('div', { className: 'row' })
+            _react2.default.createElement(
+              'div',
+              { className: 'row' },
+              _react2.default.createElement(
+                'h3',
+                null,
+                'Create Schedule'
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-md-6' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'form-horizontal' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'form-group' },
+                    _react2.default.createElement(
+                      'label',
+                      { className: 'col-sm-2 control-label', htmlFor: 'scheduleRaidWeek' },
+                      'Raid Week'
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-10' },
+                      _react2.default.createElement(
+                        'select',
+                        { className: 'form-control', id: 'scheduleRaidWeek', value: this.state.formRaidWeek, onChange: _ScheduleManagementActions2.default.updateFormRaidWeek },
+                        raidWeekOptions
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'form-group' },
+                    _react2.default.createElement(
+                      'label',
+                      { className: 'col-sm-2 control-label', htmlFor: 'scheduleName' },
+                      'Name'
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-10' },
+                      _react2.default.createElement('input', { className: 'form-control', name: 'scheduleName', value: this.state.formScheduleName, onChange: _ScheduleManagementActions2.default.updateFormScheduleName })
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'form-group' },
+                    _react2.default.createElement(
+                      'label',
+                      { className: 'col-sm-2 control-label', htmlFor: 'scheduleDescription' },
+                      'Description'
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-10' },
+                      _react2.default.createElement('textarea', { className: 'form-control', name: 'scheduleDescription', value: this.state.formScheduleDescription, onChange: _ScheduleManagementActions2.default.updateFormScheduleDescription })
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'button',
+                    { className: 'btn btn-default pull-right', onClick: function onClick() {
+                        return _ScheduleManagementActions2.default.createSchedule(formRaidWeekId, _this2.state.formScheduleName, _this2.state.formScheduleDescription);
+                      } },
+                    'Submit'
+                  )
+                )
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'row' },
+              _react2.default.createElement(
+                'h3',
+                null,
+                'Manage Schedule'
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'row' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-md-6' },
+                  _react2.default.createElement(
+                    'select',
+                    { className: 'form-control', value: this.state.selectedRaidWeek, onChange: _ScheduleManagementActions2.default.updateSelectedRaidWeek },
+                    currentRaidWeekOptions
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-md-6' },
+                  _react2.default.createElement(
+                    'select',
+                    { className: 'form-control', value: this.state.selectedSchedule, onChange: _ScheduleManagementActions2.default.updateSelectedSchedule },
+                    currentScheduleOptions
+                  )
+                )
+              )
+            )
           )
         )
       );
@@ -5434,6 +5623,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _alt = require('./../../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
@@ -5446,11 +5637,74 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var ScheduleManagementStore = function ScheduleManagementStore() {
-  _classCallCheck(this, ScheduleManagementStore);
+var ScheduleManagementStore = function () {
+  function ScheduleManagementStore() {
+    _classCallCheck(this, ScheduleManagementStore);
 
-  this.bindActions(_ScheduleManagementActions2.default);
-};
+    this.bindActions(_ScheduleManagementActions2.default);
+    this.raidweeks = [];
+    this.raids = [];
+    this.characters = [];
+    this.schedules = [];
+    this.selectedRaidWeek = {};
+    this.selectedSchedule = {};
+    this.formRaidWeek = {};
+    this.formScheduleName = '';
+    this.formScheduleDescription = '';
+  }
+
+  _createClass(ScheduleManagementStore, [{
+    key: 'onUpdateFormRaidWeek',
+    value: function onUpdateFormRaidWeek(e) {
+      this.formRaidWeek = e.target.value;
+    }
+  }, {
+    key: 'onUpdateFormScheduleName',
+    value: function onUpdateFormScheduleName(e) {
+      this.formScheduleName = e.target.value;
+    }
+  }, {
+    key: 'onUpdateFormScheduleDescription',
+    value: function onUpdateFormScheduleDescription(e) {
+      this.formScheduleDescription = e.target.value;
+    }
+  }, {
+    key: 'onUpdateSelectedRaidWeek',
+    value: function onUpdateSelectedRaidWeek(e) {
+      this.selectedRaidWeek = e.target.value;
+    }
+  }, {
+    key: 'onUpdateSelectedSchedule',
+    value: function onUpdateSelectedSchedule(e) {
+      this.selectedSchedule = e.target.value;
+    }
+  }, {
+    key: 'onLoadComponentDataSuccess',
+    value: function onLoadComponentDataSuccess(result) {
+      this.raidweeks = result.data.raidweeks;
+      this.characters = result.data.characters;
+      this.schedules = result.data.schedules;
+      this.raids = result.data.raids;
+    }
+  }, {
+    key: 'onLoadComponentDataFailure',
+    value: function onLoadComponentDataFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onCreateScheduleSuccess',
+    value: function onCreateScheduleSuccess(result) {
+      this.schedules = result.data.schedules;
+    }
+  }, {
+    key: 'onCreateScheduleFailure',
+    value: function onCreateScheduleFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }]);
+
+  return ScheduleManagementStore;
+}();
 
 exports.default = _alt2.default.createStore(ScheduleManagementStore);
 
