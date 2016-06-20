@@ -108,12 +108,12 @@ class ScheduleManagement extends React.Component {
               <div className='row'>
                 <div className='col-md-6'>
                   <select className='form-control' value={this.state.selectedRaidWeek} onChange={ScheduleManagementActions.updateSelectedRaidWeek}>
-                    {currentRaidWeekOptions}
+                    {selectedRaidWeekOptions}
                   </select>
                 </div>
                 <div className='col-md-6'>
                   <select className='form-control' value={this.state.selectedSchedule} onChange={ScheduleManagementActions.updateSelectedSchedule}>
-                    {currentScheduleOptions}
+                    {selectedScheduleOptions}
                   </select>
                 </div>
               </div>

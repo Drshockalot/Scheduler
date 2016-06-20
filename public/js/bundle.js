@@ -4566,7 +4566,7 @@ var ScheduleManagement = function (_React$Component) {
                   _react2.default.createElement(
                     'select',
                     { className: 'form-control', value: this.state.selectedRaidWeek, onChange: _ScheduleManagementActions2.default.updateSelectedRaidWeek },
-                    currentRaidWeekOptions
+                    selectedRaidWeekOptions
                   )
                 ),
                 _react2.default.createElement(
@@ -4575,7 +4575,7 @@ var ScheduleManagement = function (_React$Component) {
                   _react2.default.createElement(
                     'select',
                     { className: 'form-control', value: this.state.selectedSchedule, onChange: _ScheduleManagementActions2.default.updateSelectedSchedule },
-                    currentScheduleOptions
+                    selectedScheduleOptions
                   )
                 )
               )
