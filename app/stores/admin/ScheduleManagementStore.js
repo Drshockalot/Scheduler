@@ -21,12 +21,10 @@ class ScheduleManagementStore {
 
   onUpdateFormScheduleName(value) {
     this.formScheduleName = value;
-    this.formScheduleName = '';
   }
 
   onUpdateFormScheduleDescription(value) {
     this.formScheduleDescription = value;
-    this.formScheduleDescription = '';
   }
 
   onUpdateSelectedRaidWeek(value) {
@@ -52,6 +50,8 @@ class ScheduleManagementStore {
 
   onCreateScheduleSuccess(result) {
     this.schedules = result.data.schedules;
+    this.formScheduleName = '';
+    this.formScheduleDescription = '';
   }
 
   onCreateScheduleFailure(jqXhr) {

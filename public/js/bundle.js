@@ -5678,13 +5678,11 @@ var ScheduleManagementStore = function () {
     key: 'onUpdateFormScheduleName',
     value: function onUpdateFormScheduleName(value) {
       this.formScheduleName = value;
-      this.formScheduleName = '';
     }
   }, {
     key: 'onUpdateFormScheduleDescription',
     value: function onUpdateFormScheduleDescription(value) {
       this.formScheduleDescription = value;
-      this.formScheduleDescription = '';
     }
   }, {
     key: 'onUpdateSelectedRaidWeek',
@@ -5715,6 +5713,8 @@ var ScheduleManagementStore = function () {
     key: 'onCreateScheduleSuccess',
     value: function onCreateScheduleSuccess(result) {
       this.schedules = result.data.schedules;
+      this.formScheduleName = '';
+      this.formScheduleDescription = '';
     }
   }, {
     key: 'onCreateScheduleFailure',
