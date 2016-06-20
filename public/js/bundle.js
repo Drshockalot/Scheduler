@@ -4460,19 +4460,31 @@ var ScheduleManagement = function (_React$Component) {
       }
 
       if (this.state.schedules.length > 0) {
-        selectedScheduleOptions = this.state.schedules.map(function (schedule, index) {
-          if (schedule.name === this.state.selectedSchedule.name) {
-            selectedScheduleId = schedule.id;
-          }
+        (function () {
+          var optionCount = 0;
+          selectedScheduleOptions = _this2.state.schedules.map(function (schedule, index) {
+            if (schedule.name === this.state.selectedSchedule.name) {
+              selectedScheduleId = schedule.id;
+            }
 
-          if (schedule.raid_week_id === selectedRaidWeekId) {
-            return _react2.default.createElement(
+            if (schedule.raid_week_id === selectedRaidWeekId) {
+              optionCount++;
+              return _react2.default.createElement(
+                'option',
+                { key: schedule.id, value: schedule.name },
+                schedule.name
+              );
+            }
+          }, _this2);
+
+          if (optionCount === 0) {
+            selectedScheduleOptions = _react2.default.createElement(
               'option',
-              { key: schedule.id, value: schedule },
-              schedule.name
+              null,
+              'No Schedules'
             );
           }
-        }, this);
+        })();
       }
 
       return _react2.default.createElement(

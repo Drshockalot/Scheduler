@@ -60,17 +60,25 @@ class ScheduleManagement extends React.Component {
     }
 
     if(this.state.schedules.length > 0) {
+      let optionCount = 0;
       selectedScheduleOptions = this.state.schedules.map(function(schedule, index) {
         if(schedule.name === this.state.selectedSchedule.name) {
           selectedScheduleId = schedule.id;
         }
 
         if(schedule.raid_week_id === selectedRaidWeekId) {
+          optionCount++;
           return (
-            <option key={schedule.id} value={schedule}>{schedule.name}</option>
+            <option key={schedule.id} value={schedule.name}>{schedule.name}</option>
           );
         }
       }, this);
+
+      if(optionCount === 0) {
+        selectedScheduleOptions = (
+          <option>No Schedules</option>
+        );
+      }
     }
 
     return (
