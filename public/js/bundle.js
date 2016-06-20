@@ -5661,30 +5661,30 @@ var ScheduleManagementStore = function () {
 
   _createClass(ScheduleManagementStore, [{
     key: 'onUpdateFormRaidWeek',
-    value: function onUpdateFormRaidWeek(e) {
-      this.formRaidWeek = e.target.value;
+    value: function onUpdateFormRaidWeek(value) {
+      this.formRaidWeek = value;
     }
   }, {
     key: 'onUpdateFormScheduleName',
-    value: function onUpdateFormScheduleName(e) {
-      this.formScheduleName = e.target.value;
+    value: function onUpdateFormScheduleName(value) {
+      this.formScheduleName = value;
       this.formScheduleName = '';
     }
   }, {
     key: 'onUpdateFormScheduleDescription',
-    value: function onUpdateFormScheduleDescription(e) {
-      this.formScheduleDescription = e.target.value;
+    value: function onUpdateFormScheduleDescription(value) {
+      this.formScheduleDescription = value;
       this.formScheduleDescription = '';
     }
   }, {
     key: 'onUpdateSelectedRaidWeek',
-    value: function onUpdateSelectedRaidWeek(e) {
-      this.selectedRaidWeek = e.target.value;
+    value: function onUpdateSelectedRaidWeek(value) {
+      this.selectedRaidWeek = value;
     }
   }, {
     key: 'onUpdateSelectedSchedule',
-    value: function onUpdateSelectedSchedule(e) {
-      this.selectedSchedule = e.target.value;
+    value: function onUpdateSelectedSchedule(value) {
+      this.selectedSchedule = value;
     }
   }, {
     key: 'onLoadComponentDataSuccess',

@@ -15,26 +15,26 @@ class ScheduleManagementStore {
     this.formScheduleDescription = '';
   }
 
-  onUpdateFormRaidWeek(e) {
-    this.formRaidWeek = e.target.value;
+  onUpdateFormRaidWeek(value) {
+    this.formRaidWeek = value;
   }
 
-  onUpdateFormScheduleName(e) {
-    this.formScheduleName = e.target.value;
+  onUpdateFormScheduleName(value) {
+    this.formScheduleName = value;
     this.formScheduleName = '';
   }
 
-  onUpdateFormScheduleDescription(e) {
-    this.formScheduleDescription = e.target.value;
+  onUpdateFormScheduleDescription(value) {
+    this.formScheduleDescription = value;
     this.formScheduleDescription = '';
   }
 
-  onUpdateSelectedRaidWeek(e) {
-    this.selectedRaidWeek = e.target.value;
+  onUpdateSelectedRaidWeek(value) {
+    this.selectedRaidWeek = value;
   }
 
-  onUpdateSelectedSchedule(e) {
-    this.selectedSchedule = e.target.value;
+  onUpdateSelectedSchedule(value) {
+    this.selectedSchedule = value;
   }
 
   onLoadComponentDataSuccess(result) {
