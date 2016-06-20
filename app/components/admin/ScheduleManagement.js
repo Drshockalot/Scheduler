@@ -65,9 +65,11 @@ class ScheduleManagement extends React.Component {
           selectedScheduleId = schedule.id;
         }
 
-        return (
-          <option key={schedule.id} value={schedule}>{schedule.name}</option>
-        );
+        if(schedule.raid_week_id === selectedRaidWeekId) {
+          return (
+            <option key={schedule.id} value={schedule}>{schedule.name}</option>
+          );
+        }
       }, this);
     }
 

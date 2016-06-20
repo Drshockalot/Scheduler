@@ -4465,11 +4465,13 @@ var ScheduleManagement = function (_React$Component) {
             selectedScheduleId = schedule.id;
           }
 
-          return _react2.default.createElement(
-            'option',
-            { key: schedule.id, value: schedule },
-            schedule.name
-          );
+          if (schedule.raid_week_id === selectedRaidWeekId) {
+            return _react2.default.createElement(
+              'option',
+              { key: schedule.id, value: schedule },
+              schedule.name
+            );
+          }
         }, this);
       }
 
