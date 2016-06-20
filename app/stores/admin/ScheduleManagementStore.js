@@ -1,5 +1,6 @@
 import alt from './../../alt';
 import ScheduleManagementActions from './../../actions/admin/ScheduleManagementActions';
+import moment from 'moment';
 
 class ScheduleManagementStore {
   constructor() {
@@ -40,8 +41,8 @@ class ScheduleManagementStore {
     this.characters = result.data.characters;
     this.schedules = result.data.schedules;
     this.raids = result.data.raids;
-    this.selectedRaidWeek = this.raidweeks[0];
-    this.formRaidWeek = this.raidweeks[0];
+    this.selectedRaidWeek = moment(this.raidweeks[0].start).format('W');
+    this.formRaidWeek = moment(this.raidweeks[0].start).format('W');
   }
 
   onLoadComponentDataFailure(jqXhr) {

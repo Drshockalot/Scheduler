@@ -5661,6 +5661,10 @@ var _ScheduleManagementActions = require('./../../actions/admin/ScheduleManageme
 
 var _ScheduleManagementActions2 = _interopRequireDefault(_ScheduleManagementActions);
 
+var _moment = require('moment');
+
+var _moment2 = _interopRequireDefault(_moment);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -5713,8 +5717,8 @@ var ScheduleManagementStore = function () {
       this.characters = result.data.characters;
       this.schedules = result.data.schedules;
       this.raids = result.data.raids;
-      this.selectedRaidWeek = this.raidweeks[0];
-      this.formRaidWeek = this.raidweeks[0];
+      this.selectedRaidWeek = (0, _moment2.default)(this.raidweeks[0].start).format('W');
+      this.formRaidWeek = (0, _moment2.default)(this.raidweeks[0].start).format('W');
     }
   }, {
     key: 'onLoadComponentDataFailure',
@@ -5740,7 +5744,7 @@ var ScheduleManagementStore = function () {
 
 exports.default = _alt2.default.createStore(ScheduleManagementStore);
 
-},{"./../../actions/admin/ScheduleManagementActions":14,"./../../alt":15}],49:[function(require,module,exports){
+},{"./../../actions/admin/ScheduleManagementActions":14,"./../../alt":15,"moment":49}],49:[function(require,module,exports){
 //! moment.js
 //! version : 2.13.0
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
