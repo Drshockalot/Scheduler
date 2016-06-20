@@ -91,13 +91,13 @@ class ScheduleManagement extends React.Component {
                   <div className='form-group'>
                     <label className='col-sm-2 control-label' htmlFor='scheduleName'>Name</label>
                     <div className='col-sm-10'>
-                      <input className='form-control' name='scheduleName' value={this.state.formScheduleName} onChange={ScheduleManagementActions.updateFormScheduleName} />
+                      <input className='form-control' name='scheduleName' value={this.state.formScheduleName} onChange={e => ScheduleManagementActions.updateFormScheduleName(e.target.value)} />
                     </div>
                   </div>
                   <div className='form-group'>
                     <label className='col-sm-2 control-label' htmlFor='scheduleDescription'>Description</label>
                     <div className='col-sm-10'>
-                      <textarea className='form-control' name='scheduleDescription' value={this.state.formScheduleDescription} onChange={ScheduleManagementActions.updateFormScheduleDescription} />
+                      <textarea className='form-control' name='scheduleDescription' value={this.state.formScheduleDescription} onChange={e => ScheduleManagementActions.updateFormScheduleDescription(e.target.value)} />
                     </div>
                   </div>
                   <button className='btn btn-default pull-right' onClick={() => ScheduleManagementActions.createSchedule(formRaidWeekId, this.state.formScheduleName, this.state.formScheduleDescription)}>Submit</button>
@@ -108,12 +108,12 @@ class ScheduleManagement extends React.Component {
               <h3>Manage Schedule</h3>
               <div className='row'>
                 <div className='col-md-6'>
-                  <select className='form-control' value={this.state.selectedRaidWeek} onChange={ScheduleManagementActions.updateSelectedRaidWeek}>
+                  <select className='form-control' value={this.state.selectedRaidWeek} onChange={e => ScheduleManagementActions.updateSelectedRaidWeek(e.target.value)}>
                     {selectedRaidWeekOptions}
                   </select>
                 </div>
                 <div className='col-md-6'>
-                  <select className='form-control' value={this.state.selectedSchedule} onChange={ScheduleManagementActions.updateSelectedSchedule}>
+                  <select className='form-control' value={this.state.selectedSchedule} onChange={e => ScheduleManagementActions.updateSelectedSchedule(e.target.value)}>
                     {selectedScheduleOptions}
                   </select>
                 </div>
