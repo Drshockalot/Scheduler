@@ -42,8 +42,8 @@ class ScheduleManagementStore {
     this.characters = result.data.characters;
     this.schedules = result.data.schedules;
     this.raids = result.data.raids;
-    this.selectedRaidWeek = raidweeks[0];
-    this.formRaidWeek = raidweeks[0];
+    this.selectedRaidWeek = this.raidweeks[0];
+    this.formRaidWeek = this.raidweeks[0];
   }
 
   onLoadComponentDataFailure(jqXhr) {
