@@ -5,6 +5,7 @@ import ScheduleManagementActions from './../../actions/admin/ScheduleManagementA
 import AdminSideNav from './AdminSideNav';
 import NavbarStore from './../../stores/NavbarStore';
 import { browserHistory } from 'react-router';
+import moment from 'moment';
 
 class ScheduleManagement extends React.Component {
   constructor(props) {

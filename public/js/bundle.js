@@ -4377,6 +4377,10 @@ var _NavbarStore = require('./../../stores/NavbarStore');
 
 var _NavbarStore2 = _interopRequireDefault(_NavbarStore);
 
+var _moment = require('moment');
+
+var _moment2 = _interopRequireDefault(_moment);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -4431,26 +4435,26 @@ var ScheduleManagement = function (_React$Component) {
       var formRaidWeekId, selectedRaidWeekId, selectedScheduleId;
       if (this.state.raidweeks.length > 0) {
         raidWeekOptions = this.state.raidweeks.map(function (raidweek, index) {
-          if (moment(raidweek.start).format('W') === moment(this.state.formRaidWeek.start).format('W')) {
+          if ((0, _moment2.default)(raidweek.start).format('W') === (0, _moment2.default)(this.state.formRaidWeek.start).format('W')) {
             formRaidWeekId = raidweek.id;
           }
 
           return _react2.default.createElement(
             'option',
             { key: raidweek.id, value: raidweek },
-            moment(raidweek.start.format('W'))
+            (0, _moment2.default)(raidweek.start.format('W'))
           );
         }, this);
 
         selectedRaidWeekOptions = this.state.raidweeks.map(function (raidweek, index) {
-          if (moment(raidweek.start).format('W') === moment(this.state.selectedRaidWeek.start).format('W')) {
+          if ((0, _moment2.default)(raidweek.start).format('W') === (0, _moment2.default)(this.state.selectedRaidWeek.start).format('W')) {
             selectedRaidWeekId = raidweek.id;
           }
 
           return _react2.default.createElement(
             'option',
             { key: raidweek.id, value: raidweek },
-            moment(raidweek.start.format('W'))
+            (0, _moment2.default)(raidweek.start.format('W'))
           );
         }, this);
       }
@@ -4591,7 +4595,7 @@ var ScheduleManagement = function (_React$Component) {
 
 exports.default = ScheduleManagement;
 
-},{"./../../actions/admin/ScheduleManagementActions":14,"./../../stores/NavbarStore":36,"./../../stores/admin/ScheduleManagementStore":48,"./AdminSideNav":27,"react":"react","react-router":"react-router"}],33:[function(require,module,exports){
+},{"./../../actions/admin/ScheduleManagementActions":14,"./../../stores/NavbarStore":36,"./../../stores/admin/ScheduleManagementStore":48,"./AdminSideNav":27,"moment":49,"react":"react","react-router":"react-router"}],33:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
