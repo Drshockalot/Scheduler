@@ -4437,6 +4437,7 @@ var ScheduleManagement = function (_React$Component) {
         raidWeekOptions = this.state.raidweeks.map(function (raidweek, index) {
           if ((0, _moment2.default)(raidweek.start).format('W') === (0, _moment2.default)(this.state.formRaidWeek.start).format('W')) {
             formRaidWeekId = raidweek.id;
+            console.log(formRaidWeekId);
           }
 
           return _react2.default.createElement(
