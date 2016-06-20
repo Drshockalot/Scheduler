@@ -984,8 +984,8 @@ var ScheduleManagementActions = function () {
       var _this2 = this;
 
       var data = { raidWeekId: raidWeekId,
-        scheduleName: scheduleName,
-        scheduleDescription: scheduleDescription };
+        name: scheduleName,
+        description: scheduleDescription };
       $.ajax({
         method: 'POST',
         url: '/api/schedule/admin',

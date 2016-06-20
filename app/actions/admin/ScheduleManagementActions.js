@@ -30,8 +30,8 @@ class ScheduleManagementActions {
 
   createSchedule(raidWeekId, scheduleName, scheduleDescription) {
     var data = { raidWeekId: raidWeekId,
-                 scheduleName: scheduleName,
-                 scheduleDescription: scheduleDescription};
+                 name: scheduleName,
+                 description: scheduleDescription};
     $.ajax({
       method: 'POST',
       url: '/api/schedule/admin',

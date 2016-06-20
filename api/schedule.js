@@ -4,7 +4,7 @@ var router = express.Router();
 var Schedule = require('./../db/postgres/schedule');
 var Character = require('./../db/postgres/character');
 var Raid = require('./../db/postgres/raid');
-var RaidWeek = require('./../db/postgres/raidweek');
+var RaidWeek = require('./../db/postgres/raid_week');
 
 router.get('/', function(req, res, next) {
   Schedule.forge()
@@ -44,7 +44,7 @@ router.get('/', function(req, res, next) {
 router.post('/admin', function(req, res, next) {
   Schedule.forge({raid_week_id: req.body.raidWeekId,
                   name: req.body.name,
-                  description, req.body.description})
+                  description: req.body.description})
           .save()
           .then(function(schedule) {
             Schedule.forge()
