@@ -10,7 +10,7 @@ class ScheduleManagementStore {
     this.schedules = [];
     this.selectedRaidWeek = 0;
     this.selectedSchedule = '';
-    this.formRaidWeek = {};
+    this.formRaidWeek = 0;
     this.formScheduleName = '';
     this.formScheduleDescription = '';
   }
