@@ -8,8 +8,8 @@ class ScheduleManagementStore {
     this.raids = [];
     this.characters = [];
     this.schedules = [];
-    this.selectedRaidWeek = {};
-    this.selectedSchedule = {};
+    this.selectedRaidWeek = 0;
+    this.selectedSchedule = '';
     this.formRaidWeek = {};
     this.formScheduleName = '';
     this.formScheduleDescription = '';
@@ -21,10 +21,12 @@ class ScheduleManagementStore {
 
   onUpdateFormScheduleName(e) {
     this.formScheduleName = e.target.value;
+    this.formScheduleName = '';
   }
 
   onUpdateFormScheduleDescription(e) {
     this.formScheduleDescription = e.target.value;
+    this.formScheduleDescription = '';
   }
 
   onUpdateSelectedRaidWeek(e) {
@@ -40,6 +42,8 @@ class ScheduleManagementStore {
     this.characters = result.data.characters;
     this.schedules = result.data.schedules;
     this.raids = result.data.raids;
+    this.selectedRaidWeek = raidweeks[0];
+    this.formRaidWeek = raidweeks[0];
   }
 
   onLoadComponentDataFailure(jqXhr) {

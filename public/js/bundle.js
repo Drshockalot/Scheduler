@@ -4441,7 +4441,7 @@ var ScheduleManagement = function (_React$Component) {
 
           return _react2.default.createElement(
             'option',
-            { key: raidweek.id, value: raidweek },
+            { key: raidweek.id, value: (0, _moment2.default)(raidweek.start).format('W') },
             (0, _moment2.default)(raidweek.start).format('W')
           );
         }, this);
@@ -4453,7 +4453,7 @@ var ScheduleManagement = function (_React$Component) {
 
           return _react2.default.createElement(
             'option',
-            { key: raidweek.id, value: raidweek },
+            { key: raidweek.id, value: (0, _moment2.default)(raidweek.start).format('W') },
             (0, _moment2.default)(raidweek.start).format('W')
           );
         }, this);
@@ -4510,7 +4510,9 @@ var ScheduleManagement = function (_React$Component) {
                       { className: 'col-sm-10' },
                       _react2.default.createElement(
                         'select',
-                        { className: 'form-control', id: 'scheduleRaidWeek', value: this.state.formRaidWeek, onChange: _ScheduleManagementActions2.default.updateFormRaidWeek },
+                        { className: 'form-control', id: 'scheduleRaidWeek', value: this.state.formRaidWeek, onChange: function onChange(e) {
+                            return _ScheduleManagementActions2.default.updateFormRaidWeek(e.target.value);
+                          } },
                         raidWeekOptions
                       )
                     )
@@ -5650,8 +5652,8 @@ var ScheduleManagementStore = function () {
     this.raids = [];
     this.characters = [];
     this.schedules = [];
-    this.selectedRaidWeek = {};
-    this.selectedSchedule = {};
+    this.selectedRaidWeek = 0;
+    this.selectedSchedule = '';
     this.formRaidWeek = {};
     this.formScheduleName = '';
     this.formScheduleDescription = '';
@@ -5666,11 +5668,13 @@ var ScheduleManagementStore = function () {
     key: 'onUpdateFormScheduleName',
     value: function onUpdateFormScheduleName(e) {
       this.formScheduleName = e.target.value;
+      this.formScheduleName = '';
     }
   }, {
     key: 'onUpdateFormScheduleDescription',
     value: function onUpdateFormScheduleDescription(e) {
       this.formScheduleDescription = e.target.value;
+      this.formScheduleDescription = '';
     }
   }, {
     key: 'onUpdateSelectedRaidWeek',
@@ -5689,6 +5693,8 @@ var ScheduleManagementStore = function () {
       this.characters = result.data.characters;
       this.schedules = result.data.schedules;
       this.raids = result.data.raids;
+      this.selectedRaidWeek = raidweeks[0];
+      this.formRaidWeek = raidweeks[0];
     }
   }, {
     key: 'onLoadComponentDataFailure',

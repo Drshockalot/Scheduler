@@ -44,7 +44,7 @@ class ScheduleManagement extends React.Component {
         }
 
         return (
-          <option key={raidweek.id} value={raidweek}>{moment(raidweek.start).format('W')}</option>
+          <option key={raidweek.id} value={moment(raidweek.start).format('W')}>{moment(raidweek.start).format('W')}</option>
         );
       }, this);
 
@@ -54,7 +54,7 @@ class ScheduleManagement extends React.Component {
         }
 
         return (
-          <option key={raidweek.id} value={raidweek}>{moment(raidweek.start).format('W')}</option>
+          <option key={raidweek.id} value={moment(raidweek.start).format('W')}>{moment(raidweek.start).format('W')}</option>
         );
       }, this);
     }
@@ -83,7 +83,7 @@ class ScheduleManagement extends React.Component {
                   <div className='form-group'>
                     <label className='col-sm-2 control-label' htmlFor='scheduleRaidWeek'>Raid Week</label>
                     <div className='col-sm-10'>
-                      <select className='form-control' id='scheduleRaidWeek' value={this.state.formRaidWeek} onChange={ScheduleManagementActions.updateFormRaidWeek}>
+                      <select className='form-control' id='scheduleRaidWeek' value={this.state.formRaidWeek} onChange={e => ScheduleManagementActions.updateFormRaidWeek(e.target.value)}>
                         {raidWeekOptions}
                       </select>
                     </div>
