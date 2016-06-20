@@ -39,6 +39,8 @@ class ScheduleManagement extends React.Component {
     var formRaidWeekId, selectedRaidWeekId, selectedScheduleId;
     if(this.state.raidweeks.length > 0) {
       raidWeekOptions = this.state.raidweeks.map(function(raidweek, index) {
+        console.log(moment(raidweek.start).format('W'));
+        console.log(moment(this.state.formRaidWeek.start).format('W'));
         if(moment(raidweek.start).format('W') === moment(this.state.formRaidWeek.start).format('W')) {
           formRaidWeekId = raidweek.id;
           console.log(formRaidWeekId);

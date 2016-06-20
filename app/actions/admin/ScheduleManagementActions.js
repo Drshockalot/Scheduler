@@ -29,7 +29,7 @@ class ScheduleManagementActions {
   }
 
   createSchedule(raidWeekId, scheduleName, scheduleDescription) {
-    var data = { raidWeekId: raidWeekId,
+    var data = { rwId: raidWeekId,
                  name: scheduleName,
                  description: scheduleDescription};
     $.ajax({

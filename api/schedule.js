@@ -42,7 +42,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/admin', function(req, res, next) {
-  Schedule.forge({raid_week_id: req.body.raidWeekId,
+  Schedule.forge({raid_week_id: req.body.rwId,
                   name: req.body.name,
                   description: req.body.description})
           .save()

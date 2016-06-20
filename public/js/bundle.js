@@ -983,7 +983,7 @@ var ScheduleManagementActions = function () {
     value: function createSchedule(raidWeekId, scheduleName, scheduleDescription) {
       var _this2 = this;
 
-      var data = { raidWeekId: raidWeekId,
+      var data = { rwId: raidWeekId,
         name: scheduleName,
         description: scheduleDescription };
       $.ajax({
@@ -4435,6 +4435,8 @@ var ScheduleManagement = function (_React$Component) {
       var formRaidWeekId, selectedRaidWeekId, selectedScheduleId;
       if (this.state.raidweeks.length > 0) {
         raidWeekOptions = this.state.raidweeks.map(function (raidweek, index) {
+          console.log((0, _moment2.default)(raidweek.start).format('W'));
+          console.log((0, _moment2.default)(this.state.formRaidWeek.start).format('W'));
           if ((0, _moment2.default)(raidweek.start).format('W') === (0, _moment2.default)(this.state.formRaidWeek.start).format('W')) {
             formRaidWeekId = raidweek.id;
             console.log(formRaidWeekId);
