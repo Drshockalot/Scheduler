@@ -44,7 +44,7 @@ class ScheduleManagement extends React.Component {
         }
 
         return (
-          <option key={raidweek.id} value={raidweek}>{moment(raidweek.start.format('W'))}</option>
+          <option key={raidweek.id} value={raidweek}>{moment(raidweek.start).format('W')}</option>
         );
       }, this);
 
@@ -54,7 +54,7 @@ class ScheduleManagement extends React.Component {
         }
 
         return (
-          <option key={raidweek.id} value={raidweek}>{moment(raidweek.start.format('W'))}</option>
+          <option key={raidweek.id} value={raidweek}>{moment(raidweek.start).format('W')}</option>
         );
       }, this);
     }

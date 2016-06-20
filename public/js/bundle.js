@@ -4442,7 +4442,7 @@ var ScheduleManagement = function (_React$Component) {
           return _react2.default.createElement(
             'option',
             { key: raidweek.id, value: raidweek },
-            (0, _moment2.default)(raidweek.start.format('W'))
+            (0, _moment2.default)(raidweek.start).format('W')
           );
         }, this);
 
@@ -4454,7 +4454,7 @@ var ScheduleManagement = function (_React$Component) {
           return _react2.default.createElement(
             'option',
             { key: raidweek.id, value: raidweek },
-            (0, _moment2.default)(raidweek.start.format('W'))
+            (0, _moment2.default)(raidweek.start).format('W')
           );
         }, this);
       }
