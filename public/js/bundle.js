@@ -5746,13 +5746,13 @@ var ScheduleManagementStore = function () {
 
       var newScheduleList = [];
       console.log('test');
-      for (var i = 0; this.schedules.length < 0; i++) {
+      for (var i = 0; result.data.schedules.length < 0; i++) {
         console.log('in');
-        console.log(this.schedules[i].raid_week_id);
+        console.log(result.data.schedules[i].raid_week_id);
         console.log(this.selectedRaidWeek);
-        if (this.schedules[i].raid_week_id === this.selectedRaidWeek) {
+        if (result.data.schedules[i].raid_week_id === this.selectedRaidWeek) {
           console.log('further in');
-          newScheduleList.push(this.schedules[i]);
+          newScheduleList.push(result.data.schedules[i]);
         }
       }
 
