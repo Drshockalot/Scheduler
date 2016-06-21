@@ -5752,7 +5752,7 @@ var ScheduleManagementStore = function () {
       }
 
       if (newScheduleList.length > 0) {
-        thi.selectedSchedule = newScheduleList[0].id;
+        this.selectedSchedule = newScheduleList[0].id;
       }
     }
   }, {
