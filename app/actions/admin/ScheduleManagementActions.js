@@ -18,7 +18,7 @@ class ScheduleManagementActions {
     );
   }
 
-  updateSelectedRaid(newRWId) {
+  updateSelectedRaidWeek(newRWId) {
     var state = ScheduleManagementStore.getState();
     var newScheduleList = [];
     for(var i = 0; state.schedules.length < 0; i++) {

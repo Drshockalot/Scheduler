@@ -969,8 +969,8 @@ var ScheduleManagementActions = function () {
   }
 
   _createClass(ScheduleManagementActions, [{
-    key: 'updateSelectedRaid',
-    value: function updateSelectedRaid(newRWId) {
+    key: 'updateSelectedRaidWeek',
+    value: function updateSelectedRaidWeek(newRWId) {
       var state = _ScheduleManagementStore2.default.getState();
       var newScheduleList = [];
       for (var i = 0; state.schedules.length < 0; i++) {
