@@ -83,6 +83,8 @@ class ScheduleManagement extends React.Component {
 
     var formRaidNameOptions, formBossNameOptions;
 
+    if(this.state.raids)
+
     return (
       <div id='wrapper'>
         <AdminSideNav />
@@ -160,19 +162,19 @@ class ScheduleManagement extends React.Component {
                   <div className='form-group'>
                     <label className='col-sm-2 control-label'>Tanks:</label>
                     <div className='col-sm-10'>
-                      <input type='number' value={this.state.formTanks} onChange={e => ScheduleManagementActions.updateFormTanks(e.target.value)} />
+                      <input type='number' className='form-control' value={this.state.formTanks} onChange={e => ScheduleManagementActions.updateFormTanks(e.target.value)} />
                     </div>
                   </div>
                   <div className='form-group'>
                     <label className='col-sm-2 control-label'>Healers:</label>
                     <div className='col-sm-10'>
-                      <input type='number' value={this.state.formHealers} onChange={e => ScheduleManagementActions.updateFormHealers(e.target.value)} />
+                      <input type='number' className='form-control' value={this.state.formHealers} onChange={e => ScheduleManagementActions.updateFormHealers(e.target.value)} />
                     </div>
                   </div>
                   <div className='form-group'>
                     <label className='col-sm-2 control-label'>DPS:</label>
                     <div className='col-sm-10'>
-                      <input type='number' value={this.state.formDPS} onChange={e => ScheduleManagementActions.updateFormDPS(e.target.value)} />
+                      <input type='number' className='form-control' value={this.state.formDPS} onChange={e => ScheduleManagementActions.updateFormDPS(e.target.value)} />
                     </div>
                   </div>
                 </div>

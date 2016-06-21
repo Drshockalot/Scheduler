@@ -4515,7 +4515,7 @@ var ScheduleManagement = function (_React$Component) {
 
       var formRaidNameOptions, formBossNameOptions;
 
-      return _react2.default.createElement(
+      if (this.state.raids) return _react2.default.createElement(
         'div',
         { id: 'wrapper' },
         _react2.default.createElement(_AdminSideNav2.default, null),
@@ -4719,7 +4719,7 @@ var ScheduleManagement = function (_React$Component) {
                     _react2.default.createElement(
                       'div',
                       { className: 'col-sm-10' },
-                      _react2.default.createElement('input', { type: 'number', value: this.state.formTanks, onChange: function onChange(e) {
+                      _react2.default.createElement('input', { type: 'number', className: 'form-control', value: this.state.formTanks, onChange: function onChange(e) {
                           return _ScheduleManagementActions2.default.updateFormTanks(e.target.value);
                         } })
                     )
@@ -4735,7 +4735,7 @@ var ScheduleManagement = function (_React$Component) {
                     _react2.default.createElement(
                       'div',
                       { className: 'col-sm-10' },
-                      _react2.default.createElement('input', { type: 'number', value: this.state.formHealers, onChange: function onChange(e) {
+                      _react2.default.createElement('input', { type: 'number', className: 'form-control', value: this.state.formHealers, onChange: function onChange(e) {
                           return _ScheduleManagementActions2.default.updateFormHealers(e.target.value);
                         } })
                     )
@@ -4751,7 +4751,7 @@ var ScheduleManagement = function (_React$Component) {
                     _react2.default.createElement(
                       'div',
                       { className: 'col-sm-10' },
-                      _react2.default.createElement('input', { type: 'number', value: this.state.formDPS, onChange: function onChange(e) {
+                      _react2.default.createElement('input', { type: 'number', className: 'form-control', value: this.state.formDPS, onChange: function onChange(e) {
                           return _ScheduleManagementActions2.default.updateFormDPS(e.target.value);
                         } })
                     )
