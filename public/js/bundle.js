@@ -5740,8 +5740,9 @@ var ScheduleManagementStore = function () {
       this.characters = result.data.characters;
       this.schedules = result.data.schedules;
       this.raids = result.data.raids;
-      this.selectedRaidWeek = (0, _moment2.default)(this.raidweeks[0].start).format('W');
-      this.formRaidWeek = (0, _moment2.default)(this.raidweeks[0].start).format('W');
+      this.selectedRaidWeek = this.raidweeks[0].id;
+      this.formRaidWeek = this.raidweeks[0].id;
+      _ScheduleManagementActions2.default.updateSelectedRaidWeek(this.selectedRaidWeek);
     }
   }, {
     key: 'onLoadComponentDataFailure',
