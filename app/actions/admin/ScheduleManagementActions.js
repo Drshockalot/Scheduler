@@ -8,7 +8,6 @@ class ScheduleManagementActions {
       'updateFormRaidWeek',
       'updateFormScheduleName',
       'updateFormScheduleDescription',
-      'updateSelectedRaidWeek',
       'updateSelectedRaidWeekCompleted',
       'updateSelectedSchedule',
       'loadComponentDataSuccess',

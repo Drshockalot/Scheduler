@@ -965,7 +965,7 @@ var ScheduleManagementActions = function () {
   function ScheduleManagementActions() {
     _classCallCheck(this, ScheduleManagementActions);
 
-    this.generateActions('updateFormRaidWeek', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeek', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure');
+    this.generateActions('updateFormRaidWeek', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure');
   }
 
   _createClass(ScheduleManagementActions, [{
@@ -5752,7 +5752,6 @@ var ScheduleManagementStore = function () {
       this.selectedSchedule = 0;
 
       var newScheduleList = [];
-      console.log('test');
       for (var i = 0; i < this.schedules.length; i++) {
         if (this.schedules[i].raid_week_id === this.selectedRaidWeek) {
           newScheduleList.push(this.schedules[i]);

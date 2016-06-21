@@ -48,7 +48,6 @@ class ScheduleManagementStore {
     this.selectedSchedule = 0;
 
     var newScheduleList = [];
-    console.log('test');
     for(var i = 0; i < this.schedules.length; i++) {
       if(this.schedules[i].raid_week_id === this.selectedRaidWeek) {
         newScheduleList.push(this.schedules[i]);
