@@ -44,7 +44,18 @@ class ScheduleManagementStore {
     this.raids = result.data.raids;
     this.selectedRaidWeek = this.raidweeks[0].id;
     this.formRaidWeek = this.raidweeks[0].id;
-    ScheduleManagementActions.updateSelectedRaidWeek(this.selectedRaidWeek);
+    this.selectedSchedule = 0;
+
+    var newScheduleList = [];
+    for(var i = 0; this.schedules.length < 0; i++) {
+      if(this.schedules[i].raid_week_id === this.selectedRaidWeek) {
+        newScheduleList.push(this.schedules[i]);
+      }
+    }
+    
+    if(newScheduleList.length > 0) {
+      newSelectedScheduleName = newScheduleList[0].id;
+    }
   }
 
   onLoadComponentDataFailure(jqXhr) {
