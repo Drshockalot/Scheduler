@@ -115,8 +115,8 @@ class ScheduleManagement extends React.Component {
               </div>
             </div>
             <div className='row'>
-              <h3>Manage Schedule</h3>
               <div className='col-md-6'>
+                <h3>Manage Schedule</h3>
                 <div className='form-horizontal'>
                   <div className='form-group'>
                     <label className='col-sm-2 control-label'>Raid Week:</label>
@@ -137,7 +137,7 @@ class ScheduleManagement extends React.Component {
                 </div>
               </div>
               <div className='col-md-6'>
-
+                <h3>Add Boss</h3>
               </div>
             </div>
           </div>

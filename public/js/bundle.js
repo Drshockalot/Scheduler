@@ -4603,13 +4603,13 @@ var ScheduleManagement = function (_React$Component) {
               'div',
               { className: 'row' },
               _react2.default.createElement(
-                'h3',
-                null,
-                'Manage Schedule'
-              ),
-              _react2.default.createElement(
                 'div',
                 { className: 'col-md-6' },
+                _react2.default.createElement(
+                  'h3',
+                  null,
+                  'Manage Schedule'
+                ),
                 _react2.default.createElement(
                   'div',
                   { className: 'form-horizontal' },
@@ -4655,7 +4655,15 @@ var ScheduleManagement = function (_React$Component) {
                   )
                 )
               ),
-              _react2.default.createElement('div', { className: 'col-md-6' })
+              _react2.default.createElement(
+                'div',
+                { className: 'col-md-6' },
+                _react2.default.createElement(
+                  'h3',
+                  null,
+                  'Add Boss'
+                )
+              )
             )
           )
         )
