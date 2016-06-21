@@ -19,10 +19,15 @@ class ScheduleManagementActions {
   }
 
   updateSelectedRaidWeek(newRWId) {
+    console.log(newRWId);
     var state = ScheduleManagementStore.getState();
     var newScheduleList = [];
     for(var i = 0; i < state.schedules.length; i++) {
+      console.log('in');
+      console.log(state.schedules[i].raid_week_id);
+      console.log(newRWId);
       if(state.schedules[i].raid_week_id === newRWId) {
+        console.log('further in');
         newScheduleList.push(state.schedules[i]);
       }
     }
@@ -30,6 +35,7 @@ class ScheduleManagementActions {
     if(newScheduleList.length > 0) {
       newSelectedSchedule = newScheduleList[0].id;
     }
+    console.log(newSelectedSchedule);
     this.updateSelectedRaidWeekCompleted(newRWId, newSelectedSchedule);
   }
 

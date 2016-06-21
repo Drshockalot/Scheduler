@@ -971,10 +971,15 @@ var ScheduleManagementActions = function () {
   _createClass(ScheduleManagementActions, [{
     key: 'updateSelectedRaidWeek',
     value: function updateSelectedRaidWeek(newRWId) {
+      console.log(newRWId);
       var state = _ScheduleManagementStore2.default.getState();
       var newScheduleList = [];
       for (var i = 0; i < state.schedules.length; i++) {
+        console.log('in');
+        console.log(state.schedules[i].raid_week_id);
+        console.log(newRWId);
         if (state.schedules[i].raid_week_id === newRWId) {
+          console.log('further in');
           newScheduleList.push(state.schedules[i]);
         }
       }
@@ -982,6 +987,7 @@ var ScheduleManagementActions = function () {
       if (newScheduleList.length > 0) {
         newSelectedSchedule = newScheduleList[0].id;
       }
+      console.log(newSelectedSchedule);
       this.updateSelectedRaidWeekCompleted(newRWId, newSelectedSchedule);
     }
   }, {
@@ -5701,7 +5707,7 @@ var ScheduleManagementStore = function () {
     this.characters = [];
     this.schedules = [];
     this.selectedRaidWeek = 0;
-    this.selectedSchedule = '';
+    this.selectedSchedule = 0;
     this.formRaidWeek = 0;
     this.formScheduleName = '';
     this.formScheduleDescription = '';
@@ -5725,6 +5731,7 @@ var ScheduleManagementStore = function () {
   }, {
     key: 'onUpdateSelectedRaidWeekCompleted',
     value: function onUpdateSelectedRaidWeekCompleted(values) {
+      console.log(values);
       this.selectedRaidWeek = values[0];
       this.selectedSchedule = values[1];
     }

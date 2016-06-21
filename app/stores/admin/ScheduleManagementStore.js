@@ -10,7 +10,7 @@ class ScheduleManagementStore {
     this.characters = [];
     this.schedules = [];
     this.selectedRaidWeek = 0;
-    this.selectedSchedule = '';
+    this.selectedSchedule = 0;
     this.formRaidWeek = 0;
     this.formScheduleName = '';
     this.formScheduleDescription = '';
@@ -29,6 +29,7 @@ class ScheduleManagementStore {
   }
 
   onUpdateSelectedRaidWeekCompleted(values) {
+    console.log(values);
     this.selectedRaidWeek = values[0];
     this.selectedSchedule = values[1];
   }
