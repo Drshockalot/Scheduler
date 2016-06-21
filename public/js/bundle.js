@@ -4718,10 +4718,43 @@ var ScheduleManagement = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                       'div',
-                      { className: 'col-sm-10' },
+                      { className: 'col-sm-4' },
                       _react2.default.createElement('input', { type: 'number', className: 'form-control', value: this.state.formTanks, onChange: function onChange(e) {
                           return _ScheduleManagementActions2.default.updateFormTanks(e.target.value);
                         } })
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-secondary', onClick: function onClick() {
+                            return _ScheduleManagementActions2.default.setFormTanks(1);
+                          } },
+                        '1'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-secondary', onClick: function onClick() {
+                            return _ScheduleManagementActions2.default.setFormTanks(2);
+                          } },
+                        '2'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-secondary', onClick: function onClick() {
+                            return _ScheduleManagementActions2.default.setFormTanks(3);
+                          } },
+                        '3'
+                      )
                     )
                   ),
                   _react2.default.createElement(
