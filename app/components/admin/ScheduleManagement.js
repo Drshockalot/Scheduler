@@ -39,7 +39,7 @@ class ScheduleManagement extends React.Component {
     var formRaidWeekId, selectedRaidWeekId, selectedScheduleId;
     if(this.state.raidweeks.length > 0) {
       raidWeekOptions = this.state.raidweeks.map(function(raidweek, index) {
-        if(moment(raidweek.start).format('W') === this.state.formRaidWeek) {
+        if(raidweek.id === this.state.formRaidWeek) {
           formRaidWeekId = raidweek.id;
         }
 
@@ -49,7 +49,7 @@ class ScheduleManagement extends React.Component {
       }, this);
 
       selectedRaidWeekOptions = this.state.raidweeks.map(function(raidweek, index) {
-        if(moment(raidweek.start).format('W') === this.state.selectedRaidWeek) {
+        if(raidweek.id === this.state.selectedRaidWeek) {
           selectedRaidWeekId = raidweek.id;
         }
 
@@ -62,7 +62,7 @@ class ScheduleManagement extends React.Component {
     if(this.state.schedules.length > 0) {
       let optionCount = 0;
       selectedScheduleOptions = this.state.schedules.map(function(schedule, index) {
-        if(schedule.name === this.state.selectedSchedule.name) {
+        if(schedule.id === this.state.selectedSchedule.id) {
           selectedScheduleId = schedule.id;
         }
 

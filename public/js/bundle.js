@@ -4457,7 +4457,7 @@ var ScheduleManagement = function (_React$Component) {
       var formRaidWeekId, selectedRaidWeekId, selectedScheduleId;
       if (this.state.raidweeks.length > 0) {
         raidWeekOptions = this.state.raidweeks.map(function (raidweek, index) {
-          if ((0, _moment2.default)(raidweek.start).format('W') === this.state.formRaidWeek) {
+          if (raidweek.id === this.state.formRaidWeek) {
             formRaidWeekId = raidweek.id;
           }
 
@@ -4469,7 +4469,7 @@ var ScheduleManagement = function (_React$Component) {
         }, this);
 
         selectedRaidWeekOptions = this.state.raidweeks.map(function (raidweek, index) {
-          if ((0, _moment2.default)(raidweek.start).format('W') === this.state.selectedRaidWeek) {
+          if (raidweek.id === this.state.selectedRaidWeek) {
             selectedRaidWeekId = raidweek.id;
           }
 
@@ -4485,7 +4485,7 @@ var ScheduleManagement = function (_React$Component) {
         (function () {
           var optionCount = 0;
           selectedScheduleOptions = _this2.state.schedules.map(function (schedule, index) {
-            if (schedule.name === this.state.selectedSchedule.name) {
+            if (schedule.id === this.state.selectedSchedule.id) {
               selectedScheduleId = schedule.id;
             }
 
