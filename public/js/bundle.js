@@ -951,18 +951,40 @@ var _alt = require('./../../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
 
+var _ScheduleManagementStore = require('./../../stores/admin/ScheduleManagementStore');
+
+var _ScheduleManagementStore2 = _interopRequireDefault(_ScheduleManagementStore);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var _ = require('underscore');
 
 var ScheduleManagementActions = function () {
   function ScheduleManagementActions() {
     _classCallCheck(this, ScheduleManagementActions);
 
-    this.generateActions('updateFormRaidWeek', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeek', 'updateSelectedSchedule', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure');
+    this.generateActions('updateFormRaidWeek', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeek', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure');
   }
 
   _createClass(ScheduleManagementActions, [{
+    key: 'updateSelectedRaid',
+    value: function updateSelectedRaid(newRWId) {
+      var state = _ScheduleManagementStore2.default.getState();
+      var newScheduleList = [];
+      for (var i = 0; state.schedules.length < 0; i++) {
+        if (state.schedules[i].raid_week_id === newRWId) {
+          newScheduleList.push(state.schedules[i]);
+        }
+      }
+      var newSelectedScheduleName = '';
+      if (newScheduleList.length > 0) {
+        newSelectedScheduleName = newScheduleList[0].name;
+      }
+      this.updateSelectedRaidWeekCompleted(newRWId, newSelectedScheduleName);
+    }
+  }, {
     key: 'loadComponentData',
     value: function loadComponentData() {
       var _this = this;
@@ -1005,7 +1027,7 @@ var ScheduleManagementActions = function () {
 
 exports.default = _alt2.default.createActions(ScheduleManagementActions);
 
-},{"./../../alt":15}],15:[function(require,module,exports){
+},{"./../../alt":15,"./../../stores/admin/ScheduleManagementStore":48,"underscore":"underscore"}],15:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -5701,9 +5723,10 @@ var ScheduleManagementStore = function () {
       this.formScheduleDescription = value;
     }
   }, {
-    key: 'onUpdateSelectedRaidWeek',
-    value: function onUpdateSelectedRaidWeek(value) {
-      this.selectedRaidWeek = value;
+    key: 'onUpdateSelectedRaidWeekCompleted',
+    value: function onUpdateSelectedRaidWeekCompleted(values) {
+      this.selectedRaidWeek = values[0];
+      this.selectedSchedule = values[1];
     }
   }, {
     key: 'onUpdateSelectedSchedule',

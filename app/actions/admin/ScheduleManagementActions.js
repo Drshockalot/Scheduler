@@ -1,4 +1,6 @@
 import alt from './../../alt';
+import ScheduleManagementStore from './../../stores/admin/ScheduleManagementStore';
+var _ = require('underscore');
 
 class ScheduleManagementActions {
   constructor() {
@@ -7,12 +9,28 @@ class ScheduleManagementActions {
       'updateFormScheduleName',
       'updateFormScheduleDescription',
       'updateSelectedRaidWeek',
+      'updateSelectedRaidWeekCompleted',
       'updateSelectedSchedule',
       'loadComponentDataSuccess',
       'loadComponentDataFailure',
       'createScheduleSuccess',
       'createScheduleFailure'
     );
+  }
+
+  updateSelectedRaid(newRWId) {
+    var state = ScheduleManagementStore.getState();
+    var newScheduleList = [];
+    for(var i = 0; state.schedules.length < 0; i++) {
+      if(state.schedules[i].raid_week_id === newRWId) {
+        newScheduleList.push(state.schedules[i]);
+      }
+    }
+    var newSelectedScheduleName = '';
+    if(newScheduleList.length > 0) {
+      newSelectedScheduleName = newScheduleList[0].name;
+    }
+    this.updateSelectedRaidWeekCompleted(newRWId, newSelectedScheduleName);
   }
 
   loadComponentData() {

@@ -28,8 +28,9 @@ class ScheduleManagementStore {
     this.formScheduleDescription = value;
   }
 
-  onUpdateSelectedRaidWeek(value) {
-    this.selectedRaidWeek = value;
+  onUpdateSelectedRaidWeekCompleted(values) {
+    this.selectedRaidWeek = values[0];
+    this.selectedSchedule = values[1];
   }
 
   onUpdateSelectedSchedule(value) {
