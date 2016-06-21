@@ -84,6 +84,11 @@ class ScheduleManagementStore {
     if(newScheduleList.length > 0) {
       this.selectedSchedule = newScheduleList[0].id;
     }
+
+    this.formRaid = this.raids[0].id;
+    if(this.raids[0].bosses.length > 0) {
+      this.formBoss = this.raids[0].bosses[0].id;
+    }
   }
 
   onLoadComponentDataFailure(jqXhr) {

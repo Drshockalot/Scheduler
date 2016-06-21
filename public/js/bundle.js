@@ -4513,9 +4513,38 @@ var ScheduleManagement = function (_React$Component) {
         })();
       }
 
-      var formRaidNameOptions, formBossNameOptions;
+      var formRaidOptions, formBossOptions;
 
-      if (this.state.raids) return _react2.default.createElement(
+      if (this.state.raids.length > 0) {
+        var _optionCount = 0;
+        formRaidOptions = this.state.raids.map(function (raid, index) {
+          if (raid.id == this.state.formRaid) {
+            if (raid.bosses.length > 0) {
+              formBossOptions = raid.bosses.map(function (boss, index) {
+                return _react2.default.createElement(
+                  'option',
+                  { key: boss.id, value: boss.id },
+                  boss.name
+                );
+              }, this);
+            } else {
+              formBossOptions = _react2.default.createElement(
+                'option',
+                null,
+                'No Bosses'
+              );
+            }
+
+            return _react2.default.createElement(
+              'option',
+              { key: raid.id, value: raid.id },
+              raid.name
+            );
+          }
+        }, this);
+      }
+
+      return _react2.default.createElement(
         'div',
         { id: 'wrapper' },
         _react2.default.createElement(_AdminSideNav2.default, null),
@@ -4593,7 +4622,7 @@ var ScheduleManagement = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'button',
-                    { className: 'btn btn-default pull-right', onClick: function onClick() {
+                    { className: 'btn btn-primary pull-right', onClick: function onClick() {
                         return _ScheduleManagementActions2.default.createSchedule(_this2.state.formRaidWeek, _this2.state.formScheduleName, _this2.state.formScheduleDescription);
                       } },
                     'Submit'
@@ -4684,7 +4713,7 @@ var ScheduleManagement = function (_React$Component) {
                         { className: 'form-control', value: this.state.formRaid, onChange: function onChange(e) {
                             return _ScheduleManagementActions2.default.updateFormRaid(e.target.value);
                           } },
-                        formRaidNameOptions
+                        formRaidOptions
                       )
                     )
                   ),
@@ -4704,7 +4733,7 @@ var ScheduleManagement = function (_React$Component) {
                         { className: 'form-control', value: this.state.formBoss, onChange: function onChange(e) {
                             return _ScheduleManagementActions2.default.updateFormBoss(e.target.value);
                           } },
-                        formBossNameOptions
+                        formBossOptions
                       )
                     )
                   ),
@@ -6098,6 +6127,11 @@ var ScheduleManagementStore = function () {
 
       if (newScheduleList.length > 0) {
         this.selectedSchedule = newScheduleList[0].id;
+      }
+
+      this.formRaid = this.raids[0].id;
+      if (this.raids[0].bosses.length > 0) {
+        this.formBoss = this.raids[0].bosses[0].id;
       }
     }
   }, {

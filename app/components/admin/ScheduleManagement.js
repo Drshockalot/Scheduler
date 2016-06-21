@@ -81,9 +81,28 @@ class ScheduleManagement extends React.Component {
       }
     }
 
-    var formRaidNameOptions, formBossNameOptions;
+    var formRaidOptions, formBossOptions;
 
-    if(this.state.raids)
+    if(this.state.raids.length > 0) {
+      let optionCount = 0;
+      formRaidOptions = this.state.raids.map(function(raid, index) {
+        if(raid.id == this.state.formRaid) {
+          if(raid.bosses.length > 0) {
+            formBossOptions = raid.bosses.map(function(boss, index) {
+              return (
+                <option key={boss.id} value={boss.id}>{boss.name}</option>
+              );
+            }, this);
+          } else {
+            formBossOptions = <option>No Bosses</option>
+          }
+
+          return (
+            <option key={raid.id} value={raid.id}>{raid.name}</option>
+          );
+        }
+      }, this);
+    }
 
     return (
       <div id='wrapper'>
@@ -114,7 +133,7 @@ class ScheduleManagement extends React.Component {
                       <textarea className='form-control' name='scheduleDescription' value={this.state.formScheduleDescription} onChange={e => ScheduleManagementActions.updateFormScheduleDescription(e.target.value)} />
                     </div>
                   </div>
-                  <button className='btn btn-default pull-right' onClick={() => ScheduleManagementActions.createSchedule(this.state.formRaidWeek, this.state.formScheduleName, this.state.formScheduleDescription)}>Submit</button>
+                  <button className='btn btn-primary pull-right' onClick={() => ScheduleManagementActions.createSchedule(this.state.formRaidWeek, this.state.formScheduleName, this.state.formScheduleDescription)}>Submit</button>
                 </div>
               </div>
             </div>
@@ -147,7 +166,7 @@ class ScheduleManagement extends React.Component {
                     <label className='col-sm-2 control-label'>Raid:</label>
                     <div className='col-sm-10'>
                       <select className='form-control' value={this.state.formRaid} onChange={e => ScheduleManagementActions.updateFormRaid(e.target.value)}>
-                        {formRaidNameOptions}
+                        {formRaidOptions}
                       </select>
                     </div>
                   </div>
@@ -155,7 +174,7 @@ class ScheduleManagement extends React.Component {
                     <label className='col-sm-2 control-label'>Boss:</label>
                     <div className='col-sm-10'>
                       <select className='form-control' value={this.state.formBoss} onChange={e => ScheduleManagementActions.updateFormBoss(e.target.value)}>
-                        {formBossNameOptions}
+                        {formBossOptions}
                       </select>
                     </div>
                   </div>
