@@ -965,7 +965,7 @@ var ScheduleManagementActions = function () {
   function ScheduleManagementActions() {
     _classCallCheck(this, ScheduleManagementActions);
 
-    this.generateActions('updateFormRaidWeek', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'updateFormRaidName', 'updateFormBossName', 'updateFormTanks', 'updateFormHealers', 'updateFormDPS', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure');
+    this.generateActions('updateFormRaidWeek', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'updateFormRaidName', 'updateFormBossName', 'updateFormTanks', 'updateFormHealers', 'updateFormDPS', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure', 'setFormTanks', 'setFormHealers', 'setFormDPS');
   }
 
   _createClass(ScheduleManagementActions, [{
@@ -4718,7 +4718,7 @@ var ScheduleManagement = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                       'div',
-                      { className: 'col-sm-4' },
+                      { className: 'col-sm-2' },
                       _react2.default.createElement('input', { type: 'number', className: 'form-control', value: this.state.formTanks, onChange: function onChange(e) {
                           return _ScheduleManagementActions2.default.updateFormTanks(e.target.value);
                         } })
@@ -4728,7 +4728,7 @@ var ScheduleManagement = function (_React$Component) {
                       { className: 'col-sm-1' },
                       _react2.default.createElement(
                         'button',
-                        { className: 'btn btn-secondary', onClick: function onClick() {
+                        { className: 'btn btn-default', onClick: function onClick() {
                             return _ScheduleManagementActions2.default.setFormTanks(1);
                           } },
                         '1'
@@ -4739,7 +4739,7 @@ var ScheduleManagement = function (_React$Component) {
                       { className: 'col-sm-1' },
                       _react2.default.createElement(
                         'button',
-                        { className: 'btn btn-secondary', onClick: function onClick() {
+                        { className: 'btn btn-default', onClick: function onClick() {
                             return _ScheduleManagementActions2.default.setFormTanks(2);
                           } },
                         '2'
@@ -4750,7 +4750,7 @@ var ScheduleManagement = function (_React$Component) {
                       { className: 'col-sm-1' },
                       _react2.default.createElement(
                         'button',
-                        { className: 'btn btn-secondary', onClick: function onClick() {
+                        { className: 'btn btn-default', onClick: function onClick() {
                             return _ScheduleManagementActions2.default.setFormTanks(3);
                           } },
                         '3'
@@ -4767,10 +4767,76 @@ var ScheduleManagement = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                       'div',
-                      { className: 'col-sm-10' },
+                      { className: 'col-sm-2' },
                       _react2.default.createElement('input', { type: 'number', className: 'form-control', value: this.state.formHealers, onChange: function onChange(e) {
                           return _ScheduleManagementActions2.default.updateFormHealers(e.target.value);
                         } })
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _ScheduleManagementActions2.default.setFormHealers(2);
+                          } },
+                        '2'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _ScheduleManagementActions2.default.setFormHealers(3);
+                          } },
+                        '3'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _ScheduleManagementActions2.default.setFormHealers(4);
+                          } },
+                        '4'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _ScheduleManagementActions2.default.setFormHealers(5);
+                          } },
+                        '5'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _ScheduleManagementActions2.default.setFormHealers(6);
+                          } },
+                        '6'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _ScheduleManagementActions2.default.setFormHealers(7);
+                          } },
+                        '7'
+                      )
                     )
                   ),
                   _react2.default.createElement(
@@ -4783,10 +4849,109 @@ var ScheduleManagement = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                       'div',
-                      { className: 'col-sm-10' },
+                      { className: 'col-sm-2' },
                       _react2.default.createElement('input', { type: 'number', className: 'form-control', value: this.state.formDPS, onChange: function onChange(e) {
                           return _ScheduleManagementActions2.default.updateFormDPS(e.target.value);
                         } })
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _ScheduleManagementActions2.default.setFormDPS(10);
+                          } },
+                        '10'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _ScheduleManagementActions2.default.setFormDPS(11);
+                          } },
+                        '11'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _ScheduleManagementActions2.default.setFormDPS(12);
+                          } },
+                        '12'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _ScheduleManagementActions2.default.setFormDPS(13);
+                          } },
+                        '13'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _ScheduleManagementActions2.default.setFormDPS(14);
+                          } },
+                        '14'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _ScheduleManagementActions2.default.setFormDPS(15);
+                          } },
+                        '15'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _ScheduleManagementActions2.default.setFormDPS(16);
+                          } },
+                        '16'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _ScheduleManagementActions2.default.setFormDPS(17);
+                          } },
+                        '17'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _ScheduleManagementActions2.default.setFormDPS(18);
+                          } },
+                        '18'
+                      )
                     )
                   )
                 )
@@ -5977,6 +6142,21 @@ var ScheduleManagementStore = function () {
     key: 'onCreateScheduleFailure',
     value: function onCreateScheduleFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onSetFormTanks',
+    value: function onSetFormTanks(value) {
+      this.formTanks = value;
+    }
+  }, {
+    key: 'onSetFormHealers',
+    value: function onSetFormHealers(value) {
+      this.formHealers = value;
+    }
+  }, {
+    key: 'onSetFormDPS',
+    value: function onSetFormDPS(value) {
+      this.formDPS = value;
     }
   }]);
 

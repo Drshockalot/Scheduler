@@ -18,7 +18,10 @@ class ScheduleManagementActions {
       'loadComponentDataSuccess',
       'loadComponentDataFailure',
       'createScheduleSuccess',
-      'createScheduleFailure'
+      'createScheduleFailure',
+      'setFormTanks',
+      'setFormHealers',
+      'setFormDPS'
     );
   }
 

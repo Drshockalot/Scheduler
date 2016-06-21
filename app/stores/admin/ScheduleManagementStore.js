@@ -110,6 +110,18 @@ class ScheduleManagementStore {
   onCreateScheduleFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
   }
+
+  onSetFormTanks(value) {
+    this.formTanks = value;
+  }
+
+  onSetFormHealers(value) {
+    this.formHealers = value;
+  }
+
+  onSetFormDPS(value) {
+    this.formDPS = value;
+  }
 }
 
 export default alt.createStore(ScheduleManagementStore);

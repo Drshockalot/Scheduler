@@ -161,29 +161,74 @@ class ScheduleManagement extends React.Component {
                   </div>
                   <div className='form-group'>
                     <label className='col-sm-2 control-label'>Tanks:</label>
-                    <div className='col-sm-4'>
+                    <div className='col-sm-2'>
                       <input type='number' className='form-control' value={this.state.formTanks} onChange={e => ScheduleManagementActions.updateFormTanks(e.target.value)} />
                     </div>
                     <div className='col-sm-1'>
-                      <button className='btn btn-secondary' onClick={() => ScheduleManagementActions.setFormTanks(1)}>1</button>
+                      <button className='btn btn-default' onClick={() => ScheduleManagementActions.setFormTanks(1)}>1</button>
                     </div>
                     <div className='col-sm-1'>
-                      <button className='btn btn-secondary' onClick={() => ScheduleManagementActions.setFormTanks(2)}>2</button>
+                      <button className='btn btn-default' onClick={() => ScheduleManagementActions.setFormTanks(2)}>2</button>
                     </div>
                     <div className='col-sm-1'>
-                      <button className='btn btn-secondary' onClick={() => ScheduleManagementActions.setFormTanks(3)}>3</button>
+                      <button className='btn btn-default' onClick={() => ScheduleManagementActions.setFormTanks(3)}>3</button>
                     </div>
                   </div>
                   <div className='form-group'>
                     <label className='col-sm-2 control-label'>Healers:</label>
-                    <div className='col-sm-10'>
+                    <div className='col-sm-2'>
                       <input type='number' className='form-control' value={this.state.formHealers} onChange={e => ScheduleManagementActions.updateFormHealers(e.target.value)} />
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => ScheduleManagementActions.setFormHealers(2)}>2</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => ScheduleManagementActions.setFormHealers(3)}>3</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => ScheduleManagementActions.setFormHealers(4)}>4</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => ScheduleManagementActions.setFormHealers(5)}>5</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => ScheduleManagementActions.setFormHealers(6)}>6</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => ScheduleManagementActions.setFormHealers(7)}>7</button>
                     </div>
                   </div>
                   <div className='form-group'>
                     <label className='col-sm-2 control-label'>DPS:</label>
-                    <div className='col-sm-10'>
+                    <div className='col-sm-2'>
                       <input type='number' className='form-control' value={this.state.formDPS} onChange={e => ScheduleManagementActions.updateFormDPS(e.target.value)} />
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => ScheduleManagementActions.setFormDPS(10)}>10</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => ScheduleManagementActions.setFormDPS(11)}>11</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => ScheduleManagementActions.setFormDPS(12)}>12</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => ScheduleManagementActions.setFormDPS(13)}>13</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => ScheduleManagementActions.setFormDPS(14)}>14</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => ScheduleManagementActions.setFormDPS(15)}>15</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => ScheduleManagementActions.setFormDPS(16)}>16</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => ScheduleManagementActions.setFormDPS(17)}>17</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => ScheduleManagementActions.setFormDPS(18)}>18</button>
                     </div>
                   </div>
                 </div>
