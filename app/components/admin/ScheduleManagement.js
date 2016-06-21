@@ -93,7 +93,7 @@ class ScheduleManagement extends React.Component {
                   <div className='form-group'>
                     <label className='col-sm-2 control-label' htmlFor='scheduleRaidWeek'>Raid Week</label>
                     <div className='col-sm-10'>
-                      <select className='form-control' id='scheduleRaidWeek' value={this.state.formRaidWeek} onChange={e => ScheduleManagementActions.updateFormRaidWeek(e.target.value)}>
+                      <select className='form-control' id='scheduleRaidWeek' value={this.state.formRaidWeek} onChange={e => ScheduleManagementActions.updateFormRaidWeek(parseInt(e.target.value))}>
                         {raidWeekOptions}
                       </select>
                     </div>
@@ -110,7 +110,7 @@ class ScheduleManagement extends React.Component {
                       <textarea className='form-control' name='scheduleDescription' value={this.state.formScheduleDescription} onChange={e => ScheduleManagementActions.updateFormScheduleDescription(e.target.value)} />
                     </div>
                   </div>
-                  <button className='btn btn-default pull-right' onClick={() => ScheduleManagementActions.createSchedule(formRaidWeekId, this.state.formScheduleName, this.state.formScheduleDescription)}>Submit</button>
+                  <button className='btn btn-default pull-right' onClick={() => ScheduleManagementActions.createSchedule(this.state.formRaidWeek, this.state.formScheduleName, this.state.formScheduleDescription)}>Submit</button>
                 </div>
               </div>
             </div>

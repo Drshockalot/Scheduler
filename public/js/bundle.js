@@ -4551,7 +4551,7 @@ var ScheduleManagement = function (_React$Component) {
                       _react2.default.createElement(
                         'select',
                         { className: 'form-control', id: 'scheduleRaidWeek', value: this.state.formRaidWeek, onChange: function onChange(e) {
-                            return _ScheduleManagementActions2.default.updateFormRaidWeek(e.target.value);
+                            return _ScheduleManagementActions2.default.updateFormRaidWeek(parseInt(e.target.value));
                           } },
                         raidWeekOptions
                       )
@@ -4592,7 +4592,7 @@ var ScheduleManagement = function (_React$Component) {
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-default pull-right', onClick: function onClick() {
-                        return _ScheduleManagementActions2.default.createSchedule(formRaidWeekId, _this2.state.formScheduleName, _this2.state.formScheduleDescription);
+                        return _ScheduleManagementActions2.default.createSchedule(_this2.state.formRaidWeek, _this2.state.formScheduleName, _this2.state.formScheduleDescription);
                       } },
                     'Submit'
                   )
