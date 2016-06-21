@@ -29,7 +29,6 @@ class ScheduleManagementStore {
   }
 
   onUpdateSelectedRaidWeekCompleted(values) {
-    console.log(values);
     this.selectedRaidWeek = values[0];
     this.selectedSchedule = values[1];
   }
