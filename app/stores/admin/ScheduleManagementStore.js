@@ -48,13 +48,13 @@ class ScheduleManagementStore {
 
     var newScheduleList = [];
     console.log('test');
-    for(var i = 0; result.data.schedules.length < 0; i++) {
+    for(var i = 0; i < this.schedules.length; i++) {
       console.log('in');
-      console.log(result.data.schedules[i].raid_week_id);
+      console.log(this.schedules[i].raid_week_id);
       console.log(this.selectedRaidWeek);
-      if(result.data.schedules[i].raid_week_id === this.selectedRaidWeek) {
+      if(this.schedules[i].raid_week_id === this.selectedRaidWeek) {
         console.log('further in');
-        newScheduleList.push(result.data.schedules[i]);
+        newScheduleList.push(this.schedules[i]);
       }
     }
 

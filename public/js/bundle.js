@@ -973,7 +973,7 @@ var ScheduleManagementActions = function () {
     value: function updateSelectedRaidWeek(newRWId) {
       var state = _ScheduleManagementStore2.default.getState();
       var newScheduleList = [];
-      for (var i = 0; state.schedules.length < 0; i++) {
+      for (var i = 0; i < state.schedules.length; i++) {
         if (state.schedules[i].raid_week_id === newRWId) {
           newScheduleList.push(state.schedules[i]);
         }
@@ -5746,13 +5746,13 @@ var ScheduleManagementStore = function () {
 
       var newScheduleList = [];
       console.log('test');
-      for (var i = 0; result.data.schedules.length < 0; i++) {
+      for (var i = 0; i < this.schedules.length; i++) {
         console.log('in');
-        console.log(result.data.schedules[i].raid_week_id);
+        console.log(this.schedules[i].raid_week_id);
         console.log(this.selectedRaidWeek);
-        if (result.data.schedules[i].raid_week_id === this.selectedRaidWeek) {
+        if (this.schedules[i].raid_week_id === this.selectedRaidWeek) {
           console.log('further in');
-          newScheduleList.push(result.data.schedules[i]);
+          newScheduleList.push(this.schedules[i]);
         }
       }
 

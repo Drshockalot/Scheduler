@@ -21,7 +21,7 @@ class ScheduleManagementActions {
   updateSelectedRaidWeek(newRWId) {
     var state = ScheduleManagementStore.getState();
     var newScheduleList = [];
-    for(var i = 0; state.schedules.length < 0; i++) {
+    for(var i = 0; i < state.schedules.length; i++) {
       if(state.schedules[i].raid_week_id === newRWId) {
         newScheduleList.push(state.schedules[i]);
       }
