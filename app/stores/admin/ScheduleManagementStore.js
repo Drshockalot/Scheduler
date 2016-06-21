@@ -52,9 +52,9 @@ class ScheduleManagementStore {
         newScheduleList.push(this.schedules[i]);
       }
     }
-    
+
     if(newScheduleList.length > 0) {
-      newSelectedScheduleName = newScheduleList[0].id;
+      thi.selectedSchedule = newScheduleList[0].id;
     }
   }
 
