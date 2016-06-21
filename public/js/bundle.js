@@ -5801,6 +5801,17 @@ var ScheduleManagementStore = function () {
       this.schedules = result.data.schedules;
       this.formScheduleName = '';
       this.formScheduleDescription = '';
+
+      var newScheduleList = [];
+      for (var i = 0; i < this.schedules.length; i++) {
+        if (this.schedules[i].raid_week_id === this.selectedRaidWeek) {
+          newScheduleList.push(this.schedules[i]);
+        }
+      }
+
+      if (newScheduleList.length > 0) {
+        this.selectedSchedule = newScheduleList[0].id;
+      }
     }
   }, {
     key: 'onCreateScheduleFailure',
