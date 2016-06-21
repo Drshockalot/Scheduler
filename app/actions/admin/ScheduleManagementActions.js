@@ -18,6 +18,7 @@ class ScheduleManagementActions {
   }
 
   updateSelectedRaidWeek(newRWId) {
+    newRWId = parseInt(newRWId);
     console.log(newRWId);
     var state = ScheduleManagementStore.getState();
     var newScheduleList = [];

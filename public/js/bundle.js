@@ -971,6 +971,7 @@ var ScheduleManagementActions = function () {
   _createClass(ScheduleManagementActions, [{
     key: 'updateSelectedRaidWeek',
     value: function updateSelectedRaidWeek(newRWId) {
+      newRWId = parseInt(newRWId);
       console.log(newRWId);
       var state = _ScheduleManagementStore2.default.getState();
       var newScheduleList = [];
