@@ -5745,6 +5745,7 @@ var ScheduleManagementStore = function () {
       this.selectedSchedule = 0;
 
       var newScheduleList = [];
+      console.log('test');
       for (var i = 0; this.schedules.length < 0; i++) {
         console.log('in');
         console.log(this.schedules[i].raid_week_id);
