@@ -5746,7 +5746,11 @@ var ScheduleManagementStore = function () {
 
       var newScheduleList = [];
       for (var i = 0; this.schedules.length < 0; i++) {
+        console.log('in');
+        console.log(this.schedules[i].raid_week_id);
+        console.log(this.selectedRaidWeek);
         if (this.schedules[i].raid_week_id === this.selectedRaidWeek) {
+          console.log('further in');
           newScheduleList.push(this.schedules[i]);
         }
       }
