@@ -116,17 +116,28 @@ class ScheduleManagement extends React.Component {
             </div>
             <div className='row'>
               <h3>Manage Schedule</h3>
-              <div className='row'>
-                <div className='col-md-6'>
-                  <select className='form-control' value={this.state.selectedRaidWeek} onChange={e => ScheduleManagementActions.updateSelectedRaidWeek(e.target.value)}>
-                    {selectedRaidWeekOptions}
-                  </select>
+              <div className='col-md-6'>
+                <div className='form-horizontal'>
+                  <div className='form-group'>
+                    <label className='col-sm-2 control-label'>Raid Week:</label>
+                    <div className='col-sm-10'>
+                      <select className='form-control' value={this.state.selectedRaidWeek} onChange={e => ScheduleManagementActions.updateSelectedRaidWeek(e.target.value)}>
+                        {selectedRaidWeekOptions}
+                      </select>
+                    </div>
+                  </div>
+                  <div className='form-group'>
+                    <label className='col-sm-2 control-label'>Schedule: </label>
+                    <div className='col-sm-10'>
+                      <select className='form-control' value={this.state.selectedSchedule} onChange={e => ScheduleManagementActions.updateSelectedSchedule(e.target.value)}>
+                        {selectedScheduleOptions}
+                      </select>
+                    </div>
+                  </div>
                 </div>
-                <div className='col-md-6'>
-                  <select className='form-control' value={this.state.selectedSchedule} onChange={e => ScheduleManagementActions.updateSelectedSchedule(e.target.value)}>
-                    {selectedScheduleOptions}
-                  </select>
-                </div>
+              </div>
+              <div className='col-md-6'>
+
               </div>
             </div>
           </div>

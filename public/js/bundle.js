@@ -4609,30 +4609,53 @@ var ScheduleManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'div',
-                { className: 'row' },
+                { className: 'col-md-6' },
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-md-6' },
+                  { className: 'form-horizontal' },
                   _react2.default.createElement(
-                    'select',
-                    { className: 'form-control', value: this.state.selectedRaidWeek, onChange: function onChange(e) {
-                        return _ScheduleManagementActions2.default.updateSelectedRaidWeek(e.target.value);
-                      } },
-                    selectedRaidWeekOptions
-                  )
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'col-md-6' },
+                    'div',
+                    { className: 'form-group' },
+                    _react2.default.createElement(
+                      'label',
+                      { className: 'col-sm-2 control-label' },
+                      'Raid Week:'
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-10' },
+                      _react2.default.createElement(
+                        'select',
+                        { className: 'form-control', value: this.state.selectedRaidWeek, onChange: function onChange(e) {
+                            return _ScheduleManagementActions2.default.updateSelectedRaidWeek(e.target.value);
+                          } },
+                        selectedRaidWeekOptions
+                      )
+                    )
+                  ),
                   _react2.default.createElement(
-                    'select',
-                    { className: 'form-control', value: this.state.selectedSchedule, onChange: function onChange(e) {
-                        return _ScheduleManagementActions2.default.updateSelectedSchedule(e.target.value);
-                      } },
-                    selectedScheduleOptions
+                    'div',
+                    { className: 'form-group' },
+                    _react2.default.createElement(
+                      'label',
+                      { className: 'col-sm-2 control-label' },
+                      'Schedule: '
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-10' },
+                      _react2.default.createElement(
+                        'select',
+                        { className: 'form-control', value: this.state.selectedSchedule, onChange: function onChange(e) {
+                            return _ScheduleManagementActions2.default.updateSelectedSchedule(e.target.value);
+                          } },
+                        selectedScheduleOptions
+                      )
+                    )
                   )
                 )
-              )
+              ),
+              _react2.default.createElement('div', { className: 'col-md-6' })
             )
           )
         )
