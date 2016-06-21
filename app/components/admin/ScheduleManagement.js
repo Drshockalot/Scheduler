@@ -44,7 +44,7 @@ class ScheduleManagement extends React.Component {
         }
 
         return (
-          <option key={raidweek.id} value={moment(raidweek.start).format('W')}>{moment(raidweek.start).format('W')}</option>
+          <option key={raidweek.id} value={raidweek.id}>{moment(raidweek.start).format('W')}</option>
         );
       }, this);
 
@@ -54,7 +54,7 @@ class ScheduleManagement extends React.Component {
         }
 
         return (
-          <option key={raidweek.id} value={moment(raidweek.start).format('W')}>{moment(raidweek.start).format('W')}</option>
+          <option key={raidweek.id} value={raidweek.id}>{moment(raidweek.start).format('W')}</option>
         );
       }, this);
     }
@@ -69,7 +69,7 @@ class ScheduleManagement extends React.Component {
         if(schedule.raid_week_id === selectedRaidWeekId) {
           optionCount++;
           return (
-            <option key={schedule.id} value={schedule.name}>{schedule.name}</option>
+            <option key={schedule.id} value={schedule.id}>{schedule.name}</option>
           );
         }
       }, this);
