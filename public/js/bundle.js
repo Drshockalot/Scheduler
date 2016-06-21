@@ -4963,7 +4963,7 @@ var ScheduleManagement = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'button',
-                    { className: 'btn btn-primary', onClick: function onClick() {
+                    { className: 'btn btn-primary pull-right', onClick: function onClick() {
                         return _ScheduleManagementActions2.default.addBossToSchedule(_this2.state.formRaid, _this2.state.formBoss, _this2.state.formTanks, _this2.state.formHealers, _this2.state.formDPS, _this2.state.selectedSchedule);
                       } },
                     'Submit'

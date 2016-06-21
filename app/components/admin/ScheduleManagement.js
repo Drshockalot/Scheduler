@@ -244,7 +244,7 @@ class ScheduleManagement extends React.Component {
                       <button className='btn btn-default' onClick={() => ScheduleManagementActions.setFormDPS(16)}>16</button>
                     </div>
                   </div>
-                  <button className='btn btn-primary' onClick={() => ScheduleManagementActions.addBossToSchedule(this.state.formRaid,
+                  <button className='btn btn-primary pull-right' onClick={() => ScheduleManagementActions.addBossToSchedule(this.state.formRaid,
                                                                                                                  this.state.formBoss,
                                                                                                                  this.state.formTanks,
                                                                                                                  this.state.formHealers,
