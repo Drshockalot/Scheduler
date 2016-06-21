@@ -9,11 +9,19 @@ class ScheduleManagementStore {
     this.raids = [];
     this.characters = [];
     this.schedules = [];
+
     this.selectedRaidWeek = 0;
     this.selectedSchedule = 0;
+
     this.formRaidWeek = 0;
     this.formScheduleName = '';
     this.formScheduleDescription = '';
+
+    this.formRaidName = '';
+    this.formBossName = '';
+    this.formTanks = 0;
+    this.formHealers = 0;
+    this.formDPS = 0;
   }
 
   onUpdateFormRaidWeek(value) {
@@ -35,6 +43,26 @@ class ScheduleManagementStore {
 
   onUpdateSelectedSchedule(value) {
     this.selectedSchedule = value;
+  }
+
+  onUpdateFormRaidName(value) {
+    this.formRaidName = value;
+  }
+
+  onUpdateFormBossName(value) {
+    this.formBossName = value;
+  }
+
+  onUpdateFormTanks(value) {
+    this.formTanks = value;
+  }
+
+  onUpdateFormHealers(value) {
+    this.formHealers = value;
+  }
+
+  onUpdateFormDPS(value) {
+    this.formDPS = value;
   }
 
   onLoadComponentDataSuccess(result) {

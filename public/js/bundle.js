@@ -965,7 +965,7 @@ var ScheduleManagementActions = function () {
   function ScheduleManagementActions() {
     _classCallCheck(this, ScheduleManagementActions);
 
-    this.generateActions('updateFormRaidWeek', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure');
+    this.generateActions('updateFormRaidWeek', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'updateFormRaidName', 'updateFormBossName', 'updateFormTanks', 'updateFormHealers', 'updateFormDPS', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure');
   }
 
   _createClass(ScheduleManagementActions, [{
@@ -4513,6 +4513,8 @@ var ScheduleManagement = function (_React$Component) {
         })();
       }
 
+      var formRaidNameOptions, formBossNameOptions;
+
       return _react2.default.createElement(
         'div',
         { id: 'wrapper' },
@@ -4662,6 +4664,98 @@ var ScheduleManagement = function (_React$Component) {
                   'h3',
                   null,
                   'Add Boss'
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'form-horizontal' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'form-group' },
+                    _react2.default.createElement(
+                      'label',
+                      { className: 'col-sm-2 control-label' },
+                      'Raid:'
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-10' },
+                      _react2.default.createElement(
+                        'select',
+                        { className: 'form-control', value: this.state.formRaidName, onChange: function onChange(e) {
+                            return _ScheduleManagementActions2.default.updateFormRaidName(e.target.value);
+                          } },
+                        formRaidNameOptions
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'form-group' },
+                    _react2.default.createElement(
+                      'label',
+                      { className: 'col-sm-2 control-label' },
+                      'Boss:'
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-10' },
+                      _react2.default.createElement(
+                        'select',
+                        { className: 'form-control', value: this.state.formBossName, onChange: function onChange(e) {
+                            return _ScheduleManagementActions2.default.updateFormBossName(e.target.value);
+                          } },
+                        formBossNameOptions
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'form-group' },
+                    _react2.default.createElement(
+                      'label',
+                      { className: 'col-sm-2 control-label' },
+                      'Tanks:'
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-10' },
+                      _react2.default.createElement('input', { type: 'number', value: this.state.formTanks, onChange: function onChange(e) {
+                          return _ScheduleManagementActions2.default.updateFormTanks(e.target.value);
+                        } })
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'form-group' },
+                    _react2.default.createElement(
+                      'label',
+                      { className: 'col-sm-2 control-label' },
+                      'Healers:'
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-10' },
+                      _react2.default.createElement('input', { type: 'number', value: this.state.formHealers, onChange: function onChange(e) {
+                          return _ScheduleManagementActions2.default.updateFormHealers(e.target.value);
+                        } })
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'form-group' },
+                    _react2.default.createElement(
+                      'label',
+                      { className: 'col-sm-2 control-label' },
+                      'DPS:'
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-10' },
+                      _react2.default.createElement('input', { type: 'number', value: this.state.formDPS, onChange: function onChange(e) {
+                          return _ScheduleManagementActions2.default.updateFormDPS(e.target.value);
+                        } })
+                    )
+                  )
                 )
               )
             )
@@ -5735,11 +5829,19 @@ var ScheduleManagementStore = function () {
     this.raids = [];
     this.characters = [];
     this.schedules = [];
+
     this.selectedRaidWeek = 0;
     this.selectedSchedule = 0;
+
     this.formRaidWeek = 0;
     this.formScheduleName = '';
     this.formScheduleDescription = '';
+
+    this.formRaidName = '';
+    this.formBossName = '';
+    this.formTanks = 0;
+    this.formHealers = 0;
+    this.formDPS = 0;
   }
 
   _createClass(ScheduleManagementStore, [{
@@ -5767,6 +5869,31 @@ var ScheduleManagementStore = function () {
     key: 'onUpdateSelectedSchedule',
     value: function onUpdateSelectedSchedule(value) {
       this.selectedSchedule = value;
+    }
+  }, {
+    key: 'onUpdateFormRaidName',
+    value: function onUpdateFormRaidName(value) {
+      this.formRaidName = value;
+    }
+  }, {
+    key: 'onUpdateFormBossName',
+    value: function onUpdateFormBossName(value) {
+      this.formBossName = value;
+    }
+  }, {
+    key: 'onUpdateFormTanks',
+    value: function onUpdateFormTanks(value) {
+      this.formTanks = value;
+    }
+  }, {
+    key: 'onUpdateFormHealers',
+    value: function onUpdateFormHealers(value) {
+      this.formHealers = value;
+    }
+  }, {
+    key: 'onUpdateFormDPS',
+    value: function onUpdateFormDPS(value) {
+      this.formDPS = value;
     }
   }, {
     key: 'onLoadComponentDataSuccess',

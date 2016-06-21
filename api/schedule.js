@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
                     .fetchAll()
                     .then(function(characters) {
                       Raid.forge()
-                              .fetchAll()
+                              .fetchAll({'withRelated': ['bosses']})
                               .then(function(raids) {
                                 RaidWeek.forge()
                                         .fetchAll()

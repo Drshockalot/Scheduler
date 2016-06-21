@@ -81,6 +81,8 @@ class ScheduleManagement extends React.Component {
       }
     }
 
+    var formRaidNameOptions, formBossNameOptions;
+
     return (
       <div id='wrapper'>
         <AdminSideNav />
@@ -138,6 +140,42 @@ class ScheduleManagement extends React.Component {
               </div>
               <div className='col-md-6'>
                 <h3>Add Boss</h3>
+                <div className='form-horizontal'>
+                  <div className='form-group'>
+                    <label className='col-sm-2 control-label'>Raid:</label>
+                    <div className='col-sm-10'>
+                      <select className='form-control' value={this.state.formRaidName} onChange={e => ScheduleManagementActions.updateFormRaidName(e.target.value)}>
+                        {formRaidNameOptions}
+                      </select>
+                    </div>
+                  </div>
+                  <div className='form-group'>
+                    <label className='col-sm-2 control-label'>Boss:</label>
+                    <div className='col-sm-10'>
+                      <select className='form-control' value={this.state.formBossName} onChange={e => ScheduleManagementActions.updateFormBossName(e.target.value)}>
+                        {formBossNameOptions}
+                      </select>
+                    </div>
+                  </div>
+                  <div className='form-group'>
+                    <label className='col-sm-2 control-label'>Tanks:</label>
+                    <div className='col-sm-10'>
+                      <input type='number' value={this.state.formTanks} onChange={e => ScheduleManagementActions.updateFormTanks(e.target.value)} />
+                    </div>
+                  </div>
+                  <div className='form-group'>
+                    <label className='col-sm-2 control-label'>Healers:</label>
+                    <div className='col-sm-10'>
+                      <input type='number' value={this.state.formHealers} onChange={e => ScheduleManagementActions.updateFormHealers(e.target.value)} />
+                    </div>
+                  </div>
+                  <div className='form-group'>
+                    <label className='col-sm-2 control-label'>DPS:</label>
+                    <div className='col-sm-10'>
+                      <input type='number' value={this.state.formDPS} onChange={e => ScheduleManagementActions.updateFormDPS(e.target.value)} />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
