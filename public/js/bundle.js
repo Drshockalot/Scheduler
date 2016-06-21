@@ -965,7 +965,7 @@ var ScheduleManagementActions = function () {
   function ScheduleManagementActions() {
     _classCallCheck(this, ScheduleManagementActions);
 
-    this.generateActions('updateFormRaidWeek', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'updateFormRaidName', 'updateFormBossName', 'updateFormTanks', 'updateFormHealers', 'updateFormDPS', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure', 'setFormTanks', 'setFormHealers', 'setFormDPS');
+    this.generateActions('updateFormRaidWeek', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'updateFormRaid', 'updateFormBoss', 'updateFormTanks', 'updateFormHealers', 'updateFormDPS', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure', 'setFormTanks', 'setFormHealers', 'setFormDPS');
   }
 
   _createClass(ScheduleManagementActions, [{
@@ -4681,8 +4681,8 @@ var ScheduleManagement = function (_React$Component) {
                       { className: 'col-sm-10' },
                       _react2.default.createElement(
                         'select',
-                        { className: 'form-control', value: this.state.formRaidName, onChange: function onChange(e) {
-                            return _ScheduleManagementActions2.default.updateFormRaidName(e.target.value);
+                        { className: 'form-control', value: this.state.formRaid, onChange: function onChange(e) {
+                            return _ScheduleManagementActions2.default.updateFormRaid(e.target.value);
                           } },
                         formRaidNameOptions
                       )
@@ -4701,8 +4701,8 @@ var ScheduleManagement = function (_React$Component) {
                       { className: 'col-sm-10' },
                       _react2.default.createElement(
                         'select',
-                        { className: 'form-control', value: this.state.formBossName, onChange: function onChange(e) {
-                            return _ScheduleManagementActions2.default.updateFormBossName(e.target.value);
+                        { className: 'form-control', value: this.state.formBoss, onChange: function onChange(e) {
+                            return _ScheduleManagementActions2.default.updateFormBoss(e.target.value);
                           } },
                         formBossNameOptions
                       )
@@ -4931,6 +4931,13 @@ var ScheduleManagement = function (_React$Component) {
                         '16'
                       )
                     )
+                  ),
+                  _react2.default.createElement(
+                    'button',
+                    { className: 'btn btn-primary', onClick: function onClick() {
+                        return _ScheduleManagementActions2.default.addBossToSchedule(_this2.state.formRaid, _this2.state.formBoss, _this2.state.formTanks, _this2.state.formHealers, _this2.state.formDPS, _this2.state.selectedSchedule);
+                      } },
+                    'Submit'
                   )
                 )
               )
@@ -6013,8 +6020,8 @@ var ScheduleManagementStore = function () {
     this.formScheduleName = '';
     this.formScheduleDescription = '';
 
-    this.formRaidName = '';
-    this.formBossName = '';
+    this.formRaid = 0;
+    this.formBoss = 0;
     this.formTanks = 0;
     this.formHealers = 0;
     this.formDPS = 0;

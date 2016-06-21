@@ -17,8 +17,8 @@ class ScheduleManagementStore {
     this.formScheduleName = '';
     this.formScheduleDescription = '';
 
-    this.formRaidName = '';
-    this.formBossName = '';
+    this.formRaid = 0;
+    this.formBoss = 0;
     this.formTanks = 0;
     this.formHealers = 0;
     this.formDPS = 0;

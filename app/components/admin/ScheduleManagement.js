@@ -146,7 +146,7 @@ class ScheduleManagement extends React.Component {
                   <div className='form-group'>
                     <label className='col-sm-2 control-label'>Raid:</label>
                     <div className='col-sm-10'>
-                      <select className='form-control' value={this.state.formRaidName} onChange={e => ScheduleManagementActions.updateFormRaidName(e.target.value)}>
+                      <select className='form-control' value={this.state.formRaid} onChange={e => ScheduleManagementActions.updateFormRaid(e.target.value)}>
                         {formRaidNameOptions}
                       </select>
                     </div>
@@ -154,7 +154,7 @@ class ScheduleManagement extends React.Component {
                   <div className='form-group'>
                     <label className='col-sm-2 control-label'>Boss:</label>
                     <div className='col-sm-10'>
-                      <select className='form-control' value={this.state.formBossName} onChange={e => ScheduleManagementActions.updateFormBossName(e.target.value)}>
+                      <select className='form-control' value={this.state.formBoss} onChange={e => ScheduleManagementActions.updateFormBoss(e.target.value)}>
                         {formBossNameOptions}
                       </select>
                     </div>
@@ -225,6 +225,12 @@ class ScheduleManagement extends React.Component {
                       <button className='btn btn-default' onClick={() => ScheduleManagementActions.setFormDPS(16)}>16</button>
                     </div>
                   </div>
+                  <button className='btn btn-primary' onClick={() => ScheduleManagementActions.addBossToSchedule(this.state.formRaid,
+                                                                                                                 this.state.formBoss,
+                                                                                                                 this.state.formTanks,
+                                                                                                                 this.state.formHealers,
+                                                                                                                 this.state.formDPS,
+                                                                                                                 this.state.selectedSchedule)}>Submit</button>
                 </div>
               </div>
             </div>
