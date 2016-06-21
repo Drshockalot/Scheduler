@@ -26,11 +26,11 @@ class ScheduleManagementActions {
         newScheduleList.push(state.schedules[i]);
       }
     }
-    var newSelectedScheduleName = '';
+    var newSelectedSchedule = 0;
     if(newScheduleList.length > 0) {
-      newSelectedScheduleName = newScheduleList[0].name;
+      newSelectedSchedule = newScheduleList[0].id;
     }
-    this.updateSelectedRaidWeekCompleted(newRWId, newSelectedScheduleName);
+    this.updateSelectedRaidWeekCompleted(newRWId, newSelectedSchedule);
   }
 
   loadComponentData() {
