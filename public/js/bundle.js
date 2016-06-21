@@ -978,13 +978,14 @@ var ScheduleManagementActions = function () {
         console.log('in');
         console.log(state.schedules[i].raid_week_id);
         console.log(newRWId);
-        if (state.schedules[i].raid_week_id === newRWId) {
+        if (state.schedules[i].raid_week_id == newRWId) {
           console.log('further in');
           newScheduleList.push(state.schedules[i]);
         }
       }
       var newSelectedSchedule = 0;
       if (newScheduleList.length > 0) {
+        console.log('chaching');
         newSelectedSchedule = newScheduleList[0].id;
       }
       console.log(newSelectedSchedule);
