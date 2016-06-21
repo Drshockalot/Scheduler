@@ -224,12 +224,6 @@ class ScheduleManagement extends React.Component {
                     <div className='col-sm-1'>
                       <button className='btn btn-default' onClick={() => ScheduleManagementActions.setFormDPS(16)}>16</button>
                     </div>
-                    <div className='col-sm-1'>
-                      <button className='btn btn-default' onClick={() => ScheduleManagementActions.setFormDPS(17)}>17</button>
-                    </div>
-                    <div className='col-sm-1'>
-                      <button className='btn btn-default' onClick={() => ScheduleManagementActions.setFormDPS(18)}>18</button>
-                    </div>
                   </div>
                 </div>
               </div>

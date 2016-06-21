@@ -4930,28 +4930,6 @@ var ScheduleManagement = function (_React$Component) {
                           } },
                         '16'
                       )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-sm-1' },
-                      _react2.default.createElement(
-                        'button',
-                        { className: 'btn btn-default', onClick: function onClick() {
-                            return _ScheduleManagementActions2.default.setFormDPS(17);
-                          } },
-                        '17'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-sm-1' },
-                      _react2.default.createElement(
-                        'button',
-                        { className: 'btn btn-default', onClick: function onClick() {
-                            return _ScheduleManagementActions2.default.setFormDPS(18);
-                          } },
-                        '18'
-                      )
                     )
                   )
                 )
