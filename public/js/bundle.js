@@ -4430,6 +4430,10 @@ var _moment = require('moment');
 
 var _moment2 = _interopRequireDefault(_moment);
 
+var _underscore = require('underscore');
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -4480,8 +4484,9 @@ var ScheduleManagement = function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      var raidWeekOptions, selectedRaidWeekOptions, selectedScheduleOptions;
-      var formRaidWeekId, selectedRaidWeekId, selectedScheduleId;
+      var raidWeekOptions, selectedRaidWeekOptions, selectedScheduleOptions, formRosterOptions;
+      var formRaidWeekId, selectedRaidWeekId, selectedScheduleId, selectedRosterId;
+
       if (this.state.raidweeks.length > 0) {
         raidWeekOptions = this.state.raidweeks.map(function (raidweek, index) {
           if (raidweek.id === this.state.formRaidWeek) {
@@ -4504,6 +4509,20 @@ var ScheduleManagement = function (_React$Component) {
             'option',
             { key: raidweek.id, value: raidweek.id },
             (0, _moment2.default)(raidweek.start).format('W')
+          );
+        }, this);
+      }
+
+      if (this.state.rosters.length > 0) {
+        formRosterOptions = this.state.rosters.map(function (roster, index) {
+          if (roster.id === this.state.formRoster) {
+            selectedRosterId = roster.id;
+          }
+
+          return _react2.default.createElement(
+            'option',
+            { key: roster.id, value: roster.id },
+            roster.name
           );
         }, this);
       }
@@ -4567,6 +4586,93 @@ var ScheduleManagement = function (_React$Component) {
         }, this);
       }
 
+      var scheduleBossRows;
+
+      if (this.state.schedules.length > 0) {
+        _underscore2.default.findWhere(this.state.schedules, { id: this.state.selectedSchedule }).schedule_bosses.map(function (schedule_boss, index) {
+          return _react2.default.createElement(
+            'div',
+            { className: 'row' },
+            _react2.default.createElement(
+              'table',
+              { className: 'table' },
+              _react2.default.createElement(
+                'tbody',
+                null,
+                _react2.default.createElement(
+                  'tr',
+                  null,
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    'Raid'
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    'Boss'
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    'Tanks'
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    'Healers'
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    'DPS'
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    'Standby'
+                  )
+                ),
+                _react2.default.createElement(
+                  'tr',
+                  null,
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    schedule_boss.raid.name
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    schedule_boss.name
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    schedule_boss.tank_count
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    schedule_boss.healer_count
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    schedule_boss.dps_count
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    0
+                  )
+                )
+              )
+            )
+          );
+        }, this);
+      }
+
       return _react2.default.createElement(
         'div',
         { id: 'wrapper' },
@@ -4608,6 +4714,26 @@ var ScheduleManagement = function (_React$Component) {
                             return _ScheduleManagementActions2.default.updateFormRaidWeek(parseInt(e.target.value));
                           } },
                         raidWeekOptions
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'form-group' },
+                    _react2.default.createElement(
+                      'label',
+                      { className: 'col-sm-2 control-label' },
+                      'Roster'
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-10' },
+                      _react2.default.createElement(
+                        'select',
+                        { className: 'form-control', value: this.state.formRoster, onChange: function onChange(e) {
+                            return _ScheduleManagementActions2.default.updateFormRoster(parseInt(e.target.value));
+                          } },
+                        formRosterOptions
                       )
                     )
                   ),
@@ -5001,7 +5127,8 @@ var ScheduleManagement = function (_React$Component) {
                 'h3',
                 null,
                 'Schedule Bosses'
-              )
+              ),
+              scheduleBossRows
             )
           )
         )
@@ -5014,7 +5141,7 @@ var ScheduleManagement = function (_React$Component) {
 
 exports.default = ScheduleManagement;
 
-},{"./../../actions/admin/ScheduleManagementActions":14,"./../../stores/NavbarStore":36,"./../../stores/admin/ScheduleManagementStore":48,"./AdminSideNav":27,"moment":49,"react":"react","react-router":"react-router"}],33:[function(require,module,exports){
+},{"./../../actions/admin/ScheduleManagementActions":14,"./../../stores/NavbarStore":36,"./../../stores/admin/ScheduleManagementStore":48,"./AdminSideNav":27,"moment":49,"react":"react","react-router":"react-router","underscore":"underscore"}],33:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -6073,11 +6200,13 @@ var ScheduleManagementStore = function () {
     this.raids = [];
     this.characters = [];
     this.schedules = [];
+    this.rosters = [];
 
     this.selectedRaidWeek = 0;
     this.selectedSchedule = 0;
 
     this.formRaidWeek = 0;
+    this.formRoster = 0;
     this.formScheduleName = '';
     this.formScheduleDescription = '';
 
@@ -6146,6 +6275,7 @@ var ScheduleManagementStore = function () {
       this.characters = result.data.characters;
       this.schedules = result.data.schedules;
       this.raids = result.data.raids;
+      this.rosters = result.data.rosters;
       this.selectedRaidWeek = this.raidweeks[0].id;
       this.formRaidWeek = this.raidweeks[0].id;
       this.selectedSchedule = 0;
@@ -6165,6 +6295,8 @@ var ScheduleManagementStore = function () {
       if (this.raids[0].bosses.length > 0) {
         this.formBoss = this.raids[0].bosses[0].id;
       }
+
+      this.formRoster = this.rosters[0].id;
     }
   }, {
     key: 'onLoadComponentDataFailure',

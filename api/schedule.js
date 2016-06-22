@@ -6,6 +6,7 @@ var Character = require('./../db/postgres/character');
 var Raid = require('./../db/postgres/raid');
 var RaidWeek = require('./../db/postgres/raid_week');
 var Schedule_Boss = require('./../db/postgres/schedule_boss');
+var Roster = require('./../db/postgres/roster');
 
 router.get('/', function(req, res, next) {
   Schedule.forge()
@@ -20,10 +21,18 @@ router.get('/', function(req, res, next) {
                                 RaidWeek.forge()
                                         .fetchAll()
                                         .then(function(raidweeks) {
-                                          res.json({error: false, data: {message: "data found", schedules: schedules.toJSON(),
-                                                                                                characters: characters.toJSON(),
-                                                                                                raids: raids.toJSON(),
-                                                                                                raidweeks: raidweeks.toJSON()}});
+                                          Roster.forge()
+                                                .fetchAll({'withRelated': ['characters']})
+                                                .then(function(rosters) {
+                                                  res.json({error: false, data: {message: "data found", schedules: schedules.toJSON(),
+                                                                                                        characters: characters.toJSON(),
+                                                                                                        raids: raids.toJSON(),
+                                                                                                        raidweeks: raidweeks.toJSON(),
+                                                                                                        rosters: rosters.toJSON()}});
+                                                })
+                                                .catch(function(err) {
+                                                  res.status(500).json({error: true, data: {message: err.message}});
+                                                });
                                         })
                                         .catch(function(err) {
                                           res.status(500).json({error: true, data: {message: err.message}});

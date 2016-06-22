@@ -6,6 +6,7 @@ import AdminSideNav from './AdminSideNav';
 import NavbarStore from './../../stores/NavbarStore';
 import { browserHistory } from 'react-router';
 import moment from 'moment';
+import _ from 'underscore';
 
 class ScheduleManagement extends React.Component {
   constructor(props) {
@@ -35,8 +36,9 @@ class ScheduleManagement extends React.Component {
   }
 
   render() {
-    var raidWeekOptions, selectedRaidWeekOptions, selectedScheduleOptions;
-    var formRaidWeekId, selectedRaidWeekId, selectedScheduleId;
+    var raidWeekOptions, selectedRaidWeekOptions, selectedScheduleOptions, formRosterOptions;
+    var formRaidWeekId, selectedRaidWeekId, selectedScheduleId, selectedRosterId;
+
     if(this.state.raidweeks.length > 0) {
       raidWeekOptions = this.state.raidweeks.map(function(raidweek, index) {
         if(raidweek.id === this.state.formRaidWeek) {
@@ -55,6 +57,18 @@ class ScheduleManagement extends React.Component {
 
         return (
           <option key={raidweek.id} value={raidweek.id}>{moment(raidweek.start).format('W')}</option>
+        );
+      }, this);
+    }
+
+    if(this.state.rosters.length > 0) {
+      formRosterOptions = this.state.rosters.map(function(roster, index) {
+        if(roster.id === this.state.formRoster) {
+          selectedRosterId = roster.id;
+        }
+
+        return (
+          <option key={roster.id} value={roster.id}>{roster.name}</option>
         );
       }, this);
     }
@@ -104,6 +118,37 @@ class ScheduleManagement extends React.Component {
       }, this);
     }
 
+    var scheduleBossRows;
+
+    if(this.state.schedules.length > 0) {
+      _.findWhere(this.state.schedules, {id: this.state.selectedSchedule}).schedule_bosses.map(function(schedule_boss, index) {
+        return (
+          <div className='row'>
+            <table className='table'>
+              <tbody>
+                <tr>
+                  <td>Raid</td>
+                  <td>Boss</td>
+                  <td>Tanks</td>
+                  <td>Healers</td>
+                  <td>DPS</td>
+                  <td>Standby</td>
+                </tr>
+                <tr>
+                  <td>{schedule_boss.raid.name}</td>
+                  <td>{schedule_boss.name}</td>
+                  <td>{schedule_boss.tank_count}</td>
+                  <td>{schedule_boss.healer_count}</td>
+                  <td>{schedule_boss.dps_count}</td>
+                  <td>{0}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        )
+      }, this);
+    }
+
     return (
       <div id='wrapper'>
         <AdminSideNav />
@@ -118,6 +163,14 @@ class ScheduleManagement extends React.Component {
                     <div className='col-sm-10'>
                       <select className='form-control' id='scheduleRaidWeek' value={this.state.formRaidWeek} onChange={e => ScheduleManagementActions.updateFormRaidWeek(parseInt(e.target.value))}>
                         {raidWeekOptions}
+                      </select>
+                    </div>
+                  </div>
+                  <div className='form-group'>
+                    <label className='col-sm-2 control-label'>Roster</label>
+                    <div className='col-sm-10'>
+                      <select className='form-control' value={this.state.formRoster} onChange={e => ScheduleManagementActions.updateFormRoster(parseInt(e.target.value))}>
+                        {formRosterOptions}
                       </select>
                     </div>
                   </div>
@@ -255,6 +308,7 @@ class ScheduleManagement extends React.Component {
             </div>
             <div className='row'>
               <h3>Schedule Bosses</h3>
+              {scheduleBossRows}
             </div>
           </div>
         </div>

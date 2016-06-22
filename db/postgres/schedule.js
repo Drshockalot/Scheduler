@@ -3,6 +3,7 @@ let Bookshelf = require('./../database').bookshelf;
 require('./raid_week');
 require('./schedule_boss');
 require('./raid_attendance');
+require('./roster');
 var Schedule = Bookshelf.Model.extend({
   tableName: 'schedule',
   hasTimestamps: true,
@@ -14,6 +15,9 @@ var Schedule = Bookshelf.Model.extend({
   },
   raid_attendances: function() {
     return this.hasMany('Raid_Attendance');
+  },
+  roster: function() {
+    return this.hasOne('Roster');
   }
 });
 

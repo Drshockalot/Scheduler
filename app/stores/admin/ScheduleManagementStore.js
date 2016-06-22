@@ -9,11 +9,13 @@ class ScheduleManagementStore {
     this.raids = [];
     this.characters = [];
     this.schedules = [];
+    this.rosters = [];
 
     this.selectedRaidWeek = 0;
     this.selectedSchedule = 0;
 
     this.formRaidWeek = 0;
+    this.formRoster = 0;
     this.formScheduleName = '';
     this.formScheduleDescription = '';
 
@@ -70,6 +72,7 @@ class ScheduleManagementStore {
     this.characters = result.data.characters;
     this.schedules = result.data.schedules;
     this.raids = result.data.raids;
+    this.rosters = result.data.rosters;
     this.selectedRaidWeek = this.raidweeks[0].id;
     this.formRaidWeek = this.raidweeks[0].id;
     this.selectedSchedule = 0;
@@ -89,6 +92,8 @@ class ScheduleManagementStore {
     if(this.raids[0].bosses.length > 0) {
       this.formBoss = this.raids[0].bosses[0].id;
     }
+
+    this.formRoster = this.rosters[0].id;
   }
 
   onLoadComponentDataFailure(jqXhr) {
