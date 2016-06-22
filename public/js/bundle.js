@@ -4614,7 +4614,7 @@ var ScheduleManagement = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-3' },
+                    { className: 'col-md-2' },
                     'Tanks'
                   ),
                   _react2.default.createElement(
@@ -4648,7 +4648,7 @@ var ScheduleManagement = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-3' },
+                    { className: 'col-md-2' },
                     schedule_boss.tank_count
                   ),
                   _react2.default.createElement(

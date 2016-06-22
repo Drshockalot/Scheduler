@@ -129,7 +129,7 @@ class ScheduleManagement extends React.Component {
                 <tr>
                   <td className='col-md-1'>Raid</td>
                   <td className='col-md-1'>Boss</td>
-                  <td className='col-md-3'>Tanks</td>
+                  <td className='col-md-2'>Tanks</td>
                   <td className='col-md-3'>Healers</td>
                   <td className='col-md-3'>DPS</td>
                   <td className='col-md-1'>Standby</td>
@@ -137,7 +137,7 @@ class ScheduleManagement extends React.Component {
                 <tr>
                   <td className='col-md-1'>{schedule_boss.raid.name}</td>
                   <td className='col-md-1'>{schedule_boss.boss.name}</td>
-                  <td className='col-md-3'>{schedule_boss.tank_count}</td>
+                  <td className='col-md-2'>{schedule_boss.tank_count}</td>
                   <td className='col-md-3'>{schedule_boss.healer_count}</td>
                   <td className='col-md-3'>{schedule_boss.dps_count}</td>
                   <td className='col-md-1'>{0}</td>
