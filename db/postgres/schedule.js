@@ -17,7 +17,7 @@ var Schedule = Bookshelf.Model.extend({
     return this.hasMany('Raid_Attendance');
   },
   roster: function() {
-    return this.hasOne('Roster');
+    return this.belongsTo('Roster');
   }
 });
 
