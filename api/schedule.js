@@ -21,8 +21,8 @@ router.get('/', function(req, res, next) {
                                 RaidWeek.forge()
                                         .fetchAll()
                                         .then(function(raidweeks) {
-                                          Roster.forge({'withRelated': ['characters']})
-                                                .fetchAll()
+                                          Roster.forge()
+                                                .fetchAll({'withRelated': ['characters']})
                                                 .then(function(rosters) {
                                                   res.json({error: false, data: {message: "data found", schedules: schedules.toJSON(),
                                                                                                         characters: characters.toJSON(),
