@@ -6,6 +6,7 @@ class ScheduleManagementActions {
   constructor() {
     this.generateActions(
       'updateFormRaidWeek',
+      'updateFormRoster',
       'updateFormScheduleName',
       'updateFormScheduleDescription',
       'updateSelectedRaidWeekCompleted',

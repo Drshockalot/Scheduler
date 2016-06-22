@@ -965,7 +965,7 @@ var ScheduleManagementActions = function () {
   function ScheduleManagementActions() {
     _classCallCheck(this, ScheduleManagementActions);
 
-    this.generateActions('updateFormRaidWeek', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'updateFormRaid', 'updateFormBoss', 'updateFormTanks', 'updateFormHealers', 'updateFormDPS', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure', 'setFormTanks', 'setFormHealers', 'setFormDPS', 'addScheduleBossSuccess', 'addScheduleBossFailure');
+    this.generateActions('updateFormRaidWeek', 'updateFormRoster', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'updateFormRaid', 'updateFormBoss', 'updateFormTanks', 'updateFormHealers', 'updateFormDPS', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure', 'setFormTanks', 'setFormHealers', 'setFormDPS', 'addScheduleBossSuccess', 'addScheduleBossFailure');
   }
 
   _createClass(ScheduleManagementActions, [{
@@ -4589,7 +4589,7 @@ var ScheduleManagement = function (_React$Component) {
       var scheduleBossRows;
 
       if (this.state.schedules.length > 0) {
-        _underscore2.default.findWhere(this.state.schedules, { id: this.state.selectedSchedule }).schedule_bosses.map(function (schedule_boss, index) {
+        scheduleBossRows = _underscore2.default.findWhere(this.state.schedules, { id: this.state.selectedSchedule }).schedule_bosses.map(function (schedule_boss, index) {
           return _react2.default.createElement(
             'div',
             { className: 'row' },
@@ -6221,6 +6221,11 @@ var ScheduleManagementStore = function () {
     key: 'onUpdateFormRaidWeek',
     value: function onUpdateFormRaidWeek(value) {
       this.formRaidWeek = value;
+    }
+  }, {
+    key: 'onUpdateFormRoster',
+    value: function onUpdateFormRoster(value) {
+      this.formRoster = value;
     }
   }, {
     key: 'onUpdateFormScheduleName',

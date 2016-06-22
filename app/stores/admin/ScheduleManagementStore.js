@@ -30,6 +30,10 @@ class ScheduleManagementStore {
     this.formRaidWeek = value;
   }
 
+  onUpdateFormRoster(value) {
+    this.formRoster = value;
+  }
+
   onUpdateFormScheduleName(value) {
     this.formScheduleName = value;
   }
