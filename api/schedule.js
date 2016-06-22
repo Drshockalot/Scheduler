@@ -5,6 +5,7 @@ var Schedule = require('./../db/postgres/schedule');
 var Character = require('./../db/postgres/character');
 var Raid = require('./../db/postgres/raid');
 var RaidWeek = require('./../db/postgres/raid_week');
+var Schedule_Boss = require('./../db/postgres/schedule_boss');
 
 router.get('/', function(req, res, next) {
   Schedule.forge()
@@ -59,6 +60,29 @@ router.post('/admin', function(req, res, next) {
           .catch(function(err) {
             res.status(500).json({error: true, data: {message: err.message}});
           });
+});
+
+router.post('/admin/boss', function(req, res, next) {
+  Schedule_Boss.forge({schedule_id: req.body.schedule,
+                       boss_id: req.body.boss,
+                       raid_id: req.body.raid,
+                       tank_count: req.body.tanks,
+                       healer_count: req.body.healers,
+                       dps_count: req.body.dps})
+               .save()
+               .then(function(schedule_boss) {
+                 Schedule.forge()
+                         .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid']})
+                         .then(function(schedules) {
+                           res.json({error: false, data: {message: "Schedule boss added", schedules: schedules.toJSON()}});
+                         })
+                         .catch(function(err) {
+                           res.status(500).json({error: true, data: {message: err.message}});
+                         });
+               })
+               .catch(function(err) {
+                 res.status(500).json({error: true, data: {message: err.message}});
+               });
 });
 
 module.exports = router;

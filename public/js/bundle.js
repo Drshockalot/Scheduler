@@ -965,7 +965,7 @@ var ScheduleManagementActions = function () {
   function ScheduleManagementActions() {
     _classCallCheck(this, ScheduleManagementActions);
 
-    this.generateActions('updateFormRaidWeek', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'updateFormRaid', 'updateFormBoss', 'updateFormTanks', 'updateFormHealers', 'updateFormDPS', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure', 'setFormTanks', 'setFormHealers', 'setFormDPS');
+    this.generateActions('updateFormRaidWeek', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'updateFormRaid', 'updateFormBoss', 'updateFormTanks', 'updateFormHealers', 'updateFormDPS', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure', 'setFormTanks', 'setFormHealers', 'setFormDPS', 'addScheduleBossSuccess', 'addScheduleBossFailure');
   }
 
   _createClass(ScheduleManagementActions, [{
@@ -1023,6 +1023,29 @@ var ScheduleManagementActions = function () {
         _this2.createScheduleFailure(jqXhr);
       });
       return 0;
+    }
+  }, {
+    key: 'addScheduleBoss',
+    value: function addScheduleBoss(raid, boss, tanks, healers, dps, schedule) {
+      var _this3 = this;
+
+      var data = { raid: raid,
+        boss: boss,
+        tanks: tanks,
+        healers: healers,
+        dps: dps,
+        schedule: schedule };
+      $.ajax({
+        method: 'POST',
+        url: '/api/schedule/admin/boss',
+        data: data
+      }).done(function (result) {
+        console.log(result);
+        _this3.addScheduleBossSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this3.addScheduleBossFailure(jqXhr);
+      });
     }
   }]);
 
@@ -4964,11 +4987,20 @@ var ScheduleManagement = function (_React$Component) {
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-primary pull-right', onClick: function onClick() {
-                        return _ScheduleManagementActions2.default.addBossToSchedule(_this2.state.formRaid, _this2.state.formBoss, _this2.state.formTanks, _this2.state.formHealers, _this2.state.formDPS, _this2.state.selectedSchedule);
+                        return _ScheduleManagementActions2.default.addScheduleBoss(_this2.state.formRaid, _this2.state.formBoss, _this2.state.formTanks, _this2.state.formHealers, _this2.state.formDPS, _this2.state.selectedSchedule);
                       } },
                     'Submit'
                   )
                 )
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'row' },
+              _react2.default.createElement(
+                'h3',
+                null,
+                'Schedule Bosses'
               )
             )
           )
@@ -6176,6 +6208,17 @@ var ScheduleManagementStore = function () {
     key: 'onSetFormDPS',
     value: function onSetFormDPS(value) {
       this.formDPS = value;
+    }
+  }, {
+    key: 'onAddScheduleBossSuccess',
+    value: function onAddScheduleBossSuccess(result) {
+      this.schedules = result.data.schedules;
+      toastr.success('Boss added', 'Success');
+    }
+  }, {
+    key: 'onAddScheduleBossFailure',
+    value: function onAddScheduleBossFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
     }
   }]);
 

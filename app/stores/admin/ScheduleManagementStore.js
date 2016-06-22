@@ -127,6 +127,15 @@ class ScheduleManagementStore {
   onSetFormDPS(value) {
     this.formDPS = value;
   }
+
+  onAddScheduleBossSuccess(result) {
+    this.schedules = result.data.schedules;
+    toastr.success('Boss added', 'Success');
+  }
+
+  onAddScheduleBossFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
 }
 
 export default alt.createStore(ScheduleManagementStore);

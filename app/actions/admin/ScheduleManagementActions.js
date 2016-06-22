@@ -21,7 +21,9 @@ class ScheduleManagementActions {
       'createScheduleFailure',
       'setFormTanks',
       'setFormHealers',
-      'setFormDPS'
+      'setFormDPS',
+      'addScheduleBossSuccess',
+      'addScheduleBossFailure'
     );
   }
 
@@ -72,6 +74,26 @@ class ScheduleManagementActions {
       this.createScheduleFailure(jqXhr);
     });
     return 0;
+  }
+
+  addScheduleBoss(raid, boss, tanks, healers, dps, schedule) {
+    var data = { raid: raid,
+                 boss: boss,
+                 tanks: tanks,
+                 healers: healers,
+                 dps: dps,
+                 schedule: schedule}
+    $.ajax({
+      method: 'POST',
+      url: '/api/schedule/admin/boss',
+      data: data
+    }).done((result) => {
+      console.log(result);
+      this.addScheduleBossSuccess(result);
+    }).fail((jqXhr) => {
+      console.log(jqXhr);
+      this.addScheduleBossFailure(jqXhr);
+    });
   }
 }
 
