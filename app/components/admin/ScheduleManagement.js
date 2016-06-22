@@ -136,7 +136,7 @@ class ScheduleManagement extends React.Component {
                 </tr>
                 <tr>
                   <td>{schedule_boss.raid.name}</td>
-                  <td>{schedule_boss.name}</td>
+                  <td>{schedule_boss.boss.name}</td>
                   <td>{schedule_boss.tank_count}</td>
                   <td>{schedule_boss.healer_count}</td>
                   <td>{schedule_boss.dps_count}</td>

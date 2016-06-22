@@ -4644,7 +4644,7 @@ var ScheduleManagement = function (_React$Component) {
                   _react2.default.createElement(
                     'td',
                     null,
-                    schedule_boss.name
+                    schedule_boss.boss.name
                   ),
                   _react2.default.createElement(
                     'td',

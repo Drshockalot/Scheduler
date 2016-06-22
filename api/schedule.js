@@ -10,7 +10,7 @@ var Roster = require('./../db/postgres/roster');
 
 router.get('/', function(req, res, next) {
   Schedule.forge()
-          .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid']})
+          .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster']})
           .then(function(schedules) {
             Character.forge()
                     .fetchAll()
@@ -22,7 +22,7 @@ router.get('/', function(req, res, next) {
                                         .fetchAll()
                                         .then(function(raidweeks) {
                                           Roster.forge()
-                                                .fetchAll({'withRelated': ['characters']})
+                                                .fetchAll()
                                                 .then(function(rosters) {
                                                   res.json({error: false, data: {message: "data found", schedules: schedules.toJSON(),
                                                                                                         characters: characters.toJSON(),
