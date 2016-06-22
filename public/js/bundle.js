@@ -4589,6 +4589,8 @@ var ScheduleManagement = function (_React$Component) {
       var scheduleBossRows;
 
       if (this.state.schedules.length > 0) {
+        console.log(this.state.schedules);
+        console.log(this.state.selectedSchedule);
         scheduleBossRows = _underscore2.default.findWhere(this.state.schedules, { id: this.state.selectedSchedule }).schedule_bosses.map(function (schedule_boss, index) {
           return _react2.default.createElement(
             'div',
