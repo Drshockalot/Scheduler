@@ -120,27 +120,27 @@ class ScheduleManagement extends React.Component {
 
     var scheduleBossRows;
 
-    if(this.state.schedules.length > 0) {
+    if(this.state.schedules.length > 0 && _.findWhere(this.state.schedules, {id: this.state.selectedSchedule}).schedule_bosses.length > 0) {
       scheduleBossRows = _.findWhere(this.state.schedules, {id: this.state.selectedSchedule}).schedule_bosses.map(function(schedule_boss, index) {
         return (
           <div className='row'>
             <table className='table'>
               <tbody>
                 <tr>
-                  <td>Raid</td>
-                  <td>Boss</td>
-                  <td>Tanks</td>
-                  <td>Healers</td>
-                  <td>DPS</td>
-                  <td>Standby</td>
+                  <td className='col-md-1'>Raid</td>
+                  <td className='col-md-1'>Boss</td>
+                  <td className='col-md-3'>Tanks</td>
+                  <td className='col-md-3'>Healers</td>
+                  <td className='col-md-3'>DPS</td>
+                  <td className='col-md-1'>Standby</td>
                 </tr>
                 <tr>
-                  <td>{schedule_boss.raid.name}</td>
-                  <td>{schedule_boss.boss.name}</td>
-                  <td>{schedule_boss.tank_count}</td>
-                  <td>{schedule_boss.healer_count}</td>
-                  <td>{schedule_boss.dps_count}</td>
-                  <td>{0}</td>
+                  <td className='col-md-1'>{schedule_boss.raid.name}</td>
+                  <td className='col-md-1'>{schedule_boss.boss.name}</td>
+                  <td className='col-md-3'>{schedule_boss.tank_count}</td>
+                  <td className='col-md-3'>{schedule_boss.healer_count}</td>
+                  <td className='col-md-3'>{schedule_boss.dps_count}</td>
+                  <td className='col-md-1'>{0}</td>
                 </tr>
               </tbody>
             </table>

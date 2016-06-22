@@ -4588,7 +4588,7 @@ var ScheduleManagement = function (_React$Component) {
 
       var scheduleBossRows;
 
-      if (this.state.schedules.length > 0) {
+      if (this.state.schedules.length > 0 && _underscore2.default.findWhere(this.state.schedules, { id: this.state.selectedSchedule }).schedule_bosses.length > 0) {
         scheduleBossRows = _underscore2.default.findWhere(this.state.schedules, { id: this.state.selectedSchedule }).schedule_bosses.map(function (schedule_boss, index) {
           return _react2.default.createElement(
             'div',
@@ -4604,32 +4604,32 @@ var ScheduleManagement = function (_React$Component) {
                   null,
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-md-1' },
                     'Raid'
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-md-1' },
                     'Boss'
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-md-3' },
                     'Tanks'
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-md-3' },
                     'Healers'
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-md-3' },
                     'DPS'
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-md-1' },
                     'Standby'
                   )
                 ),
@@ -4638,32 +4638,32 @@ var ScheduleManagement = function (_React$Component) {
                   null,
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-md-1' },
                     schedule_boss.raid.name
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-md-1' },
                     schedule_boss.boss.name
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-md-3' },
                     schedule_boss.tank_count
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-md-3' },
                     schedule_boss.healer_count
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-md-3' },
                     schedule_boss.dps_count
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-md-1' },
                     0
                   )
                 )
