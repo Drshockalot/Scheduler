@@ -4694,7 +4694,7 @@ var ScheduleManagement = function (_React$Component) {
           }
         }, this);
 
-        dpsRows = ched.roster.characters.map(function (character, index) {
+        dpsRows = sched.roster.characters.map(function (character, index) {
           if (character.main_role == "DPS") {
             var classCSS = this.classColour(character);
             return _react2.default.createElement(
