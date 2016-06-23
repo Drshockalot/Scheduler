@@ -1046,6 +1046,7 @@ var ScheduleManagementActions = function () {
         console.log(jqXhr);
         _this3.addScheduleBossFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'addCharacterToScheduleBoss',
@@ -1065,6 +1066,7 @@ var ScheduleManagementActions = function () {
         console.log(jqXhr);
         _this4.addCharacterToScheduleBossFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'removeCharacterFromScheduleBoss',
@@ -1084,6 +1086,7 @@ var ScheduleManagementActions = function () {
         console.log(jqXhr);
         _this5.removeCharacterFromScheduleBossFailure(jqXhr);
       });
+      return 0;
     }
   }]);
 
@@ -4660,7 +4663,6 @@ var ScheduleManagement = function (_React$Component) {
           }
         }
 
-        console.log(sched);
         scheduleBossRows = sched.schedule_bosses.map(function (schedule_boss, index) {
           tankRows = sched.roster.characters.map(function (character, index) {
             if (character.main_role == "Tank") {

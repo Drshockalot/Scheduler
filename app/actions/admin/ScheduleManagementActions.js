@@ -99,6 +99,7 @@ class ScheduleManagementActions {
       console.log(jqXhr);
       this.addScheduleBossFailure(jqXhr);
     });
+    return 0;
   }
 
   addCharacterToScheduleBoss(scheduleBossId, characterId) {
@@ -115,6 +116,7 @@ class ScheduleManagementActions {
       console.log(jqXhr);
       this.addCharacterToScheduleBossFailure(jqXhr);
     });
+    return 0;
   }
 
   removeCharacterFromScheduleBoss(scheduleBossId, characterId) {
@@ -131,6 +133,7 @@ class ScheduleManagementActions {
       console.log(jqXhr);
       this.removeCharacterFromScheduleBossFailure(jqXhr);
     });
+    return 0;
   }
 }
 
