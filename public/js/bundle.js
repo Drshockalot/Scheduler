@@ -4496,7 +4496,7 @@ var ScheduleManagement = function (_React$Component) {
       }
 
       ret += 'color';
-      return (0, _classnames2.default)(ret, { 'col-sm-2': true });;
+      return (0, _classnames2.default)(ret, { 'col-sm-1': true });;
     }
   }, {
     key: 'render',

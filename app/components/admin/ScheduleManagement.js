@@ -48,7 +48,7 @@ class ScheduleManagement extends React.Component {
     }
 
     ret += 'color';
-    return classNames(ret, { 'col-sm-2' : true});;
+    return classNames(ret, { 'col-sm-1' : true});;
   }
 
   render() {
