@@ -4625,7 +4625,7 @@ var ScheduleManagement = function (_React$Component) {
               _react2.default.createElement('div', { className: classCSS }),
               _react2.default.createElement(
                 'div',
-                { className: 'col-sm-3 vert-middle' },
+                { className: 'col-sm-3' },
                 character.name
               ),
               _react2.default.createElement(
@@ -4800,32 +4800,32 @@ var ScheduleManagement = function (_React$Component) {
                   null,
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-1' },
+                    { className: 'col-md-1 vert-align' },
                     schedule_boss.raid.name
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-1' },
+                    { className: 'col-md-1 vert-align' },
                     schedule_boss.boss.name
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-3' },
+                    { className: 'col-md-3 vert-align' },
                     tankRows
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-3' },
+                    { className: 'col-md-3 vert-align' },
                     healerRows
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-3' },
+                    { className: 'col-md-3 vert-align' },
                     dpsRows
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-1' },
+                    { className: 'col-md-1 vert-align' },
                     0
                   )
                 )

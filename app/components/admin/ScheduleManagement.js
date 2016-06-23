@@ -151,7 +151,7 @@ class ScheduleManagement extends React.Component {
           return (
             <div className='row'>
               <div className={classCSS} />
-              <div className='col-sm-3 vert-middle'>
+              <div className='col-sm-3'>
                 {character.name}
               </div>
               <div className='col-sm-2'>
@@ -228,12 +228,12 @@ class ScheduleManagement extends React.Component {
                   <td className='col-md-1'>Standby</td>
                 </tr>
                 <tr>
-                  <td className='col-md-1'>{schedule_boss.raid.name}</td>
-                  <td className='col-md-1'>{schedule_boss.boss.name}</td>
-                  <td className='col-md-3'>{tankRows}</td>
-                  <td className='col-md-3'>{healerRows}</td>
-                  <td className='col-md-3'>{dpsRows}</td>
-                  <td className='col-md-1'>{0}</td>
+                  <td className='col-md-1 vert-align'>{schedule_boss.raid.name}</td>
+                  <td className='col-md-1 vert-align'>{schedule_boss.boss.name}</td>
+                  <td className='col-md-3 vert-align'>{tankRows}</td>
+                  <td className='col-md-3 vert-align'>{healerRows}</td>
+                  <td className='col-md-3 vert-align'>{dpsRows}</td>
+                  <td className='col-md-1 vert-align'>{0}</td>
                 </tr>
               </tbody>
             </table>

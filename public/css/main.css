@@ -8224,9 +8224,8 @@ label {
   background-color: #C79C6E;
   vertical-align: middle;
 }
-.vert-middle {
-  position: absolute;
-  top: 50%;
+.table tbody > tr > td.vert-align {
+  vertical-align: middle;
 }
 #wrapper {
   padding-left: 0;
