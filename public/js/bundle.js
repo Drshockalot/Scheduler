@@ -4625,13 +4625,21 @@ var ScheduleManagement = function (_React$Component) {
         scheduleBossRows = sched.schedule_bosses.map(function (schedule_boss, index) {
           tankRows = sched.roster.characters.map(function (character, index) {
             if (character.main_role == "Tank") {
-              // var char = _.findWhere(schedule_boss.characters, {id: character.id});
-              // var MButtonClass, OButtonClass, SButtonClass;
-              // if(char) {
-              //
-              // } else {
-              //
-              // }
+              var char = _.findWhere(schedule_boss.characters, { id: character.id });
+              var actionButton;
+              if (char) {
+                actionButton = _react2.default.createElement(
+                  'button',
+                  { className: 'btn btn-default btn-circle' },
+                  '❌'
+                );
+              } else {
+                actionButton = _react2.default.createElement(
+                  'button',
+                  { className: 'btn btn-default btn-circle' },
+                  '✓'
+                );
+              }
 
               var classCSS = this.classColour(character);
               return _react2.default.createElement(
@@ -4660,11 +4668,7 @@ var ScheduleManagement = function (_React$Component) {
                 _react2.default.createElement(
                   'td',
                   { className: 'col-sm-2 low-padding' },
-                  _react2.default.createElement(
-                    'button',
-                    { className: 'btn btn-default btn-circle' },
-                    '✓'
-                  )
+                  actionButton
                 )
               );
             }
@@ -4672,6 +4676,21 @@ var ScheduleManagement = function (_React$Component) {
 
           healerRows = sched.roster.characters.map(function (character, index) {
             if (character.main_role == "Healer") {
+              var char = _.findWhere(schedule_boss.characters, { id: character.id });
+              var actionButton;
+              if (char) {
+                actionButton = _react2.default.createElement(
+                  'button',
+                  { className: 'btn btn-default btn-circle' },
+                  '❌'
+                );
+              } else {
+                actionButton = _react2.default.createElement(
+                  'button',
+                  { className: 'btn btn-default btn-circle' },
+                  '✓'
+                );
+              }
               var classCSS = this.classColour(character);
               return _react2.default.createElement(
                 'tr',
@@ -4699,11 +4718,7 @@ var ScheduleManagement = function (_React$Component) {
                 _react2.default.createElement(
                   'td',
                   { className: 'col-sm-2 low-padding' },
-                  _react2.default.createElement(
-                    'button',
-                    { className: 'btn btn-default btn-circle' },
-                    '✓'
-                  )
+                  actionButton
                 )
               );
             }
@@ -4711,6 +4726,21 @@ var ScheduleManagement = function (_React$Component) {
 
           dpsRows = sched.roster.characters.map(function (character, index) {
             if (character.main_role == "DPS") {
+              var char = _.findWhere(schedule_boss.characters, { id: character.id });
+              var actionButton;
+              if (char) {
+                actionButton = _react2.default.createElement(
+                  'button',
+                  { className: 'btn btn-default btn-circle' },
+                  '❌'
+                );
+              } else {
+                actionButton = _react2.default.createElement(
+                  'button',
+                  { className: 'btn btn-default btn-circle' },
+                  '✓'
+                );
+              }
               var classCSS = this.classColour(character);
               return _react2.default.createElement(
                 'tr',
@@ -4738,11 +4768,7 @@ var ScheduleManagement = function (_React$Component) {
                 _react2.default.createElement(
                   'td',
                   { className: 'col-sm-2 low-padding' },
-                  _react2.default.createElement(
-                    'button',
-                    { className: 'btn btn-default btn-circle' },
-                    '✓'
-                  )
+                  actionButton
                 )
               );
             }

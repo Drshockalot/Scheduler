@@ -154,13 +154,17 @@ class ScheduleManagement extends React.Component {
       scheduleBossRows = sched.schedule_bosses.map(function(schedule_boss, index) {
         tankRows = sched.roster.characters.map(function(character, index) {
           if(character.main_role == "Tank") {
-            // var char = _.findWhere(schedule_boss.characters, {id: character.id});
-            // var MButtonClass, OButtonClass, SButtonClass;
-            // if(char) {
-            //
-            // } else {
-            //
-            // }
+            var char = _.findWhere(schedule_boss.characters, {id: character.id});
+            var actionButton;
+            if(char) {
+              actionButton = (
+                <button className='btn btn-default btn-circle'>&#10060;</button>
+              )
+            } else {
+              actionButton = (
+                <button className='btn btn-default btn-circle'>&#10003;</button>
+              );
+            }
 
             var classCSS = this.classColour(character);
             return (
@@ -176,7 +180,7 @@ class ScheduleManagement extends React.Component {
                   {character.off_role}
                 </td>
                 <td className='col-sm-2 low-padding'>
-                  <button className='btn btn-default btn-circle'>&#10003;</button>
+                  {actionButton}
                 </td>
               </tr>
             );
@@ -185,6 +189,17 @@ class ScheduleManagement extends React.Component {
 
         healerRows = sched.roster.characters.map(function(character, index) {
           if(character.main_role == "Healer") {
+            var char = _.findWhere(schedule_boss.characters, {id: character.id});
+            var actionButton;
+            if(char) {
+              actionButton = (
+                <button className='btn btn-default btn-circle'>&#10060;</button>
+              )
+            } else {
+              actionButton = (
+                <button className='btn btn-default btn-circle'>&#10003;</button>
+              );
+            }
             var classCSS = this.classColour(character);
             return (
               <tr>
@@ -199,7 +214,7 @@ class ScheduleManagement extends React.Component {
                   {character.off_role}
                 </td>
                 <td className='col-sm-2 low-padding'>
-                  <button className='btn btn-default btn-circle'>&#10003;</button>
+                  {actionButton}
                 </td>
               </tr>
             );
@@ -208,6 +223,17 @@ class ScheduleManagement extends React.Component {
 
         dpsRows = sched.roster.characters.map(function(character, index) {
           if(character.main_role == "DPS") {
+            var char = _.findWhere(schedule_boss.characters, {id: character.id});
+            var actionButton;
+            if(char) {
+              actionButton = (
+                <button className='btn btn-default btn-circle'>&#10060;</button>
+              )
+            } else {
+              actionButton = (
+                <button className='btn btn-default btn-circle'>&#10003;</button>
+              );
+            }
             var classCSS = this.classColour(character);
             return (
               <tr>
@@ -222,7 +248,7 @@ class ScheduleManagement extends React.Component {
                   {character.off_role}
                 </td>
                 <td className='col-sm-2 low-padding'>
-                  <button className='btn btn-default btn-circle'>&#10003;</button>
+                  {actionButton}
                 </td>
               </tr>
             );
