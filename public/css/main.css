@@ -8227,6 +8227,9 @@ label {
 .table tbody > tr > td.vert-align {
   vertical-align: middle;
 }
+.table tbody > tr > td.low-padding {
+  padding: 2px;
+}
 #wrapper {
   padding-left: 0;
   -webkit-transition: all 0.5s ease;

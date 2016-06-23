@@ -4788,11 +4788,6 @@ var ScheduleManagement = function (_React$Component) {
                     'DPS (',
                     schedule_boss.dps_count,
                     ')'
-                  ),
-                  _react2.default.createElement(
-                    'td',
-                    { className: 'col-md-1' },
-                    'Standby'
                   )
                 ),
                 _react2.default.createElement(
@@ -4846,11 +4841,6 @@ var ScheduleManagement = function (_React$Component) {
                         dpsRows
                       )
                     )
-                  ),
-                  _react2.default.createElement(
-                    'td',
-                    { className: 'col-md-1' },
-                    0
                   )
                 )
               )
