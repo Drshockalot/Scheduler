@@ -4608,6 +4608,12 @@ var ScheduleManagement = function (_React$Component) {
       var scheduleBossRows;
       var tankRows, healerRows, dpsRows;
 
+      ///////////////////////////////////////////////////////////////////////////////////////////
+      ///////////////////////////////////////////////////////////////////////////////////////////
+      /////                 START OF SCHEDULE BOSS PROCESSING                               /////
+      ///////////////////////////////////////////////////////////////////////////////////////////
+      ///////////////////////////////////////////////////////////////////////////////////////////
+
       if (this.state.schedules.length > 0) {
         var sched;
         for (var i = 0; i < this.state.schedules.length; i++) {
@@ -4616,136 +4622,144 @@ var ScheduleManagement = function (_React$Component) {
           }
         }
 
-        tankRows = sched.roster.characters.map(function (character, index) {
-          if (character.main_role == "Tank") {
-            var classCSS = this.classColour(character);
-            return _react2.default.createElement(
-              'tr',
-              null,
-              _react2.default.createElement('td', { className: classCSS }),
-              _react2.default.createElement(
-                'td',
-                { className: 'col-sm-3 vert-align' },
-                character.name
-              ),
-              _react2.default.createElement(
-                'td',
-                { className: 'col-sm-2 low-padding' },
-                _react2.default.createElement(
-                  'button',
-                  { className: 'btn btn-default btn-circle' },
-                  'M'
-                )
-              ),
-              _react2.default.createElement(
-                'td',
-                { className: 'col-sm-2 low-padding' },
-                _react2.default.createElement(
-                  'button',
-                  { className: 'btn btn-default btn-circle' },
-                  'O'
-                )
-              ),
-              _react2.default.createElement(
-                'td',
-                { className: 'col-sm-2 low-padding' },
-                _react2.default.createElement(
-                  'button',
-                  { className: 'btn btn-default btn-circle' },
-                  'S'
-                )
-              )
-            );
-          }
-        }, this);
-
-        healerRows = sched.roster.characters.map(function (character, index) {
-          if (character.main_role == "Healer") {
-            var classCSS = this.classColour(character);
-            return _react2.default.createElement(
-              'tr',
-              null,
-              _react2.default.createElement('td', { className: classCSS }),
-              _react2.default.createElement(
-                'td',
-                { className: 'col-sm-3 vert-align' },
-                character.name
-              ),
-              _react2.default.createElement(
-                'td',
-                { className: 'col-sm-2 low-padding' },
-                _react2.default.createElement(
-                  'button',
-                  { className: 'btn btn-default btn-circle' },
-                  'M'
-                )
-              ),
-              _react2.default.createElement(
-                'td',
-                { className: 'col-sm-2 low-padding' },
-                _react2.default.createElement(
-                  'button',
-                  { className: 'btn btn-default btn-circle' },
-                  'O'
-                )
-              ),
-              _react2.default.createElement(
-                'td',
-                { className: 'col-sm-2 low-padding' },
-                _react2.default.createElement(
-                  'button',
-                  { className: 'btn btn-default btn-circle' },
-                  'S'
-                )
-              )
-            );
-          }
-        }, this);
-
-        dpsRows = sched.roster.characters.map(function (character, index) {
-          if (character.main_role == "DPS") {
-            var classCSS = this.classColour(character);
-            return _react2.default.createElement(
-              'tr',
-              null,
-              _react2.default.createElement('td', { className: classCSS }),
-              _react2.default.createElement(
-                'td',
-                { className: 'col-sm-3 vert-align' },
-                character.name
-              ),
-              _react2.default.createElement(
-                'td',
-                { className: 'col-sm-2 low-padding' },
-                _react2.default.createElement(
-                  'button',
-                  { className: 'btn btn-default btn-circle' },
-                  'M'
-                )
-              ),
-              _react2.default.createElement(
-                'td',
-                { className: 'col-sm-2 low-padding' },
-                _react2.default.createElement(
-                  'button',
-                  { className: 'btn btn-default btn-circle' },
-                  'O'
-                )
-              ),
-              _react2.default.createElement(
-                'td',
-                { className: 'col-sm-2 low-padding' },
-                _react2.default.createElement(
-                  'button',
-                  { className: 'btn btn-default btn-circle' },
-                  'S'
-                )
-              )
-            );
-          }
-        }, this);
-
         scheduleBossRows = sched.schedule_bosses.map(function (schedule_boss, index) {
+          tankRows = sched.roster.characters.map(function (character, index) {
+            if (character.main_role == "Tank") {
+              // var char = _.findWhere(schedule_boss.characters, {id: character.id});
+              // var MButtonClass, OButtonClass, SButtonClass;
+              // if(char) {
+              //
+              // } else {
+              //
+              // }
+
+              var classCSS = this.classColour(character);
+              return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement('td', { className: classCSS }),
+                _react2.default.createElement(
+                  'td',
+                  { className: 'col-sm-3 vert-align' },
+                  character.name
+                ),
+                _react2.default.createElement(
+                  'td',
+                  { className: 'col-sm-2 low-padding' },
+                  _react2.default.createElement(
+                    'button',
+                    { className: 'btn btn-default btn-circle' },
+                    _react2.default.createElement('i', { 'class': 'glyphicon glyphicon-ok' })
+                  )
+                ),
+                _react2.default.createElement(
+                  'td',
+                  { className: 'col-sm-2 low-padding' },
+                  _react2.default.createElement(
+                    'button',
+                    { className: 'btn btn-default btn-circle' },
+                    'O'
+                  )
+                ),
+                _react2.default.createElement(
+                  'td',
+                  { className: 'col-sm-2 low-padding' },
+                  _react2.default.createElement(
+                    'button',
+                    { className: 'btn btn-default btn-circle' },
+                    'S'
+                  )
+                )
+              );
+            }
+          }, this);
+
+          healerRows = sched.roster.characters.map(function (character, index) {
+            if (character.main_role == "Healer") {
+              var classCSS = this.classColour(character);
+              return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement('td', { className: classCSS }),
+                _react2.default.createElement(
+                  'td',
+                  { className: 'col-sm-3 vert-align' },
+                  character.name
+                ),
+                _react2.default.createElement(
+                  'td',
+                  { className: 'col-sm-2 low-padding' },
+                  _react2.default.createElement(
+                    'button',
+                    { className: 'btn btn-default btn-circle' },
+                    _react2.default.createElement('i', { 'class': 'glyphicon glyphicon-ok' })
+                  )
+                ),
+                _react2.default.createElement(
+                  'td',
+                  { className: 'col-sm-2 low-padding' },
+                  _react2.default.createElement(
+                    'button',
+                    { className: 'btn btn-default btn-circle' },
+                    'O'
+                  )
+                ),
+                _react2.default.createElement(
+                  'td',
+                  { className: 'col-sm-2 low-padding' },
+                  _react2.default.createElement(
+                    'button',
+                    { className: 'btn btn-default btn-circle' },
+                    'S'
+                  )
+                )
+              );
+            }
+          }, this);
+
+          dpsRows = sched.roster.characters.map(function (character, index) {
+            if (character.main_role == "DPS") {
+              var classCSS = this.classColour(character);
+              return _react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement('td', { className: classCSS }),
+                _react2.default.createElement(
+                  'td',
+                  { className: 'col-sm-3 vert-align' },
+                  character.name
+                ),
+                _react2.default.createElement(
+                  'td',
+                  { className: 'col-sm-2 low-padding' },
+                  _react2.default.createElement(
+                    'button',
+                    { className: 'btn btn-default btn-circle' },
+                    _react2.default.createElement('i', { 'class': 'glyphicon glyphicon-ok' })
+                  )
+                ),
+                _react2.default.createElement(
+                  'td',
+                  { className: 'col-sm-2 low-padding' },
+                  _react2.default.createElement(
+                    'button',
+                    { className: 'btn btn-default btn-circle' },
+                    'O'
+                  )
+                ),
+                _react2.default.createElement(
+                  'td',
+                  { className: 'col-sm-2 low-padding' },
+                  _react2.default.createElement(
+                    'button',
+                    { className: 'btn btn-default btn-circle' },
+                    'S'
+                  )
+                )
+              );
+            }
+          }, this);
+
           return _react2.default.createElement(
             'div',
             { className: 'row' },

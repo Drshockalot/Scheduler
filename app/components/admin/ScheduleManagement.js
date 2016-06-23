@@ -137,6 +137,12 @@ class ScheduleManagement extends React.Component {
     var scheduleBossRows;
     var tankRows, healerRows, dpsRows;
 
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    /////                 START OF SCHEDULE BOSS PROCESSING                               /////
+    ///////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////
+
     if(this.state.schedules.length > 0) {
       var sched;
       for(var i = 0; i < this.state.schedules.length; i++) {
@@ -145,76 +151,84 @@ class ScheduleManagement extends React.Component {
         }
       }
 
-      tankRows = sched.roster.characters.map(function(character, index) {
-        if(character.main_role == "Tank") {
-          var classCSS = this.classColour(character);
-          return (
-            <tr>
-              <td className={classCSS} />
-              <td className='col-sm-3 vert-align'>
-                {character.name}
-              </td>
-              <td className='col-sm-2 low-padding'>
-                <button className='btn btn-default btn-circle'>M</button>
-              </td>
-              <td className='col-sm-2 low-padding'>
-                <button className='btn btn-default btn-circle'>O</button>
-              </td>
-              <td className='col-sm-2 low-padding'>
-                <button className='btn btn-default btn-circle'>S</button>
-              </td>
-            </tr>
-          );
-        }
-      }, this);
-
-      healerRows = sched.roster.characters.map(function(character, index) {
-        if(character.main_role == "Healer") {
-          var classCSS = this.classColour(character);
-          return (
-            <tr>
-              <td className={classCSS} />
-              <td className='col-sm-3 vert-align'>
-                {character.name}
-              </td>
-              <td className='col-sm-2 low-padding'>
-                <button className='btn btn-default btn-circle'>M</button>
-              </td>
-              <td className='col-sm-2 low-padding'>
-                <button className='btn btn-default btn-circle'>O</button>
-              </td>
-              <td className='col-sm-2 low-padding'>
-                <button className='btn btn-default btn-circle'>S</button>
-              </td>
-            </tr>
-          );
-        }
-      }, this);
-
-      dpsRows = sched.roster.characters.map(function(character, index) {
-        if(character.main_role == "DPS") {
-          var classCSS = this.classColour(character);
-          return (
-            <tr>
-              <td className={classCSS} />
-              <td className='col-sm-3 vert-align'>
-                {character.name}
-              </td>
-              <td className='col-sm-2 low-padding'>
-                <button className='btn btn-default btn-circle'>M</button>
-              </td>
-              <td className='col-sm-2 low-padding'>
-                <button className='btn btn-default btn-circle'>O</button>
-              </td>
-              <td className='col-sm-2 low-padding'>
-                <button className='btn btn-default btn-circle'>S</button>
-              </td>
-            </tr>
-          );
-        }
-      }, this);
-
       scheduleBossRows = sched.schedule_bosses.map(function(schedule_boss, index) {
+        tankRows = sched.roster.characters.map(function(character, index) {
+          if(character.main_role == "Tank") {
+            // var char = _.findWhere(schedule_boss.characters, {id: character.id});
+            // var MButtonClass, OButtonClass, SButtonClass;
+            // if(char) {
+            //
+            // } else {
+            //
+            // }
+
+            var classCSS = this.classColour(character);
+            return (
+              <tr>
+                <td className={classCSS} />
+                <td className='col-sm-3 vert-align'>
+                  {character.name}
+                </td>
+                <td className='col-sm-2 low-padding'>
+                  <button className='btn btn-default btn-circle'><i class="glyphicon glyphicon-ok"></i></button>
+                </td>
+                <td className='col-sm-2 low-padding'>
+                  <button className='btn btn-default btn-circle'>O</button>
+                </td>
+                <td className='col-sm-2 low-padding'>
+                  <button className='btn btn-default btn-circle'>S</button>
+                </td>
+              </tr>
+            );
+          }
+        }, this);
+
+        healerRows = sched.roster.characters.map(function(character, index) {
+          if(character.main_role == "Healer") {
+            var classCSS = this.classColour(character);
+            return (
+              <tr>
+                <td className={classCSS} />
+                <td className='col-sm-3 vert-align'>
+                  {character.name}
+                </td>
+                <td className='col-sm-2 low-padding'>
+                  <button className='btn btn-default btn-circle'><i class="glyphicon glyphicon-ok"></i></button>
+                </td>
+                <td className='col-sm-2 low-padding'>
+                  <button className='btn btn-default btn-circle'>O</button>
+                </td>
+                <td className='col-sm-2 low-padding'>
+                  <button className='btn btn-default btn-circle'>S</button>
+                </td>
+              </tr>
+            );
+          }
+        }, this);
+
+        dpsRows = sched.roster.characters.map(function(character, index) {
+          if(character.main_role == "DPS") {
+            var classCSS = this.classColour(character);
+            return (
+              <tr>
+                <td className={classCSS} />
+                <td className='col-sm-3 vert-align'>
+                  {character.name}
+                </td>
+                <td className='col-sm-2 low-padding'>
+                  <button className='btn btn-default btn-circle'><i class="glyphicon glyphicon-ok"></i></button>
+                </td>
+                <td className='col-sm-2 low-padding'>
+                  <button className='btn btn-default btn-circle'>O</button>
+                </td>
+                <td className='col-sm-2 low-padding'>
+                  <button className='btn btn-default btn-circle'>S</button>
+                </td>
+              </tr>
+            );
+          }
+        }, this);
+
         return (
           <div className='row'>
             <table className='table'>
