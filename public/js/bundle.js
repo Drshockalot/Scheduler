@@ -4620,16 +4620,16 @@ var ScheduleManagement = function (_React$Component) {
           if (character.main_role == "Tank") {
             var classCSS = this.classColour(character);
             return _react2.default.createElement(
-              'div',
-              { className: 'row' },
-              _react2.default.createElement('div', { className: classCSS }),
+              'tr',
+              null,
+              _react2.default.createElement('td', { className: classCSS }),
               _react2.default.createElement(
-                'div',
+                'td',
                 { className: 'col-sm-3' },
                 character.name
               ),
               _react2.default.createElement(
-                'div',
+                'td',
                 { className: 'col-sm-2' },
                 _react2.default.createElement(
                   'button',
@@ -4638,7 +4638,7 @@ var ScheduleManagement = function (_React$Component) {
                 )
               ),
               _react2.default.createElement(
-                'div',
+                'td',
                 { className: 'col-sm-2' },
                 _react2.default.createElement(
                   'button',
@@ -4647,7 +4647,7 @@ var ScheduleManagement = function (_React$Component) {
                 )
               ),
               _react2.default.createElement(
-                'div',
+                'td',
                 { className: 'col-sm-2' },
                 _react2.default.createElement(
                   'button',
@@ -4811,7 +4811,15 @@ var ScheduleManagement = function (_React$Component) {
                   _react2.default.createElement(
                     'td',
                     { className: 'col-md-3 vert-align' },
-                    tankRows
+                    _react2.default.createElement(
+                      'table',
+                      { className: 'table' },
+                      _react2.default.createElement(
+                        'tbody',
+                        null,
+                        tankRows
+                      )
+                    )
                   ),
                   _react2.default.createElement(
                     'td',
