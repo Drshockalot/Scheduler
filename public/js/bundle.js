@@ -4660,6 +4660,7 @@ var ScheduleManagement = function (_React$Component) {
           }
         }
 
+        console.log(sched);
         scheduleBossRows = sched.schedule_bosses.map(function (schedule_boss, index) {
           tankRows = sched.roster.characters.map(function (character, index) {
             if (character.main_role == "Tank") {
