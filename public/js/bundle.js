@@ -4823,7 +4823,7 @@ var ScheduleManagement = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-3 vert-align' },
+                    { className: 'col-md-3' },
                     _react2.default.createElement(
                       'table',
                       { className: 'table' },
@@ -4836,7 +4836,7 @@ var ScheduleManagement = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-3 vert-align' },
+                    { className: 'col-md-3' },
                     _react2.default.createElement(
                       'table',
                       { className: 'table' },
@@ -4849,7 +4849,7 @@ var ScheduleManagement = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-1 vert-align' },
+                    { className: 'col-md-1' },
                     0
                   )
                 )

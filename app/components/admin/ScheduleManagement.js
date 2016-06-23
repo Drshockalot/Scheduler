@@ -236,21 +236,21 @@ class ScheduleManagement extends React.Component {
                       {tankRows}
                     </tbody>
                   </table></td>
-                  <td className='col-md-3 vert-align'>
+                  <td className='col-md-3'>
                     <table className='table'>
                       <tbody>
                         {healerRows}
                       </tbody>
                     </table>
                   </td>
-                  <td className='col-md-3 vert-align'>
+                  <td className='col-md-3'>
                     <table className='table'>
                       <tbody>
                         {dpsRows}
                       </tbody>
                     </table>
                   </td>
-                  <td className='col-md-1 vert-align'>{0}</td>
+                  <td className='col-md-1'>{0}</td>
                 </tr>
               </tbody>
             </table>
