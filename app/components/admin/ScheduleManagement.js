@@ -170,7 +170,7 @@ class ScheduleManagement extends React.Component {
                   {character.name}
                 </td>
                 <td className='col-sm-2 vert-align'>
-                  <strong>{character.main_role} | </strong>
+                  <strong>{character.main_role}</strong>
                 </td>
                 <td className='col-sm-2 vert-align'>
                   {character.off_role}
@@ -193,7 +193,7 @@ class ScheduleManagement extends React.Component {
                   {character.name}
                 </td>
                 <td className='col-sm-2 vert-align'>
-                  <strong>{character.main_role} | </strong>
+                  <strong>{character.main_role}</strong>
                 </td>
                 <td className='col-sm-2 vert-align'>
                   {character.off_role}
@@ -216,7 +216,7 @@ class ScheduleManagement extends React.Component {
                   {character.name}
                 </td>
                 <td className='col-sm-2 vert-align'>
-                  <strong>{character.main_role} | </strong>
+                  <strong>{character.main_role}</strong>
                 </td>
                 <td className='col-sm-2 vert-align'>
                   {character.off_role}

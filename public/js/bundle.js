@@ -4649,8 +4649,7 @@ var ScheduleManagement = function (_React$Component) {
                   _react2.default.createElement(
                     'strong',
                     null,
-                    character.main_role,
-                    ' | '
+                    character.main_role
                   )
                 ),
                 _react2.default.createElement(
@@ -4689,8 +4688,7 @@ var ScheduleManagement = function (_React$Component) {
                   _react2.default.createElement(
                     'strong',
                     null,
-                    character.main_role,
-                    ' | '
+                    character.main_role
                   )
                 ),
                 _react2.default.createElement(
@@ -4729,8 +4727,7 @@ var ScheduleManagement = function (_React$Component) {
                   _react2.default.createElement(
                     'strong',
                     null,
-                    character.main_role,
-                    ' | '
+                    character.main_role
                   )
                 ),
                 _react2.default.createElement(
