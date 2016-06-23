@@ -170,7 +170,7 @@ class ScheduleManagement extends React.Component {
             return (
               <tr>
                 <td className={classCSS} />
-                <td className='col-sm-3 vert-align'>
+                <td className='col-sm-3 vert-align' >
                   {character.name}
                 </td>
                 <td className='col-sm-2 vert-align'>
