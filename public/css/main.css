@@ -3,8 +3,8 @@
   height: 30px;
   text-align: center;
   padding: 6px 0;
+  margin-bottom: 3px;
   font-size: 10px;
-  line-height: 1.428571429;
   border-radius: 15px !important;
 }
 body {
