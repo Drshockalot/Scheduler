@@ -154,13 +154,13 @@ class ScheduleManagement extends React.Component {
               <td className='col-sm-3 vert-align'>
                 {character.name}
               </td>
-              <td className='col-sm-2'>
+              <td className='col-sm-2 low-padding'>
                 <button className='btn btn-primary btn-circle'>M</button>
               </td>
-              <td className='col-sm-2'>
+              <td className='col-sm-2 low-padding'>
                 <button className='btn btn-default btn-circle'>O</button>
               </td>
-              <td className='col-sm-2'>
+              <td className='col-sm-2 low-padding'>
                 <button className='btn btn-danger btn-circle'>S</button>
               </td>
             </tr>
@@ -177,13 +177,13 @@ class ScheduleManagement extends React.Component {
               <td className='col-sm-3 vert-align'>
                 {character.name}
               </td>
-              <td className='col-sm-2'>
+              <td className='col-sm-2 low-padding'>
                 <button className='btn btn-primary btn-circle'>M</button>
               </td>
-              <td className='col-sm-2'>
+              <td className='col-sm-2 low-padding'>
                 <button className='btn btn-default btn-circle'>O</button>
               </td>
-              <td className='col-sm-2'>
+              <td className='col-sm-2 low-padding'>
                 <button className='btn btn-danger btn-circle'>S</button>
               </td>
             </tr>
@@ -200,13 +200,13 @@ class ScheduleManagement extends React.Component {
               <td className='col-sm-3 vert-align'>
                 {character.name}
               </td>
-              <td className='col-sm-2'>
+              <td className='col-sm-2 low-padding'>
                 <button className='btn btn-primary btn-circle'>M</button>
               </td>
-              <td className='col-sm-2'>
+              <td className='col-sm-2 low-padding'>
                 <button className='btn btn-default btn-circle'>O</button>
               </td>
-              <td className='col-sm-2'>
+              <td className='col-sm-2 low-padding'>
                 <button className='btn btn-danger btn-circle'>S</button>
               </td>
             </tr>

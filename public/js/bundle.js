@@ -4630,7 +4630,7 @@ var ScheduleManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'td',
-                { className: 'col-sm-2' },
+                { className: 'col-sm-2 low-padding' },
                 _react2.default.createElement(
                   'button',
                   { className: 'btn btn-primary btn-circle' },
@@ -4639,7 +4639,7 @@ var ScheduleManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'td',
-                { className: 'col-sm-2' },
+                { className: 'col-sm-2 low-padding' },
                 _react2.default.createElement(
                   'button',
                   { className: 'btn btn-default btn-circle' },
@@ -4648,7 +4648,7 @@ var ScheduleManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'td',
-                { className: 'col-sm-2' },
+                { className: 'col-sm-2 low-padding' },
                 _react2.default.createElement(
                   'button',
                   { className: 'btn btn-danger btn-circle' },
@@ -4673,7 +4673,7 @@ var ScheduleManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'td',
-                { className: 'col-sm-2' },
+                { className: 'col-sm-2 low-padding' },
                 _react2.default.createElement(
                   'button',
                   { className: 'btn btn-primary btn-circle' },
@@ -4682,7 +4682,7 @@ var ScheduleManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'td',
-                { className: 'col-sm-2' },
+                { className: 'col-sm-2 low-padding' },
                 _react2.default.createElement(
                   'button',
                   { className: 'btn btn-default btn-circle' },
@@ -4691,7 +4691,7 @@ var ScheduleManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'td',
-                { className: 'col-sm-2' },
+                { className: 'col-sm-2 low-padding' },
                 _react2.default.createElement(
                   'button',
                   { className: 'btn btn-danger btn-circle' },
@@ -4716,7 +4716,7 @@ var ScheduleManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'td',
-                { className: 'col-sm-2' },
+                { className: 'col-sm-2 low-padding' },
                 _react2.default.createElement(
                   'button',
                   { className: 'btn btn-primary btn-circle' },
@@ -4725,7 +4725,7 @@ var ScheduleManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'td',
-                { className: 'col-sm-2' },
+                { className: 'col-sm-2 low-padding' },
                 _react2.default.createElement(
                   'button',
                   { className: 'btn btn-default btn-circle' },
@@ -4734,7 +4734,7 @@ var ScheduleManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'td',
-                { className: 'col-sm-2' },
+                { className: 'col-sm-2 low-padding' },
                 _react2.default.createElement(
                   'button',
                   { className: 'btn btn-danger btn-circle' },
