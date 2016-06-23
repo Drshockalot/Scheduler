@@ -4633,7 +4633,7 @@ var ScheduleManagement = function (_React$Component) {
                 { className: 'col-sm-2 low-padding' },
                 _react2.default.createElement(
                   'button',
-                  { className: 'btn btn-primary btn-circle' },
+                  { className: 'btn btn-default btn-circle' },
                   'M'
                 )
               ),
@@ -4651,7 +4651,7 @@ var ScheduleManagement = function (_React$Component) {
                 { className: 'col-sm-2 low-padding' },
                 _react2.default.createElement(
                   'button',
-                  { className: 'btn btn-danger btn-circle' },
+                  { className: 'btn btn-default btn-circle' },
                   'S'
                 )
               )
@@ -4676,7 +4676,7 @@ var ScheduleManagement = function (_React$Component) {
                 { className: 'col-sm-2 low-padding' },
                 _react2.default.createElement(
                   'button',
-                  { className: 'btn btn-primary btn-circle' },
+                  { className: 'btn btn-default btn-circle' },
                   'M'
                 )
               ),
@@ -4694,7 +4694,7 @@ var ScheduleManagement = function (_React$Component) {
                 { className: 'col-sm-2 low-padding' },
                 _react2.default.createElement(
                   'button',
-                  { className: 'btn btn-danger btn-circle' },
+                  { className: 'btn btn-default btn-circle' },
                   'S'
                 )
               )
@@ -4719,7 +4719,7 @@ var ScheduleManagement = function (_React$Component) {
                 { className: 'col-sm-2 low-padding' },
                 _react2.default.createElement(
                   'button',
-                  { className: 'btn btn-primary btn-circle' },
+                  { className: 'btn btn-default btn-circle' },
                   'M'
                 )
               ),
@@ -4737,7 +4737,7 @@ var ScheduleManagement = function (_React$Component) {
                 { className: 'col-sm-2 low-padding' },
                 _react2.default.createElement(
                   'button',
-                  { className: 'btn btn-danger btn-circle' },
+                  { className: 'btn btn-default btn-circle' },
                   'S'
                 )
               )
