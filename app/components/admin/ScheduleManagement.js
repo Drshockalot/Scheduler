@@ -123,7 +123,13 @@ class ScheduleManagement extends React.Component {
     if(this.state.schedules.length > 0) {
       console.log(this.state.schedules);
       console.log(this.state.selectedSchedule);
-      scheduleBossRows = _.findWhere(this.state.schedules, {id: this.state.selectedSchedule}).schedule_bosses.map(function(schedule_boss, index) {
+      var sched;
+      for(var i = 0; i < this.state.schedules.length; i++) {
+        if(this.state.schedules[i].id == this.state.selectedSchedule) {
+          sched = this.state.schedules[i];
+        }
+      }
+      scheduleBossRows = sched.schedule_bosses.map(function(schedule_boss, index) {
         return (
           <div className='row'>
             <table className='table'>
