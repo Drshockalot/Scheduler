@@ -99,6 +99,14 @@ router.post('/admin/character', function(req, res, next) {
                .fetch({'withRelated': ['characters']})
                .then(function(schedule_boss) {
                  schedule_boss.characters().attach(req.body.characterId);
+                 Schedule.forge()
+                         .fetchAll()
+                         .then(function(schedules) {
+                           res.json({error: false, data: {message: "Character added", schedules: schedules.toJSON()}});
+                         })
+                         .catch(function(err) {
+                           res.status(500).json({error: true, data: {message: err.message}});
+                         });
                })
                .catch(function(err) {
                  res.status(500).json({error: true, data: {message: err.message}});
@@ -110,6 +118,14 @@ router.delete('/admin/character', function(req, res, next) {
                .fetch({'withRelated': ['characters']})
                .then(function(schedule_boss) {
                  schedule_boss.characters().detach(req.body.characterId);
+                 Schedule.forge()
+                         .fetchAll()
+                         .then(function(schedules) {
+                           res.json({error: false, data: {message: "Character added", schedules: schedules.toJSON()}});
+                         })
+                         .catch(function(err) {
+                           res.status(500).json({error: true, data: {message: err.message}});
+                         });
                })
                .catch(function(err) {
                  res.status(500).json({error: true, data: {message: err.message}});
