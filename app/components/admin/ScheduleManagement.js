@@ -10,6 +10,8 @@ var _ = require('underscore');
 import classNames from 'classnames';
 var wowClasses = require('./../../../utility/WowClasses');
 
+import { Button, Glyphicon } from 'react-bootstrap';
+
 class ScheduleManagement extends React.Component {
   constructor(props) {
     super(props);
@@ -170,7 +172,9 @@ class ScheduleManagement extends React.Component {
                   {character.name}
                 </td>
                 <td className='col-sm-2 low-padding'>
-                  <button className='btn btn-default btn-circle'><i className="glyphicon glyphicon-ok"></i></button>
+                  <Button>
+                    <Glyphicon glyph='ok' />
+                  </Button>
                 </td>
                 <td className='col-sm-2 low-padding'>
                   <button className='btn btn-default btn-circle'>O</button>
@@ -215,11 +219,8 @@ class ScheduleManagement extends React.Component {
                 <td className='col-sm-3 vert-align'>
                   {character.name}
                 </td>
-                <td className='col-sm-2 low-padding'>
-                  <button className='btn btn-default btn-circle'><i className="glyphicon glyphicon-ok"></i></button>
-                </td>
-                <td className='col-sm-2 low-padding'>
-                  <button className='btn btn-default btn-circle'>O</button>
+                <td>
+                  <strong></strong>
                 </td>
                 <td className='col-sm-2 low-padding'>
                   <button className='btn btn-default btn-circle'>S</button>
