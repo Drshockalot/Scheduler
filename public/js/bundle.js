@@ -4616,10 +4616,10 @@ var ScheduleManagement = function (_React$Component) {
           }
         }
 
-        sched.roster.characters.map(function (character, index) {
+        tankRows = sched.roster.characters.map(function (character, index) {
           var classCSS = this.classColour(character);
           if (character.main_role == "Tank") {
-            tankRows += _react2.default.createElement(
+            return _react2.default.createElement(
               'div',
               { className: 'row' },
               _react2.default.createElement('div', { className: classCSS }),
@@ -4653,9 +4653,11 @@ var ScheduleManagement = function (_React$Component) {
               )
             );
           }
+        }, this);
 
+        healerRows = sched.roster.characters.map(function (character, index) {
           if (character.main_role == "Healer") {
-            healerRows += _react2.default.createElement(
+            return _react2.default.createElement(
               'div',
               { className: 'row' },
               _react2.default.createElement('div', { className: classCSS }),
@@ -4689,9 +4691,11 @@ var ScheduleManagement = function (_React$Component) {
               )
             );
           }
+        }, this);
 
+        dpsRows = ched.roster.characters.map(function (character, index) {
           if (character.main_role == "DPS") {
-            dpsRows += _react2.default.createElement(
+            return _react2.default.createElement(
               'div',
               { className: 'row' },
               _react2.default.createElement('div', { className: classCSS }),
