@@ -119,7 +119,7 @@ router.delete('/admin/character', function(req, res, next) {
                .then(function(schedule_boss) {
                  schedule_boss.characters().detach(req.body.characterId);
                  Schedule.forge()
-                         .fetchAll()
+                         .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters']})
                          .then(function(schedules) {
                            res.json({error: false, data: {message: "Character added", schedules: schedules.toJSON()}});
                          })
