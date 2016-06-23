@@ -4625,7 +4625,7 @@ var ScheduleManagement = function (_React$Component) {
               _react2.default.createElement('div', { className: classCSS }),
               _react2.default.createElement(
                 'div',
-                { className: 'col-sm-3' },
+                { className: 'col-sm-3 vert-middle' },
                 character.name
               ),
               _react2.default.createElement(
@@ -4668,7 +4668,7 @@ var ScheduleManagement = function (_React$Component) {
               _react2.default.createElement('div', { className: classCSS }),
               _react2.default.createElement(
                 'div',
-                { className: 'col-sm-3' },
+                { className: 'col-sm-3 vert-middle' },
                 character.name
               ),
               _react2.default.createElement(
@@ -4711,7 +4711,7 @@ var ScheduleManagement = function (_React$Component) {
               _react2.default.createElement('div', { className: classCSS }),
               _react2.default.createElement(
                 'div',
-                { className: 'col-sm-3' },
+                { className: 'col-sm-3 vert-middle' },
                 character.name
               ),
               _react2.default.createElement(

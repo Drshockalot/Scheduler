@@ -151,7 +151,7 @@ class ScheduleManagement extends React.Component {
           return (
             <div className='row'>
               <div className={classCSS} />
-              <div className='col-sm-3'>
+              <div className='col-sm-3 vert-middle'>
                 {character.name}
               </div>
               <div className='col-sm-2'>
@@ -174,7 +174,7 @@ class ScheduleManagement extends React.Component {
           return (
             <div className='row'>
               <div className={classCSS} />
-              <div className='col-sm-3'>
+              <div className='col-sm-3 vert-middle'>
                 {character.name}
               </div>
               <div className='col-sm-2'>
@@ -197,7 +197,7 @@ class ScheduleManagement extends React.Component {
           return (
             <div className='row'>
               <div className={classCSS} />
-              <div className='col-sm-3'>
+              <div className='col-sm-3 vert-middle'>
                 {character.name}
               </div>
               <div className='col-sm-2'>
