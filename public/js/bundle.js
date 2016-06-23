@@ -4589,8 +4589,6 @@ var ScheduleManagement = function (_React$Component) {
       var scheduleBossRows;
 
       if (this.state.schedules.length > 0) {
-        console.log(this.state.schedules);
-        console.log(this.state.selectedSchedule);
         var sched;
         for (var i = 0; i < this.state.schedules.length; i++) {
           if (this.state.schedules[i].id == this.state.selectedSchedule) {
@@ -4623,21 +4621,27 @@ var ScheduleManagement = function (_React$Component) {
                   _react2.default.createElement(
                     'td',
                     { className: 'col-md-2' },
-                    'Tanks'
+                    'Tanks (',
+                    schedule_boss.tank_count,
+                    ')'
                   ),
                   _react2.default.createElement(
                     'td',
                     { className: 'col-md-3' },
-                    'Healers'
+                    'Healers (',
+                    schedule_boss.healer_count,
+                    ')'
                   ),
                   _react2.default.createElement(
                     'td',
                     { className: 'col-md-3' },
-                    'DPS'
+                    'DPS (',
+                    schedule_boss.dps_count,
+                    ')'
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-1' },
+                    { className: 'col-md-2' },
                     'Standby'
                   )
                 ),
@@ -4671,7 +4675,7 @@ var ScheduleManagement = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-1' },
+                    { className: 'col-md-2' },
                     0
                   )
                 )

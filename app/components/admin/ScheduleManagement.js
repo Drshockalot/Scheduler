@@ -121,8 +121,6 @@ class ScheduleManagement extends React.Component {
     var scheduleBossRows;
 
     if(this.state.schedules.length > 0) {
-      console.log(this.state.schedules);
-      console.log(this.state.selectedSchedule);
       var sched;
       for(var i = 0; i < this.state.schedules.length; i++) {
         if(this.state.schedules[i].id == this.state.selectedSchedule) {
@@ -137,10 +135,10 @@ class ScheduleManagement extends React.Component {
                 <tr>
                   <td className='col-md-1'>Raid</td>
                   <td className='col-md-1'>Boss</td>
-                  <td className='col-md-2'>Tanks</td>
-                  <td className='col-md-3'>Healers</td>
-                  <td className='col-md-3'>DPS</td>
-                  <td className='col-md-1'>Standby</td>
+                  <td className='col-md-2'>Tanks ({schedule_boss.tank_count})</td>
+                  <td className='col-md-3'>Healers ({schedule_boss.healer_count})</td>
+                  <td className='col-md-3'>DPS ({schedule_boss.dps_count})</td>
+                  <td className='col-md-2'>Standby</td>
                 </tr>
                 <tr>
                   <td className='col-md-1'>{schedule_boss.raid.name}</td>
@@ -148,7 +146,7 @@ class ScheduleManagement extends React.Component {
                   <td className='col-md-2'>{schedule_boss.tank_count}</td>
                   <td className='col-md-3'>{schedule_boss.healer_count}</td>
                   <td className='col-md-3'>{schedule_boss.dps_count}</td>
-                  <td className='col-md-1'>{0}</td>
+                  <td className='col-md-2'>{0}</td>
                 </tr>
               </tbody>
             </table>
