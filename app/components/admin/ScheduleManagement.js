@@ -172,21 +172,21 @@ class ScheduleManagement extends React.Component {
         if(character.main_role == "Healer") {
           var classCSS = this.classColour(character);
           return (
-            <div className='row'>
-              <div className={classCSS} />
-              <div className='col-sm-3 vert-middle'>
+            <tr>
+              <td className={classCSS} />
+              <td className='col-sm-3 vert-align'>
                 {character.name}
-              </div>
-              <div className='col-sm-2'>
+              </td>
+              <td className='col-sm-2'>
                 <button className='btn btn-primary btn-circle'>M</button>
-              </div>
-              <div className='col-sm-2'>
+              </td>
+              <td className='col-sm-2'>
                 <button className='btn btn-default btn-circle'>O</button>
-              </div>
-              <div className='col-sm-2'>
+              </td>
+              <td className='col-sm-2'>
                 <button className='btn btn-danger btn-circle'>S</button>
-              </div>
-            </div>
+              </td>
+            </tr>
           );
         }
       }, this);
@@ -195,21 +195,21 @@ class ScheduleManagement extends React.Component {
         if(character.main_role == "DPS") {
           var classCSS = this.classColour(character);
           return (
-            <div className='row'>
-              <div className={classCSS} />
-              <div className='col-sm-3 vert-middle'>
+            <tr>
+              <td className={classCSS} />
+              <td className='col-sm-3 vert-align'>
                 {character.name}
-              </div>
-              <div className='col-sm-2'>
+              </td>
+              <td className='col-sm-2'>
                 <button className='btn btn-primary btn-circle'>M</button>
-              </div>
-              <div className='col-sm-2'>
+              </td>
+              <td className='col-sm-2'>
                 <button className='btn btn-default btn-circle'>O</button>
-              </div>
-              <div className='col-sm-2'>
+              </td>
+              <td className='col-sm-2'>
                 <button className='btn btn-danger btn-circle'>S</button>
-              </div>
-            </div>
+              </td>
+            </tr>
           );
         }
       }, this);
@@ -228,16 +228,28 @@ class ScheduleManagement extends React.Component {
                   <td className='col-md-1'>Standby</td>
                 </tr>
                 <tr>
-                  <td className='col-md-1 vert-align'>{schedule_boss.raid.name}</td>
-                  <td className='col-md-1 vert-align'>{schedule_boss.boss.name}</td>
-                  <td className='col-md-3 vert-align'>
+                  <td className='col-md-1'>{schedule_boss.raid.name}</td>
+                  <td className='col-md-1'>{schedule_boss.boss.name}</td>
+                  <td className='col-md-3'>
                   <table className='table'>
                     <tbody>
                       {tankRows}
                     </tbody>
                   </table></td>
-                  <td className='col-md-3 vert-align'>{healerRows}</td>
-                  <td className='col-md-3 vert-align'>{dpsRows}</td>
+                  <td className='col-md-3 vert-align'>
+                    <table className='table'>
+                      <tbody>
+                        {healerRows}
+                      </tbody>
+                    </table>
+                  </td>
+                  <td className='col-md-3 vert-align'>
+                    <table className='table'>
+                      <tbody>
+                        {dpsRows}
+                      </tbody>
+                    </table>
+                  </td>
                   <td className='col-md-1 vert-align'>{0}</td>
                 </tr>
               </tbody>

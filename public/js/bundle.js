@@ -4663,16 +4663,16 @@ var ScheduleManagement = function (_React$Component) {
           if (character.main_role == "Healer") {
             var classCSS = this.classColour(character);
             return _react2.default.createElement(
-              'div',
-              { className: 'row' },
-              _react2.default.createElement('div', { className: classCSS }),
+              'tr',
+              null,
+              _react2.default.createElement('td', { className: classCSS }),
               _react2.default.createElement(
-                'div',
-                { className: 'col-sm-3 vert-middle' },
+                'td',
+                { className: 'col-sm-3 vert-align' },
                 character.name
               ),
               _react2.default.createElement(
-                'div',
+                'td',
                 { className: 'col-sm-2' },
                 _react2.default.createElement(
                   'button',
@@ -4681,7 +4681,7 @@ var ScheduleManagement = function (_React$Component) {
                 )
               ),
               _react2.default.createElement(
-                'div',
+                'td',
                 { className: 'col-sm-2' },
                 _react2.default.createElement(
                   'button',
@@ -4690,7 +4690,7 @@ var ScheduleManagement = function (_React$Component) {
                 )
               ),
               _react2.default.createElement(
-                'div',
+                'td',
                 { className: 'col-sm-2' },
                 _react2.default.createElement(
                   'button',
@@ -4706,16 +4706,16 @@ var ScheduleManagement = function (_React$Component) {
           if (character.main_role == "DPS") {
             var classCSS = this.classColour(character);
             return _react2.default.createElement(
-              'div',
-              { className: 'row' },
-              _react2.default.createElement('div', { className: classCSS }),
+              'tr',
+              null,
+              _react2.default.createElement('td', { className: classCSS }),
               _react2.default.createElement(
-                'div',
-                { className: 'col-sm-3 vert-middle' },
+                'td',
+                { className: 'col-sm-3 vert-align' },
                 character.name
               ),
               _react2.default.createElement(
-                'div',
+                'td',
                 { className: 'col-sm-2' },
                 _react2.default.createElement(
                   'button',
@@ -4724,7 +4724,7 @@ var ScheduleManagement = function (_React$Component) {
                 )
               ),
               _react2.default.createElement(
-                'div',
+                'td',
                 { className: 'col-sm-2' },
                 _react2.default.createElement(
                   'button',
@@ -4733,7 +4733,7 @@ var ScheduleManagement = function (_React$Component) {
                 )
               ),
               _react2.default.createElement(
-                'div',
+                'td',
                 { className: 'col-sm-2' },
                 _react2.default.createElement(
                   'button',
@@ -4800,17 +4800,17 @@ var ScheduleManagement = function (_React$Component) {
                   null,
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-1 vert-align' },
+                    { className: 'col-md-1' },
                     schedule_boss.raid.name
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-1 vert-align' },
+                    { className: 'col-md-1' },
                     schedule_boss.boss.name
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-3 vert-align' },
+                    { className: 'col-md-3' },
                     _react2.default.createElement(
                       'table',
                       { className: 'table' },
@@ -4824,12 +4824,28 @@ var ScheduleManagement = function (_React$Component) {
                   _react2.default.createElement(
                     'td',
                     { className: 'col-md-3 vert-align' },
-                    healerRows
+                    _react2.default.createElement(
+                      'table',
+                      { className: 'table' },
+                      _react2.default.createElement(
+                        'tbody',
+                        null,
+                        healerRows
+                      )
+                    )
                   ),
                   _react2.default.createElement(
                     'td',
                     { className: 'col-md-3 vert-align' },
-                    dpsRows
+                    _react2.default.createElement(
+                      'table',
+                      { className: 'table' },
+                      _react2.default.createElement(
+                        'tbody',
+                        null,
+                        dpsRows
+                      )
+                    )
                   ),
                   _react2.default.createElement(
                     'td',
