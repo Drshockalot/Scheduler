@@ -158,7 +158,7 @@ class ScheduleManagement extends React.Component {
             var actionButton;
             if(char) {
               actionButton = (
-                <button className='btn btn-danger btn-circle' onClick={() => ScheduleManagementActions.removeCharacterFromScheduleBoss(schedule_boss.id, character.id)}>&#10060;</button>
+                <button className='btn btn-danger btn-circle' onClick={() => ScheduleManagementActions.removeCharacterFromScheduleBoss(schedule_boss.id, character.id)}>&#10007;</button>
               )
             } else {
               actionButton = (
@@ -193,7 +193,7 @@ class ScheduleManagement extends React.Component {
             var actionButton;
             if(char) {
               actionButton = (
-                <button className='btn btn-danger btn-circle' onClick={() => ScheduleManagementActions.removeCharacterFromScheduleBoss(schedule_boss.id, character.id)}>&#10060;</button>
+                <button className='btn btn-danger btn-circle' onClick={() => ScheduleManagementActions.removeCharacterFromScheduleBoss(schedule_boss.id, character.id)}>&#10007;</button>
               )
             } else {
               actionButton = (
@@ -228,14 +228,14 @@ class ScheduleManagement extends React.Component {
             var actionButton;
             if(char) {
               actionButton = (
-                <button className='btn btn-danger btn-circle' onClick={() => ScheduleManagementActions.removeCharacterFromScheduleBoss(schedule_boss.id, character.id)}>&#10060;</button>
+                <button className='btn btn-danger btn-circle' onClick={() => ScheduleManagementActions.removeCharacterFromScheduleBoss(schedule_boss.id, character.id)}>&#10007;</button>
               )
             } else {
               actionButton = (
                 <button className='btn btn-success btn-circle' onClick={() => ScheduleManagementActions.addCharacterToScheduleBoss(schedule_boss.id, character.id)}>&#10003;</button>
               );
             }
-            
+
             var classCSS = this.classColour(character);
             return (
               <tr>

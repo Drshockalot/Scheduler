@@ -145,6 +145,22 @@ class ScheduleManagementStore {
   onAddScheduleBossFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
   }
+
+  onAddCharacterToScheduleBossSuccess(result) {
+    this.schedules = result.data.schedules;
+  }
+
+  onAddCharacterToScheduleBossFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
+
+  onRemoveCharacterFromScheduleBossSuccess(result) {
+    this.schedules = result.data.schedules;
+  }
+
+  onRemoveCharacterFromScheduleBossFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
 }
 
 export default alt.createStore(ScheduleManagementStore);

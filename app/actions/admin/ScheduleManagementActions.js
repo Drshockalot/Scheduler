@@ -24,7 +24,11 @@ class ScheduleManagementActions {
       'setFormHealers',
       'setFormDPS',
       'addScheduleBossSuccess',
-      'addScheduleBossFailure'
+      'addScheduleBossFailure',
+      'addCharacterToScheduleBossSuccess',
+      'addCharacterToScheduleBossFailure',
+      'removeCharacterFromScheduleBossSuccess',
+      'removeCharacterFromScheduleBossFailure'
     );
   }
 

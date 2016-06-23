@@ -965,7 +965,7 @@ var ScheduleManagementActions = function () {
   function ScheduleManagementActions() {
     _classCallCheck(this, ScheduleManagementActions);
 
-    this.generateActions('updateFormRaidWeek', 'updateFormRoster', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'updateFormRaid', 'updateFormBoss', 'updateFormTanks', 'updateFormHealers', 'updateFormDPS', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure', 'setFormTanks', 'setFormHealers', 'setFormDPS', 'addScheduleBossSuccess', 'addScheduleBossFailure');
+    this.generateActions('updateFormRaidWeek', 'updateFormRoster', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'updateFormRaid', 'updateFormBoss', 'updateFormTanks', 'updateFormHealers', 'updateFormDPS', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure', 'setFormTanks', 'setFormHealers', 'setFormDPS', 'addScheduleBossSuccess', 'addScheduleBossFailure', 'addCharacterToScheduleBossSuccess', 'addCharacterToScheduleBossFailure', 'removeCharacterFromScheduleBossSuccess', 'removeCharacterFromScheduleBossFailure');
   }
 
   _createClass(ScheduleManagementActions, [{
@@ -4671,7 +4671,7 @@ var ScheduleManagement = function (_React$Component) {
                   { className: 'btn btn-danger btn-circle', onClick: function onClick() {
                       return _ScheduleManagementActions2.default.removeCharacterFromScheduleBoss(schedule_boss.id, character.id);
                     } },
-                  '❌'
+                  '✗'
                 );
               } else {
                 actionButton = _react2.default.createElement(
@@ -4726,7 +4726,7 @@ var ScheduleManagement = function (_React$Component) {
                   { className: 'btn btn-danger btn-circle', onClick: function onClick() {
                       return _ScheduleManagementActions2.default.removeCharacterFromScheduleBoss(schedule_boss.id, character.id);
                     } },
-                  '❌'
+                  '✗'
                 );
               } else {
                 actionButton = _react2.default.createElement(
@@ -4781,7 +4781,7 @@ var ScheduleManagement = function (_React$Component) {
                   { className: 'btn btn-danger btn-circle', onClick: function onClick() {
                       return _ScheduleManagementActions2.default.removeCharacterFromScheduleBoss(schedule_boss.id, character.id);
                     } },
-                  '❌'
+                  '✗'
                 );
               } else {
                 actionButton = _react2.default.createElement(
@@ -6611,6 +6611,26 @@ var ScheduleManagementStore = function () {
   }, {
     key: 'onAddScheduleBossFailure',
     value: function onAddScheduleBossFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onAddCharacterToScheduleBossSuccess',
+    value: function onAddCharacterToScheduleBossSuccess(result) {
+      this.schedules = result.data.schedules;
+    }
+  }, {
+    key: 'onAddCharacterToScheduleBossFailure',
+    value: function onAddCharacterToScheduleBossFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onRemoveCharacterFromScheduleBossSuccess',
+    value: function onRemoveCharacterFromScheduleBossSuccess(result) {
+      this.schedules = result.data.schedules;
+    }
+  }, {
+    key: 'onRemoveCharacterFromScheduleBossFailure',
+    value: function onRemoveCharacterFromScheduleBossFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
     }
   }]);
