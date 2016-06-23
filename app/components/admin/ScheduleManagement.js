@@ -158,10 +158,10 @@ class ScheduleManagement extends React.Component {
                 <button className='btn btn-primary'>M</button>
               </div>
               <div className='col-sm-2'>
-                <button className='btn btn-default'>M</button>
+                <button className='btn btn-default'>O</button>
               </div>
               <div className='col-sm-2'>
-                <button className='btn btn-danger'>M</button>
+                <button className='btn btn-danger'>S</button>
               </div>
             </div>
           );
@@ -177,14 +177,14 @@ class ScheduleManagement extends React.Component {
               <div className='col-sm-3'>
                 {character.name}
               </div>
-              <div className='col-sm-1'>
+              <div className='col-sm-2'>
                 <button className='btn btn-primary'>M</button>
               </div>
-              <div className='col-sm-1'>
-                <button className='btn btn-default'>M</button>
+              <div className='col-sm-2'>
+                <button className='btn btn-default'>O</button>
               </div>
-              <div className='col-sm-1'>
-                <button className='btn btn-danger'>M</button>
+              <div className='col-sm-2'>
+                <button className='btn btn-danger'>S</button>
               </div>
             </div>
           );
@@ -200,14 +200,14 @@ class ScheduleManagement extends React.Component {
               <div className='col-sm-3'>
                 {character.name}
               </div>
-              <div className='col-sm-1'>
+              <div className='col-sm-2'>
                 <button className='btn btn-primary'>M</button>
               </div>
-              <div className='col-sm-1'>
-                <button className='btn btn-default'>M</button>
+              <div className='col-sm-2'>
+                <button className='btn btn-default'>O</button>
               </div>
-              <div className='col-sm-1'>
-                <button className='btn btn-danger'>M</button>
+              <div className='col-sm-2'>
+                <button className='btn btn-danger'>S</button>
               </div>
             </div>
           );
