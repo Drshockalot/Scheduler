@@ -4649,7 +4649,7 @@ var ScheduleManagement = function (_React$Component) {
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-default btn-circle' },
-                    _react2.default.createElement('i', { 'class': 'glyphicon glyphicon-ok' })
+                    _react2.default.createElement('i', { className: 'glyphicon glyphicon-ok' })
                   )
                 ),
                 _react2.default.createElement(
@@ -4692,7 +4692,7 @@ var ScheduleManagement = function (_React$Component) {
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-default btn-circle' },
-                    _react2.default.createElement('i', { 'class': 'glyphicon glyphicon-ok' })
+                    _react2.default.createElement('i', { className: 'glyphicon glyphicon-ok' })
                   )
                 ),
                 _react2.default.createElement(
@@ -4735,7 +4735,7 @@ var ScheduleManagement = function (_React$Component) {
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-default btn-circle' },
-                    _react2.default.createElement('i', { 'class': 'glyphicon glyphicon-ok' })
+                    _react2.default.createElement('i', { className: 'glyphicon glyphicon-ok' })
                   )
                 ),
                 _react2.default.createElement(

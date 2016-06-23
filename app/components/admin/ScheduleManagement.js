@@ -170,7 +170,7 @@ class ScheduleManagement extends React.Component {
                   {character.name}
                 </td>
                 <td className='col-sm-2 low-padding'>
-                  <button className='btn btn-default btn-circle'><i class="glyphicon glyphicon-ok"></i></button>
+                  <button className='btn btn-default btn-circle'><i className="glyphicon glyphicon-ok"></i></button>
                 </td>
                 <td className='col-sm-2 low-padding'>
                   <button className='btn btn-default btn-circle'>O</button>
@@ -193,7 +193,7 @@ class ScheduleManagement extends React.Component {
                   {character.name}
                 </td>
                 <td className='col-sm-2 low-padding'>
-                  <button className='btn btn-default btn-circle'><i class="glyphicon glyphicon-ok"></i></button>
+                  <button className='btn btn-default btn-circle'><i className="glyphicon glyphicon-ok"></i></button>
                 </td>
                 <td className='col-sm-2 low-padding'>
                   <button className='btn btn-default btn-circle'>O</button>
@@ -216,7 +216,7 @@ class ScheduleManagement extends React.Component {
                   {character.name}
                 </td>
                 <td className='col-sm-2 low-padding'>
-                  <button className='btn btn-default btn-circle'><i class="glyphicon glyphicon-ok"></i></button>
+                  <button className='btn btn-default btn-circle'><i className="glyphicon glyphicon-ok"></i></button>
                 </td>
                 <td className='col-sm-2 low-padding'>
                   <button className='btn btn-default btn-circle'>O</button>
