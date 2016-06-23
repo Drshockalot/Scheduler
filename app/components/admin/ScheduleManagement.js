@@ -155,13 +155,13 @@ class ScheduleManagement extends React.Component {
                 {character.name}
               </div>
               <div className='col-sm-2'>
-                <button className='btn btn-primary'>M</button>
+                <button className='btn btn-primary btn-circle'>M</button>
               </div>
               <div className='col-sm-2'>
-                <button className='btn btn-default'>O</button>
+                <button className='btn btn-default btn-circle'>O</button>
               </div>
               <div className='col-sm-2'>
-                <button className='btn btn-danger'>S</button>
+                <button className='btn btn-danger btn-circle'>S</button>
               </div>
             </div>
           );
@@ -178,13 +178,13 @@ class ScheduleManagement extends React.Component {
                 {character.name}
               </div>
               <div className='col-sm-2'>
-                <button className='btn btn-primary'>M</button>
+                <button className='btn btn-primary btn-circle'>M</button>
               </div>
               <div className='col-sm-2'>
-                <button className='btn btn-default'>O</button>
+                <button className='btn btn-default btn-circle'>O</button>
               </div>
               <div className='col-sm-2'>
-                <button className='btn btn-danger'>S</button>
+                <button className='btn btn-danger btn-circle'>S</button>
               </div>
             </div>
           );
@@ -201,13 +201,13 @@ class ScheduleManagement extends React.Component {
                 {character.name}
               </div>
               <div className='col-sm-2'>
-                <button className='btn btn-primary'>M</button>
+                <button className='btn btn-primary btn-circle'>M</button>
               </div>
               <div className='col-sm-2'>
-                <button className='btn btn-default'>O</button>
+                <button className='btn btn-default btn-circle'>O</button>
               </div>
               <div className='col-sm-2'>
-                <button className='btn btn-danger'>S</button>
+                <button className='btn btn-danger btn-circle'>S</button>
               </div>
             </div>
           );
