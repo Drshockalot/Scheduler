@@ -94,4 +94,26 @@ router.post('/admin/boss', function(req, res, next) {
                });
 });
 
+router.post('/admin/character', function(req, res, next) {
+  Schedule_Boss.forge({id: req.body.scheduleBossId})
+               .fetch({'withRelated': ['characters']})
+               .then(function(schedule_boss) {
+                 schedule_boss.characters().attach(req.body.characterId);
+               })
+               .catch(function(err) {
+                 res.status(500).json({error: true, data: {message: err.message}});
+               });
+});
+
+router.delete('/admin/character', function(req, res, next) {
+  Schedule_Boss.forge({id: req.body.scheduleBossId})
+               .fetch({'withRelated': ['characters']})
+               .then(function(schedule_boss) {
+                 schedule_boss.characters().detach(req.body.characterId);
+               })
+               .catch(function(err) {
+                 res.status(500).json({error: true, data: {message: err.message}});
+               });
+});
+
 module.exports = router;

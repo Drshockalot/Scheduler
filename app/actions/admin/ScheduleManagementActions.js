@@ -96,6 +96,38 @@ class ScheduleManagementActions {
       this.addScheduleBossFailure(jqXhr);
     });
   }
+
+  addCharacterToScheduleBoss(scheduleBossId, characterId) {
+    var data = { scheduleBossId: scheduleBossId,
+                 characterId: characterId};
+    $.ajax({
+      method: 'POST',
+      url: '/api/schedule/admin/character',
+      data: data
+    }).done((result) => {
+      console.log(result);
+      this.addCharacterToScheduleBossSuccess(result);
+    }).fail((jqXhr) => {
+      console.log(jqXhr);
+      this.addCharacterToScheduleBossFailure(jqXhr);
+    });
+  }
+
+  removeCharacterFromScheduleBoss(scheduleBossId, characterId) {
+    var data = { scheduleBossId: scheduleBossId,
+                 characterId: characterId};
+    $.ajax({
+      method: 'DELETE',
+      url: '/api/schedule/admin/character',
+      data: data
+    }).done((result) => {
+      console.log(result);
+      this.removeCharacterFromScheduleBossSuccess(result);
+    }).fail((jqXhr) => {
+      console.log(jqXhr);
+      this.removeCharacterFromScheduleBossFailure(jqXhr);
+    });
+  }
 }
 
 export default alt.createActions(ScheduleManagementActions);

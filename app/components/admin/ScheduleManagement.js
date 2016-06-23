@@ -158,11 +158,11 @@ class ScheduleManagement extends React.Component {
             var actionButton;
             if(char) {
               actionButton = (
-                <button className='btn btn-default btn-circle'>&#10060;</button>
+                <button className='btn btn-default btn-circle' onClick={() => ScheduleManagementActions.removeCharacterFromScheduleBoss(schedule_boss.id, character.id)}>&#10060;</button>
               )
             } else {
               actionButton = (
-                <button className='btn btn-default btn-circle'>&#10003;</button>
+                <button className='btn btn-default btn-circle' onClick={() => ScheduleManagementActions.addCharacterToScheduleBoss(schedule_boss.id, character.id)}>&#10003;</button>
               );
             }
 

@@ -1047,6 +1047,44 @@ var ScheduleManagementActions = function () {
         _this3.addScheduleBossFailure(jqXhr);
       });
     }
+  }, {
+    key: 'addCharacterToScheduleBoss',
+    value: function addCharacterToScheduleBoss(scheduleBossId, characterId) {
+      var _this4 = this;
+
+      var data = { scheduleBossId: scheduleBossId,
+        characterId: characterId };
+      $.ajax({
+        method: 'POST',
+        url: '/api/schedule/admin/character',
+        data: data
+      }).done(function (result) {
+        console.log(result);
+        _this4.addCharacterToScheduleBossSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this4.addCharacterToScheduleBossFailure(jqXhr);
+      });
+    }
+  }, {
+    key: 'removeCharacterFromScheduleBoss',
+    value: function removeCharacterFromScheduleBoss(scheduleBossId, characterId) {
+      var _this5 = this;
+
+      var data = { scheduleBossId: scheduleBossId,
+        characterId: characterId };
+      $.ajax({
+        method: 'DELETE',
+        url: '/api/schedule/admin/character',
+        data: data
+      }).done(function (result) {
+        console.log(result);
+        _this5.removeCharacterFromScheduleBossSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this5.removeCharacterFromScheduleBossFailure(jqXhr);
+      });
+    }
   }]);
 
   return ScheduleManagementActions;
@@ -4630,13 +4668,17 @@ var ScheduleManagement = function (_React$Component) {
               if (char) {
                 actionButton = _react2.default.createElement(
                   'button',
-                  { className: 'btn btn-default btn-circle' },
+                  { className: 'btn btn-default btn-circle', onClick: function onClick() {
+                      return _ScheduleManagementActions2.default.removeCharacterFromScheduleBoss(schedule_boss.id, character.id);
+                    } },
                   '❌'
                 );
               } else {
                 actionButton = _react2.default.createElement(
                   'button',
-                  { className: 'btn btn-default btn-circle' },
+                  { className: 'btn btn-default btn-circle', onClick: function onClick() {
+                      return _ScheduleManagementActions2.default.addCharacterToScheduleBoss(schedule_boss.id, character.id);
+                    } },
                   '✓'
                 );
               }
