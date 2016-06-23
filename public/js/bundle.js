@@ -4723,16 +4723,21 @@ var ScheduleManagement = function (_React$Component) {
               if (char) {
                 actionButton = _react2.default.createElement(
                   'button',
-                  { className: 'btn btn-default btn-circle' },
+                  { className: 'btn btn-danger btn-circle', onClick: function onClick() {
+                      return _ScheduleManagementActions2.default.removeCharacterFromScheduleBoss(schedule_boss.id, character.id);
+                    } },
                   '❌'
                 );
               } else {
                 actionButton = _react2.default.createElement(
                   'button',
-                  { className: 'btn btn-default btn-circle' },
+                  { className: 'btn btn-success btn-circle', onClick: function onClick() {
+                      return _ScheduleManagementActions2.default.addCharacterToScheduleBoss(schedule_boss.id, character.id);
+                    } },
                   '✓'
                 );
               }
+
               var classCSS = this.classColour(character);
               return _react2.default.createElement(
                 'tr',
@@ -4773,16 +4778,21 @@ var ScheduleManagement = function (_React$Component) {
               if (char) {
                 actionButton = _react2.default.createElement(
                   'button',
-                  { className: 'btn btn-default btn-circle' },
+                  { className: 'btn btn-danger btn-circle', onClick: function onClick() {
+                      return _ScheduleManagementActions2.default.removeCharacterFromScheduleBoss(schedule_boss.id, character.id);
+                    } },
                   '❌'
                 );
               } else {
                 actionButton = _react2.default.createElement(
                   'button',
-                  { className: 'btn btn-default btn-circle' },
+                  { className: 'btn btn-success btn-circle', onClick: function onClick() {
+                      return _ScheduleManagementActions2.default.addCharacterToScheduleBoss(schedule_boss.id, character.id);
+                    } },
                   '✓'
                 );
               }
+
               var classCSS = this.classColour(character);
               return _react2.default.createElement(
                 'tr',
