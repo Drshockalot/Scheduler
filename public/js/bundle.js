@@ -4645,29 +4645,26 @@ var ScheduleManagement = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'td',
+                  { className: 'col-sm-2 vert-align' },
+                  _react2.default.createElement(
+                    'strong',
+                    null,
+                    character.main_role,
+                    ' | '
+                  )
+                ),
+                _react2.default.createElement(
+                  'td',
+                  { className: 'col-sm-2 vert-align' },
+                  character.off_role
+                ),
+                _react2.default.createElement(
+                  'td',
                   { className: 'col-sm-2 low-padding' },
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-default btn-circle' },
                     '✓'
-                  )
-                ),
-                _react2.default.createElement(
-                  'td',
-                  { className: 'col-sm-2 low-padding' },
-                  _react2.default.createElement(
-                    'button',
-                    { className: 'btn btn-default btn-circle' },
-                    'O'
-                  )
-                ),
-                _react2.default.createElement(
-                  'td',
-                  { className: 'col-sm-2 low-padding' },
-                  _react2.default.createElement(
-                    'button',
-                    { className: 'btn btn-default btn-circle' },
-                    'S'
                   )
                 )
               );
@@ -4688,12 +4685,18 @@ var ScheduleManagement = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'td',
-                  { className: 'col-sm-2 low-padding' },
+                  { className: 'col-sm-2 vert-align' },
                   _react2.default.createElement(
-                    'button',
-                    { className: 'btn btn-default btn-circle' },
-                    _react2.default.createElement('i', { className: 'glyphicon glyphicon-ok' })
+                    'strong',
+                    null,
+                    character.main_role,
+                    ' | '
                   )
+                ),
+                _react2.default.createElement(
+                  'td',
+                  { className: 'col-sm-2 vert-align' },
+                  character.off_role
                 ),
                 _react2.default.createElement(
                   'td',
@@ -4701,16 +4704,7 @@ var ScheduleManagement = function (_React$Component) {
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-default btn-circle' },
-                    'O'
-                  )
-                ),
-                _react2.default.createElement(
-                  'td',
-                  { className: 'col-sm-2 low-padding' },
-                  _react2.default.createElement(
-                    'button',
-                    { className: 'btn btn-default btn-circle' },
-                    'S'
+                    '✓'
                   )
                 )
               );
@@ -4731,8 +4725,18 @@ var ScheduleManagement = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'td',
-                  null,
-                  _react2.default.createElement('strong', null)
+                  { className: 'col-sm-2 vert-align' },
+                  _react2.default.createElement(
+                    'strong',
+                    null,
+                    character.main_role,
+                    ' | '
+                  )
+                ),
+                _react2.default.createElement(
+                  'td',
+                  { className: 'col-sm-2 vert-align' },
+                  character.off_role
                 ),
                 _react2.default.createElement(
                   'td',
@@ -4740,7 +4744,7 @@ var ScheduleManagement = function (_React$Component) {
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-default btn-circle' },
-                    'S'
+                    '✓'
                   )
                 )
               );

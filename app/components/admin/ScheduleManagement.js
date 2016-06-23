@@ -169,14 +169,14 @@ class ScheduleManagement extends React.Component {
                 <td className='col-sm-3 vert-align'>
                   {character.name}
                 </td>
+                <td className='col-sm-2 vert-align'>
+                  <strong>{character.main_role} | </strong>
+                </td>
+                <td className='col-sm-2 vert-align'>
+                  {character.off_role}
+                </td>
                 <td className='col-sm-2 low-padding'>
                   <button className='btn btn-default btn-circle'>&#10003;</button>
-                </td>
-                <td className='col-sm-2 low-padding'>
-                  <button className='btn btn-default btn-circle'>O</button>
-                </td>
-                <td className='col-sm-2 low-padding'>
-                  <button className='btn btn-default btn-circle'>S</button>
                 </td>
               </tr>
             );
@@ -192,14 +192,14 @@ class ScheduleManagement extends React.Component {
                 <td className='col-sm-3 vert-align'>
                   {character.name}
                 </td>
-                <td className='col-sm-2 low-padding'>
-                  <button className='btn btn-default btn-circle'><i className="glyphicon glyphicon-ok"></i></button>
+                <td className='col-sm-2 vert-align'>
+                  <strong>{character.main_role} | </strong>
+                </td>
+                <td className='col-sm-2 vert-align'>
+                  {character.off_role}
                 </td>
                 <td className='col-sm-2 low-padding'>
-                  <button className='btn btn-default btn-circle'>O</button>
-                </td>
-                <td className='col-sm-2 low-padding'>
-                  <button className='btn btn-default btn-circle'>S</button>
+                  <button className='btn btn-default btn-circle'>&#10003;</button>
                 </td>
               </tr>
             );
@@ -215,11 +215,14 @@ class ScheduleManagement extends React.Component {
                 <td className='col-sm-3 vert-align'>
                   {character.name}
                 </td>
-                <td>
-                  <strong></strong>
+                <td className='col-sm-2 vert-align'>
+                  <strong>{character.main_role} | </strong>
+                </td>
+                <td className='col-sm-2 vert-align'>
+                  {character.off_role}
                 </td>
                 <td className='col-sm-2 low-padding'>
-                  <button className='btn btn-default btn-circle'>S</button>
+                  <button className='btn btn-default btn-circle'>&#10003;</button>
                 </td>
               </tr>
             );
