@@ -8225,7 +8225,8 @@ label {
   vertical-align: middle;
 }
 .vert-middle {
-  vertical-align: middle;
+  position: absolute;
+  top: 50%;
 }
 #wrapper {
   padding-left: 0;
