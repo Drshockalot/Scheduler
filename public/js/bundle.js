@@ -4668,7 +4668,7 @@ var ScheduleManagement = function (_React$Component) {
               if (char) {
                 actionButton = _react2.default.createElement(
                   'button',
-                  { className: 'btn btn-default btn-circle', onClick: function onClick() {
+                  { className: 'btn btn-danger btn-circle', onClick: function onClick() {
                       return _ScheduleManagementActions2.default.removeCharacterFromScheduleBoss(schedule_boss.id, character.id);
                     } },
                   '❌'
@@ -4676,7 +4676,7 @@ var ScheduleManagement = function (_React$Component) {
               } else {
                 actionButton = _react2.default.createElement(
                   'button',
-                  { className: 'btn btn-default btn-circle', onClick: function onClick() {
+                  { className: 'btn btn-success btn-circle', onClick: function onClick() {
                       return _ScheduleManagementActions2.default.addCharacterToScheduleBoss(schedule_boss.id, character.id);
                     } },
                   '✓'
