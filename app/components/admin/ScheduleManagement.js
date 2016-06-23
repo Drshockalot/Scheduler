@@ -146,7 +146,7 @@ class ScheduleManagement extends React.Component {
       }
 
       sched.roster.characters.map(function(character, index) {
-        var classCSS = classColour(character);
+        var classCSS = this.classColour(character);
         if(character.main_role == "Tank") {
           tankRows += (
             <div className='row'>
