@@ -3,7 +3,7 @@
   height: 50px;
   text-align: center;
   padding: 6px 0;
-  border-radius: 20px !important;
+  border-radius: 50% !important;
 }
 body {
   background-color: white;
