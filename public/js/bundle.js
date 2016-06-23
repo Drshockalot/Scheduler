@@ -2105,7 +2105,7 @@ var ProfileCharacters = function (_React$Component) {
 
 exports.default = ProfileCharacters;
 
-},{"../../utility/WowClasses":56,"../../utility/WowRaces":57,"../actions/ProfileCharactersActions":4,"../stores/NavbarStore":36,"../stores/ProfileCharactersStore":37,"./ProfileSidenav":24,"react":"react","react-router":"react-router","underscore":"underscore"}],22:[function(require,module,exports){
+},{"../../utility/WowClasses":57,"../../utility/WowRaces":58,"../actions/ProfileCharactersActions":4,"../stores/NavbarStore":36,"../stores/ProfileCharactersStore":37,"./ProfileSidenav":24,"react":"react","react-router":"react-router","underscore":"underscore"}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2475,7 +2475,7 @@ var ProfileRaidWeeks = function (_React$Component) {
 
 exports.default = ProfileRaidWeeks;
 
-},{"../actions/ProfileRaidWeeksActions":5,"../stores/NavbarStore":36,"../stores/ProfileRaidWeeksStore":38,"./ProfileSidenav":24,"moment":49,"react":"react","react-router":"react-router","underscore":"underscore"}],23:[function(require,module,exports){
+},{"../actions/ProfileRaidWeeksActions":5,"../stores/NavbarStore":36,"../stores/ProfileRaidWeeksStore":38,"./ProfileSidenav":24,"moment":50,"react":"react","react-router":"react-router","underscore":"underscore"}],23:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3352,7 +3352,7 @@ var CharacterManagement = function (_React$Component) {
 
 exports.default = CharacterManagement;
 
-},{"./../../../utility/WowClasses":56,"./../../../utility/WowRaces":57,"./../../actions/admin/CharacterManagementActions":10,"./../../stores/NavbarStore":36,"./../../stores/admin/CharacterManagementStore":44,"./AdminSideNav":27,"react":"react","react-router":"react-router","underscore":"underscore"}],29:[function(require,module,exports){
+},{"./../../../utility/WowClasses":57,"./../../../utility/WowRaces":58,"./../../actions/admin/CharacterManagementActions":10,"./../../stores/NavbarStore":36,"./../../stores/admin/CharacterManagementStore":44,"./AdminSideNav":27,"react":"react","react-router":"react-router","underscore":"underscore"}],29:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -4075,7 +4075,7 @@ var RaidWeekManagement = function (_React$Component) {
 
 exports.default = RaidWeekManagement;
 
-},{"./../../actions/admin/RaidWeekManagementActions":12,"./../../stores/NavbarStore":36,"./../../stores/admin/RaidWeekManagementStore":46,"./AdminSideNav":27,"moment":49,"react":"react","react-router":"react-router","react-yearly-calendar":54}],31:[function(require,module,exports){
+},{"./../../actions/admin/RaidWeekManagementActions":12,"./../../stores/NavbarStore":36,"./../../stores/admin/RaidWeekManagementStore":46,"./AdminSideNav":27,"moment":50,"react":"react","react-router":"react-router","react-yearly-calendar":55}],31:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -4430,9 +4430,9 @@ var _moment = require('moment');
 
 var _moment2 = _interopRequireDefault(_moment);
 
-var _underscore = require('underscore');
+var _classnames = require('classnames');
 
-var _underscore2 = _interopRequireDefault(_underscore);
+var _classnames2 = _interopRequireDefault(_classnames);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4441,6 +4441,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _ = require('underscore');
+
+var wowClasses = require('./../../../utility/WowClasses');
 
 var ScheduleManagement = function (_React$Component) {
   _inherits(ScheduleManagement, _React$Component);
@@ -4478,6 +4482,21 @@ var ScheduleManagement = function (_React$Component) {
     key: 'onChange',
     value: function onChange(state) {
       this.setState(state);
+    }
+  }, {
+    key: 'classColour',
+    value: function classColour(character) {
+      var currentClass = _.findWhere(wowClasses, { id: parseInt(character.class) }).name;
+      var arr = currentClass.split(" ");
+
+      var ret = '';
+      for (var i = 0; i < arr.length; ++i) {
+        ret += arr[i].toLowerCase();
+        ret += '-';
+      }
+
+      ret += 'color';
+      return (0, _classnames2.default)(ret, { 'col-sm-2': true });;
     }
   }, {
     key: 'render',
@@ -4587,6 +4606,7 @@ var ScheduleManagement = function (_React$Component) {
       }
 
       var scheduleBossRows;
+      var tankRows, healerRows, dpsRows;
 
       if (this.state.schedules.length > 0) {
         var sched;
@@ -4595,6 +4615,118 @@ var ScheduleManagement = function (_React$Component) {
             sched = this.state.schedules[i];
           }
         }
+
+        sched.roster.characters.map(function (character, index) {
+          var classCSS = classColour(character);
+          if (character.main_role == "Tank") {
+            tankRows += _react2.default.createElement(
+              'div',
+              { className: 'row' },
+              _react2.default.createElement('div', { className: classCSS }),
+              character.name,
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-1' },
+                _react2.default.createElement(
+                  'button',
+                  { className: 'btn btn-primary' },
+                  'M'
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-1' },
+                _react2.default.createElement(
+                  'button',
+                  { className: 'btn btn-default' },
+                  'M'
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-1' },
+                _react2.default.createElement(
+                  'button',
+                  { className: 'btn btn-danger' },
+                  'M'
+                )
+              )
+            );
+          }
+
+          if (character.main_role == "Healer") {
+            healerRows += _react2.default.createElement(
+              'div',
+              { className: 'row' },
+              _react2.default.createElement('div', { className: classCSS }),
+              character.name,
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-1' },
+                _react2.default.createElement(
+                  'button',
+                  { className: 'btn btn-primary' },
+                  'M'
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-1' },
+                _react2.default.createElement(
+                  'button',
+                  { className: 'btn btn-default' },
+                  'M'
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-1' },
+                _react2.default.createElement(
+                  'button',
+                  { className: 'btn btn-danger' },
+                  'M'
+                )
+              )
+            );
+          }
+
+          if (character.main_role == "DPS") {
+            dpsRows += _react2.default.createElement(
+              'div',
+              { className: 'row' },
+              _react2.default.createElement('div', { className: classCSS }),
+              character.name,
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-1' },
+                _react2.default.createElement(
+                  'button',
+                  { className: 'btn btn-primary' },
+                  'M'
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-1' },
+                _react2.default.createElement(
+                  'button',
+                  { className: 'btn btn-default' },
+                  'M'
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-1' },
+                _react2.default.createElement(
+                  'button',
+                  { className: 'btn btn-danger' },
+                  'M'
+                )
+              )
+            );
+          }
+        }, this);
+
         scheduleBossRows = sched.schedule_bosses.map(function (schedule_boss, index) {
           return _react2.default.createElement(
             'div',
@@ -4641,7 +4773,7 @@ var ScheduleManagement = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-2' },
+                    { className: 'col-md-1' },
                     'Standby'
                   )
                 ),
@@ -4660,22 +4792,22 @@ var ScheduleManagement = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-2' },
-                    schedule_boss.tank_count
+                    { className: 'col-md-3' },
+                    tankRows
                   ),
                   _react2.default.createElement(
                     'td',
                     { className: 'col-md-3' },
-                    schedule_boss.healer_count
+                    healerRows
                   ),
                   _react2.default.createElement(
                     'td',
                     { className: 'col-md-3' },
-                    schedule_boss.dps_count
+                    dpsRows
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-2' },
+                    { className: 'col-md-1' },
                     0
                   )
                 )
@@ -5153,7 +5285,7 @@ var ScheduleManagement = function (_React$Component) {
 
 exports.default = ScheduleManagement;
 
-},{"./../../actions/admin/ScheduleManagementActions":14,"./../../stores/NavbarStore":36,"./../../stores/admin/ScheduleManagementStore":48,"./AdminSideNav":27,"moment":49,"react":"react","react-router":"react-router","underscore":"underscore"}],33:[function(require,module,exports){
+},{"./../../../utility/WowClasses":57,"./../../actions/admin/ScheduleManagementActions":14,"./../../stores/NavbarStore":36,"./../../stores/admin/ScheduleManagementStore":48,"./AdminSideNav":27,"classnames":49,"moment":50,"react":"react","react-router":"react-router","underscore":"underscore"}],33:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -6097,7 +6229,7 @@ var RaidWeekManagementStore = function () {
 
 exports.default = _alt2.default.createStore(RaidWeekManagementStore);
 
-},{"./../../actions/admin/RaidWeekManagementActions":12,"./../../alt":15,"moment":49}],47:[function(require,module,exports){
+},{"./../../actions/admin/RaidWeekManagementActions":12,"./../../alt":15,"moment":50}],47:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6376,7 +6508,57 @@ var ScheduleManagementStore = function () {
 
 exports.default = _alt2.default.createStore(ScheduleManagementStore);
 
-},{"./../../actions/admin/ScheduleManagementActions":14,"./../../alt":15,"moment":49}],49:[function(require,module,exports){
+},{"./../../actions/admin/ScheduleManagementActions":14,"./../../alt":15,"moment":50}],49:[function(require,module,exports){
+/*!
+  Copyright (c) 2016 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+	'use strict';
+
+	var hasOwn = {}.hasOwnProperty;
+
+	function classNames () {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg)) {
+				classes.push(classNames.apply(null, arg));
+			} else if (argType === 'object') {
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(key);
+					}
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if (typeof module !== 'undefined' && module.exports) {
+		module.exports = classNames;
+	} else if (typeof define === 'function' && typeof define.amd === 'object' && define.amd) {
+		// register as 'classnames', consistent with npm package name
+		define('classnames', [], function () {
+			return classNames;
+		});
+	} else {
+		window.classNames = classNames;
+	}
+}());
+
+},{}],50:[function(require,module,exports){
 //! moment.js
 //! version : 2.13.0
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
@@ -10417,7 +10599,7 @@ exports.default = _alt2.default.createStore(ScheduleManagementStore);
     return _moment;
 
 }));
-},{}],50:[function(require,module,exports){
+},{}],51:[function(require,module,exports){
 'use strict';
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -10617,7 +10799,7 @@ exports.default = Calendar;
 
 Calendar.propTypes = propTypes;
 Calendar.defaultProps = defaultProps;
-},{"./Month":53,"./utils":55,"moment":49,"react":"react"}],51:[function(require,module,exports){
+},{"./Month":54,"./utils":56,"moment":50,"react":"react"}],52:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -10717,7 +10899,7 @@ var CalendarControls = (function (_React$Component) {
 exports.default = CalendarControls;
 
 CalendarControls.propTypes = propTypes;
-},{"react":"react"}],52:[function(require,module,exports){
+},{"react":"react"}],53:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -10810,7 +10992,7 @@ var Day = exports.Day = (function (_React$Component) {
 
 Day.propTypes = propTypes;
 Day.defaultProps = defaultProps;
-},{"react":"react"}],53:[function(require,module,exports){
+},{"react":"react"}],54:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -11124,7 +11306,7 @@ var Month = exports.Month = (function (_React$Component) {
 
 Month.propTypes = propTypes;
 Month.defaultProps = defaultProps;
-},{"./Day":52,"./utils":55,"moment":49,"react":"react"}],54:[function(require,module,exports){
+},{"./Day":53,"./utils":56,"moment":50,"react":"react"}],55:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -11148,7 +11330,7 @@ Object.defineProperty(exports, 'CalendarControls', {
     return _CalendarControls.default;
   }
 });
-},{"./Calendar":50,"./CalendarControls":51}],55:[function(require,module,exports){
+},{"./Calendar":51,"./CalendarControls":52}],56:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -11172,7 +11354,7 @@ function range(start, stop, step) {
 
   return range;
 };
-},{}],56:[function(require,module,exports){
+},{}],57:[function(require,module,exports){
 "use strict";
 
 module.exports = [{
@@ -11243,7 +11425,7 @@ module.exports = [{
     "token": "prot"
 }];
 
-},{}],57:[function(require,module,exports){
+},{}],58:[function(require,module,exports){
 "use strict";
 
 module.exports = [{

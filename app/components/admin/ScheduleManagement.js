@@ -6,7 +6,9 @@ import AdminSideNav from './AdminSideNav';
 import NavbarStore from './../../stores/NavbarStore';
 import { browserHistory } from 'react-router';
 import moment from 'moment';
-import _ from 'underscore';
+var _ = require('underscore');
+import classNames from 'classnames';
+var wowClasses = require('./../../../utility/WowClasses');
 
 class ScheduleManagement extends React.Component {
   constructor(props) {
@@ -33,6 +35,20 @@ class ScheduleManagement extends React.Component {
 
   onChange(state) {
     this.setState(state);
+  }
+
+  classColour(character) {
+    let currentClass = _.findWhere(wowClasses, {id: parseInt(character.class)}).name;
+    var arr = currentClass.split(" ");
+
+    var ret = '';
+    for (var i = 0; i < arr.length; ++i) {
+      ret += arr[i].toLowerCase();
+      ret += '-'
+    }
+
+    ret += 'color';
+    return classNames(ret, { 'col-sm-2' : true});;
   }
 
   render() {
@@ -119,6 +135,7 @@ class ScheduleManagement extends React.Component {
     }
 
     var scheduleBossRows;
+    var tankRows, healerRows, dpsRows;
 
     if(this.state.schedules.length > 0) {
       var sched;
@@ -127,6 +144,64 @@ class ScheduleManagement extends React.Component {
           sched = this.state.schedules[i];
         }
       }
+
+      sched.roster.characters.map(function(character, index) {
+        var classCSS = classColour(character);
+        if(character.main_role == "Tank") {
+          tankRows += (
+            <div className='row'>
+              <div className={classCSS} />
+              {character.name}
+              <div className='col-sm-1'>
+                <button className='btn btn-primary'>M</button>
+              </div>
+              <div className='col-sm-1'>
+                <button className='btn btn-default'>M</button>
+              </div>
+              <div className='col-sm-1'>
+                <button className='btn btn-danger'>M</button>
+              </div>
+            </div>
+          );
+        }
+
+        if(character.main_role == "Healer") {
+          healerRows += (
+            <div className='row'>
+              <div className={classCSS} />
+              {character.name}
+              <div className='col-sm-1'>
+                <button className='btn btn-primary'>M</button>
+              </div>
+              <div className='col-sm-1'>
+                <button className='btn btn-default'>M</button>
+              </div>
+              <div className='col-sm-1'>
+                <button className='btn btn-danger'>M</button>
+              </div>
+            </div>
+          );
+        }
+
+        if(character.main_role == "DPS") {
+          dpsRows += (
+            <div className='row'>
+              <div className={classCSS} />
+              {character.name}
+              <div className='col-sm-1'>
+                <button className='btn btn-primary'>M</button>
+              </div>
+              <div className='col-sm-1'>
+                <button className='btn btn-default'>M</button>
+              </div>
+              <div className='col-sm-1'>
+                <button className='btn btn-danger'>M</button>
+              </div>
+            </div>
+          );
+        }
+      }, this);
+
       scheduleBossRows = sched.schedule_bosses.map(function(schedule_boss, index) {
         return (
           <div className='row'>
@@ -138,15 +213,15 @@ class ScheduleManagement extends React.Component {
                   <td className='col-md-2'>Tanks ({schedule_boss.tank_count})</td>
                   <td className='col-md-3'>Healers ({schedule_boss.healer_count})</td>
                   <td className='col-md-3'>DPS ({schedule_boss.dps_count})</td>
-                  <td className='col-md-2'>Standby</td>
+                  <td className='col-md-1'>Standby</td>
                 </tr>
                 <tr>
                   <td className='col-md-1'>{schedule_boss.raid.name}</td>
                   <td className='col-md-1'>{schedule_boss.boss.name}</td>
-                  <td className='col-md-2'>{schedule_boss.tank_count}</td>
-                  <td className='col-md-3'>{schedule_boss.healer_count}</td>
-                  <td className='col-md-3'>{schedule_boss.dps_count}</td>
-                  <td className='col-md-2'>{0}</td>
+                  <td className='col-md-3'>{tankRows}</td>
+                  <td className='col-md-3'>{healerRows}</td>
+                  <td className='col-md-3'>{dpsRows}</td>
+                  <td className='col-md-1'>{0}</td>
                 </tr>
               </tbody>
             </table>
