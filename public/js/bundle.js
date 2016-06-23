@@ -4625,7 +4625,7 @@ var ScheduleManagement = function (_React$Component) {
               _react2.default.createElement('td', { className: classCSS }),
               _react2.default.createElement(
                 'td',
-                { className: 'col-sm-3' },
+                { className: 'col-sm-3 vert-align' },
                 character.name
               ),
               _react2.default.createElement(
