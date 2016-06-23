@@ -151,14 +151,16 @@ class ScheduleManagement extends React.Component {
           return (
             <div className='row'>
               <div className={classCSS} />
-              {character.name}
-              <div className='col-sm-1'>
+              <div className='col-sm-3'>
+                {character.name}
+              </div>
+              <div className='col-sm-2'>
                 <button className='btn btn-primary'>M</button>
               </div>
-              <div className='col-sm-1'>
+              <div className='col-sm-2'>
                 <button className='btn btn-default'>M</button>
               </div>
-              <div className='col-sm-1'>
+              <div className='col-sm-2'>
                 <button className='btn btn-danger'>M</button>
               </div>
             </div>

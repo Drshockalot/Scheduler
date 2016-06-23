@@ -4623,10 +4623,14 @@ var ScheduleManagement = function (_React$Component) {
               'div',
               { className: 'row' },
               _react2.default.createElement('div', { className: classCSS }),
-              character.name,
               _react2.default.createElement(
                 'div',
-                { className: 'col-sm-1' },
+                { className: 'col-sm-3' },
+                character.name
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-2' },
                 _react2.default.createElement(
                   'button',
                   { className: 'btn btn-primary' },
@@ -4635,7 +4639,7 @@ var ScheduleManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'div',
-                { className: 'col-sm-1' },
+                { className: 'col-sm-2' },
                 _react2.default.createElement(
                   'button',
                   { className: 'btn btn-default' },
@@ -4644,7 +4648,7 @@ var ScheduleManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'div',
-                { className: 'col-sm-1' },
+                { className: 'col-sm-2' },
                 _react2.default.createElement(
                   'button',
                   { className: 'btn btn-danger' },
