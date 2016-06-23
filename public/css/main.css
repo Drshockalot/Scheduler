@@ -8228,7 +8228,8 @@ label {
   vertical-align: middle;
 }
 .table tbody > tr > td.low-padding {
-  padding: 2px;
+  padding-right: 5px !important;
+  padding-left: 5px !important;
 }
 #wrapper {
   padding-left: 0;
