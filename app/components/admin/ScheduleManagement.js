@@ -146,8 +146,8 @@ class ScheduleManagement extends React.Component {
       }
 
       tankRows = sched.roster.characters.map(function(character, index) {
-        var classCSS = this.classColour(character);
         if(character.main_role == "Tank") {
+          var classCSS = this.classColour(character);
           return (
             <div className='row'>
               <div className={classCSS} />
@@ -168,6 +168,7 @@ class ScheduleManagement extends React.Component {
 
       healerRows = sched.roster.characters.map(function(character, index) {
         if(character.main_role == "Healer") {
+          var classCSS = this.classColour(character);
           return (
             <div className='row'>
               <div className={classCSS} />
@@ -188,6 +189,7 @@ class ScheduleManagement extends React.Component {
 
       dpsRows = ched.roster.characters.map(function(character, index) {
         if(character.main_role == "DPS") {
+          var classCSS = this.classColour(character);
           return (
             <div className='row'>
               <div className={classCSS} />

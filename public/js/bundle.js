@@ -4617,8 +4617,8 @@ var ScheduleManagement = function (_React$Component) {
         }
 
         tankRows = sched.roster.characters.map(function (character, index) {
-          var classCSS = this.classColour(character);
           if (character.main_role == "Tank") {
+            var classCSS = this.classColour(character);
             return _react2.default.createElement(
               'div',
               { className: 'row' },
@@ -4657,6 +4657,7 @@ var ScheduleManagement = function (_React$Component) {
 
         healerRows = sched.roster.characters.map(function (character, index) {
           if (character.main_role == "Healer") {
+            var classCSS = this.classColour(character);
             return _react2.default.createElement(
               'div',
               { className: 'row' },
@@ -4695,6 +4696,7 @@ var ScheduleManagement = function (_React$Component) {
 
         dpsRows = ched.roster.characters.map(function (character, index) {
           if (character.main_role == "DPS") {
+            var classCSS = this.classColour(character);
             return _react2.default.createElement(
               'div',
               { className: 'row' },
