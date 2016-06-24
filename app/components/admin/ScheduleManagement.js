@@ -379,7 +379,7 @@ class ScheduleManagement extends React.Component {
                     </div>
                   </div>
                   <div className='form-group'>
-                    <label className='col-sm-2 control-label'>Publish: </label>
+                    <label className='col-sm-2 control-label'>Published: </label>
                     <div className='col-sm-10'>
                       {publishedButton}
                     </div>

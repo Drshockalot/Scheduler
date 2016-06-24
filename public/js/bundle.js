@@ -5153,7 +5153,7 @@ var ScheduleManagement = function (_React$Component) {
                     _react2.default.createElement(
                       'label',
                       { className: 'col-sm-2 control-label' },
-                      'Publish: '
+                      'Published: '
                     ),
                     _react2.default.createElement(
                       'div',
