@@ -20,6 +20,7 @@ class HomeActions {
       console.log(jqXhr);
       this.loadComponentDataFailure(jqXhr);
     });
+    return 0;
   }
 }
 

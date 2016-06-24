@@ -62,6 +62,7 @@ var HomeActions = function () {
         console.log(jqXhr);
         _this.loadComponentDataFailure(jqXhr);
       });
+      return 0;
     }
   }]);
 
