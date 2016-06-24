@@ -4969,22 +4969,23 @@ var ScheduleManagement = function (_React$Component) {
             )
           );
         }, this);
-      }
 
-      var published = sched.published;
-      var publishedButton;
-      if (published) {
-        _react2.default.createElement(
-          'button',
-          { className: 'btn btn-success btn-circle', onClick: function onClick() {
+        console.log(sched);
+        var published = sched.published;
+        var publishedButton;
+        if (published) {
+          _react2.default.createElement(
+            'button',
+            { className: 'btn btn-success btn-circle', onClick: function onClick() {
+                return _ScheduleManagementActions2.default.invertSchedulePublishedState(_this2.state.selectedSchedule);
+              } },
+            '✓'
+          );
+        } else {
+          publishedButton = _react2.default.createElement('button', { className: 'btn btn-success btn-circle', onClick: function onClick() {
               return _ScheduleManagementActions2.default.invertSchedulePublishedState(_this2.state.selectedSchedule);
-            } },
-          '✓'
-        );
-      } else {
-        publishedButton = _react2.default.createElement('button', { className: 'btn btn-success btn-circle', onClick: function onClick() {
-            return _ScheduleManagementActions2.default.invertSchedulePublishedState(_this2.state.selectedSchedule);
-          } });
+            } });
+        }
       }
 
       return _react2.default.createElement(
