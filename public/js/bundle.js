@@ -3034,12 +3034,12 @@ var SingleScheduleView = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'row' },
-            this.props.location.type
+            this.props.location.query.type
           ),
           _react2.default.createElement(
             'div',
             { className: 'row' },
-            this.props.location.schedule
+            this.props.location.query.schedule
           )
         )
       );

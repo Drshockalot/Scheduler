@@ -28,10 +28,10 @@ class SingleScheduleView extends React.Component {
       <div id='page-content-wrapper'>
         <div className='container-fluid-eighty'>
           <div className='row'>
-            {this.props.location.type}
+            {this.props.location.query.type}
           </div>
           <div className='row'>
-            {this.props.location.schedule}
+            {this.props.location.query.schedule}
           </div>
         </div>
       </div>
