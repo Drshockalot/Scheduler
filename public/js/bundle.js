@@ -1385,6 +1385,10 @@ var _NavbarStore = require('../stores/NavbarStore');
 
 var _NavbarStore2 = _interopRequireDefault(_NavbarStore);
 
+var _moment = require('moment');
+
+var _moment2 = _interopRequireDefault(_moment);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1426,7 +1430,19 @@ var Home = function (_React$Component) {
     key: 'render',
     value: function render() {
       var pageContent;
-
+      if (this.state.raidweeks.length > 0) {
+        pageContent = this.state.raidweeks.map(function (raidweek, index) {
+          return _react2.default.createElement(
+            'div',
+            { className: 'row' },
+            _react2.default.createElement(
+              'strong',
+              null,
+              (0, _moment2.default)(raidweek.start).format('MMM Do YYYY')
+            )
+          );
+        }, this);
+      }
       return _react2.default.createElement(
         'div',
         { id: 'page-content-wrapper' },
@@ -1436,8 +1452,13 @@ var Home = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'row' },
-            pageContent
-          )
+            _react2.default.createElement(
+              'h1',
+              null,
+              'Raid Weeks'
+            )
+          ),
+          pageContent
         )
       );
     }
@@ -1448,7 +1469,7 @@ var Home = function (_React$Component) {
 
 exports.default = Home;
 
-},{"../actions/HomeActions":2,"../stores/HomeStore":37,"../stores/NavbarStore":38,"react":"react","react-router":"react-router"}],20:[function(require,module,exports){
+},{"../actions/HomeActions":2,"../stores/HomeStore":37,"../stores/NavbarStore":38,"moment":52,"react":"react","react-router":"react-router"}],20:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
