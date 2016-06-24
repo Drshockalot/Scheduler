@@ -8259,6 +8259,11 @@ label {
   position: absolute;
   padding: 15px;
 }
+#page-content-wrapper-eighty {
+  width: 80%;
+  position: absolute;
+  padding: 15px;
+}
 #wrapper.toggled #page-content-wrapper {
   position: absolute;
   margin-right: -250px;
