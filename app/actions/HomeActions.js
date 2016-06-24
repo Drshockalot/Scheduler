@@ -4,7 +4,8 @@ import {assign} from 'underscore';
 class HomeActions {
   constructor() {
     this.generateActions(
-      'placeholder'
+      'loadComponentDataSuccess',
+      'loadComponentDataFailure'
     );
   }
 

@@ -44,7 +44,7 @@ var HomeActions = function () {
   function HomeActions() {
     _classCallCheck(this, HomeActions);
 
-    this.generateActions('placeholder');
+    this.generateActions('loadComponentDataSuccess', 'loadComponentDataFailure');
   }
 
   _createClass(HomeActions, [{
