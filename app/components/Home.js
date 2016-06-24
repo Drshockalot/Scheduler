@@ -30,12 +30,10 @@ class Home extends React.Component {
 
 
     return (
-      <div id='wrapper'>
-        <div id='page-content-wrapper'>
-          <div className='container-fluid-eighty'>
-            <div className='row'>
-              {pageContent}
-            </div>
+      <div id='page-content-wrapper'>
+        <div className='container-fluid'>
+          <div className='row'>
+            {pageContent}
           </div>
         </div>
       </div>

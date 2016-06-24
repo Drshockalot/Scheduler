@@ -8259,13 +8259,6 @@ label {
   position: absolute;
   padding: 15px;
 }
-#container-fluid-eighty {
-  width: 80%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
-}
 #wrapper.toggled #page-content-wrapper {
   position: absolute;
   margin-right: -250px;

@@ -1428,18 +1428,14 @@ var Home = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        { id: 'wrapper' },
+        { id: 'page-content-wrapper' },
         _react2.default.createElement(
           'div',
-          { id: 'page-content-wrapper' },
+          { className: 'container-fluid' },
           _react2.default.createElement(
             'div',
-            { className: 'container-fluid-eighty' },
-            _react2.default.createElement(
-              'div',
-              { className: 'row' },
-              pageContent
-            )
+            { className: 'row' },
+            pageContent
           )
         )
       );
