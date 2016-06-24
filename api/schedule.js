@@ -133,4 +133,28 @@ router.delete('/admin/character', function(req, res, next) {
                });
 });
 
+router.put('/admin/publish/:scheduleid', function(req, res, next) {
+  Schedule.forge({id: req.params.scheduleid})
+               .fetch()
+               .then(function(schedule) {
+                 schedule.save({published: !schedule.get('published')})
+                         .then(function() {
+                           Schedule.forge()
+                                   .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters']})
+                                   .then(function(schedules) {
+                                     res.json({error: false, data: {message: "Published state inverted", schedules: schedules.toJSON()}});
+                                   })
+                                   .catch(function(err) {
+                                     res.status(500).json({error: true, data: {message: err.message}});
+                                   });
+                         })
+                         .catch(function(err) {
+                           res.status(500).json({error: true, data: {message: err.message}});
+                         });
+               })
+               .catch(function(err) {
+                 res.status(500).json({error: true, data: {message: err.message}});
+               });
+});
+
 module.exports = router;
