@@ -1414,7 +1414,7 @@ var Home = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _HomeStore2.default.listen(this.onChange);
-      _HomeActions2.default.loadComponentData();
+      //HomeActions.loadComponentData();
     }
   }, {
     key: 'componentWillUnmount',
