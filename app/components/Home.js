@@ -13,7 +13,7 @@ class Home extends React.Component {
 
   componentDidMount() {
     HomeStore.listen(this.onChange);
-    this.loadComponentData();
+    HomeActions.loadComponentData();
   }
 
   componentWillUnmount() {
