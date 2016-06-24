@@ -30,10 +30,23 @@ class Home extends React.Component {
     var pageContent;
     if(this.state.raidweeks.length > 0) {
       pageContent = this.state.raidweeks.map(function(raidweek, index) {
+        var schedules;
+        schedules = raidweek.schedules.map(function(schedule) {
+          return (
+            <div className='row'>
+              {schedule.name}
+            </div>
+          )
+        }, this);
+
         return (
-          <div className='row'>
-            <strong>{moment(raidweek.start).format('MMM Do YYYY')}</strong>
-          </div>
+          <tr>
+            <div className='row rwHeader'>
+              <strong><u>{moment(raidweek.start).format('MMM Do YYYY')}</u></strong>
+            </div>
+            <br />
+            {schedules}
+          </tr>
         );
       }, this);
     }
@@ -41,9 +54,13 @@ class Home extends React.Component {
       <div id='page-content-wrapper'>
         <div className='container-fluid-eighty'>
           <div className='row'>
-            <h1>Raid Weeks</h1>
+            <h2>Upcoming Schedules</h2>
           </div>
-          {pageContent}
+          <table tableName='table-striped'>
+            <tbody>
+              {pageContent}
+            </tbody>
+          </table>
         </div>
       </div>
     );

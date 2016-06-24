@@ -131,6 +131,9 @@ table.calendar td.selectedweek.selected {
   background-color: #91d46e;
   font-weight: bold;
 }
+.rwHeader {
+  background-color: #FFB275;
+}
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.

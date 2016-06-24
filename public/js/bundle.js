@@ -1431,14 +1431,33 @@ var Home = function (_React$Component) {
       var pageContent;
       if (this.state.raidweeks.length > 0) {
         pageContent = this.state.raidweeks.map(function (raidweek, index) {
+          var schedules;
+          schedules = raidweek.schedules.map(function (schedule) {
+            return _react2.default.createElement(
+              'div',
+              { className: 'row' },
+              schedule.name
+            );
+          }, this);
+
           return _react2.default.createElement(
-            'div',
-            { className: 'row' },
+            'tr',
+            null,
             _react2.default.createElement(
-              'strong',
-              null,
-              (0, _moment2.default)(raidweek.start).format('MMM Do YYYY')
-            )
+              'div',
+              { className: 'row rwHeader' },
+              _react2.default.createElement(
+                'strong',
+                null,
+                _react2.default.createElement(
+                  'u',
+                  null,
+                  (0, _moment2.default)(raidweek.start).format('MMM Do YYYY')
+                )
+              )
+            ),
+            _react2.default.createElement('br', null),
+            schedules
           );
         }, this);
       }
@@ -1452,12 +1471,20 @@ var Home = function (_React$Component) {
             'div',
             { className: 'row' },
             _react2.default.createElement(
-              'h1',
+              'h2',
               null,
-              'Raid Weeks'
+              'Upcoming Schedules'
             )
           ),
-          pageContent
+          _react2.default.createElement(
+            'table',
+            { tableName: 'table-striped' },
+            _react2.default.createElement(
+              'tbody',
+              null,
+              pageContent
+            )
+          )
         )
       );
     }
