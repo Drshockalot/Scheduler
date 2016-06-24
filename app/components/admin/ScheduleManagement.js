@@ -152,11 +152,13 @@ class ScheduleManagement extends React.Component {
       }
 
       scheduleBossRows = sched.schedule_bosses.map(function(schedule_boss, index) {
+        var tankCount = 0;
         tankRows = sched.roster.characters.map(function(character, index) {
           if(character.main_role == "Tank") {
             var char = _.findWhere(schedule_boss.characters, {id: character.id});
             var actionButton;
             if(char) {
+              tankCount++;
               actionButton = (
                 <button className='btn btn-success btn-circle' onClick={() => ScheduleManagementActions.removeCharacterFromScheduleBoss(schedule_boss.id, character.id)}>&#10003;</button>
               )
@@ -187,11 +189,13 @@ class ScheduleManagement extends React.Component {
           }
         }, this);
 
+        var healerCount = 0;
         healerRows = sched.roster.characters.map(function(character, index) {
           if(character.main_role == "Healer") {
             var char = _.findWhere(schedule_boss.characters, {id: character.id});
             var actionButton;
             if(char) {
+              healerCount++;
               actionButton = (
                 <button className='btn btn-success btn-circle' onClick={() => ScheduleManagementActions.removeCharacterFromScheduleBoss(schedule_boss.id, character.id)}>&#10003;</button>
               )
@@ -222,11 +226,13 @@ class ScheduleManagement extends React.Component {
           }
         }, this);
 
+        var dpsCount = 0;
         dpsRows = sched.roster.characters.map(function(character, index) {
           if(character.main_role == "DPS") {
             var char = _.findWhere(schedule_boss.characters, {id: character.id});
             var actionButton;
             if(char) {
+              dpsCount++;
               actionButton = (
                 <button className='btn btn-success btn-circle' onClick={() => ScheduleManagementActions.removeCharacterFromScheduleBoss(schedule_boss.id, character.id)}>&#10003;</button>
               )
@@ -262,11 +268,11 @@ class ScheduleManagement extends React.Component {
             <table className='table'>
               <tbody>
                 <tr>
-                  <td className='col-md-1'>Raid</td>
-                  <td className='col-md-1'>Boss</td>
-                  <td className='col-md-2'>Tanks ({schedule_boss.tank_count})</td>
-                  <td className='col-md-3'>Healers ({schedule_boss.healer_count})</td>
-                  <td className='col-md-3'>DPS ({schedule_boss.dps_count})</td>
+                  <td className='col-md-1'><strong>Raid</strong></td>
+                  <td className='col-md-1'><strong>Boss</strong></td>
+                  <td className='col-md-2'><strong>Tanks</strong> S({schedule_boss.tank_count}) A({tankCount})</td>
+                  <td className='col-md-3'><strong>Healers</strong> S({schedule_boss.healer_count}) A({healerCount})</td>
+                  <td className='col-md-3'><strong>DPS</strong> S({schedule_boss.dps_count}) A({dpsCount})</td>
                 </tr>
                 <tr>
                   <td className='col-md-1'>{schedule_boss.raid.name}</td>

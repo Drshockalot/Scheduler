@@ -4664,11 +4664,13 @@ var ScheduleManagement = function (_React$Component) {
         }
 
         scheduleBossRows = sched.schedule_bosses.map(function (schedule_boss, index) {
+          var tankCount = 0;
           tankRows = sched.roster.characters.map(function (character, index) {
             if (character.main_role == "Tank") {
               var char = _.findWhere(schedule_boss.characters, { id: character.id });
               var actionButton;
               if (char) {
+                tankCount++;
                 actionButton = _react2.default.createElement(
                   'button',
                   { className: 'btn btn-success btn-circle', onClick: function onClick() {
@@ -4715,11 +4717,13 @@ var ScheduleManagement = function (_React$Component) {
             }
           }, this);
 
+          var healerCount = 0;
           healerRows = sched.roster.characters.map(function (character, index) {
             if (character.main_role == "Healer") {
               var char = _.findWhere(schedule_boss.characters, { id: character.id });
               var actionButton;
               if (char) {
+                healerCount++;
                 actionButton = _react2.default.createElement(
                   'button',
                   { className: 'btn btn-success btn-circle', onClick: function onClick() {
@@ -4766,11 +4770,13 @@ var ScheduleManagement = function (_React$Component) {
             }
           }, this);
 
+          var dpsCount = 0;
           dpsRows = sched.roster.characters.map(function (character, index) {
             if (character.main_role == "DPS") {
               var char = _.findWhere(schedule_boss.characters, { id: character.id });
               var actionButton;
               if (char) {
+                dpsCount++;
                 actionButton = _react2.default.createElement(
                   'button',
                   { className: 'btn btn-success btn-circle', onClick: function onClick() {
@@ -4832,32 +4838,61 @@ var ScheduleManagement = function (_React$Component) {
                   _react2.default.createElement(
                     'td',
                     { className: 'col-md-1' },
-                    'Raid'
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Raid'
+                    )
                   ),
                   _react2.default.createElement(
                     'td',
                     { className: 'col-md-1' },
-                    'Boss'
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Boss'
+                    )
                   ),
                   _react2.default.createElement(
                     'td',
                     { className: 'col-md-2' },
-                    'Tanks (',
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Tanks'
+                    ),
+                    ' S(',
                     schedule_boss.tank_count,
+                    ') A(',
+                    tankCount,
                     ')'
                   ),
                   _react2.default.createElement(
                     'td',
                     { className: 'col-md-3' },
-                    'Healers (',
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Healers'
+                    ),
+                    ' S(',
                     schedule_boss.healer_count,
+                    ') A(',
+                    healerCount,
                     ')'
                   ),
                   _react2.default.createElement(
                     'td',
                     { className: 'col-md-3' },
-                    'DPS (',
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'DPS'
+                    ),
+                    ' S(',
                     schedule_boss.dps_count,
+                    ') A(',
+                    dpsCount,
                     ')'
                   )
                 ),
