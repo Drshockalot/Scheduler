@@ -4861,9 +4861,9 @@ var ScheduleManagement = function (_React$Component) {
                       null,
                       'Tanks'
                     ),
-                    ' Scheduled(',
+                    ' - Scheduled(',
                     schedule_boss.tank_count,
-                    ') Assigned(',
+                    ') - Assigned(',
                     tankCount,
                     ')'
                   ),
@@ -4875,9 +4875,9 @@ var ScheduleManagement = function (_React$Component) {
                       null,
                       'Healers'
                     ),
-                    ' Scheduled(',
+                    ' - Scheduled(',
                     schedule_boss.healer_count,
-                    ') Assigned(',
+                    ') - Assigned(',
                     healerCount,
                     ')'
                   ),
@@ -4889,9 +4889,9 @@ var ScheduleManagement = function (_React$Component) {
                       null,
                       'DPS'
                     ),
-                    ' Scheduled(',
+                    ' - Scheduled(',
                     schedule_boss.dps_count,
-                    ') Assigned(',
+                    ') - Assigned(',
                     dpsCount,
                     ')'
                   )
