@@ -161,6 +161,14 @@ class ScheduleManagementStore {
   onRemoveCharacterFromScheduleBossFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
   }
+
+  onInvertSchedulePublishedStateSuccess(result) {
+    this.schedules = result.data.schedules;
+  }
+
+  onInvertSchedulePublishedStateFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
 }
 
 export default alt.createStore(ScheduleManagementStore);

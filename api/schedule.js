@@ -77,7 +77,8 @@ router.post('/admin/boss', function(req, res, next) {
                        raid_id: req.body.raid,
                        tank_count: req.body.tanks,
                        healer_count: req.body.healers,
-                       dps_count: req.body.dps})
+                       dps_count: req.body.dps,
+                       published: false})
                .save()
                .then(function(schedule_boss) {
                  Schedule.forge()

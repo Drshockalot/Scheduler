@@ -305,6 +305,16 @@ class ScheduleManagement extends React.Component {
       }, this);
     }
 
+    var published = _.findWhere(this.state.schedules, {id: this.selectedSchedule}).published;
+    var publishedButton;
+    if(published) {
+      <button className='btn btn-success btn-circle' onClick={() => ScheduleManagementActions.invertSchedulePublishedState(this.state.selectedSchedule)}>&#10003;</button>
+    } else {
+      publishedButton = (
+        <button className='btn btn-success btn-circle' onClick={() => ScheduleManagementActions.invertSchedulePublishedState(this.state.selectedSchedule)}></button>
+      )
+    }
+
     return (
       <div id='wrapper'>
         <AdminSideNav />
@@ -364,6 +374,12 @@ class ScheduleManagement extends React.Component {
                       <select className='form-control' value={this.state.selectedSchedule} onChange={e => ScheduleManagementActions.updateSelectedSchedule(e.target.value)}>
                         {selectedScheduleOptions}
                       </select>
+                    </div>
+                  </div>
+                  <div className='form-group'>
+                    <label className='col-sm-2 control-label'>Publish: </label>
+                    <div className='col-sm-10'>
+                      {publishedButton}
                     </div>
                   </div>
                 </div>
