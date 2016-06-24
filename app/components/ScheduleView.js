@@ -24,16 +24,14 @@ class SingleScheduleView extends React.Component {
   }
 
   render() {
-    var { type, schedule } = this.context.router.getCurrentQuery();
-
     return (
       <div id='page-content-wrapper'>
         <div className='container-fluid-eighty'>
           <div className='row'>
-            {type}
+            {this.props.location.type}
           </div>
           <div className='row'>
-            {schedule}
+            {this.props.location.schedule}
           </div>
         </div>
       </div>

@@ -3025,12 +3025,6 @@ var SingleScheduleView = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _context$router$getCu = this.context.router.getCurrentQuery();
-
-      var type = _context$router$getCu.type;
-      var schedule = _context$router$getCu.schedule;
-
-
       return _react2.default.createElement(
         'div',
         { id: 'page-content-wrapper' },
@@ -3040,12 +3034,12 @@ var SingleScheduleView = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'row' },
-            type
+            this.props.location.type
           ),
           _react2.default.createElement(
             'div',
             { className: 'row' },
-            schedule
+            this.props.location.schedule
           )
         )
       );
