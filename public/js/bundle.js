@@ -1444,20 +1444,25 @@ var Home = function (_React$Component) {
             'tr',
             null,
             _react2.default.createElement(
-              'div',
-              { className: 'row rwHeader' },
+              'td',
+              null,
               _react2.default.createElement(
-                'strong',
-                null,
+                'div',
+                { className: 'row' },
                 _react2.default.createElement(
-                  'u',
+                  'strong',
                   null,
-                  (0, _moment2.default)(raidweek.start).format('MMM Do YYYY')
+                  _react2.default.createElement(
+                    'u',
+                    null,
+                    (0, _moment2.default)(raidweek.start).format('MMM Do YYYY')
+                  )
                 )
-              )
-            ),
-            _react2.default.createElement('br', null),
-            schedules
+              ),
+              _react2.default.createElement('br', null),
+              schedules,
+              _react2.default.createElement('br', null)
+            )
           );
         }, this);
       }

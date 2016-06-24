@@ -41,11 +41,14 @@ class Home extends React.Component {
 
         return (
           <tr>
-            <div className='row rwHeader'>
-              <strong><u>{moment(raidweek.start).format('MMM Do YYYY')}</u></strong>
-            </div>
-            <br />
-            {schedules}
+            <td>
+              <div className='row'>
+                <strong><u>{moment(raidweek.start).format('MMM Do YYYY')}</u></strong>
+              </div>
+              <br />
+              {schedules}
+              <br />
+            </td>
           </tr>
         );
       }, this);
