@@ -5755,6 +5755,7 @@ var HomeStore = function () {
     key: 'onLoadComponentDataSuccess',
     value: function onLoadComponentDataSuccess(result) {
       this.raidweeks = result.raidweeks;
+      console.log(this.raidweeks);
     }
   }, {
     key: 'onLoadComponentDataFailure',
