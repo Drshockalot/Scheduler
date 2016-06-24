@@ -305,7 +305,7 @@ class ScheduleManagement extends React.Component {
       }, this);
     }
 
-    var published = _.findWhere(this.state.schedules, {id: this.selectedSchedule}).published;
+    var published = sched.published;
     var publishedButton;
     if(published) {
       <button className='btn btn-success btn-circle' onClick={() => ScheduleManagementActions.invertSchedulePublishedState(this.state.selectedSchedule)}>&#10003;</button>

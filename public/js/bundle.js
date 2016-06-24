@@ -4971,7 +4971,7 @@ var ScheduleManagement = function (_React$Component) {
         }, this);
       }
 
-      var published = _.findWhere(this.state.schedules, { id: this.selectedSchedule }).published;
+      var published = sched.published;
       var publishedButton;
       if (published) {
         _react2.default.createElement(
