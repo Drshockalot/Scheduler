@@ -1413,7 +1413,7 @@ var Home = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _HomeStore2.default.listen(this.onChange);
-      //HomeActions.loadComponentData();
+      _HomeActions2.default.loadComponentData();
     }
   }, {
     key: 'componentWillUnmount',
