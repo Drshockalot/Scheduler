@@ -1431,10 +1431,10 @@ var Home = function (_React$Component) {
         { id: 'wrapper' },
         _react2.default.createElement(
           'div',
-          { id: 'page-content-wrapper-eighty' },
+          { id: 'page-content-wrapper' },
           _react2.default.createElement(
             'div',
-            { className: 'container-fluid' },
+            { className: 'container-fluid-eighty' },
             _react2.default.createElement(
               'div',
               { className: 'row' },
