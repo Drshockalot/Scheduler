@@ -4970,7 +4970,6 @@ var ScheduleManagement = function (_React$Component) {
           );
         }, this);
 
-        console.log(sched);
         var published = sched.published;
         var publishedButton;
         if (published) {
@@ -4982,7 +4981,7 @@ var ScheduleManagement = function (_React$Component) {
             '✓'
           );
         } else {
-          publishedButton = _react2.default.createElement('button', { className: 'btn btn-success btn-circle', onClick: function onClick() {
+          publishedButton = _react2.default.createElement('button', { className: 'btn btn-default btn-circle', onClick: function onClick() {
               return _ScheduleManagementActions2.default.invertSchedulePublishedState(_this2.state.selectedSchedule);
             } });
         }

@@ -304,14 +304,13 @@ class ScheduleManagement extends React.Component {
         )
       }, this);
 
-      console.log(sched);
       var published = sched.published;
       var publishedButton;
       if(published) {
         <button className='btn btn-success btn-circle' onClick={() => ScheduleManagementActions.invertSchedulePublishedState(this.state.selectedSchedule)}>&#10003;</button>
       } else {
         publishedButton = (
-          <button className='btn btn-success btn-circle' onClick={() => ScheduleManagementActions.invertSchedulePublishedState(this.state.selectedSchedule)}></button>
+          <button className='btn btn-default btn-circle' onClick={() => ScheduleManagementActions.invertSchedulePublishedState(this.state.selectedSchedule)}></button>
         )
       }
     }
