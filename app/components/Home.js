@@ -28,6 +28,7 @@ class Home extends React.Component {
 
   render() {
     var pageContent;
+    console.log(this.state);
     if(this.state.raidweeks.length > 0) {
       pageContent = this.state.raidweeks.map(function(raidweek, index) {
         return (

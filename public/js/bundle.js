@@ -1430,6 +1430,7 @@ var Home = function (_React$Component) {
     key: 'render',
     value: function render() {
       var pageContent;
+      console.log(this.state);
       if (this.state.raidweeks.length > 0) {
         pageContent = this.state.raidweeks.map(function (raidweek, index) {
           return _react2.default.createElement(
