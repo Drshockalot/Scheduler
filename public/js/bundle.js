@@ -1400,7 +1400,7 @@ var Home = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Home).call(this, props));
 
-    _this.state = ProfileStore.getState();
+    _this.state = _HomeStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
     return _this;
   }
@@ -1408,13 +1408,13 @@ var Home = function (_React$Component) {
   _createClass(Home, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      ProfileStore.listen(this.onChange);
+      _HomeStore2.default.listen(this.onChange);
       this.loadComponentData();
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
-      ProfileStore.unlisten(this.onChange);
+      _HomeStore2.default.unlisten(this.onChange);
     }
   }, {
     key: 'onChange',

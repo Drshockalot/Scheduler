@@ -7,17 +7,17 @@ import NavbarStore from '../stores/NavbarStore';
 class Home extends React.Component {
   constructor(props) {
     super(props);
-    this.state = ProfileStore.getState();
+    this.state = HomeStore.getState();
     this.onChange = this.onChange.bind(this);
   }
 
   componentDidMount() {
-    ProfileStore.listen(this.onChange);
+    HomeStore.listen(this.onChange);
     this.loadComponentData();
   }
 
   componentWillUnmount() {
-    ProfileStore.unlisten(this.onChange);
+    HomeStore.unlisten(this.onChange);
   }
 
   onChange(state) {
