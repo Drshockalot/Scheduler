@@ -15,6 +15,8 @@ import ProfileCharacters from './components/ProfileCharacters';
 import ProfileRaidWeeks from './components/ProfileRaidWeeks';
 import ProfileRosters from './components/ProfileRosters';
 
+import ScheduleView from './components/ScheduleView';
+
 export default (
   <Route component={App}>
     <Route path='/' component={Home} />
@@ -28,5 +30,6 @@ export default (
     <Route path='/admin/schedule' component={ScheduleManagement} />
     <Route path='/admin/raidweek' component={RaidWeekManagement} />
     <Route path='/admin/raid' component={RaidManagement} />
+    <Route path='/schedule' component={ScheduleView} />
   </Route>
 );
