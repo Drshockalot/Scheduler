@@ -8,8 +8,7 @@ class HomeStore {
   }
 
   onLoadComponentDataSuccess(result) {
-    this.raidweeks = result.raidweeks;
-    console.log(this.raidweeks);
+    this.raidweeks = result.data.raidweeks;
   }
 
   onLoadComponentDataFailure(jqXhr) {
