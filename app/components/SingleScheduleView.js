@@ -13,6 +13,8 @@ class SingleScheduleView extends React.Component {
 
   componentDidMount() {
     SingleScheduleViewStore.listen(this.onChange);
+    SingleScheduleViewActions.loadSingleSchedule(this.props.schedule);
+    SingleScheduleViewActions.loadUserCharacters();
   }
 
   componentWillUnmount() {
@@ -25,7 +27,9 @@ class SingleScheduleView extends React.Component {
 
   render() {
     return (
-      false
+      <div>
+        Testage
+      </div>
     );
   }
 }

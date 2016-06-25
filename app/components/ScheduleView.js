@@ -4,7 +4,9 @@ import ScheduleViewStore from '../stores/ScheduleViewStore';
 import ScheduleViewActions from '../actions/ScheduleViewActions';
 import NavbarStore from '../stores/NavbarStore';
 
-class SingleScheduleView extends React.Component {
+import SingleScheduleView from './SingleScheduleView';
+
+class ScheduleView extends React.Component {
   constructor(props) {
     super(props);
     this.state = ScheduleViewStore.getState();
@@ -13,6 +15,7 @@ class SingleScheduleView extends React.Component {
 
   componentDidMount() {
     ScheduleViewStore.listen(this.onChange);
+    ScheduleViewActions.setPropValues(this.props.locations.query.type, this.props.locations.query.schedule);
   }
 
   componentWillUnmount() {
@@ -24,14 +27,33 @@ class SingleScheduleView extends React.Component {
   }
 
   render() {
+    var scheduleView;
+
+    switch(this.state.viewType) {
+      case 1:
+        scheduleView = (
+          <SingleScheduleView schedule={this.props.locations.query.schedule}
+                              filter={this.state}/>
+        );
+        break;
+    }
+
     return (
-      <div id='page-content-wrapper'>
-        <div className='container-fluid-eighty'>
-          <div className='row'>
-            {this.props.location.query.type}
-          </div>
-          <div className='row'>
-            {this.props.location.query.schedule}
+      <div id='wrapper'>
+      <div id='sidebar-wrapper'>
+        <ul className='sidebar-nav'>
+          <li><strong>Filter</strong></li>
+          <li><button className='btn btn-default' onClick={() => ScheduleViewActions.setFilterType(1)}>All</button></li>
+          <li><button className='btn btn-default' onClick={() => ScheduleViewActions.setFilterType(2)}>My Characters</button></li>
+          <li>
+            Raid Week:
+            <br />
+          </li>
+        </ul>
+      </div>
+        <div id='page-content-wrapper'>
+          <div className='container-fluid'>
+            {scheduleView}
           </div>
         </div>
       </div>
@@ -39,4 +61,4 @@ class SingleScheduleView extends React.Component {
   }
 }
 
-export default SingleScheduleView;
+export default ScheduleView;

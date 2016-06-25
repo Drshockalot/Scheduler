@@ -34,7 +34,7 @@ class Home extends React.Component {
         schedules = raidweek.schedules.map(function(schedule) {
           return (
             <div className='row'>
-              <Link to={'/schedule?type=single&schedule=' + schedule.id}>{schedule.name}</Link>
+              <Link to={'/schedule?type=1&schedule=' + schedule.id}>{schedule.name}</Link>
             </div>
           )
         }, this);

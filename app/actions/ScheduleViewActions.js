@@ -5,7 +5,8 @@ import NavbarStore from '../stores/NavbarStore';
 class ScheduleViewActions {
   constructor() {
     this.generateActions(
-      'placeholder'
+      'setPropValues',
+      'setFilterType'
     );
   }
 }

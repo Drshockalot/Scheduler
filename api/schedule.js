@@ -51,6 +51,17 @@ router.get('/', function(req, res, next) {
           });
 });
 
+router.get('/single/:scheduleid', function(req, res, next) {
+  Schedule.forge({id: req.params.scheduleid})
+          .fetch({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters']})
+          .then(function(schedule) {
+            res.json({error: false, data: {message: "Schedule retrieved", schedule: schedule.toJSON()}});
+          })
+          .catch(function(err) {
+            res.status(500).json({error: true, data: {message: err.message}});
+          });
+});
+
 router.post('/admin', function(req, res, next) {
   Schedule.forge({raid_week_id: req.body.rwId,
                   name: req.body.name,
