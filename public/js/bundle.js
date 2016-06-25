@@ -3101,7 +3101,7 @@ var ScheduleView = function (_React$Component) {
     value: function render() {
       var scheduleView;
 
-      switch (this.state.viewType) {
+      switch (parseInt(this.state.viewType)) {
         case 1:
           scheduleView = _react2.default.createElement(_SingleScheduleView2.default, { schedule: this.props.locations.query.schedule,
             filter: this.state });
