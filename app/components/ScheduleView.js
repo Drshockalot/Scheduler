@@ -32,7 +32,7 @@ class ScheduleView extends React.Component {
     switch(parseInt(this.state.viewType)) {
       case 1:
         scheduleView = (
-          <SingleScheduleView schedule={this.props.locations.query.schedule}
+          <SingleScheduleView schedule={this.props.location.query.schedule}
                               filter={this.state}/>
         );
         break;
