@@ -11,7 +11,7 @@ router.get('/user/:battletag', function(req, res, next) {
   User.forge({battletag: req.params.battletag})
       .fetch({'withRelated': ['characters']})
       .then(function(user) {
-        res.json({error: false, data: {message: "Characters found", characters: user.get('characters').toJSON()}});
+        res.json({error: false, data: {message: "Characters found", characters: user.related('characters').toJSON()}});
       })
       .catch(function(err) {
         res.status(500).json({error: true, data: {message: err.message}});
