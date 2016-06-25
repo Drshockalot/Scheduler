@@ -3084,7 +3084,7 @@ var ScheduleView = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _ScheduleViewStore2.default.listen(this.onChange);
-      _ScheduleViewActions2.default.setPropValues(this.props.locations.query.type, this.props.locations.query.schedule);
+      _ScheduleViewActions2.default.setPropValues(this.props.location.query.type, this.props.location.query.schedule);
     }
   }, {
     key: 'componentWillUnmount',

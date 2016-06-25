@@ -15,7 +15,7 @@ class ScheduleView extends React.Component {
 
   componentDidMount() {
     ScheduleViewStore.listen(this.onChange);
-    ScheduleViewActions.setPropValues(this.props.locations.query.type, this.props.locations.query.schedule);
+    ScheduleViewActions.setPropValues(this.props.location.query.type, this.props.location.query.schedule);
   }
 
   componentWillUnmount() {
