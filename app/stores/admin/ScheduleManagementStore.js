@@ -56,7 +56,7 @@ class ScheduleManagementStore {
   }
 
   onUpdateFormBossName(value) {
-    this.formBossName = value;
+    this.formBoss = value;
   }
 
   onUpdateFormTanks(value) {

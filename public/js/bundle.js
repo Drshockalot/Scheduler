@@ -7424,7 +7424,7 @@ var ScheduleManagementStore = function () {
   }, {
     key: 'onUpdateFormBossName',
     value: function onUpdateFormBossName(value) {
-      this.formBossName = value;
+      this.formBoss = value;
     }
   }, {
     key: 'onUpdateFormTanks',
