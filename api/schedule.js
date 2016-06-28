@@ -65,7 +65,8 @@ router.get('/single/:scheduleid', function(req, res, next) {
 router.post('/admin', function(req, res, next) {
   Schedule.forge({raid_week_id: req.body.rwId,
                   name: req.body.name,
-                  description: req.body.description})
+                  description: req.body.description,
+                  published: false})
           .save()
           .then(function(schedule) {
             Schedule.forge()
@@ -88,8 +89,7 @@ router.post('/admin/boss', function(req, res, next) {
                        raid_id: req.body.raid,
                        tank_count: req.body.tanks,
                        healer_count: req.body.healers,
-                       dps_count: req.body.dps,
-                       published: false})
+                       dps_count: req.body.dps})
                .save()
                .then(function(schedule_boss) {
                  Schedule.forge()
