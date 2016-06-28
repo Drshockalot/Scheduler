@@ -7422,8 +7422,8 @@ var ScheduleManagementStore = function () {
       this.formRaidName = value;
     }
   }, {
-    key: 'onUpdateFormBossName',
-    value: function onUpdateFormBossName(value) {
+    key: 'onUpdateFormBoss',
+    value: function onUpdateFormBoss(value) {
       this.formBoss = value;
     }
   }, {
