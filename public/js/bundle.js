@@ -3201,6 +3201,10 @@ var _NavbarStore = require('../stores/NavbarStore');
 
 var _NavbarStore2 = _interopRequireDefault(_NavbarStore);
 
+var _underscore = require('underscore');
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3244,7 +3248,7 @@ var SingleScheduleView = function (_React$Component) {
   }, {
     key: 'classColour',
     value: function classColour(character) {
-      var currentClass = _.findWhere(wowClasses, { id: parseInt(character.class) }).name;
+      var currentClass = _underscore2.default.findWhere(wowClasses, { id: parseInt(character.class) }).name;
       var arr = currentClass.split(" ");
 
       var ret = '';
@@ -3455,7 +3459,7 @@ var SingleScheduleView = function (_React$Component) {
 
 exports.default = SingleScheduleView;
 
-},{"../actions/SingleScheduleViewActions":9,"../stores/NavbarStore":42,"../stores/SingleScheduleViewStore":48,"./../../utility/WowClasses":65,"react":"react","react-router":"react-router"}],30:[function(require,module,exports){
+},{"../actions/SingleScheduleViewActions":9,"../stores/NavbarStore":42,"../stores/SingleScheduleViewStore":48,"./../../utility/WowClasses":65,"react":"react","react-router":"react-router","underscore":"underscore"}],30:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

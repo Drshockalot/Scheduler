@@ -5,6 +5,7 @@ import SingleScheduleViewActions from '../actions/SingleScheduleViewActions';
 import NavbarStore from '../stores/NavbarStore';
 
 var wowClasses = require('./../../utility/WowClasses');
+import _ from 'underscore';
 
 class SingleScheduleView extends React.Component {
   constructor(props) {
