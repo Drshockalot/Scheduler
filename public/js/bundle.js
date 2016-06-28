@@ -3209,6 +3209,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var wowClasses = require('./../../utility/WowClasses');
+
 var SingleScheduleView = function (_React$Component) {
   _inherits(SingleScheduleView, _React$Component);
 
@@ -3453,7 +3455,7 @@ var SingleScheduleView = function (_React$Component) {
 
 exports.default = SingleScheduleView;
 
-},{"../actions/SingleScheduleViewActions":9,"../stores/NavbarStore":42,"../stores/SingleScheduleViewStore":48,"react":"react","react-router":"react-router"}],30:[function(require,module,exports){
+},{"../actions/SingleScheduleViewActions":9,"../stores/NavbarStore":42,"../stores/SingleScheduleViewStore":48,"./../../utility/WowClasses":65,"react":"react","react-router":"react-router"}],30:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

@@ -4,6 +4,8 @@ import SingleScheduleViewStore from '../stores/SingleScheduleViewStore';
 import SingleScheduleViewActions from '../actions/SingleScheduleViewActions';
 import NavbarStore from '../stores/NavbarStore';
 
+var wowClasses = require('./../../utility/WowClasses');
+
 class SingleScheduleView extends React.Component {
   constructor(props) {
     super(props);
