@@ -6784,7 +6784,7 @@ var SingleScheduleViewStore = function () {
     _classCallCheck(this, SingleScheduleViewStore);
 
     this.bindActions(_SingleScheduleViewActions2.default);
-    this.schedule = {};
+    this.schedule = null;
     this.characters = [];
   }
 

@@ -301,7 +301,7 @@ class ScheduleManagement extends React.Component {
               </tbody>
             </table>
           </div>
-        )
+        );
       }, this);
 
       var published = sched.published;

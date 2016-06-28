@@ -4,7 +4,7 @@ import SingleScheduleViewActions from '../actions/SingleScheduleViewActions';
 class SingleScheduleViewStore {
   constructor() {
     this.bindActions(SingleScheduleViewActions);
-    this.schedule = {};
+    this.schedule = null;
     this.characters = [];
   }
 
