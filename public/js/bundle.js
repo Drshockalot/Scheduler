@@ -3278,7 +3278,7 @@ var SingleScheduleView = function (_React$Component) {
                 )
               );
             }
-          });
+          }, this);
 
           var healerCount = 0;
           healerRows = schedule_boss.characters.map(function (character) {
@@ -3296,7 +3296,7 @@ var SingleScheduleView = function (_React$Component) {
                 )
               );
             }
-          });
+          }, this);
 
           var dpsCount = 0;
           dpsRows = schedule_boss.characters.map(function (character) {
@@ -3314,7 +3314,7 @@ var SingleScheduleView = function (_React$Component) {
                 )
               );
             }
-          });
+          }, this);
 
           return _react2.default.createElement(
             'div',

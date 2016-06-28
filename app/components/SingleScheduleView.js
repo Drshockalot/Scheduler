@@ -59,7 +59,7 @@ class SingleScheduleView extends React.Component {
               </tr>
             );
           }
-        });
+        }, this);
 
         var healerCount = 0;
         healerRows = schedule_boss.characters.map(function(character) {
@@ -75,7 +75,7 @@ class SingleScheduleView extends React.Component {
               </tr>
             );
           }
-        });
+        }, this);
 
         var dpsCount = 0;
         dpsRows = schedule_boss.characters.map(function(character) {
@@ -91,7 +91,7 @@ class SingleScheduleView extends React.Component {
               </tr>
             );
           }
-        });
+        }, this);
 
         return (
           <div className='row'>
