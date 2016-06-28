@@ -3131,7 +3131,7 @@ var ScheduleView = function (_React$Component) {
               null,
               _react2.default.createElement(
                 'button',
-                { className: 'btn btn-default', onClick: function onClick() {
+                { className: 'btn btn-default btn-block', onClick: function onClick() {
                     return _ScheduleViewActions2.default.setFilterType(1);
                   } },
                 'All'
@@ -3142,7 +3142,7 @@ var ScheduleView = function (_React$Component) {
               null,
               _react2.default.createElement(
                 'button',
-                { className: 'btn btn-default', onClick: function onClick() {
+                { className: 'btn btn-default btn-block', onClick: function onClick() {
                     return _ScheduleViewActions2.default.setFilterType(2);
                   } },
                 'My Characters'
