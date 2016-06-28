@@ -75,7 +75,7 @@ class SingleScheduleView extends React.Component {
           }
         });
 
-        dpsCount = 0;
+        var dpsCount = 0;
         dpsRows = schedule_boss.characters.map(function(character) {
           if(character.main_role == "DPS") {
             dpsCount++;
