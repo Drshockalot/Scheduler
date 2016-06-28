@@ -3,7 +3,7 @@ import {Link} from 'react-router';
 import SingleScheduleViewStore from '../stores/SingleScheduleViewStore';
 import SingleScheduleViewActions from '../actions/SingleScheduleViewActions';
 import NavbarStore from '../stores/NavbarStore';
-
+import classNames from 'classnames';
 var wowClasses = require('./../../utility/WowClasses');
 import _ from 'underscore';
 

@@ -3201,6 +3201,10 @@ var _NavbarStore = require('../stores/NavbarStore');
 
 var _NavbarStore2 = _interopRequireDefault(_NavbarStore);
 
+var _classnames = require('classnames');
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
 var _underscore = require('underscore');
 
 var _underscore2 = _interopRequireDefault(_underscore);
@@ -3258,7 +3262,7 @@ var SingleScheduleView = function (_React$Component) {
       }
 
       ret += 'color';
-      return classNames(ret, { 'col-sm-1': true });;
+      return (0, _classnames2.default)(ret, { 'col-sm-1': true });;
     }
   }, {
     key: 'render',
@@ -3459,7 +3463,7 @@ var SingleScheduleView = function (_React$Component) {
 
 exports.default = SingleScheduleView;
 
-},{"../actions/SingleScheduleViewActions":9,"../stores/NavbarStore":42,"../stores/SingleScheduleViewStore":48,"./../../utility/WowClasses":65,"react":"react","react-router":"react-router","underscore":"underscore"}],30:[function(require,module,exports){
+},{"../actions/SingleScheduleViewActions":9,"../stores/NavbarStore":42,"../stores/SingleScheduleViewStore":48,"./../../utility/WowClasses":65,"classnames":57,"react":"react","react-router":"react-router","underscore":"underscore"}],30:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
