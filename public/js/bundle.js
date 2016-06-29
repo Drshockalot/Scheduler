@@ -3290,8 +3290,13 @@ var SingleScheduleView = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var scheduleBossRows, tankRows, healerRows, dpsRows;
+      var scheduleBossRows, scheduleName, tankRows, healerRows, dpsRows;
       if (this.state.schedule != null) {
+        scheduleName = _react2.default.createElement(
+          'h3',
+          null,
+          this.state.schedule.name
+        );
         scheduleBossRows = this.state.schedule.schedule_bosses.map(function (schedule_boss, index) {
           var tankCount = 0;
           tankRows = schedule_boss.characters.map(function (character) {
@@ -3476,11 +3481,7 @@ var SingleScheduleView = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'row' },
-        _react2.default.createElement(
-          'h3',
-          null,
-          this.state.schedule.name
-        ),
+        scheduleName,
         scheduleBossRows
       );
     }

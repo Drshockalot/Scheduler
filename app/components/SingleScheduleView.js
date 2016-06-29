@@ -43,8 +43,11 @@ class SingleScheduleView extends React.Component {
   }
 
   render() {
-    var scheduleBossRows, tankRows, healerRows, dpsRows;
+    var scheduleBossRows, scheduleName, tankRows, healerRows, dpsRows;
     if(this.state.schedule != null) {
+      scheduleName = (
+        <h3>{this.state.schedule.name}</h3>
+      )
       scheduleBossRows = this.state.schedule.schedule_bosses.map(function(schedule_boss, index) {
         var tankCount = 0;
         tankRows = schedule_boss.characters.map(function(character) {
@@ -138,7 +141,7 @@ class SingleScheduleView extends React.Component {
 
     return (
       <div className='row'>
-        <h3>{this.state.schedule.name}</h3>
+        {scheduleName}
         {scheduleBossRows}
       </div>
     );
