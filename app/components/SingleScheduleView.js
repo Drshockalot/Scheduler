@@ -96,7 +96,6 @@ class SingleScheduleView extends React.Component {
 
         return (
           <div className='row'>
-            <h3>{this.state.schedule.name}</h3>
             <table className='table'>
               <tbody>
                 <tr>
@@ -138,7 +137,8 @@ class SingleScheduleView extends React.Component {
     }
 
     return (
-      <div>
+      <div className='row'>
+        <h3>{this.state.schedule.name}</h3>
         {scheduleBossRows}
       </div>
     );

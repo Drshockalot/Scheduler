@@ -3351,11 +3351,6 @@ var SingleScheduleView = function (_React$Component) {
             'div',
             { className: 'row' },
             _react2.default.createElement(
-              'h3',
-              null,
-              this.state.schedule.name
-            ),
-            _react2.default.createElement(
               'table',
               { className: 'table' },
               _react2.default.createElement(
@@ -3480,7 +3475,12 @@ var SingleScheduleView = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'row' },
+        _react2.default.createElement(
+          'h3',
+          null,
+          this.state.schedule.name
+        ),
         scheduleBossRows
       );
     }
