@@ -9,6 +9,7 @@ import CharacterManagement from './components/admin/CharacterManagement';
 import ScheduleManagement from './components/admin/ScheduleManagement';
 import RaidWeekManagement from './components/admin/RaidWeekManagement';
 import RaidManagement from './components/admin/RaidManagement';
+import AttendanceManagement from './components/admin/AttendanceManagement';
 
 import Profile from './components/Profile';
 import ProfileCharacters from './components/ProfileCharacters';
@@ -30,6 +31,7 @@ export default (
     <Route path='/admin/schedule' component={ScheduleManagement} />
     <Route path='/admin/raidweek' component={RaidWeekManagement} />
     <Route path='/admin/raid' component={RaidManagement} />
+    <Route path='/admin/attendance' component={AttendanceManagement} />
     <Route path='/schedule' component={ScheduleView} />
   </Route>
 );

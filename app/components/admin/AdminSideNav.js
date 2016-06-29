@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 import {Link} from 'react-router';
 import AdminSideNavStore from '../../stores/admin/AdminSideNavStore';
 import AdminSideNavActions from '../../actions/admin/AdminSideNavActions';
@@ -32,6 +32,7 @@ class AdminSideNav extends React.Component {
           <li><Link to='/admin/character'>Character Management</Link></li>
           <li><Link to='/admin/raidweek'>Raid Week Management</Link></li>
           <li><Link to='/admin/raid'>Raid Management</Link></li>
+          <li><Link to='/admin/attendance'>Attendance Management</Link></li>
         </ul>
       </div>
     );

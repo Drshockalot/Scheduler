@@ -21,7 +21,7 @@ var FooterActions = function FooterActions() {
 
 exports.default = _alt2.default.createActions(FooterActions);
 
-},{"../alt":18}],2:[function(require,module,exports){
+},{"../alt":19}],2:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -70,7 +70,7 @@ var HomeActions = function () {
 
 exports.default = _alt2.default.createActions(HomeActions);
 
-},{"../alt":18,"underscore":"underscore"}],3:[function(require,module,exports){
+},{"../alt":19,"underscore":"underscore"}],3:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -137,7 +137,7 @@ var NavbarActions = function () {
 
 exports.default = _alt2.default.createActions(NavbarActions);
 
-},{"../alt":18,"react-router":"react-router","underscore":"underscore"}],4:[function(require,module,exports){
+},{"../alt":19,"react-router":"react-router","underscore":"underscore"}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -166,7 +166,7 @@ var ProfileActions = function ProfileActions() {
 
 exports.default = _alt2.default.createActions(ProfileActions);
 
-},{"../alt":18,"../stores/NavbarStore":42,"underscore":"underscore"}],5:[function(require,module,exports){
+},{"../alt":19,"../stores/NavbarStore":44,"underscore":"underscore"}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -305,7 +305,7 @@ var ProfileCharactersActions = function () {
 
 exports.default = _alt2.default.createActions(ProfileCharactersActions);
 
-},{"../alt":18,"../stores/NavbarStore":42,"underscore":"underscore"}],6:[function(require,module,exports){
+},{"../alt":19,"../stores/NavbarStore":44,"underscore":"underscore"}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -403,7 +403,7 @@ var ProfileRaidWeeksActions = function () {
 
 exports.default = _alt2.default.createActions(ProfileRaidWeeksActions);
 
-},{"../alt":18,"../stores/NavbarStore":42,"../stores/ProfileRaidWeeksStore":44,"underscore":"underscore"}],7:[function(require,module,exports){
+},{"../alt":19,"../stores/NavbarStore":44,"../stores/ProfileRaidWeeksStore":46,"underscore":"underscore"}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -456,7 +456,7 @@ var ProfileRostersActions = function () {
 
 exports.default = _alt2.default.createActions(ProfileRostersActions);
 
-},{"../alt":18,"../stores/NavbarStore":42,"underscore":"underscore"}],8:[function(require,module,exports){
+},{"../alt":19,"../stores/NavbarStore":44,"underscore":"underscore"}],8:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -485,7 +485,7 @@ var ScheduleViewActions = function ScheduleViewActions() {
 
 exports.default = _alt2.default.createActions(ScheduleViewActions);
 
-},{"../alt":18,"../stores/NavbarStore":42,"underscore":"underscore"}],9:[function(require,module,exports){
+},{"../alt":19,"../stores/NavbarStore":44,"underscore":"underscore"}],9:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -554,7 +554,7 @@ var SingleScheduleViewActions = function () {
 
 exports.default = _alt2.default.createActions(SingleScheduleViewActions);
 
-},{"../alt":18,"../stores/NavbarStore":42,"underscore":"underscore"}],10:[function(require,module,exports){
+},{"../alt":19,"../stores/NavbarStore":44,"underscore":"underscore"}],10:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -608,7 +608,7 @@ var AddRosterActions = function () {
 
 exports.default = _alt2.default.createActions(AddRosterActions);
 
-},{"../../alt":18,"./RosterManagementActions":16,"underscore":"underscore"}],11:[function(require,module,exports){
+},{"../../alt":19,"./RosterManagementActions":17,"underscore":"underscore"}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -631,7 +631,7 @@ var AdminActions = function AdminActions() {
 
 exports.default = _alt2.default.createActions(AdminActions);
 
-},{"../../alt":18}],12:[function(require,module,exports){
+},{"../../alt":19}],12:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -654,7 +654,30 @@ var AdminSideNavActions = function AdminSideNavActions() {
 
 exports.default = _alt2.default.createActions(AdminSideNavActions);
 
-},{"../../alt":18}],13:[function(require,module,exports){
+},{"../../alt":19}],13:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _alt = require('../../alt');
+
+var _alt2 = _interopRequireDefault(_alt);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var AttendaceManagementActions = function AttendaceManagementActions() {
+  _classCallCheck(this, AttendaceManagementActions);
+
+  this.generateActions('placeholder');
+};
+
+exports.default = _alt2.default.createActions(AttendaceManagementActions);
+
+},{"../../alt":19}],14:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -734,7 +757,7 @@ var CharacterManagementActions = function () {
 
 exports.default = _alt2.default.createActions(CharacterManagementActions);
 
-},{"./../../alt":18}],14:[function(require,module,exports){
+},{"./../../alt":19}],15:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -855,7 +878,7 @@ var RaidManagementActions = function () {
 
 exports.default = _alt2.default.createActions(RaidManagementActions);
 
-},{"../../alt":18}],15:[function(require,module,exports){
+},{"../../alt":19}],16:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -964,7 +987,7 @@ var RaidWeekManagementActions = function () {
 
 exports.default = _alt2.default.createActions(RaidWeekManagementActions);
 
-},{"./../../alt":18}],16:[function(require,module,exports){
+},{"./../../alt":19}],17:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1085,7 +1108,7 @@ var RosterManagementActions = function () {
 
 exports.default = _alt2.default.createActions(RosterManagementActions);
 
-},{"../../alt":18,"underscore":"underscore"}],17:[function(require,module,exports){
+},{"../../alt":19,"underscore":"underscore"}],18:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1258,7 +1281,7 @@ var ScheduleManagementActions = function () {
 
 exports.default = _alt2.default.createActions(ScheduleManagementActions);
 
-},{"./../../alt":18,"./../../stores/admin/ScheduleManagementStore":56,"underscore":"underscore"}],18:[function(require,module,exports){
+},{"./../../alt":19,"./../../stores/admin/ScheduleManagementStore":59,"underscore":"underscore"}],19:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1273,7 +1296,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = new _alt2.default();
 
-},{"alt":"alt"}],19:[function(require,module,exports){
+},{"alt":"alt"}],20:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1329,7 +1352,7 @@ var App = function (_React$Component) {
 
 exports.default = App;
 
-},{"./Footer":20,"./Navbar":22,"react":"react"}],20:[function(require,module,exports){
+},{"./Footer":21,"./Navbar":23,"react":"react"}],21:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1455,7 +1478,7 @@ var Footer = function (_React$Component) {
 
 exports.default = Footer;
 
-},{"../actions/FooterActions":1,"../stores/FooterStore":40,"react":"react","react-router":"react-router"}],21:[function(require,module,exports){
+},{"../actions/FooterActions":1,"../stores/FooterStore":42,"react":"react","react-router":"react-router"}],22:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1602,7 +1625,7 @@ var Home = function (_React$Component) {
 
 exports.default = Home;
 
-},{"../actions/HomeActions":2,"../stores/HomeStore":41,"../stores/NavbarStore":42,"moment":58,"react":"react","react-router":"react-router"}],22:[function(require,module,exports){
+},{"../actions/HomeActions":2,"../stores/HomeStore":43,"../stores/NavbarStore":44,"moment":61,"react":"react","react-router":"react-router"}],23:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1831,7 +1854,7 @@ var Navbar = function (_React$Component) {
 
 exports.default = Navbar;
 
-},{"../actions/NavbarActions":3,"../stores/NavbarStore":42,"react":"react","react-router":"react-router"}],23:[function(require,module,exports){
+},{"../actions/NavbarActions":3,"../stores/NavbarStore":44,"react":"react","react-router":"react-router"}],24:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1923,7 +1946,7 @@ var Profile = function (_React$Component) {
 
 exports.default = Profile;
 
-},{"../actions/ProfileActions":4,"../stores/NavbarStore":42,"../stores/ProfileStore":46,"./ProfileSidenav":27,"react":"react","react-router":"react-router"}],24:[function(require,module,exports){
+},{"../actions/ProfileActions":4,"../stores/NavbarStore":44,"../stores/ProfileStore":48,"./ProfileSidenav":28,"react":"react","react-router":"react-router"}],25:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2410,7 +2433,7 @@ var ProfileCharacters = function (_React$Component) {
 
 exports.default = ProfileCharacters;
 
-},{"../../utility/WowClasses":65,"../../utility/WowRaces":66,"../actions/ProfileCharactersActions":5,"../stores/NavbarStore":42,"../stores/ProfileCharactersStore":43,"./ProfileSidenav":27,"react":"react","react-router":"react-router","underscore":"underscore"}],25:[function(require,module,exports){
+},{"../../utility/WowClasses":68,"../../utility/WowRaces":69,"../actions/ProfileCharactersActions":5,"../stores/NavbarStore":44,"../stores/ProfileCharactersStore":45,"./ProfileSidenav":28,"react":"react","react-router":"react-router","underscore":"underscore"}],26:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2780,7 +2803,7 @@ var ProfileRaidWeeks = function (_React$Component) {
 
 exports.default = ProfileRaidWeeks;
 
-},{"../actions/ProfileRaidWeeksActions":6,"../stores/NavbarStore":42,"../stores/ProfileRaidWeeksStore":44,"./ProfileSidenav":27,"moment":58,"react":"react","react-router":"react-router","underscore":"underscore"}],26:[function(require,module,exports){
+},{"../actions/ProfileRaidWeeksActions":6,"../stores/NavbarStore":44,"../stores/ProfileRaidWeeksStore":46,"./ProfileSidenav":28,"moment":61,"react":"react","react-router":"react-router","underscore":"underscore"}],27:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2928,7 +2951,7 @@ var ProfileRosters = function (_React$Component) {
 
 exports.default = ProfileRosters;
 
-},{"../actions/ProfileRostersActions":7,"../stores/NavbarStore":42,"../stores/ProfileRostersStore":45,"./ProfileSidenav":27,"react":"react","react-router":"react-router"}],27:[function(require,module,exports){
+},{"../actions/ProfileRostersActions":7,"../stores/NavbarStore":44,"../stores/ProfileRostersStore":47,"./ProfileSidenav":28,"react":"react","react-router":"react-router"}],28:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3028,7 +3051,7 @@ var ProfileSidenav = function (_React$Component) {
 
 exports.default = ProfileSidenav;
 
-},{"react":"react","react-router":"react-router"}],28:[function(require,module,exports){
+},{"react":"react","react-router":"react-router"}],29:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3174,7 +3197,7 @@ var ScheduleView = function (_React$Component) {
 
 exports.default = ScheduleView;
 
-},{"../actions/ScheduleViewActions":8,"../stores/NavbarStore":42,"../stores/ScheduleViewStore":47,"./SingleScheduleView":29,"react":"react","react-router":"react-router"}],29:[function(require,module,exports){
+},{"../actions/ScheduleViewActions":8,"../stores/NavbarStore":44,"../stores/ScheduleViewStore":49,"./SingleScheduleView":30,"react":"react","react-router":"react-router"}],30:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3328,6 +3351,11 @@ var SingleScheduleView = function (_React$Component) {
             'div',
             { className: 'row' },
             _react2.default.createElement(
+              'h3',
+              null,
+              this.state.schedule.name
+            ),
+            _react2.default.createElement(
               'table',
               { className: 'table' },
               _react2.default.createElement(
@@ -3463,7 +3491,7 @@ var SingleScheduleView = function (_React$Component) {
 
 exports.default = SingleScheduleView;
 
-},{"../actions/SingleScheduleViewActions":9,"../stores/NavbarStore":42,"../stores/SingleScheduleViewStore":48,"./../../utility/WowClasses":65,"classnames":57,"react":"react","react-router":"react-router","underscore":"underscore"}],30:[function(require,module,exports){
+},{"../actions/SingleScheduleViewActions":9,"../stores/NavbarStore":44,"../stores/SingleScheduleViewStore":50,"./../../utility/WowClasses":68,"classnames":60,"react":"react","react-router":"react-router","underscore":"underscore"}],31:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3592,7 +3620,7 @@ var AddRoster = function (_React$Component) {
 
 exports.default = AddRoster;
 
-},{"../../actions/admin/AddRosterActions":10,"../../stores/admin/AddRosterStore":49,"react":"react","react-router":"react-router"}],31:[function(require,module,exports){
+},{"../../actions/admin/AddRosterActions":10,"../../stores/admin/AddRosterStore":51,"react":"react","react-router":"react-router"}],32:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3692,7 +3720,7 @@ var Admin = function (_React$Component) {
 
 exports.default = Admin;
 
-},{"../../actions/admin/AdminActions":11,"../../stores/admin/AdminStore":51,"./../../stores/NavbarStore":42,"./AdminSideNav":32,"react":"react","react-router":"react-router"}],32:[function(require,module,exports){
+},{"../../actions/admin/AdminActions":11,"../../stores/admin/AdminStore":53,"./../../stores/NavbarStore":44,"./AdminSideNav":33,"react":"react","react-router":"react-router"}],33:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3817,6 +3845,15 @@ var AdminSideNav = function (_React$Component) {
               { to: '/admin/raid' },
               'Raid Management'
             )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { to: '/admin/attendance' },
+              'Attendance Management'
+            )
           )
         )
       );
@@ -3828,7 +3865,107 @@ var AdminSideNav = function (_React$Component) {
 
 exports.default = AdminSideNav;
 
-},{"../../actions/admin/AdminSideNavActions":12,"../../stores/admin/AdminSideNavStore":50,"react":"react","react-router":"react-router"}],33:[function(require,module,exports){
+},{"../../actions/admin/AdminSideNavActions":12,"../../stores/admin/AdminSideNavStore":52,"react":"react","react-router":"react-router"}],34:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouter = require('react-router');
+
+var _AttendanceManagementStore = require('../../stores/admin/AttendanceManagementStore');
+
+var _AttendanceManagementStore2 = _interopRequireDefault(_AttendanceManagementStore);
+
+var _AttendanceManagementActions = require('../../actions/admin/AttendanceManagementActions');
+
+var _AttendanceManagementActions2 = _interopRequireDefault(_AttendanceManagementActions);
+
+var _AdminSideNav = require('./AdminSideNav');
+
+var _AdminSideNav2 = _interopRequireDefault(_AdminSideNav);
+
+var _NavbarStore = require('./../../stores/NavbarStore');
+
+var _NavbarStore2 = _interopRequireDefault(_NavbarStore);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var AttendanceManagement = function (_React$Component) {
+  _inherits(AttendanceManagement, _React$Component);
+
+  function AttendanceManagement(props) {
+    _classCallCheck(this, AttendanceManagement);
+
+    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AttendanceManagement).call(this, props));
+
+    _this.state = _AttendanceManagementStore2.default.getState();
+    _this.onChange = _this.onChange.bind(_this);
+    return _this;
+  }
+
+  _createClass(AttendanceManagement, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      if (_NavbarStore2.default.getState().userRole === 'member' || _NavbarStore2.default.getState().userRole === '') {
+        _reactRouter.browserHistory.push('/');
+        toastr.error('You do not have authorization to access Admin', 'YOU SHALL NOT PASS!!');
+      }
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      _AttendanceManagementStore2.default.listen(this.onChange);
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      _AttendanceManagementStore2.default.unlisten(this.onChange);
+    }
+  }, {
+    key: 'onChange',
+    value: function onChange(state) {
+      this.setState(state);
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { id: 'wrapper' },
+        _react2.default.createElement(_AdminSideNav2.default, null),
+        _react2.default.createElement(
+          'div',
+          { id: 'page-content-wrapper' },
+          _react2.default.createElement(
+            'div',
+            { className: 'container-fluid' },
+            _react2.default.createElement('div', { className: 'row' })
+          )
+        )
+      );
+    }
+  }]);
+
+  return AttendanceManagement;
+}(_react2.default.Component);
+
+exports.default = AttendanceManagement;
+
+},{"../../actions/admin/AttendanceManagementActions":13,"../../stores/admin/AttendanceManagementStore":54,"./../../stores/NavbarStore":44,"./AdminSideNav":33,"react":"react","react-router":"react-router"}],35:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -4092,7 +4229,7 @@ var CharacterManagement = function (_React$Component) {
 
 exports.default = CharacterManagement;
 
-},{"./../../../utility/WowClasses":65,"./../../../utility/WowRaces":66,"./../../actions/admin/CharacterManagementActions":13,"./../../stores/NavbarStore":42,"./../../stores/admin/CharacterManagementStore":52,"./AdminSideNav":32,"react":"react","react-router":"react-router","underscore":"underscore"}],34:[function(require,module,exports){
+},{"./../../../utility/WowClasses":68,"./../../../utility/WowRaces":69,"./../../actions/admin/CharacterManagementActions":14,"./../../stores/NavbarStore":44,"./../../stores/admin/CharacterManagementStore":55,"./AdminSideNav":33,"react":"react","react-router":"react-router","underscore":"underscore"}],36:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -4415,7 +4552,7 @@ var RaidManagement = function (_React$Component) {
 
 exports.default = RaidManagement;
 
-},{"../../actions/admin/RaidManagementActions":14,"../../stores/admin/RaidManagementStore":53,"./../../stores/NavbarStore":42,"./AdminSideNav":32,"react":"react","react-router":"react-router"}],35:[function(require,module,exports){
+},{"../../actions/admin/RaidManagementActions":15,"../../stores/admin/RaidManagementStore":56,"./../../stores/NavbarStore":44,"./AdminSideNav":33,"react":"react","react-router":"react-router"}],37:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -4815,7 +4952,7 @@ var RaidWeekManagement = function (_React$Component) {
 
 exports.default = RaidWeekManagement;
 
-},{"./../../actions/admin/RaidWeekManagementActions":15,"./../../stores/NavbarStore":42,"./../../stores/admin/RaidWeekManagementStore":54,"./AdminSideNav":32,"moment":58,"react":"react","react-router":"react-router","react-yearly-calendar":63}],36:[function(require,module,exports){
+},{"./../../actions/admin/RaidWeekManagementActions":16,"./../../stores/NavbarStore":44,"./../../stores/admin/RaidWeekManagementStore":57,"./AdminSideNav":33,"moment":61,"react":"react","react-router":"react-router","react-yearly-calendar":66}],38:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -5135,7 +5272,7 @@ var RosterManagement = function (_React$Component) {
 
 exports.default = RosterManagement;
 
-},{"../../actions/admin/RosterManagementActions":16,"../../stores/admin/RosterManagementStore":55,"./../../stores/NavbarStore":42,"./AddRoster":30,"./AdminSideNav":32,"react":"react","react-router":"react-router"}],37:[function(require,module,exports){
+},{"../../actions/admin/RosterManagementActions":17,"../../stores/admin/RosterManagementStore":58,"./../../stores/NavbarStore":44,"./AddRoster":31,"./AdminSideNav":33,"react":"react","react-router":"react-router"}],39:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6152,7 +6289,7 @@ var ScheduleManagement = function (_React$Component) {
 
 exports.default = ScheduleManagement;
 
-},{"./../../../utility/WowClasses":65,"./../../actions/admin/ScheduleManagementActions":17,"./../../stores/NavbarStore":42,"./../../stores/admin/ScheduleManagementStore":56,"./AdminSideNav":32,"classnames":57,"moment":58,"react":"react","react-router":"react-router","underscore":"underscore"}],38:[function(require,module,exports){
+},{"./../../../utility/WowClasses":68,"./../../actions/admin/ScheduleManagementActions":18,"./../../stores/NavbarStore":44,"./../../stores/admin/ScheduleManagementStore":59,"./AdminSideNav":33,"classnames":60,"moment":61,"react":"react","react-router":"react-router","underscore":"underscore"}],40:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -6182,7 +6319,7 @@ _reactDom2.default.render(_react2.default.createElement(
 
 //var Router = require('react-router').Router
 
-},{"./routes":39,"react":"react","react-dom":"react-dom","react-router":"react-router"}],39:[function(require,module,exports){
+},{"./routes":41,"react":"react","react-dom":"react-dom","react-router":"react-router"}],41:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6227,6 +6364,10 @@ var _RaidManagement = require('./components/admin/RaidManagement');
 
 var _RaidManagement2 = _interopRequireDefault(_RaidManagement);
 
+var _AttendanceManagement = require('./components/admin/AttendanceManagement');
+
+var _AttendanceManagement2 = _interopRequireDefault(_AttendanceManagement);
+
 var _Profile = require('./components/Profile');
 
 var _Profile2 = _interopRequireDefault(_Profile);
@@ -6263,10 +6404,11 @@ exports.default = _react2.default.createElement(
   _react2.default.createElement(_reactRouter.Route, { path: '/admin/schedule', component: _ScheduleManagement2.default }),
   _react2.default.createElement(_reactRouter.Route, { path: '/admin/raidweek', component: _RaidWeekManagement2.default }),
   _react2.default.createElement(_reactRouter.Route, { path: '/admin/raid', component: _RaidManagement2.default }),
+  _react2.default.createElement(_reactRouter.Route, { path: '/admin/attendance', component: _AttendanceManagement2.default }),
   _react2.default.createElement(_reactRouter.Route, { path: '/schedule', component: _ScheduleView2.default })
 );
 
-},{"./components/App":19,"./components/Home":21,"./components/Profile":23,"./components/ProfileCharacters":24,"./components/ProfileRaidWeeks":25,"./components/ProfileRosters":26,"./components/ScheduleView":28,"./components/admin/Admin":31,"./components/admin/CharacterManagement":33,"./components/admin/RaidManagement":34,"./components/admin/RaidWeekManagement":35,"./components/admin/RosterManagement":36,"./components/admin/ScheduleManagement":37,"react":"react","react-router":"react-router"}],40:[function(require,module,exports){
+},{"./components/App":20,"./components/Home":22,"./components/Profile":24,"./components/ProfileCharacters":25,"./components/ProfileRaidWeeks":26,"./components/ProfileRosters":27,"./components/ScheduleView":29,"./components/admin/Admin":32,"./components/admin/AttendanceManagement":34,"./components/admin/CharacterManagement":35,"./components/admin/RaidManagement":36,"./components/admin/RaidWeekManagement":37,"./components/admin/RosterManagement":38,"./components/admin/ScheduleManagement":39,"react":"react","react-router":"react-router"}],42:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6294,7 +6436,7 @@ var FooterStore = function FooterStore() {
 
 exports.default = _alt2.default.createStore(FooterStore);
 
-},{"../actions/FooterActions":1,"../alt":18}],41:[function(require,module,exports){
+},{"../actions/FooterActions":1,"../alt":19}],43:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6340,7 +6482,7 @@ var HomeStore = function () {
 
 exports.default = _alt2.default.createStore(HomeStore);
 
-},{"../actions/HomeActions":2,"../alt":18}],42:[function(require,module,exports){
+},{"../actions/HomeActions":2,"../alt":19}],44:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6445,7 +6587,7 @@ var NavbarStore = function () {
 
 exports.default = _alt2.default.createStore(NavbarStore);
 
-},{"../actions/NavbarActions":3,"../alt":18}],43:[function(require,module,exports){
+},{"../actions/NavbarActions":3,"../alt":19}],45:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6561,7 +6703,7 @@ var ProfileCharactersStore = function () {
 
 exports.default = _alt2.default.createStore(ProfileCharactersStore);
 
-},{"../actions/ProfileCharactersActions":5,"../alt":18}],44:[function(require,module,exports){
+},{"../actions/ProfileCharactersActions":5,"../alt":19}],46:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6646,7 +6788,7 @@ var ProfileRaidWeeksStore = function () {
 
 exports.default = _alt2.default.createStore(ProfileRaidWeeksStore);
 
-},{"../actions/ProfileRaidWeeksActions":6,"../alt":18}],45:[function(require,module,exports){
+},{"../actions/ProfileRaidWeeksActions":6,"../alt":19}],47:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6692,7 +6834,7 @@ var ProfileRostersStore = function () {
 
 exports.default = _alt2.default.createStore(ProfileRostersStore);
 
-},{"../actions/ProfileRostersActions":7,"../alt":18}],46:[function(require,module,exports){
+},{"../actions/ProfileRostersActions":7,"../alt":19}],48:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6719,7 +6861,7 @@ var ProfileStore = function ProfileStore() {
 
 exports.default = _alt2.default.createStore(ProfileStore);
 
-},{"../actions/ProfileActions":4,"../alt":18}],47:[function(require,module,exports){
+},{"../actions/ProfileActions":4,"../alt":19}],49:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6768,7 +6910,7 @@ var ScheduleViewStore = function () {
 
 exports.default = _alt2.default.createStore(ScheduleViewStore);
 
-},{"../actions/ScheduleViewActions":8,"../alt":18}],48:[function(require,module,exports){
+},{"../actions/ScheduleViewActions":8,"../alt":19}],50:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6825,7 +6967,7 @@ var SingleScheduleViewStore = function () {
 
 exports.default = _alt2.default.createStore(SingleScheduleViewStore);
 
-},{"../actions/SingleScheduleViewActions":9,"../alt":18}],49:[function(require,module,exports){
+},{"../actions/SingleScheduleViewActions":9,"../alt":19}],51:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6884,7 +7026,7 @@ var AddRosterStore = function () {
 
 exports.default = _alt2.default.createStore(AddRosterStore);
 
-},{"../../actions/admin/AddRosterActions":10,"../../alt":18}],50:[function(require,module,exports){
+},{"../../actions/admin/AddRosterActions":10,"../../alt":19}],52:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6911,7 +7053,7 @@ var AdminSideNavStore = function AdminSideNavStore() {
 
 exports.default = _alt2.default.createStore(AdminSideNavStore);
 
-},{"../../actions/admin/AdminSideNavActions":12,"../../alt":18}],51:[function(require,module,exports){
+},{"../../actions/admin/AdminSideNavActions":12,"../../alt":19}],53:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6938,7 +7080,34 @@ var AdminStore = function AdminStore() {
 
 exports.default = _alt2.default.createStore(AdminStore);
 
-},{"../../actions/admin/AdminActions":11,"../../alt":18}],52:[function(require,module,exports){
+},{"../../actions/admin/AdminActions":11,"../../alt":19}],54:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _alt = require('../../alt');
+
+var _alt2 = _interopRequireDefault(_alt);
+
+var _AttendanceManagementActions = require('../../actions/admin/AttendanceManagementActions');
+
+var _AttendanceManagementActions2 = _interopRequireDefault(_AttendanceManagementActions);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var AttendanceManagementStore = function AttendanceManagementStore() {
+  _classCallCheck(this, AttendanceManagementStore);
+
+  this.bindActions(_AttendanceManagementActions2.default);
+};
+
+exports.default = _alt2.default.createStore(AttendanceManagementStore);
+
+},{"../../actions/admin/AttendanceManagementActions":13,"../../alt":19}],55:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -7004,7 +7173,7 @@ var CharacterManagementStore = function () {
 
 exports.default = _alt2.default.createStore(CharacterManagementStore);
 
-},{"./../../actions/admin/CharacterManagementActions":13,"./../../alt":18}],53:[function(require,module,exports){
+},{"./../../actions/admin/CharacterManagementActions":14,"./../../alt":19}],56:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -7140,7 +7309,7 @@ var RaidManagementStore = function () {
 
 exports.default = _alt2.default.createStore(RaidManagementStore);
 
-},{"../../actions/admin/RaidManagementActions":14,"../../alt":18}],54:[function(require,module,exports){
+},{"../../actions/admin/RaidManagementActions":15,"../../alt":19}],57:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -7253,7 +7422,7 @@ var RaidWeekManagementStore = function () {
 
 exports.default = _alt2.default.createStore(RaidWeekManagementStore);
 
-},{"./../../actions/admin/RaidWeekManagementActions":15,"./../../alt":18,"moment":58}],55:[function(require,module,exports){
+},{"./../../actions/admin/RaidWeekManagementActions":16,"./../../alt":19,"moment":61}],58:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -7334,7 +7503,7 @@ var RosterManagementStore = function () {
 
 exports.default = _alt2.default.createStore(RosterManagementStore);
 
-},{"../../actions/admin/RosterManagementActions":16,"../../alt":18}],56:[function(require,module,exports){
+},{"../../actions/admin/RosterManagementActions":17,"../../alt":19}],59:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -7562,7 +7731,7 @@ var ScheduleManagementStore = function () {
 
 exports.default = _alt2.default.createStore(ScheduleManagementStore);
 
-},{"./../../actions/admin/ScheduleManagementActions":17,"./../../alt":18,"moment":58}],57:[function(require,module,exports){
+},{"./../../actions/admin/ScheduleManagementActions":18,"./../../alt":19,"moment":61}],60:[function(require,module,exports){
 /*!
   Copyright (c) 2016 Jed Watson.
   Licensed under the MIT License (MIT), see
@@ -7612,7 +7781,7 @@ exports.default = _alt2.default.createStore(ScheduleManagementStore);
 	}
 }());
 
-},{}],58:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 //! moment.js
 //! version : 2.13.0
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
@@ -11653,7 +11822,7 @@ exports.default = _alt2.default.createStore(ScheduleManagementStore);
     return _moment;
 
 }));
-},{}],59:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 'use strict';
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -11853,7 +12022,7 @@ exports.default = Calendar;
 
 Calendar.propTypes = propTypes;
 Calendar.defaultProps = defaultProps;
-},{"./Month":62,"./utils":64,"moment":58,"react":"react"}],60:[function(require,module,exports){
+},{"./Month":65,"./utils":67,"moment":61,"react":"react"}],63:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -11953,7 +12122,7 @@ var CalendarControls = (function (_React$Component) {
 exports.default = CalendarControls;
 
 CalendarControls.propTypes = propTypes;
-},{"react":"react"}],61:[function(require,module,exports){
+},{"react":"react"}],64:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -12046,7 +12215,7 @@ var Day = exports.Day = (function (_React$Component) {
 
 Day.propTypes = propTypes;
 Day.defaultProps = defaultProps;
-},{"react":"react"}],62:[function(require,module,exports){
+},{"react":"react"}],65:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -12360,7 +12529,7 @@ var Month = exports.Month = (function (_React$Component) {
 
 Month.propTypes = propTypes;
 Month.defaultProps = defaultProps;
-},{"./Day":61,"./utils":64,"moment":58,"react":"react"}],63:[function(require,module,exports){
+},{"./Day":64,"./utils":67,"moment":61,"react":"react"}],66:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -12384,7 +12553,7 @@ Object.defineProperty(exports, 'CalendarControls', {
     return _CalendarControls.default;
   }
 });
-},{"./Calendar":59,"./CalendarControls":60}],64:[function(require,module,exports){
+},{"./Calendar":62,"./CalendarControls":63}],67:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -12408,7 +12577,7 @@ function range(start, stop, step) {
 
   return range;
 };
-},{}],65:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 "use strict";
 
 module.exports = [{
@@ -12479,7 +12648,7 @@ module.exports = [{
     "token": "prot"
 }];
 
-},{}],66:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 "use strict";
 
 module.exports = [{
@@ -12559,7 +12728,7 @@ module.exports = [{
     "name": "Pandaren"
 }];
 
-},{}]},{},[38])
+},{}]},{},[40])
 
 
 //# sourceMappingURL=bundle.js.map
