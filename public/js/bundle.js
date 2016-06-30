@@ -661,6 +661,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _alt = require('../../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
@@ -669,11 +671,20 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var AttendaceManagementActions = function AttendaceManagementActions() {
-  _classCallCheck(this, AttendaceManagementActions);
+var AttendaceManagementActions = function () {
+  function AttendaceManagementActions() {
+    _classCallCheck(this, AttendaceManagementActions);
 
-  this.generateActions('placeholder');
-};
+    this.generateActions('loadComponentDataSuccess', 'loadComponentDataFailure');
+  }
+
+  _createClass(AttendaceManagementActions, [{
+    key: 'loadComponentData',
+    value: function loadComponentData() {}
+  }]);
+
+  return AttendaceManagementActions;
+}();
 
 exports.default = _alt2.default.createActions(AttendaceManagementActions);
 
@@ -3930,6 +3941,7 @@ var AttendanceManagement = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _AttendanceManagementStore2.default.listen(this.onChange);
+      _AttendanceManagementActions2.default.loadComponentData();
     }
   }, {
     key: 'componentWillUnmount',

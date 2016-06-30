@@ -3,8 +3,13 @@ import alt from '../../alt';
 class AttendaceManagementActions {
   constructor() {
     this.generateActions(
-      'placeholder'
+      'loadComponentDataSuccess',
+      'loadComponentDataFailure'
     );
+  }
+
+  loadComponentData() {
+
   }
 }
 

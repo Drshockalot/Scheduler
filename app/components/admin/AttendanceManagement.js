@@ -22,6 +22,7 @@ class AttendanceManagement extends React.Component {
 
   componentDidMount() {
     AttendanceManagementStore.listen(this.onChange);
+    AttendanceManagementActions.loadComponentData();
   }
 
   componentWillUnmount() {

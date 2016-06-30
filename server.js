@@ -12,9 +12,6 @@ var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 
-// var mongoose = require('mongoose');
-// var config = require('./config');
-
 var Roster_Routes = require('./api/roster');
 var Auth_Routes = require('./api/auth');
 var User_Routes = require('./api/user');
@@ -24,6 +21,7 @@ var Raid_Routes = require('./api/raid');
 var Boss_Routes = require('./api/boss');
 var Schedule_Routes = require('./api/schedule');
 var Home_Routes = require('./api/home');
+var Attendance_Routes = require('./api/attendance');
 
 var fs = require('fs');
 var cors = require('cors');
@@ -36,11 +34,6 @@ var session = require('express-session');
 
 var app = express();
 
-// mongoose.connect(config.database);
-// mongoose.connection.on('error', function() {
-//   console.info('Error: Could not connect to MongoDB. Did you forget to run `mongod`?');
-// });
-
 app.set('port', process.env.PORT || 3000);
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -48,18 +41,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(cors());
-
-// app.use(function(req, res, next) {
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, apikey");
-//     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-//     res.header("Access-Control-Max-Age", "86400");
-//
-//     if (req.method.toLowerCase() !== "options") {
-//         return next();
-//     }
-//     return res.sendStatus(204);
-// });
 
 app.use(cookieParser());
 app.use(session({ secret: 'blizzard',
@@ -80,6 +61,7 @@ app.use('/api/raid/', Raid_Routes);
 app.use('/api/boss/', Boss_Routes);
 app.use('/api/schedule/', Schedule_Routes);
 app.use('/api/home/', Home_Routes);
+app.use('/api/attendance', Attendance_Routes);
 
 app.use(function(req, res) {
   Router.match({ routes: routes.default, location: req.url }, function(err, redirectLocation, renderProps) {
@@ -97,57 +79,23 @@ app.use(function(req, res) {
   });
 });
 
-// require('ssl-root-cas')
-//   .inject()
-//   .addFile(path.join(__dirname, 'self-certs', 'server', 'my-private-root-ca.cert.pem'))
-//   ;
-//
-// var options = {
-//   key: fs.readFileSync(path.join(__dirname, 'self-certs', 'server', 'privkey.pem'))
-// // You don't need to specify `ca`, it's done by `ssl-root-cas`
-// //, ca: [ fs.readFileSync(path.join(__dirname, 'certs', 'server', 'my-root-ca.crt.pem'))]
-// , cert: fs.readFileSync(path.join(__dirname, 'self-certs', 'server', 'cert.pem'))
-// };
-
 /**
  * Socket.io stuff.
  */
 var server = require('http').createServer(app);
-//var httpsServer = require('https').createServer(options, app);
 var io = require('socket.io')(server);
-//var ioSecure = require('socket.io')(httpsServer);
 var onlineUsers = 0;
 
 io.sockets.on('connection', function(socket) {
   onlineUsers++;
 
   io.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
-//  ioSecure.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
-
   socket.on('disconnect', function() {
     onlineUsers--;
     io.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
-  //  ioSecure.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
   });
 });
-
-// ioSecure.sockets.on('connection', function(socket) {
-//   onlineUsers++;
-//
-//   io.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
-//   ioSecure.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
-//
-//   socket.on('disconnect', function() {
-//     onlineUsers--;
-//     io.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
-//     ioSecure.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
-//   });
-// });
 
 server.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
 });
-
-// httpsServer.listen(8443, function() {
-//   console.log('Express HTTPS server listening on port ' + 8443);
-// });
