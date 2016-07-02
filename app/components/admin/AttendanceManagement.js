@@ -85,7 +85,7 @@ class AttendanceManagement extends React.Component {
                       </div>
                       <div className='form-group'>
                         <label className='col-sm-2 control-label'>Week Day:</label>
-                        <div className='col-sm-1'>
+                        <div className='col-sm-2'>
                           {selectWeekdayRadios}
                         </div>
                       </div>
