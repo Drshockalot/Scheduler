@@ -4002,7 +4002,7 @@ var AttendanceManagement = function (_React$Component) {
             } },
           _react2.default.createElement(
             'div',
-            { className: (0, _classnames2.default)('radio', { 'disabled': !currentRaidWeek.sunday }) },
+            { className: (0, _classnames2.default)({ 'disabled': !currentRaidWeek.sunday }) },
             _react2.default.createElement(
               'label',
               null,
@@ -4012,7 +4012,7 @@ var AttendanceManagement = function (_React$Component) {
           ),
           _react2.default.createElement(
             'div',
-            { className: (0, _classnames2.default)('radio', { 'disabled': !currentRaidWeek.monday }) },
+            { className: (0, _classnames2.default)({ 'disabled': !currentRaidWeek.monday }) },
             _react2.default.createElement(
               'label',
               null,
@@ -4022,7 +4022,7 @@ var AttendanceManagement = function (_React$Component) {
           ),
           _react2.default.createElement(
             'div',
-            { className: (0, _classnames2.default)('radio', { 'disabled': !currentRaidWeek.tuesday }) },
+            { className: (0, _classnames2.default)({ 'disabled': !currentRaidWeek.tuesday }) },
             _react2.default.createElement(
               'label',
               null,
@@ -4032,7 +4032,7 @@ var AttendanceManagement = function (_React$Component) {
           ),
           _react2.default.createElement(
             'div',
-            { className: (0, _classnames2.default)('radio', { 'disabled': !currentRaidWeek.wednesday }) },
+            { className: (0, _classnames2.default)({ 'disabled': !currentRaidWeek.wednesday }) },
             _react2.default.createElement(
               'label',
               null,
@@ -4042,7 +4042,7 @@ var AttendanceManagement = function (_React$Component) {
           ),
           _react2.default.createElement(
             'div',
-            { className: (0, _classnames2.default)('radio', { 'disabled': !currentRaidWeek.thursday }) },
+            { className: (0, _classnames2.default)({ 'disabled': !currentRaidWeek.thursday }) },
             _react2.default.createElement(
               'label',
               null,
@@ -4052,7 +4052,7 @@ var AttendanceManagement = function (_React$Component) {
           ),
           _react2.default.createElement(
             'div',
-            { className: (0, _classnames2.default)('radio', { 'disabled': !currentRaidWeek.friday }) },
+            { className: (0, _classnames2.default)({ 'disabled': !currentRaidWeek.friday }) },
             _react2.default.createElement(
               'label',
               null,
@@ -4062,7 +4062,7 @@ var AttendanceManagement = function (_React$Component) {
           ),
           _react2.default.createElement(
             'div',
-            { className: (0, _classnames2.default)('radio', { 'disabled': !currentRaidWeek.saturday }) },
+            { className: (0, _classnames2.default)({ 'disabled': !currentRaidWeek.saturday }) },
             _react2.default.createElement(
               'label',
               null,
