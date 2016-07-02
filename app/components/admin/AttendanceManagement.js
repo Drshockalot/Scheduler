@@ -36,6 +36,15 @@ class AttendanceManagement extends React.Component {
   }
 
   render() {
+    var selectRaidWeekOptions;
+    if(this.state.raidweeks.length > 0) {
+      selectRaidWeekOptions = this.state.raidweeks.map(function(raidweek) {
+        return (
+          <option key={raidweek.id} value={raidweek.id}>{raidweek.id}</option>
+        )
+      }, this);
+    }
+
     return (
       <div id='wrapper'>
       <AdminSideNav />

@@ -3971,6 +3971,17 @@ var AttendanceManagement = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var selectRaidWeekOptions;
+      if (this.state.raidweeks.length > 0) {
+        selectRaidWeekOptions = this.state.raidweeks.map(function (raidweek) {
+          return _react2.default.createElement(
+            'option',
+            { key: raidweek.id, value: raidweek.id },
+            raidweek.id
+          );
+        }, this);
+      }
+
       return _react2.default.createElement(
         'div',
         { id: 'wrapper' },
