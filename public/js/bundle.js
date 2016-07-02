@@ -4145,7 +4145,7 @@ var AttendanceManagement = function (_React$Component) {
                           _react2.default.createElement(
                             'div',
                             { className: 'dropzone-content' },
-                            'some content'
+                            'Drag or click here to upload file (.txt or .csv)'
                           )
                         )
                       )
