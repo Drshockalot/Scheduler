@@ -4133,7 +4133,7 @@ var AttendanceManagement = function (_React$Component) {
                           selectWeekdayRadios,
                           _react2.default.createElement(
                             'div',
-                            { className: 'radio' },
+                            null,
                             _react2.default.createElement(
                               'label',
                               null,
