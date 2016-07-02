@@ -4000,8 +4000,16 @@ var AttendanceManagement = function (_React$Component) {
           { className: 'radio', name: 'weekday', selectedValue: this.state.selectWeekday, onChange: function onChange(value) {
               return _AttendanceManagementActions2.default.updateSelectWeekday(value);
             } },
-          _react2.default.createElement(_reactRadioGroup.Radio, { className: 'radio', value: 'sunday', disabled: !currentRaidWeek.sunday ? true : false }),
-          'Sunday',
+          _react2.default.createElement(
+            'div',
+            { className: (0, _classnames2.default)('radio', { 'disabled': !currentRaidWeek.sunday }) },
+            _react2.default.createElement(
+              'label',
+              null,
+              _react2.default.createElement(_reactRadioGroup.Radio, { className: 'radio', value: 'sunday', disabled: !currentRaidWeek.sunday ? true : false }),
+              'Sunday'
+            )
+          ),
           _react2.default.createElement(
             'div',
             { className: (0, _classnames2.default)('radio', { 'disabled': !currentRaidWeek.monday }) },
