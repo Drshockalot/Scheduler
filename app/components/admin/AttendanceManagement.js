@@ -8,6 +8,7 @@ import { browserHistory } from 'react-router';
 
 import _ from 'underscore';
 import {RadioGroup, Radio} from 'react-radio-group'
+import moment from 'moment';
 
 class AttendanceManagement extends React.Component {
   constructor(props) {
@@ -41,7 +42,7 @@ class AttendanceManagement extends React.Component {
     if(this.state.raidweeks.length > 0) {
       selectRaidWeekOptions = this.state.raidweeks.map(function(raidweek) {
         return (
-          <option key={raidweek.id} value={raidweek.id}>{raidweek.id}</option>
+          <option key={raidweek.id} value={raidweek.id}>moment(raidweek.start).format('W')</option>
         )
       }, this);
 
@@ -49,13 +50,13 @@ class AttendanceManagement extends React.Component {
 
       selectWeekdayRadios = (
         <RadioGroup name='weekday' selectedValue={this.state.selectWeekday} onChange={e => AttendanceManagementActions.updateSelectWeekday(e.target.value)}>
-          <Radio value='sunday' disabled={!currentRaidWeek.sunday ? 'disabled' : 'enabled'}/>Sunday
-          <Radio value='monday' disabled={!currentRaidWeek.monday ? 'disabled' : 'enabled'}/>Monday
-          <Radio value='tuesday' disabled={!currentRaidWeek.tuesday ? 'disabled' : 'enabled'}/>Tuesday
-          <Radio value='wednesday' disabled={!currentRaidWeek.wednesday ? 'disabled' : 'enabled'}/>Wednesday
-          <Radio value='thursday' disabled={!currentRaidWeek.thursday ? 'disabled' : 'enabled'}/>Thursday
-          <Radio value='friday' disabled={!currentRaidWeek.friday ? 'disabled' : 'enabled'}/>Friday
-          <Radio value='saturday' disabled={!currentRaidWeek.saturday ? 'disabled' : 'enabled'}/>Saturday
+          <label><Radio value='sunday' disabled={!currentRaidWeek.sunday ? 'disabled' : 'enabled'}/>Sunday</label>
+          <label><Radio value='monday' disabled={!currentRaidWeek.monday ? 'disabled' : 'enabled'}/>Monday</label>
+          <label><Radio value='tuesday' disabled={!currentRaidWeek.tuesday ? 'disabled' : 'enabled'}/>Tuesday</label>
+          <label><Radio value='wednesday' disabled={!currentRaidWeek.wednesday ? 'disabled' : 'enabled'}/>Wednesday</label>
+          <label><Radio value='thursday' disabled={!currentRaidWeek.thursday ? 'disabled' : 'enabled'}/>Thursday</label>
+          <label><Radio value='friday' disabled={!currentRaidWeek.friday ? 'disabled' : 'enabled'}/>Friday</label>
+          <label><Radio value='saturday' disabled={!currentRaidWeek.saturday ? 'disabled' : 'enabled'}/>Saturday</label>
         </RadioGroup>
       )
     }
