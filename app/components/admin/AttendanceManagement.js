@@ -97,9 +97,11 @@ class AttendanceManagement extends React.Component {
                   <div className='row'>
                     <h3>Upload File</h3>
                     <div className='row'>
-                    <Dropzone className='dropzone' onDrop={this.onDrop}>
-                      <div className="dropzone-content">some content</div>
-                    </Dropzone>
+                      <div className='dropzone'>
+                        <Dropzone onDrop={this.onDrop}>
+                          <div className="dropzone-content">some content</div>
+                        </Dropzone>
+                      </div>
                     </div>
                     <h3>Upload Text</h3>
                     <div className='row'>
