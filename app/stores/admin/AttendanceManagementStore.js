@@ -11,6 +11,7 @@ class AttendanceManagementStore {
 
   onLoadComponentDataSuccess(result) {
     this.raidweeks = result.data.raidweeks;
+    this.selectRaidWeek = this.raidsweeks[0].id;
   }
 
   onLoadComponentDataFailure(jqXhr) {
