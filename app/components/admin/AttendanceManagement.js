@@ -49,7 +49,7 @@ class AttendanceManagement extends React.Component {
       var currentRaidWeek = _.findWhere(this.state.raidweeks, {id: this.state.selectRaidWeek});
 
       selectWeekdayRadios = (
-        <RadioGroup name='weekday' selectedValue={this.state.selectWeekday} onChange={e => AttendanceManagementActions.updateSelectWeekday(e.target.value)}>
+        <RadioGroup className='radio' name='weekday' selectedValue={this.state.selectWeekday} onChange={e => AttendanceManagementActions.updateSelectWeekday(e.target.value)}>
           <label><Radio className='form-control' value='sunday' disabled={!currentRaidWeek.sunday ? true : false}/>Sunday</label>
           <label><Radio className='form-control' value='monday' disabled={!currentRaidWeek.monday ? true : false}/>Monday</label>
           <label><Radio className='form-control' value='tuesday' disabled={!currentRaidWeek.tuesday ? true : false}/>Tuesday</label>
