@@ -10,6 +10,7 @@ import _ from 'underscore';
 import {RadioGroup, Radio} from 'react-radio-group'
 import moment from 'moment';
 import classNames from 'classnames';
+import Dropzone from 'react-dropzone';
 
 class AttendanceManagement extends React.Component {
   constructor(props) {
@@ -36,6 +37,10 @@ class AttendanceManagement extends React.Component {
 
   onChange(state) {
     this.setState(state);
+  }
+
+  onDrop(files) {
+    console.log('Received files: ', files);
   }
 
   render() {
@@ -70,8 +75,8 @@ class AttendanceManagement extends React.Component {
             <div className='row'>
               <div className='col-md-12'>
                 <div className='col-md-10 col-md-offset-1'>
-                  <h2>Select Raid</h2>
                   <div className='row'>
+                    <h2>Select Raid</h2>
                     <div className='form-horizontal'>
                       <div className='form-group'>
                         <label className='col-sm-2 control-label'>Raid Week:</label>
@@ -87,6 +92,19 @@ class AttendanceManagement extends React.Component {
                           {selectWeekdayButtons}
                         </div>
                       </div>
+                    </div>
+                  </div>
+                  <div className='row'>
+                    <h3>Upload File</h3>
+                    <div className='row'>
+                    <Dropzone onDrop={this.onDrop}>
+                      <div className="dropzone-content">some content</div>
+                    </Dropzone>
+                    </div>
+                    <h3>Upload Text</h3>
+                    <div className='row'>
+                      <textarea className='form-control' />
+                      <button className='btn btn-default pull-right'>Upload</button>
                     </div>
                   </div>
                 </div>
