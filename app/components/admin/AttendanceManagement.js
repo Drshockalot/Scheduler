@@ -49,13 +49,13 @@ class AttendanceManagement extends React.Component {
 
       selectWeekdayRadios = (
         <RadioGroup name='weekday' selectedValue={this.state.selectWeekday} onChange={e => AttendanceManagementActions.updateSelectWeekday(e.target.value)}>
-          <Radio value='sunday' disabled={!currentRaidWeek.sunday ? 'disabled' : 'enabled'}>Sunday</Radio>
-          <Radio value='monday' disabled={!currentRaidWeek.monday ? 'disabled' : 'enabled'}>Monday</Radio>
-          <Radio value='tuesday' disabled={!currentRaidWeek.tuesday ? 'disabled' : 'enabled'}>Tuesday</Radio>
-          <Radio value='wednesday' disabled={!currentRaidWeek.wednesday ? 'disabled' : 'enabled'}>Wednesday</Radio>
-          <Radio value='thursday' disabled={!currentRaidWeek.thursday ? 'disabled' : 'enabled'}>Thursday</Radio>
-          <Radio value='friday' disabled={!currentRaidWeek.friday ? 'disabled' : 'enabled'}>Friday</Radio>
-          <Radio value='saturday' disabled={!currentRaidWeek.saturday ? 'disabled' : 'enabled'}>Saturday</Radio>
+          <Radio value='sunday' disabled={!currentRaidWeek.sunday ? 'disabled' : 'enabled'}/>Sunday
+          <Radio value='monday' disabled={!currentRaidWeek.monday ? 'disabled' : 'enabled'}/>Monday
+          <Radio value='tuesday' disabled={!currentRaidWeek.tuesday ? 'disabled' : 'enabled'}/>Tuesday
+          <Radio value='wednesday' disabled={!currentRaidWeek.wednesday ? 'disabled' : 'enabled'}/>Wednesday
+          <Radio value='thursday' disabled={!currentRaidWeek.thursday ? 'disabled' : 'enabled'}/>Thursday
+          <Radio value='friday' disabled={!currentRaidWeek.friday ? 'disabled' : 'enabled'}/>Friday
+          <Radio value='saturday' disabled={!currentRaidWeek.saturday ? 'disabled' : 'enabled'}/>Saturday
         </RadioGroup>
       )
     }
