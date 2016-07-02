@@ -134,7 +134,7 @@ table.calendar td.selectedweek.selected {
 .dropzone {
   border-radius: 10px;
   width: 70%;
-  height: 100px;
+  height: 50px;
   border: 2px dashed blue;
   margin: 0px;
   padding: 50%;
