@@ -4105,7 +4105,7 @@ var AttendanceManagement = function (_React$Component) {
                         ),
                         _react2.default.createElement(
                           'div',
-                          { className: 'col-sm-10' },
+                          { className: 'col-sm-2' },
                           selectWeekdayRadios
                         )
                       )
