@@ -4136,7 +4136,7 @@ var AttendanceManagement = function (_React$Component) {
                             null,
                             _react2.default.createElement(
                               'label',
-                              { className: 'radio' },
+                              { className: 'radio-inline' },
                               _react2.default.createElement('input', { type: 'radio', name: 'optionsRadios', id: 'optionsRadios2', value: 'option2' }),
                               'Option two can be something else and selecting it will deselect option one'
                             )

@@ -86,7 +86,7 @@ class AttendanceManagement extends React.Component {
                         <div className='col-sm-10'>
                           {selectWeekdayRadios}
                           <div>
-  <label className='radio'>
+  <label className='radio-inline'>
     <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"/>
     Option two can be something else and selecting it will deselect option one
   </label>
