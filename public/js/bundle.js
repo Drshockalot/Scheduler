@@ -4134,7 +4134,17 @@ var AttendanceManagement = function (_React$Component) {
                         _react2.default.createElement(
                           'div',
                           { className: 'col-sm-10' },
-                          selectWeekdayRadios
+                          selectWeekdayRadios,
+                          _react2.default.createElement(
+                            'div',
+                            { 'class': 'radio' },
+                            _react2.default.createElement(
+                              'label',
+                              null,
+                              _react2.default.createElement('input', { type: 'radio', name: 'optionsRadios', id: 'optionsRadios2', value: 'option2' }),
+                              'Option two can be something else and selecting it will deselect option one'
+                            )
+                          )
                         )
                       )
                     )
