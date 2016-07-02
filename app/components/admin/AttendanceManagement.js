@@ -42,7 +42,7 @@ class AttendanceManagement extends React.Component {
     if(this.state.raidweeks.length > 0) {
       selectRaidWeekOptions = this.state.raidweeks.map(function(raidweek) {
         return (
-          <option key={raidweek.id} value={raidweek.id}>moment(raidweek.start).format('W')</option>
+          <option key={raidweek.id} value={raidweek.id}>{moment(raidweek.start).format('W')}</option>
         )
       }, this);
 
@@ -50,13 +50,13 @@ class AttendanceManagement extends React.Component {
 
       selectWeekdayRadios = (
         <RadioGroup name='weekday' selectedValue={this.state.selectWeekday} onChange={e => AttendanceManagementActions.updateSelectWeekday(e.target.value)}>
-          <label><Radio value='sunday' disabled={!currentRaidWeek.sunday ? 'disabled' : 'enabled'}/>Sunday</label>
-          <label><Radio value='monday' disabled={!currentRaidWeek.monday ? 'disabled' : 'enabled'}/>Monday</label>
-          <label><Radio value='tuesday' disabled={!currentRaidWeek.tuesday ? 'disabled' : 'enabled'}/>Tuesday</label>
-          <label><Radio value='wednesday' disabled={!currentRaidWeek.wednesday ? 'disabled' : 'enabled'}/>Wednesday</label>
-          <label><Radio value='thursday' disabled={!currentRaidWeek.thursday ? 'disabled' : 'enabled'}/>Thursday</label>
-          <label><Radio value='friday' disabled={!currentRaidWeek.friday ? 'disabled' : 'enabled'}/>Friday</label>
-          <label><Radio value='saturday' disabled={!currentRaidWeek.saturday ? 'disabled' : 'enabled'}/>Saturday</label>
+          <label><Radio className='form-control' value='sunday' disabled={!currentRaidWeek.sunday ? true : false}/>Sunday</label>
+          <label><Radio className='form-control' value='monday' disabled={!currentRaidWeek.monday ? true : false}/>Monday</label>
+          <label><Radio className='form-control' value='tuesday' disabled={!currentRaidWeek.tuesday ? true : false}/>Tuesday</label>
+          <label><Radio className='form-control' value='wednesday' disabled={!currentRaidWeek.wednesday ? true : false}/>Wednesday</label>
+          <label><Radio className='form-control' value='thursday' disabled={!currentRaidWeek.thursday ? true : false}/>Thursday</label>
+          <label><Radio className='form-control' value='friday' disabled={!currentRaidWeek.friday ? true : false}/>Friday</label>
+          <label><Radio className='form-control' value='saturday' disabled={!currentRaidWeek.saturday ? true : false}/>Saturday</label>
         </RadioGroup>
       )
     }
@@ -75,7 +75,7 @@ class AttendanceManagement extends React.Component {
                       <div className='form-group'>
                         <label className='col-sm-2 control-label'>Raid Week:</label>
                         <div className='col-sm-10'>
-                          <select value={this.state.selectRaidWeek} onChange={e => AttendanceManagementActions.updateSelectRaidWeek(e.target.value)}>
+                          <select className='form-control' value={this.state.selectRaidWeek} onChange={e => AttendanceManagementActions.updateSelectRaidWeek(e.target.value)}>
                             {selectRaidWeekOptions}
                           </select>
                         </div>

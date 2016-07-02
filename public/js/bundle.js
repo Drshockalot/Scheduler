@@ -3985,7 +3985,7 @@ var AttendanceManagement = function (_React$Component) {
           return _react2.default.createElement(
             'option',
             { key: raidweek.id, value: raidweek.id },
-            'moment(raidweek.start).format(\'W\')'
+            (0, _moment2.default)(raidweek.start).format('W')
           );
         }, this);
 
@@ -3999,43 +3999,43 @@ var AttendanceManagement = function (_React$Component) {
           _react2.default.createElement(
             'label',
             null,
-            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'sunday', disabled: !currentRaidWeek.sunday ? 'disabled' : 'enabled' }),
+            _react2.default.createElement(_reactRadioGroup.Radio, { className: 'form-control', value: 'sunday', disabled: !currentRaidWeek.sunday ? true : false }),
             'Sunday'
           ),
           _react2.default.createElement(
             'label',
             null,
-            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'monday', disabled: !currentRaidWeek.monday ? 'disabled' : 'enabled' }),
+            _react2.default.createElement(_reactRadioGroup.Radio, { className: 'form-control', value: 'monday', disabled: !currentRaidWeek.monday ? true : false }),
             'Monday'
           ),
           _react2.default.createElement(
             'label',
             null,
-            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'tuesday', disabled: !currentRaidWeek.tuesday ? 'disabled' : 'enabled' }),
+            _react2.default.createElement(_reactRadioGroup.Radio, { className: 'form-control', value: 'tuesday', disabled: !currentRaidWeek.tuesday ? true : false }),
             'Tuesday'
           ),
           _react2.default.createElement(
             'label',
             null,
-            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'wednesday', disabled: !currentRaidWeek.wednesday ? 'disabled' : 'enabled' }),
+            _react2.default.createElement(_reactRadioGroup.Radio, { className: 'form-control', value: 'wednesday', disabled: !currentRaidWeek.wednesday ? true : false }),
             'Wednesday'
           ),
           _react2.default.createElement(
             'label',
             null,
-            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'thursday', disabled: !currentRaidWeek.thursday ? 'disabled' : 'enabled' }),
+            _react2.default.createElement(_reactRadioGroup.Radio, { className: 'form-control', value: 'thursday', disabled: !currentRaidWeek.thursday ? true : false }),
             'Thursday'
           ),
           _react2.default.createElement(
             'label',
             null,
-            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'friday', disabled: !currentRaidWeek.friday ? 'disabled' : 'enabled' }),
+            _react2.default.createElement(_reactRadioGroup.Radio, { className: 'form-control', value: 'friday', disabled: !currentRaidWeek.friday ? true : false }),
             'Friday'
           ),
           _react2.default.createElement(
             'label',
             null,
-            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'saturday', disabled: !currentRaidWeek.saturday ? 'disabled' : 'enabled' }),
+            _react2.default.createElement(_reactRadioGroup.Radio, { className: 'form-control', value: 'saturday', disabled: !currentRaidWeek.saturday ? true : false }),
             'Saturday'
           )
         );
@@ -4084,7 +4084,7 @@ var AttendanceManagement = function (_React$Component) {
                           { className: 'col-sm-10' },
                           _react2.default.createElement(
                             'select',
-                            { value: this.state.selectRaidWeek, onChange: function onChange(e) {
+                            { className: 'form-control', value: this.state.selectRaidWeek, onChange: function onChange(e) {
                                 return _AttendanceManagementActions2.default.updateSelectRaidWeek(e.target.value);
                               } },
                             selectRaidWeekOptions
