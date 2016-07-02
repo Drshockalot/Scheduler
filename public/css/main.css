@@ -143,10 +143,9 @@ table.calendar td.selectedweek.selected {
 .dropzone-content {
   height: 20%;
   width: 30%;
-  vertical-align: middle;
   margin-left: auto;
   margin-right: auto;
-  display: inline-block;
+  margin-top: 50%;
 }
 .rwHeader {
   background-color: #FFB275;
