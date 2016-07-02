@@ -4006,7 +4006,7 @@ var AttendanceManagement = function (_React$Component) {
             _react2.default.createElement(
               'label',
               null,
-              _react2.default.createElement(_reactRadioGroup.Radio, { className: 'radio', value: 'sunday', disabled: !currentRaidWeek.sunday ? true : false }),
+              _react2.default.createElement(_reactRadioGroup.Radio, { value: 'sunday', disabled: !currentRaidWeek.sunday ? true : false }),
               'Sunday'
             )
           ),
@@ -4016,7 +4016,7 @@ var AttendanceManagement = function (_React$Component) {
             _react2.default.createElement(
               'label',
               null,
-              _react2.default.createElement(_reactRadioGroup.Radio, { className: 'radio', value: 'monday', disabled: !currentRaidWeek.monday ? true : false }),
+              _react2.default.createElement(_reactRadioGroup.Radio, { value: 'monday', disabled: !currentRaidWeek.monday ? true : false }),
               'Monday'
             )
           ),
@@ -4026,7 +4026,7 @@ var AttendanceManagement = function (_React$Component) {
             _react2.default.createElement(
               'label',
               null,
-              _react2.default.createElement(_reactRadioGroup.Radio, { className: 'radio', value: 'tuesday', disabled: !currentRaidWeek.tuesday ? true : false }),
+              _react2.default.createElement(_reactRadioGroup.Radio, { value: 'tuesday', disabled: !currentRaidWeek.tuesday ? true : false }),
               'Tuesday'
             )
           ),
@@ -4036,7 +4036,7 @@ var AttendanceManagement = function (_React$Component) {
             _react2.default.createElement(
               'label',
               null,
-              _react2.default.createElement(_reactRadioGroup.Radio, { className: 'radio', value: 'wednesday', disabled: !currentRaidWeek.wednesday ? true : false }),
+              _react2.default.createElement(_reactRadioGroup.Radio, { value: 'wednesday', disabled: !currentRaidWeek.wednesday ? true : false }),
               'Wednesday'
             )
           ),
@@ -4046,7 +4046,7 @@ var AttendanceManagement = function (_React$Component) {
             _react2.default.createElement(
               'label',
               null,
-              _react2.default.createElement(_reactRadioGroup.Radio, { className: 'radio', value: 'thursday', disabled: !currentRaidWeek.thursday ? true : false }),
+              _react2.default.createElement(_reactRadioGroup.Radio, { value: 'thursday', disabled: !currentRaidWeek.thursday ? true : false }),
               'Thursday'
             )
           ),
@@ -4056,7 +4056,7 @@ var AttendanceManagement = function (_React$Component) {
             _react2.default.createElement(
               'label',
               null,
-              _react2.default.createElement(_reactRadioGroup.Radio, { className: 'radio', value: 'friday', disabled: !currentRaidWeek.friday ? true : false }),
+              _react2.default.createElement(_reactRadioGroup.Radio, { value: 'friday', disabled: !currentRaidWeek.friday ? true : false }),
               'Friday'
             )
           ),
@@ -4066,7 +4066,7 @@ var AttendanceManagement = function (_React$Component) {
             _react2.default.createElement(
               'label',
               null,
-              _react2.default.createElement(_reactRadioGroup.Radio, { className: 'radio', value: 'saturday', disabled: !currentRaidWeek.saturday ? true : false }),
+              _react2.default.createElement(_reactRadioGroup.Radio, { value: 'saturday', disabled: !currentRaidWeek.saturday ? true : false }),
               'Saturday'
             )
           )
