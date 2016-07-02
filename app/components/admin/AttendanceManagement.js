@@ -36,13 +36,25 @@ class AttendanceManagement extends React.Component {
   }
 
   render() {
-    var selectRaidWeekOptions;
+    var selectRaidWeekOptions, selectWeekdayRadios;
     if(this.state.raidweeks.length > 0) {
       selectRaidWeekOptions = this.state.raidweeks.map(function(raidweek) {
         return (
           <option key={raidweek.id} value={raidweek.id}>{raidweek.id}</option>
         )
       }, this);
+
+      selectWeekdayRadios = (
+        <RadioGroup name='weekday' selectedValue={this.state.selectWeekday} onChange={e => AttendanceManagementActions.updateSelectWeekday(e.target.value)}>
+          <Radio value='sunday' disabled={!this.state.raidweeks[this.state.selectRaidWeek].sunday ? 'disabled' : 'enabled'}>Sunday</Radio>
+          <Radio value='monday' disabled={!this.state.raidweeks[this.state.selectRaidWeek].monday ? 'disabled' : 'enabled'}>Monday</Radio>
+          <Radio value='tuesday' disabled={!this.state.raidweeks[this.state.selectRaidWeek].tuesday ? 'disabled' : 'enabled'}>Tuesday</Radio>
+          <Radio value='wednesday' disabled={!this.state.raidweeks[this.state.selectRaidWeek].wednesday ? 'disabled' : 'enabled'}>Wednesday</Radio>
+          <Radio value='thursday' disabled={!this.state.raidweeks[this.state.selectRaidWeek].thursday ? 'disabled' : 'enabled'}>Thursday</Radio>
+          <Radio value='friday' disabled={!this.state.raidweeks[this.state.selectRaidWeek].friday ? 'disabled' : 'enabled'}>Friday</Radio>
+          <Radio value='saturday' disabled={!this.state.raidweeks[this.state.selectRaidWeek].saturday ? 'disabled' : 'enabled'}>Saturday</Radio>
+        </RadioGroup>
+      )
     }
 
     return (
@@ -67,15 +79,7 @@ class AttendanceManagement extends React.Component {
                       <div className='form-group'>
                         <label className='col-sm-2 control-label'>Week Day:</label>
                         <div className='col-sm-10'>
-                          <RadioGroup name='weekday' selectedValue={this.state.selectWeekday} onChange={e => AttendanceManagementActions.updateSelectWeekday(e.target.value)}>
-                            <Radio value='sunday' disabled={!this.state.raidweeks[this.state.selectRaidWeek].sunday ? 'disabled' : 'enabled'}/>Sunday
-                            <Radio value='monday' disabled={!this.state.raidweeks[this.state.selectRaidWeek].monday ? 'disabled' : 'enabled'}/>Monday
-                            <Radio value='tuesday' disabled={!this.state.raidweeks[this.state.selectRaidWeek].tuesday ? 'disabled' : 'enabled'}/>Tuesday
-                            <Radio value='wednesday' disabled={!this.state.raidweeks[this.state.selectRaidWeek].wednesday ? 'disabled' : 'enabled'}/>Wednesday
-                            <Radio value='thursday' disabled={!this.state.raidweeks[this.state.selectRaidWeek].thursday ? 'disabled' : 'enabled'}/>Thursday
-                            <Radio value='friday' disabled={!this.state.raidweeks[this.state.selectRaidWeek].friday ? 'disabled' : 'enabled'}/>Friday
-                            <Radio value='saturday' disabled={!this.state.raidweeks[this.state.selectRaidWeek].saturday ? 'disabled' : 'enabled'}/>Saturday
-                          </RadioGroup>
+                          {selectWeekdayRadios}
                         </div>
                       </div>
                     </div>

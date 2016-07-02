@@ -3971,7 +3971,7 @@ var AttendanceManagement = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var selectRaidWeekOptions;
+      var selectRaidWeekOptions, selectWeekdayRadios;
       if (this.state.raidweeks.length > 0) {
         selectRaidWeekOptions = this.state.raidweeks.map(function (raidweek) {
           return _react2.default.createElement(
@@ -3980,6 +3980,48 @@ var AttendanceManagement = function (_React$Component) {
             raidweek.id
           );
         }, this);
+
+        selectWeekdayRadios = _react2.default.createElement(
+          _reactRadioGroup.RadioGroup,
+          { name: 'weekday', selectedValue: this.state.selectWeekday, onChange: function onChange(e) {
+              return _AttendanceManagementActions2.default.updateSelectWeekday(e.target.value);
+            } },
+          _react2.default.createElement(
+            _reactRadioGroup.Radio,
+            { value: 'sunday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].sunday ? 'disabled' : 'enabled' },
+            'Sunday'
+          ),
+          _react2.default.createElement(
+            _reactRadioGroup.Radio,
+            { value: 'monday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].monday ? 'disabled' : 'enabled' },
+            'Monday'
+          ),
+          _react2.default.createElement(
+            _reactRadioGroup.Radio,
+            { value: 'tuesday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].tuesday ? 'disabled' : 'enabled' },
+            'Tuesday'
+          ),
+          _react2.default.createElement(
+            _reactRadioGroup.Radio,
+            { value: 'wednesday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].wednesday ? 'disabled' : 'enabled' },
+            'Wednesday'
+          ),
+          _react2.default.createElement(
+            _reactRadioGroup.Radio,
+            { value: 'thursday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].thursday ? 'disabled' : 'enabled' },
+            'Thursday'
+          ),
+          _react2.default.createElement(
+            _reactRadioGroup.Radio,
+            { value: 'friday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].friday ? 'disabled' : 'enabled' },
+            'Friday'
+          ),
+          _react2.default.createElement(
+            _reactRadioGroup.Radio,
+            { value: 'saturday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].saturday ? 'disabled' : 'enabled' },
+            'Saturday'
+          )
+        );
       }
 
       return _react2.default.createElement(
@@ -4043,26 +4085,7 @@ var AttendanceManagement = function (_React$Component) {
                         _react2.default.createElement(
                           'div',
                           { className: 'col-sm-10' },
-                          _react2.default.createElement(
-                            _reactRadioGroup.RadioGroup,
-                            { name: 'weekday', selectedValue: this.state.selectWeekday, onChange: function onChange(e) {
-                                return _AttendanceManagementActions2.default.updateSelectWeekday(e.target.value);
-                              } },
-                            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'sunday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].sunday ? 'disabled' : 'enabled' }),
-                            'Sunday',
-                            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'monday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].monday ? 'disabled' : 'enabled' }),
-                            'Monday',
-                            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'tuesday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].tuesday ? 'disabled' : 'enabled' }),
-                            'Tuesday',
-                            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'wednesday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].wednesday ? 'disabled' : 'enabled' }),
-                            'Wednesday',
-                            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'thursday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].thursday ? 'disabled' : 'enabled' }),
-                            'Thursday',
-                            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'friday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].friday ? 'disabled' : 'enabled' }),
-                            'Friday',
-                            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'saturday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].saturday ? 'disabled' : 'enabled' }),
-                            'Saturday'
-                          )
+                          selectWeekdayRadios
                         )
                       )
                     )
