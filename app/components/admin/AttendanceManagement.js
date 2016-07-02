@@ -50,15 +50,17 @@ class AttendanceManagement extends React.Component {
       var currentRaidWeek = _.findWhere(this.state.raidweeks, {id: this.state.selectRaidWeek});
 
       selectWeekdayRadios = (
-        <RadioGroup className='btn-group' name='weekday' selectedValue={this.state.selectWeekday} onChange={value => AttendanceManagementActions.updateSelectWeekday(value)}>
-          <label className={classNames('btn btn-default', {'disabled': !currentRaidWeek.sunday})}><Radio value='sunday'/>Sunday</label>
-          <label className={classNames('btn btn-default', {'disabled': !currentRaidWeek.monday})}><Radio value='monday'/>Monday</label>
-          <label className={classNames('btn btn-default', {'disabled': !currentRaidWeek.tuesday})}><Radio value='tuesday'/>Tuesday</label>
-          <label className={classNames('btn btn-default', {'disabled': !currentRaidWeek.wednesday})}><Radio value='wednesday'/>Wednesday</label>
-          <label className={classNames('btn btn-default', {'disabled': !currentRaidWeek.thursday})}><Radio value='thursday'/>Thursday</label>
-          <label className={classNames('btn btn-default', {'disabled': !currentRaidWeek.friday})}><Radio value='friday'/>Friday</label>
-          <label className={classNames('btn btn-default', {'disabled': !currentRaidWeek.saturday})}><Radio value='saturday'/>Saturday</label>
-        </RadioGroup>
+        <form className='form'>
+          <RadioGroup className='btn-group' name='weekday' selectedValue={this.state.selectWeekday} onChange={value => AttendanceManagementActions.updateSelectWeekday(value)}>
+            <label className={classNames('btn btn-default', {'disabled': !currentRaidWeek.sunday})}><Radio value='sunday'/>Sunday</label>
+            <label className={classNames('btn btn-default', {'disabled': !currentRaidWeek.monday})}><Radio value='monday'/>Monday</label>
+            <label className={classNames('btn btn-default', {'disabled': !currentRaidWeek.tuesday})}><Radio value='tuesday'/>Tuesday</label>
+            <label className={classNames('btn btn-default', {'disabled': !currentRaidWeek.wednesday})}><Radio value='wednesday'/>Wednesday</label>
+            <label className={classNames('btn btn-default', {'disabled': !currentRaidWeek.thursday})}><Radio value='thursday'/>Thursday</label>
+            <label className={classNames('btn btn-default', {'disabled': !currentRaidWeek.friday})}><Radio value='friday'/>Friday</label>
+            <label className={classNames('btn btn-default', {'disabled': !currentRaidWeek.saturday})}><Radio value='saturday'/>Saturday</label>
+          </RadioGroup>
+        </form>
       )
     }
 
