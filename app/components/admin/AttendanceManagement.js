@@ -69,7 +69,7 @@ class AttendanceManagement extends React.Component {
           <div className='container-fluid'>
             <div className='row'>
               <div className='col-md-12'>
-                <div className='col-md-8 col-md-offset-2'>
+                <div className='col-md-10 col-md-offset-1'>
                   <h2>Select Raid</h2>
                   <div className='row'>
                     <div className='form-horizontal'>

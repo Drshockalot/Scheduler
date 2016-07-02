@@ -4068,7 +4068,7 @@ var AttendanceManagement = function (_React$Component) {
                 { className: 'col-md-12' },
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-md-8 col-md-offset-2' },
+                  { className: 'col-md-10 col-md-offset-1' },
                   _react2.default.createElement(
                     'h2',
                     null,
