@@ -146,6 +146,7 @@ table.calendar td.selectedweek.selected {
   vertical-align: middle;
   margin-left: auto;
   margin-right: auto;
+  display: inline-block;
 }
 .rwHeader {
   background-color: #FFB275;
