@@ -97,7 +97,7 @@ class AttendanceManagement extends React.Component {
                   <div className='row'>
                     <h3>Upload File</h3>
                     <div className='row'>
-                      <div className='col-md-8'>
+                      <div className='col-md-8 col-md-offset-2'>
                         <Dropzone className='dropzone' onDrop={this.onDrop}>
                           <div className="dropzone-content">Drag or click here to upload file (.txt or .csv)</div>
                         </Dropzone>
