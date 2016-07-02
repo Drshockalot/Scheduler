@@ -7254,7 +7254,7 @@ var AttendanceManagementStore = function () {
     key: 'onLoadComponentDataSuccess',
     value: function onLoadComponentDataSuccess(result) {
       this.raidweeks = result.data.raidweeks;
-      this.selectRaidWeek = this.raidsweeks[0].id;
+      this.selectRaidWeek = this.raidweeks[0].id;
     }
   }, {
     key: 'onLoadComponentDataFailure',
