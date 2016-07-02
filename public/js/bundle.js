@@ -4138,10 +4138,10 @@ var AttendanceManagement = function (_React$Component) {
                       { className: 'row' },
                       _react2.default.createElement(
                         'div',
-                        { className: 'dropzone' },
+                        { className: 'col-md-5' },
                         _react2.default.createElement(
                           _reactDropzone2.default,
-                          { onDrop: this.onDrop },
+                          { className: 'dropzone', onDrop: this.onDrop },
                           _react2.default.createElement(
                             'div',
                             { className: 'dropzone-content' },
