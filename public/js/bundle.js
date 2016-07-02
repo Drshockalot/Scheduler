@@ -4158,11 +4158,16 @@ var AttendanceManagement = function (_React$Component) {
                     _react2.default.createElement(
                       'div',
                       { className: 'row' },
-                      _react2.default.createElement('textarea', { className: 'form-control' }),
                       _react2.default.createElement(
-                        'button',
-                        { className: 'btn btn-default pull-right' },
-                        'Upload'
+                        'div',
+                        { className: 'col-md-8 col-md-offset-2' },
+                        _react2.default.createElement('textarea', { className: 'form-control' }),
+                        _react2.default.createElement('br', null),
+                        _react2.default.createElement(
+                          'button',
+                          { className: 'btn btn-default pull-right' },
+                          'Upload'
+                        )
                       )
                     )
                   )
