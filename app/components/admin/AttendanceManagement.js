@@ -51,13 +51,13 @@ class AttendanceManagement extends React.Component {
 
       selectWeekdayRadios = (
         <RadioGroup className='radio' name='weekday' selectedValue={this.state.selectWeekday} onChange={value => AttendanceManagementActions.updateSelectWeekday(value)}>
-          <label className={classNames( {'disabled': !currentRaidWeek.sunday})}><Radio value='sunday'/>Sunday</label>
-          <div className={classNames('radio', {'disabled': !currentRaidWeek.monday})}><label><Radio value='monday'/>Monday</label></div>
-          <div className={classNames('radio', {'disabled': !currentRaidWeek.tuesday})}><label><Radio value='tuesday'/>Tuesday</label></div>
-          <div className={classNames('radio', {'disabled': !currentRaidWeek.wednesday})}><label><Radio value='wednesday'/>Wednesday</label></div>
-          <div className={classNames('radio', {'disabled': !currentRaidWeek.thursday})}><label><Radio value='thursday'/>Thursday</label></div>
-          <div className={classNames('radio', {'disabled': !currentRaidWeek.friday})}><label><Radio value='friday'/>Friday</label></div>
-          <div className={classNames('radio', {'disabled': !currentRaidWeek.saturday})}><label><Radio value='saturday'/>Saturday</label></div>
+          <label className={classNames('radio-inline', {'disabled': !currentRaidWeek.sunday})}><Radio value='sunday'/>Sunday</label>
+          <label className={classNames('radio-inline', {'disabled': !currentRaidWeek.monday})}><Radio value='monday'/>Monday</label>
+          <label className={classNames('radio-inline', {'disabled': !currentRaidWeek.tuesday})}><Radio value='tuesday'/>Tuesday</label>
+          <label className={classNames('radio-inline', {'disabled': !currentRaidWeek.wednesday})}><Radio value='wednesday'/>Wednesday</label>
+          <label className={classNames('radio-inline', {'disabled': !currentRaidWeek.thursday})}><Radio value='thursday'/>Thursday</label>
+          <label className={classNames('radio-inline', {'disabled': !currentRaidWeek.friday})}><Radio value='friday'/>Friday</label>
+          <label className={classNames('radio-inline', {'disabled': !currentRaidWeek.saturday})}><Radio value='saturday'/>Saturday</label>
         </RadioGroup>
       )
     }
@@ -85,12 +85,6 @@ class AttendanceManagement extends React.Component {
                         <label className='col-sm-2 control-label'>Week Day:</label>
                         <div className='col-sm-10'>
                           {selectWeekdayRadios}
-                          <div>
-  <label className='radio-inline'>
-    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"/>
-    Option two can be something else and selecting it will deselect option one
-  </label>
-</div>
                         </div>
                       </div>
                     </div>

@@ -4002,69 +4002,45 @@ var AttendanceManagement = function (_React$Component) {
             } },
           _react2.default.createElement(
             'label',
-            { className: (0, _classnames2.default)({ 'disabled': !currentRaidWeek.sunday }) },
+            { className: (0, _classnames2.default)('radio-inline', { 'disabled': !currentRaidWeek.sunday }) },
             _react2.default.createElement(_reactRadioGroup.Radio, { value: 'sunday' }),
             'Sunday'
           ),
           _react2.default.createElement(
-            'div',
-            { className: (0, _classnames2.default)('radio', { 'disabled': !currentRaidWeek.monday }) },
-            _react2.default.createElement(
-              'label',
-              null,
-              _react2.default.createElement(_reactRadioGroup.Radio, { value: 'monday' }),
-              'Monday'
-            )
+            'label',
+            { className: (0, _classnames2.default)('radio-inline', { 'disabled': !currentRaidWeek.monday }) },
+            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'monday' }),
+            'Monday'
           ),
           _react2.default.createElement(
-            'div',
-            { className: (0, _classnames2.default)('radio', { 'disabled': !currentRaidWeek.tuesday }) },
-            _react2.default.createElement(
-              'label',
-              null,
-              _react2.default.createElement(_reactRadioGroup.Radio, { value: 'tuesday' }),
-              'Tuesday'
-            )
+            'label',
+            { className: (0, _classnames2.default)('radio-inline', { 'disabled': !currentRaidWeek.tuesday }) },
+            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'tuesday' }),
+            'Tuesday'
           ),
           _react2.default.createElement(
-            'div',
-            { className: (0, _classnames2.default)('radio', { 'disabled': !currentRaidWeek.wednesday }) },
-            _react2.default.createElement(
-              'label',
-              null,
-              _react2.default.createElement(_reactRadioGroup.Radio, { value: 'wednesday' }),
-              'Wednesday'
-            )
+            'label',
+            { className: (0, _classnames2.default)('radio-inline', { 'disabled': !currentRaidWeek.wednesday }) },
+            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'wednesday' }),
+            'Wednesday'
           ),
           _react2.default.createElement(
-            'div',
-            { className: (0, _classnames2.default)('radio', { 'disabled': !currentRaidWeek.thursday }) },
-            _react2.default.createElement(
-              'label',
-              null,
-              _react2.default.createElement(_reactRadioGroup.Radio, { value: 'thursday' }),
-              'Thursday'
-            )
+            'label',
+            { className: (0, _classnames2.default)('radio-inline', { 'disabled': !currentRaidWeek.thursday }) },
+            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'thursday' }),
+            'Thursday'
           ),
           _react2.default.createElement(
-            'div',
-            { className: (0, _classnames2.default)('radio', { 'disabled': !currentRaidWeek.friday }) },
-            _react2.default.createElement(
-              'label',
-              null,
-              _react2.default.createElement(_reactRadioGroup.Radio, { value: 'friday' }),
-              'Friday'
-            )
+            'label',
+            { className: (0, _classnames2.default)('radio-inline', { 'disabled': !currentRaidWeek.friday }) },
+            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'friday' }),
+            'Friday'
           ),
           _react2.default.createElement(
-            'div',
-            { className: (0, _classnames2.default)('radio', { 'disabled': !currentRaidWeek.saturday }) },
-            _react2.default.createElement(
-              'label',
-              null,
-              _react2.default.createElement(_reactRadioGroup.Radio, { value: 'saturday' }),
-              'Saturday'
-            )
+            'label',
+            { className: (0, _classnames2.default)('radio-inline', { 'disabled': !currentRaidWeek.saturday }) },
+            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'saturday' }),
+            'Saturday'
           )
         );
       }
@@ -4130,17 +4106,7 @@ var AttendanceManagement = function (_React$Component) {
                         _react2.default.createElement(
                           'div',
                           { className: 'col-sm-10' },
-                          selectWeekdayRadios,
-                          _react2.default.createElement(
-                            'div',
-                            null,
-                            _react2.default.createElement(
-                              'label',
-                              { className: 'radio-inline' },
-                              _react2.default.createElement('input', { type: 'radio', name: 'optionsRadios', id: 'optionsRadios2', value: 'option2' }),
-                              'Option two can be something else and selecting it will deselect option one'
-                            )
-                          )
+                          selectWeekdayRadios
                         )
                       )
                     )
