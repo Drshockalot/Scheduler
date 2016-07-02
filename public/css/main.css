@@ -134,10 +134,15 @@ table.calendar td.selectedweek.selected {
 .dropzone {
   border-radius: 10px;
   width: 70%;
-  height: 50px;
+  height: 200px;
   border: 2px dashed blue;
   margin: 0px;
   padding: 0px;
+}
+.dropzone-content {
+  vertical-align: middle;
+  margin-left: auto;
+  margin-right: auto;
 }
 .rwHeader {
   background-color: #FFB275;
