@@ -3921,6 +3921,10 @@ var _NavbarStore = require('./../../stores/NavbarStore');
 
 var _NavbarStore2 = _interopRequireDefault(_NavbarStore);
 
+var _underscore = require('underscore');
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
 var _reactRadioGroup = require('react-radio-group');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -3981,6 +3985,8 @@ var AttendanceManagement = function (_React$Component) {
           );
         }, this);
 
+        var currentRaidWeek = _underscore2.default.findWhere(this.state.raidweeks, { id: this.state.selectRaidWeek });
+
         selectWeekdayRadios = _react2.default.createElement(
           _reactRadioGroup.RadioGroup,
           { name: 'weekday', selectedValue: this.state.selectWeekday, onChange: function onChange(e) {
@@ -3988,37 +3994,37 @@ var AttendanceManagement = function (_React$Component) {
             } },
           _react2.default.createElement(
             _reactRadioGroup.Radio,
-            { value: 'sunday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].sunday ? 'disabled' : 'enabled' },
+            { value: 'sunday', disabled: !currentRaidWeek.sunday ? 'disabled' : 'enabled' },
             'Sunday'
           ),
           _react2.default.createElement(
             _reactRadioGroup.Radio,
-            { value: 'monday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].monday ? 'disabled' : 'enabled' },
+            { value: 'monday', disabled: !currentRaidWeek.monday ? 'disabled' : 'enabled' },
             'Monday'
           ),
           _react2.default.createElement(
             _reactRadioGroup.Radio,
-            { value: 'tuesday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].tuesday ? 'disabled' : 'enabled' },
+            { value: 'tuesday', disabled: !currentRaidWeek.tuesday ? 'disabled' : 'enabled' },
             'Tuesday'
           ),
           _react2.default.createElement(
             _reactRadioGroup.Radio,
-            { value: 'wednesday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].wednesday ? 'disabled' : 'enabled' },
+            { value: 'wednesday', disabled: !currentRaidWeek.wednesday ? 'disabled' : 'enabled' },
             'Wednesday'
           ),
           _react2.default.createElement(
             _reactRadioGroup.Radio,
-            { value: 'thursday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].thursday ? 'disabled' : 'enabled' },
+            { value: 'thursday', disabled: !currentRaidWeek.thursday ? 'disabled' : 'enabled' },
             'Thursday'
           ),
           _react2.default.createElement(
             _reactRadioGroup.Radio,
-            { value: 'friday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].friday ? 'disabled' : 'enabled' },
+            { value: 'friday', disabled: !currentRaidWeek.friday ? 'disabled' : 'enabled' },
             'Friday'
           ),
           _react2.default.createElement(
             _reactRadioGroup.Radio,
-            { value: 'saturday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].saturday ? 'disabled' : 'enabled' },
+            { value: 'saturday', disabled: !currentRaidWeek.saturday ? 'disabled' : 'enabled' },
             'Saturday'
           )
         );
@@ -4104,7 +4110,7 @@ var AttendanceManagement = function (_React$Component) {
 
 exports.default = AttendanceManagement;
 
-},{"../../actions/admin/AttendanceManagementActions":13,"../../stores/admin/AttendanceManagementStore":54,"./../../stores/NavbarStore":44,"./AdminSideNav":33,"react":"react","react-radio-group":62,"react-router":"react-router"}],35:[function(require,module,exports){
+},{"../../actions/admin/AttendanceManagementActions":13,"../../stores/admin/AttendanceManagementStore":54,"./../../stores/NavbarStore":44,"./AdminSideNav":33,"react":"react","react-radio-group":62,"react-router":"react-router","underscore":"underscore"}],35:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
