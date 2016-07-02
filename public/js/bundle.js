@@ -4002,7 +4002,7 @@ var AttendanceManagement = function (_React$Component) {
             } },
           _react2.default.createElement(
             'label',
-            { className: (0, _classnames2.default)('radio', { 'disabled': !currentRaidWeek.sunday }) },
+            { className: (0, _classnames2.default)({ 'disabled': !currentRaidWeek.sunday }) },
             _react2.default.createElement(_reactRadioGroup.Radio, { value: 'sunday' }),
             'Sunday'
           ),
