@@ -49,18 +49,16 @@ class AttendanceManagement extends React.Component {
 
       var currentRaidWeek = _.findWhere(this.state.raidweeks, {id: this.state.selectRaidWeek});
 
-      selectWeekdayRadios = (
-        <form className='form'>
-          <RadioGroup name='weekday' selectedValue={this.state.selectWeekday} onChange={value => AttendanceManagementActions.updateSelectWeekday(value)}>
-            <label className={classNames({'disabled': !currentRaidWeek.sunday})}><Radio value='sunday'/>Sunday</label>
-            <label className={classNames({'disabled': !currentRaidWeek.monday})}><Radio value='monday'/>Monday</label>
-            <label className={classNames({'disabled': !currentRaidWeek.tuesday})}><Radio value='tuesday'/>Tuesday</label>
-            <label className={classNames({'disabled': !currentRaidWeek.wednesday})}><Radio value='wednesday'/>Wednesday</label>
-            <label className={classNames({'disabled': !currentRaidWeek.thursday})}><Radio value='thursday'/>Thursday</label>
-            <label className={classNames({'disabled': !currentRaidWeek.friday})}><Radio value='friday'/>Friday</label>
-            <label className={classNames({'disabled': !currentRaidWeek.saturday})}><Radio value='saturday'/>Saturday</label>
-          </RadioGroup>
-        </form>
+      selectWeekdayButtons = (
+        <div>
+          <button className={classNames('btn', this.state.selectWeekday == 'monday' ? 'btn-success' : 'btn-default')} onClick={() => AttendanceManagementActions.updateSelectWeekday('monday')}>Monday</button>
+          <button className={classNames('btn', this.state.selectWeekday == 'tuesday' ? 'btn-success' : 'btn-default')} onClick={() => AttendanceManagementActions.updateSelectWeekday('tuesday')}>Tuesday</button>
+          <button className={classNames('btn', this.state.selectWeekday == 'wednesday' ? 'btn-success' : 'btn-default')} onClick={() => AttendanceManagementActions.updateSelectWeekday('wednesday')}>Wednesday</button>
+          <button className={classNames('btn', this.state.selectWeekday == 'thursday' ? 'btn-success' : 'btn-default')} onClick={() => AttendanceManagementActions.updateSelectWeekday('thursday')}>Tuesday</button>
+          <button className={classNames('btn', this.state.selectWeekday == 'friday' ? 'btn-success' : 'btn-default')} onClick={() => AttendanceManagementActions.updateSelectWeekday('friday')}>Friday</button>
+          <button className={classNames('btn', this.state.selectWeekday == 'saturday' ? 'btn-success' : 'btn-default')} onClick={() => AttendanceManagementActions.updateSelectWeekday('saturday')}>Saturday</button>
+          <button className={classNames('btn', this.state.selectWeekday == 'sunday' ? 'btn-success' : 'btn-default')} onClick={() => AttendanceManagementActions.updateSelectWeekday('sunday')}>Sunday</button>
+        </div>
       )
     }
 
@@ -85,8 +83,8 @@ class AttendanceManagement extends React.Component {
                       </div>
                       <div className='form-group'>
                         <label className='col-sm-2 control-label'>Week Day:</label>
-                        <div className='col-sm-2'>
-                          {selectWeekdayRadios}
+                        <div className='col-sm-10'>
+                          {selectWeekdayButtons}
                         </div>
                       </div>
                     </div>
