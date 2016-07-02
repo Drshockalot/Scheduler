@@ -131,6 +131,14 @@ table.calendar td.selectedweek.selected {
   background-color: #91d46e;
   font-weight: bold;
 }
+.dropzone {
+  border-radius: 10px;
+  width: 100%;
+  height: 300px;
+  border: 2px dashed blue;
+  margin: 50%;
+  padding: 10px;
+}
 .rwHeader {
   background-color: #FFB275;
 }
