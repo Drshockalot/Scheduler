@@ -105,7 +105,7 @@ class AttendanceManagement extends React.Component {
                     </div>
                     <h3>Upload Text</h3>
                     <div className='row'>
-                      <div className='col-md-8 col-md-offset-2'>
+                      <div className='col-md-6 col-md-offset-2'>
                         <textarea className='form-control' />
                         <br />
                         <button className='btn btn-default pull-right'>Upload</button>
