@@ -7316,8 +7316,8 @@ var AttendanceManagementStore = function () {
       this.selectRaidWeek = value;
     }
   }, {
-    key: 'onUpdateSelectSchedule',
-    value: function onUpdateSelectSchedule(value) {
+    key: 'onUpdateSelectWeekday',
+    value: function onUpdateSelectWeekday(value) {
       this.selectWeekday = value;
     }
   }]);

@@ -22,7 +22,7 @@ class AttendanceManagementStore {
     this.selectRaidWeek = value;
   }
 
-  onUpdateSelectSchedule(value) {
+  onUpdateSelectWeekday(value) {
     this.selectWeekday = value;
   }
 }
