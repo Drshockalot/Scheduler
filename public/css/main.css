@@ -138,6 +138,7 @@ table.calendar td.selectedweek.selected {
   border: 2px dashed blue;
   margin: 0px;
   padding: 0px;
+  vertical-align: middle;
 }
 .dropzone-content {
   height: 10px;
