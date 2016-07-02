@@ -3997,7 +3997,7 @@ var AttendanceManagement = function (_React$Component) {
 
         selectWeekdayRadios = _react2.default.createElement(
           _reactRadioGroup.RadioGroup,
-          { className: 'radio', name: 'weekday', selectedValue: this.state.selectWeekday, onChange: function onChange(value) {
+          { name: 'weekday', selectedValue: this.state.selectWeekday, onChange: function onChange(value) {
               return _AttendanceManagementActions2.default.updateSelectWeekday(value);
             } },
           _react2.default.createElement(
