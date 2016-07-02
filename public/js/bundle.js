@@ -3983,7 +3983,7 @@ var AttendanceManagement = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var selectRaidWeekOptions, selectWeekdayRadios;
+      var selectRaidWeekOptions, selectWeekdayButtons;
       if (this.state.raidweeks.length > 0) {
         selectRaidWeekOptions = this.state.raidweeks.map(function (raidweek) {
           return _react2.default.createElement(

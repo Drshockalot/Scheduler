@@ -39,7 +39,7 @@ class AttendanceManagement extends React.Component {
   }
 
   render() {
-    var selectRaidWeekOptions, selectWeekdayRadios;
+    var selectRaidWeekOptions, selectWeekdayButtons;
     if(this.state.raidweeks.length > 0) {
       selectRaidWeekOptions = this.state.raidweeks.map(function(raidweek) {
         return (
