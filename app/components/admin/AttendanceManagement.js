@@ -50,14 +50,14 @@ class AttendanceManagement extends React.Component {
       var currentRaidWeek = _.findWhere(this.state.raidweeks, {id: this.state.selectRaidWeek});
 
       selectWeekdayRadios = (
-        <RadioGroup className='radio' name='weekday' selectedValue={this.state.selectWeekday} onChange={e => AttendanceManagementActions.updateSelectWeekday(e.target.value)}>
-          <div className={classNames('radio', {'disabled': currentRaidWeek.sunday})}><label><Radio className='radio' value='sunday' disabled={!currentRaidWeek.sunday ? true : false}/>Sunday</label></div>
-          <div className={classNames('radio', {'disabled': currentRaidWeek.monday})}><label><Radio className='radio' value='monday' disabled={!currentRaidWeek.monday ? true : false}/>Monday</label></div>
-          <div className={classNames('radio', {'disabled': currentRaidWeek.tuesday})}><label><Radio className='radio' value='tuesday' disabled={!currentRaidWeek.tuesday ? true : false}/>Tuesday</label></div>
-          <div className={classNames('radio', {'disabled': currentRaidWeek.wednesday})}><label><Radio className='radio' value='wednesday' disabled={!currentRaidWeek.wednesday ? true : false}/>Wednesday</label></div>
-          <div className={classNames('radio', {'disabled': currentRaidWeek.thursday})}><label><Radio className='radio' value='thursday' disabled={!currentRaidWeek.thursday ? true : false}/>Thursday</label></div>
-          <div className={classNames('radio', {'disabled': currentRaidWeek.friday})}><label><Radio className='radio' value='friday' disabled={!currentRaidWeek.friday ? true : false}/>Friday</label></div>
-          <div className={classNames('radio', {'disabled': currentRaidWeek.saturday})}><label><Radio className='radio' value='saturday' disabled={!currentRaidWeek.saturday ? true : false}/>Saturday</label></div>
+        <RadioGroup className='radio' name='weekday' selectedValue={this.state.selectWeekday} onChange={value => AttendanceManagementActions.updateSelectWeekday(value)}>
+          <div className={classNames('radio', {'disabled': !currentRaidWeek.sunday})}><label><Radio className='radio' value='sunday' disabled={!currentRaidWeek.sunday ? true : false}/>Sunday</label></div>
+          <div className={classNames('radio', {'disabled': !currentRaidWeek.monday})}><label><Radio className='radio' value='monday' disabled={!currentRaidWeek.monday ? true : false}/>Monday</label></div>
+          <div className={classNames('radio', {'disabled': !currentRaidWeek.tuesday})}><label><Radio className='radio' value='tuesday' disabled={!currentRaidWeek.tuesday ? true : false}/>Tuesday</label></div>
+          <div className={classNames('radio', {'disabled': !currentRaidWeek.wednesday})}><label><Radio className='radio' value='wednesday' disabled={!currentRaidWeek.wednesday ? true : false}/>Wednesday</label></div>
+          <div className={classNames('radio', {'disabled': !currentRaidWeek.thursday})}><label><Radio className='radio' value='thursday' disabled={!currentRaidWeek.thursday ? true : false}/>Thursday</label></div>
+          <div className={classNames('radio', {'disabled': !currentRaidWeek.friday})}><label><Radio className='radio' value='friday' disabled={!currentRaidWeek.friday ? true : false}/>Friday</label></div>
+          <div className={classNames('radio', {'disabled': !currentRaidWeek.saturday})}><label><Radio className='radio' value='saturday' disabled={!currentRaidWeek.saturday ? true : false}/>Saturday</label></div>
         </RadioGroup>
       )
     }
