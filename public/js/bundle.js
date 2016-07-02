@@ -675,12 +675,25 @@ var AttendaceManagementActions = function () {
   function AttendaceManagementActions() {
     _classCallCheck(this, AttendaceManagementActions);
 
-    this.generateActions('loadComponentDataSuccess', 'loadComponentDataFailure');
+    this.generateActions('loadComponentDataSuccess', 'loadComponentDataFailure', 'updateSelectRaidWeek', 'updateSelectWeekday');
   }
 
   _createClass(AttendaceManagementActions, [{
     key: 'loadComponentData',
-    value: function loadComponentData() {}
+    value: function loadComponentData() {
+      var _this = this;
+
+      $.ajax({
+        method: 'GET',
+        url: '/api/attendance/admin'
+      }).done(function (result) {
+        console.log(result);
+        _this.loadComponentDataSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this.loadComponentDataFailure(jqXhr);
+      });
+    }
   }]);
 
   return AttendaceManagementActions;
@@ -2444,7 +2457,7 @@ var ProfileCharacters = function (_React$Component) {
 
 exports.default = ProfileCharacters;
 
-},{"../../utility/WowClasses":68,"../../utility/WowRaces":69,"../actions/ProfileCharactersActions":5,"../stores/NavbarStore":44,"../stores/ProfileCharactersStore":45,"./ProfileSidenav":28,"react":"react","react-router":"react-router","underscore":"underscore"}],26:[function(require,module,exports){
+},{"../../utility/WowClasses":69,"../../utility/WowRaces":70,"../actions/ProfileCharactersActions":5,"../stores/NavbarStore":44,"../stores/ProfileCharactersStore":45,"./ProfileSidenav":28,"react":"react","react-router":"react-router","underscore":"underscore"}],26:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3503,7 +3516,7 @@ var SingleScheduleView = function (_React$Component) {
 
 exports.default = SingleScheduleView;
 
-},{"../actions/SingleScheduleViewActions":9,"../stores/NavbarStore":44,"../stores/SingleScheduleViewStore":50,"./../../utility/WowClasses":68,"classnames":60,"react":"react","react-router":"react-router","underscore":"underscore"}],31:[function(require,module,exports){
+},{"../actions/SingleScheduleViewActions":9,"../stores/NavbarStore":44,"../stores/SingleScheduleViewStore":50,"./../../utility/WowClasses":69,"classnames":60,"react":"react","react-router":"react-router","underscore":"underscore"}],31:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3908,6 +3921,8 @@ var _NavbarStore = require('./../../stores/NavbarStore');
 
 var _NavbarStore2 = _interopRequireDefault(_NavbarStore);
 
+var _reactRadioGroup = require('react-radio-group');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3966,7 +3981,84 @@ var AttendanceManagement = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'container-fluid' },
-            _react2.default.createElement('div', { className: 'row' })
+            _react2.default.createElement(
+              'div',
+              { className: 'row' },
+              _react2.default.createElement(
+                'div',
+                { className: 'col-md-12' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-md-6 col-md-offset-3' },
+                  _react2.default.createElement(
+                    'h2',
+                    null,
+                    'Select Raid'
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'form-horizontal' },
+                      _react2.default.createElement(
+                        'div',
+                        { className: 'form-group' },
+                        _react2.default.createElement(
+                          'label',
+                          { className: 'col-sm-2 control-label' },
+                          'Raid Week:'
+                        ),
+                        _react2.default.createElement(
+                          'div',
+                          { className: 'col-sm-10' },
+                          _react2.default.createElement(
+                            'select',
+                            { value: this.state.selectRaidWeek, onChange: function onChange(e) {
+                                return _AttendanceManagementActions2.default.updateSelectRaidWeek(e.target.value);
+                              } },
+                            selectRaidWeekOptions
+                          )
+                        )
+                      ),
+                      _react2.default.createElement(
+                        'div',
+                        { className: 'form-group' },
+                        _react2.default.createElement(
+                          'label',
+                          { className: 'col-sm-2 control-label' },
+                          'Week Day:'
+                        ),
+                        _react2.default.createElement(
+                          'div',
+                          { className: 'col-sm-10' },
+                          _react2.default.createElement(
+                            _reactRadioGroup.RadioGroup,
+                            { name: 'weekday', selectedValue: this.state.selectWeekday, onChange: function onChange(e) {
+                                return _AttendanceManagementActions2.default.updateSelectWeekday(e.target.value);
+                              } },
+                            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'sunday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].sunday ? 'disabled' : 'enabled' }),
+                            'Sunday',
+                            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'monday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].monday ? 'disabled' : 'enabled' }),
+                            'Monday',
+                            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'tuesday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].tuesday ? 'disabled' : 'enabled' }),
+                            'Tuesday',
+                            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'wednesday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].wednesday ? 'disabled' : 'enabled' }),
+                            'Wednesday',
+                            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'thursday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].thursday ? 'disabled' : 'enabled' }),
+                            'Thursday',
+                            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'friday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].friday ? 'disabled' : 'enabled' }),
+                            'Friday',
+                            _react2.default.createElement(_reactRadioGroup.Radio, { value: 'saturday', disabled: !this.state.raidweeks[this.state.selectRaidWeek].saturday ? 'disabled' : 'enabled' }),
+                            'Saturday'
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            )
           )
         )
       );
@@ -3978,7 +4070,7 @@ var AttendanceManagement = function (_React$Component) {
 
 exports.default = AttendanceManagement;
 
-},{"../../actions/admin/AttendanceManagementActions":13,"../../stores/admin/AttendanceManagementStore":54,"./../../stores/NavbarStore":44,"./AdminSideNav":33,"react":"react","react-router":"react-router"}],35:[function(require,module,exports){
+},{"../../actions/admin/AttendanceManagementActions":13,"../../stores/admin/AttendanceManagementStore":54,"./../../stores/NavbarStore":44,"./AdminSideNav":33,"react":"react","react-radio-group":62,"react-router":"react-router"}],35:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -4242,7 +4334,7 @@ var CharacterManagement = function (_React$Component) {
 
 exports.default = CharacterManagement;
 
-},{"./../../../utility/WowClasses":68,"./../../../utility/WowRaces":69,"./../../actions/admin/CharacterManagementActions":14,"./../../stores/NavbarStore":44,"./../../stores/admin/CharacterManagementStore":55,"./AdminSideNav":33,"react":"react","react-router":"react-router","underscore":"underscore"}],36:[function(require,module,exports){
+},{"./../../../utility/WowClasses":69,"./../../../utility/WowRaces":70,"./../../actions/admin/CharacterManagementActions":14,"./../../stores/NavbarStore":44,"./../../stores/admin/CharacterManagementStore":55,"./AdminSideNav":33,"react":"react","react-router":"react-router","underscore":"underscore"}],36:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -4965,7 +5057,7 @@ var RaidWeekManagement = function (_React$Component) {
 
 exports.default = RaidWeekManagement;
 
-},{"./../../actions/admin/RaidWeekManagementActions":16,"./../../stores/NavbarStore":44,"./../../stores/admin/RaidWeekManagementStore":57,"./AdminSideNav":33,"moment":61,"react":"react","react-router":"react-router","react-yearly-calendar":66}],38:[function(require,module,exports){
+},{"./../../actions/admin/RaidWeekManagementActions":16,"./../../stores/NavbarStore":44,"./../../stores/admin/RaidWeekManagementStore":57,"./AdminSideNav":33,"moment":61,"react":"react","react-router":"react-router","react-yearly-calendar":67}],38:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6302,7 +6394,7 @@ var ScheduleManagement = function (_React$Component) {
 
 exports.default = ScheduleManagement;
 
-},{"./../../../utility/WowClasses":68,"./../../actions/admin/ScheduleManagementActions":18,"./../../stores/NavbarStore":44,"./../../stores/admin/ScheduleManagementStore":59,"./AdminSideNav":33,"classnames":60,"moment":61,"react":"react","react-router":"react-router","underscore":"underscore"}],40:[function(require,module,exports){
+},{"./../../../utility/WowClasses":69,"./../../actions/admin/ScheduleManagementActions":18,"./../../stores/NavbarStore":44,"./../../stores/admin/ScheduleManagementStore":59,"./AdminSideNav":33,"classnames":60,"moment":61,"react":"react","react-router":"react-router","underscore":"underscore"}],40:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -7100,6 +7192,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _alt = require('../../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
@@ -7112,11 +7206,40 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var AttendanceManagementStore = function AttendanceManagementStore() {
-  _classCallCheck(this, AttendanceManagementStore);
+var AttendanceManagementStore = function () {
+  function AttendanceManagementStore() {
+    _classCallCheck(this, AttendanceManagementStore);
 
-  this.bindActions(_AttendanceManagementActions2.default);
-};
+    this.bindActions(_AttendanceManagementActions2.default);
+    this.raidweeks = [];
+    this.selectRaidWeek = 0;
+    this.selectWeekday = '';
+  }
+
+  _createClass(AttendanceManagementStore, [{
+    key: 'onLoadComponentDataSuccess',
+    value: function onLoadComponentDataSuccess(result) {
+      this.raidweeks = result.data.raidweeks;
+    }
+  }, {
+    key: 'onLoadComponentDataFailure',
+    value: function onLoadComponentDataFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onUpdateSelectRaidWeek',
+    value: function onUpdateSelectRaidWeek(value) {
+      this.selectRaidWeek = value;
+    }
+  }, {
+    key: 'onUpdateSelectSchedule',
+    value: function onUpdateSelectSchedule(value) {
+      this.selectWeekday = value;
+    }
+  }]);
+
+  return AttendanceManagementStore;
+}();
 
 exports.default = _alt2.default.createStore(AttendanceManagementStore);
 
@@ -11838,6 +11961,104 @@ exports.default = _alt2.default.createStore(ScheduleManagementStore);
 },{}],62:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var Radio = _react2['default'].createClass({
+  displayName: 'Radio',
+
+  contextTypes: {
+    radioGroup: _react2['default'].PropTypes.object
+  },
+
+  render: function render() {
+    var _context$radioGroup = this.context.radioGroup;
+    var name = _context$radioGroup.name;
+    var selectedValue = _context$radioGroup.selectedValue;
+    var onChange = _context$radioGroup.onChange;
+
+    var optional = {};
+    if (selectedValue !== undefined) {
+      optional.checked = this.props.value === selectedValue;
+    }
+    if (typeof onChange === 'function') {
+      optional.onChange = onChange.bind(null, this.props.value);
+    }
+
+    return _react2['default'].createElement('input', _extends({}, this.props, {
+      type: 'radio',
+      name: name
+    }, optional));
+  }
+});
+
+exports.Radio = Radio;
+var RadioGroup = _react2['default'].createClass({
+  displayName: 'RadioGroup',
+
+  propTypes: {
+    name: _react.PropTypes.string,
+    selectedValue: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.number, _react.PropTypes.bool]),
+    onChange: _react.PropTypes.func,
+    children: _react.PropTypes.node.isRequired,
+    Component: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.func, _react.PropTypes.object])
+  },
+
+  getDefaultProps: function getDefaultProps() {
+    return {
+      Component: "div"
+    };
+  },
+
+  childContextTypes: {
+    radioGroup: _react2['default'].PropTypes.object
+  },
+
+  getChildContext: function getChildContext() {
+    var _props = this.props;
+    var name = _props.name;
+    var selectedValue = _props.selectedValue;
+    var onChange = _props.onChange;
+
+    return {
+      radioGroup: {
+        name: name, selectedValue: selectedValue, onChange: onChange
+      }
+    };
+  },
+
+  render: function render() {
+    var _props2 = this.props;
+    var Component = _props2.Component;
+    var name = _props2.name;
+    var selectedValue = _props2.selectedValue;
+    var onChange = _props2.onChange;
+    var children = _props2.children;
+
+    var rest = _objectWithoutProperties(_props2, ['Component', 'name', 'selectedValue', 'onChange', 'children']);
+
+    return _react2['default'].createElement(
+      Component,
+      rest,
+      children
+    );
+  }
+});
+exports.RadioGroup = RadioGroup;
+},{"react":"react"}],63:[function(require,module,exports){
+'use strict';
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -12035,7 +12256,7 @@ exports.default = Calendar;
 
 Calendar.propTypes = propTypes;
 Calendar.defaultProps = defaultProps;
-},{"./Month":65,"./utils":67,"moment":61,"react":"react"}],63:[function(require,module,exports){
+},{"./Month":66,"./utils":68,"moment":61,"react":"react"}],64:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -12135,7 +12356,7 @@ var CalendarControls = (function (_React$Component) {
 exports.default = CalendarControls;
 
 CalendarControls.propTypes = propTypes;
-},{"react":"react"}],64:[function(require,module,exports){
+},{"react":"react"}],65:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -12228,7 +12449,7 @@ var Day = exports.Day = (function (_React$Component) {
 
 Day.propTypes = propTypes;
 Day.defaultProps = defaultProps;
-},{"react":"react"}],65:[function(require,module,exports){
+},{"react":"react"}],66:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -12542,7 +12763,7 @@ var Month = exports.Month = (function (_React$Component) {
 
 Month.propTypes = propTypes;
 Month.defaultProps = defaultProps;
-},{"./Day":64,"./utils":67,"moment":61,"react":"react"}],66:[function(require,module,exports){
+},{"./Day":65,"./utils":68,"moment":61,"react":"react"}],67:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -12566,7 +12787,7 @@ Object.defineProperty(exports, 'CalendarControls', {
     return _CalendarControls.default;
   }
 });
-},{"./Calendar":62,"./CalendarControls":63}],67:[function(require,module,exports){
+},{"./Calendar":63,"./CalendarControls":64}],68:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -12590,7 +12811,7 @@ function range(start, stop, step) {
 
   return range;
 };
-},{}],68:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 "use strict";
 
 module.exports = [{
@@ -12661,7 +12882,7 @@ module.exports = [{
     "token": "prot"
 }];
 
-},{}],69:[function(require,module,exports){
+},{}],70:[function(require,module,exports){
 "use strict";
 
 module.exports = [{
