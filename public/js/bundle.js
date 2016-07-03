@@ -6200,11 +6200,22 @@ var ScheduleManagement = function (_React$Component) {
                       null,
                       'Tanks'
                     ),
-                    ' - Scheduled(',
-                    schedule_boss.tank_count,
-                    ') - Assigned(',
-                    tankCount,
-                    ')'
+                    ' - Scheduled',
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      '(',
+                      schedule_boss.boss.tank_count,
+                      ')'
+                    ),
+                    ' - Assigned',
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      '(',
+                      tankCount,
+                      ')'
+                    )
                   ),
                   _react2.default.createElement(
                     'td',
@@ -6214,11 +6225,22 @@ var ScheduleManagement = function (_React$Component) {
                       null,
                       'Healers'
                     ),
-                    ' - Scheduled(',
-                    schedule_boss.healer_count,
-                    ') - Assigned(',
-                    healerCount,
-                    ')'
+                    ' - Scheduled',
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      '(',
+                      schedule_boss.boss.healer_count,
+                      ')'
+                    ),
+                    ' - Assigned',
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      '(',
+                      healerCount,
+                      ')'
+                    )
                   ),
                   _react2.default.createElement(
                     'td',
@@ -6228,11 +6250,22 @@ var ScheduleManagement = function (_React$Component) {
                       null,
                       'DPS'
                     ),
-                    ' - Scheduled(',
-                    schedule_boss.dps_count,
-                    ') - Assigned(',
-                    dpsCount,
-                    ')'
+                    ' - Scheduled',
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      '(',
+                      schedule_boss.boss.dps_count,
+                      ')'
+                    ),
+                    ' - Assigned',
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      '(',
+                      dpsCount,
+                      ')'
+                    )
                   )
                 ),
                 _react2.default.createElement(

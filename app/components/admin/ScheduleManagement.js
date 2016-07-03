@@ -270,9 +270,9 @@ class ScheduleManagement extends React.Component {
                 <tr>
                   <td className='col-md-1'><strong>Raid</strong></td>
                   <td className='col-md-1'><strong>Boss</strong></td>
-                  <td className='col-md-2'><strong>Tanks</strong> - Scheduled({schedule_boss.tank_count}) - Assigned({tankCount})</td>
-                  <td className='col-md-3'><strong>Healers</strong> - Scheduled({schedule_boss.healer_count}) - Assigned({healerCount})</td>
-                  <td className='col-md-3'><strong>DPS</strong> - Scheduled({schedule_boss.dps_count}) - Assigned({dpsCount})</td>
+                  <td className='col-md-2'><strong>Tanks</strong> - Scheduled<strong>({schedule_boss.boss.tank_count})</strong> - Assigned<strong>({tankCount})</strong></td>
+                  <td className='col-md-3'><strong>Healers</strong> - Scheduled<strong>({schedule_boss.boss.healer_count})</strong> - Assigned<strong>({healerCount})</strong></td>
+                  <td className='col-md-3'><strong>DPS</strong> - Scheduled<strong>({schedule_boss.boss.dps_count})</strong> - Assigned<strong>({dpsCount})</strong></td>
                 </tr>
                 <tr>
                   <td className='col-md-1'>{schedule_boss.raid.name}</td>
