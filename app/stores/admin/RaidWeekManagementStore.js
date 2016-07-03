@@ -8,6 +8,9 @@ class RaidWeekManagementStore {
     this.selectedYear = moment().year();
     this.selectedDay = moment();
     this.raidweeks = [];
+    this.formTanks = 0;
+    this.formHealers = 0;
+    this.formDPS = 0;
   }
 
   onSelectedDayChanged(date) {

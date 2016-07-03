@@ -10,6 +10,21 @@ class RaidManagementStore {
     this.selectedRaid = '';
     this.bossName = '';
     this.bossDescription = '';
+    this.formTanks = 0;
+    this.formHealers = 0;
+    this.formDPS = 0;
+  }
+
+  onUpdateFormTanks(value) {
+    this.formTanks = value;
+  }
+
+  onUpdateFormHealers(value) {
+    this.formHealers = value;
+  }
+
+  onUpdateFormDPS(value) {
+    this.formDPS = value;
   }
 
   onUpdateFormRaidName(e) {

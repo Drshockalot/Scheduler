@@ -21,9 +21,6 @@ class ScheduleManagementStore {
 
     this.formRaid = 0;
     this.formBoss = 0;
-    this.formTanks = 0;
-    this.formHealers = 0;
-    this.formDPS = 0;
   }
 
   onUpdateFormRaidWeek(value) {
@@ -57,18 +54,6 @@ class ScheduleManagementStore {
 
   onUpdateFormBoss(value) {
     this.formBoss = value;
-  }
-
-  onUpdateFormTanks(value) {
-    this.formTanks = value;
-  }
-
-  onUpdateFormHealers(value) {
-    this.formHealers = value;
-  }
-
-  onUpdateFormDPS(value) {
-    this.formDPS = value;
   }
 
   onLoadComponentDataSuccess(result) {
@@ -123,18 +108,6 @@ class ScheduleManagementStore {
 
   onCreateScheduleFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
-  }
-
-  onSetFormTanks(value) {
-    this.formTanks = value;
-  }
-
-  onSetFormHealers(value) {
-    this.formHealers = value;
-  }
-
-  onSetFormDPS(value) {
-    this.formDPS = value;
   }
 
   onAddScheduleBossSuccess(result) {

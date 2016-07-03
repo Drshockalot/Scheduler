@@ -18,7 +18,10 @@ class RaidManagementActions {
       'deleteBossSuccess',
       'deleteBossFailure',
       'deleteRaidSuccess',
-      'deleteRaidFailure'
+      'deleteRaidFailure',
+      'updateFormTanks',
+      'updateFormHealers',
+      'updateFormDPS'
     );
   }
 
@@ -65,11 +68,14 @@ class RaidManagementActions {
     });
   }
 
-  createBoss(bossName, bossDescription, raidId) {
+  createBoss(bossName, bossDescription, raidId, tank_count, healer_count, dps_count) {
     var data = {};
     data.name = bossName;
     data.description = bossDescription;
     data.raidId = raidId;
+    data.tank_count = tank_count;
+    data.healer_count = healer_count;
+    data.dps_count = dps_count;
     $.ajax({
       method: 'POST',
       url: '/api/boss/admin',

@@ -802,7 +802,7 @@ var RaidManagementActions = function () {
   function RaidManagementActions() {
     _classCallCheck(this, RaidManagementActions);
 
-    this.generateActions('updateFormRaidName', 'updateFormRaidDescription', 'updateFormBossName', 'updateFormBossDescription', 'createRaidSuccess', 'createRaidFailure', 'loadRaidsSuccess', 'loadRaidsFailure', 'updateSelectedRaid', 'createBossSuccess', 'createBossFailure', 'editBoss', 'deleteBossSuccess', 'deleteBossFailure', 'deleteRaidSuccess', 'deleteRaidFailure');
+    this.generateActions('updateFormRaidName', 'updateFormRaidDescription', 'updateFormBossName', 'updateFormBossDescription', 'createRaidSuccess', 'createRaidFailure', 'loadRaidsSuccess', 'loadRaidsFailure', 'updateSelectedRaid', 'createBossSuccess', 'createBossFailure', 'editBoss', 'deleteBossSuccess', 'deleteBossFailure', 'deleteRaidSuccess', 'deleteRaidFailure', 'updateFormTanks', 'updateFormHealers', 'updateFormDPS');
   }
 
   _createClass(RaidManagementActions, [{
@@ -859,13 +859,16 @@ var RaidManagementActions = function () {
     }
   }, {
     key: 'createBoss',
-    value: function createBoss(bossName, bossDescription, raidId) {
+    value: function createBoss(bossName, bossDescription, raidId, tank_count, healer_count, dps_count) {
       var _this4 = this;
 
       var data = {};
       data.name = bossName;
       data.description = bossDescription;
       data.raidId = raidId;
+      data.tank_count = tank_count;
+      data.healer_count = healer_count;
+      data.dps_count = dps_count;
       $.ajax({
         method: 'POST',
         url: '/api/boss/admin',
@@ -1159,7 +1162,7 @@ var ScheduleManagementActions = function () {
   function ScheduleManagementActions() {
     _classCallCheck(this, ScheduleManagementActions);
 
-    this.generateActions('updateFormRaidWeek', 'updateFormRoster', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'updateFormRaid', 'updateFormBoss', 'updateFormTanks', 'updateFormHealers', 'updateFormDPS', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure', 'setFormTanks', 'setFormHealers', 'setFormDPS', 'addScheduleBossSuccess', 'addScheduleBossFailure', 'addCharacterToScheduleBossSuccess', 'addCharacterToScheduleBossFailure', 'removeCharacterFromScheduleBossSuccess', 'removeCharacterFromScheduleBossFailure', 'invertSchedulePublishedStateSuccess', 'invertSchedulePublishedStateFailure');
+    this.generateActions('updateFormRaidWeek', 'updateFormRoster', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'updateFormRaid', 'updateFormBoss', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure', 'addScheduleBossSuccess', 'addScheduleBossFailure', 'addCharacterToScheduleBossSuccess', 'addCharacterToScheduleBossFailure', 'removeCharacterFromScheduleBossSuccess', 'removeCharacterFromScheduleBossFailure', 'invertSchedulePublishedStateSuccess', 'invertSchedulePublishedStateFailure');
   }
 
   _createClass(ScheduleManagementActions, [{
@@ -4721,9 +4724,233 @@ var RaidManagement = function (_React$Component) {
                     )
                   ),
                   _react2.default.createElement(
+                    'div',
+                    { className: 'form-group' },
+                    _react2.default.createElement(
+                      'label',
+                      { className: 'col-sm-2 control-label' },
+                      'Tanks:'
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-2' },
+                      _react2.default.createElement('input', { type: 'number', className: 'form-control', value: this.state.formTanks, onChange: function onChange(e) {
+                          return _RaidManagementActions2.default.updateFormTanks(e.target.value);
+                        } })
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _RaidManagementActions2.default.updateFormTanks(1);
+                          } },
+                        '1'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _RaidManagementActions2.default.updateFormTanks(2);
+                          } },
+                        '2'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _RaidManagementActions2.default.updateFormTanks(3);
+                          } },
+                        '3'
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'form-group' },
+                    _react2.default.createElement(
+                      'label',
+                      { className: 'col-sm-2 control-label' },
+                      'Healers:'
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-2' },
+                      _react2.default.createElement('input', { type: 'number', className: 'form-control', value: this.state.formHealers, onChange: function onChange(e) {
+                          return _RaidManagementActions2.default.updateFormHealers(e.target.value);
+                        } })
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _RaidManagementActions2.default.updateFormHealers(2);
+                          } },
+                        '2'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _RaidManagementActions2.default.updateFormHealers(3);
+                          } },
+                        '3'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _RaidManagementActions2.default.updateFormHealers(4);
+                          } },
+                        '4'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _RaidManagementActions2.default.updateFormHealers(5);
+                          } },
+                        '5'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _RaidManagementActions2.default.updateFormHealers(6);
+                          } },
+                        '6'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _RaidManagementActions2.default.updateFormHealers(7);
+                          } },
+                        '7'
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'form-group' },
+                    _react2.default.createElement(
+                      'label',
+                      { className: 'col-sm-2 control-label' },
+                      'DPS:'
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-2' },
+                      _react2.default.createElement('input', { type: 'number', className: 'form-control', value: this.state.formDPS, onChange: function onChange(e) {
+                          return _RaidManagementActions2.default.updateFormDPS(e.target.value);
+                        } })
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _RaidManagementActions2.default.updateFormDPS(10);
+                          } },
+                        '10'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _RaidManagementActions2.default.updateFormDPS(11);
+                          } },
+                        '11'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _RaidManagementActions2.default.updateFormDPS(12);
+                          } },
+                        '12'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _RaidManagementActions2.default.updateFormDPS(13);
+                          } },
+                        '13'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _RaidManagementActions2.default.updateFormDPS(14);
+                          } },
+                        '14'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _RaidManagementActions2.default.updateFormDPS(15);
+                          } },
+                        '15'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-sm-1' },
+                      _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-default', onClick: function onClick() {
+                            return _RaidManagementActions2.default.updateFormDPS(16);
+                          } },
+                        '16'
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
                     'button',
                     { className: 'btn btn-default pull-right', onClick: function onClick() {
-                        return _RaidManagementActions2.default.createBoss(_this2.state.formBossName, _this2.state.formBossDescription, currentRaidId);
+                        return _RaidManagementActions2.default.createBoss(_this2.state.formBossName, _this2.state.formBossDescription, currentRaidId, _this2.state.formTanks, _this2.state.formHealers, _this2.state.formDPS);
                       } },
                     'Submit'
                   )
@@ -6266,230 +6493,6 @@ var ScheduleManagement = function (_React$Component) {
                     )
                   ),
                   _react2.default.createElement(
-                    'div',
-                    { className: 'form-group' },
-                    _react2.default.createElement(
-                      'label',
-                      { className: 'col-sm-2 control-label' },
-                      'Tanks:'
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-sm-2' },
-                      _react2.default.createElement('input', { type: 'number', className: 'form-control', value: this.state.formTanks, onChange: function onChange(e) {
-                          return _ScheduleManagementActions2.default.updateFormTanks(e.target.value);
-                        } })
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-sm-1' },
-                      _react2.default.createElement(
-                        'button',
-                        { className: 'btn btn-default', onClick: function onClick() {
-                            return _ScheduleManagementActions2.default.setFormTanks(1);
-                          } },
-                        '1'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-sm-1' },
-                      _react2.default.createElement(
-                        'button',
-                        { className: 'btn btn-default', onClick: function onClick() {
-                            return _ScheduleManagementActions2.default.setFormTanks(2);
-                          } },
-                        '2'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-sm-1' },
-                      _react2.default.createElement(
-                        'button',
-                        { className: 'btn btn-default', onClick: function onClick() {
-                            return _ScheduleManagementActions2.default.setFormTanks(3);
-                          } },
-                        '3'
-                      )
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'form-group' },
-                    _react2.default.createElement(
-                      'label',
-                      { className: 'col-sm-2 control-label' },
-                      'Healers:'
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-sm-2' },
-                      _react2.default.createElement('input', { type: 'number', className: 'form-control', value: this.state.formHealers, onChange: function onChange(e) {
-                          return _ScheduleManagementActions2.default.updateFormHealers(e.target.value);
-                        } })
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-sm-1' },
-                      _react2.default.createElement(
-                        'button',
-                        { className: 'btn btn-default', onClick: function onClick() {
-                            return _ScheduleManagementActions2.default.setFormHealers(2);
-                          } },
-                        '2'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-sm-1' },
-                      _react2.default.createElement(
-                        'button',
-                        { className: 'btn btn-default', onClick: function onClick() {
-                            return _ScheduleManagementActions2.default.setFormHealers(3);
-                          } },
-                        '3'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-sm-1' },
-                      _react2.default.createElement(
-                        'button',
-                        { className: 'btn btn-default', onClick: function onClick() {
-                            return _ScheduleManagementActions2.default.setFormHealers(4);
-                          } },
-                        '4'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-sm-1' },
-                      _react2.default.createElement(
-                        'button',
-                        { className: 'btn btn-default', onClick: function onClick() {
-                            return _ScheduleManagementActions2.default.setFormHealers(5);
-                          } },
-                        '5'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-sm-1' },
-                      _react2.default.createElement(
-                        'button',
-                        { className: 'btn btn-default', onClick: function onClick() {
-                            return _ScheduleManagementActions2.default.setFormHealers(6);
-                          } },
-                        '6'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-sm-1' },
-                      _react2.default.createElement(
-                        'button',
-                        { className: 'btn btn-default', onClick: function onClick() {
-                            return _ScheduleManagementActions2.default.setFormHealers(7);
-                          } },
-                        '7'
-                      )
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'form-group' },
-                    _react2.default.createElement(
-                      'label',
-                      { className: 'col-sm-2 control-label' },
-                      'DPS:'
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-sm-2' },
-                      _react2.default.createElement('input', { type: 'number', className: 'form-control', value: this.state.formDPS, onChange: function onChange(e) {
-                          return _ScheduleManagementActions2.default.updateFormDPS(e.target.value);
-                        } })
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-sm-1' },
-                      _react2.default.createElement(
-                        'button',
-                        { className: 'btn btn-default', onClick: function onClick() {
-                            return _ScheduleManagementActions2.default.setFormDPS(10);
-                          } },
-                        '10'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-sm-1' },
-                      _react2.default.createElement(
-                        'button',
-                        { className: 'btn btn-default', onClick: function onClick() {
-                            return _ScheduleManagementActions2.default.setFormDPS(11);
-                          } },
-                        '11'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-sm-1' },
-                      _react2.default.createElement(
-                        'button',
-                        { className: 'btn btn-default', onClick: function onClick() {
-                            return _ScheduleManagementActions2.default.setFormDPS(12);
-                          } },
-                        '12'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-sm-1' },
-                      _react2.default.createElement(
-                        'button',
-                        { className: 'btn btn-default', onClick: function onClick() {
-                            return _ScheduleManagementActions2.default.setFormDPS(13);
-                          } },
-                        '13'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-sm-1' },
-                      _react2.default.createElement(
-                        'button',
-                        { className: 'btn btn-default', onClick: function onClick() {
-                            return _ScheduleManagementActions2.default.setFormDPS(14);
-                          } },
-                        '14'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-sm-1' },
-                      _react2.default.createElement(
-                        'button',
-                        { className: 'btn btn-default', onClick: function onClick() {
-                            return _ScheduleManagementActions2.default.setFormDPS(15);
-                          } },
-                        '15'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-sm-1' },
-                      _react2.default.createElement(
-                        'button',
-                        { className: 'btn btn-default', onClick: function onClick() {
-                            return _ScheduleManagementActions2.default.setFormDPS(16);
-                          } },
-                        '16'
-                      )
-                    )
-                  ),
-                  _react2.default.createElement(
                     'button',
                     { className: 'btn btn-primary pull-right', onClick: function onClick() {
                         return _ScheduleManagementActions2.default.addScheduleBoss(_this2.state.formRaid, _this2.state.formBoss, _this2.state.formTanks, _this2.state.formHealers, _this2.state.formDPS, _this2.state.selectedSchedule);
@@ -7469,9 +7472,27 @@ var RaidManagementStore = function () {
     this.selectedRaid = '';
     this.bossName = '';
     this.bossDescription = '';
+    this.formTanks = 0;
+    this.formHealers = 0;
+    this.formDPS = 0;
   }
 
   _createClass(RaidManagementStore, [{
+    key: 'onUpdateFormTanks',
+    value: function onUpdateFormTanks(value) {
+      this.formTanks = value;
+    }
+  }, {
+    key: 'onUpdateFormHealers',
+    value: function onUpdateFormHealers(value) {
+      this.formHealers = value;
+    }
+  }, {
+    key: 'onUpdateFormDPS',
+    value: function onUpdateFormDPS(value) {
+      this.formDPS = value;
+    }
+  }, {
     key: 'onUpdateFormRaidName',
     value: function onUpdateFormRaidName(e) {
       this.formRaidName = e.target.value;
@@ -7606,6 +7627,9 @@ var RaidWeekManagementStore = function () {
     this.selectedYear = (0, _moment2.default)().year();
     this.selectedDay = (0, _moment2.default)();
     this.raidweeks = [];
+    this.formTanks = 0;
+    this.formHealers = 0;
+    this.formDPS = 0;
   }
 
   _createClass(RaidWeekManagementStore, [{
@@ -7813,9 +7837,6 @@ var ScheduleManagementStore = function () {
 
     this.formRaid = 0;
     this.formBoss = 0;
-    this.formTanks = 0;
-    this.formHealers = 0;
-    this.formDPS = 0;
   }
 
   _createClass(ScheduleManagementStore, [{
@@ -7858,21 +7879,6 @@ var ScheduleManagementStore = function () {
     key: 'onUpdateFormBoss',
     value: function onUpdateFormBoss(value) {
       this.formBoss = value;
-    }
-  }, {
-    key: 'onUpdateFormTanks',
-    value: function onUpdateFormTanks(value) {
-      this.formTanks = value;
-    }
-  }, {
-    key: 'onUpdateFormHealers',
-    value: function onUpdateFormHealers(value) {
-      this.formHealers = value;
-    }
-  }, {
-    key: 'onUpdateFormDPS',
-    value: function onUpdateFormDPS(value) {
-      this.formDPS = value;
     }
   }, {
     key: 'onLoadComponentDataSuccess',
@@ -7931,21 +7937,6 @@ var ScheduleManagementStore = function () {
     key: 'onCreateScheduleFailure',
     value: function onCreateScheduleFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
-    }
-  }, {
-    key: 'onSetFormTanks',
-    value: function onSetFormTanks(value) {
-      this.formTanks = value;
-    }
-  }, {
-    key: 'onSetFormHealers',
-    value: function onSetFormHealers(value) {
-      this.formHealers = value;
-    }
-  }, {
-    key: 'onSetFormDPS',
-    value: function onSetFormDPS(value) {
-      this.formDPS = value;
     }
   }, {
     key: 'onAddScheduleBossSuccess',

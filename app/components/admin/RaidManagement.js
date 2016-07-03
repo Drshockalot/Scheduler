@@ -117,7 +117,73 @@ class RaidManagement extends React.Component {
                       <textarea className='form-control' name='bossDescription' value={this.state.formBossDescription} onChange={RaidManagementActions.updateFormBossDescription} />
                     </div>
                   </div>
-                  <button className='btn btn-default pull-right' onClick={() => RaidManagementActions.createBoss(this.state.formBossName, this.state.formBossDescription, currentRaidId)}>Submit</button>
+                  <div className='form-group'>
+                    <label className='col-sm-2 control-label'>Tanks:</label>
+                    <div className='col-sm-2'>
+                      <input type='number' className='form-control' value={this.state.formTanks} onChange={e => RaidManagementActions.updateFormTanks(e.target.value)} />
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => RaidManagementActions.updateFormTanks(1)}>1</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => RaidManagementActions.updateFormTanks(2)}>2</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => RaidManagementActions.updateFormTanks(3)}>3</button>
+                    </div>
+                  </div>
+                  <div className='form-group'>
+                    <label className='col-sm-2 control-label'>Healers:</label>
+                    <div className='col-sm-2'>
+                      <input type='number' className='form-control' value={this.state.formHealers} onChange={e => RaidManagementActions.updateFormHealers(e.target.value)} />
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => RaidManagementActions.updateFormHealers(2)}>2</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => RaidManagementActions.updateFormHealers(3)}>3</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => RaidManagementActions.updateFormHealers(4)}>4</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => RaidManagementActions.updateFormHealers(5)}>5</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => RaidManagementActions.updateFormHealers(6)}>6</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => RaidManagementActions.updateFormHealers(7)}>7</button>
+                    </div>
+                  </div>
+                  <div className='form-group'>
+                    <label className='col-sm-2 control-label'>DPS:</label>
+                    <div className='col-sm-2'>
+                      <input type='number' className='form-control' value={this.state.formDPS} onChange={e => RaidManagementActions.updateFormDPS(e.target.value)} />
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => RaidManagementActions.updateFormDPS(10)}>10</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => RaidManagementActions.updateFormDPS(11)}>11</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => RaidManagementActions.updateFormDPS(12)}>12</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => RaidManagementActions.updateFormDPS(13)}>13</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => RaidManagementActions.updateFormDPS(14)}>14</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => RaidManagementActions.updateFormDPS(15)}>15</button>
+                    </div>
+                    <div className='col-sm-1'>
+                      <button className='btn btn-default' onClick={() => RaidManagementActions.updateFormDPS(16)}>16</button>
+                    </div>
+                  </div>
+                  <button className='btn btn-default pull-right' onClick={() => RaidManagementActions.createBoss(this.state.formBossName, this.state.formBossDescription, currentRaidId, this.state.formTanks, this.state.formHealers, this.state.formDPS)}>Submit</button>
                 </div>
               </div>
             </div>

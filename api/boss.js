@@ -7,7 +7,10 @@ var Boss = require('./../db/postgres/boss');
 router.post('/admin', function(req, res, next) {
   Boss.forge({ raid_id: req.body.raidId,
                name: req.body.name,
-               description: req.body.description})
+               description: req.body.description,
+               tank_count: req.body.tank_count,
+               healer_count: req.body.healer_count,
+               dps_count: req.body.dps_count})
       .save()
       .then(function(boss) {
         Raid.forge()
