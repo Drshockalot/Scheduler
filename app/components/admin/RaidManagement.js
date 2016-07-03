@@ -100,19 +100,20 @@ class RaidManagement extends React.Component {
                   <div className='col-md-2'>
                     <button className='btn btn-danger' onClick={() => RaidManagementActions.deleteRaid(currentRaidId)}>Delete</button>
                   </div>
+                  <div className='row'>
+                    <table className='table'>
+                      <tbody>
+                        <tr>
+                          <td><strong>Name</strong></td>
+                          <td><strong>Description</strong></td>
+                          <td></td>
+                          <td></td>
+                        </tr>
+                        {raidBossList}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-                <br />
-                <table className='table'>
-                  <tbody>
-                    <tr>
-                      <td><strong>Name</strong></td>
-                      <td><strong>Description</strong></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    {raidBossList}
-                  </tbody>
-                </table>
               </div>
               <div className='col-md-6'>
                 <h3>Add Boss</h3>

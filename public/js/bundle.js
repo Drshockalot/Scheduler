@@ -4678,40 +4678,43 @@ var RaidManagement = function (_React$Component) {
                         } },
                       'Delete'
                     )
-                  )
-                ),
-                _react2.default.createElement('br', null),
-                _react2.default.createElement(
-                  'table',
-                  { className: 'table' },
+                  ),
                   _react2.default.createElement(
-                    'tbody',
-                    null,
+                    'div',
+                    { className: 'row' },
                     _react2.default.createElement(
-                      'tr',
-                      null,
+                      'table',
+                      { className: 'table' },
                       _react2.default.createElement(
-                        'td',
+                        'tbody',
                         null,
                         _react2.default.createElement(
-                          'strong',
+                          'tr',
                           null,
-                          'Name'
-                        )
-                      ),
-                      _react2.default.createElement(
-                        'td',
-                        null,
-                        _react2.default.createElement(
-                          'strong',
-                          null,
-                          'Description'
-                        )
-                      ),
-                      _react2.default.createElement('td', null),
-                      _react2.default.createElement('td', null)
-                    ),
-                    raidBossList
+                          _react2.default.createElement(
+                            'td',
+                            null,
+                            _react2.default.createElement(
+                              'strong',
+                              null,
+                              'Name'
+                            )
+                          ),
+                          _react2.default.createElement(
+                            'td',
+                            null,
+                            _react2.default.createElement(
+                              'strong',
+                              null,
+                              'Description'
+                            )
+                          ),
+                          _react2.default.createElement('td', null),
+                          _react2.default.createElement('td', null)
+                        ),
+                        raidBossList
+                      )
+                    )
                   )
                 )
               ),
