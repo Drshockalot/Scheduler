@@ -4573,7 +4573,11 @@ var RaidManagement = function (_React$Component) {
                   _react2.default.createElement(
                     'td',
                     { className: 'col-md-6 description' },
-                    boss.description
+                    _react2.default.createElement(
+                      'div',
+                      null,
+                      boss.description
+                    )
                   ),
                   _react2.default.createElement(
                     'td',
