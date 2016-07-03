@@ -151,11 +151,13 @@ table.calendar td.selectedweek.selected {
   display: block;
 }
 .dropzone-text {
-  width: 70%;
+  width: 100%;
   height: 200px;
+  max-height: 400px;
 }
 .dropzone-text textarea {
   height: 200px !important;
+  width: 70% !important;
   max-height: 400px;
   max-width: 100%;
 }
