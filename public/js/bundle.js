@@ -4678,43 +4678,6 @@ var RaidManagement = function (_React$Component) {
                         } },
                       'Delete'
                     )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'row' },
-                    _react2.default.createElement(
-                      'table',
-                      { className: 'table col-md-12' },
-                      _react2.default.createElement(
-                        'tbody',
-                        null,
-                        _react2.default.createElement(
-                          'tr',
-                          null,
-                          _react2.default.createElement(
-                            'td',
-                            null,
-                            _react2.default.createElement(
-                              'strong',
-                              null,
-                              'Name'
-                            )
-                          ),
-                          _react2.default.createElement(
-                            'td',
-                            null,
-                            _react2.default.createElement(
-                              'strong',
-                              null,
-                              'Description'
-                            )
-                          ),
-                          _react2.default.createElement('td', null),
-                          _react2.default.createElement('td', null)
-                        ),
-                        raidBossList
-                      )
-                    )
                   )
                 )
               ),
@@ -4767,7 +4730,48 @@ var RaidManagement = function (_React$Component) {
                 )
               )
             ),
-            _react2.default.createElement('div', { className: 'row' })
+            _react2.default.createElement(
+              'div',
+              { className: 'row' },
+              _react2.default.createElement(
+                'h3',
+                null,
+                'Bosses'
+              ),
+              _react2.default.createElement(
+                'table',
+                { className: 'table' },
+                _react2.default.createElement(
+                  'tbody',
+                  null,
+                  _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'Name'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'Description'
+                      )
+                    ),
+                    _react2.default.createElement('td', null),
+                    _react2.default.createElement('td', null)
+                  ),
+                  raidBossList
+                )
+              )
+            )
           )
         )
       );
