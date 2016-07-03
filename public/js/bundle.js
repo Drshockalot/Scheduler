@@ -4684,7 +4684,7 @@ var RaidManagement = function (_React$Component) {
                     { className: 'row' },
                     _react2.default.createElement(
                       'table',
-                      { className: 'table' },
+                      { className: 'table col-md-12' },
                       _react2.default.createElement(
                         'tbody',
                         null,
