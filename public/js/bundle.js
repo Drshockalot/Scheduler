@@ -4164,7 +4164,7 @@ var AttendanceManagement = function (_React$Component) {
                         _react2.default.createElement(
                           'div',
                           { className: 'dropzone-text' },
-                          _react2.default.createElement('textarea', { className: 'form-control dropzone-text' }),
+                          _react2.default.createElement('textarea', { className: 'form-control' }),
                           _react2.default.createElement('br', null),
                           _react2.default.createElement(
                             'button',
