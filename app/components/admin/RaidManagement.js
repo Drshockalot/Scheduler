@@ -46,12 +46,12 @@ class RaidManagement extends React.Component {
             raidBossList = raid.bosses.map(function(boss, index) {
               return (
                 <tr>
-                  <td>{boss.name}</td>
-                  <td>{boss.tank_count}</td>
-                  <td>{boss.healer_count}</td>
-                  <td>{boss.dps_count}</td>
-                  <td className='overflow-auto'>{boss.description}</td>
-                  <td>
+                  <td className='col-md-2'>{boss.name}</td>
+                  <td className='col-md-1'>{boss.tank_count}</td>
+                  <td className='col-md-1'>{boss.healer_count}</td>
+                  <td className='col-md-1'>{boss.dps_count}</td>
+                  <td className='col-md-6 overflow-auto'>{boss.description}</td>
+                  <td className='col-md-1'>
                     <button className='btn btn-danger' onClick={() => RaidManagementActions.deleteBoss(boss)}>Delete</button>
                   </td>
                 </tr>
@@ -199,7 +199,7 @@ class RaidManagement extends React.Component {
                   <td className='col-md-1'><strong>Tanks</strong></td>
                   <td className='col-md-1'><strong>Healers</strong></td>
                   <td className='col-md-1'><strong>DPS</strong></td>
-                  <td className='col-md-5'><strong>Description</strong></td>
+                  <td className='col-md-6'><strong>Description</strong></td>
                   <td className='col-md-1'></td>
                 </tr>
                 {raidBossList}

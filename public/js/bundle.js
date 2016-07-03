@@ -4552,32 +4552,32 @@ var RaidManagement = function (_React$Component) {
                   null,
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-md-2' },
                     boss.name
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-md-1' },
                     boss.tank_count
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-md-1' },
                     boss.healer_count
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-md-1' },
                     boss.dps_count
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'overflow-auto' },
+                    { className: 'col-md-6 overflow-auto' },
                     boss.description
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-md-1' },
                     _react2.default.createElement(
                       'button',
                       { className: 'btn btn-danger', onClick: function onClick() {
@@ -5027,7 +5027,7 @@ var RaidManagement = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                       'td',
-                      { className: 'col-md-5' },
+                      { className: 'col-md-6' },
                       _react2.default.createElement(
                         'strong',
                         null,
