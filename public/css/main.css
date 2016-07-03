@@ -8193,6 +8193,9 @@ label {
   -webkit-animation-delay: -500ms;
           animation-delay: -500ms;
 }
+.overflow-auto {
+  overflow: auto;
+}
 .death-knight-color {
   height: 20px;
   background-color: #C41F3B;

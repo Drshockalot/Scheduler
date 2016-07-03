@@ -4558,6 +4558,21 @@ var RaidManagement = function (_React$Component) {
                   _react2.default.createElement(
                     'td',
                     null,
+                    boss.tank_count
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    boss.healer_count
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
+                    boss.dps_count
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    null,
                     boss.description
                   ),
                   _react2.default.createElement(
@@ -4976,7 +4991,7 @@ var RaidManagement = function (_React$Component) {
                     null,
                     _react2.default.createElement(
                       'td',
-                      null,
+                      { className: 'col-md-2' },
                       _react2.default.createElement(
                         'strong',
                         null,
@@ -4985,15 +5000,41 @@ var RaidManagement = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                       'td',
-                      null,
+                      { className: 'col-md-1' },
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'Tanks'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'col-md-1' },
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'Healers'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'col-md-1' },
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'DPS'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'col-md-5' },
                       _react2.default.createElement(
                         'strong',
                         null,
                         'Description'
                       )
                     ),
-                    _react2.default.createElement('td', null),
-                    _react2.default.createElement('td', null)
+                    _react2.default.createElement('td', { className: 'col-md-1' })
                   ),
                   raidBossList
                 )
