@@ -5027,7 +5027,7 @@ var RaidManagement = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                       'td',
-                      { className: 'col-md-5' },
+                      { className: 'col-md-5 overflow-auto' },
                       _react2.default.createElement(
                         'strong',
                         null,

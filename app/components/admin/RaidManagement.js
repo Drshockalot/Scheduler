@@ -199,7 +199,7 @@ class RaidManagement extends React.Component {
                   <td className='col-md-1'><strong>Tanks</strong></td>
                   <td className='col-md-1'><strong>Healers</strong></td>
                   <td className='col-md-1'><strong>DPS</strong></td>
-                  <td className='col-md-5'><strong>Description</strong></td>
+                  <td className='col-md-5 overflow-auto'><strong>Description</strong></td>
                   <td className='col-md-1'></td>
                 </tr>
                 {raidBossList}
