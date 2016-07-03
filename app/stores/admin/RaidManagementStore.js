@@ -8,8 +8,8 @@ class RaidManagementStore {
     this.formRaidDescription = '';
     this.raids = [];
     this.selectedRaid = '';
-    this.bossName = '';
-    this.bossDescription = '';
+    this.formBossName = '';
+    this.formBossDescription = '';
     this.formTanks = 0;
     this.formHealers = 0;
     this.formDPS = 0;
