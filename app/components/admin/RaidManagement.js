@@ -50,7 +50,7 @@ class RaidManagement extends React.Component {
                   <td className='col-md-1'>{boss.tank_count}</td>
                   <td className='col-md-1'>{boss.healer_count}</td>
                   <td className='col-md-1'>{boss.dps_count}</td>
-                  <td className='col-md-6 description'><div>{boss.description}</div></td>
+                  <td className='col-md-6'><div className='description'>{boss.description}</div></td>
                   <td className='col-md-1'>
                     <button className='btn btn-danger' onClick={() => RaidManagementActions.deleteBoss(boss)}>Delete</button>
                   </td>
