@@ -8194,7 +8194,7 @@ label {
           animation-delay: -500ms;
 }
 .description {
-  width: 100%;
+  width: 200px;
   height: 50px;
   max-height: 50px;
   overflow: auto;
