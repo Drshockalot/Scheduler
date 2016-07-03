@@ -4160,8 +4160,8 @@ var AttendanceManagement = function (_React$Component) {
                       { className: 'row' },
                       _react2.default.createElement(
                         'div',
-                        { className: 'col-md-6 col-md-offset-2' },
-                        _react2.default.createElement('textarea', { className: 'form-control' }),
+                        { className: 'col-md-8 col-md-offset-2' },
+                        _react2.default.createElement('textarea', { className: 'form-control dropzone-text' }),
                         _react2.default.createElement('br', null),
                         _react2.default.createElement(
                           'button',

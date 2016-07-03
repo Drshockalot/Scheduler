@@ -150,6 +150,12 @@ table.calendar td.selectedweek.selected {
   font-weight: 359;
   display: block;
 }
+.dropzone-text {
+  width: 70%;
+  height: 200px;
+  max-height: 400px;
+  max-width: 100%;
+}
 .rwHeader {
   background-color: #FFB275;
 }
