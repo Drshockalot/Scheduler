@@ -50,7 +50,7 @@ class RaidManagement extends React.Component {
                   <td>{boss.tank_count}</td>
                   <td>{boss.healer_count}</td>
                   <td>{boss.dps_count}</td>
-                  <td>{boss.description}</td>
+                  <td className='overflow-auto'>{boss.description}</td>
                   <td>
                     <button className='btn btn-danger' onClick={() => RaidManagementActions.deleteBoss(boss)}>Delete</button>
                   </td>
@@ -199,7 +199,7 @@ class RaidManagement extends React.Component {
                   <td className='col-md-1'><strong>Tanks</strong></td>
                   <td className='col-md-1'><strong>Healers</strong></td>
                   <td className='col-md-1'><strong>DPS</strong></td>
-                  <td className='col-md-5 overflow-auto'><strong>Description</strong></td>
+                  <td className='col-md-5'><strong>Description</strong></td>
                   <td className='col-md-1'></td>
                 </tr>
                 {raidBossList}
