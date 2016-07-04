@@ -697,11 +697,12 @@ var AttendaceManagementActions = function () {
   }, {
     key: 'drop',
     value: function drop(files) {
+      var d = files[0];
       console.log(files);
       $.ajax({
         method: 'POST',
         url: '/api/attendance/admin',
-        data: files,
+        data: d,
         dataType: 'json'
       }).done(function (result) {
         console.log(result);
