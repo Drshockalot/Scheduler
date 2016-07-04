@@ -3990,7 +3990,7 @@ var AttendanceManagement = function (_React$Component) {
   }, {
     key: 'onDrop',
     value: function onDrop(files) {
-      console.log('Received files: ', files);
+      console.log('Received files: ', files[0]);
     }
   }, {
     key: 'render',
