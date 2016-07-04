@@ -24,10 +24,11 @@ class AttendaceManagementActions {
   }
 
   drop(files) {
+    console.log(files);
     $.ajax({
       method: 'POST',
       url: '/api/attendance/admin',
-      data: files[0]
+      data: files
     }).done((result) => {
       console.log(result);
     }).fail((jqXhr) => {
