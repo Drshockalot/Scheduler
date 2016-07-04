@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+var fs = require('fs');
+
 var Raid_Week = require('./../db/postgres/raid_week');
 
 router.get('/admin', function(req, res, next) {
@@ -16,6 +18,17 @@ router.get('/admin', function(req, res, next) {
            .catch(function(err) {
              res.status(500).json({error: true, data: {message: err.message}});
            });
+});
+
+router.post('/admin', function(req, res, next) {
+  var file = req.body[0];
+  fs.readFile(file.preview, function(err, data) {
+    if(err) {
+      res.json({error: err});
+    } else {
+      res.json({success: data);
+    }
+  });
 });
 
 module.exports = router;
