@@ -1652,7 +1652,7 @@ var Home = function (_React$Component) {
 
 exports.default = Home;
 
-},{"../actions/HomeActions":2,"../stores/HomeStore":43,"../stores/NavbarStore":44,"moment":61,"react":"react","react-router":"react-router"}],23:[function(require,module,exports){
+},{"../actions/HomeActions":2,"../stores/HomeStore":43,"../stores/NavbarStore":44,"moment":62,"react":"react","react-router":"react-router"}],23:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2460,7 +2460,7 @@ var ProfileCharacters = function (_React$Component) {
 
 exports.default = ProfileCharacters;
 
-},{"../../utility/WowClasses":70,"../../utility/WowRaces":71,"../actions/ProfileCharactersActions":5,"../stores/NavbarStore":44,"../stores/ProfileCharactersStore":45,"./ProfileSidenav":28,"react":"react","react-router":"react-router","underscore":"underscore"}],26:[function(require,module,exports){
+},{"../../utility/WowClasses":71,"../../utility/WowRaces":72,"../actions/ProfileCharactersActions":5,"../stores/NavbarStore":44,"../stores/ProfileCharactersStore":45,"./ProfileSidenav":28,"react":"react","react-router":"react-router","underscore":"underscore"}],26:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -2830,7 +2830,7 @@ var ProfileRaidWeeks = function (_React$Component) {
 
 exports.default = ProfileRaidWeeks;
 
-},{"../actions/ProfileRaidWeeksActions":6,"../stores/NavbarStore":44,"../stores/ProfileRaidWeeksStore":46,"./ProfileSidenav":28,"moment":61,"react":"react","react-router":"react-router","underscore":"underscore"}],27:[function(require,module,exports){
+},{"../actions/ProfileRaidWeeksActions":6,"../stores/NavbarStore":44,"../stores/ProfileRaidWeeksStore":46,"./ProfileSidenav":28,"moment":62,"react":"react","react-router":"react-router","underscore":"underscore"}],27:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3519,7 +3519,7 @@ var SingleScheduleView = function (_React$Component) {
 
 exports.default = SingleScheduleView;
 
-},{"../actions/SingleScheduleViewActions":9,"../stores/NavbarStore":44,"../stores/SingleScheduleViewStore":50,"./../../utility/WowClasses":70,"classnames":60,"react":"react","react-router":"react-router","underscore":"underscore"}],31:[function(require,module,exports){
+},{"../actions/SingleScheduleViewActions":9,"../stores/NavbarStore":44,"../stores/SingleScheduleViewStore":50,"./../../utility/WowClasses":71,"classnames":61,"react":"react","react-router":"react-router","underscore":"underscore"}],31:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3924,6 +3924,10 @@ var _NavbarStore = require('./../../stores/NavbarStore');
 
 var _NavbarStore2 = _interopRequireDefault(_NavbarStore);
 
+var _fs = require('fs');
+
+var _fs2 = _interopRequireDefault(_fs);
+
 var _underscore = require('underscore');
 
 var _underscore2 = _interopRequireDefault(_underscore);
@@ -3990,7 +3994,14 @@ var AttendanceManagement = function (_React$Component) {
   }, {
     key: 'onDrop',
     value: function onDrop(files) {
-      console.log('Received files: ', files[0]);
+      console.log('Received files: ', files);
+      _fs2.default.readFile(files[0], function (err, data) {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(data);
+        }
+      });
     }
   }, {
     key: 'render',
@@ -4192,7 +4203,7 @@ var AttendanceManagement = function (_React$Component) {
 
 exports.default = AttendanceManagement;
 
-},{"../../actions/admin/AttendanceManagementActions":13,"../../stores/admin/AttendanceManagementStore":54,"./../../stores/NavbarStore":44,"./AdminSideNav":33,"classnames":60,"moment":61,"react":"react","react-dropzone":62,"react-radio-group":63,"react-router":"react-router","underscore":"underscore"}],35:[function(require,module,exports){
+},{"../../actions/admin/AttendanceManagementActions":13,"../../stores/admin/AttendanceManagementStore":54,"./../../stores/NavbarStore":44,"./AdminSideNav":33,"classnames":61,"fs":60,"moment":62,"react":"react","react-dropzone":63,"react-radio-group":64,"react-router":"react-router","underscore":"underscore"}],35:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -4456,7 +4467,7 @@ var CharacterManagement = function (_React$Component) {
 
 exports.default = CharacterManagement;
 
-},{"./../../../utility/WowClasses":70,"./../../../utility/WowRaces":71,"./../../actions/admin/CharacterManagementActions":14,"./../../stores/NavbarStore":44,"./../../stores/admin/CharacterManagementStore":55,"./AdminSideNav":33,"react":"react","react-router":"react-router","underscore":"underscore"}],36:[function(require,module,exports){
+},{"./../../../utility/WowClasses":71,"./../../../utility/WowRaces":72,"./../../actions/admin/CharacterManagementActions":14,"./../../stores/NavbarStore":44,"./../../stores/admin/CharacterManagementStore":55,"./AdminSideNav":33,"react":"react","react-router":"react-router","underscore":"underscore"}],36:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -5455,7 +5466,7 @@ var RaidWeekManagement = function (_React$Component) {
 
 exports.default = RaidWeekManagement;
 
-},{"./../../actions/admin/RaidWeekManagementActions":16,"./../../stores/NavbarStore":44,"./../../stores/admin/RaidWeekManagementStore":57,"./AdminSideNav":33,"moment":61,"react":"react","react-router":"react-router","react-yearly-calendar":68}],38:[function(require,module,exports){
+},{"./../../actions/admin/RaidWeekManagementActions":16,"./../../stores/NavbarStore":44,"./../../stores/admin/RaidWeekManagementStore":57,"./AdminSideNav":33,"moment":62,"react":"react","react-router":"react-router","react-yearly-calendar":69}],38:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6601,7 +6612,7 @@ var ScheduleManagement = function (_React$Component) {
 
 exports.default = ScheduleManagement;
 
-},{"./../../../utility/WowClasses":70,"./../../actions/admin/ScheduleManagementActions":18,"./../../stores/NavbarStore":44,"./../../stores/admin/ScheduleManagementStore":59,"./AdminSideNav":33,"classnames":60,"moment":61,"react":"react","react-router":"react-router","underscore":"underscore"}],40:[function(require,module,exports){
+},{"./../../../utility/WowClasses":71,"./../../actions/admin/ScheduleManagementActions":18,"./../../stores/NavbarStore":44,"./../../stores/admin/ScheduleManagementStore":59,"./AdminSideNav":33,"classnames":61,"moment":62,"react":"react","react-router":"react-router","underscore":"underscore"}],40:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -7788,7 +7799,7 @@ var RaidWeekManagementStore = function () {
 
 exports.default = _alt2.default.createStore(RaidWeekManagementStore);
 
-},{"./../../actions/admin/RaidWeekManagementActions":16,"./../../alt":19,"moment":61}],58:[function(require,module,exports){
+},{"./../../actions/admin/RaidWeekManagementActions":16,"./../../alt":19,"moment":62}],58:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -8064,7 +8075,9 @@ var ScheduleManagementStore = function () {
 
 exports.default = _alt2.default.createStore(ScheduleManagementStore);
 
-},{"./../../actions/admin/ScheduleManagementActions":18,"./../../alt":19,"moment":61}],60:[function(require,module,exports){
+},{"./../../actions/admin/ScheduleManagementActions":18,"./../../alt":19,"moment":62}],60:[function(require,module,exports){
+
+},{}],61:[function(require,module,exports){
 /*!
   Copyright (c) 2016 Jed Watson.
   Licensed under the MIT License (MIT), see
@@ -8114,7 +8127,7 @@ exports.default = _alt2.default.createStore(ScheduleManagementStore);
 	}
 }());
 
-},{}],61:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 //! moment.js
 //! version : 2.13.0
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
@@ -12155,7 +12168,7 @@ exports.default = _alt2.default.createStore(ScheduleManagementStore);
     return _moment;
 
 }));
-},{}],62:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory(require("react"));
@@ -12543,7 +12556,7 @@ return /******/ (function(modules) { // webpackBootstrap
 });
 ;
 
-},{"react":"react"}],63:[function(require,module,exports){
+},{"react":"react"}],64:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -12641,7 +12654,7 @@ var RadioGroup = _react2['default'].createClass({
   }
 });
 exports.RadioGroup = RadioGroup;
-},{"react":"react"}],64:[function(require,module,exports){
+},{"react":"react"}],65:[function(require,module,exports){
 'use strict';
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
@@ -12841,7 +12854,7 @@ exports.default = Calendar;
 
 Calendar.propTypes = propTypes;
 Calendar.defaultProps = defaultProps;
-},{"./Month":67,"./utils":69,"moment":61,"react":"react"}],65:[function(require,module,exports){
+},{"./Month":68,"./utils":70,"moment":62,"react":"react"}],66:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -12941,7 +12954,7 @@ var CalendarControls = (function (_React$Component) {
 exports.default = CalendarControls;
 
 CalendarControls.propTypes = propTypes;
-},{"react":"react"}],66:[function(require,module,exports){
+},{"react":"react"}],67:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -13034,7 +13047,7 @@ var Day = exports.Day = (function (_React$Component) {
 
 Day.propTypes = propTypes;
 Day.defaultProps = defaultProps;
-},{"react":"react"}],67:[function(require,module,exports){
+},{"react":"react"}],68:[function(require,module,exports){
 'use strict';
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -13348,7 +13361,7 @@ var Month = exports.Month = (function (_React$Component) {
 
 Month.propTypes = propTypes;
 Month.defaultProps = defaultProps;
-},{"./Day":66,"./utils":69,"moment":61,"react":"react"}],68:[function(require,module,exports){
+},{"./Day":67,"./utils":70,"moment":62,"react":"react"}],69:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -13372,7 +13385,7 @@ Object.defineProperty(exports, 'CalendarControls', {
     return _CalendarControls.default;
   }
 });
-},{"./Calendar":64,"./CalendarControls":65}],69:[function(require,module,exports){
+},{"./Calendar":65,"./CalendarControls":66}],70:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -13396,7 +13409,7 @@ function range(start, stop, step) {
 
   return range;
 };
-},{}],70:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 "use strict";
 
 module.exports = [{
@@ -13467,7 +13480,7 @@ module.exports = [{
     "token": "prot"
 }];
 
-},{}],71:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 "use strict";
 
 module.exports = [{

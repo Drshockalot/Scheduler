@@ -6,6 +6,8 @@ import AdminSideNav from './AdminSideNav';
 import NavbarStore from './../../stores/NavbarStore';
 import { browserHistory } from 'react-router';
 
+import fs from 'fs';
+
 import _ from 'underscore';
 import {RadioGroup, Radio} from 'react-radio-group'
 import moment from 'moment';
@@ -40,7 +42,14 @@ class AttendanceManagement extends React.Component {
   }
 
   onDrop(files) {
-    console.log('Received files: ', files[0]);
+    console.log('Received files: ', files);
+    fs.readFile(files[0], function(err, data) {
+      if(err) {
+        console.log(err)
+      } else {
+        console.log(data);
+      }
+    })
   }
 
   render() {
