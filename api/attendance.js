@@ -23,13 +23,14 @@ router.get('/admin', function(req, res, next) {
 router.post('/admin', function(req, res, next) {
   console.log(req.body);
   var file = req.body[0];
-  fs.readFile(file, function(err, data) {
-    if(err) {
-      res.json({error: err});
-    } else {
-      res.json({success: data});
-    }
-  });
+  console.log(file);
+  // fs.readFile(file, function(err, data) {
+  //   if(err) {
+  //     res.json({error: err});
+  //   } else {
+  //     res.json({success: data});
+  //   }
+  // });
 });
 
 module.exports = router;
