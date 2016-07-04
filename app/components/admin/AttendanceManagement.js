@@ -40,7 +40,7 @@ class AttendanceManagement extends React.Component {
   }
 
   onDrop(files) {
-    console.log('Received files: ', files.File[0]);
+    console.log('Received files: ', files);
   }
 
   render() {
