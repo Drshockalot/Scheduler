@@ -23,7 +23,7 @@ router.get('/admin', function(req, res, next) {
 router.post('/admin', function(req, res, next) {
   console.log(req.body);
   var file = req.body[0];
-  console.log(file);
+  res.json(req.body);
   // fs.readFile(file, function(err, data) {
   //   if(err) {
   //     res.json({error: err});
