@@ -24,7 +24,7 @@ class AttendaceManagementActions {
   }
 
   drop(file) {
-    console.log(files);
+    console.log(file);
     $.ajax({
       method: 'POST',
       url: '/api/attendance/admin',
