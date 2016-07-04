@@ -26,7 +26,7 @@ router.post('/admin', function(req, res, next) {
     if(err) {
       res.json({error: err});
     } else {
-      res.json({success: data);
+      res.json({success: data});
     }
   });
 });
