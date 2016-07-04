@@ -696,14 +696,12 @@ var AttendaceManagementActions = function () {
     }
   }, {
     key: 'drop',
-    value: function drop(files) {
-      var d = files[0];
+    value: function drop(file) {
       console.log(files);
       $.ajax({
         method: 'POST',
         url: '/api/attendance/admin',
-        data: d,
-        dataType: 'json'
+        data: file
       }).done(function (result) {
         console.log(result);
       }).fail(function (jqXhr) {
@@ -4007,7 +4005,8 @@ var AttendanceManagement = function (_React$Component) {
     key: 'onDrop',
     value: function onDrop(files) {
       console.log('Received files: ', files);
-      _AttendanceManagementActions2.default.drop(files);
+      console.log(files[0]);
+      _AttendanceManagementActions2.default.drop(files[0]);
     }
   }, {
     key: 'render',

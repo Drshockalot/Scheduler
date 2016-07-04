@@ -41,7 +41,8 @@ class AttendanceManagement extends React.Component {
 
   onDrop(files) {
     console.log('Received files: ', files);
-    AttendanceManagementActions.drop(files);
+    console.log(files[0]);
+    AttendanceManagementActions.drop(files[0]);
   }
 
   render() {
