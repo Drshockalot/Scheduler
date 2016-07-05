@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var moment = require('moment');
 
 var fs = require('fs');
 
@@ -21,9 +22,9 @@ router.get('/admin', function(req, res, next) {
 });
 
 router.post('/admin', function(req, res, next) {
-  var savePath = __dirname + '/uploads/raidattendance'
+  var savePath = __dirname + '/uploads/raidattendance/rt' + moment().format() + '.txt'
   console.log(req.body.name);
-  fs.writeFile(req.body.name, req.body.file, function(err) {
+  fs.writeFile(savePath, req.body.file, function(err) {
     if(err) {
       res.json({error: err});
     } else {
