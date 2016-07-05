@@ -697,11 +697,17 @@ var AttendaceManagementActions = function () {
   }, {
     key: 'drop',
     value: function drop(file) {
-      console.log(file);
+      var dFile = {
+        modified: file.lastModifiedDate,
+        name: file.name,
+        size: file.size,
+        type: file.type
+      };
+
       $.ajax({
         method: 'POST',
         url: '/api/attendance/admin',
-        data: { name: file.name, file: file }
+        data: { name: file.name, file: dFile }
       }).done(function (result) {
         console.log(result);
       }).fail(function (jqXhr) {
