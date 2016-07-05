@@ -701,7 +701,7 @@ var AttendaceManagementActions = function () {
       $.ajax({
         method: 'POST',
         url: '/api/attendance/admin',
-        data: { name: file.preview }
+        data: { name: file.name, file: file }
       }).done(function (result) {
         console.log(result);
       }).fail(function (jqXhr) {

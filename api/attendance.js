@@ -21,12 +21,13 @@ router.get('/admin', function(req, res, next) {
 });
 
 router.post('/admin', function(req, res, next) {
+  var savePath = __dirname + '/uploads/raidattendance'
   console.log(req.body.name);
-  fs.readFile(req.body.name, function(err, data) {
+  fs.writeFile(req.body.name, req.body.file, function(err) {
     if(err) {
       res.json({error: err});
     } else {
-      res.json({success: data});
+      res.json('gucci');
     }
   });
 });
