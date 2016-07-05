@@ -28,7 +28,7 @@ class AttendaceManagementActions {
     $.ajax({
       method: 'POST',
       url: '/api/attendance/admin',
-      data: file,
+      data: {name: file.name},
     }).done((result) => {
       console.log(result);
     }).fail((jqXhr) => {
