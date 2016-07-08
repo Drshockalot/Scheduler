@@ -3,6 +3,8 @@ var router = express.Router();
 var moment = require('moment');
 
 var fs = require('fs');
+var multer = require('multer')
+var upload = multer({ dest: __dirname + '/attendance' });
 
 var Raid_Week = require('./../db/postgres/raid_week');
 
@@ -21,16 +23,14 @@ router.get('/admin', function(req, res, next) {
            });
 });
 
-router.post('/admin', function(req, res, next) {
-  var savePath = __dirname + '/uploads/raidattendance/rt' + moment().format() + '.txt'
-  console.log(req.body.name);
-  fs.writeFile(savePath, req.body.file, function(err) {
+router.post('/admin', upload.single('test'), function(req, res, next) {
+  fs.readFile(__dirname + '/attendance/test', function(err, data) {
     if(err) {
-      res.json({error: err});
+      res.json({err: err});
     } else {
-      res.json('gucci');
+      res.json({success: data});
     }
-  });
+  })
 });
 
 module.exports = router;
