@@ -30,14 +30,13 @@ class AttendaceManagementActions {
     var tFile = new FormData();
     tFile.append('test', file);
 
-    $.ajax({
-      method: 'POST',
-      url: '/api/attendance/admin',
-      data: tFile
-    }).done((result) => {
-      console.log(result);
-    }).fail((jqXhr) => {
-      console.log(jqXhr);
+    request.post('/api/attendance/admin').send(tFile).end(function(err, resp) {
+      if(err) {
+        console.log('err');
+        console.log(err);
+      } else {
+        console.log(resp);
+      }
     });
   }
 }
