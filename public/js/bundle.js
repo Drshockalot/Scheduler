@@ -700,22 +700,7 @@ var AttendaceManagementActions = function () {
     }
   }, {
     key: 'drop',
-    value: function drop(file) {
-      var tFile = new FormData();
-      tFile.append('test', file);
-      tFile.append('please', 'helpme');
-
-      console.log(file);
-      console.log(tFile);
-      request.post('/api/attendance/admin').send(tFile).end(function (err, resp) {
-        if (err) {
-          console.log('err');
-          console.log(err);
-        } else {
-          console.log(resp);
-        }
-      });
-    }
+    value: function drop(file) {}
   }]);
 
   return AttendaceManagementActions;
