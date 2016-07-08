@@ -1,6 +1,7 @@
 import alt from '../../alt';
 
 var request = require('superagent');
+var FormData = require('form-data');
 
 class AttendaceManagementActions {
   constructor() {
