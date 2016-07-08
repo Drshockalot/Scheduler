@@ -30,7 +30,8 @@ class AttendaceManagementActions {
   drop(file) {
     var tFile = {};
     _.assign(tFile, file);
-
+    console.log(file);
+    console.log(tFile);
     request.post('/api/attendance/admin').send(tFile).end(function(err, resp) {
       if(err) {
         console.log('err');
