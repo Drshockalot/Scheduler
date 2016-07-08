@@ -1,5 +1,7 @@
 import alt from '../../alt';
 
+var request = require('superagent');
+
 class AttendaceManagementActions {
   constructor() {
     this.generateActions(
@@ -24,19 +26,17 @@ class AttendaceManagementActions {
   }
 
   drop(file) {
-    var dFile = {
-      modified: file.lastModifiedDate,
-      name: file.name,
-      size: file.size,
-      type: file.type
-    }
+    var tFile = new FormData();
+    tFile.append('test', file);
 
     $.ajax({
       method: 'POST',
       url: '/api/attendance/admin',
-      data: {name: file.name, file: dFile}
+      data: tFile
     }).done((result) => {
       console.log(result);
+    }).fail((jqXhr) => {
+      console.log(jqXhr);
     });
   }
 }
