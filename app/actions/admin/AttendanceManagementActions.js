@@ -28,8 +28,11 @@ class AttendaceManagementActions {
   }
 
   drop(file) {
-    var tFile = {};
-    _.assign(tFile, file);
+    var tFile = {modified: file.lastModifiedDate,
+    name: file.name,
+    size: file.size,
+    type: file.type};
+
     console.log(file);
     console.log(tFile);
     request.post('/api/attendance/admin').send(tFile).end(function(err, resp) {
