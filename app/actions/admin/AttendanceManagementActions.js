@@ -1,7 +1,7 @@
 import alt from '../../alt';
 
 var request = require('superagent');
-var FormData = require('form-data');
+
 var _ = require('underscore');
 
 class AttendaceManagementActions {
@@ -28,10 +28,8 @@ class AttendaceManagementActions {
   }
 
   drop(file) {
-    var tFile = {modified: file.lastModifiedDate,
-    name: file.name,
-    size: file.size,
-    type: file.type};
+    var tFile = new FormData();
+    tFile.append('test', file);
 
     console.log(file);
     console.log(tFile);
