@@ -710,8 +710,6 @@ var AttendaceManagementActions = function () {
         data: { name: file.name, file: dFile }
       }).done(function (result) {
         console.log(result);
-      }).fail(function (jqXhr) {
-        console.log(jqXhr);
       });
     }
   }]);

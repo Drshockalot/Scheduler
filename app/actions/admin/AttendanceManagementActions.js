@@ -37,8 +37,6 @@ class AttendaceManagementActions {
       data: {name: file.name, file: dFile}
     }).done((result) => {
       console.log(result);
-    }).fail((jqXhr) => {
-      console.log(jqXhr);
     });
   }
 }
