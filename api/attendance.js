@@ -24,13 +24,7 @@ router.get('/admin', function(req, res, next) {
 });
 
 router.post('/admin', upload.single('test'), function(req, res, next) {
-  fs.readFile(__dirname + '/attendance/test', function(err, data) {
-    if(err) {
-      res.json({err: err});
-    } else {
-      res.json({success: data});
-    }
-  })
+  res.json(req.file);
 });
 
 module.exports = router;
