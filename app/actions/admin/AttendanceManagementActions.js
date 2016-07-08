@@ -2,6 +2,7 @@ import alt from '../../alt';
 
 var request = require('superagent');
 var FormData = require('form-data');
+var _ = require('underscore');
 
 class AttendaceManagementActions {
   constructor() {
@@ -27,8 +28,8 @@ class AttendaceManagementActions {
   }
 
   drop(file) {
-    var tFile = new FormData();
-    tFile.append('test', file);
+    var tFile = {};
+    _.assign(tFile, file);
 
     request.post('/api/attendance/admin').send(tFile).end(function(err, resp) {
       if(err) {

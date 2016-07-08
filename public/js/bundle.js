@@ -673,6 +673,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var request = require('superagent');
 var FormData = require('form-data');
+var _ = require('underscore');
 
 var AttendaceManagementActions = function () {
   function AttendaceManagementActions() {
@@ -700,8 +701,8 @@ var AttendaceManagementActions = function () {
   }, {
     key: 'drop',
     value: function drop(file) {
-      var tFile = new FormData();
-      tFile.append('test', file);
+      var tFile = {};
+      _.assign(tFile, file);
 
       request.post('/api/attendance/admin').send(tFile).end(function (err, resp) {
         if (err) {
@@ -719,7 +720,7 @@ var AttendaceManagementActions = function () {
 
 exports.default = _alt2.default.createActions(AttendaceManagementActions);
 
-},{"../../alt":19,"form-data":70,"superagent":119}],14:[function(require,module,exports){
+},{"../../alt":19,"form-data":70,"superagent":119,"underscore":"underscore"}],14:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
