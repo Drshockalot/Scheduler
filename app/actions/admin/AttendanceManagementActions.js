@@ -30,6 +30,7 @@ class AttendaceManagementActions {
   drop(file) {
     var tFile = new FormData();
     tFile.append('test', file);
+    tFile.append('please', 'helpme');
 
     console.log(file);
     console.log(tFile);
