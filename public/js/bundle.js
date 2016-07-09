@@ -1743,6 +1743,24 @@ var Home = function (_React$Component) {
                               'Public Note and Officer Note text no longer spill into other table cells'
                             )
                           )
+                        ),
+                        _react2.default.createElement(
+                          'li',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
+                            'Roster Management'
+                          ),
+                          _react2.default.createElement(
+                            'ul',
+                            null,
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'Characters must now be confirmed via Character Management before they are able to be added to rosters'
+                            )
+                          )
                         )
                       )
                     )

@@ -74,11 +74,17 @@ class Home extends React.Component {
                       <ul>
                         <li>
                           <h5>Raid Management</h5>
-                            <ul>
-                              <li>Bosses can now be edited</li>
-                              <li>Boss description split up into Public Note and Officer Note</li>
-                              <li>Public Note and Officer Note text no longer spill into other table cells</li>
-                            </ul>
+                          <ul>
+                            <li>Bosses can now be edited</li>
+                            <li>Boss description split up into Public Note and Officer Note</li>
+                            <li>Public Note and Officer Note text no longer spill into other table cells</li>
+                          </ul>
+                        </li>
+                        <li>
+                          <h5>Roster Management</h5>
+                          <ul>
+                            <li>Characters must now be confirmed via Character Management before they are able to be added to rosters</li>
+                          </ul>
                         </li>
                       </ul>
                     </td>
