@@ -1654,7 +1654,7 @@ var Home = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'table',
-                { className: 'table-striped' },
+                { className: 'table table-striped' },
                 _react2.default.createElement(
                   'tbody',
                   null,
@@ -1672,7 +1672,7 @@ var Home = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'table',
-                { className: 'table-striped' },
+                { className: 'table table-striped' },
                 _react2.default.createElement(
                   'tbody',
                   null,

@@ -58,7 +58,7 @@ class Home extends React.Component {
           <div className='row'>
             <div className='col-md-6'>
               <h2>Upcoming Schedules</h2>
-              <table className='table-striped'>
+              <table className='table table-striped'>
                 <tbody>
                   {schedules}
                 </tbody>
@@ -66,7 +66,7 @@ class Home extends React.Component {
             </div>
             <div className='col-md-6'>
               <h2>ReadMe</h2>
-              <table className='table-striped'>
+              <table className='table table-striped'>
                 <tbody>
                   <tr>
                     <td>
