@@ -234,7 +234,7 @@ class RaidManagement extends React.Component {
           </div>
         </div>
         <Modal show={this.state.showEditBossModal} onHide={RaidManagementActions.closeEditBossModal}>
-          <Modal.Header closebutton>
+          <Modal.Header closeButton>
             <Modal.Title>Update Boss</Modal.Title>
           </Modal.Header>
           <Modal.Body>

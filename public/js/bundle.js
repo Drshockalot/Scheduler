@@ -5195,7 +5195,7 @@ var RaidManagement = function (_React$Component) {
           { show: this.state.showEditBossModal, onHide: _RaidManagementActions2.default.closeEditBossModal },
           _react2.default.createElement(
             _reactBootstrap.Modal.Header,
-            { closebutton: true },
+            { closeButton: true },
             _react2.default.createElement(
               _reactBootstrap.Modal.Title,
               null,
@@ -8049,8 +8049,8 @@ var RaidManagementStore = function () {
     }
   }, {
     key: 'onUpdateFormBossOfficerNote',
-    value: function onUpdateFormBossOfficerNote(value) {
-      this.formBossOfficerNote = value;
+    value: function onUpdateFormBossOfficerNote(e) {
+      this.formBossOfficerNote = e.target.value;
     }
   }, {
     key: 'onUpdateSelectedRaid',
@@ -8144,13 +8144,13 @@ var RaidManagementStore = function () {
       this.showEditBossModal = true;
     }
   }, {
-    key: 'onShowBossEditModal',
-    value: function onShowBossEditModal() {
+    key: 'onShowEditBossModal',
+    value: function onShowEditBossModal() {
       this.showEditBossModal = true;
     }
   }, {
-    key: 'onCloseBossEditModal',
-    value: function onCloseBossEditModal() {
+    key: 'onCloseEditBossModal',
+    value: function onCloseEditBossModal() {
       this.showEditBossModal = false;
     }
   }, {

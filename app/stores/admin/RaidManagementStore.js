@@ -52,8 +52,8 @@ class RaidManagementStore {
     this.formBossPublicNote = e.target.value;
   }
 
-  onUpdateFormBossOfficerNote(value) {
-    this.formBossOfficerNote = value;
+  onUpdateFormBossOfficerNote(e) {
+    this.formBossOfficerNote = e.target.value;
   }
 
   onUpdateSelectedRaid(value) {
@@ -134,11 +134,11 @@ class RaidManagementStore {
     this.showEditBossModal = true;
   }
 
-  onShowBossEditModal() {
+  onShowEditBossModal() {
     this.showEditBossModal = true;
   }
 
-  onCloseBossEditModal() {
+  onCloseEditBossModal() {
     this.showEditBossModal = false;
   }
 
