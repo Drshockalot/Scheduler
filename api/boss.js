@@ -7,7 +7,8 @@ var Boss = require('./../db/postgres/boss');
 router.post('/admin', function(req, res, next) {
   Boss.forge({ raid_id: req.body.raidId,
                name: req.body.name,
-               description: req.body.description,
+               public_note: req.body.publicNote,
+               officer_note: req.body.officerNote,
                tank_count: req.body.tank_count,
                healer_count: req.body.healer_count,
                dps_count: req.body.dps_count})
@@ -40,7 +41,7 @@ router.delete('/admin', function(req, res, next) {
                   })
                   .catch(function(err) {
                     res.status(500).json({error: true, data: {message: err.message}});
-                  })
+                  });
             })
             .catch(function(err) {
               res.status(500).json({error: true, data: {message: err.message}});
@@ -49,6 +50,35 @@ router.delete('/admin', function(req, res, next) {
       .catch(function(err) {
         res.status(500).json({error: true, data: {message: err.message}});
       });
+});
+
+router.put('/admin', function(req, res, next) {
+  Boss.forge({id: req.body.id})
+      .fetch({require: true})
+      .then(function(boss) {
+        boss.save({ name: req.body.name,
+                    public_note: req.body.publicNote,
+                    officer_note: req.body.officerNote,
+                    tank_count: req.body.tank_count,
+                    healer_count: req.body.healer_count,
+                    dps_count: req.body.dps_count})
+            .then(function() {
+              Raid.forge()
+                  .fetchAll({'withRelated': ['bosses']})
+                  .then(function(raids) {
+                    res.json({error: false, data: {message: 'Boss updated', raids: raids.toJSON()}});
+                  })
+                  .catch(function(err) {
+                    res.status(500).json({error: true, data: {message: err.message}});
+                  })
+            })
+            .catch(function(err) {
+              res.status(500).json({error: true, data: {message: err.message}});
+            });
+      })
+      .catch(function(err) {
+        res.status(500).json({error: true, data: {message: err.message}});
+      })
 });
 
 module.exports = router;

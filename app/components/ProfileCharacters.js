@@ -36,7 +36,7 @@ class ProfileCharacters extends React.Component {
       var retrievedCharactersCopy = this.state.retrievedCharacters;
       var arr = [];
       Object.keys(retrievedCharactersCopy).map(function(i) {
-        if(retrievedCharactersCopy[i].level === 100 &&
+        if(retrievedCharactersCopy[i].level >= 100 &&
            retrievedCharactersCopy[i].guild === "DarkStorm") {
             arr.push(retrievedCharactersCopy[i]);
         }

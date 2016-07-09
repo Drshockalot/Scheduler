@@ -9,10 +9,19 @@ class RaidManagementStore {
     this.raids = [];
     this.selectedRaid = '';
     this.formBossName = '';
-    this.formBossDescription = '';
+    this.formBossPublicNote = '';
+    this.formBossOfficerNote = '';
     this.formTanks = 0;
     this.formHealers = 0;
     this.formDPS = 0;
+    this.showEditBossModal = false;
+    this.editFormBossId = 0;
+    this.editFormBossName = '';
+    this.editFormBossPublicNote = '';
+    this.editFormBossOfficerNote = '';
+    this.editFormTanks = 0;
+    this.editFormHealers = 0;
+    this.editFormDPS = 0;
   }
 
   onUpdateFormTanks(value) {
@@ -39,8 +48,12 @@ class RaidManagementStore {
     this.formBossName = e.target.value;
   }
 
-  onUpdateFormBossDescription(e) {
-    this.formBossDescription = e.target.value;
+  onUpdateFormBossPublicNote(e) {
+    this.formBossPublicNote = e.target.value;
+  }
+
+  onUpdateFormBossOfficerNote(value) {
+    this.formBossOfficerNote = value;
   }
 
   onUpdateSelectedRaid(value) {
@@ -72,7 +85,11 @@ class RaidManagementStore {
   onCreateBossSuccess(result) {
     this.raids = result.data.raids;
     this.formBossName = '';
-    this.formBossDescription = '';
+    this.formBossPublicNote = '';
+    this.formBossOfficerNote = '';
+    this.formTanks = 0;
+    this.formHealers = 0;
+    this.formDPS = 0;
     toastr.success('Boss created', 'Success');
   }
 
@@ -103,6 +120,64 @@ class RaidManagementStore {
   }
 
   onDeleteRaidFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
+
+  onEditBoss(boss) {
+    this.editFormBossId = boss.id;
+    this.editFormBossName = boss.name;
+    this.editFormBossPublicNote = boss.public_note;
+    this.editFormBossOfficerNote = boss.officer_note;
+    this.editFormTanks = boss.tank_count;
+    this.editFormHealers = boss.healer_count;
+    this.editFormDPS = boss.dps_count;
+    this.showEditBossModal = true;
+  }
+
+  onShowBossEditModal() {
+    this.showEditBossModal = true;
+  }
+
+  onCloseBossEditModal() {
+    this.showEditBossModal = false;
+  }
+
+  onUpdateEditFormTanks(value) {
+    this.editFormTanks = value;
+  }
+
+  onUpdateEditFormHealers(value) {
+    this.editFormHealers = value;
+  }
+
+  onUpdateEditFormDPS(value) {
+    this.editFormDPS = value;
+  }
+
+  onUpdateEditFormBossName(value) {
+    this.editFormBossName = value;
+  }
+
+  onUpdateEditFormBossPublicNote(value) {
+    this.editFormBossPublicNote = value;
+  }
+
+  onUpdateEditFormBossOfficerNote(value) {
+    this.editFormBossOfficerNote = value;
+  }
+
+  onUpdateBossSuccess(result) {
+    this.raids = result.data.raids;
+    this.editFormBossName = '';
+    this.editFormBossPublicNote = '';
+    this.editFormBossOfficerNote = '';
+    this.editFormTanks = 0;
+    this.editFormHealers = 0;
+    this.editFormDPS = 0;
+    toastr.success('Boss updated', 'Success');
+  }
+
+  onUpdateBossFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
   }
 }

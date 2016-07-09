@@ -6,7 +6,8 @@ class RaidManagementActions {
       'updateFormRaidName',
       'updateFormRaidDescription',
       'updateFormBossName',
-      'updateFormBossDescription',
+      'updateFormBossPublicNote',
+      'updateFormBossOfficerNote',
       'createRaidSuccess',
       'createRaidFailure',
       'loadRaidsSuccess',
@@ -21,7 +22,18 @@ class RaidManagementActions {
       'deleteRaidFailure',
       'updateFormTanks',
       'updateFormHealers',
-      'updateFormDPS'
+      'updateFormDPS',
+      'updateEditFormTanks',
+      'updateEditFormHealers',
+      'updateEditFormDPS',
+      'updateEditFormBossName',
+      'updateEditFormBossPublicNote',
+      'updateEditFormBossOfficerNote',
+      'editBoss',
+      'showEditBossModal',
+      'closeEditBossModal',
+      'updateBossSuccess',
+      'updateBossFailure'
     );
   }
 
@@ -68,10 +80,11 @@ class RaidManagementActions {
     });
   }
 
-  createBoss(bossName, bossDescription, raidId, tank_count, healer_count, dps_count) {
+  createBoss(bossName, bossPublicNote, bossOfficerNote, raidId, tank_count, healer_count, dps_count) {
     var data = {};
     data.name = bossName;
-    data.description = bossDescription;
+    data.publicNote = bossPublicNote;
+    data.officerNote = bossOfficerNote;
     data.raidId = raidId;
     data.tank_count = tank_count;
     data.healer_count = healer_count;
@@ -100,6 +113,28 @@ class RaidManagementActions {
     }).fail((jqXhr) => {
       console.log(jqXhr);
       this.deleteBossFailure(jqXhr);
+    });
+  }
+
+  updateBoss(bossId, bossName, bossPublicNote, bossOfficerNote, tank_count, healer_count, dps_count) {
+    var data = {};
+    data.name = bossName;
+    data.publicNote = bossPublicNote;
+    data.officerNote = bossOfficerNote;
+    data.bossId = bossId;
+    data.tank_count = tank_count;
+    data.healer_count = healer_count;
+    data.dps_count = dps_count;
+    $.ajax({
+      method: 'PUT',
+      url: '/api/boss/admin',
+      data: data
+    }).done((result) => {
+      console.log(result);
+      this.updateBossSuccess(result);
+    }).fail((jqXhr) => {
+      console.log(jqXhr);
+      this.updateBossFailure(jqXhr);
     });
   }
 }
