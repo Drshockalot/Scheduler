@@ -4180,7 +4180,8 @@ var AttendanceManagement = function (_React$Component) {
                             'div',
                             { className: 'dropzone-content' },
                             'Drag or click here to upload file (.txt or .csv)'
-                          )
+                          ),
+                          _react2.default.createElement('img', { src: file.preview })
                         )
                       )
                     ),
