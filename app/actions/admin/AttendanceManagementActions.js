@@ -40,7 +40,7 @@ class AttendaceManagementActions {
       data: test,
       processData: false,
       complete: function(result) {
-        console.log('result - ' + result);
+        console.log('result - ', result);
       }
     })
   }

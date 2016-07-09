@@ -713,7 +713,7 @@ var AttendaceManagementActions = function () {
         data: test,
         processData: false,
         complete: function complete(result) {
-          console.log('result - ' + result);
+          console.log('result - ', result);
         }
       });
     }
