@@ -27,9 +27,9 @@ class Home extends React.Component {
   }
 
   render() {
-    var pageContent;
+    var schedules;
     if(this.state.raidweeks.length > 0) {
-      pageContent = this.state.raidweeks.map(function(raidweek, index) {
+      schedules = this.state.raidweeks.map(function(raidweek, index) {
         var schedules;
         schedules = raidweek.schedules.map(function(schedule) {
           return (
@@ -41,29 +41,51 @@ class Home extends React.Component {
 
         return (
           <tr>
-            <td>
-              <div className='row'>
+            <td className='col-md-4 vert-align'>
                 <strong><u>{moment(raidweek.start).format('MMM Do YYYY')}</u></strong>
-              </div>
-              <br />
+            </td>
+            <td className='col-md-8 vert-align'>
               {schedules}
-              <br />
             </td>
           </tr>
         );
       }, this);
     }
+
     return (
       <div id='page-content-wrapper'>
         <div className='container-fluid-eighty'>
           <div className='row'>
-            <h2>Upcoming Schedules</h2>
+            <div className='col-md-6'>
+              <h2>Upcoming Schedules</h2>
+              <table className='table-striped'>
+                <tbody>
+                  {schedules}
+                </tbody>
+              </table>
+            </div>
+            <div className='col-md-6'>
+              <h2>ReadMe</h2>
+              <table className='table-striped'>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div className='row'>
+                        <h4>{moment('2016-07-09').format('MMM Do YYYY')}</h4>
+                      </div>
+                      <div className='row'>
+                        <ul>
+                          <li>Some change</li>
+                          <li>Some other change</li>
+                          <li>Derp sucks</li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-          <table tableName='table-striped'>
-            <tbody>
-              {pageContent}
-            </tbody>
-          </table>
         </div>
       </div>
     );

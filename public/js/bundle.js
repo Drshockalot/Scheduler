@@ -1594,9 +1594,9 @@ var Home = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var pageContent;
+      var schedules;
       if (this.state.raidweeks.length > 0) {
-        pageContent = this.state.raidweeks.map(function (raidweek, index) {
+        schedules = this.state.raidweeks.map(function (raidweek, index) {
           var schedules;
           schedules = raidweek.schedules.map(function (schedule) {
             return _react2.default.createElement(
@@ -1615,27 +1615,26 @@ var Home = function (_React$Component) {
             null,
             _react2.default.createElement(
               'td',
-              null,
+              { className: 'col-md-4 vert-align' },
               _react2.default.createElement(
-                'div',
-                { className: 'row' },
+                'strong',
+                null,
                 _react2.default.createElement(
-                  'strong',
+                  'u',
                   null,
-                  _react2.default.createElement(
-                    'u',
-                    null,
-                    (0, _moment2.default)(raidweek.start).format('MMM Do YYYY')
-                  )
+                  (0, _moment2.default)(raidweek.start).format('MMM Do YYYY')
                 )
-              ),
-              _react2.default.createElement('br', null),
-              schedules,
-              _react2.default.createElement('br', null)
+              )
+            ),
+            _react2.default.createElement(
+              'td',
+              { className: 'col-md-8 vert-align' },
+              schedules
             )
           );
         }, this);
       }
+
       return _react2.default.createElement(
         'div',
         { id: 'page-content-wrapper' },
@@ -1646,18 +1645,79 @@ var Home = function (_React$Component) {
             'div',
             { className: 'row' },
             _react2.default.createElement(
-              'h2',
-              null,
-              'Upcoming Schedules'
-            )
-          ),
-          _react2.default.createElement(
-            'table',
-            { tableName: 'table-striped' },
+              'div',
+              { className: 'col-md-6' },
+              _react2.default.createElement(
+                'h2',
+                null,
+                'Upcoming Schedules'
+              ),
+              _react2.default.createElement(
+                'table',
+                { className: 'table-striped' },
+                _react2.default.createElement(
+                  'tbody',
+                  null,
+                  schedules
+                )
+              )
+            ),
             _react2.default.createElement(
-              'tbody',
-              null,
-              pageContent
+              'div',
+              { className: 'col-md-6' },
+              _react2.default.createElement(
+                'h2',
+                null,
+                'ReadMe'
+              ),
+              _react2.default.createElement(
+                'table',
+                { className: 'table-striped' },
+                _react2.default.createElement(
+                  'tbody',
+                  null,
+                  _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'div',
+                        { className: 'row' },
+                        _react2.default.createElement(
+                          'h4',
+                          null,
+                          (0, _moment2.default)('2016-07-09').format('MMM Do YYYY')
+                        )
+                      ),
+                      _react2.default.createElement(
+                        'div',
+                        { className: 'row' },
+                        _react2.default.createElement(
+                          'ul',
+                          null,
+                          _react2.default.createElement(
+                            'li',
+                            null,
+                            'Some change'
+                          ),
+                          _react2.default.createElement(
+                            'li',
+                            null,
+                            'Some other change'
+                          ),
+                          _react2.default.createElement(
+                            'li',
+                            null,
+                            'Derp sucks'
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              )
             )
           )
         )
