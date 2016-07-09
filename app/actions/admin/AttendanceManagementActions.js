@@ -30,7 +30,8 @@ class AttendaceManagementActions {
   drop(file) {
     var test = new FormData();
     test.append('test', file);
-    console.log('test form data - ' + test.getAll('test'));
+    console.log(test);
+    console.log('test form data -', test.get('test'));
 
     $.ajax({
       method: 'POST',
