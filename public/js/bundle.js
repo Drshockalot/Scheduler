@@ -4676,15 +4676,15 @@ var RaidManagement = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-5' },
+                    { className: 'col-md-5 word-break' },
                     _react2.default.createElement(
                       'div',
-                      { className: 'col-md-6' },
+                      { className: 'col-md-6 word-break' },
                       boss.public_note
                     ),
                     _react2.default.createElement(
                       'div',
-                      { className: 'col-md-6' },
+                      { className: 'col-md-6 word-break' },
                       boss.officer_note
                     )
                   ),
@@ -5120,7 +5120,7 @@ var RaidManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'table',
-                { className: 'table' },
+                { className: 'table fixed-table' },
                 _react2.default.createElement(
                   'tbody',
                   null,

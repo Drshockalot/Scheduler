@@ -8200,6 +8200,12 @@ label {
   overflow-y: scroll;
   word-wrap: normal;
 }
+.word-break {
+  word-wrap: break-word;
+}
+.fixed-table {
+  table-layout: fixed;
+}
 .death-knight-color {
   height: 20px;
   background-color: #C41F3B;
