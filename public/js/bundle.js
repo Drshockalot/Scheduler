@@ -1683,35 +1683,27 @@ var Home = function (_React$Component) {
                       'td',
                       null,
                       _react2.default.createElement(
-                        'div',
-                        { className: 'row' },
-                        _react2.default.createElement(
-                          'h4',
-                          null,
-                          (0, _moment2.default)('2016-07-09').format('MMM Do YYYY')
-                        )
+                        'h4',
+                        null,
+                        (0, _moment2.default)('2016-07-09').format('MMM Do YYYY')
                       ),
                       _react2.default.createElement(
-                        'div',
-                        { className: 'row' },
+                        'ul',
+                        null,
                         _react2.default.createElement(
-                          'ul',
+                          'li',
                           null,
-                          _react2.default.createElement(
-                            'li',
-                            null,
-                            'Some change'
-                          ),
-                          _react2.default.createElement(
-                            'li',
-                            null,
-                            'Some other change'
-                          ),
-                          _react2.default.createElement(
-                            'li',
-                            null,
-                            'Derp sucks'
-                          )
+                          'Some change'
+                        ),
+                        _react2.default.createElement(
+                          'li',
+                          null,
+                          'Some other change'
+                        ),
+                        _react2.default.createElement(
+                          'li',
+                          null,
+                          'Derp sucks'
                         )
                       )
                     )

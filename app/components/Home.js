@@ -70,16 +70,12 @@ class Home extends React.Component {
                 <tbody>
                   <tr>
                     <td>
-                      <div className='row'>
-                        <h4>{moment('2016-07-09').format('MMM Do YYYY')}</h4>
-                      </div>
-                      <div className='row'>
-                        <ul>
-                          <li>Some change</li>
-                          <li>Some other change</li>
-                          <li>Derp sucks</li>
-                        </ul>
-                      </div>
+                      <h4>{moment('2016-07-09').format('MMM Do YYYY')}</h4>
+                      <ul>
+                        <li>Some change</li>
+                        <li>Some other change</li>
+                        <li>Derp sucks</li>
+                      </ul>
                     </td>
                   </tr>
                 </tbody>
