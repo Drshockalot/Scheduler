@@ -24,7 +24,8 @@ router.get('/admin', function(req, res, next) {
 });
 
 router.post('/admin', upload.single('test'), function(req, res, next) {
-  res.end(req.file);
+  console.log(req.file);
+  res.end();
 });
 
 module.exports = router;
