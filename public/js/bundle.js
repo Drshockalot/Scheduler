@@ -4645,7 +4645,7 @@ var RaidManagement = function (_React$Component) {
       var raidOptionList;
       var raidBossList;
       if (this.state.raids.length > 0) {
-        raidOptionList = _underscore2.default.sortBy(this.state.raids, 'id').reverse().map(function (raid, index) {
+        raidOptionList = this.state.raids.map(function (raid, index) {
           if (raid.name === this.state.selectedRaid) {
             currentRaidId = raid.id;
 
