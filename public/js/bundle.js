@@ -1719,17 +1719,30 @@ var Home = function (_React$Component) {
                         _react2.default.createElement(
                           'li',
                           null,
-                          'Some change'
-                        ),
-                        _react2.default.createElement(
-                          'li',
-                          null,
-                          'Some other change'
-                        ),
-                        _react2.default.createElement(
-                          'li',
-                          null,
-                          'Derp sucks'
+                          _react2.default.createElement(
+                            'h2',
+                            null,
+                            'Raid Management'
+                          ),
+                          _react2.default.createElement(
+                            'ul',
+                            null,
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'Bosses can now be edited'
+                            ),
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'Boss description split up into Public Note and Officer Note'
+                            ),
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'Public Note and Officer Note text no longer spill into other table cells'
+                            )
+                          )
                         )
                       )
                     )

@@ -72,9 +72,14 @@ class Home extends React.Component {
                     <td>
                       <h4>{moment('2016-07-09').format('MMM Do YYYY')}</h4>
                       <ul>
-                        <li>Some change</li>
-                        <li>Some other change</li>
-                        <li>Derp sucks</li>
+                        <li>
+                          <h2>Raid Management</h2>
+                            <ul>
+                              <li>Bosses can now be edited</li>
+                              <li>Boss description split up into Public Note and Officer Note</li>
+                              <li>Public Note and Officer Note text no longer spill into other table cells</li>
+                            </ul>
+                        </li>
                       </ul>
                     </td>
                   </tr>
