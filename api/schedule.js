@@ -144,11 +144,11 @@ router.delete('/admin/character', function(req, res, next) {
                });
 });
 
-router.put('/admin/publish/:scheduleid', function(req, res, next) {
-  Schedule.forge({id: req.params.scheduleid})
+router.put('/admin/publish/:schedulebossid', function(req, res, next) {
+  Schedule_Boss.forge({id: req.params.schedulebossid})
                .fetch()
-               .then(function(schedule) {
-                 schedule.save({published: !schedule.get('published')})
+               .then(function(schedule_boss) {
+                 schedule_boss.save({published: !schedule_boss.get('published')})
                          .then(function() {
                            Schedule.forge()
                                    .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters']})
