@@ -40,7 +40,7 @@ class RaidManagement extends React.Component {
     var raidOptionList;
     var raidBossList;
     if(this.state.raids.length > 0) {
-      raidOptionList = _.sortBy(this.state.raids, 'id').map(function(raid, index) {
+      raidOptionList = _.sortBy(this.state.raids, 'id').reverse().map(function(raid, index) {
         if(raid.name === this.state.selectedRaid) {
           currentRaidId = raid.id;
 
