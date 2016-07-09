@@ -73,7 +73,7 @@ class Home extends React.Component {
                       <h4>{moment('2016-07-09').format('MMM Do YYYY')}</h4>
                       <ul>
                         <li>
-                          <h2>Raid Management</h2>
+                          <h5>Raid Management</h5>
                             <ul>
                               <li>Bosses can now be edited</li>
                               <li>Boss description split up into Public Note and Officer Note</li>
