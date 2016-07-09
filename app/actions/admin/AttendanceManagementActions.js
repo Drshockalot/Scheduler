@@ -36,7 +36,6 @@ class AttendaceManagementActions {
     $.ajax({
       method: 'POST',
       url: '/api/attendance/admin',
-      contentType: 'multipart/form-data',
       data: test,
       processData: false,
       complete: function(result) {
