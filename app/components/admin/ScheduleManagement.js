@@ -246,14 +246,11 @@ class ScheduleManagement extends React.Component {
             return (
               <tr>
                 <td className={classCSS} />
-                <td className='col-sm-3 vert-align'>
+                <td className='col-sm-4 vert-align'>
                   {character.name}
                 </td>
-                <td className='col-sm-2 vert-align'>
+                <td className='col-sm-3 vert-align'>
                   <strong>{character.main_role}</strong>
-                </td>
-                <td className='col-sm-2 vert-align'>
-                  {character.off_role}
                 </td>
                 <td className='col-sm-2 low-padding'>
                   {actionButton}
@@ -263,18 +260,33 @@ class ScheduleManagement extends React.Component {
           }
         }, this);
 
+        var published = schedule_boss.published;
+        var publishedButton;
+        if(published) {
+          publishedButton = (
+            <button className='btn btn-success btn-circle' onClick={() => ScheduleManagementActions.invertScheduleBossPublishedState(schedule_boss.id)}>&#10003;</button>
+          );
+        } else {
+          publishedButton = (
+            <button className='btn btn-default btn-circle' onClick={() => ScheduleManagementActions.invertScheduleBossPublishedState(schedule_boss.id)}></button>
+          )
+        }
+
+
         return (
           <div className='row'>
             <table className='table'>
               <tbody>
                 <tr>
+                  <td className='col-md-1'><strong>Published</strong></td>
                   <td className='col-md-1'><strong>Raid</strong></td>
                   <td className='col-md-1'><strong>Boss</strong></td>
-                  <td className='col-md-2'><strong>Tanks</strong> - Scheduled<strong>({schedule_boss.boss.tank_count})</strong> - Assigned<strong>({tankCount})</strong></td>
+                  <td className='col-md-3'><strong>Tanks</strong> - Scheduled<strong>({schedule_boss.boss.tank_count})</strong> - Assigned<strong>({tankCount})</strong></td>
                   <td className='col-md-3'><strong>Healers</strong> - Scheduled<strong>({schedule_boss.boss.healer_count})</strong> - Assigned<strong>({healerCount})</strong></td>
                   <td className='col-md-3'><strong>DPS</strong> - Scheduled<strong>({schedule_boss.boss.dps_count})</strong> - Assigned<strong>({dpsCount})</strong></td>
                 </tr>
                 <tr>
+                  <td className='col-md-1'>{publishedButton}</td>
                   <td className='col-md-1'>{schedule_boss.raid.name}</td>
                   <td className='col-md-1'>{schedule_boss.boss.name}</td>
                   <td className='col-md-3'>
@@ -304,17 +316,6 @@ class ScheduleManagement extends React.Component {
         );
       }, this);
 
-      var published = sched.published;
-      var publishedButton;
-      if(published) {
-        publishedButton = (
-          <button className='btn btn-success btn-circle' onClick={() => ScheduleManagementActions.invertSchedulePublishedState(this.state.selectedSchedule)}>&#10003;</button>
-        );
-      } else {
-        publishedButton = (
-          <button className='btn btn-default btn-circle' onClick={() => ScheduleManagementActions.invertSchedulePublishedState(this.state.selectedSchedule)}></button>
-        )
-      }
     }
 
     return (
@@ -376,12 +377,6 @@ class ScheduleManagement extends React.Component {
                       <select className='form-control' value={this.state.selectedSchedule} onChange={e => ScheduleManagementActions.updateSelectedSchedule(e.target.value)}>
                         {selectedScheduleOptions}
                       </select>
-                    </div>
-                  </div>
-                  <div className='form-group'>
-                    <label className='col-sm-2 control-label'>Published: </label>
-                    <div className='col-sm-10'>
-                      {publishedButton}
                     </div>
                   </div>
                 </div>

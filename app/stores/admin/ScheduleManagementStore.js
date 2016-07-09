@@ -135,11 +135,11 @@ class ScheduleManagementStore {
     toastr.error(jqXhr.responseJSON.message);
   }
 
-  onInvertSchedulePublishedStateSuccess(result) {
+  onInvertScheduleBossPublishedStateSuccess(result) {
     this.schedules = result.data.schedules;
   }
 
-  onInvertSchedulePublishedStateFailure(jqXhr) {
+  onInvertScheduleBossPublishedStateFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
   }
 }

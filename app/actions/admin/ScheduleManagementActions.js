@@ -23,8 +23,8 @@ class ScheduleManagementActions {
       'addCharacterToScheduleBossFailure',
       'removeCharacterFromScheduleBossSuccess',
       'removeCharacterFromScheduleBossFailure',
-      'invertSchedulePublishedStateSuccess',
-      'invertSchedulePublishedStateFailure'
+      'invertScheduleBossPublishedStateSuccess',
+      'invertScheduleBossPublishedStateFailure'
     );
   }
 
@@ -132,16 +132,16 @@ class ScheduleManagementActions {
     return 0;
   }
 
-  invertSchedulePublishedState(scheduleId) {
+  invertScheduleBossPublishedState(scheduleBossId) {
     $.ajax({
       method: 'PUT',
-      url: '/api/schedule/admin/publish/' + scheduleId
+      url: '/api/schedule/admin/publish/' + scheduleBossId
     }).done((result) => {
       console.log(result);
-      this.invertSchedulePublishedStateSuccess(result);
+      this.invertScheduleBossPublishedStateSuccess(result);
     }).fail((jqXhr) => {
       console.log(jqXhr);
-      this.invertSchedulePublishedStateFailure(jqXhr);
+      this.invertScheduleBossPublishedStateFailure(jqXhr);
     });
   }
 }

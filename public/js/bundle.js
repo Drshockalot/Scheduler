@@ -1206,7 +1206,7 @@ var ScheduleManagementActions = function () {
   function ScheduleManagementActions() {
     _classCallCheck(this, ScheduleManagementActions);
 
-    this.generateActions('updateFormRaidWeek', 'updateFormRoster', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'updateFormRaid', 'updateFormBoss', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure', 'addScheduleBossSuccess', 'addScheduleBossFailure', 'addCharacterToScheduleBossSuccess', 'addCharacterToScheduleBossFailure', 'removeCharacterFromScheduleBossSuccess', 'removeCharacterFromScheduleBossFailure', 'invertSchedulePublishedStateSuccess', 'invertSchedulePublishedStateFailure');
+    this.generateActions('updateFormRaidWeek', 'updateFormRoster', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'updateFormRaid', 'updateFormBoss', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure', 'addScheduleBossSuccess', 'addScheduleBossFailure', 'addCharacterToScheduleBossSuccess', 'addCharacterToScheduleBossFailure', 'removeCharacterFromScheduleBossSuccess', 'removeCharacterFromScheduleBossFailure', 'invertScheduleBossPublishedStateSuccess', 'invertScheduleBossPublishedStateFailure');
   }
 
   _createClass(ScheduleManagementActions, [{
@@ -1330,19 +1330,19 @@ var ScheduleManagementActions = function () {
       return 0;
     }
   }, {
-    key: 'invertSchedulePublishedState',
-    value: function invertSchedulePublishedState(scheduleId) {
+    key: 'invertScheduleBossPublishedState',
+    value: function invertScheduleBossPublishedState(scheduleBossId) {
       var _this6 = this;
 
       $.ajax({
         method: 'PUT',
-        url: '/api/schedule/admin/publish/' + scheduleId
+        url: '/api/schedule/admin/publish/' + scheduleBossId
       }).done(function (result) {
         console.log(result);
-        _this6.invertSchedulePublishedStateSuccess(result);
+        _this6.invertScheduleBossPublishedStateSuccess(result);
       }).fail(function (jqXhr) {
         console.log(jqXhr);
-        _this6.invertSchedulePublishedStateFailure(jqXhr);
+        _this6.invertScheduleBossPublishedStateFailure(jqXhr);
       });
     }
   }]);
@@ -6619,22 +6619,17 @@ var ScheduleManagement = function (_React$Component) {
                 _react2.default.createElement('td', { className: classCSS }),
                 _react2.default.createElement(
                   'td',
-                  { className: 'col-sm-3 vert-align' },
+                  { className: 'col-sm-4 vert-align' },
                   character.name
                 ),
                 _react2.default.createElement(
                   'td',
-                  { className: 'col-sm-2 vert-align' },
+                  { className: 'col-sm-3 vert-align' },
                   _react2.default.createElement(
                     'strong',
                     null,
                     character.main_role
                   )
-                ),
-                _react2.default.createElement(
-                  'td',
-                  { className: 'col-sm-2 vert-align' },
-                  character.off_role
                 ),
                 _react2.default.createElement(
                   'td',
@@ -6644,6 +6639,22 @@ var ScheduleManagement = function (_React$Component) {
               );
             }
           }, this);
+
+          var published = schedule_boss.published;
+          var publishedButton;
+          if (published) {
+            publishedButton = _react2.default.createElement(
+              'button',
+              { className: 'btn btn-success btn-circle', onClick: function onClick() {
+                  return _ScheduleManagementActions2.default.invertScheduleBossPublishedState(schedule_boss.id);
+                } },
+              '✓'
+            );
+          } else {
+            publishedButton = _react2.default.createElement('button', { className: 'btn btn-default btn-circle', onClick: function onClick() {
+                return _ScheduleManagementActions2.default.invertScheduleBossPublishedState(schedule_boss.id);
+              } });
+          }
 
           return _react2.default.createElement(
             'div',
@@ -6657,6 +6668,15 @@ var ScheduleManagement = function (_React$Component) {
                 _react2.default.createElement(
                   'tr',
                   null,
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-md-1' },
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Published'
+                    )
+                  ),
                   _react2.default.createElement(
                     'td',
                     { className: 'col-md-1' },
@@ -6677,7 +6697,7 @@ var ScheduleManagement = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-2' },
+                    { className: 'col-md-3' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -6757,6 +6777,11 @@ var ScheduleManagement = function (_React$Component) {
                   _react2.default.createElement(
                     'td',
                     { className: 'col-md-1' },
+                    publishedButton
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-md-1' },
                     schedule_boss.raid.name
                   ),
                   _react2.default.createElement(
@@ -6808,22 +6833,6 @@ var ScheduleManagement = function (_React$Component) {
             )
           );
         }, this);
-
-        var published = sched.published;
-        var publishedButton;
-        if (published) {
-          publishedButton = _react2.default.createElement(
-            'button',
-            { className: 'btn btn-success btn-circle', onClick: function onClick() {
-                return _ScheduleManagementActions2.default.invertSchedulePublishedState(_this2.state.selectedSchedule);
-              } },
-            '✓'
-          );
-        } else {
-          publishedButton = _react2.default.createElement('button', { className: 'btn btn-default btn-circle', onClick: function onClick() {
-              return _ScheduleManagementActions2.default.invertSchedulePublishedState(_this2.state.selectedSchedule);
-            } });
-        }
       }
 
       return _react2.default.createElement(
@@ -6984,20 +6993,6 @@ var ScheduleManagement = function (_React$Component) {
                           } },
                         selectedScheduleOptions
                       )
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'form-group' },
-                    _react2.default.createElement(
-                      'label',
-                      { className: 'col-sm-2 control-label' },
-                      'Published: '
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-sm-10' },
-                      publishedButton
                     )
                   )
                 )
@@ -8619,13 +8614,13 @@ var ScheduleManagementStore = function () {
       toastr.error(jqXhr.responseJSON.message);
     }
   }, {
-    key: 'onInvertSchedulePublishedStateSuccess',
-    value: function onInvertSchedulePublishedStateSuccess(result) {
+    key: 'onInvertScheduleBossPublishedStateSuccess',
+    value: function onInvertScheduleBossPublishedStateSuccess(result) {
       this.schedules = result.data.schedules;
     }
   }, {
-    key: 'onInvertSchedulePublishedStateFailure',
-    value: function onInvertSchedulePublishedStateFailure(jqXhr) {
+    key: 'onInvertScheduleBossPublishedStateFailure',
+    value: function onInvertScheduleBossPublishedStateFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
     }
   }]);
