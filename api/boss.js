@@ -53,7 +53,7 @@ router.delete('/admin', function(req, res, next) {
 });
 
 router.put('/admin', function(req, res, next) {
-  Boss.forge({id: req.body.id})
+  Boss.forge({id: req.body.bossId})
       .fetch({require: true})
       .then(function(boss) {
         boss.save({ name: req.body.name,
