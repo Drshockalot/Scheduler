@@ -59,16 +59,17 @@ class RosterManagement extends React.Component {
     });
 
     var excludedCharacters = this.state.excludedRosterCharacters.map(function(character, index) {
-      return (
-        <tr>
-          <td key={character.name}>{character.name}</td>
-          <td key={character.main_role + 'main'}>{character.main_role}</td>
-          <td key={character.off_role + 'off'}>{character.off_role}</td>
-          <td key='button'><button value={character.id} className='btn btn-success' onClick={e => {
-            RosterManagementActions.addCharacterToRoster(character.id, currentRosterId);
-          }}>Add</button></td>
-        </tr>
-      );
+      if(character.confirmed == 1)
+        return (
+          <tr>
+            <td key={character.name}>{character.name}</td>
+            <td key={character.main_role + 'main'}>{character.main_role}</td>
+            <td key={character.off_role + 'off'}>{character.off_role}</td>
+            <td key='button'><button value={character.id} className='btn btn-success' onClick={e => {
+              RosterManagementActions.addCharacterToRoster(character.id, currentRosterId);
+            }}>Add</button></td>
+          </tr>
+        );
     });
 
     return (

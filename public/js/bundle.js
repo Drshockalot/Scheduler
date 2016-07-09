@@ -6051,7 +6051,7 @@ var RosterManagement = function (_React$Component) {
       });
 
       var excludedCharacters = this.state.excludedRosterCharacters.map(function (character, index) {
-        return _react2.default.createElement(
+        if (character.confirmed == 1) return _react2.default.createElement(
           'tr',
           null,
           _react2.default.createElement(
