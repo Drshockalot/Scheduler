@@ -28,7 +28,9 @@ class AttendaceManagementActions {
   }
 
   drop(file) {
-
+    var test = new FormData();
+    test.append('test', file);
+    console.log(test.getAll('test'));
   }
 }
 

@@ -700,7 +700,11 @@ var AttendaceManagementActions = function () {
     }
   }, {
     key: 'drop',
-    value: function drop(file) {}
+    value: function drop(file) {
+      var test = new FormData();
+      test.append('test', file);
+      console.log(test.getAll('test'));
+    }
   }]);
 
   return AttendaceManagementActions;
