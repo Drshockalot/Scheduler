@@ -52,11 +52,11 @@ class RaidManagement extends React.Component {
                   <td className='col-md-1'>{boss.tank_count}</td>
                   <td className='col-md-1'>{boss.healer_count}</td>
                   <td className='col-md-1'>{boss.dps_count}</td>
-                  <td style="word-wrap: break-word" className='col-md-5'>
-                    <div style="word-wrap: break-word" className='col-md-6'>
+                  <td className='col-md-5'>
+                    <div className='col-md-6'>
                       {boss.public_note}
                     </div>
-                    <div style="word-wrap: break-word" className='col-md-6'>
+                    <div className='col-md-6'>
                       {boss.officer_note}
                     </div>
                   </td>
@@ -210,7 +210,7 @@ class RaidManagement extends React.Component {
             </div>
             <div className='row'>
             <h3>Bosses</h3>
-            <table style="table-layout: fixed" className='table'>
+            <table className='table'>
               <tbody>
                 <tr>
                   <td className='col-md-2'><strong>Name</strong></td>
