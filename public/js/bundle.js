@@ -706,15 +706,22 @@ var AttendaceManagementActions = function () {
       console.log(test);
       console.log('test form data -', test.get('test'));
 
-      $.ajax({
-        method: 'POST',
-        url: '/api/attendance/admin',
-        data: test,
-        processData: false,
-        complete: function complete(result) {
-          console.log('result - ', result);
+      request.post('/api/attendance/admin').send(test).end(function (err, res) {
+        if (err) {
+          console.log('err -', err);
+        } else {
+          console.log('res', res);
         }
       });
+      // $.ajax({
+      //   method: 'POST',
+      //   url: '/api/attendance/admin',
+      //   data: test,
+      //   processData: false,
+      //   complete: function(result) {
+      //     console.log('result - ', result);
+      //   }
+      // })
     }
   }]);
 
