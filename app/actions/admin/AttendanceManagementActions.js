@@ -39,7 +39,7 @@ class AttendaceManagementActions {
       contentType: 'multipart/form-data',
       data: test,
       processData: false,
-      success: function(result) {
+      complete: function(result) {
         console.log('result - ' + result);
       }
     })

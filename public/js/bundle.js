@@ -712,7 +712,7 @@ var AttendaceManagementActions = function () {
         contentType: 'multipart/form-data',
         data: test,
         processData: false,
-        success: function success(result) {
+        complete: function complete(result) {
           console.log('result - ' + result);
         }
       });
