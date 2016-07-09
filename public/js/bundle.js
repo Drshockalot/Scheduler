@@ -1761,6 +1761,29 @@ var Home = function (_React$Component) {
                               'Characters must now be confirmed via Character Management before they are able to be added to rosters'
                             )
                           )
+                        ),
+                        _react2.default.createElement(
+                          'li',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
+                            'Schedule Management'
+                          ),
+                          _react2.default.createElement(
+                            'ul',
+                            null,
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'Schedules are now shown empty by default until scheduling takes place'
+                            ),
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'Schedules are now published on a boss-by-boss basis'
+                            )
+                          )
                         )
                       )
                     )

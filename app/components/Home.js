@@ -86,6 +86,13 @@ class Home extends React.Component {
                             <li>Characters must now be confirmed via Character Management before they are able to be added to rosters</li>
                           </ul>
                         </li>
+                        <li>
+                          <h5>Schedule Management</h5>
+                          <ul>
+                            <li>Schedules are now shown empty by default until scheduling takes place</li>
+                            <li>Schedules are now published on a boss-by-boss basis</li>
+                          </ul>
+                        </li>
                       </ul>
                     </td>
                   </tr>
