@@ -30,8 +30,6 @@ class AttendaceManagementActions {
   drop(file) {
     var test = new FormData();
     test.append('test', file);
-    console.log(test);
-    console.log('test form data -', test.get('test'));
 
     request.post('/api/attendance/admin').send(test).end(function(err, res) {
       if(err) {
@@ -39,16 +37,7 @@ class AttendaceManagementActions {
       } else {
         console.log('res', res);
       }
-    })
-    // $.ajax({
-    //   method: 'POST',
-    //   url: '/api/attendance/admin',
-    //   data: test,
-    //   processData: false,
-    //   complete: function(result) {
-    //     console.log('result - ', result);
-    //   }
-    // })
+    });
   }
 }
 

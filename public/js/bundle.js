@@ -703,8 +703,6 @@ var AttendaceManagementActions = function () {
     value: function drop(file) {
       var test = new FormData();
       test.append('test', file);
-      console.log(test);
-      console.log('test form data -', test.get('test'));
 
       request.post('/api/attendance/admin').send(test).end(function (err, res) {
         if (err) {
@@ -713,15 +711,6 @@ var AttendaceManagementActions = function () {
           console.log('res', res);
         }
       });
-      // $.ajax({
-      //   method: 'POST',
-      //   url: '/api/attendance/admin',
-      //   data: test,
-      //   processData: false,
-      //   complete: function(result) {
-      //     console.log('result - ', result);
-      //   }
-      // })
     }
   }]);
 
@@ -4180,8 +4169,7 @@ var AttendanceManagement = function (_React$Component) {
                             'div',
                             { className: 'dropzone-content' },
                             'Drag or click here to upload file (.txt or .csv)'
-                          ),
-                          _react2.default.createElement('img', { src: file.preview })
+                          )
                         )
                       )
                     ),
