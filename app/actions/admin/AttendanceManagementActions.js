@@ -38,6 +38,7 @@ class AttendaceManagementActions {
       url: '/api/attendance/admin',
       contentType: 'multipart/form-data',
       data: test,
+      processData: false,
       success: function(result) {
         console.log('result - ' + result);
       }
