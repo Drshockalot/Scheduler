@@ -4587,6 +4587,10 @@ var _NavbarStore2 = _interopRequireDefault(_NavbarStore);
 
 var _reactBootstrap = require('react-bootstrap');
 
+var _underscore = require('underscore');
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -4641,7 +4645,7 @@ var RaidManagement = function (_React$Component) {
       var raidOptionList;
       var raidBossList;
       if (this.state.raids.length > 0) {
-        raidOptionList = this.state.raids.map(function (raid, index) {
+        raidOptionList = _underscore2.default.sortBy(this.state.raids, 'id').map(function (raid, index) {
           if (raid.name === this.state.selectedRaid) {
             currentRaidId = raid.id;
 
@@ -5503,7 +5507,7 @@ var RaidManagement = function (_React$Component) {
 
 exports.default = RaidManagement;
 
-},{"../../actions/admin/RaidManagementActions":15,"../../stores/admin/RaidManagementStore":56,"./../../stores/NavbarStore":44,"./AdminSideNav":33,"react":"react","react-bootstrap":254,"react-router":"react-router"}],37:[function(require,module,exports){
+},{"../../actions/admin/RaidManagementActions":15,"../../stores/admin/RaidManagementStore":56,"./../../stores/NavbarStore":44,"./AdminSideNav":33,"react":"react","react-bootstrap":254,"react-router":"react-router","underscore":"underscore"}],37:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

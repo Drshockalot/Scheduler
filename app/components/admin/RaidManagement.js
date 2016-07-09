@@ -6,6 +6,7 @@ import AdminSideNav from './AdminSideNav';
 import NavbarStore from './../../stores/NavbarStore';
 import { browserHistory } from 'react-router';
 import { Modal } from 'react-bootstrap';
+import _ from 'underscore';
 
 class RaidManagement extends React.Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class RaidManagement extends React.Component {
     var raidOptionList;
     var raidBossList;
     if(this.state.raids.length > 0) {
-      raidOptionList = this.state.raids.map(function(raid, index) {
+      raidOptionList = _.sortBy(this.state.raids, 'id').map(function(raid, index) {
         if(raid.name === this.state.selectedRaid) {
           currentRaidId = raid.id;
 
