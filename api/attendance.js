@@ -4,7 +4,7 @@ var moment = require('moment');
 
 var fs = require('fs');
 var multer = require('multer')
-var upload = multer({ dest: __dirname + '/attendance' });
+var upload = multer({ dest: './attendance/' });
 
 var Raid_Week = require('./../db/postgres/raid_week');
 
@@ -25,7 +25,7 @@ router.get('/admin', function(req, res, next) {
 
 router.post('/admin', upload.single('test'), function(req, res, next) {
   console.log(req.file);
-  res.end();
+  res.status(204).end();
 });
 
 module.exports = router;
