@@ -8197,6 +8197,7 @@ var RaidManagementStore = function () {
       this.editFormTanks = 0;
       this.editFormHealers = 0;
       this.editFormDPS = 0;
+      this.showEditBossModal = false;
       toastr.success('Boss updated', 'Success');
     }
   }, {
