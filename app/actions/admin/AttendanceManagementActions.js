@@ -30,7 +30,17 @@ class AttendaceManagementActions {
   drop(file) {
     var test = new FormData();
     test.append('test', file);
-    console.log(test.getAll('test'));
+    console.log('test form data - ' + test.getAll('test'));
+
+    $.ajax({
+      method: 'POST',
+      url: '/api/attendance/admin',
+      contentType: 'multipart/form-data',
+      data: test,
+      success: function(result) {
+        console.log('result - ' + result);
+      }
+    })
   }
 }
 
