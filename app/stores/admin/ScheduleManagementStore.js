@@ -157,11 +157,22 @@ class ScheduleManagementStore {
 
   onDeleteScheduleBossSuccess(result) {
     this.schedules = result.data.schedules;
+    this.showDeleteBossModal = false;
     toastr.success('Boss deleted', 'Success');
   }
 
   onDeleteScheduleBossFailure(jqXhr) {
+    this.showDeleteBossModal = false;
     toastr.error(jqXhr.responseJSON.message);
+  }
+
+  onAddScheduleRaidBossesSuccess(result) {
+    this.schedules = result.data.schedules;
+    toastr.success('Bosses added', 'Success');
+  }
+
+  onAddScheduleRaidBossesFailure(jqXhr) {
+    toastr.error(jqXhr.repsonseJSON.message);
   }
 }
 

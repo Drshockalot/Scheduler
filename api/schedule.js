@@ -8,6 +8,10 @@ var RaidWeek = require('./../db/postgres/raid_week');
 var Schedule_Boss = require('./../db/postgres/schedule_boss');
 var Roster = require('./../db/postgres/roster');
 
+var knex = require('./../db/database').knex;
+
+var _ = require('underscore');
+
 router.get('/', function(req, res, next) {
   Schedule.forge()
           .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters']})
@@ -187,6 +191,37 @@ router.delete('/admin/boss/:schedulebossid', function(req, res, next) {
                .catch(function(err) {
                  res.status(500).json({error: true, data: {message: err.message}});
                });
+});
+
+router.put('/admin/raid', function(req, res, next) {
+  Raid.forge({id: req.body.raidId})
+      .fetch({'withRelated': ['bosses']})
+      .then(function(raid) {
+        var scheduleBossRows = [];
+        raid.toJSON().bosses.map(function(boss) {
+          scheduleBossRows.push({schedule_id: req.body.scheduleId,
+                                 boss_id: boss.id,
+                                 raid_id: req.body.raidId,
+                                 published: false});
+        });
+        knex.batchInsert('schedule_boss', scheduleBossRows)
+            .then(function() {
+              Schedule.forge()
+                      .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters']})
+                      .then(function(schedules) {
+                        res.json({error: false, data: {message: "Schedule Boss deleted", schedules: schedules.toJSON()}});
+                      })
+                      .catch(function(err) {
+                        res.status(500).json({error: true, data: {message: err.message}});
+                      });
+            })
+            .catch(function(err) {
+              res.status(500).json({error: true, data: {message: err.message}});
+            });
+      })
+      .catch(function(err) {
+        res.status(500).json({error: true, data: {message: err.message}});
+      });
 });
 
 module.exports = router;

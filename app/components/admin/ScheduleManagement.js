@@ -388,7 +388,7 @@ class ScheduleManagement extends React.Component {
                 </div>
               </div>
               <div className='col-md-6'>
-                <h3>Add Boss</h3>
+                <h3>Add Bosses from Raid</h3>
                 <div className='form-horizontal'>
                   <div className='form-group'>
                     <label className='col-sm-2 control-label'>Raid:</label>
@@ -398,20 +398,7 @@ class ScheduleManagement extends React.Component {
                       </select>
                     </div>
                   </div>
-                  <div className='form-group'>
-                    <label className='col-sm-2 control-label'>Boss:</label>
-                    <div className='col-sm-10'>
-                      <select className='form-control' value={this.state.formBoss} onChange={e => ScheduleManagementActions.updateFormBoss(e.target.value)}>
-                        {formBossOptions}
-                      </select>
-                    </div>
-                  </div>
-                  <button className='btn btn-primary pull-right' onClick={() => ScheduleManagementActions.addScheduleBoss(this.state.formRaid,
-                                                                                                                 this.state.formBoss,
-                                                                                                                 this.state.formTanks,
-                                                                                                                 this.state.formHealers,
-                                                                                                                 this.state.formDPS,
-                                                                                                                 this.state.selectedSchedule)}>Submit</button>
+                  <button className='btn btn-primary pull-right' onClick={() => ScheduleManagementActions.addScheduleRaidBosses(this.state.formRaid, this.state.selectedSchedule)}>Submit</button>
                 </div>
               </div>
             </div>
@@ -429,7 +416,7 @@ class ScheduleManagement extends React.Component {
             Are you sure you want to delete this boss from the schedule?
           </Modal.Body>
           <Modal.Footer>
-            <button className='btn btn-danger' onClick={() => ScheduleManagementActions.deleteScheduleBoss(this.state.scheduleBossToDelete)}>Update</button>
+            <button className='btn btn-danger' onClick={() => ScheduleManagementActions.deleteScheduleBoss(this.state.scheduleBossToDelete)}>Delete</button>
           </Modal.Footer>
         </Modal>
       </div>

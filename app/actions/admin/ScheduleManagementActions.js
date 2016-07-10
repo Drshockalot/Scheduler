@@ -28,7 +28,9 @@ class ScheduleManagementActions {
       'showDeleteBossModal',
       'hideDeleteBossModal',
       'deleteScheduleBossSuccess',
-      'deleteScheduleBossFailure'
+      'deleteScheduleBossFailure',
+      'addScheduleRaidBossesSuccess',
+      'addScheduleRaidBossesFailure'
     );
   }
 
@@ -159,6 +161,20 @@ class ScheduleManagementActions {
     }).fail((jqXhr) => {
       console.log(jqXhr);
       this.deleteScheduleBossFailure(jqXhr);
+    });
+  }
+
+  addScheduleRaidBosses(raidId, scheduleId) {
+    $.ajax({
+      method: 'PUT',
+      url: '/api/schedule/admin/raid',
+      data: {raidId: raidId, scheduleId: scheduleId}
+    }).done((result) => {
+      console.log(result);
+      this.addScheduleRaidBossesSuccess(result);
+    }).fail((jqXhr) => {
+      console.log(jqXhr);
+      this.addScheduleRaidBossesFailure(jqXhr);
     });
   }
 }

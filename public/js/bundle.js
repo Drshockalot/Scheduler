@@ -1206,7 +1206,7 @@ var ScheduleManagementActions = function () {
   function ScheduleManagementActions() {
     _classCallCheck(this, ScheduleManagementActions);
 
-    this.generateActions('updateFormRaidWeek', 'updateFormRoster', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'updateFormRaid', 'updateFormBoss', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure', 'addScheduleBossSuccess', 'addScheduleBossFailure', 'addCharacterToScheduleBossSuccess', 'addCharacterToScheduleBossFailure', 'removeCharacterFromScheduleBossSuccess', 'removeCharacterFromScheduleBossFailure', 'invertScheduleBossPublishedStateSuccess', 'invertScheduleBossPublishedStateFailure', 'showDeleteBossModal', 'hideDeleteBossModal', 'deleteScheduleBossSuccess', 'deleteScheduleBossFailure');
+    this.generateActions('updateFormRaidWeek', 'updateFormRoster', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'updateFormRaid', 'updateFormBoss', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure', 'addScheduleBossSuccess', 'addScheduleBossFailure', 'addCharacterToScheduleBossSuccess', 'addCharacterToScheduleBossFailure', 'removeCharacterFromScheduleBossSuccess', 'removeCharacterFromScheduleBossFailure', 'invertScheduleBossPublishedStateSuccess', 'invertScheduleBossPublishedStateFailure', 'showDeleteBossModal', 'hideDeleteBossModal', 'deleteScheduleBossSuccess', 'deleteScheduleBossFailure', 'addScheduleRaidBossesSuccess', 'addScheduleRaidBossesFailure');
   }
 
   _createClass(ScheduleManagementActions, [{
@@ -1359,6 +1359,23 @@ var ScheduleManagementActions = function () {
       }).fail(function (jqXhr) {
         console.log(jqXhr);
         _this7.deleteScheduleBossFailure(jqXhr);
+      });
+    }
+  }, {
+    key: 'addScheduleRaidBosses',
+    value: function addScheduleRaidBosses(raidId, scheduleId) {
+      var _this8 = this;
+
+      $.ajax({
+        method: 'PUT',
+        url: '/api/schedule/admin/raid',
+        data: { raidId: raidId, scheduleId: scheduleId }
+      }).done(function (result) {
+        console.log(result);
+        _this8.addScheduleRaidBossesSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this8.addScheduleRaidBossesFailure(jqXhr);
       });
     }
   }]);
@@ -7053,7 +7070,7 @@ var ScheduleManagement = function (_React$Component) {
                 _react2.default.createElement(
                   'h3',
                   null,
-                  'Add Boss'
+                  'Add Bosses from Raid'
                 ),
                 _react2.default.createElement(
                   'div',
@@ -7079,29 +7096,9 @@ var ScheduleManagement = function (_React$Component) {
                     )
                   ),
                   _react2.default.createElement(
-                    'div',
-                    { className: 'form-group' },
-                    _react2.default.createElement(
-                      'label',
-                      { className: 'col-sm-2 control-label' },
-                      'Boss:'
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-sm-10' },
-                      _react2.default.createElement(
-                        'select',
-                        { className: 'form-control', value: this.state.formBoss, onChange: function onChange(e) {
-                            return _ScheduleManagementActions2.default.updateFormBoss(e.target.value);
-                          } },
-                        formBossOptions
-                      )
-                    )
-                  ),
-                  _react2.default.createElement(
                     'button',
                     { className: 'btn btn-primary pull-right', onClick: function onClick() {
-                        return _ScheduleManagementActions2.default.addScheduleBoss(_this2.state.formRaid, _this2.state.formBoss, _this2.state.formTanks, _this2.state.formHealers, _this2.state.formDPS, _this2.state.selectedSchedule);
+                        return _ScheduleManagementActions2.default.addScheduleRaidBosses(_this2.state.formRaid, _this2.state.selectedSchedule);
                       } },
                     'Submit'
                   )
@@ -7145,7 +7142,7 @@ var ScheduleManagement = function (_React$Component) {
               { className: 'btn btn-danger', onClick: function onClick() {
                   return _ScheduleManagementActions2.default.deleteScheduleBoss(_this2.state.scheduleBossToDelete);
                 } },
-              'Update'
+              'Delete'
             )
           )
         )
@@ -8720,12 +8717,25 @@ var ScheduleManagementStore = function () {
     key: 'onDeleteScheduleBossSuccess',
     value: function onDeleteScheduleBossSuccess(result) {
       this.schedules = result.data.schedules;
+      this.showDeleteBossModal = false;
       toastr.success('Boss deleted', 'Success');
     }
   }, {
     key: 'onDeleteScheduleBossFailure',
     value: function onDeleteScheduleBossFailure(jqXhr) {
+      this.showDeleteBossModal = false;
       toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onAddScheduleRaidBossesSuccess',
+    value: function onAddScheduleRaidBossesSuccess(result) {
+      this.schedules = result.data.schedules;
+      toastr.success('Bosses added', 'Success');
+    }
+  }, {
+    key: 'onAddScheduleRaidBossesFailure',
+    value: function onAddScheduleRaidBossesFailure(jqXhr) {
+      toastr.error(jqXhr.repsonseJSON.message);
     }
   }]);
 
