@@ -165,4 +165,28 @@ router.put('/admin/publish/:schedulebossid', function(req, res, next) {
                });
 });
 
+router.delete('/admin/boss/:schedulebossid', function(req, res, next) {
+  Schedule_Boss.forge({id: req.params.schedulebossid})
+               .fetch()
+               .then(function(schedule_boss) {
+                 schedule_boss.destroy()
+                              .then(function() {
+                                Schedule.forge()
+                                        .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters']})
+                                        .then(function(schedules) {
+                                          res.json({error: false, data: {message: "Schedule Boss deleted", schedules: schedules.toJSON()}});
+                                        })
+                                        .catch(function(err) {
+                                          res.status(500).json({error: true, data: {message: err.message}});
+                                        });
+                              })
+                              .catch(function(err) {
+                                res.status(500).json({error: true, data: {message: err.message}});
+                              });
+               })
+               .catch(function(err) {
+                 res.status(500).json({error: true, data: {message: err.message}});
+               });
+});
+
 module.exports = router;

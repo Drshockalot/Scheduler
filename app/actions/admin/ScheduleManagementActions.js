@@ -26,7 +26,9 @@ class ScheduleManagementActions {
       'invertScheduleBossPublishedStateSuccess',
       'invertScheduleBossPublishedStateFailure',
       'showDeleteBossModal',
-      'hideDeleteBossModal'
+      'hideDeleteBossModal',
+      'deleteScheduleBossSuccess',
+      'deleteScheduleBossFailure'
     );
   }
 
@@ -144,6 +146,19 @@ class ScheduleManagementActions {
     }).fail((jqXhr) => {
       console.log(jqXhr);
       this.invertScheduleBossPublishedStateFailure(jqXhr);
+    });
+  }
+
+  deleteScheduleBoss(scheduleBossId) {
+    $.ajax({
+      method: 'DELETE',
+      url: '/api/schedule/admin/boss/' + scheduleBossId
+    }).done((result) => {
+      console.log(result);
+      this.deleteScheduleBossSuccess(result);
+    }).fail((jqXhr) => {
+      console.log(jqXhr);
+      this.deleteScheduleBossFailure(jqXhr);
     });
   }
 }

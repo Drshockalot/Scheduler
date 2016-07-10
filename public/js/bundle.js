@@ -1206,7 +1206,7 @@ var ScheduleManagementActions = function () {
   function ScheduleManagementActions() {
     _classCallCheck(this, ScheduleManagementActions);
 
-    this.generateActions('updateFormRaidWeek', 'updateFormRoster', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'updateFormRaid', 'updateFormBoss', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure', 'addScheduleBossSuccess', 'addScheduleBossFailure', 'addCharacterToScheduleBossSuccess', 'addCharacterToScheduleBossFailure', 'removeCharacterFromScheduleBossSuccess', 'removeCharacterFromScheduleBossFailure', 'invertScheduleBossPublishedStateSuccess', 'invertScheduleBossPublishedStateFailure', 'showDeleteBossModal', 'hideDeleteBossModal');
+    this.generateActions('updateFormRaidWeek', 'updateFormRoster', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'updateFormRaid', 'updateFormBoss', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure', 'addScheduleBossSuccess', 'addScheduleBossFailure', 'addCharacterToScheduleBossSuccess', 'addCharacterToScheduleBossFailure', 'removeCharacterFromScheduleBossSuccess', 'removeCharacterFromScheduleBossFailure', 'invertScheduleBossPublishedStateSuccess', 'invertScheduleBossPublishedStateFailure', 'showDeleteBossModal', 'hideDeleteBossModal', 'deleteScheduleBossSuccess', 'deleteScheduleBossFailure');
   }
 
   _createClass(ScheduleManagementActions, [{
@@ -1343,6 +1343,22 @@ var ScheduleManagementActions = function () {
       }).fail(function (jqXhr) {
         console.log(jqXhr);
         _this6.invertScheduleBossPublishedStateFailure(jqXhr);
+      });
+    }
+  }, {
+    key: 'deleteScheduleBoss',
+    value: function deleteScheduleBoss(scheduleBossId) {
+      var _this7 = this;
+
+      $.ajax({
+        method: 'DELETE',
+        url: '/api/schedule/admin/boss/' + scheduleBossId
+      }).done(function (result) {
+        console.log(result);
+        _this7.deleteScheduleBossSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this7.deleteScheduleBossFailure(jqXhr);
       });
     }
   }]);
@@ -8696,6 +8712,17 @@ var ScheduleManagementStore = function () {
     key: 'onHideDeleteBossModal',
     value: function onHideDeleteBossModal() {
       this.showDeleteBossModal = false;
+    }
+  }, {
+    key: 'onDeleteScheduleBossSuccess',
+    value: function onDeleteScheduleBossSuccess(result) {
+      this.schedules = result.data.schedules;
+      toastr.success('Boss deleted', 'Success');
+    }
+  }, {
+    key: 'onDeleteScheduleBossFailure',
+    value: function onDeleteScheduleBossFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
     }
   }]);
 

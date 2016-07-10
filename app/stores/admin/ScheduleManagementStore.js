@@ -154,6 +154,15 @@ class ScheduleManagementStore {
   onHideDeleteBossModal() {
     this.showDeleteBossModal = false;
   }
+
+  onDeleteScheduleBossSuccess(result) {
+    this.schedules = result.data.schedules;
+    toastr.success('Boss deleted', 'Success');
+  }
+
+  onDeleteScheduleBossFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
 }
 
 export default alt.createStore(ScheduleManagementStore);
