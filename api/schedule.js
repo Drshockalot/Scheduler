@@ -86,10 +86,7 @@ router.post('/admin', function(req, res, next) {
 router.post('/admin/boss', function(req, res, next) {
   Schedule_Boss.forge({schedule_id: req.body.schedule,
                        boss_id: req.body.boss,
-                       raid_id: req.body.raid,
-                       tank_count: req.body.tanks,
-                       healer_count: req.body.healers,
-                       dps_count: req.body.dps})
+                       raid_id: req.body.raid})
                .save()
                .then(function(schedule_boss) {
                  Schedule.forge()

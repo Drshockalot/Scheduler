@@ -1206,7 +1206,7 @@ var ScheduleManagementActions = function () {
   function ScheduleManagementActions() {
     _classCallCheck(this, ScheduleManagementActions);
 
-    this.generateActions('updateFormRaidWeek', 'updateFormRoster', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'updateFormRaid', 'updateFormBoss', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure', 'addScheduleBossSuccess', 'addScheduleBossFailure', 'addCharacterToScheduleBossSuccess', 'addCharacterToScheduleBossFailure', 'removeCharacterFromScheduleBossSuccess', 'removeCharacterFromScheduleBossFailure', 'invertScheduleBossPublishedStateSuccess', 'invertScheduleBossPublishedStateFailure');
+    this.generateActions('updateFormRaidWeek', 'updateFormRoster', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'updateFormRaid', 'updateFormBoss', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure', 'addScheduleBossSuccess', 'addScheduleBossFailure', 'addCharacterToScheduleBossSuccess', 'addCharacterToScheduleBossFailure', 'removeCharacterFromScheduleBossSuccess', 'removeCharacterFromScheduleBossFailure', 'invertScheduleBossPublishedStateSuccess', 'invertScheduleBossPublishedStateFailure', 'showDeleteBossModal', 'hideDeleteBossModal');
   }
 
   _createClass(ScheduleManagementActions, [{
@@ -6320,6 +6320,8 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
+var _reactBootstrap = require('react-bootstrap');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -6800,7 +6802,13 @@ var ScheduleManagement = function (_React$Component) {
                   _react2.default.createElement(
                     'td',
                     { className: 'col-md-1' },
-                    publishedButton
+                    publishedButton,
+                    _react2.default.createElement('br', null),
+                    _react2.default.createElement(
+                      'button',
+                      { className: 'btn btn-danger', onClick: _ScheduleManagementActions2.default.showDeleteBossModal(schedule_boss.id) },
+                      'Delete'
+                    )
                   ),
                   _react2.default.createElement(
                     'td',
@@ -7092,6 +7100,35 @@ var ScheduleManagement = function (_React$Component) {
               scheduleBossRows
             )
           )
+        ),
+        _react2.default.createElement(
+          _reactBootstrap.Modal,
+          { show: this.state.showDeleteBossModal, onHide: _ScheduleManagementActions2.default.hideDeleteBossModal },
+          _react2.default.createElement(
+            _reactBootstrap.Modal.Header,
+            { closeButton: true },
+            _react2.default.createElement(
+              _reactBootstrap.Modal.Title,
+              null,
+              'Delete Schedule Boss'
+            )
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Modal.Body,
+            null,
+            'Are you sure you want to delete this boss from the schedule?'
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Modal.Footer,
+            null,
+            _react2.default.createElement(
+              'button',
+              { className: 'btn btn-danger', onClick: function onClick() {
+                  return _ScheduleManagementActions2.default.deleteScheduleBoss(_this2.state.scheduleBossToDelete);
+                } },
+              'Update'
+            )
+          )
         )
       );
     }
@@ -7102,7 +7139,7 @@ var ScheduleManagement = function (_React$Component) {
 
 exports.default = ScheduleManagement;
 
-},{"./../../../utility/WowClasses":341,"./../../actions/admin/ScheduleManagementActions":18,"./../../stores/NavbarStore":44,"./../../stores/admin/ScheduleManagementStore":59,"./AdminSideNav":33,"classnames":60,"moment":161,"react":"react","react-router":"react-router","underscore":"underscore"}],40:[function(require,module,exports){
+},{"./../../../utility/WowClasses":341,"./../../actions/admin/ScheduleManagementActions":18,"./../../stores/NavbarStore":44,"./../../stores/admin/ScheduleManagementStore":59,"./AdminSideNav":33,"classnames":60,"moment":161,"react":"react","react-bootstrap":254,"react-router":"react-router","underscore":"underscore"}],40:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -8504,6 +8541,9 @@ var ScheduleManagementStore = function () {
 
     this.formRaid = 0;
     this.formBoss = 0;
+
+    this.scheduleBossToDelete = 0;
+    this.showDeleteBossModal = false;
   }
 
   _createClass(ScheduleManagementStore, [{
@@ -8645,6 +8685,17 @@ var ScheduleManagementStore = function () {
     key: 'onInvertScheduleBossPublishedStateFailure',
     value: function onInvertScheduleBossPublishedStateFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onShowDeleteBossModal',
+    value: function onShowDeleteBossModal(id) {
+      this.scheduleBossToDelete = id;
+      this.showDeleteBossModal = true;
+    }
+  }, {
+    key: 'onHideDeleteBossModal',
+    value: function onHideDeleteBossModal() {
+      this.showDeleteBossModal = false;
     }
   }]);
 

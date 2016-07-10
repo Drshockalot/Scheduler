@@ -10,6 +10,8 @@ var _ = require('underscore');
 import classNames from 'classnames';
 var wowClasses = require('./../../../utility/WowClasses');
 
+import { Modal } from 'react-bootstrap';
+
 class ScheduleManagement extends React.Component {
   constructor(props) {
     super(props);
@@ -286,7 +288,11 @@ class ScheduleManagement extends React.Component {
                   <td className='col-md-3'><strong>DPS</strong> - Scheduled<strong>({schedule_boss.boss.dps_count})</strong> - Assigned<strong>({dpsCount})</strong></td>
                 </tr>
                 <tr>
-                  <td className='col-md-1'>{publishedButton}</td>
+                  <td className='col-md-1'>
+                    {publishedButton}
+                    <br />
+                    <button className='btn btn-danger' onClick={ScheduleManagementActions.showDeleteBossModal(schedule_boss.id)}>Delete</button>
+                  </td>
                   <td className='col-md-1'>{schedule_boss.raid.name}</td>
                   <td className='col-md-1'>{schedule_boss.boss.name}</td>
                   <td className='col-md-3'>
@@ -415,6 +421,17 @@ class ScheduleManagement extends React.Component {
             </div>
           </div>
         </div>
+        <Modal show={this.state.showDeleteBossModal} onHide={ScheduleManagementActions.hideDeleteBossModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>Delete Schedule Boss</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            Are you sure you want to delete this boss from the schedule?
+          </Modal.Body>
+          <Modal.Footer>
+            <button className='btn btn-danger' onClick={() => ScheduleManagementActions.deleteScheduleBoss(this.state.scheduleBossToDelete)}>Update</button>
+          </Modal.Footer>
+        </Modal>
       </div>
     );
   }

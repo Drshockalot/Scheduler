@@ -21,6 +21,9 @@ class ScheduleManagementStore {
 
     this.formRaid = 0;
     this.formBoss = 0;
+
+    this.scheduleBossToDelete = 0;
+    this.showDeleteBossModal = false;
   }
 
   onUpdateFormRaidWeek(value) {
@@ -141,6 +144,15 @@ class ScheduleManagementStore {
 
   onInvertScheduleBossPublishedStateFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
+  }
+
+  onShowDeleteBossModal(id) {
+    this.scheduleBossToDelete = id;
+    this.showDeleteBossModal = true;
+  }
+
+  onHideDeleteBossModal() {
+    this.showDeleteBossModal = false;
   }
 }
 

@@ -24,7 +24,9 @@ class ScheduleManagementActions {
       'removeCharacterFromScheduleBossSuccess',
       'removeCharacterFromScheduleBossFailure',
       'invertScheduleBossPublishedStateSuccess',
-      'invertScheduleBossPublishedStateFailure'
+      'invertScheduleBossPublishedStateFailure',
+      'showDeleteBossModal',
+      'hideDeleteBossModal'
     );
   }
 
