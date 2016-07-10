@@ -6822,7 +6822,9 @@ var ScheduleManagement = function (_React$Component) {
                     _react2.default.createElement('br', null),
                     _react2.default.createElement(
                       'button',
-                      { className: 'btn btn-danger', onClick: _ScheduleManagementActions2.default.showDeleteBossModal(schedule_boss.id) },
+                      { className: 'btn btn-danger', onClick: function onClick() {
+                          return _ScheduleManagementActions2.default.showDeleteBossModal(schedule_boss.id);
+                        } },
                       'Delete'
                     )
                   ),
