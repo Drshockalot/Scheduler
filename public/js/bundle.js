@@ -6820,6 +6820,7 @@ var ScheduleManagement = function (_React$Component) {
                     { className: 'col-md-1' },
                     publishedButton,
                     _react2.default.createElement('br', null),
+                    _react2.default.createElement('br', null),
                     _react2.default.createElement(
                       'button',
                       { className: 'btn btn-danger', onClick: function onClick() {

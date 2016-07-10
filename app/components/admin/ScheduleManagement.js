@@ -290,7 +290,7 @@ class ScheduleManagement extends React.Component {
                 <tr>
                   <td className='col-md-1'>
                     {publishedButton}
-                    <br />
+                    <br/><br/>
                     <button className='btn btn-danger' onClick={() => ScheduleManagementActions.showDeleteBossModal(schedule_boss.id)}>Delete</button>
                   </td>
                   <td className='col-md-1'>{schedule_boss.raid.name}</td>
