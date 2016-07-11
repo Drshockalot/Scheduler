@@ -6544,7 +6544,7 @@ var ScheduleManagement = function (_React$Component) {
           }
         }
 
-        scheduleBossRows = sched.schedule_bosses.map(function (schedule_boss, index) {
+        scheduleBossRows = _.sortBy(sched.schedule_bosses, 'id').map(function (schedule_boss, index) {
           var tankCount = 0;
           tankRows = sched.roster.characters.map(function (character, index) {
             if (character.main_role == "Tank") {
