@@ -1351,6 +1351,7 @@ var ScheduleManagementActions = function () {
     value: function deleteScheduleBoss(scheduleBossId) {
       var _this7 = this;
 
+      this.hideDeleteBossModal();
       $.ajax({
         method: 'DELETE',
         url: '/api/schedule/admin/boss/' + scheduleBossId
@@ -8720,7 +8721,6 @@ var ScheduleManagementStore = function () {
     key: 'onDeleteScheduleBossSuccess',
     value: function onDeleteScheduleBossSuccess(result) {
       this.schedules = result.data.schedules;
-      this.showDeleteBossModal = false;
       toastr.success('Boss deleted', 'Success');
     }
   }, {

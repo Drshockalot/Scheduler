@@ -153,6 +153,7 @@ class ScheduleManagementActions {
   }
 
   deleteScheduleBoss(scheduleBossId) {
+    this.hideDeleteBossModal();
     $.ajax({
       method: 'DELETE',
       url: '/api/schedule/admin/boss/' + scheduleBossId

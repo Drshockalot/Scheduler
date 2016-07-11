@@ -159,7 +159,6 @@ class ScheduleManagementStore {
 
   onDeleteScheduleBossSuccess(result) {
     this.schedules = result.data.schedules;
-    this.showDeleteBossModal = false;
     toastr.success('Boss deleted', 'Success');
   }
 
