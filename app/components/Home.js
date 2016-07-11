@@ -70,6 +70,20 @@ class Home extends React.Component {
                 <tbody>
                   <tr>
                     <td>
+                      <h4>{moment('2016-07-11').format('MMM Do YYYY')}</h4>
+                      <ul>
+                        <li>
+                          <h5>Schedule Management</h5>
+                          <ul>
+                            <li>Bosses are now added on a full raid basis, instead of individually</li>
+                            <li>You can now delete individual bosses from a schedule</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       <h4>{moment('2016-07-09').format('MMM Do YYYY')}</h4>
                       <ul>
                         <li>
