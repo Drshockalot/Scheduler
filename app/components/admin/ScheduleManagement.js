@@ -361,7 +361,7 @@ class ScheduleManagement extends React.Component {
                       <textarea className='form-control' name='scheduleDescription' value={this.state.formScheduleDescription} onChange={e => ScheduleManagementActions.updateFormScheduleDescription(e.target.value)} />
                     </div>
                   </div>
-                  <button className='btn btn-primary pull-right' onClick={() => ScheduleManagementActions.createSchedule(this.state.formRaidWeek, this.state.formScheduleName, this.state.formScheduleDescription)}>Submit</button>
+                  <button className='btn btn-primary pull-right' onClick={() => ScheduleManagementActions.createSchedule(this.state.formRaidWeek, this.state.formScheduleName, this.state.formScheduleDescription, this.state.formRoster)}>Submit</button>
                 </div>
               </div>
             </div>

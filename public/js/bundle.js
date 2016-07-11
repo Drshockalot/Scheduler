@@ -1246,12 +1246,13 @@ var ScheduleManagementActions = function () {
     }
   }, {
     key: 'createSchedule',
-    value: function createSchedule(raidWeekId, scheduleName, scheduleDescription) {
+    value: function createSchedule(raidWeekId, scheduleName, scheduleDescription, rosterId) {
       var _this2 = this;
 
       var data = { rwId: raidWeekId,
         name: scheduleName,
-        description: scheduleDescription };
+        description: scheduleDescription,
+        rosterId: rosterId };
       $.ajax({
         method: 'POST',
         url: '/api/schedule/admin',
@@ -7001,7 +7002,7 @@ var ScheduleManagement = function (_React$Component) {
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-primary pull-right', onClick: function onClick() {
-                        return _ScheduleManagementActions2.default.createSchedule(_this2.state.formRaidWeek, _this2.state.formScheduleName, _this2.state.formScheduleDescription);
+                        return _ScheduleManagementActions2.default.createSchedule(_this2.state.formRaidWeek, _this2.state.formScheduleName, _this2.state.formScheduleDescription, _this2.state.formRoster);
                       } },
                     'Submit'
                   )
@@ -8655,6 +8656,8 @@ var ScheduleManagementStore = function () {
       if (newScheduleList.length > 0) {
         this.selectedSchedule = newScheduleList[0].id;
       }
+
+      toastr.success('Schedule created', 'Success');
     }
   }, {
     key: 'onCreateScheduleFailure',

@@ -69,7 +69,8 @@ router.get('/single/:scheduleid', function(req, res, next) {
 router.post('/admin', function(req, res, next) {
   Schedule.forge({raid_week_id: req.body.rwId,
                   name: req.body.name,
-                  description: req.body.description})
+                  description: req.body.description,
+                  roster_id: req.body.rosterId})
           .save()
           .then(function(schedule) {
             Schedule.forge()

@@ -107,6 +107,8 @@ class ScheduleManagementStore {
     if(newScheduleList.length > 0) {
       this.selectedSchedule = newScheduleList[0].id;
     }
+
+    toastr.success('Schedule created', 'Success');
   }
 
   onCreateScheduleFailure(jqXhr) {

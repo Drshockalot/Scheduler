@@ -65,10 +65,11 @@ class ScheduleManagementActions {
     return 0;
   }
 
-  createSchedule(raidWeekId, scheduleName, scheduleDescription) {
+  createSchedule(raidWeekId, scheduleName, scheduleDescription, rosterId) {
     var data = { rwId: raidWeekId,
                  name: scheduleName,
-                 description: scheduleDescription};
+                 description: scheduleDescription,
+                 rosterId: rosterId};
     $.ajax({
       method: 'POST',
       url: '/api/schedule/admin',
