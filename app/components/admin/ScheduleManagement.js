@@ -145,7 +145,7 @@ class ScheduleManagement extends React.Component {
     ///////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////
 
-    if(this.state.schedules.length > 0) {
+    if(this.state.schedules.length > 0 && _.findWhere(this.state.schedules, {raid_week_id: this.state.selectedRaidWeek})) {
       var sched;
       for(var i = 0; i < this.state.schedules.length; i++) {
         if(this.state.schedules[i].id == this.state.selectedSchedule) {
