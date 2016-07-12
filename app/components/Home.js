@@ -61,7 +61,15 @@ class Home extends React.Component {
         var tues = raidweek.tuesday ? <div className='clearfix'><strong><span>Tuesday</span></strong></div> : null;
 
         var popover = (
-          <Popover title='Raiding Days'></Popover>
+          <Popover title='Raiding Days'>
+            {wed}
+            {thurs}
+            {fri}
+            {sat}
+            {sun}
+            {mon}
+            {tues}
+          </Popover>
         );
 
         var trigger = (

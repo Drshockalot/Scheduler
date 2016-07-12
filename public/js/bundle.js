@@ -1785,7 +1785,17 @@ var Home = function (_React$Component) {
             )
           ) : null;
 
-          var popover = _react2.default.createElement(_reactBootstrap.Popover, { title: 'Raiding Days' });
+          var popover = _react2.default.createElement(
+            _reactBootstrap.Popover,
+            { title: 'Raiding Days' },
+            wed,
+            thurs,
+            fri,
+            sat,
+            sun,
+            mon,
+            tues
+          );
 
           var trigger = _react2.default.createElement(
             _reactBootstrap.OverlayTrigger,
