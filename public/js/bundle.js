@@ -1661,7 +1661,7 @@ var Home = function (_React$Component) {
     value: function render() {
       var schedules;
       if (this.state.raidweeks.length > 0) {
-        schedules = _underscore2.default.sortBy(this.state.raidweeks, 'start').map(function (raidweek, index) {
+        schedules = _underscore2.default.sortBy(this.state.raidweeks, 'start').reverse().map(function (raidweek, index) {
           var schedules;
           schedules = raidweek.schedules.map(function (schedule) {
             return _react2.default.createElement(

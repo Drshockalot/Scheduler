@@ -31,7 +31,7 @@ class Home extends React.Component {
   render() {
     var schedules;
     if(this.state.raidweeks.length > 0) {
-      schedules = _.sortBy(this.state.raidweeks, 'start').map(function(raidweek, index) {
+      schedules = _.sortBy(this.state.raidweeks, 'start').reverse().map(function(raidweek, index) {
         var schedules;
         schedules = raidweek.schedules.map(function(schedule) {
           return (
