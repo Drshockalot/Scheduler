@@ -1806,7 +1806,7 @@ var Home = function (_React$Component) {
               _react2.default.createElement(
                 'u',
                 null,
-                '❬ ',
+                '❮ ',
                 (0, _moment2.default)(raidweek.start).format('MMM Do YYYY')
               )
             )
