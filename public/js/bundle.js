@@ -1615,6 +1615,10 @@ var _moment = require('moment');
 
 var _moment2 = _interopRequireDefault(_moment);
 
+var _underscore = require('underscore');
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1657,7 +1661,7 @@ var Home = function (_React$Component) {
     value: function render() {
       var schedules;
       if (this.state.raidweeks.length > 0) {
-        schedules = this.state.raidweeks.map(function (raidweek, index) {
+        schedules = _underscore2.default.sortBy(this.state.raidweeks, 'start').map(function (raidweek, index) {
           var schedules;
           schedules = raidweek.schedules.map(function (schedule) {
             return _react2.default.createElement(
@@ -1877,7 +1881,7 @@ var Home = function (_React$Component) {
 
 exports.default = Home;
 
-},{"../actions/HomeActions":2,"../stores/HomeStore":43,"../stores/NavbarStore":44,"moment":161,"react":"react","react-router":"react-router"}],23:[function(require,module,exports){
+},{"../actions/HomeActions":2,"../stores/HomeStore":43,"../stores/NavbarStore":44,"moment":161,"react":"react","react-router":"react-router","underscore":"underscore"}],23:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

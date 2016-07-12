@@ -5,6 +5,8 @@ import HomeActions from '../actions/HomeActions';
 import NavbarStore from '../stores/NavbarStore';
 
 import moment from 'moment';
+import _ from 'underscore';
+
 
 class Home extends React.Component {
   constructor(props) {
@@ -29,7 +31,7 @@ class Home extends React.Component {
   render() {
     var schedules;
     if(this.state.raidweeks.length > 0) {
-      schedules = this.state.raidweeks.map(function(raidweek, index) {
+      schedules = _.sortBy(this.state.raidweeks, 'start').map(function(raidweek, index) {
         var schedules;
         schedules = raidweek.schedules.map(function(schedule) {
           return (
