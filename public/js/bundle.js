@@ -1664,6 +1664,17 @@ var Home = function (_React$Component) {
         schedules = _underscore2.default.sortBy(this.state.raidweeks, 'start').reverse().map(function (raidweek, index) {
           var schedules;
           schedules = raidweek.schedules.map(function (schedule) {
+            var countResult = _underscore2.default.countBy(schedule.schedule_bosses, function (data) {
+              return data.raid.name;
+            });
+            var raids = _underscore2.default.keys(countResult);
+            var raidListItems = raids.map(function (raid) {
+              return _react2.default.createElement(
+                'li',
+                null,
+                raid
+              );
+            });
             return _react2.default.createElement(
               'div',
               { className: 'row' },
@@ -1671,6 +1682,11 @@ var Home = function (_React$Component) {
                 _reactRouter.Link,
                 { to: '/schedule?type=1&schedule=' + schedule.id },
                 schedule.name
+              ),
+              _react2.default.createElement(
+                'ul',
+                null,
+                raidListItems
               )
             );
           }, this);
@@ -1715,7 +1731,7 @@ var Home = function (_React$Component) {
               _react2.default.createElement(
                 'h2',
                 null,
-                'Upcoming Schedules'
+                'Schedules'
               ),
               _react2.default.createElement(
                 'table',

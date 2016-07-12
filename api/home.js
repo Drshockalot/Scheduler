@@ -5,7 +5,7 @@ var RaidWeek = require('./../db/postgres/raid_week');
 
 router.get('/', function(req, res, next) {
   RaidWeek.forge()
-          .fetchAll({'withRelated': ['schedules', 'schedules.schedule_bosses']})
+          .fetchAll({'withRelated': ['schedules', 'schedules.schedule_bosses', 'schedule_bosses.raid']})
           .then(function(raidweeks) {
             if(raidweeks) {
               res.json({error: false, data: {message: "Raid Weeks retreived", raidweeks: raidweeks.toJSON()}});

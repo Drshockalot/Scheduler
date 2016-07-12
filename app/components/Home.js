@@ -34,9 +34,19 @@ class Home extends React.Component {
       schedules = _.sortBy(this.state.raidweeks, 'start').reverse().map(function(raidweek, index) {
         var schedules;
         schedules = raidweek.schedules.map(function(schedule) {
+          var countResult = _.countBy(schedule.schedule_bosses, function(data) {return data.raid.name});
+          var raids = _.keys(countResult);
+          var raidListItems = raids.map(function(raid) {
+            return (
+              <li>{raid}</li>
+            );
+          });
           return (
             <div className='row'>
               <Link to={'/schedule?type=1&schedule=' + schedule.id}>{schedule.name}</Link>
+                <ul>
+                  {raidListItems}
+                </ul>
             </div>
           )
         }, this);
@@ -59,7 +69,7 @@ class Home extends React.Component {
         <div className='container-fluid-eighty'>
           <div className='row'>
             <div className='col-md-6'>
-              <h2>Upcoming Schedules</h2>
+              <h2>Schedules</h2>
               <table className='table table-striped'>
                 <tbody>
                   {schedules}
