@@ -1693,19 +1693,103 @@ var Home = function (_React$Component) {
             );
           }, this);
 
-          var popover = _react2.default.createElement(
-            _reactBootstrap.Popover,
-            { title: 'Raiding Days' },
+          var wed = raidweek.wednesday ? _react2.default.createElement(
+            'div',
+            { className: 'clearfix' },
             _react2.default.createElement(
               'strong',
               null,
-              'test'
+              _react2.default.createElement(
+                'span',
+                null,
+                'Wednesday'
+              )
             )
-          );
+          ) : null;
+          var thurs = raidweek.thursday ? _react2.default.createElement(
+            'div',
+            { className: 'clearfix' },
+            _react2.default.createElement(
+              'strong',
+              null,
+              _react2.default.createElement(
+                'span',
+                null,
+                'Thursday'
+              )
+            )
+          ) : null;
+          var fri = raidweek.friday ? _react2.default.createElement(
+            'div',
+            { className: 'clearfix' },
+            _react2.default.createElement(
+              'strong',
+              null,
+              _react2.default.createElement(
+                'span',
+                null,
+                'Friday'
+              )
+            )
+          ) : null;
+          var sat = raidweek.saturday ? _react2.default.createElement(
+            'div',
+            { className: 'clearfix' },
+            _react2.default.createElement(
+              'strong',
+              null,
+              _react2.default.createElement(
+                'span',
+                null,
+                'Saturday'
+              )
+            )
+          ) : null;
+          var sun = raidweek.sunday ? _react2.default.createElement(
+            'div',
+            { className: 'clearfix' },
+            _react2.default.createElement(
+              'strong',
+              null,
+              _react2.default.createElement(
+                'span',
+                null,
+                'Sunday'
+              )
+            )
+          ) : null;
+          var mon = raidweek.monday ? _react2.default.createElement(
+            'div',
+            { className: 'clearfix' },
+            _react2.default.createElement(
+              'strong',
+              null,
+              _react2.default.createElement(
+                'span',
+                null,
+                'Monday'
+              )
+            )
+          ) : null;
+          var tues = raidweek.tuesday ? _react2.default.createElement(
+            'div',
+            { className: 'clearfix' },
+            _react2.default.createElement(
+              'strong',
+              null,
+              _react2.default.createElement(
+                'span',
+                null,
+                'Tuesday'
+              )
+            )
+          ) : null;
+
+          var popover = _react2.default.createElement(_reactBootstrap.Popover, { title: 'Raiding Days' });
 
           var trigger = _react2.default.createElement(
             _reactBootstrap.OverlayTrigger,
-            { id: raidweek.id, trigger: 'click', rootClose: true, overlay: popover },
+            { id: raidweek.id, placement: 'left', trigger: 'click', rootClose: true, overlay: popover },
             _react2.default.createElement(
               'strong',
               null,
