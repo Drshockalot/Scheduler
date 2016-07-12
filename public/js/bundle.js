@@ -1787,7 +1787,7 @@ var Home = function (_React$Component) {
 
           var popover = _react2.default.createElement(
             _reactBootstrap.Popover,
-            { title: 'Raiding Days' },
+            { id: raidweek.id, title: 'Raiding Days' },
             wed,
             thurs,
             fri,
@@ -1799,14 +1799,14 @@ var Home = function (_React$Component) {
 
           var trigger = _react2.default.createElement(
             _reactBootstrap.OverlayTrigger,
-            { id: raidweek.id, placement: 'left', trigger: 'click', rootClose: true, overlay: popover },
+            { placement: 'left', trigger: 'click', rootClose: true, overlay: popover },
             _react2.default.createElement(
               'strong',
               null,
               _react2.default.createElement(
                 'u',
                 null,
-                '❮ ',
+                '❮   ',
                 (0, _moment2.default)(raidweek.start).format('MMM Do YYYY')
               )
             )
@@ -1870,6 +1870,46 @@ var Home = function (_React$Component) {
                 _react2.default.createElement(
                   'tbody',
                   null,
+                  _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'h4',
+                        null,
+                        (0, _moment2.default)('2016-07-12').format('MMM Do YYYY')
+                      ),
+                      _react2.default.createElement(
+                        'ul',
+                        null,
+                        _react2.default.createElement(
+                          'li',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
+                            'Home Page'
+                          ),
+                          _react2.default.createElement(
+                            'ul',
+                            null,
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'Raids that are included in any given schedules are now shown under the respective raid on the home page'
+                            ),
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'A list of raiding days for each week is now included on the home page by clicking on the raid weeks'
+                            )
+                          )
+                        )
+                      )
+                    )
+                  ),
                   _react2.default.createElement(
                     'tr',
                     null,

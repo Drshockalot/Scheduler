@@ -61,7 +61,7 @@ class Home extends React.Component {
         var tues = raidweek.tuesday ? <div className='clearfix hand-cursor'><strong><span>Tuesday</span></strong></div> : null;
 
         var popover = (
-          <Popover title='Raiding Days'>
+          <Popover id={raidweek.id} title='Raiding Days'>
             {wed}
             {thurs}
             {fri}
@@ -73,8 +73,8 @@ class Home extends React.Component {
         );
 
         var trigger = (
-          <OverlayTrigger id={raidweek.id} placement='left' trigger='click' rootClose overlay={popover}>
-            <strong><u>&#10094; {moment(raidweek.start).format('MMM Do YYYY')}</u></strong>
+          <OverlayTrigger placement='left' trigger='click' rootClose overlay={popover}>
+            <strong><u>&#10094;   {moment(raidweek.start).format('MMM Do YYYY')}</u></strong>
           </OverlayTrigger>
         );
 
@@ -107,6 +107,20 @@ class Home extends React.Component {
               <h2>ReadMe</h2>
               <table className='table table-striped'>
                 <tbody>
+                  <tr>
+                    <td>
+                      <h4>{moment('2016-07-12').format('MMM Do YYYY')}</h4>
+                      <ul>
+                        <li>
+                          <h5>Home Page</h5>
+                          <ul>
+                            <li>Raids that are included in any given schedules are now shown under the respective raid on the home page</li>
+                            <li>A list of raiding days for each week is now included on the home page by clicking on the raid weeks</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
                   <tr>
                     <td>
                       <h4>{moment('2016-07-11').format('MMM Do YYYY')}</h4>
