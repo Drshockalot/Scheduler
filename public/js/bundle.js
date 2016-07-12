@@ -1696,7 +1696,7 @@ var Home = function (_React$Component) {
             null,
             _react2.default.createElement(
               'td',
-              { className: 'col-md-4 vert-align' },
+              { className: 'col-md-4 vert-align text-center' },
               _react2.default.createElement(
                 'strong',
                 null,

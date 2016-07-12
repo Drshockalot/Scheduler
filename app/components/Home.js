@@ -48,12 +48,12 @@ class Home extends React.Component {
                   {raidListItems}
                 </ul>
             </div>
-          )
+          );
         }, this);
 
         return (
           <tr>
-            <td className='col-md-4 vert-align'>
+            <td className='col-md-4 vert-align text-center'>
                 <strong><u>{moment(raidweek.start).format('MMM Do YYYY')}</u></strong>
             </td>
             <td className='col-md-8 vert-align'>
