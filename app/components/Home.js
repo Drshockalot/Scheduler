@@ -57,7 +57,7 @@ class Home extends React.Component {
         );
 
         var trigger = (
-          <OverlayTrigger trigger='click' rootClose overlay={popover}>
+          <OverlayTrigger id={raidweek.id} trigger='click' rootClose overlay={popover}>
             <strong><u>{moment(raidweek.start).format('MMM Do YYYY')}</u></strong>
           </OverlayTrigger>
         );
@@ -65,7 +65,7 @@ class Home extends React.Component {
         return (
           <tr>
             <td className='col-md-4 vert-align text-center'>
-
+              {trigger}
             </td>
             <td className='col-md-8 vert-align'>
               {schedules}

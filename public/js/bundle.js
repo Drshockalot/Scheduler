@@ -1705,7 +1705,7 @@ var Home = function (_React$Component) {
 
           var trigger = _react2.default.createElement(
             _reactBootstrap.OverlayTrigger,
-            { trigger: 'click', rootClose: true, overlay: popover },
+            { id: raidweek.id, trigger: 'click', rootClose: true, overlay: popover },
             _react2.default.createElement(
               'strong',
               null,
@@ -1720,7 +1720,11 @@ var Home = function (_React$Component) {
           return _react2.default.createElement(
             'tr',
             null,
-            _react2.default.createElement('td', { className: 'col-md-4 vert-align text-center' }),
+            _react2.default.createElement(
+              'td',
+              { className: 'col-md-4 vert-align text-center' },
+              trigger
+            ),
             _react2.default.createElement(
               'td',
               { className: 'col-md-8 vert-align' },
