@@ -7,6 +7,7 @@ import NavbarStore from '../stores/NavbarStore';
 import moment from 'moment';
 import _ from 'underscore';
 
+import { OverlayTrigger, Popover } from 'react-bootstrap';
 
 class Home extends React.Component {
   constructor(props) {
@@ -51,10 +52,20 @@ class Home extends React.Component {
           );
         }, this);
 
+        var popover = (
+          <Popover title='Raiding Days'><strong>test</strong></Popover>
+        );
+
+        var trigger = (
+          <OverlayTrigger trigger='click' rootClose overlay={popover}>
+            <strong><u>{moment(raidweek.start).format('MMM Do YYYY')}</u></strong>
+          </OverlayTrigger>
+        );
+
         return (
           <tr>
             <td className='col-md-4 vert-align text-center'>
-                <strong><u>{moment(raidweek.start).format('MMM Do YYYY')}</u></strong>
+
             </td>
             <td className='col-md-8 vert-align'>
               {schedules}

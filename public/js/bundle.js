@@ -1619,6 +1619,8 @@ var _underscore = require('underscore');
 
 var _underscore2 = _interopRequireDefault(_underscore);
 
+var _reactBootstrap = require('react-bootstrap');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1691,22 +1693,34 @@ var Home = function (_React$Component) {
             );
           }, this);
 
+          var popover = _react2.default.createElement(
+            _reactBootstrap.Popover,
+            { title: 'Raiding Days' },
+            _react2.default.createElement(
+              'strong',
+              null,
+              'test'
+            )
+          );
+
+          var trigger = _react2.default.createElement(
+            _reactBootstrap.OverlayTrigger,
+            { trigger: 'click', rootClose: true, overlay: popover },
+            _react2.default.createElement(
+              'strong',
+              null,
+              _react2.default.createElement(
+                'u',
+                null,
+                (0, _moment2.default)(raidweek.start).format('MMM Do YYYY')
+              )
+            )
+          );
+
           return _react2.default.createElement(
             'tr',
             null,
-            _react2.default.createElement(
-              'td',
-              { className: 'col-md-4 vert-align text-center' },
-              _react2.default.createElement(
-                'strong',
-                null,
-                _react2.default.createElement(
-                  'u',
-                  null,
-                  (0, _moment2.default)(raidweek.start).format('MMM Do YYYY')
-                )
-              )
-            ),
+            _react2.default.createElement('td', { className: 'col-md-4 vert-align text-center' }),
             _react2.default.createElement(
               'td',
               { className: 'col-md-8 vert-align' },
@@ -1897,7 +1911,7 @@ var Home = function (_React$Component) {
 
 exports.default = Home;
 
-},{"../actions/HomeActions":2,"../stores/HomeStore":43,"../stores/NavbarStore":44,"moment":161,"react":"react","react-router":"react-router","underscore":"underscore"}],23:[function(require,module,exports){
+},{"../actions/HomeActions":2,"../stores/HomeStore":43,"../stores/NavbarStore":44,"moment":161,"react":"react","react-bootstrap":254,"react-router":"react-router","underscore":"underscore"}],23:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
