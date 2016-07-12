@@ -1695,7 +1695,7 @@ var Home = function (_React$Component) {
 
           var wed = raidweek.wednesday ? _react2.default.createElement(
             'div',
-            { className: 'clearfix' },
+            { className: 'clearfix hand-cursor' },
             _react2.default.createElement(
               'strong',
               null,
@@ -1708,7 +1708,7 @@ var Home = function (_React$Component) {
           ) : null;
           var thurs = raidweek.thursday ? _react2.default.createElement(
             'div',
-            { className: 'clearfix' },
+            { className: 'clearfix hand-cursor' },
             _react2.default.createElement(
               'strong',
               null,
@@ -1721,7 +1721,7 @@ var Home = function (_React$Component) {
           ) : null;
           var fri = raidweek.friday ? _react2.default.createElement(
             'div',
-            { className: 'clearfix' },
+            { className: 'clearfix hand-cursor' },
             _react2.default.createElement(
               'strong',
               null,
@@ -1734,7 +1734,7 @@ var Home = function (_React$Component) {
           ) : null;
           var sat = raidweek.saturday ? _react2.default.createElement(
             'div',
-            { className: 'clearfix' },
+            { className: 'clearfix hand-cursor' },
             _react2.default.createElement(
               'strong',
               null,
@@ -1747,7 +1747,7 @@ var Home = function (_React$Component) {
           ) : null;
           var sun = raidweek.sunday ? _react2.default.createElement(
             'div',
-            { className: 'clearfix' },
+            { className: 'clearfix hand-cursor' },
             _react2.default.createElement(
               'strong',
               null,
@@ -1760,7 +1760,7 @@ var Home = function (_React$Component) {
           ) : null;
           var mon = raidweek.monday ? _react2.default.createElement(
             'div',
-            { className: 'clearfix' },
+            { className: 'clearfix hand-cursor' },
             _react2.default.createElement(
               'strong',
               null,
@@ -1773,7 +1773,7 @@ var Home = function (_React$Component) {
           ) : null;
           var tues = raidweek.tuesday ? _react2.default.createElement(
             'div',
-            { className: 'clearfix' },
+            { className: 'clearfix hand-cursor' },
             _react2.default.createElement(
               'strong',
               null,
@@ -1806,6 +1806,7 @@ var Home = function (_React$Component) {
               _react2.default.createElement(
                 'u',
                 null,
+                '❬ ',
                 (0, _moment2.default)(raidweek.start).format('MMM Do YYYY')
               )
             )

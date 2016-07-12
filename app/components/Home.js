@@ -52,13 +52,13 @@ class Home extends React.Component {
           );
         }, this);
 
-        var wed = raidweek.wednesday ? <div className='clearfix'><strong><span>Wednesday</span></strong></div> : null;
-        var thurs = raidweek.thursday ? <div className='clearfix'><strong><span>Thursday</span></strong></div> : null;
-        var fri = raidweek.friday ? <div className='clearfix'><strong><span>Friday</span></strong></div> : null;
-        var sat = raidweek.saturday ? <div className='clearfix'><strong><span>Saturday</span></strong></div> : null;
-        var sun = raidweek.sunday ? <div className='clearfix'><strong><span>Sunday</span></strong></div> : null;
-        var mon = raidweek.monday ? <div className='clearfix'><strong><span>Monday</span></strong></div> : null;
-        var tues = raidweek.tuesday ? <div className='clearfix'><strong><span>Tuesday</span></strong></div> : null;
+        var wed = raidweek.wednesday ? <div className='clearfix hand-cursor'><strong><span>Wednesday</span></strong></div> : null;
+        var thurs = raidweek.thursday ? <div className='clearfix hand-cursor'><strong><span>Thursday</span></strong></div> : null;
+        var fri = raidweek.friday ? <div className='clearfix hand-cursor'><strong><span>Friday</span></strong></div> : null;
+        var sat = raidweek.saturday ? <div className='clearfix hand-cursor'><strong><span>Saturday</span></strong></div> : null;
+        var sun = raidweek.sunday ? <div className='clearfix hand-cursor'><strong><span>Sunday</span></strong></div> : null;
+        var mon = raidweek.monday ? <div className='clearfix hand-cursor'><strong><span>Monday</span></strong></div> : null;
+        var tues = raidweek.tuesday ? <div className='clearfix hand-cursor'><strong><span>Tuesday</span></strong></div> : null;
 
         var popover = (
           <Popover title='Raiding Days'>
@@ -74,7 +74,7 @@ class Home extends React.Component {
 
         var trigger = (
           <OverlayTrigger id={raidweek.id} placement='left' trigger='click' rootClose overlay={popover}>
-            <strong><u>{moment(raidweek.start).format('MMM Do YYYY')}</u></strong>
+            <strong><u>&#10092; {moment(raidweek.start).format('MMM Do YYYY')}</u></strong>
           </OverlayTrigger>
         );
 
