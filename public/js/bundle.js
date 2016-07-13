@@ -1799,10 +1799,10 @@ var Home = function (_React$Component) {
 
           var trigger = _react2.default.createElement(
             _reactBootstrap.OverlayTrigger,
-            { className: 'hand-cursor', placement: 'left', trigger: 'click', rootClose: true, overlay: popover },
+            { placement: 'left', trigger: 'click', rootClose: true, overlay: popover },
             _react2.default.createElement(
               'strong',
-              null,
+              { className: 'hand-cursor' },
               _react2.default.createElement(
                 'u',
                 null,
