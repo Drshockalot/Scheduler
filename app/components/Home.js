@@ -109,6 +109,19 @@ class Home extends React.Component {
                 <tbody>
                   <tr>
                     <td>
+                      <h4>{moment('2016-07-13').format('MMM Do YYYY')}</h4>
+                      <ul>
+                        <li>
+                          <h5>Schedule View</h5>
+                          <ul>
+                            <li>Only published bosses are now shown</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       <h4>{moment('2016-07-12').format('MMM Do YYYY')}</h4>
                       <ul>
                         <li>
