@@ -3685,7 +3685,7 @@ var SingleScheduleView = function (_React$Component) {
     value: function componentDidMount() {
       _SingleScheduleViewStore2.default.listen(this.onChange);
       _SingleScheduleViewActions2.default.loadSingleSchedule(this.props.schedule);
-      _SingleScheduleViewActions2.default.loadUserCharacters();
+      //SingleScheduleViewActions.loadUserCharacters();
     }
   }, {
     key: 'componentWillUnmount',
