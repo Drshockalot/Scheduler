@@ -73,7 +73,7 @@ class Home extends React.Component {
         );
 
         var trigger = (
-          <OverlayTrigger placement='left' trigger='click' rootClose overlay={popover}>
+          <OverlayTrigger className='hand-cursor' placement='left' trigger='click' rootClose overlay={popover}>
             <strong><u>&#10094;   {moment(raidweek.start).format('MMM Do YYYY')}</u></strong>
           </OverlayTrigger>
         );
