@@ -1909,6 +1909,24 @@ var Home = function (_React$Component) {
                               'Only the character offspec is now shown, the main spec is assumed by the column'
                             )
                           )
+                        ),
+                        _react2.default.createElement(
+                          'li',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
+                            'Schedule View'
+                          ),
+                          _react2.default.createElement(
+                            'ul',
+                            null,
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              '4th column added showing the remaining characters that are not assigned to the boss'
+                            )
+                          )
                         )
                       )
                     )

@@ -119,6 +119,12 @@ class Home extends React.Component {
                             <li>Only the character offspec is now shown, the main spec is assumed by the column</li>
                           </ul>
                         </li>
+                        <li>
+                          <h5>Schedule View</h5>
+                          <ul>
+                            <li>4th column added showing the remaining characters that are not assigned to the boss</li>
+                          </ul>
+                        </li>
                       </ul>
                     </td>
                   </tr>
