@@ -85,7 +85,7 @@ class ScheduleManagement extends React.Component {
 
     var trigger = (
       <OverlayTrigger placement='left' trigger='click' rootClose overlay={popover}>
-        <strong className='hand-cursor'><u>{characterName}</u></strong>
+        <strong className='character-popover'>{characterName}</strong>
       </OverlayTrigger>
     );
 
@@ -215,14 +215,11 @@ class ScheduleManagement extends React.Component {
             return (
               <tr>
                 <td className={classCSS} />
-                <td className='col-sm-3 vert-align' >
+                <td className='col-sm-4 vert-align' >
                   {availabilityPopover}
                 </td>
-                <td className='col-sm-2 vert-align'>
-                  <strong>{character.main_role}</strong>
-                </td>
-                <td className='col-sm-2 vert-align'>
-                  {character.off_role}
+                <td className='col-sm-3 vert-align'>
+                  <i>{character.off_role}</i>
                 </td>
                 <td className='col-sm-2 low-padding'>
                   {actionButton}
@@ -254,14 +251,11 @@ class ScheduleManagement extends React.Component {
             return (
               <tr>
                 <td className={classCSS} />
-                <td className='col-sm-3 vert-align'>
+                <td className='col-sm-4 vert-align'>
                   {availabilityPopover}
                 </td>
-                <td className='col-sm-2 vert-align'>
-                  <strong>{character.main_role}</strong>
-                </td>
-                <td className='col-sm-2 vert-align'>
-                  {character.off_role}
+                <td className='col-sm-3 vert-align'>
+                  <i>{character.off_role}</i>
                 </td>
                 <td className='col-sm-2 low-padding'>
                   {actionButton}
@@ -297,7 +291,7 @@ class ScheduleManagement extends React.Component {
                   {availabilityPopover}
                 </td>
                 <td className='col-sm-3 vert-align'>
-                  <strong>{character.main_role}</strong>
+                  <i>{character.off_role}</i>
                 </td>
                 <td className='col-sm-2 low-padding'>
                   {actionButton}

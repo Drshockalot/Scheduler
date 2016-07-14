@@ -6808,12 +6808,8 @@ var ScheduleManagement = function (_React$Component) {
         { placement: 'left', trigger: 'click', rootClose: true, overlay: popover },
         _react2.default.createElement(
           'strong',
-          { className: 'hand-cursor' },
-          _react2.default.createElement(
-            'u',
-            null,
-            characterName
-          )
+          { className: 'character-popover' },
+          characterName
         )
       );
 
@@ -6973,22 +6969,17 @@ var ScheduleManagement = function (_React$Component) {
                 _react2.default.createElement('td', { className: classCSS }),
                 _react2.default.createElement(
                   'td',
-                  { className: 'col-sm-3 vert-align' },
+                  { className: 'col-sm-4 vert-align' },
                   availabilityPopover
                 ),
                 _react2.default.createElement(
                   'td',
-                  { className: 'col-sm-2 vert-align' },
+                  { className: 'col-sm-3 vert-align' },
                   _react2.default.createElement(
-                    'strong',
+                    'i',
                     null,
-                    character.main_role
+                    character.off_role
                   )
-                ),
-                _react2.default.createElement(
-                  'td',
-                  { className: 'col-sm-2 vert-align' },
-                  character.off_role
                 ),
                 _react2.default.createElement(
                   'td',
@@ -7028,22 +7019,17 @@ var ScheduleManagement = function (_React$Component) {
                 _react2.default.createElement('td', { className: classCSS }),
                 _react2.default.createElement(
                   'td',
-                  { className: 'col-sm-3 vert-align' },
+                  { className: 'col-sm-4 vert-align' },
                   availabilityPopover
                 ),
                 _react2.default.createElement(
                   'td',
-                  { className: 'col-sm-2 vert-align' },
+                  { className: 'col-sm-3 vert-align' },
                   _react2.default.createElement(
-                    'strong',
+                    'i',
                     null,
-                    character.main_role
+                    character.off_role
                   )
-                ),
-                _react2.default.createElement(
-                  'td',
-                  { className: 'col-sm-2 vert-align' },
-                  character.off_role
                 ),
                 _react2.default.createElement(
                   'td',
@@ -7090,9 +7076,9 @@ var ScheduleManagement = function (_React$Component) {
                   'td',
                   { className: 'col-sm-3 vert-align' },
                   _react2.default.createElement(
-                    'strong',
+                    'i',
                     null,
-                    character.main_role
+                    character.off_role
                   )
                 ),
                 _react2.default.createElement(

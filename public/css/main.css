@@ -8276,6 +8276,10 @@ label {
   padding-right: 5px !important;
   padding-left: 5px !important;
 }
+.character-popover {
+  cursor: pointer;
+  text-decoration: none;
+}
 #wrapper {
   padding-left: 0;
   -webkit-transition: all 0.5s ease;
