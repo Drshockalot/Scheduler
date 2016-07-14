@@ -3831,7 +3831,7 @@ var SingleScheduleView = function (_React$Component) {
           var healerCount = 0;
           var dpsCount = 0;
           var standbyCount = 0;
-          tankRows = schedule_boss.characters.map(function (character) {
+          schedule_boss.characters.map(function (character) {
             if (character.main_role == "Tank") {
               tankCount++;
               var classCSS = this.classColour(character);
