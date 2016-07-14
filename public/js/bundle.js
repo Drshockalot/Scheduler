@@ -3907,33 +3907,65 @@ var SingleScheduleView = function (_React$Component) {
                       null,
                       'Tanks'
                     ),
-                    ' (',
-                    tankCount,
-                    ')'
+                    ' ',
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      '(',
+                      tankCount,
+                      ')'
+                    )
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-3' },
+                    { className: 'col-md-2' },
                     _react2.default.createElement(
                       'strong',
                       null,
                       'Healers'
                     ),
-                    ' (',
-                    healerCount,
-                    ')'
+                    ' ',
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      '(',
+                      healerCount,
+                      ')'
+                    )
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-3' },
+                    { className: 'col-md-2' },
                     _react2.default.createElement(
                       'strong',
                       null,
                       'DPS'
                     ),
-                    ' (',
-                    dpsCount,
-                    ')'
+                    ' ',
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      '(',
+                      dpsCount,
+                      ')'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-md-2' },
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Standby'
+                    ),
+                    ' ',
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      '(',
+                      standbyCount,
+                      ')'
+                    )
                   )
                 ),
                 _react2.default.createElement(

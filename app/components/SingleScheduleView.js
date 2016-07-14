@@ -111,9 +111,10 @@ class SingleScheduleView extends React.Component {
                 <tr>
                   <td className='col-md-1'><strong>Raid</strong></td>
                   <td className='col-md-1'><strong>Boss</strong></td>
-                  <td className='col-md-2'><strong>Tanks</strong> ({tankCount})</td>
-                  <td className='col-md-3'><strong>Healers</strong> ({healerCount})</td>
-                  <td className='col-md-3'><strong>DPS</strong> ({dpsCount})</td>
+                  <td className='col-md-2'><strong>Tanks</strong> <strong>({tankCount})</strong></td>
+                  <td className='col-md-2'><strong>Healers</strong> <strong>({healerCount})</strong></td>
+                  <td className='col-md-2'><strong>DPS</strong> <strong>({dpsCount})</strong></td>
+                  <td className='col-md-2'><strong>Standby</strong> <strong>({standbyCount})</strong></td>
                 </tr>
                 <tr>
                   <td className='col-md-1'>{schedule_boss.raid.name}</td>
