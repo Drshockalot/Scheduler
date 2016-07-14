@@ -1385,109 +1385,130 @@ var ScheduleManagementActions = function () {
   }, {
     key: 'generateAvailabilityPopover',
     value: function generateAvailabilityPopover(availability, characterName) {
-      var wed = availability.wednesday ? React.createElement(
-        'div',
-        { className: 'clearfix hand-cursor' },
-        React.createElement(
-          'strong',
-          null,
+      var popover;
+      if (availability) {
+        var wed = availability.wednesday ? React.createElement(
+          'div',
+          { className: 'clearfix hand-cursor' },
           React.createElement(
-            'span',
+            'strong',
             null,
-            'Wednesday'
+            React.createElement(
+              'span',
+              null,
+              'Wednesday'
+            )
           )
-        )
-      ) : null;
-      var thurs = availability.thursday ? React.createElement(
-        'div',
-        { className: 'clearfix hand-cursor' },
-        React.createElement(
-          'strong',
-          null,
+        ) : null;
+        var thurs = availability.thursday ? React.createElement(
+          'div',
+          { className: 'clearfix hand-cursor' },
           React.createElement(
-            'span',
+            'strong',
             null,
-            'Thursday'
+            React.createElement(
+              'span',
+              null,
+              'Thursday'
+            )
           )
-        )
-      ) : null;
-      var fri = availability.friday ? React.createElement(
-        'div',
-        { className: 'clearfix hand-cursor' },
-        React.createElement(
-          'strong',
-          null,
+        ) : null;
+        var fri = availability.friday ? React.createElement(
+          'div',
+          { className: 'clearfix hand-cursor' },
           React.createElement(
-            'span',
+            'strong',
             null,
-            'Friday'
+            React.createElement(
+              'span',
+              null,
+              'Friday'
+            )
           )
-        )
-      ) : null;
-      var sat = availability.saturday ? React.createElement(
-        'div',
-        { className: 'clearfix hand-cursor' },
-        React.createElement(
-          'strong',
-          null,
+        ) : null;
+        var sat = availability.saturday ? React.createElement(
+          'div',
+          { className: 'clearfix hand-cursor' },
           React.createElement(
-            'span',
+            'strong',
             null,
-            'Saturday'
+            React.createElement(
+              'span',
+              null,
+              'Saturday'
+            )
           )
-        )
-      ) : null;
-      var sun = availability.sunday ? React.createElement(
-        'div',
-        { className: 'clearfix hand-cursor' },
-        React.createElement(
-          'strong',
-          null,
+        ) : null;
+        var sun = availability.sunday ? React.createElement(
+          'div',
+          { className: 'clearfix hand-cursor' },
           React.createElement(
-            'span',
+            'strong',
             null,
-            'Sunday'
+            React.createElement(
+              'span',
+              null,
+              'Sunday'
+            )
           )
-        )
-      ) : null;
-      var mon = availability.monday ? React.createElement(
-        'div',
-        { className: 'clearfix hand-cursor' },
-        React.createElement(
-          'strong',
-          null,
+        ) : null;
+        var mon = availability.monday ? React.createElement(
+          'div',
+          { className: 'clearfix hand-cursor' },
           React.createElement(
-            'span',
+            'strong',
             null,
-            'Monday'
+            React.createElement(
+              'span',
+              null,
+              'Monday'
+            )
           )
-        )
-      ) : null;
-      var tues = availability.tuesday ? React.createElement(
-        'div',
-        { className: 'clearfix hand-cursor' },
-        React.createElement(
-          'strong',
-          null,
+        ) : null;
+        var tues = availability.tuesday ? React.createElement(
+          'div',
+          { className: 'clearfix hand-cursor' },
           React.createElement(
-            'span',
+            'strong',
             null,
-            'Tuesday'
+            React.createElement(
+              'span',
+              null,
+              'Tuesday'
+            )
           )
-        )
-      ) : null;
+        ) : null;
 
-      var popover = React.createElement(
-        _reactBootstrap.Popover,
-        { id: availability.id, title: 'Availability' },
-        wed,
-        thurs,
-        fri,
-        sat,
-        sun,
-        mon,
-        tues
-      );
+        popover = React.createElement(
+          _reactBootstrap.Popover,
+          { id: availability.id, title: 'Availability' },
+          wed,
+          thurs,
+          fri,
+          sat,
+          sun,
+          mon,
+          tues
+        );
+      } else {
+        popover = React.createElement(
+          _reactBootstrap.Popover,
+          { id: characterName, title: 'Availability' },
+          React.createElement(
+            'div',
+            { className: 'clearfix hand-cursor' },
+            React.createElement(
+              'strong',
+              null,
+              React.createElement(
+                'span',
+                null,
+                'N/A'
+              )
+            )
+          )
+        );
+      }
 
       var trigger = React.createElement(
         _reactBootstrap.OverlayTrigger,
