@@ -53,6 +53,45 @@ class ScheduleManagement extends React.Component {
     return classNames(ret, { 'col-sm-1' : true});;
   }
 
+  generateAvailabilityPopover(availability, characterName) {
+    var popover;
+    if(availability) {
+      var wed = availability.wednesday ? <div className='clearfix hand-cursor'><strong><span>Wednesday</span></strong></div> : null;
+      var thurs = availability.thursday ? <div className='clearfix hand-cursor'><strong><span>Thursday</span></strong></div> : null;
+      var fri = availability.friday ? <div className='clearfix hand-cursor'><strong><span>Friday</span></strong></div> : null;
+      var sat = availability.saturday ? <div className='clearfix hand-cursor'><strong><span>Saturday</span></strong></div> : null;
+      var sun = availability.sunday ? <div className='clearfix hand-cursor'><strong><span>Sunday</span></strong></div> : null;
+      var mon = availability.monday ? <div className='clearfix hand-cursor'><strong><span>Monday</span></strong></div> : null;
+      var tues = availability.tuesday ? <div className='clearfix hand-cursor'><strong><span>Tuesday</span></strong></div> : null;
+
+      popover = (
+        <Popover id={availability.id} title='Availability'>
+          {wed}
+          {thurs}
+          {fri}
+          {sat}
+          {sun}
+          {mon}
+          {tues}
+        </Popover>
+      );
+    } else {
+      popover = (
+        <Popover id={characterName} title='Availability'>
+          <div className='clearfix hand-cursor'><strong><span>N/A</span></strong></div>
+        </Popover>
+      );
+    }
+
+    var trigger = (
+      <OverlayTrigger placement='left' trigger='click' rootClose overlay={popover}>
+        <strong className='hand-cursor'><u>&#10094;  {characterName}}</u></strong>
+      </OverlayTrigger>
+    );
+
+    return trigger;
+  }
+
   render() {
     var raidWeekOptions, selectedRaidWeekOptions, selectedScheduleOptions, formRosterOptions;
     var formRaidWeekId, selectedRaidWeekId, selectedScheduleId, selectedRosterId;
@@ -159,7 +198,7 @@ class ScheduleManagement extends React.Component {
           if(character.main_role == "Tank") {
             var char = _.findWhere(schedule_boss.characters, {id: character.id});
             var availability = _.findWhere(character.user.user_availability, {raid_week_id: this.state.selectedRaidWeek});
-            var availabilityPopover = ScheduleManagementActions.generateAvailabilityPopover(availability, character.name);
+            var availabilityPopover = this.generateAvailabilityPopover(availability, character.name);
             var actionButton;
             if(char) {
               tankCount++;
@@ -198,7 +237,7 @@ class ScheduleManagement extends React.Component {
           if(character.main_role == "Healer") {
             var char = _.findWhere(schedule_boss.characters, {id: character.id});
             var availability = _.findWhere(character.user.user_availability, {raid_week_id: this.state.selectedRaidWeek});
-            var availabilityPopover = ScheduleManagementActions.generateAvailabilityPopover(availability, character.name);
+            var availabilityPopover = this.generateAvailabilityPopover(availability, character.name);
             var actionButton;
             if(char) {
               healerCount++;
@@ -237,7 +276,7 @@ class ScheduleManagement extends React.Component {
           if(character.main_role == "DPS") {
             var char = _.findWhere(schedule_boss.characters, {id: character.id});
             var availability = _.findWhere(character.user.user_availability, {raid_week_id: this.state.selectedRaidWeek});
-            var availabilityPopover = ScheduleManagementActions.generateAvailabilityPopover(availability, character.name);
+            var availabilityPopover = this.generateAvailabilityPopover(availability, character.name);
             var actionButton;
             if(char) {
               dpsCount++;

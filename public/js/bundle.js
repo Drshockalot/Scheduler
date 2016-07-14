@@ -1382,152 +1382,6 @@ var ScheduleManagementActions = function () {
         _this8.addScheduleRaidBossesFailure(jqXhr);
       });
     }
-  }, {
-    key: 'generateAvailabilityPopover',
-    value: function generateAvailabilityPopover(availability, characterName) {
-      var popover;
-      if (availability) {
-        var wed = availability.wednesday ? React.createElement(
-          'div',
-          { className: 'clearfix hand-cursor' },
-          React.createElement(
-            'strong',
-            null,
-            React.createElement(
-              'span',
-              null,
-              'Wednesday'
-            )
-          )
-        ) : null;
-        var thurs = availability.thursday ? React.createElement(
-          'div',
-          { className: 'clearfix hand-cursor' },
-          React.createElement(
-            'strong',
-            null,
-            React.createElement(
-              'span',
-              null,
-              'Thursday'
-            )
-          )
-        ) : null;
-        var fri = availability.friday ? React.createElement(
-          'div',
-          { className: 'clearfix hand-cursor' },
-          React.createElement(
-            'strong',
-            null,
-            React.createElement(
-              'span',
-              null,
-              'Friday'
-            )
-          )
-        ) : null;
-        var sat = availability.saturday ? React.createElement(
-          'div',
-          { className: 'clearfix hand-cursor' },
-          React.createElement(
-            'strong',
-            null,
-            React.createElement(
-              'span',
-              null,
-              'Saturday'
-            )
-          )
-        ) : null;
-        var sun = availability.sunday ? React.createElement(
-          'div',
-          { className: 'clearfix hand-cursor' },
-          React.createElement(
-            'strong',
-            null,
-            React.createElement(
-              'span',
-              null,
-              'Sunday'
-            )
-          )
-        ) : null;
-        var mon = availability.monday ? React.createElement(
-          'div',
-          { className: 'clearfix hand-cursor' },
-          React.createElement(
-            'strong',
-            null,
-            React.createElement(
-              'span',
-              null,
-              'Monday'
-            )
-          )
-        ) : null;
-        var tues = availability.tuesday ? React.createElement(
-          'div',
-          { className: 'clearfix hand-cursor' },
-          React.createElement(
-            'strong',
-            null,
-            React.createElement(
-              'span',
-              null,
-              'Tuesday'
-            )
-          )
-        ) : null;
-
-        popover = React.createElement(
-          _reactBootstrap.Popover,
-          { id: availability.id, title: 'Availability' },
-          wed,
-          thurs,
-          fri,
-          sat,
-          sun,
-          mon,
-          tues
-        );
-      } else {
-        popover = React.createElement(
-          _reactBootstrap.Popover,
-          { id: characterName, title: 'Availability' },
-          React.createElement(
-            'div',
-            { className: 'clearfix hand-cursor' },
-            React.createElement(
-              'strong',
-              null,
-              React.createElement(
-                'span',
-                null,
-                'N/A'
-              )
-            )
-          )
-        );
-      }
-
-      var trigger = React.createElement(
-        _reactBootstrap.OverlayTrigger,
-        { placement: 'left', trigger: 'click', rootClose: true, overlay: popover },
-        React.createElement(
-          'strong',
-          { className: 'hand-cursor' },
-          React.createElement(
-            'u',
-            null,
-            '❮  ',
-            characterName,
-            '}'
-          )
-        )
-      );
-
-      return trigger;
-    }
   }]);
 
   return ScheduleManagementActions;
@@ -6822,6 +6676,152 @@ var ScheduleManagement = function (_React$Component) {
       return (0, _classnames2.default)(ret, { 'col-sm-1': true });;
     }
   }, {
+    key: 'generateAvailabilityPopover',
+    value: function generateAvailabilityPopover(availability, characterName) {
+      var popover;
+      if (availability) {
+        var wed = availability.wednesday ? _react2.default.createElement(
+          'div',
+          { className: 'clearfix hand-cursor' },
+          _react2.default.createElement(
+            'strong',
+            null,
+            _react2.default.createElement(
+              'span',
+              null,
+              'Wednesday'
+            )
+          )
+        ) : null;
+        var thurs = availability.thursday ? _react2.default.createElement(
+          'div',
+          { className: 'clearfix hand-cursor' },
+          _react2.default.createElement(
+            'strong',
+            null,
+            _react2.default.createElement(
+              'span',
+              null,
+              'Thursday'
+            )
+          )
+        ) : null;
+        var fri = availability.friday ? _react2.default.createElement(
+          'div',
+          { className: 'clearfix hand-cursor' },
+          _react2.default.createElement(
+            'strong',
+            null,
+            _react2.default.createElement(
+              'span',
+              null,
+              'Friday'
+            )
+          )
+        ) : null;
+        var sat = availability.saturday ? _react2.default.createElement(
+          'div',
+          { className: 'clearfix hand-cursor' },
+          _react2.default.createElement(
+            'strong',
+            null,
+            _react2.default.createElement(
+              'span',
+              null,
+              'Saturday'
+            )
+          )
+        ) : null;
+        var sun = availability.sunday ? _react2.default.createElement(
+          'div',
+          { className: 'clearfix hand-cursor' },
+          _react2.default.createElement(
+            'strong',
+            null,
+            _react2.default.createElement(
+              'span',
+              null,
+              'Sunday'
+            )
+          )
+        ) : null;
+        var mon = availability.monday ? _react2.default.createElement(
+          'div',
+          { className: 'clearfix hand-cursor' },
+          _react2.default.createElement(
+            'strong',
+            null,
+            _react2.default.createElement(
+              'span',
+              null,
+              'Monday'
+            )
+          )
+        ) : null;
+        var tues = availability.tuesday ? _react2.default.createElement(
+          'div',
+          { className: 'clearfix hand-cursor' },
+          _react2.default.createElement(
+            'strong',
+            null,
+            _react2.default.createElement(
+              'span',
+              null,
+              'Tuesday'
+            )
+          )
+        ) : null;
+
+        popover = _react2.default.createElement(
+          _reactBootstrap.Popover,
+          { id: availability.id, title: 'Availability' },
+          wed,
+          thurs,
+          fri,
+          sat,
+          sun,
+          mon,
+          tues
+        );
+      } else {
+        popover = _react2.default.createElement(
+          _reactBootstrap.Popover,
+          { id: characterName, title: 'Availability' },
+          _react2.default.createElement(
+            'div',
+            { className: 'clearfix hand-cursor' },
+            _react2.default.createElement(
+              'strong',
+              null,
+              _react2.default.createElement(
+                'span',
+                null,
+                'N/A'
+              )
+            )
+          )
+        );
+      }
+
+      var trigger = _react2.default.createElement(
+        _reactBootstrap.OverlayTrigger,
+        { placement: 'left', trigger: 'click', rootClose: true, overlay: popover },
+        _react2.default.createElement(
+          'strong',
+          { className: 'hand-cursor' },
+          _react2.default.createElement(
+            'u',
+            null,
+            '❮  ',
+            characterName,
+            '}'
+          )
+        )
+      );
+
+      return trigger;
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
@@ -6951,7 +6951,7 @@ var ScheduleManagement = function (_React$Component) {
             if (character.main_role == "Tank") {
               var char = _.findWhere(schedule_boss.characters, { id: character.id });
               var availability = _.findWhere(character.user.user_availability, { raid_week_id: this.state.selectedRaidWeek });
-              var availabilityPopover = _ScheduleManagementActions2.default.generateAvailabilityPopover(availability, character.name);
+              var availabilityPopover = this.generateAvailabilityPopover(availability, character.name);
               var actionButton;
               if (char) {
                 tankCount++;
@@ -7006,7 +7006,7 @@ var ScheduleManagement = function (_React$Component) {
             if (character.main_role == "Healer") {
               var char = _.findWhere(schedule_boss.characters, { id: character.id });
               var availability = _.findWhere(character.user.user_availability, { raid_week_id: this.state.selectedRaidWeek });
-              var availabilityPopover = _ScheduleManagementActions2.default.generateAvailabilityPopover(availability, character.name);
+              var availabilityPopover = this.generateAvailabilityPopover(availability, character.name);
               var actionButton;
               if (char) {
                 healerCount++;
@@ -7061,7 +7061,7 @@ var ScheduleManagement = function (_React$Component) {
             if (character.main_role == "DPS") {
               var char = _.findWhere(schedule_boss.characters, { id: character.id });
               var availability = _.findWhere(character.user.user_availability, { raid_week_id: this.state.selectedRaidWeek });
-              var availabilityPopover = _ScheduleManagementActions2.default.generateAvailabilityPopover(availability, character.name);
+              var availabilityPopover = this.generateAvailabilityPopover(availability, character.name);
               var actionButton;
               if (char) {
                 dpsCount++;
