@@ -1901,7 +1901,9 @@ var Home = function (_React$Component) {
                             _react2.default.createElement(
                               'li',
                               null,
-                              'Clicking on a character name show shows that user\'s availability for the week'
+                              'Clicking on a character name show shows that ',
+                              "user's",
+                              ' availability for the week'
                             )
                           )
                         )
