@@ -115,7 +115,7 @@ class Home extends React.Component {
                         <li>
                           <h5>Schedule Management</h5>
                           <ul>
-                            <li>Clicking on a character name show shows that {"user's"} availability for the week</li>
+                            <li>Clicking on a character name show shows that the user cannot attend</li>
                           </ul>
                         </li>
                       </ul>

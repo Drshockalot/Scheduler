@@ -1901,9 +1901,7 @@ var Home = function (_React$Component) {
                             _react2.default.createElement(
                               'li',
                               null,
-                              'Clicking on a character name show shows that ',
-                              "user's",
-                              ' availability for the week'
+                              'Clicking on a character name show shows that the user cannot attend'
                             )
                           )
                         )
@@ -6717,7 +6715,7 @@ var ScheduleManagement = function (_React$Component) {
     value: function generateAvailabilityPopover(availability, characterName) {
       var popover;
       if (availability) {
-        var wed = availability.wednesday ? _react2.default.createElement(
+        var wed = !availability.wednesday ? _react2.default.createElement(
           'div',
           { className: 'clearfix hand-cursor' },
           _react2.default.createElement(
@@ -6730,7 +6728,7 @@ var ScheduleManagement = function (_React$Component) {
             )
           )
         ) : null;
-        var thurs = availability.thursday ? _react2.default.createElement(
+        var thurs = !availability.thursday ? _react2.default.createElement(
           'div',
           { className: 'clearfix hand-cursor' },
           _react2.default.createElement(
@@ -6743,7 +6741,7 @@ var ScheduleManagement = function (_React$Component) {
             )
           )
         ) : null;
-        var fri = availability.friday ? _react2.default.createElement(
+        var fri = !availability.friday ? _react2.default.createElement(
           'div',
           { className: 'clearfix hand-cursor' },
           _react2.default.createElement(
@@ -6756,7 +6754,7 @@ var ScheduleManagement = function (_React$Component) {
             )
           )
         ) : null;
-        var sat = availability.saturday ? _react2.default.createElement(
+        var sat = !availability.saturday ? _react2.default.createElement(
           'div',
           { className: 'clearfix hand-cursor' },
           _react2.default.createElement(
@@ -6769,7 +6767,7 @@ var ScheduleManagement = function (_React$Component) {
             )
           )
         ) : null;
-        var sun = availability.sunday ? _react2.default.createElement(
+        var sun = !availability.sunday ? _react2.default.createElement(
           'div',
           { className: 'clearfix hand-cursor' },
           _react2.default.createElement(
@@ -6782,7 +6780,7 @@ var ScheduleManagement = function (_React$Component) {
             )
           )
         ) : null;
-        var mon = availability.monday ? _react2.default.createElement(
+        var mon = !availability.monday ? _react2.default.createElement(
           'div',
           { className: 'clearfix hand-cursor' },
           _react2.default.createElement(
@@ -6795,7 +6793,7 @@ var ScheduleManagement = function (_React$Component) {
             )
           )
         ) : null;
-        var tues = availability.tuesday ? _react2.default.createElement(
+        var tues = !availability.tuesday ? _react2.default.createElement(
           'div',
           { className: 'clearfix hand-cursor' },
           _react2.default.createElement(
@@ -6811,7 +6809,7 @@ var ScheduleManagement = function (_React$Component) {
 
         popover = _react2.default.createElement(
           _reactBootstrap.Popover,
-          { id: availability.id, title: 'Availability' },
+          { id: availability.id, title: 'Absence' },
           wed,
           thurs,
           fri,

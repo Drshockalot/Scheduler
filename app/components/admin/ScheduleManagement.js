@@ -56,16 +56,16 @@ class ScheduleManagement extends React.Component {
   generateAvailabilityPopover(availability, characterName) {
     var popover;
     if(availability) {
-      var wed = availability.wednesday ? <div className='clearfix hand-cursor'><strong><span>Wednesday</span></strong></div> : null;
-      var thurs = availability.thursday ? <div className='clearfix hand-cursor'><strong><span>Thursday</span></strong></div> : null;
-      var fri = availability.friday ? <div className='clearfix hand-cursor'><strong><span>Friday</span></strong></div> : null;
-      var sat = availability.saturday ? <div className='clearfix hand-cursor'><strong><span>Saturday</span></strong></div> : null;
-      var sun = availability.sunday ? <div className='clearfix hand-cursor'><strong><span>Sunday</span></strong></div> : null;
-      var mon = availability.monday ? <div className='clearfix hand-cursor'><strong><span>Monday</span></strong></div> : null;
-      var tues = availability.tuesday ? <div className='clearfix hand-cursor'><strong><span>Tuesday</span></strong></div> : null;
+      var wed = !availability.wednesday ? <div className='clearfix hand-cursor'><strong><span>Wednesday</span></strong></div> : null;
+      var thurs = !availability.thursday ? <div className='clearfix hand-cursor'><strong><span>Thursday</span></strong></div> : null;
+      var fri = !availability.friday ? <div className='clearfix hand-cursor'><strong><span>Friday</span></strong></div> : null;
+      var sat = !availability.saturday ? <div className='clearfix hand-cursor'><strong><span>Saturday</span></strong></div> : null;
+      var sun = !availability.sunday ? <div className='clearfix hand-cursor'><strong><span>Sunday</span></strong></div> : null;
+      var mon = !availability.monday ? <div className='clearfix hand-cursor'><strong><span>Monday</span></strong></div> : null;
+      var tues = !availability.tuesday ? <div className='clearfix hand-cursor'><strong><span>Tuesday</span></strong></div> : null;
 
       popover = (
-        <Popover id={availability.id} title='Availability'>
+        <Popover id={availability.id} title='Absence'>
           {wed}
           {thurs}
           {fri}
