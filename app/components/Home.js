@@ -110,6 +110,19 @@ class Home extends React.Component {
                 <tbody>
                   <tr>
                     <td>
+                      <h4>{moment('2016-07-14').format('MMM Do YYYY')}</h4>
+                      <ul>
+                        <li>
+                          <h5>Schedule Management</h5>
+                          <ul>
+                            <li>Clicking on a character name show shows that user&prime;s availability for the week</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       <h4>{moment('2016-07-13').format('MMM Do YYYY')}</h4>
                       <ul>
                         <li>
