@@ -6929,7 +6929,7 @@ var ScheduleManagement = function (_React$Component) {
           tankRows = sched.roster.characters.map(function (character, index) {
             if (character.main_role == "Tank") {
               var char = _.findWhere(schedule_boss.characters, { id: character.id });
-              var availability = _.findWhere(character.user.user_availability, { id: this.state.selectedRaidWeek });
+              var availability = _.findWhere(character.user.user_availability, { raid_week_id: this.state.selectedRaidWeek });
               var availabilityPopover = _ScheduleManagementActions2.default.generateAvailabilityPopover(availability, character.name);
               var actionButton;
               if (char) {
@@ -6984,7 +6984,7 @@ var ScheduleManagement = function (_React$Component) {
           healerRows = sched.roster.characters.map(function (character, index) {
             if (character.main_role == "Healer") {
               var char = _.findWhere(schedule_boss.characters, { id: character.id });
-              var availability = _.findWhere(character.user.user_availability, { id: this.state.selectedRaidWeek });
+              var availability = _.findWhere(character.user.user_availability, { raid_week_id: this.state.selectedRaidWeek });
               var availabilityPopover = _ScheduleManagementActions2.default.generateAvailabilityPopover(availability, character.name);
               var actionButton;
               if (char) {
@@ -7039,7 +7039,7 @@ var ScheduleManagement = function (_React$Component) {
           dpsRows = sched.roster.characters.map(function (character, index) {
             if (character.main_role == "DPS") {
               var char = _.findWhere(schedule_boss.characters, { id: character.id });
-              var availability = _.findWhere(character.user.user_availability, { id: this.state.selectedRaidWeek });
+              var availability = _.findWhere(character.user.user_availability, { raid_week_id: this.state.selectedRaidWeek });
               var availabilityPopover = _ScheduleManagementActions2.default.generateAvailabilityPopover(availability, character.name);
               var actionButton;
               if (char) {
