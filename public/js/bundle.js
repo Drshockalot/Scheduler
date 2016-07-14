@@ -3793,7 +3793,12 @@ var SingleScheduleView = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var scheduleBossRows, scheduleName, tankRows, healerRows, dpsRows;
+      var scheduleBossRows,
+          scheduleName,
+          tankRows = [],
+          healerRows = [],
+          dpsRows = [],
+          standbyRows = [];
       if (this.state.schedule != null) {
         scheduleName = _react2.default.createElement(
           'h3',
@@ -3805,11 +3810,14 @@ var SingleScheduleView = function (_React$Component) {
           //Put in the 20 character requirement for bosses to show
         }).map(function (schedule_boss, index) {
           var tankCount = 0;
+          var healerCount = 0;
+          var dpsCount = 0;
+          var standbyCount = 0;
           tankRows = schedule_boss.characters.map(function (character) {
             if (character.main_role == "Tank") {
               tankCount++;
               var classCSS = this.classColour(character);
-              return _react2.default.createElement(
+              tankRows.push([_react2.default.createElement(
                 'tr',
                 null,
                 _react2.default.createElement('td', { className: classCSS }),
@@ -3818,16 +3826,11 @@ var SingleScheduleView = function (_React$Component) {
                   { className: 'col-sm-11 vert-align' },
                   character.name
                 )
-              );
-            }
-          }, this);
-
-          var healerCount = 0;
-          healerRows = schedule_boss.characters.map(function (character) {
-            if (character.main_role == "Healer") {
+              )]);
+            } else if (character.main_role == "Healer") {
               healerCount++;
               var classCSS = this.classColour(character);
-              return _react2.default.createElement(
+              healerRows.push([_react2.default.createElement(
                 'tr',
                 null,
                 _react2.default.createElement('td', { className: classCSS }),
@@ -3836,16 +3839,11 @@ var SingleScheduleView = function (_React$Component) {
                   { className: 'col-sm-11 vert-align' },
                   character.name
                 )
-              );
-            }
-          }, this);
-
-          var dpsCount = 0;
-          dpsRows = schedule_boss.characters.map(function (character) {
-            if (character.main_role == "DPS") {
+              )]);
+            } else if (character.main_role == "DPS") {
               dpsCount++;
               var classCSS = this.classColour(character);
-              return _react2.default.createElement(
+              dpsRows.push([_react2.default.createElement(
                 'tr',
                 null,
                 _react2.default.createElement('td', { className: classCSS }),
@@ -3854,7 +3852,20 @@ var SingleScheduleView = function (_React$Component) {
                   { className: 'col-sm-11 vert-align' },
                   character.name
                 )
-              );
+              )]);
+            } else {
+              standbyCount++;
+              var classCSS = this.classColour(character);
+              standbyRows.push([_react2.default.createElement(
+                'tr',
+                null,
+                _react2.default.createElement('td', { className: classCSS }),
+                _react2.default.createElement(
+                  'td',
+                  { className: 'col-sm-11 vert-align' },
+                  character.name
+                )
+              )]);
             }
           }, this);
 
@@ -3940,7 +3951,7 @@ var SingleScheduleView = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-3' },
+                    { className: 'col-md-2' },
                     _react2.default.createElement(
                       'table',
                       { className: 'table' },
@@ -3953,7 +3964,7 @@ var SingleScheduleView = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-3' },
+                    { className: 'col-md-2' },
                     _react2.default.createElement(
                       'table',
                       { className: 'table' },
@@ -3966,7 +3977,7 @@ var SingleScheduleView = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-3' },
+                    { className: 'col-md-2' },
                     _react2.default.createElement(
                       'table',
                       { className: 'table' },
@@ -3974,6 +3985,19 @@ var SingleScheduleView = function (_React$Component) {
                         'tbody',
                         null,
                         dpsRows
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-md-2' },
+                    _react2.default.createElement(
+                      'table',
+                      { className: 'table' },
+                      _react2.default.createElement(
+                        'tbody',
+                        null,
+                        standbyRows
                       )
                     )
                   )
