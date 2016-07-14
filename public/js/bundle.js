@@ -6812,9 +6812,7 @@ var ScheduleManagement = function (_React$Component) {
           _react2.default.createElement(
             'u',
             null,
-            '❮  ',
-            characterName,
-            '}'
+            characterName
           )
         )
       );

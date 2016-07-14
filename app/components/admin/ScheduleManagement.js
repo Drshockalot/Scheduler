@@ -85,7 +85,7 @@ class ScheduleManagement extends React.Component {
 
     var trigger = (
       <OverlayTrigger placement='left' trigger='click' rootClose overlay={popover}>
-        <strong className='hand-cursor'><u>&#10094;  {characterName}}</u></strong>
+        <strong className='hand-cursor'><u>{characterName}</u></strong>
       </OverlayTrigger>
     );
 
