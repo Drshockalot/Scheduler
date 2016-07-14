@@ -1902,6 +1902,11 @@ var Home = function (_React$Component) {
                               'li',
                               null,
                               'Clicking on a character name show shows that the user cannot attend'
+                            ),
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'Only the character offspec is now shown, the main spec is assumed by the column'
                             )
                           )
                         )

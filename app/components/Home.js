@@ -116,6 +116,7 @@ class Home extends React.Component {
                           <h5>Schedule Management</h5>
                           <ul>
                             <li>Clicking on a character name show shows that the user cannot attend</li>
+                            <li>Only the character offspec is now shown, the main spec is assumed by the column</li>
                           </ul>
                         </li>
                       </ul>
