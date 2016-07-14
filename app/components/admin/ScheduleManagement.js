@@ -10,7 +10,7 @@ var _ = require('underscore');
 import classNames from 'classnames';
 var wowClasses = require('./../../../utility/WowClasses');
 
-import { Modal } from 'react-bootstrap';
+import { Modal, OverlayTrigger, Popover } from 'react-bootstrap';
 
 class ScheduleManagement extends React.Component {
   constructor(props) {
@@ -46,7 +46,7 @@ class ScheduleManagement extends React.Component {
     var ret = '';
     for (var i = 0; i < arr.length; ++i) {
       ret += arr[i].toLowerCase();
-      ret += '-'
+      ret += '-';
     }
 
     ret += 'color';
@@ -126,7 +126,7 @@ class ScheduleManagement extends React.Component {
               );
             }, this);
           } else {
-            formBossOptions = <option>No Bosses</option>
+            formBossOptions = <option>No Bosses</option>;
           }
 
           return (
@@ -158,12 +158,14 @@ class ScheduleManagement extends React.Component {
         tankRows = sched.roster.characters.map(function(character, index) {
           if(character.main_role == "Tank") {
             var char = _.findWhere(schedule_boss.characters, {id: character.id});
+            var availability = _.findWhere(character.user.user_availability, {id: this.state.selectedRaidWeek});
+            var availabilityPopover = ScheduleManagementActions.generateAvailabilityPopover(availability, character.name);
             var actionButton;
             if(char) {
               tankCount++;
               actionButton = (
                 <button className='btn btn-success btn-circle' onClick={() => ScheduleManagementActions.removeCharacterFromScheduleBoss(schedule_boss.id, character.id)}>&#10003;</button>
-              )
+              );
             } else {
               actionButton = (
                 <button className='btn btn-default btn-circle' onClick={() => ScheduleManagementActions.addCharacterToScheduleBoss(schedule_boss.id, character.id)}></button>
@@ -175,7 +177,7 @@ class ScheduleManagement extends React.Component {
               <tr>
                 <td className={classCSS} />
                 <td className='col-sm-3 vert-align' >
-                  {character.name}
+                  {availabilityPopover}
                 </td>
                 <td className='col-sm-2 vert-align'>
                   <strong>{character.main_role}</strong>
@@ -195,12 +197,14 @@ class ScheduleManagement extends React.Component {
         healerRows = sched.roster.characters.map(function(character, index) {
           if(character.main_role == "Healer") {
             var char = _.findWhere(schedule_boss.characters, {id: character.id});
+            var availability = _.findWhere(character.user.user_availability, {id: this.state.selectedRaidWeek});
+            var availabilityPopover = ScheduleManagementActions.generateAvailabilityPopover(availability, character.name);
             var actionButton;
             if(char) {
               healerCount++;
               actionButton = (
                 <button className='btn btn-success btn-circle' onClick={() => ScheduleManagementActions.removeCharacterFromScheduleBoss(schedule_boss.id, character.id)}>&#10003;</button>
-              )
+              );
             } else {
               actionButton = (
                 <button className='btn btn-default btn-circle' onClick={() => ScheduleManagementActions.addCharacterToScheduleBoss(schedule_boss.id, character.id)}></button>
@@ -212,7 +216,7 @@ class ScheduleManagement extends React.Component {
               <tr>
                 <td className={classCSS} />
                 <td className='col-sm-3 vert-align'>
-                  {character.name}
+                  {availabilityPopover}
                 </td>
                 <td className='col-sm-2 vert-align'>
                   <strong>{character.main_role}</strong>
@@ -232,12 +236,14 @@ class ScheduleManagement extends React.Component {
         dpsRows = sched.roster.characters.map(function(character, index) {
           if(character.main_role == "DPS") {
             var char = _.findWhere(schedule_boss.characters, {id: character.id});
+            var availability = _.findWhere(character.user.user_availability, {id: this.state.selectedRaidWeek});
+            var availabilityPopover = ScheduleManagementActions.generateAvailabilityPopover(availability, character.name);
             var actionButton;
             if(char) {
               dpsCount++;
               actionButton = (
                 <button className='btn btn-success btn-circle' onClick={() => ScheduleManagementActions.removeCharacterFromScheduleBoss(schedule_boss.id, character.id)}>&#10003;</button>
-              )
+              );
             } else {
               actionButton = (
                 <button className='btn btn-default btn-circle' onClick={() => ScheduleManagementActions.addCharacterToScheduleBoss(schedule_boss.id, character.id)}></button>
@@ -249,7 +255,7 @@ class ScheduleManagement extends React.Component {
               <tr>
                 <td className={classCSS} />
                 <td className='col-sm-4 vert-align'>
-                  {character.name}
+                  {availabilityPopover}
                 </td>
                 <td className='col-sm-3 vert-align'>
                   <strong>{character.main_role}</strong>
@@ -271,7 +277,7 @@ class ScheduleManagement extends React.Component {
         } else {
           publishedButton = (
             <button className='btn btn-default btn-circle' onClick={() => ScheduleManagementActions.invertScheduleBossPublishedState(schedule_boss.id)}></button>
-          )
+          );
         }
 
 

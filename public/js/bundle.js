@@ -1196,6 +1196,8 @@ var _ScheduleManagementStore = require('./../../stores/admin/ScheduleManagementS
 
 var _ScheduleManagementStore2 = _interopRequireDefault(_ScheduleManagementStore);
 
+var _reactBootstrap = require('react-bootstrap');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1380,6 +1382,131 @@ var ScheduleManagementActions = function () {
         _this8.addScheduleRaidBossesFailure(jqXhr);
       });
     }
+  }, {
+    key: 'generateAvailabilityPopover',
+    value: function generateAvailabilityPopover(availability, characterName) {
+      var wed = availability.wednesday ? React.createElement(
+        'div',
+        { className: 'clearfix hand-cursor' },
+        React.createElement(
+          'strong',
+          null,
+          React.createElement(
+            'span',
+            null,
+            'Wednesday'
+          )
+        )
+      ) : null;
+      var thurs = availability.thursday ? React.createElement(
+        'div',
+        { className: 'clearfix hand-cursor' },
+        React.createElement(
+          'strong',
+          null,
+          React.createElement(
+            'span',
+            null,
+            'Thursday'
+          )
+        )
+      ) : null;
+      var fri = availability.friday ? React.createElement(
+        'div',
+        { className: 'clearfix hand-cursor' },
+        React.createElement(
+          'strong',
+          null,
+          React.createElement(
+            'span',
+            null,
+            'Friday'
+          )
+        )
+      ) : null;
+      var sat = availability.saturday ? React.createElement(
+        'div',
+        { className: 'clearfix hand-cursor' },
+        React.createElement(
+          'strong',
+          null,
+          React.createElement(
+            'span',
+            null,
+            'Saturday'
+          )
+        )
+      ) : null;
+      var sun = availability.sunday ? React.createElement(
+        'div',
+        { className: 'clearfix hand-cursor' },
+        React.createElement(
+          'strong',
+          null,
+          React.createElement(
+            'span',
+            null,
+            'Sunday'
+          )
+        )
+      ) : null;
+      var mon = availability.monday ? React.createElement(
+        'div',
+        { className: 'clearfix hand-cursor' },
+        React.createElement(
+          'strong',
+          null,
+          React.createElement(
+            'span',
+            null,
+            'Monday'
+          )
+        )
+      ) : null;
+      var tues = availability.tuesday ? React.createElement(
+        'div',
+        { className: 'clearfix hand-cursor' },
+        React.createElement(
+          'strong',
+          null,
+          React.createElement(
+            'span',
+            null,
+            'Tuesday'
+          )
+        )
+      ) : null;
+
+      var popover = React.createElement(
+        _reactBootstrap.Popover,
+        { id: availability.id, title: 'Availability' },
+        wed,
+        thurs,
+        fri,
+        sat,
+        sun,
+        mon,
+        tues
+      );
+
+      var trigger = React.createElement(
+        _reactBootstrap.OverlayTrigger,
+        { placement: 'left', trigger: 'click', rootClose: true, overlay: popover },
+        React.createElement(
+          'strong',
+          { className: 'hand-cursor' },
+          React.createElement(
+            'u',
+            null,
+            '❮  ',
+            characterName,
+            '}'
+          )
+        )
+      );
+
+      return trigger;
+    }
   }]);
 
   return ScheduleManagementActions;
@@ -1387,7 +1514,7 @@ var ScheduleManagementActions = function () {
 
 exports.default = _alt2.default.createActions(ScheduleManagementActions);
 
-},{"./../../alt":19,"./../../stores/admin/ScheduleManagementStore":59,"underscore":"underscore"}],19:[function(require,module,exports){
+},{"./../../alt":19,"./../../stores/admin/ScheduleManagementStore":59,"react-bootstrap":254,"underscore":"underscore"}],19:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1669,6 +1796,7 @@ var Home = function (_React$Component) {
             var countResult = _underscore2.default.countBy(schedule.schedule_bosses, function (data) {
               return data.raid.name;
             });
+
             var raids = _underscore2.default.keys(countResult);
             var raidListItems = raids.map(function (raid) {
               return _react2.default.createElement(
@@ -6801,6 +6929,8 @@ var ScheduleManagement = function (_React$Component) {
           tankRows = sched.roster.characters.map(function (character, index) {
             if (character.main_role == "Tank") {
               var char = _.findWhere(schedule_boss.characters, { id: character.id });
+              var availability = _.findWhere(character.user.user_availability, { id: this.state.selectedRaidWeek });
+              var availabilityPopover = _ScheduleManagementActions2.default.generateAvailabilityPopover(availability, character.name);
               var actionButton;
               if (char) {
                 tankCount++;
@@ -6825,7 +6955,7 @@ var ScheduleManagement = function (_React$Component) {
                 _react2.default.createElement(
                   'td',
                   { className: 'col-sm-3 vert-align' },
-                  character.name
+                  availabilityPopover
                 ),
                 _react2.default.createElement(
                   'td',
@@ -6854,6 +6984,8 @@ var ScheduleManagement = function (_React$Component) {
           healerRows = sched.roster.characters.map(function (character, index) {
             if (character.main_role == "Healer") {
               var char = _.findWhere(schedule_boss.characters, { id: character.id });
+              var availability = _.findWhere(character.user.user_availability, { id: this.state.selectedRaidWeek });
+              var availabilityPopover = _ScheduleManagementActions2.default.generateAvailabilityPopover(availability, character.name);
               var actionButton;
               if (char) {
                 healerCount++;
@@ -6878,7 +7010,7 @@ var ScheduleManagement = function (_React$Component) {
                 _react2.default.createElement(
                   'td',
                   { className: 'col-sm-3 vert-align' },
-                  character.name
+                  availabilityPopover
                 ),
                 _react2.default.createElement(
                   'td',
@@ -6907,6 +7039,8 @@ var ScheduleManagement = function (_React$Component) {
           dpsRows = sched.roster.characters.map(function (character, index) {
             if (character.main_role == "DPS") {
               var char = _.findWhere(schedule_boss.characters, { id: character.id });
+              var availability = _.findWhere(character.user.user_availability, { id: this.state.selectedRaidWeek });
+              var availabilityPopover = _ScheduleManagementActions2.default.generateAvailabilityPopover(availability, character.name);
               var actionButton;
               if (char) {
                 dpsCount++;
@@ -6931,7 +7065,7 @@ var ScheduleManagement = function (_React$Component) {
                 _react2.default.createElement(
                   'td',
                   { className: 'col-sm-4 vert-align' },
-                  character.name
+                  availabilityPopover
                 ),
                 _react2.default.createElement(
                   'td',

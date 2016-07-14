@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router';
+import { Link } from 'react-router';
 import HomeStore from '../stores/HomeStore';
 import HomeActions from '../actions/HomeActions';
 import NavbarStore from '../stores/NavbarStore';
@@ -31,11 +31,12 @@ class Home extends React.Component {
 
   render() {
     var schedules;
-    if(this.state.raidweeks.length > 0) {
-      schedules = _.sortBy(this.state.raidweeks, 'start').reverse().map(function(raidweek, index) {
+    if (this.state.raidweeks.length > 0) {
+      schedules = _.sortBy(this.state.raidweeks, 'start').reverse().map(function (raidweek, index) {
         var schedules;
-        schedules = raidweek.schedules.map(function(schedule) {
-          var countResult = _.countBy(schedule.schedule_bosses, function(data) {return data.raid.name});
+        schedules = raidweek.schedules.map(function (schedule) {
+          var countResult = _.countBy(schedule.schedule_bosses, function (data) {return data.raid.name;});
+
           var raids = _.keys(countResult);
           var raidListItems = raids.map(function(raid) {
             return (

@@ -2,6 +2,8 @@ import alt from './../../alt';
 import ScheduleManagementStore from './../../stores/admin/ScheduleManagementStore';
 var _ = require('underscore');
 
+import { OverlayTrigger, Popover } from 'react-bootstrap';
+
 class ScheduleManagementActions {
   constructor() {
     this.generateActions(
@@ -90,7 +92,7 @@ class ScheduleManagementActions {
                  tanks: tanks,
                  healers: healers,
                  dps: dps,
-                 schedule: schedule}
+                 schedule: schedule };
     $.ajax({
       method: 'POST',
       url: '/api/schedule/admin/boss',
@@ -178,6 +180,36 @@ class ScheduleManagementActions {
       console.log(jqXhr);
       this.addScheduleRaidBossesFailure(jqXhr);
     });
+  }
+
+  generateAvailabilityPopover(availability, characterName) {
+    var wed = availability.wednesday ? <div className='clearfix hand-cursor'><strong><span>Wednesday</span></strong></div> : null;
+    var thurs = availability.thursday ? <div className='clearfix hand-cursor'><strong><span>Thursday</span></strong></div> : null;
+    var fri = availability.friday ? <div className='clearfix hand-cursor'><strong><span>Friday</span></strong></div> : null;
+    var sat = availability.saturday ? <div className='clearfix hand-cursor'><strong><span>Saturday</span></strong></div> : null;
+    var sun = availability.sunday ? <div className='clearfix hand-cursor'><strong><span>Sunday</span></strong></div> : null;
+    var mon = availability.monday ? <div className='clearfix hand-cursor'><strong><span>Monday</span></strong></div> : null;
+    var tues = availability.tuesday ? <div className='clearfix hand-cursor'><strong><span>Tuesday</span></strong></div> : null;
+
+    var popover = (
+      <Popover id={availability.id} title='Availability'>
+        {wed}
+        {thurs}
+        {fri}
+        {sat}
+        {sun}
+        {mon}
+        {tues}
+      </Popover>
+    );
+
+    var trigger = (
+      <OverlayTrigger placement='left' trigger='click' rootClose overlay={popover}>
+        <strong className='hand-cursor'><u>&#10094;  {characterName}}</u></strong>
+      </OverlayTrigger>
+    );
+
+    return trigger;
   }
 }
 
