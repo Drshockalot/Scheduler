@@ -6821,7 +6821,7 @@ var ScheduleManagement = function (_React$Component) {
       } else {
         popover = _react2.default.createElement(
           _reactBootstrap.Popover,
-          { id: characterName, title: 'Availability' },
+          { id: characterName, title: 'Absence' },
           _react2.default.createElement(
             'div',
             { className: 'clearfix hand-cursor' },
