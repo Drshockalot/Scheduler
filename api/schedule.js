@@ -14,7 +14,7 @@ var _ = require('underscore');
 
 router.get('/', function(req, res, next) {
   Schedule.forge()
-          .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters', 'roster.characters.user', 'roster.characters.user_availability']})
+          .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters', 'roster.characters.user', 'roster.characters.user.user_availability']})
           .then(function(schedules) {
             Character.forge()
                     .fetchAll()
@@ -57,7 +57,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/single/:scheduleid', function(req, res, next) {
   Schedule.forge({id: req.params.scheduleid})
-          .fetch({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters', 'roster.characters.user', 'roster.characters.user_availability']})
+          .fetch({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters', 'roster.characters.user', 'roster.characters.user.user_availability']})
           .then(function(schedule) {
             res.json({error: false, data: {message: "Schedule retrieved", schedule: schedule.toJSON()}});
           })
@@ -74,7 +74,7 @@ router.post('/admin', function(req, res, next) {
           .save()
           .then(function(schedule) {
             Schedule.forge()
-                    .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters', 'roster.characters.user', 'roster.characters.user_availability']})
+                    .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters', 'roster.characters.user', 'roster.characters.user.user_availability']})
                     .then(function(schedules) {
                       res.json({error: false, data: {message: "Schedule added", schedules: schedules.toJSON()}});
                     })
@@ -94,7 +94,7 @@ router.post('/admin/boss', function(req, res, next) {
                .save()
                .then(function(schedule_boss) {
                  Schedule.forge()
-                         .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters', 'roster.characters.user', 'roster.characters.user_availability']})
+                         .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters', 'roster.characters.user', 'roster.characters.user.user_availability']})
                          .then(function(schedules) {
                            res.json({error: false, data: {message: "Schedule boss added", schedules: schedules.toJSON()}});
                          })
@@ -113,7 +113,7 @@ router.post('/admin/character', function(req, res, next) {
                .then(function(schedule_boss) {
                  schedule_boss.characters().attach(req.body.characterId);
                  Schedule.forge()
-                         .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters', 'roster.characters.user', 'roster.characters.user_availability']})
+                         .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters', 'roster.characters.user', 'roster.characters.user.user_availability']})
                          .then(function(schedules) {
                            res.json({error: false, data: {message: "Character added", schedules: schedules.toJSON()}});
                          })
@@ -132,7 +132,7 @@ router.delete('/admin/character', function(req, res, next) {
                .then(function(schedule_boss) {
                  schedule_boss.characters().detach(req.body.characterId);
                  Schedule.forge()
-                         .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters', 'roster.characters.user', 'roster.characters.user_availability']})
+                         .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters', 'roster.characters.user', 'roster.characters.user.user_availability']})
                          .then(function(schedules) {
                            res.json({error: false, data: {message: "Character added", schedules: schedules.toJSON()}});
                          })
@@ -152,7 +152,7 @@ router.put('/admin/publish/:schedulebossid', function(req, res, next) {
                  schedule_boss.save({published: !schedule_boss.get('published')})
                          .then(function() {
                            Schedule.forge()
-                                   .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters', 'roster.characters.user', 'roster.characters.user_availability']})
+                                   .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters', 'roster.characters.user', 'roster.characters.user.user_availability']})
                                    .then(function(schedules) {
                                      res.json({error: false, data: {message: "Published state inverted", schedules: schedules.toJSON()}});
                                    })
@@ -176,7 +176,7 @@ router.delete('/admin/boss/:schedulebossid', function(req, res, next) {
                  schedule_boss.destroy()
                               .then(function() {
                                 Schedule.forge()
-                                        .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters', 'roster.characters.user', 'roster.characters.user_availability']})
+                                        .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters', 'roster.characters.user', 'roster.characters.user.user_availability']})
                                         .then(function(schedules) {
                                           res.json({error: false, data: {message: "Schedule Boss deleted", schedules: schedules.toJSON()}});
                                         })
@@ -207,7 +207,7 @@ router.put('/admin/raid', function(req, res, next) {
         knex.batchInsert('schedule_boss', scheduleBossRows)
             .then(function() {
               Schedule.forge()
-                      .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters', 'roster.characters.user', 'roster.characters.user_availability']})
+                      .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters', 'roster.characters.user', 'roster.characters.user.user_availability']})
                       .then(function(schedules) {
                         res.json({error: false, data: {message: "Schedule Boss deleted", schedules: schedules.toJSON()}});
                       })
