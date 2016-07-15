@@ -35,6 +35,14 @@ class RaidWeekManagement extends React.Component {
     this.setState(state);
   }
 
+  dayIsLogged(day, list) {
+    list.map(function(raidweek) {
+      return day.isAfter(raidweek.start) && day.isBefore(raidweek.end);
+    });
+
+    return false;
+  }
+
   render() {
     var chosenDay = this.state.selectedDay.isoWeekday();
     var copyToAdd = moment(this.state.selectedDay);
@@ -70,11 +78,17 @@ class RaidWeekManagement extends React.Component {
         weekEnd = copyToAdd.add('days', 2);
         break;
     }
+
+    var rwl = this.state.raidweeks.map(function(raidweek) {
+      return {start: moment(raidweek.start), end: moment(raidweek.end)};
+    });
+
     const customCSS = {
       selectedweek: {
         start: weekBeginning.format('YYYY[-]MM[-]DD'),
         end: weekEnd.format('YYYY[-]MM[-]DD')
-      }
+      },
+      loggedDay: day => this.dayIsLogged(day, rwl)
     };
 
     var raidweeklist = this.state.raidweeks.map(function(raidweek, index) {
@@ -154,7 +168,7 @@ class RaidWeekManagement extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

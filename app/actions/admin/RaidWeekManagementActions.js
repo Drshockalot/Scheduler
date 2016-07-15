@@ -39,7 +39,7 @@ class RaidWeekManagementActions {
   }
 
   createNewRaidWeek(startingDate) {
-    var start = startingDate.format('YYYY MM DD')
+    var start = startingDate.format('YYYY MM DD');
     var end = startingDate.add(6, 'days').format('YYYY MM DD');
     $.ajax({
       method: 'POST',
