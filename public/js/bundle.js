@@ -6050,7 +6050,7 @@ var RaidWeekManagement = function (_React$Component) {
     key: 'dayIsLogged',
     value: function dayIsLogged(day, list) {
       for (var i = 0; i < list.length; ++i) {
-        if (day.isSameOrAfter(list[i].start) && day.isSameOrBefore(list[i].end)) return true;
+        if (day.isSameOrAfter(list[i].start.subtract('days', 1)) && day.isSameOrBefore(list[i].end)) return true;
       }
       return false;
     }
