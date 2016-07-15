@@ -36,10 +36,10 @@ class RaidWeekManagement extends React.Component {
   }
 
   dayIsLogged(day, list) {
-    list.map(function(raidweek) {
-      return day.isBetween(raidweek.start, raidweek.end);
-    });
-
+    for(var i = 0; i < list.length; ++i) {
+      if (day.isBetween(list[i].start, list[i].end))
+        return true;
+    }
     return false;
   }
 
