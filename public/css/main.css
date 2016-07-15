@@ -129,14 +129,14 @@ table.calendar td.selectedweek {
 table.calendar td.selectedweek.range,
 table.calendar td.selectedweek.selected {
   background-color: #91d46e !important;
-  font-weight: bold !important;
+  font-weight: bold;
 }
 table.calendar td.loggedDay {
-  background-color: rgba(90, 246, 168, 0.32);
+  background-color: rgba(90, 246, 168, 0.32) !important;
 }
 table.calendar td.loggedDay.range,
 table.calendar td.loggedDay.selected {
-  background-color: #5af6a8;
+  background-color: #5af6a8 !important;
   font-weight: bold;
 }
 .dropzone {
