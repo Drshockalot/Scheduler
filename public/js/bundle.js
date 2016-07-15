@@ -6050,7 +6050,7 @@ var RaidWeekManagement = function (_React$Component) {
     key: 'dayIsLogged',
     value: function dayIsLogged(day, list) {
       list.map(function (raidweek) {
-        console.log(day.isAfter(raidweek.start) && day.isBefore(raidweek.end));
+
         return day.isAfter(raidweek.start) && day.isBefore(raidweek.end);
       });
 
@@ -6059,8 +6059,6 @@ var RaidWeekManagement = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this2 = this;
-
       var chosenDay = this.state.selectedDay.isoWeekday();
       var copyToAdd = (0, _moment2.default)(this.state.selectedDay);
       var copyToSub = (0, _moment2.default)(this.state.selectedDay);
@@ -6106,12 +6104,12 @@ var RaidWeekManagement = function (_React$Component) {
           end: weekEnd.format('YYYY[-]MM[-]DD')
         },
         loggedDay: function loggedDay(day) {
-          return _this2.dayIsLogged(day, rwl);
+          return console.log(day);
         }
       };
 
       var raidweeklist = this.state.raidweeks.map(function (raidweek, index) {
-        var _this3 = this;
+        var _this2 = this;
 
         return _react2.default.createElement(
           'tr',
@@ -6186,7 +6184,7 @@ var RaidWeekManagement = function (_React$Component) {
             _react2.default.createElement(
               'button',
               { className: 'btn btn-primary', onClick: function onClick() {
-                  return _RaidWeekManagementActions2.default.updateRaidWeek(_this3.state.raidweeks[index]);
+                  return _RaidWeekManagementActions2.default.updateRaidWeek(_this2.state.raidweeks[index]);
                 } },
               'Save'
             )

@@ -37,7 +37,7 @@ class RaidWeekManagement extends React.Component {
 
   dayIsLogged(day, list) {
     list.map(function(raidweek) {
-      console.log(day.isAfter(raidweek.start) && day.isBefore(raidweek.end));
+
       return day.isAfter(raidweek.start) && day.isBefore(raidweek.end);
     });
 
@@ -89,7 +89,7 @@ class RaidWeekManagement extends React.Component {
         start: weekBeginning.format('YYYY[-]MM[-]DD'),
         end: weekEnd.format('YYYY[-]MM[-]DD')
       },
-      loggedDay: day => this.dayIsLogged(day, rwl)
+      loggedDay: day => console.log(day)
     };
 
     var raidweeklist = this.state.raidweeks.map(function(raidweek, index) {
