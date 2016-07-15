@@ -6051,7 +6051,7 @@ var RaidWeekManagement = function (_React$Component) {
     value: function dayIsLogged(day, list) {
       for (var i = 0; i < list.length; ++i) {
         var sStart = (0, _moment2.default)(list[i].start);
-        if (day.isSameOrAfter(sStart.subtract('days', 1)) && day.isSameOrBefore(list[i].end)) return true;
+        if (day.isSameOrAfter(list[i].start) && day.isSameOrBefore(list[i].end)) return true;
       }
       return false;
     }
