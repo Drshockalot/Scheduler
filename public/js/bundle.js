@@ -6050,7 +6050,7 @@ var RaidWeekManagement = function (_React$Component) {
     key: 'dayIsLogged',
     value: function dayIsLogged(day, list) {
       list.map(function (raidweek) {
-        return day.isAfter(raidweek.start) && day.isBefore(raidweek.end);
+        return day.isBetween(raidweek.start, raidweek.end);
       });
 
       return false;
