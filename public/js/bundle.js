@@ -6098,7 +6098,7 @@ var RaidWeekManagement = function (_React$Component) {
       var rwl = this.state.raidweeks.map(function (raidweek) {
         return { start: (0, _moment2.default)(raidweek.start), end: (0, _moment2.default)(raidweek.end) };
       });
-
+      console.log(rwl);
       var customCSS = {
         selectedweek: {
           start: weekBeginning.format('YYYY[-]MM[-]DD'),

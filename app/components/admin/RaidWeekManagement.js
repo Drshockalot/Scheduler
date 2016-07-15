@@ -82,7 +82,7 @@ class RaidWeekManagement extends React.Component {
     var rwl = this.state.raidweeks.map(function(raidweek) {
       return {start: moment(raidweek.start), end: moment(raidweek.end)};
     });
-
+    console.log(rwl);
     const customCSS = {
       selectedweek: {
         start: weekBeginning.format('YYYY[-]MM[-]DD'),
