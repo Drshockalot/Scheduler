@@ -38,7 +38,7 @@ class RaidWeekManagement extends React.Component {
   dayIsLogged(day, list) {
     for(var i = 0; i < list.length; ++i) {
       var sStart = moment(list[i].start);
-      if (day.isSameOrAfter(list[i].start) && day.isSameOrBefore(list[i].end))
+      if (day.isSameOrAfter(sStart.subtract('hours', 2)) && day.isSameOrBefore(list[i].end))
         return true;
     }
     return false;
