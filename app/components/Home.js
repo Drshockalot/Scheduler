@@ -110,6 +110,20 @@ class Home extends React.Component {
                 <tbody>
                   <tr>
                     <td>
+                      <h4>{moment('2016-07-15').format('MMM Do YYYY')}</h4>
+                      <ul>
+                        <li>
+                          <h5>Raid Week Management</h5>
+                          <ul>
+                            <li>Weeks that have a raid week created for them are now highlighted in a teal color</li>
+                            <li>Fixed styling issues on the yearly calendar</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       <h4>{moment('2016-07-14').format('MMM Do YYYY')}</h4>
                       <ul>
                         <li>
