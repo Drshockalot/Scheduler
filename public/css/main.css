@@ -124,12 +124,12 @@ div#calendar {
   user-select: none;
 }
 table.calendar td.selectedweek {
-  background-color: rgba(145, 212, 110, 0.32);
+  background-color: rgba(145, 212, 110, 0.32) !important;
 }
 table.calendar td.selectedweek.range,
 table.calendar td.selectedweek.selected {
-  background-color: #91d46e;
-  font-weight: bold;
+  background-color: #91d46e !important;
+  font-weight: bold !important;
 }
 table.calendar td.loggedDay {
   background-color: rgba(90, 246, 202, 0.32);
