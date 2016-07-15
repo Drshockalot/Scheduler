@@ -9038,6 +9038,10 @@ var _moment = require('moment');
 
 var _moment2 = _interopRequireDefault(_moment);
 
+var _underscore = require('underscore');
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -9203,7 +9207,8 @@ var ScheduleManagementStore = function () {
   }, {
     key: 'onInvertScheduleBossPublishedStateSuccess',
     value: function onInvertScheduleBossPublishedStateSuccess(result) {
-      this.schedules = result.data.schedules;
+      var sb = _underscore2.default.findWhere(_underscore2.default.findWhere(this.schedules, { id: result.data.sb.schedule_id }).schedule_bosses, { id: result.data.sb.id });
+      sb = result.data.sb;
     }
   }, {
     key: 'onInvertScheduleBossPublishedStateFailure',
@@ -9251,7 +9256,7 @@ var ScheduleManagementStore = function () {
 
 exports.default = _alt2.default.createStore(ScheduleManagementStore);
 
-},{"./../../actions/admin/ScheduleManagementActions":18,"./../../alt":19,"moment":161}],60:[function(require,module,exports){
+},{"./../../actions/admin/ScheduleManagementActions":18,"./../../alt":19,"moment":161,"underscore":"underscore"}],60:[function(require,module,exports){
 /*!
   Copyright (c) 2016 Jed Watson.
   Licensed under the MIT License (MIT), see

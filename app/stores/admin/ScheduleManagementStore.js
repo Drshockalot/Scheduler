@@ -1,6 +1,7 @@
 import alt from './../../alt';
 import ScheduleManagementActions from './../../actions/admin/ScheduleManagementActions';
 import moment from 'moment';
+import _ from 'underscore';
 
 class ScheduleManagementStore {
   constructor() {
@@ -141,7 +142,8 @@ class ScheduleManagementStore {
   }
 
   onInvertScheduleBossPublishedStateSuccess(result) {
-    this.schedules = result.data.schedules;
+    var sb = _.findWhere(_.findWhere(this.schedules, {id: result.data.sb.schedule_id}).schedule_bosses, {id: result.data.sb.id});
+    sb = result.data.sb;
   }
 
   onInvertScheduleBossPublishedStateFailure(jqXhr) {
