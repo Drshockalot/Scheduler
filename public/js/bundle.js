@@ -3911,6 +3911,10 @@ var SingleScheduleView = function (_React$Component) {
           var healerCount = 0;
           var dpsCount = 0;
           var standbyCount = 0;
+          tankRows = [];
+          healerRows = [];
+          dpsRows = [];
+          standbyRows = [];
           schedule_boss.characters.map(function (character) {
             if (character.main_role == "Tank") {
               tankCount++;
@@ -3966,7 +3970,6 @@ var SingleScheduleView = function (_React$Component) {
               )]);
             }
           }, this);
-
           return _react2.default.createElement(
             'div',
             { className: 'row' },

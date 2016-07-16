@@ -56,6 +56,10 @@ class SingleScheduleView extends React.Component {
         var healerCount = 0;
         var dpsCount = 0;
         var standbyCount = 0;
+        tankRows = [];
+        healerRows = [];
+        dpsRows = [];
+        standbyRows = [];
         schedule_boss.characters.map(function(character) {
           if(character.main_role == "Tank") {
             tankCount++;
@@ -103,7 +107,6 @@ class SingleScheduleView extends React.Component {
             )]);
           }
         }, this);
-
         return (
           <div className='row'>
             <table className='table'>
