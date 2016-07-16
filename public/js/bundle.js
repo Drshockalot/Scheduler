@@ -6367,7 +6367,7 @@ var RaidWeekManagement = function (_React$Component) {
             } },
           _underscore2.default.sortBy(sortedWeeks[key], function (row) {
             return row.props.sortOrder;
-          }).reverse()
+          })
         ));
         index++;
       }
