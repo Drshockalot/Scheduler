@@ -141,13 +141,23 @@ class RaidWeekManagement extends React.Component {
     }, this);
 
     var panels = [];
-    $.each(sortedWeeks, function(key, index) {
-        panels.push(
-          <Panel header={key} sortOrder={_.findWhere(monthOrders, {name: key}).order} eventKey={index} collapsable={true} expanded={this.state.panelState[key]} onSelect={() => RaidWeekManagementActions.togglePanel(key)}>
-            {sortedWeeks[key]}
-          </Panel>
-        );
-    });
+    for(var month in sortedWeeks) {
+      var key = Object.keys(sortedWeeks)[0];
+      console.log(key);
+      panels.push(
+        <Panel header={key} sortOrder={_.findWhere(monthOrders, {name: key}).order} eventKey={index} collapsable={true} expanded={this.state.panelState[key]} onSelect={() => RaidWeekManagementActions.togglePanel(key)}>
+          {sortedWeeks[key]}
+        </Panel>
+      );
+    }
+
+    // $.each(sortedWeeks, function(key, index) {
+    //     panels.push(
+    //       <Panel header={key} sortOrder={_.findWhere(monthOrders, {name: key}).order} eventKey={index} collapsable={true} expanded={this.state.panelState[key]} onSelect={() => RaidWeekManagementActions.togglePanel(key)}>
+    //         {sortedWeeks[key]}
+    //       </Panel>
+    //     );
+    // });
     console.log(panels);
     var accordion = (
       <Accordion>
