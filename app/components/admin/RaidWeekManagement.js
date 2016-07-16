@@ -98,24 +98,26 @@ class RaidWeekManagement extends React.Component {
       var month = moment(raidweek).format('MMMM').toString();
       if(moment(raidweek.start).format('YYYY') == this.selectedYear)
         sortedWeeks[month].push(
-          <tr>
-            <td>{moment(raidweek.start).format('DD[/]MM[/]YYYY')}</td>
-            <td>{moment(raidweek.end).format('DD[/]MM[/]YYYY')}</td>
-            <td>{moment(raidweek.start).format('W')}</td>
-            <td><input type='checkbox' checked={this.state.raidweeks[index].wednesday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'wednesday')} /></td>
-            <td><input type='checkbox' checked={this.state.raidweeks[index].thursday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'thursday')} /></td>
-            <td><input type='checkbox' checked={this.state.raidweeks[index].friday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'friday')} /></td>
-            <td><input type='checkbox' checked={this.state.raidweeks[index].saturday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'saturday')} /></td>
-            <td><input type='checkbox' checked={this.state.raidweeks[index].sunday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'sunday')} /></td>
-            <td><input type='checkbox' checked={this.state.raidweeks[index].monday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'monday')} /></td>
-            <td><input type='checkbox' checked={this.state.raidweeks[index].tuesday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'tuesday')} /></td>
-            <td>
+          <div className='row'>
+            <div className='col-md-2'>{moment(raidweek.start).format('DD[/]MM[/]YYYY')}</div>
+            <div className='col-md-2'>{moment(raidweek.end).format('DD[/]MM[/]YYYY')}</div>
+            <div className='col-md-2'>{moment(raidweek.start).format('W')}</div>
+            <div className='col-md-4'>
+              <div className='col-md-2'><input type='checkbox' checked={this.state.raidweeks[index].wednesday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'wednesday')} /></div>
+              <div className='col-md-2'><input type='checkbox' checked={this.state.raidweeks[index].thursday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'thursday')} /></div>
+              <div className='col-md-2'><input type='checkbox' checked={this.state.raidweeks[index].friday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'friday')} /></div>
+              <div className='col-md-1'><input type='checkbox' checked={this.state.raidweeks[index].saturday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'saturday')} /></div>
+              <div className='col-md-1'><input type='checkbox' checked={this.state.raidweeks[index].sunday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'sunday')} /></div>
+              <div className='col-md-2'><input type='checkbox' checked={this.state.raidweeks[index].monday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'monday')} /></div>
+              <div className='col-md-2'><input type='checkbox' checked={this.state.raidweeks[index].tuesday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'tuesday')} /></div>
+            </div>
+            <div className='col-md-1'>
               <button className='btn btn-primary' onClick={() => RaidWeekManagementActions.updateRaidWeek(this.state.raidweeks[index])}>Save</button>
-            </td>
-            <td>
+            </div>
+            <div className='col-md-1'>
               <button value={raidweek.id} className='btn btn-danger' onClick={(e) => RaidWeekManagementActions.deleteRaidWeek(e.target.value)}>Delete</button>
-            </td>
-          </tr>
+            </div>
+          </div>
         );
     }, this);
 
@@ -171,19 +173,25 @@ class RaidWeekManagement extends React.Component {
             </div>
             <div className='row'>
               <div className='table'>
-                    <td><strong>Start</strong></td>
-                    <td><strong>End</strong></td>
-                    <td><strong>Week No.</strong></td>
-                    <td><strong>W</strong></td>
-                    <td><strong>T</strong></td>
-                    <td><strong>F</strong></td>
-                    <td><strong>S</strong></td>
-                    <td><strong>S</strong></td>
-                    <td><strong>M</strong></td>
-                    <td><strong>T</strong></td>
-                    <td></td>
-                    <td></td>
+                <div className='row'>
+                  <div className='col-md-2'><strong>Start</strong></div>
+                  <div className='col-md-2'><strong>End</strong></div>
+                  <div className='col-md-2'><strong>Week No.</strong></div>
+                  <div className='col-md-4'>
+                    <div className='col-md-2'><strong>W</strong></div>
+                    <div className='col-md-2'><strong>T</strong></div>
+                    <div className='col-md-2'><strong>F</strong></div>
+                    <div className='col-md-1'><strong>S</strong></div>
+                    <div className='col-md-1'><strong>S</strong></div>
+                    <div className='col-md-2'><strong>M</strong></div>
+                    <div className='col-md-2'><strong>T</strong></div>
+                  </div>
+                  <div className='col-md-1'></div>
+                  <div className='col-md-1'></div>
+                </div>
+                <div className='row'>
                   {accordion}
+                </div>
               </div>
             </div>
           </div>

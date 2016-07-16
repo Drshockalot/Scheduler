@@ -6160,75 +6160,79 @@ var RaidWeekManagement = function (_React$Component) {
 
         var month = (0, _moment2.default)(raidweek).format('MMMM').toString();
         if ((0, _moment2.default)(raidweek.start).format('YYYY') == this.selectedYear) sortedWeeks[month].push(_react2.default.createElement(
-          'tr',
-          null,
+          'div',
+          { className: 'row' },
           _react2.default.createElement(
-            'td',
-            null,
+            'div',
+            { className: 'col-md-2' },
             (0, _moment2.default)(raidweek.start).format('DD[/]MM[/]YYYY')
           ),
           _react2.default.createElement(
-            'td',
-            null,
+            'div',
+            { className: 'col-md-2' },
             (0, _moment2.default)(raidweek.end).format('DD[/]MM[/]YYYY')
           ),
           _react2.default.createElement(
-            'td',
-            null,
+            'div',
+            { className: 'col-md-2' },
             (0, _moment2.default)(raidweek.start).format('W')
           ),
           _react2.default.createElement(
-            'td',
-            null,
-            _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].wednesday, onChange: function onChange() {
-                return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'wednesday');
-              } })
+            'div',
+            { className: 'col-md-4' },
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-2' },
+              _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].wednesday, onChange: function onChange() {
+                  return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'wednesday');
+                } })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-2' },
+              _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].thursday, onChange: function onChange() {
+                  return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'thursday');
+                } })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-2' },
+              _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].friday, onChange: function onChange() {
+                  return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'friday');
+                } })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-1' },
+              _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].saturday, onChange: function onChange() {
+                  return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'saturday');
+                } })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-1' },
+              _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].sunday, onChange: function onChange() {
+                  return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'sunday');
+                } })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-2' },
+              _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].monday, onChange: function onChange() {
+                  return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'monday');
+                } })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'col-md-2' },
+              _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].tuesday, onChange: function onChange() {
+                  return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'tuesday');
+                } })
+            )
           ),
           _react2.default.createElement(
-            'td',
-            null,
-            _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].thursday, onChange: function onChange() {
-                return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'thursday');
-              } })
-          ),
-          _react2.default.createElement(
-            'td',
-            null,
-            _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].friday, onChange: function onChange() {
-                return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'friday');
-              } })
-          ),
-          _react2.default.createElement(
-            'td',
-            null,
-            _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].saturday, onChange: function onChange() {
-                return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'saturday');
-              } })
-          ),
-          _react2.default.createElement(
-            'td',
-            null,
-            _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].sunday, onChange: function onChange() {
-                return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'sunday');
-              } })
-          ),
-          _react2.default.createElement(
-            'td',
-            null,
-            _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].monday, onChange: function onChange() {
-                return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'monday');
-              } })
-          ),
-          _react2.default.createElement(
-            'td',
-            null,
-            _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].tuesday, onChange: function onChange() {
-                return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'tuesday');
-              } })
-          ),
-          _react2.default.createElement(
-            'td',
-            null,
+            'div',
+            { className: 'col-md-1' },
             _react2.default.createElement(
               'button',
               { className: 'btn btn-primary', onClick: function onClick() {
@@ -6238,8 +6242,8 @@ var RaidWeekManagement = function (_React$Component) {
             )
           ),
           _react2.default.createElement(
-            'td',
-            null,
+            'div',
+            { className: 'col-md-1' },
             _react2.default.createElement(
               'button',
               { value: raidweek.id, className: 'btn btn-danger', onClick: function onClick(e) {
@@ -6339,98 +6343,110 @@ var RaidWeekManagement = function (_React$Component) {
                 'div',
                 { className: 'table' },
                 _react2.default.createElement(
-                  'td',
-                  null,
+                  'div',
+                  { className: 'row' },
                   _react2.default.createElement(
-                    'strong',
-                    null,
-                    'Start'
-                  )
+                    'div',
+                    { className: 'col-md-2' },
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Start'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'col-md-2' },
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'End'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'col-md-2' },
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Week No.'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'col-md-4' },
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-md-2' },
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'W'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-md-2' },
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'T'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-md-2' },
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'F'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-md-1' },
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'S'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-md-1' },
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'S'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-md-2' },
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'M'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'col-md-2' },
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'T'
+                      )
+                    )
+                  ),
+                  _react2.default.createElement('div', { className: 'col-md-1' }),
+                  _react2.default.createElement('div', { className: 'col-md-1' })
                 ),
                 _react2.default.createElement(
-                  'td',
-                  null,
-                  _react2.default.createElement(
-                    'strong',
-                    null,
-                    'End'
-                  )
-                ),
-                _react2.default.createElement(
-                  'td',
-                  null,
-                  _react2.default.createElement(
-                    'strong',
-                    null,
-                    'Week No.'
-                  )
-                ),
-                _react2.default.createElement(
-                  'td',
-                  null,
-                  _react2.default.createElement(
-                    'strong',
-                    null,
-                    'W'
-                  )
-                ),
-                _react2.default.createElement(
-                  'td',
-                  null,
-                  _react2.default.createElement(
-                    'strong',
-                    null,
-                    'T'
-                  )
-                ),
-                _react2.default.createElement(
-                  'td',
-                  null,
-                  _react2.default.createElement(
-                    'strong',
-                    null,
-                    'F'
-                  )
-                ),
-                _react2.default.createElement(
-                  'td',
-                  null,
-                  _react2.default.createElement(
-                    'strong',
-                    null,
-                    'S'
-                  )
-                ),
-                _react2.default.createElement(
-                  'td',
-                  null,
-                  _react2.default.createElement(
-                    'strong',
-                    null,
-                    'S'
-                  )
-                ),
-                _react2.default.createElement(
-                  'td',
-                  null,
-                  _react2.default.createElement(
-                    'strong',
-                    null,
-                    'M'
-                  )
-                ),
-                _react2.default.createElement(
-                  'td',
-                  null,
-                  _react2.default.createElement(
-                    'strong',
-                    null,
-                    'T'
-                  )
-                ),
-                _react2.default.createElement('td', null),
-                _react2.default.createElement('td', null),
-                accordion
+                  'div',
+                  { className: 'row' },
+                  accordion
+                )
               )
             )
           )
