@@ -6358,9 +6358,7 @@ var RaidWeekManagement = function (_React$Component) {
 
       var panels = [];
       var index = 1;
-      for (var month in sortedWeeks) {
-        console.log(month);
-        var key = Object.keys(month)[0];
+      for (var key in sortedWeeks) {
         console.log(key);
         panels.push(_react2.default.createElement(
           _reactBootstrap.Panel,
