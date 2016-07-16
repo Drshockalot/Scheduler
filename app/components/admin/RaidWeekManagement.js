@@ -102,6 +102,9 @@ class RaidWeekManagement extends React.Component {
       console.log(moment(raidweek.start).format('YYYY') == this.state.selectedYear);
       if(moment(raidweek.start).format('YYYY') == this.state.selectedYear) {
         console.log('in');
+        if(!sortedWeeks[month] || sortedWeeks[month].length < 0) {
+          sortedWeeks[month] = [];
+        }
         sortedWeeks[month].push(
           <div className='row'>
             <div className='col-md-2'>{moment(raidweek.start).format('DD[/]MM[/]YYYY')}</div>
