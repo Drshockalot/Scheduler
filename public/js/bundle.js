@@ -3915,7 +3915,6 @@ var SingleScheduleView = function (_React$Component) {
           healerRows = [];
           dpsRows = [];
           standbyRows = [];
-          console.log(tankRows);
           schedule_boss.characters.map(function (character) {
             if (character.main_role == "Tank") {
               tankCount++;
@@ -4720,7 +4719,7 @@ var AttendanceManagement = function (_React$Component) {
                 { className: 'col-md-12' },
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-md-10 col-md-offset-1' },
+                  { className: 'col-md-12' },
                   _react2.default.createElement(
                     'div',
                     { className: 'row' },
@@ -4781,7 +4780,7 @@ var AttendanceManagement = function (_React$Component) {
                       { className: 'row' },
                       _react2.default.createElement(
                         'div',
-                        { className: 'col-md-8 col-md-offset-2' },
+                        { className: 'col-md-8' },
                         _react2.default.createElement(
                           _reactDropzone2.default,
                           { className: 'dropzone', onDrop: this.onDrop },
@@ -4803,7 +4802,7 @@ var AttendanceManagement = function (_React$Component) {
                       { className: 'row' },
                       _react2.default.createElement(
                         'div',
-                        { className: 'col-md-8 col-md-offset-2' },
+                        { className: 'col-md-8' },
                         _react2.default.createElement(
                           'div',
                           { className: 'dropzone-text' },

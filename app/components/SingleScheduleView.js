@@ -60,7 +60,6 @@ class SingleScheduleView extends React.Component {
         healerRows = [];
         dpsRows = [];
         standbyRows = [];
-        console.log(tankRows);
         schedule_boss.characters.map(function(character) {
           if(character.main_role == "Tank") {
             tankCount++;

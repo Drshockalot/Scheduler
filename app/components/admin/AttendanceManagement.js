@@ -7,7 +7,7 @@ import NavbarStore from './../../stores/NavbarStore';
 import { browserHistory } from 'react-router';
 
 import _ from 'underscore';
-import {RadioGroup, Radio} from 'react-radio-group'
+import {RadioGroup, Radio} from 'react-radio-group';
 import moment from 'moment';
 import classNames from 'classnames';
 import Dropzone from 'react-dropzone';
@@ -51,7 +51,7 @@ class AttendanceManagement extends React.Component {
       selectRaidWeekOptions = this.state.raidweeks.map(function(raidweek) {
         return (
           <option key={raidweek.id} value={raidweek.id}>{moment(raidweek.start).format('W')}</option>
-        )
+        );
       }, this);
 
       var currentRaidWeek = _.findWhere(this.state.raidweeks, {id: this.state.selectRaidWeek});
@@ -66,7 +66,7 @@ class AttendanceManagement extends React.Component {
           <button className={classNames('btn', this.state.selectWeekday == 'saturday' ? 'btn-success' : 'btn-default')} onClick={() => AttendanceManagementActions.updateSelectWeekday('saturday')}>Saturday</button>
           <button className={classNames('btn', this.state.selectWeekday == 'sunday' ? 'btn-success' : 'btn-default')} onClick={() => AttendanceManagementActions.updateSelectWeekday('sunday')}>Sunday</button>
         </div>
-      )
+      );
     }
 
     return (
@@ -76,7 +76,7 @@ class AttendanceManagement extends React.Component {
           <div className='container-fluid'>
             <div className='row'>
               <div className='col-md-12'>
-                <div className='col-md-10 col-md-offset-1'>
+                <div className='col-md-12'>
                   <div className='row'>
                     <h2>Select Raid</h2>
                     <div className='form-horizontal'>
@@ -99,7 +99,7 @@ class AttendanceManagement extends React.Component {
                   <div className='row'>
                     <h3>Upload File</h3>
                     <div className='row'>
-                      <div className='col-md-8 col-md-offset-2'>
+                      <div className='col-md-8'>
                         <Dropzone className='dropzone' onDrop={this.onDrop}>
                           <div className="dropzone-content">Drag or click here to upload file (.txt or .csv)</div>
                         </Dropzone>
@@ -107,7 +107,7 @@ class AttendanceManagement extends React.Component {
                     </div>
                     <h3>Upload Text</h3>
                     <div className='row'>
-                      <div className='col-md-8 col-md-offset-2'>
+                      <div className='col-md-8'>
                         <div className='dropzone-text'>
                           <textarea className='form-control' />
                           <br />

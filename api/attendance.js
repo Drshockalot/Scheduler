@@ -3,7 +3,7 @@ var router = express.Router();
 var moment = require('moment');
 
 var fs = require('fs');
-var multer = require('multer')
+var multer = require('multer');
 var upload = multer({ dest: './attendance/' });
 
 var Raid_Week = require('./../db/postgres/raid_week');
