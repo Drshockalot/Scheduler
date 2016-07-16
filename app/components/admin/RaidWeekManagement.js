@@ -125,15 +125,12 @@ class RaidWeekManagement extends React.Component {
     }, this);
 
     var panels = [];
-    console.log(sortedWeeks);
     $.each(sortedWeeks, function(key, index) {
-      if(sortedWeeks[key].length > 0) {
         panels.push(
-          <Panel header={sortedWeeks[key].start.format('MMMM')} eventKey={i}>
+          <Panel header={key} eventKey={index}>
             {sortedWeeks[key]}
           </Panel>
         );
-      }
     });
 
     var accordion = (

@@ -6260,15 +6260,12 @@ var RaidWeekManagement = function (_React$Component) {
       }, this);
 
       var panels = [];
-      console.log(sortedWeeks);
       $.each(sortedWeeks, function (key, index) {
-        if (sortedWeeks[key].length > 0) {
-          panels.push(_react2.default.createElement(
-            _reactBootstrap.Panel,
-            { header: sortedWeeks[key].start.format('MMMM'), eventKey: i },
-            sortedWeeks[key]
-          ));
-        }
+        panels.push(_react2.default.createElement(
+          _reactBootstrap.Panel,
+          { header: key, eventKey: index },
+          sortedWeeks[key]
+        ));
       });
 
       var accordion = _react2.default.createElement(
