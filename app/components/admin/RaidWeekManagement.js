@@ -143,6 +143,7 @@ class RaidWeekManagement extends React.Component {
     var panels = [];
     var index = 1;
     for(var month in sortedWeeks) {
+      console.log(month);
       var key = Object.keys(month)[0];
       console.log(key);
       panels.push(
