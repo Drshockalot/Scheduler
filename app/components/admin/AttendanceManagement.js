@@ -224,9 +224,9 @@ class AttendanceManagement extends React.Component {
                         <table className='table'>
                           <tbody>
                             <tr>
-                              <td className='col-md-4'><strong>Tanks</strong> - Scheduled<strong>({schedule_boss.boss.tank_count})</strong> - Assigned<strong>({tankCount})</strong></td>
-                              <td className='col-md-4'><strong>Healers</strong> - Scheduled<strong>({schedule_boss.boss.healer_count})</strong> - Assigned<strong>({healerCount})</strong></td>
-                              <td className='col-md-4'><strong>DPS</strong> - Scheduled<strong>({schedule_boss.boss.dps_count})</strong> - Assigned<strong>({dpsCount})</strong></td>
+                              <td className='col-md-4'><strong>Tanks</strong></td>
+                              <td className='col-md-4'><strong>Healers</strong></td>
+                              <td className='col-md-4'><strong>DPS</strong></td>
                             </tr>
                             <tr>
                               <td className='col-md-4'>

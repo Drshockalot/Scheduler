@@ -4991,22 +4991,6 @@ var AttendanceManagement = function (_React$Component) {
                                   'strong',
                                   null,
                                   'Tanks'
-                                ),
-                                ' - Scheduled',
-                                _react2.default.createElement(
-                                  'strong',
-                                  null,
-                                  '(',
-                                  schedule_boss.boss.tank_count,
-                                  ')'
-                                ),
-                                ' - Assigned',
-                                _react2.default.createElement(
-                                  'strong',
-                                  null,
-                                  '(',
-                                  tankCount,
-                                  ')'
                                 )
                               ),
                               _react2.default.createElement(
@@ -5016,22 +5000,6 @@ var AttendanceManagement = function (_React$Component) {
                                   'strong',
                                   null,
                                   'Healers'
-                                ),
-                                ' - Scheduled',
-                                _react2.default.createElement(
-                                  'strong',
-                                  null,
-                                  '(',
-                                  schedule_boss.boss.healer_count,
-                                  ')'
-                                ),
-                                ' - Assigned',
-                                _react2.default.createElement(
-                                  'strong',
-                                  null,
-                                  '(',
-                                  healerCount,
-                                  ')'
                                 )
                               ),
                               _react2.default.createElement(
@@ -5041,22 +5009,6 @@ var AttendanceManagement = function (_React$Component) {
                                   'strong',
                                   null,
                                   'DPS'
-                                ),
-                                ' - Scheduled',
-                                _react2.default.createElement(
-                                  'strong',
-                                  null,
-                                  '(',
-                                  schedule_boss.boss.dps_count,
-                                  ')'
-                                ),
-                                ' - Assigned',
-                                _react2.default.createElement(
-                                  'strong',
-                                  null,
-                                  '(',
-                                  dpsCount,
-                                  ')'
                                 )
                               )
                             ),
