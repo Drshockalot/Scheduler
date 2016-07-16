@@ -6168,10 +6168,10 @@ var RaidWeekManagement = function (_React$Component) {
 
             sortedWeeks[month].push(_react2.default.createElement(
               'div',
-              { className: 'row' },
+              { className: 'row margin-bottom-5' },
               _react2.default.createElement(
                 'div',
-                { className: 'col-md-1 raidweek-header-cell' },
+                { className: 'col-md-1 raidweek-header-cell vert-align' },
                 _react2.default.createElement(
                   'strong',
                   null,
@@ -6180,7 +6180,7 @@ var RaidWeekManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'div',
-                { className: 'col-md-1 raidweek-header-cell' },
+                { className: 'col-md-1 raidweek-header-cell vert-align' },
                 _react2.default.createElement(
                   'strong',
                   null,
@@ -6189,7 +6189,7 @@ var RaidWeekManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'div',
-                { className: 'col-md-1 raidweek-header-cell' },
+                { className: 'col-md-1 raidweek-header-cell vert-align' },
                 _react2.default.createElement(
                   'strong',
                   null,
@@ -6198,7 +6198,7 @@ var RaidWeekManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'div',
-                { className: 'col-md-1 raidweek-header-cell' },
+                { className: 'col-md-1 raidweek-header-cell vert-align' },
                 _react2.default.createElement(
                   'strong',
                   null,
@@ -6207,7 +6207,7 @@ var RaidWeekManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'div',
-                { className: 'col-md-1 raidweek-header-cell' },
+                { className: 'col-md-1 raidweek-header-cell vert-align' },
                 _react2.default.createElement(
                   'strong',
                   null,
@@ -6216,7 +6216,7 @@ var RaidWeekManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'div',
-                { className: 'col-md-1 raidweek-header-cell' },
+                { className: 'col-md-1 raidweek-header-cell vert-align' },
                 _react2.default.createElement(
                   'strong',
                   null,
@@ -6225,7 +6225,7 @@ var RaidWeekManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'div',
-                { className: 'col-md-1 raidweek-header-cell' },
+                { className: 'col-md-1 raidweek-header-cell vert-align' },
                 _react2.default.createElement(
                   'strong',
                   null,
@@ -6234,7 +6234,7 @@ var RaidWeekManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'div',
-                { className: 'col-md-1 raidweek-header-cell' },
+                { className: 'col-md-1 raidweek-header-cell vert-align' },
                 _react2.default.createElement(
                   'strong',
                   null,
@@ -6243,7 +6243,7 @@ var RaidWeekManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'div',
-                { className: 'col-md-1 raidweek-header-cell' },
+                { className: 'col-md-1 raidweek-header-cell vert-align' },
                 _react2.default.createElement(
                   'strong',
                   null,
@@ -6252,87 +6252,87 @@ var RaidWeekManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'div',
-                { className: 'col-md-1 raidweek-header-cell' },
+                { className: 'col-md-1 raidweek-header-cell vert-align' },
                 _react2.default.createElement(
                   'strong',
                   null,
                   'T'
                 )
               ),
-              _react2.default.createElement('div', { className: 'col-md-1 raidweek-header-cell' }),
-              _react2.default.createElement('div', { className: 'col-md-1 raidweek-header-cell' })
+              _react2.default.createElement('div', { className: 'col-md-1 raidweek-header-cell vert-align' }),
+              _react2.default.createElement('div', { className: 'col-md-1 raidweek-header-cell vert-align' })
             ));
           }
           sortedWeeks[month].push(_react2.default.createElement(
             'div',
-            { className: 'row' },
+            { className: 'row margin-bottom-5' },
             _react2.default.createElement(
               'div',
-              { className: 'col-md-1 raidweek-cell' },
+              { className: 'col-md-1 raidweek-cell vert-align' },
               (0, _moment2.default)(raidweek.start).format('DD[/]MM[/]YYYY')
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-md-1 raidweek-cell' },
+              { className: 'col-md-1 raidweek-cell vert-align' },
               (0, _moment2.default)(raidweek.end).format('DD[/]MM[/]YYYY')
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-md-1 raidweek-cell' },
+              { className: 'col-md-1 raidweek-cell vert-align' },
               (0, _moment2.default)(raidweek.start).format('W')
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-md-1 raidweek-cell' },
+              { className: 'col-md-1 raidweek-cell vert-align' },
               _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].wednesday, onChange: function onChange() {
                   return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'wednesday');
                 } })
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-md-1 raidweek-cell' },
+              { className: 'col-md-1 raidweek-cell vert-align' },
               _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].thursday, onChange: function onChange() {
                   return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'thursday');
                 } })
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-md-1 raidweek-cell' },
+              { className: 'col-md-1 raidweek-cell vert-align' },
               _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].friday, onChange: function onChange() {
                   return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'friday');
                 } })
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-md-1 raidweek-cell' },
+              { className: 'col-md-1 raidweek-cell vert-align' },
               _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].saturday, onChange: function onChange() {
                   return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'saturday');
                 } })
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-md-1 raidweek-cell' },
+              { className: 'col-md-1 raidweek-cell vert-align' },
               _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].sunday, onChange: function onChange() {
                   return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'sunday');
                 } })
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-md-1 raidweek-cell' },
+              { className: 'col-md-1 raidweek-cell vert-align' },
               _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].monday, onChange: function onChange() {
                   return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'monday');
                 } })
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-md-1 raidweek-cell' },
+              { className: 'col-md-1 raidweek-cell vert-align' },
               _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].tuesday, onChange: function onChange() {
                   return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'tuesday');
                 } })
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-md-1 raidweek-cell' },
+              { className: 'col-md-1 raidweek-cell vert-align' },
               _react2.default.createElement(
                 'button',
                 { className: 'btn btn-primary', onClick: function onClick() {
@@ -6343,7 +6343,7 @@ var RaidWeekManagement = function (_React$Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-md-1 raidweek-cell' },
+              { className: 'col-md-1 raidweek-cell vert-align' },
               _react2.default.createElement(
                 'button',
                 { value: raidweek.id, className: 'btn btn-danger', onClick: function onClick(e) {

@@ -101,38 +101,38 @@ class RaidWeekManagement extends React.Component {
           sortedWeeks[month] = [];
 
           sortedWeeks[month].push (
-            <div className='row'>
-              <div className='col-md-1 raidweek-header-cell'><strong>Start</strong></div>
-              <div className='col-md-1 raidweek-header-cell'><strong>End</strong></div>
-              <div className='col-md-1 raidweek-header-cell'><strong>Week No.</strong></div>
-              <div className='col-md-1 raidweek-header-cell'><strong>W</strong></div>
-              <div className='col-md-1 raidweek-header-cell'><strong>T</strong></div>
-              <div className='col-md-1 raidweek-header-cell'><strong>F</strong></div>
-              <div className='col-md-1 raidweek-header-cell'><strong>S</strong></div>
-              <div className='col-md-1 raidweek-header-cell'><strong>S</strong></div>
-              <div className='col-md-1 raidweek-header-cell'><strong>M</strong></div>
-              <div className='col-md-1 raidweek-header-cell'><strong>T</strong></div>
-              <div className='col-md-1 raidweek-header-cell'></div>
-              <div className='col-md-1 raidweek-header-cell'></div>
+            <div className='row margin-bottom-5'>
+              <div className='col-md-1 raidweek-header-cell vert-align'><strong>Start</strong></div>
+              <div className='col-md-1 raidweek-header-cell vert-align'><strong>End</strong></div>
+              <div className='col-md-1 raidweek-header-cell vert-align'><strong>Week No.</strong></div>
+              <div className='col-md-1 raidweek-header-cell vert-align'><strong>W</strong></div>
+              <div className='col-md-1 raidweek-header-cell vert-align'><strong>T</strong></div>
+              <div className='col-md-1 raidweek-header-cell vert-align'><strong>F</strong></div>
+              <div className='col-md-1 raidweek-header-cell vert-align'><strong>S</strong></div>
+              <div className='col-md-1 raidweek-header-cell vert-align'><strong>S</strong></div>
+              <div className='col-md-1 raidweek-header-cell vert-align'><strong>M</strong></div>
+              <div className='col-md-1 raidweek-header-cell vert-align'><strong>T</strong></div>
+              <div className='col-md-1 raidweek-header-cell vert-align'></div>
+              <div className='col-md-1 raidweek-header-cell vert-align'></div>
             </div>
           );
         }
         sortedWeeks[month].push(
-          <div className='row'>
-            <div className='col-md-1 raidweek-cell'>{moment(raidweek.start).format('DD[/]MM[/]YYYY')}</div>
-            <div className='col-md-1 raidweek-cell'>{moment(raidweek.end).format('DD[/]MM[/]YYYY')}</div>
-            <div className='col-md-1 raidweek-cell'>{moment(raidweek.start).format('W')}</div>
-            <div className='col-md-1 raidweek-cell'><input type='checkbox' checked={this.state.raidweeks[index].wednesday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'wednesday')} /></div>
-            <div className='col-md-1 raidweek-cell'><input type='checkbox' checked={this.state.raidweeks[index].thursday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'thursday')} /></div>
-            <div className='col-md-1 raidweek-cell'><input type='checkbox' checked={this.state.raidweeks[index].friday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'friday')} /></div>
-            <div className='col-md-1 raidweek-cell'><input type='checkbox' checked={this.state.raidweeks[index].saturday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'saturday')} /></div>
-            <div className='col-md-1 raidweek-cell'><input type='checkbox' checked={this.state.raidweeks[index].sunday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'sunday')} /></div>
-            <div className='col-md-1 raidweek-cell'><input type='checkbox' checked={this.state.raidweeks[index].monday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'monday')} /></div>
-            <div className='col-md-1 raidweek-cell'><input type='checkbox' checked={this.state.raidweeks[index].tuesday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'tuesday')} /></div>
-            <div className='col-md-1 raidweek-cell'>
+          <div className='row margin-bottom-5'>
+            <div className='col-md-1 raidweek-cell vert-align'>{moment(raidweek.start).format('DD[/]MM[/]YYYY')}</div>
+            <div className='col-md-1 raidweek-cell vert-align'>{moment(raidweek.end).format('DD[/]MM[/]YYYY')}</div>
+            <div className='col-md-1 raidweek-cell vert-align'>{moment(raidweek.start).format('W')}</div>
+            <div className='col-md-1 raidweek-cell vert-align'><input type='checkbox' checked={this.state.raidweeks[index].wednesday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'wednesday')} /></div>
+            <div className='col-md-1 raidweek-cell vert-align'><input type='checkbox' checked={this.state.raidweeks[index].thursday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'thursday')} /></div>
+            <div className='col-md-1 raidweek-cell vert-align'><input type='checkbox' checked={this.state.raidweeks[index].friday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'friday')} /></div>
+            <div className='col-md-1 raidweek-cell vert-align'><input type='checkbox' checked={this.state.raidweeks[index].saturday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'saturday')} /></div>
+            <div className='col-md-1 raidweek-cell vert-align'><input type='checkbox' checked={this.state.raidweeks[index].sunday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'sunday')} /></div>
+            <div className='col-md-1 raidweek-cell vert-align'><input type='checkbox' checked={this.state.raidweeks[index].monday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'monday')} /></div>
+            <div className='col-md-1 raidweek-cell vert-align'><input type='checkbox' checked={this.state.raidweeks[index].tuesday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'tuesday')} /></div>
+            <div className='col-md-1 raidweek-cell vert-align'>
               <button className='btn btn-primary' onClick={() => RaidWeekManagementActions.updateRaidWeek(this.state.raidweeks[index])}>Save</button>
             </div>
-            <div className='col-md-1 raidweek-cell'>
+            <div className='col-md-1 raidweek-cell vert-align'>
               <button value={raidweek.id} className='btn btn-danger' onClick={(e) => RaidWeekManagementActions.deleteRaidWeek(e.target.value)}>Delete</button>
             </div>
           </div>
