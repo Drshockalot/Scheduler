@@ -8225,6 +8225,7 @@ label {
   text-align: center;
 }
 .raidweek-cell {
+  margin: auto 0px;
   text-align: center;
 }
 .raidweek-row {
