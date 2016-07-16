@@ -6258,6 +6258,7 @@ var RaidWeekManagement = function (_React$Component) {
       var panels = [];
 
       for (var month in sortedWeeks) {
+        console.log(month);
         if (monthWeeks.length > 0) {
           panels.push(_react2.default.createElement(
             _reactBootstrap.Panel,
@@ -6337,7 +6338,7 @@ var RaidWeekManagement = function (_React$Component) {
               { className: 'row' },
               _react2.default.createElement(
                 'div',
-                { className: 'table' },
+                null,
                 _react2.default.createElement(
                   'div',
                   { className: 'row' },

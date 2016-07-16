@@ -124,6 +124,7 @@ class RaidWeekManagement extends React.Component {
     var panels = [];
 
     for(var month in sortedWeeks) {
+      console.log(month);
       if(monthWeeks.length > 0) {
         panels.push(
           <Panel header={monthWeeks[0].format('MMMM')} eventKey={i}>
@@ -170,7 +171,7 @@ class RaidWeekManagement extends React.Component {
               <h3>Manage Raid Weeks</h3>
             </div>
             <div className='row'>
-              <div className='table'>
+              <div>
                 <div className='row'>
                   <div className='col-md-2'><strong>Start</strong></div>
                   <div className='col-md-2'><strong>End</strong></div>
