@@ -6268,64 +6268,64 @@ var RaidWeekManagement = function (_React$Component) {
             { className: 'row margin-bottom-5 raidweek-row' },
             _react2.default.createElement(
               'div',
-              { className: 'col-md-1 raidweek-cell margin-top-10' },
+              { className: 'col-md-1 raidweek-cell margin-top-5' },
               (0, _moment2.default)(raidweek.start).format('DD[/]MM[/]YYYY')
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-md-1 raidweek-cell margin-top-10' },
+              { className: 'col-md-1 raidweek-cell margin-top-5' },
               (0, _moment2.default)(raidweek.end).format('DD[/]MM[/]YYYY')
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-md-1 raidweek-cell margin-top-10' },
+              { className: 'col-md-1 raidweek-cell margin-top-5' },
               (0, _moment2.default)(raidweek.start).format('W')
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-md-1 raidweek-cell margin-top-10' },
+              { className: 'col-md-1 raidweek-cell margin-top-5' },
               _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].wednesday, onChange: function onChange() {
                   return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'wednesday');
                 } })
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-md-1 raidweek-cell margin-top-10' },
+              { className: 'col-md-1 raidweek-cell margin-top-5' },
               _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].thursday, onChange: function onChange() {
                   return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'thursday');
                 } })
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-md-1 raidweek-cell margin-top-10' },
+              { className: 'col-md-1 raidweek-cell margin-top-5' },
               _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].friday, onChange: function onChange() {
                   return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'friday');
                 } })
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-md-1 raidweek-cell margin-top-10' },
+              { className: 'col-md-1 raidweek-cell margin-top-5' },
               _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].saturday, onChange: function onChange() {
                   return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'saturday');
                 } })
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-md-1 raidweek-cell margin-top-10' },
+              { className: 'col-md-1 raidweek-cell margin-top-5' },
               _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].sunday, onChange: function onChange() {
                   return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'sunday');
                 } })
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-md-1 raidweek-cell margin-top-10' },
+              { className: 'col-md-1 raidweek-cell margin-top-5' },
               _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].monday, onChange: function onChange() {
                   return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'monday');
                 } })
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-md-1 raidweek-cell margin-top-10' },
+              { className: 'col-md-1 raidweek-cell margin-top-5' },
               _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].tuesday, onChange: function onChange() {
                   return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'tuesday');
                 } })

@@ -119,16 +119,16 @@ class RaidWeekManagement extends React.Component {
         }
         sortedWeeks[month].push(
           <div className='row margin-bottom-5 raidweek-row'>
-            <div className='col-md-1 raidweek-cell margin-top-10'>{moment(raidweek.start).format('DD[/]MM[/]YYYY')}</div>
-            <div className='col-md-1 raidweek-cell margin-top-10'>{moment(raidweek.end).format('DD[/]MM[/]YYYY')}</div>
-            <div className='col-md-1 raidweek-cell margin-top-10'>{moment(raidweek.start).format('W')}</div>
-            <div className='col-md-1 raidweek-cell margin-top-10'><input type='checkbox' checked={this.state.raidweeks[index].wednesday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'wednesday')} /></div>
-            <div className='col-md-1 raidweek-cell margin-top-10'><input type='checkbox' checked={this.state.raidweeks[index].thursday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'thursday')} /></div>
-            <div className='col-md-1 raidweek-cell margin-top-10'><input type='checkbox' checked={this.state.raidweeks[index].friday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'friday')} /></div>
-            <div className='col-md-1 raidweek-cell margin-top-10'><input type='checkbox' checked={this.state.raidweeks[index].saturday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'saturday')} /></div>
-            <div className='col-md-1 raidweek-cell margin-top-10'><input type='checkbox' checked={this.state.raidweeks[index].sunday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'sunday')} /></div>
-            <div className='col-md-1 raidweek-cell margin-top-10'><input type='checkbox' checked={this.state.raidweeks[index].monday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'monday')} /></div>
-            <div className='col-md-1 raidweek-cell margin-top-10'><input type='checkbox' checked={this.state.raidweeks[index].tuesday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'tuesday')} /></div>
+            <div className='col-md-1 raidweek-cell margin-top-5'>{moment(raidweek.start).format('DD[/]MM[/]YYYY')}</div>
+            <div className='col-md-1 raidweek-cell margin-top-5'>{moment(raidweek.end).format('DD[/]MM[/]YYYY')}</div>
+            <div className='col-md-1 raidweek-cell margin-top-5'>{moment(raidweek.start).format('W')}</div>
+            <div className='col-md-1 raidweek-cell margin-top-5'><input type='checkbox' checked={this.state.raidweeks[index].wednesday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'wednesday')} /></div>
+            <div className='col-md-1 raidweek-cell margin-top-5'><input type='checkbox' checked={this.state.raidweeks[index].thursday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'thursday')} /></div>
+            <div className='col-md-1 raidweek-cell margin-top-5'><input type='checkbox' checked={this.state.raidweeks[index].friday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'friday')} /></div>
+            <div className='col-md-1 raidweek-cell margin-top-5'><input type='checkbox' checked={this.state.raidweeks[index].saturday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'saturday')} /></div>
+            <div className='col-md-1 raidweek-cell margin-top-5'><input type='checkbox' checked={this.state.raidweeks[index].sunday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'sunday')} /></div>
+            <div className='col-md-1 raidweek-cell margin-top-5'><input type='checkbox' checked={this.state.raidweeks[index].monday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'monday')} /></div>
+            <div className='col-md-1 raidweek-cell margin-top-5'><input type='checkbox' checked={this.state.raidweeks[index].tuesday} onChange={() => RaidWeekManagementActions.toggleRaidWeekDay(index, 'tuesday')} /></div>
             <div className='col-md-1 raidweek-cell'>
               <button className='btn btn-primary' onClick={() => RaidWeekManagementActions.updateRaidWeek(this.state.raidweeks[index])}>Save</button>
             </div>
