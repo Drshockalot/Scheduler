@@ -96,7 +96,7 @@ class RaidWeekManagement extends React.Component {
     var sortedWeeks = {};
     this.state.raidweeks.map(function(raidweek, index) {
       var month = moment(raidweek).format('MMMM').toString();
-      if(raidweek.start.format('YYYY') == this.selectedYear)
+      if(moment(raidweek.start).format('YYYY') == this.selectedYear)
         sortedWeeks[month].push(
           <tr>
             <td>{moment(raidweek.start).format('DD[/]MM[/]YYYY')}</td>

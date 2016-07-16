@@ -6159,7 +6159,7 @@ var RaidWeekManagement = function (_React$Component) {
         var _this3 = this;
 
         var month = (0, _moment2.default)(raidweek).format('MMMM').toString();
-        if (raidweek.start.format('YYYY') == this.selectedYear) sortedWeeks[month].push(_react2.default.createElement(
+        if ((0, _moment2.default)(raidweek.start).format('YYYY') == this.selectedYear) sortedWeeks[month].push(_react2.default.createElement(
           'tr',
           null,
           _react2.default.createElement(
