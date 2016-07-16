@@ -1882,6 +1882,46 @@ var Home = function (_React$Component) {
                       _react2.default.createElement(
                         'h4',
                         null,
+                        (0, _moment2.default)('2016-07-16').format('MMM Do YYYY')
+                      ),
+                      _react2.default.createElement(
+                        'ul',
+                        null,
+                        _react2.default.createElement(
+                          'li',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
+                            'Raid Week Management'
+                          ),
+                          _react2.default.createElement(
+                            'ul',
+                            null,
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'Raid Weeks are now sorted and no longer skip around when changed'
+                            ),
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'Raid Weeks are now grouped by month'
+                            )
+                          )
+                        )
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'h4',
+                        null,
                         (0, _moment2.default)('2016-07-15').format('MMM Do YYYY')
                       ),
                       _react2.default.createElement(
@@ -6359,7 +6399,6 @@ var RaidWeekManagement = function (_React$Component) {
       var panels = [];
       var index = 1;
       for (var key in sortedWeeks) {
-        console.log(sortedWeeks[key]);
         panels.push(_react2.default.createElement(
           _reactBootstrap.Panel,
           { header: key, sortOrder: _underscore2.default.findWhere(_MonthOrders2.default, { name: key }).order, eventKey: index, collapsable: true, expanded: this.state.panelState[key], onSelect: function onSelect() {

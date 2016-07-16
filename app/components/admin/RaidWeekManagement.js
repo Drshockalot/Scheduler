@@ -143,7 +143,6 @@ class RaidWeekManagement extends React.Component {
     var panels = [];
     var index = 1;
     for(var key in sortedWeeks) {
-      console.log(sortedWeeks[key]);
       panels.push(
         <Panel header={key} sortOrder={_.findWhere(monthOrders, {name: key}).order} eventKey={index} collapsable={true} expanded={this.state.panelState[key]} onSelect={() => RaidWeekManagementActions.togglePanel(key)}>
           {_.sortBy(sortedWeeks[key], function(row) { return row.props.sortOrder; })}

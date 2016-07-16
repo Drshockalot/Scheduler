@@ -110,6 +110,20 @@ class Home extends React.Component {
                 <tbody>
                   <tr>
                     <td>
+                      <h4>{moment('2016-07-16').format('MMM Do YYYY')}</h4>
+                      <ul>
+                        <li>
+                          <h5>Raid Week Management</h5>
+                          <ul>
+                            <li>Raid Weeks are now sorted and no longer skip around when changed</li>
+                            <li>Raid Weeks are now grouped by month</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       <h4>{moment('2016-07-15').format('MMM Do YYYY')}</h4>
                       <ul>
                         <li>
