@@ -6168,7 +6168,7 @@ var RaidWeekManagement = function (_React$Component) {
 
             sortedWeeks[month].push(_react2.default.createElement(
               'div',
-              { className: 'row margin-bottom-5' },
+              { className: 'row margin-bottom-5 raidweek-row' },
               _react2.default.createElement(
                 'div',
                 { className: 'col-md-1 raidweek-header-cell vert-align' },
@@ -6265,7 +6265,7 @@ var RaidWeekManagement = function (_React$Component) {
           }
           sortedWeeks[month].push(_react2.default.createElement(
             'div',
-            { className: 'row margin-bottom-5' },
+            { className: 'row margin-bottom-5 raidweek-row' },
             _react2.default.createElement(
               'div',
               { className: 'col-md-1 raidweek-cell vert-align' },

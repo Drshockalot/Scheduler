@@ -101,7 +101,7 @@ class RaidWeekManagement extends React.Component {
           sortedWeeks[month] = [];
 
           sortedWeeks[month].push (
-            <div className='row margin-bottom-5'>
+            <div className='row margin-bottom-5 raidweek-row'>
               <div className='col-md-1 raidweek-header-cell vert-align'><strong>Start</strong></div>
               <div className='col-md-1 raidweek-header-cell vert-align'><strong>End</strong></div>
               <div className='col-md-1 raidweek-header-cell vert-align'><strong>Week No.</strong></div>
@@ -118,7 +118,7 @@ class RaidWeekManagement extends React.Component {
           );
         }
         sortedWeeks[month].push(
-          <div className='row margin-bottom-5'>
+          <div className='row margin-bottom-5 raidweek-row'>
             <div className='col-md-1 raidweek-cell vert-align'>{moment(raidweek.start).format('DD[/]MM[/]YYYY')}</div>
             <div className='col-md-1 raidweek-cell vert-align'>{moment(raidweek.end).format('DD[/]MM[/]YYYY')}</div>
             <div className='col-md-1 raidweek-cell vert-align'>{moment(raidweek.start).format('W')}</div>
