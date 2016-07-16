@@ -6261,13 +6261,12 @@ var RaidWeekManagement = function (_React$Component) {
 
       var panels = [];
       console.log(sortedWeeks);
-      $.each(sortedWeeks, function (data, index) {
-        console.log(data);
-        if (data.length > 0) {
+      $.each(sortedWeeks, function (key, index) {
+        if (sortedWeeks[key].length > 0) {
           panels.push(_react2.default.createElement(
             _reactBootstrap.Panel,
-            { header: data[0].start.format('MMMM'), eventKey: i },
-            data
+            { header: sortedWeeks[key].start.format('MMMM'), eventKey: i },
+            sortedWeeks[key]
           ));
         }
       });
