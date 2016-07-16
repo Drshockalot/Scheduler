@@ -133,7 +133,6 @@ class RaidWeekManagement extends React.Component {
     var panels = [];
     console.log(sortedWeeks);
     $.each(sortedWeeks, function(data, index) {
-      console.log(month);
       if(data.length > 0) {
         panels.push(
           <Panel header={data[0].format('MMMM')} eventKey={i}>
