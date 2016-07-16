@@ -122,7 +122,7 @@ class RaidWeekManagement extends React.Component {
     }, this);
 
     var panels = [];
-
+    console.log(sortedWeeks);
     $.each(sortedWeeks, function(data, index) {
       console.log(month);
       if(data.length > 0) {
