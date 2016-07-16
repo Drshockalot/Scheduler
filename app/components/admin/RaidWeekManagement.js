@@ -170,9 +170,7 @@ class RaidWeekManagement extends React.Component {
               <h3>Manage Raid Weeks</h3>
             </div>
             <div className='row'>
-              <table className='table'>
-                <tbody>
-                  <tr>
+              <div className='table'>
                     <td><strong>Start</strong></td>
                     <td><strong>End</strong></td>
                     <td><strong>Week No.</strong></td>
@@ -185,10 +183,8 @@ class RaidWeekManagement extends React.Component {
                     <td><strong>T</strong></td>
                     <td></td>
                     <td></td>
-                  </tr>
                   {accordion}
-                </tbody>
-              </table>
+              </div>
             </div>
           </div>
         </div>
