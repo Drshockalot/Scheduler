@@ -8218,6 +8218,9 @@ label {
 .fixed-table {
   table-layout: fixed;
 }
+.margin-bottom-10 {
+  margin-bottom: 10px;
+}
 .death-knight-color {
   height: 20px;
   background-color: #C41F3B;
