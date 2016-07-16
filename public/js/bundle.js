@@ -8842,6 +8842,10 @@ var _AttendanceManagementActions = require('../../actions/admin/AttendanceManage
 
 var _AttendanceManagementActions2 = _interopRequireDefault(_AttendanceManagementActions);
 
+var _underscore = require('underscore');
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -8854,6 +8858,12 @@ var AttendanceManagementStore = function () {
     this.raidweeks = [];
     this.raids = [];
     this.rosters = [];
+    this.rosterAttendanceModel = {
+      'Tank': [],
+      'Healer': [],
+      'DPS': [],
+      'Standby': []
+    };
     this.selectRaidWeek = 0;
     this.selectRaid = 0;
     this.selectRoster = 0;
@@ -8869,6 +8879,10 @@ var AttendanceManagementStore = function () {
       this.selectRaid = this.raids[0].id;
       this.rosters = result.data.rosters;
       this.selectRoster = this.rosters[0].id;
+
+      for (var i = 0; i < this.rosters[0].characters.length; ++i) {
+        this.rosterAttendanceModel[this.rosters[0].characters[i].main_role].push({ name: this.rosters[0].characters[i].name, state: true });
+      }
     }
   }, {
     key: 'onLoadComponentDataFailure',
@@ -8903,7 +8917,7 @@ var AttendanceManagementStore = function () {
 
 exports.default = _alt2.default.createStore(AttendanceManagementStore);
 
-},{"../../actions/admin/AttendanceManagementActions":13,"../../alt":19}],55:[function(require,module,exports){
+},{"../../actions/admin/AttendanceManagementActions":13,"../../alt":19,"underscore":"underscore"}],55:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

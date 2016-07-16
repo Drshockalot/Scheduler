@@ -1,5 +1,6 @@
 import alt from '../../alt';
 import AttendanceManagementActions from '../../actions/admin/AttendanceManagementActions';
+import _ from 'underscore';
 
 class AttendanceManagementStore {
   constructor() {
@@ -7,6 +8,12 @@ class AttendanceManagementStore {
     this.raidweeks = [];
     this.raids = [];
     this.rosters = [];
+    this.rosterAttendanceModel = {
+      'Tank': [],
+      'Healer': [],
+      'DPS': [],
+      'Standby': []
+    };
     this.selectRaidWeek = 0;
     this.selectRaid = 0;
     this.selectRoster = 0;
@@ -20,6 +27,10 @@ class AttendanceManagementStore {
     this.selectRaid = this.raids[0].id;
     this.rosters = result.data.rosters;
     this.selectRoster = this.rosters[0].id;
+
+    for(var i = 0; i < this.rosters[0].characters.length; ++i) {
+      this.rosterAttendanceModel[this.rosters[0].characters[i].main_role].push({name: this.rosters[0].characters[i].name, state: true});
+    }
   }
 
   onLoadComponentDataFailure(jqXhr) {
