@@ -6257,16 +6257,16 @@ var RaidWeekManagement = function (_React$Component) {
 
       var panels = [];
 
-      for (var month in sortedWeeks) {
+      $.each(monthWeeks, function (data, index) {
         console.log(month);
-        if (monthWeeks.length > 0) {
+        if (data.length > 0) {
           panels.push(_react2.default.createElement(
             _reactBootstrap.Panel,
-            { header: monthWeeks[0].format('MMMM'), eventKey: i },
-            monthWeeks
+            { header: data[0].format('MMMM'), eventKey: i },
+            data
           ));
         }
-      }
+      });
 
       var accordion = _react2.default.createElement(
         _reactBootstrap.Accordion,

@@ -123,16 +123,16 @@ class RaidWeekManagement extends React.Component {
 
     var panels = [];
 
-    for(var month in sortedWeeks) {
+    $.each(monthWeeks, function(data, index) {
       console.log(month);
-      if(monthWeeks.length > 0) {
+      if(data.length > 0) {
         panels.push(
-          <Panel header={monthWeeks[0].format('MMMM')} eventKey={i}>
-            {monthWeeks}
+          <Panel header={data[0].format('MMMM')} eventKey={i}>
+            {data}
           </Panel>
         );
       }
-    }
+    });
 
     var accordion = (
       <Accordion>
