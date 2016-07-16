@@ -85,7 +85,6 @@ class RaidWeekManagement extends React.Component {
     var rwl = this.state.raidweeks.map(function(raidweek) {
       return {start: moment(raidweek.start), end: moment(raidweek.end)};
     });
-    console.log(rwl);
     const customCSS = {
       selectedweek: {
         start: weekBeginning.format('YYYY[-]MM[-]DD'),
@@ -95,8 +94,14 @@ class RaidWeekManagement extends React.Component {
     };
     var sortedWeeks = {};
     this.state.raidweeks.map(function(raidweek, index) {
+      console.log(raidweek);
       var month = moment(raidweek).format('MMMM').toString();
-      if(moment(raidweek.start).format('YYYY') == this.selectedYear)
+      console.log(month);
+      console.log(moment(raidweek.start).format('YYYY'));
+      console.log(this.selectedYear);
+      console.log(moment(raidweek.start).format('YYYY') == this.selectedYear);
+      if(moment(raidweek.start).format('YYYY') == this.selectedYear) {
+        console.log('in');
         sortedWeeks[month].push(
           <div className='row'>
             <div className='col-md-2'>{moment(raidweek.start).format('DD[/]MM[/]YYYY')}</div>
@@ -119,6 +124,7 @@ class RaidWeekManagement extends React.Component {
             </div>
           </div>
         );
+      }
     }, this);
 
     var panels = [];
