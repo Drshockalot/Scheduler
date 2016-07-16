@@ -6041,6 +6041,12 @@ var _moment = require('moment');
 
 var _moment2 = _interopRequireDefault(_moment);
 
+var _reactBootstrap = require('react-bootstrap');
+
+var _underscore = require('underscore');
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -6148,11 +6154,12 @@ var RaidWeekManagement = function (_React$Component) {
           return _this2.dayIsLogged((0, _moment2.default)(day), rwl);
         }
       };
-
-      var raidweeklist = this.state.raidweeks.map(function (raidweek, index) {
+      var sortedWeeks = {};
+      this.state.raidweeks.map(function (raidweek, index) {
         var _this3 = this;
 
-        return _react2.default.createElement(
+        var month = (0, _moment2.default)(raidweel).format('MMMM').toString();
+        if (raidweek.start.format('YYYY') == this.selectedYear) sortedWeeks[month].push(_react2.default.createElement(
           'tr',
           null,
           _react2.default.createElement(
@@ -6241,8 +6248,24 @@ var RaidWeekManagement = function (_React$Component) {
               'Delete'
             )
           )
-        );
+        ));
       }, this);
+
+      panels = sortedWeeks.map(function (monthWeeks) {
+        if (monthWeeks.length > 0) {
+          return _react2.default.createElement(
+            _reactBootstrap.Panel,
+            { header: monthWeeks[0].format('MMMM'), eventKey: i },
+            monthWeeks
+          );
+        }
+      });
+
+      var accordion = _react2.default.createElement(
+        _reactBootstrap.Accordion,
+        null,
+        panels
+      );
 
       return _react2.default.createElement(
         'div',
@@ -6408,7 +6431,7 @@ var RaidWeekManagement = function (_React$Component) {
                     _react2.default.createElement('td', null),
                     _react2.default.createElement('td', null)
                   ),
-                  raidweeklist
+                  accordion
                 )
               )
             )
@@ -6423,7 +6446,7 @@ var RaidWeekManagement = function (_React$Component) {
 
 exports.default = RaidWeekManagement;
 
-},{"./../../actions/admin/RaidWeekManagementActions":16,"./../../stores/NavbarStore":44,"./../../stores/admin/RaidWeekManagementStore":57,"./AdminSideNav":33,"moment":161,"react":"react","react-router":"react-router","react-yearly-calendar":329}],38:[function(require,module,exports){
+},{"./../../actions/admin/RaidWeekManagementActions":16,"./../../stores/NavbarStore":44,"./../../stores/admin/RaidWeekManagementStore":57,"./AdminSideNav":33,"moment":161,"react":"react","react-bootstrap":254,"react-router":"react-router","react-yearly-calendar":329,"underscore":"underscore"}],38:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
