@@ -136,7 +136,7 @@ class RaidWeekManagement extends React.Component {
     console.log(panels);
     var accordion = (
       <Accordion>
-        {panels}
+        {_.sortBy(panels, 'props.sortOrder').reverse()}
       </Accordion>
     );
 
