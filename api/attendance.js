@@ -7,16 +7,28 @@ var multer = require('multer');
 var upload = multer({ dest: './attendance/' });
 
 var Raid_Week = require('./../db/postgres/raid_week');
+var Roster = require('./../db/postgres/roster');
+var Raid = require('./../db/postgres/raid');
 
 router.get('/admin', function(req, res, next) {
   Raid_Week.forge()
            .fetchAll()
            .then(function(raidweeks) {
-             if(raidweeks) {
-               res.json({error: false, data: {message: "Raid Weeks retreived", raidweeks: raidweeks.toJSON()}});
-             } else {
-               res.json({error: true, data: {message: "No Raid Weeks Found", raidweeks: {}}});
-             }
+             Raid.forge()
+                 .fetchAll()
+                 .then(function(raids) {
+                   Roster.forge()
+                         .fetchAll()
+                         .then(function(rosters) {
+                           res.json({error: false, data: {message: "Raid Weeks retreived", raidweeks: raidweeks.toJSON(), rosters: rosters.toJSON(), raids: raids.toJSON()}});
+                         })
+                         .catch(function(err) {
+                           res.status(500).json({error: true, data: {message: err.message}});
+                         });
+                 })
+                 .catch(function(err) {
+                   res.status(500).json({error: true, data: {message: err.message}});
+                 });
            })
            .catch(function(err) {
              res.status(500).json({error: true, data: {message: err.message}});

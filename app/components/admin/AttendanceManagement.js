@@ -81,7 +81,7 @@ class AttendanceManagement extends React.Component {
                     <h2>Select Raid</h2>
                     <div className='form-horizontal'>
                       <div className='form-group'>
-                        <label className='col-sm-2 control-label'>Raid Week:</label>
+                        <label className='col-sm-1 control-label'>Raid Week:</label>
                         <div className='col-sm-5'>
                           <select className='form-control' value={this.state.selectRaidWeek} onChange={e => AttendanceManagementActions.updateSelectRaidWeek(e.target.value)}>
                             {selectRaidWeekOptions}
@@ -89,7 +89,7 @@ class AttendanceManagement extends React.Component {
                         </div>
                       </div>
                       <div className='form-group'>
-                        <label className='col-sm-2 control-label'>Week Day:</label>
+                        <label className='col-sm-1 control-label'>Week Day:</label>
                         <div className='col-sm-10'>
                           {selectWeekdayButtons}
                         </div>
@@ -112,6 +112,27 @@ class AttendanceManagement extends React.Component {
                           <textarea className='form-control' />
                           <br />
                           <button className='btn btn-default pull-right'>Upload</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='row'>
+                  <h2>From Roster View</h2>
+                    <div className='form-horizontal'>
+                      <div className='form-group'>
+                        <label className='col-sm-1 control-label'>Raid:</label>
+                        <div className='col-sm-5'>
+                          <select className='form-control' value={this.state.selectRaid} onChange={e => AttendanceManagementActions.updateSelectRaid(e.target.value)}>
+                            {selectRaidOptions}
+                          </select>
+                        </div>
+                      </div>
+                      <div className='form-group'>
+                        <label className='col-sm-1 control-label'>Roster:</label>
+                        <div className='col-sm-5'>
+                          <select className='form-control' value={this.state.selectRoster} onChange={e => AttendanceManagementActions.updateSelectRoster(e.target.value)}>
+                            {selectRosterOptions}
+                          </select>
                         </div>
                       </div>
                     </div>

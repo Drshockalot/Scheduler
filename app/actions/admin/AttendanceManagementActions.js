@@ -10,7 +10,9 @@ class AttendaceManagementActions {
       'loadComponentDataSuccess',
       'loadComponentDataFailure',
       'updateSelectRaidWeek',
-      'updateSelectWeekday'
+      'updateSelectWeekday',
+      'updateSelectRaid',
+      'updateSelectRoster'
     );
   }
 

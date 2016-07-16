@@ -679,7 +679,7 @@ var AttendaceManagementActions = function () {
   function AttendaceManagementActions() {
     _classCallCheck(this, AttendaceManagementActions);
 
-    this.generateActions('loadComponentDataSuccess', 'loadComponentDataFailure', 'updateSelectRaidWeek', 'updateSelectWeekday');
+    this.generateActions('loadComponentDataSuccess', 'loadComponentDataFailure', 'updateSelectRaidWeek', 'updateSelectWeekday', 'updateSelectRaid', 'updateSelectRoster');
   }
 
   _createClass(AttendaceManagementActions, [{
@@ -4736,7 +4736,7 @@ var AttendanceManagement = function (_React$Component) {
                         { className: 'form-group' },
                         _react2.default.createElement(
                           'label',
-                          { className: 'col-sm-2 control-label' },
+                          { className: 'col-sm-1 control-label' },
                           'Raid Week:'
                         ),
                         _react2.default.createElement(
@@ -4756,7 +4756,7 @@ var AttendanceManagement = function (_React$Component) {
                         { className: 'form-group' },
                         _react2.default.createElement(
                           'label',
-                          { className: 'col-sm-2 control-label' },
+                          { className: 'col-sm-1 control-label' },
                           'Week Day:'
                         ),
                         _react2.default.createElement(
@@ -4812,6 +4812,59 @@ var AttendanceManagement = function (_React$Component) {
                             'button',
                             { className: 'btn btn-default pull-right' },
                             'Upload'
+                          )
+                        )
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                      'h2',
+                      null,
+                      'From Roster View'
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'form-horizontal' },
+                      _react2.default.createElement(
+                        'div',
+                        { className: 'form-group' },
+                        _react2.default.createElement(
+                          'label',
+                          { className: 'col-sm-1 control-label' },
+                          'Raid:'
+                        ),
+                        _react2.default.createElement(
+                          'div',
+                          { className: 'col-sm-5' },
+                          _react2.default.createElement(
+                            'select',
+                            { className: 'form-control', value: this.state.selectRaid, onChange: function onChange(e) {
+                                return _AttendanceManagementActions2.default.updateSelectRaid(e.target.value);
+                              } },
+                            selectRaidOptions
+                          )
+                        )
+                      ),
+                      _react2.default.createElement(
+                        'div',
+                        { className: 'form-group' },
+                        _react2.default.createElement(
+                          'label',
+                          { className: 'col-sm-1 control-label' },
+                          'Roster:'
+                        ),
+                        _react2.default.createElement(
+                          'div',
+                          { className: 'col-sm-5' },
+                          _react2.default.createElement(
+                            'select',
+                            { className: 'form-control', value: this.state.selectRoster, onChange: function onChange(e) {
+                                return _AttendanceManagementActions2.default.updateSelectRoster(e.target.value);
+                              } },
+                            selectRosterOptions
                           )
                         )
                       )
@@ -8613,7 +8666,11 @@ var AttendanceManagementStore = function () {
 
     this.bindActions(_AttendanceManagementActions2.default);
     this.raidweeks = [];
+    this.raids = [];
+    this.rosters = [];
     this.selectRaidWeek = 0;
+    this.selectRaid = 0;
+    this.selectRoster = 0;
     this.selectWeekday = '';
   }
 
@@ -8622,6 +8679,10 @@ var AttendanceManagementStore = function () {
     value: function onLoadComponentDataSuccess(result) {
       this.raidweeks = result.data.raidweeks;
       this.selectRaidWeek = this.raidweeks[0].id;
+      this.raids = result.data.raids;
+      this.selectRaid = this.raids[0].id;
+      this.rosters = result.data.rosters;
+      this.selectRoster = this.rosters[0].id;
     }
   }, {
     key: 'onLoadComponentDataFailure',
@@ -8638,6 +8699,16 @@ var AttendanceManagementStore = function () {
     key: 'onUpdateSelectWeekday',
     value: function onUpdateSelectWeekday(value) {
       this.selectWeekday = value;
+    }
+  }, {
+    key: 'onUpdateSelectRaid',
+    value: function onUpdateSelectRaid(value) {
+      this.selectRaid = value;
+    }
+  }, {
+    key: 'onUpdateSelectRoster',
+    value: function onUpdateSelectRoster(value) {
+      this.selectRoster = value;
     }
   }]);
 
