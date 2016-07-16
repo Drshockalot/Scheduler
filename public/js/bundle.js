@@ -6257,7 +6257,7 @@ var RaidWeekManagement = function (_React$Component) {
 
       var panels = [];
 
-      $.each(monthWeeks, function (data, index) {
+      $.each(sortedWeeks, function (data, index) {
         console.log(month);
         if (data.length > 0) {
           panels.push(_react2.default.createElement(
