@@ -6168,7 +6168,7 @@ var RaidWeekManagement = function (_React$Component) {
 
             sortedWeeks[month].push(_react2.default.createElement(
               'div',
-              { className: 'row margin-bottom-5 raidweek-row' },
+              { className: 'row margin-bottom-5 raidweek-row', sortOrder: 1 },
               _react2.default.createElement(
                 'div',
                 { className: 'col-md-1 raidweek-header-cell' },
@@ -6265,7 +6265,7 @@ var RaidWeekManagement = function (_React$Component) {
           }
           sortedWeeks[month].push(_react2.default.createElement(
             'div',
-            { className: 'row margin-bottom-5 raidweek-row' },
+            { className: 'row margin-bottom-5 raidweek-row', sortOrder: (0, _moment2.default)(raidweek.start).format('W') },
             _react2.default.createElement(
               'div',
               { className: 'col-md-1 raidweek-cell margin-top-5' },
@@ -6365,7 +6365,9 @@ var RaidWeekManagement = function (_React$Component) {
           { header: key, sortOrder: _underscore2.default.findWhere(_MonthOrders2.default, { name: key }).order, eventKey: index, collapsable: true, expanded: this.state.panelState[key], onSelect: function onSelect() {
               return _RaidWeekManagementActions2.default.togglePanel(key);
             } },
-          sortedWeeks[key]
+          _underscore2.default.sortBy(sortedWeeks[key], function (row) {
+            return row.props.sortOrder;
+          }).reverse()
         ));
         index++;
       }
