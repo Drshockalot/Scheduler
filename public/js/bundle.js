@@ -3920,7 +3920,7 @@ var SingleScheduleView = function (_React$Component) {
             if (character.main_role == "Tank") {
               tankCount++;
               var classCSS = this.classColour(character);
-              tankRows.push([_react2.default.createElement(
+              tankRows.push(_react2.default.createElement(
                 'tr',
                 null,
                 _react2.default.createElement('td', { className: classCSS }),
@@ -3929,11 +3929,11 @@ var SingleScheduleView = function (_React$Component) {
                   { className: 'col-sm-11 vert-align' },
                   character.name
                 )
-              )]);
+              ));
             } else if (character.main_role == "Healer") {
               healerCount++;
               var classCSS = this.classColour(character);
-              healerRows.push([_react2.default.createElement(
+              healerRows.push(_react2.default.createElement(
                 'tr',
                 null,
                 _react2.default.createElement('td', { className: classCSS }),
@@ -3942,11 +3942,11 @@ var SingleScheduleView = function (_React$Component) {
                   { className: 'col-sm-11 vert-align' },
                   character.name
                 )
-              )]);
+              ));
             } else if (character.main_role == "DPS") {
               dpsCount++;
               var classCSS = this.classColour(character);
-              dpsRows.push([_react2.default.createElement(
+              dpsRows.push(_react2.default.createElement(
                 'tr',
                 null,
                 _react2.default.createElement('td', { className: classCSS }),
@@ -3955,11 +3955,11 @@ var SingleScheduleView = function (_React$Component) {
                   { className: 'col-sm-11 vert-align' },
                   character.name
                 )
-              )]);
+              ));
             } else {
               standbyCount++;
               var classCSS = this.classColour(character);
-              standbyRows.push([_react2.default.createElement(
+              standbyRows.push(_react2.default.createElement(
                 'tr',
                 null,
                 _react2.default.createElement('td', { className: classCSS }),
@@ -3968,7 +3968,7 @@ var SingleScheduleView = function (_React$Component) {
                   { className: 'col-sm-11 vert-align' },
                   character.name
                 )
-              )]);
+              ));
             }
           }, this);
 

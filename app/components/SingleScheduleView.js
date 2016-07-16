@@ -65,47 +65,47 @@ class SingleScheduleView extends React.Component {
           if(character.main_role == "Tank") {
             tankCount++;
             var classCSS = this.classColour(character);
-            tankRows.push([(
+            tankRows.push(
               <tr>
                 <td className={classCSS} />
                 <td className='col-sm-11 vert-align' >
                   {character.name}
                 </td>
               </tr>
-            )]);
+            );
           } else if(character.main_role == "Healer") {
             healerCount++;
             var classCSS = this.classColour(character);
-            healerRows.push([(
+            healerRows.push(
               <tr>
                 <td className={classCSS} />
                 <td className='col-sm-11 vert-align' >
                   {character.name}
                 </td>
               </tr>
-            )]);
+            );
           } else if(character.main_role == "DPS") {
             dpsCount++;
             var classCSS = this.classColour(character);
-            dpsRows.push([(
+            dpsRows.push(
               <tr>
                 <td className={classCSS} />
                 <td className='col-sm-11 vert-align' >
                   {character.name}
                 </td>
               </tr>
-            )]);
+            );
           } else {
             standbyCount++;
             var classCSS = this.classColour(character);
-            standbyRows.push([(
+            standbyRows.push(
               <tr>
                 <td className={classCSS} />
                 <td className='col-sm-11 vert-align' >
                   {character.name}
                 </td>
               </tr>
-            )]);
+            );
           }
         }, this);
 
