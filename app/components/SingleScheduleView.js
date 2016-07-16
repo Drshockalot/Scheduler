@@ -48,10 +48,7 @@ class SingleScheduleView extends React.Component {
       scheduleName = (
         <h3>{this.state.schedule.name}</h3>
       );
-      scheduleBossRows = this.state.schedule.schedule_bosses.filter(function(schedule_boss) {
-        return schedule_boss.published;
-               //Put in the 20 character requirement for bosses to show
-      }).map(function(schedule_boss, index) {
+      scheduleBossRows = this.state.schedule.schedule_bosses.map(function(schedule_boss, index) {
         var tankCount = 0;
         var healerCount = 0;
         var dpsCount = 0;
