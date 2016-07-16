@@ -9348,8 +9348,7 @@ var ScheduleManagementStore = function () {
   }, {
     key: 'onInvertScheduleBossPublishedStateSuccess',
     value: function onInvertScheduleBossPublishedStateSuccess(result) {
-      var sb = _underscore2.default.findWhere(_underscore2.default.findWhere(this.schedules, { id: result.data.sb.schedule_id }).schedule_bosses, { id: result.data.sb.id });
-      sb = result.data.sb;
+      this.schedules = result.data.schedules;
     }
   }, {
     key: 'onInvertScheduleBossPublishedStateFailure',

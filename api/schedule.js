@@ -150,8 +150,15 @@ router.put('/admin/publish/:schedulebossid', function(req, res, next) {
                .fetch()
                .then(function(schedule_boss) {
                  schedule_boss.save({published: !schedule_boss.get('published')})
-                         .then(function(sb) {
-                            res.json({error: false, data: {message: "Published state inverted", sb: sb.toJSON()}});
+                         .then(function() {
+                           Schedule.forge()
+                                   .fetchAll({'withRelated': ['schedule_bosses', 'schedule_bosses.characters', 'schedule_bosses.boss', 'schedule_bosses.raid', 'roster', 'roster.characters', 'roster.characters.user', 'roster.characters.user.user_availability']})
+                                   .then(function(schedules) {
+                                     res.json({error: false, data: {message: "Boss un/published", schedules: schedules.toJSON()}});
+                                   })
+                                   .catch(function(err) {
+                                     res.status(500).json({error: true, data: {message: err.message}});
+                                   });
                          })
                          .catch(function(err) {
                            res.status(500).json({error: true, data: {message: err.message}});

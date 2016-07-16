@@ -142,8 +142,7 @@ class ScheduleManagementStore {
   }
 
   onInvertScheduleBossPublishedStateSuccess(result) {
-    var sb = _.findWhere(_.findWhere(this.schedules, {id: result.data.sb.schedule_id}).schedule_bosses, {id: result.data.sb.id});
-    sb = result.data.sb;
+    this.schedules = result.data.schedules;
   }
 
   onInvertScheduleBossPublishedStateFailure(jqXhr) {
