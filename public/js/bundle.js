@@ -6271,7 +6271,7 @@ var RaidWeekManagement = function (_React$Component) {
         if (data.length > 0) {
           panels.push(_react2.default.createElement(
             _reactBootstrap.Panel,
-            { header: data[0].format('MMMM'), eventKey: i },
+            { header: data[0].start.format('MMMM'), eventKey: i },
             data
           ));
         }
