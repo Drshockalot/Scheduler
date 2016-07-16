@@ -6165,6 +6165,107 @@ var RaidWeekManagement = function (_React$Component) {
         if ((0, _moment2.default)(raidweek.start).format('YYYY') == this.state.selectedYear) {
           if (!sortedWeeks[month] || sortedWeeks[month].length < 0) {
             sortedWeeks[month] = [];
+
+            sortedWeeks[month].push(_react2.default.createElement(
+              'div',
+              { className: 'row' },
+              _react2.default.createElement(
+                'div',
+                { className: 'col-md-2' },
+                _react2.default.createElement(
+                  'strong',
+                  null,
+                  'Start'
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-md-2' },
+                _react2.default.createElement(
+                  'strong',
+                  null,
+                  'End'
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-md-2' },
+                _react2.default.createElement(
+                  'strong',
+                  null,
+                  'Week No.'
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-md-4' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-md-2' },
+                  _react2.default.createElement(
+                    'strong',
+                    null,
+                    'W'
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-md-2' },
+                  _react2.default.createElement(
+                    'strong',
+                    null,
+                    'T'
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-md-2' },
+                  _react2.default.createElement(
+                    'strong',
+                    null,
+                    'F'
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-md-1' },
+                  _react2.default.createElement(
+                    'strong',
+                    null,
+                    'S'
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-md-1' },
+                  _react2.default.createElement(
+                    'strong',
+                    null,
+                    'S'
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-md-2' },
+                  _react2.default.createElement(
+                    'strong',
+                    null,
+                    'M'
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-md-2' },
+                  _react2.default.createElement(
+                    'strong',
+                    null,
+                    'T'
+                  )
+                )
+              ),
+              _react2.default.createElement('div', { className: 'col-md-1' }),
+              _react2.default.createElement('div', { className: 'col-md-1' })
+            ));
           }
           sortedWeeks[month].push(_react2.default.createElement(
             'div',
@@ -6342,115 +6443,7 @@ var RaidWeekManagement = function (_React$Component) {
             _react2.default.createElement(
               'div',
               { className: 'row' },
-              _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement(
-                  'div',
-                  { className: 'row' },
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'col-md-2' },
-                    _react2.default.createElement(
-                      'strong',
-                      null,
-                      'Start'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'col-md-2' },
-                    _react2.default.createElement(
-                      'strong',
-                      null,
-                      'End'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'col-md-2' },
-                    _react2.default.createElement(
-                      'strong',
-                      null,
-                      'Week No.'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'col-md-4' },
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-md-2' },
-                      _react2.default.createElement(
-                        'strong',
-                        null,
-                        'W'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-md-2' },
-                      _react2.default.createElement(
-                        'strong',
-                        null,
-                        'T'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-md-2' },
-                      _react2.default.createElement(
-                        'strong',
-                        null,
-                        'F'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-md-1' },
-                      _react2.default.createElement(
-                        'strong',
-                        null,
-                        'S'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-md-1' },
-                      _react2.default.createElement(
-                        'strong',
-                        null,
-                        'S'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-md-2' },
-                      _react2.default.createElement(
-                        'strong',
-                        null,
-                        'M'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'div',
-                      { className: 'col-md-2' },
-                      _react2.default.createElement(
-                        'strong',
-                        null,
-                        'T'
-                      )
-                    )
-                  ),
-                  _react2.default.createElement('div', { className: 'col-md-1' }),
-                  _react2.default.createElement('div', { className: 'col-md-1' })
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'row' },
-                  accordion
-                )
-              )
+              accordion
             )
           )
         )

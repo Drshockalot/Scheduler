@@ -99,6 +99,25 @@ class RaidWeekManagement extends React.Component {
       if(moment(raidweek.start).format('YYYY') == this.state.selectedYear) {
         if(!sortedWeeks[month] || sortedWeeks[month].length < 0) {
           sortedWeeks[month] = [];
+
+          sortedWeeks[month].push (
+            <div className='row'>
+              <div className='col-md-2'><strong>Start</strong></div>
+              <div className='col-md-2'><strong>End</strong></div>
+              <div className='col-md-2'><strong>Week No.</strong></div>
+              <div className='col-md-4'>
+                <div className='col-md-2'><strong>W</strong></div>
+                <div className='col-md-2'><strong>T</strong></div>
+                <div className='col-md-2'><strong>F</strong></div>
+                <div className='col-md-1'><strong>S</strong></div>
+                <div className='col-md-1'><strong>S</strong></div>
+                <div className='col-md-2'><strong>M</strong></div>
+                <div className='col-md-2'><strong>T</strong></div>
+              </div>
+              <div className='col-md-1'></div>
+              <div className='col-md-1'></div>
+            </div>
+          );
         }
         sortedWeeks[month].push(
           <div className='row'>
@@ -171,27 +190,7 @@ class RaidWeekManagement extends React.Component {
               <h3>Manage Raid Weeks</h3>
             </div>
             <div className='row'>
-              <div>
-                <div className='row'>
-                  <div className='col-md-2'><strong>Start</strong></div>
-                  <div className='col-md-2'><strong>End</strong></div>
-                  <div className='col-md-2'><strong>Week No.</strong></div>
-                  <div className='col-md-4'>
-                    <div className='col-md-2'><strong>W</strong></div>
-                    <div className='col-md-2'><strong>T</strong></div>
-                    <div className='col-md-2'><strong>F</strong></div>
-                    <div className='col-md-1'><strong>S</strong></div>
-                    <div className='col-md-1'><strong>S</strong></div>
-                    <div className='col-md-2'><strong>M</strong></div>
-                    <div className='col-md-2'><strong>T</strong></div>
-                  </div>
-                  <div className='col-md-1'></div>
-                  <div className='col-md-1'></div>
-                </div>
-                <div className='row'>
-                  {accordion}
-                </div>
-              </div>
+              {accordion}
             </div>
           </div>
         </div>
