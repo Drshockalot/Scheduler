@@ -4746,7 +4746,6 @@ var AttendanceManagement = function (_React$Component) {
             standbyRows = [];
         roster.characters.map(function (character) {
           if (character.main_role == "Tank") {
-            tankCount++;
             var classCSS = this.classColour(character);
             tankRows.push(_react2.default.createElement(
               'tr',
@@ -4759,7 +4758,6 @@ var AttendanceManagement = function (_React$Component) {
               )
             ));
           } else if (character.main_role == "Healer") {
-            healerCount++;
             var classCSS = this.classColour(character);
             healerRows.push(_react2.default.createElement(
               'tr',
@@ -4772,7 +4770,6 @@ var AttendanceManagement = function (_React$Component) {
               )
             ));
           } else if (character.main_role == "DPS") {
-            dpsCount++;
             var classCSS = this.classColour(character);
             dpsRows.push(_react2.default.createElement(
               'tr',
@@ -4785,7 +4782,6 @@ var AttendanceManagement = function (_React$Component) {
               )
             ));
           } else {
-            standbyCount++;
             var classCSS = this.classColour(character);
             standbyRows.push(_react2.default.createElement(
               'tr',

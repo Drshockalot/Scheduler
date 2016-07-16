@@ -105,7 +105,6 @@ class AttendanceManagement extends React.Component {
       var tankRows = [], healerRows = [], dpsRows = [], standbyRows = [];
       roster.characters.map(function(character) {
         if(character.main_role == "Tank") {
-          tankCount++;
           var classCSS = this.classColour(character);
           tankRows.push(
             <tr>
@@ -116,7 +115,6 @@ class AttendanceManagement extends React.Component {
             </tr>
           );
         } else if(character.main_role == "Healer") {
-          healerCount++;
           var classCSS = this.classColour(character);
           healerRows.push(
             <tr>
@@ -127,7 +125,6 @@ class AttendanceManagement extends React.Component {
             </tr>
           );
         } else if(character.main_role == "DPS") {
-          dpsCount++;
           var classCSS = this.classColour(character);
           dpsRows.push(
             <tr>
@@ -138,7 +135,6 @@ class AttendanceManagement extends React.Component {
             </tr>
           );
         } else {
-          standbyCount++;
           var classCSS = this.classColour(character);
           standbyRows.push(
             <tr>
