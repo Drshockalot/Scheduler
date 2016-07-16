@@ -6157,14 +6157,8 @@ var RaidWeekManagement = function (_React$Component) {
       this.state.raidweeks.map(function (raidweek, index) {
         var _this3 = this;
 
-        console.log(raidweek);
         var month = (0, _moment2.default)(raidweek).format('MMMM').toString();
-        console.log(month);
-        console.log((0, _moment2.default)(raidweek.start).format('YYYY'));
-        console.log(this.state.selectedYear);
-        console.log((0, _moment2.default)(raidweek.start).format('YYYY') == this.state.selectedYear);
         if ((0, _moment2.default)(raidweek.start).format('YYYY') == this.state.selectedYear) {
-          console.log('in');
           if (!sortedWeeks[month] || sortedWeeks[month].length < 0) {
             sortedWeeks[month] = [];
           }
@@ -6268,6 +6262,7 @@ var RaidWeekManagement = function (_React$Component) {
       var panels = [];
       console.log(sortedWeeks);
       $.each(sortedWeeks, function (data, index) {
+        console.log(data);
         if (data.length > 0) {
           panels.push(_react2.default.createElement(
             _reactBootstrap.Panel,

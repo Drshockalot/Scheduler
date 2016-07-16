@@ -94,14 +94,8 @@ class RaidWeekManagement extends React.Component {
     };
     var sortedWeeks = {};
     this.state.raidweeks.map(function(raidweek, index) {
-      console.log(raidweek);
       var month = moment(raidweek).format('MMMM').toString();
-      console.log(month);
-      console.log(moment(raidweek.start).format('YYYY'));
-      console.log(this.state.selectedYear);
-      console.log(moment(raidweek.start).format('YYYY') == this.state.selectedYear);
       if(moment(raidweek.start).format('YYYY') == this.state.selectedYear) {
-        console.log('in');
         if(!sortedWeeks[month] || sortedWeeks[month].length < 0) {
           sortedWeeks[month] = [];
         }
@@ -133,6 +127,7 @@ class RaidWeekManagement extends React.Component {
     var panels = [];
     console.log(sortedWeeks);
     $.each(sortedWeeks, function(data, index) {
+      console.log(data);
       if(data.length > 0) {
         panels.push(
           <Panel header={data[0].start.format('MMMM')} eventKey={i}>
