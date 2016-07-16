@@ -95,7 +95,7 @@ class RaidWeekManagement extends React.Component {
     };
     var sortedWeeks = {};
     this.state.raidweeks.map(function(raidweek, index) {
-      var month = moment(raidweel).format('MMMM').toString();
+      var month = moment(raidweek).format('MMMM').toString();
       if(raidweek.start.format('YYYY') == this.selectedYear)
         sortedWeeks[month].push(
           <tr>
@@ -119,15 +119,17 @@ class RaidWeekManagement extends React.Component {
         );
     }, this);
 
-    panels = sortedWeeks.map(function(monthWeeks) {
+    var panels = [];
+
+    for(var month in sortedWeeks) {
       if(monthWeeks.length > 0) {
-        return (
+        panels.push(
           <Panel header={monthWeeks[0].format('MMMM')} eventKey={i}>
             {monthWeeks}
           </Panel>
         );
       }
-    });
+    }
 
     var accordion = (
       <Accordion>

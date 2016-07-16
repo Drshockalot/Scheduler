@@ -6158,7 +6158,7 @@ var RaidWeekManagement = function (_React$Component) {
       this.state.raidweeks.map(function (raidweek, index) {
         var _this3 = this;
 
-        var month = (0, _moment2.default)(raidweel).format('MMMM').toString();
+        var month = (0, _moment2.default)(raidweek).format('MMMM').toString();
         if (raidweek.start.format('YYYY') == this.selectedYear) sortedWeeks[month].push(_react2.default.createElement(
           'tr',
           null,
@@ -6251,15 +6251,17 @@ var RaidWeekManagement = function (_React$Component) {
         ));
       }, this);
 
-      panels = sortedWeeks.map(function (monthWeeks) {
+      var panels = [];
+
+      for (var month in sortedWeeks) {
         if (monthWeeks.length > 0) {
-          return _react2.default.createElement(
+          panels.push(_react2.default.createElement(
             _reactBootstrap.Panel,
             { header: monthWeeks[0].format('MMMM'), eventKey: i },
             monthWeeks
-          );
+          ));
         }
-      });
+      }
 
       var accordion = _react2.default.createElement(
         _reactBootstrap.Accordion,
