@@ -6325,7 +6325,7 @@ var RaidWeekManagement = function (_React$Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'col-md-2 raidweek-cell' },
+              { className: 'col-md-1 raidweek-cell' },
               _react2.default.createElement('input', { type: 'checkbox', checked: this.state.raidweeks[index].tuesday, onChange: function onChange() {
                   return _RaidWeekManagementActions2.default.toggleRaidWeekDay(index, 'tuesday');
                 } })
