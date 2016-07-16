@@ -6359,7 +6359,7 @@ var RaidWeekManagement = function (_React$Component) {
       var panels = [];
       var index = 1;
       for (var key in sortedWeeks) {
-        console.log(key);
+        console.log(sortedWeeks[key]);
         panels.push(_react2.default.createElement(
           _reactBootstrap.Panel,
           { header: key, sortOrder: _underscore2.default.findWhere(_MonthOrders2.default, { name: key }).order, eventKey: index, collapsable: true, expanded: this.state.panelState[key], onSelect: function onSelect() {
@@ -6370,14 +6370,6 @@ var RaidWeekManagement = function (_React$Component) {
         index++;
       }
 
-      // $.each(sortedWeeks, function(key, index) {
-      //     panels.push(
-      //       <Panel header={key} sortOrder={_.findWhere(monthOrders, {name: key}).order} eventKey={index} collapsable={true} expanded={this.state.panelState[key]} onSelect={() => RaidWeekManagementActions.togglePanel(key)}>
-      //         {sortedWeeks[key]}
-      //       </Panel>
-      //     );
-      // });
-      console.log(panels);
       var accordion = _react2.default.createElement(
         _reactBootstrap.Accordion,
         null,
