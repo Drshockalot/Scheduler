@@ -6267,7 +6267,7 @@ var RaidWeekManagement = function (_React$Component) {
           sortedWeeks[key]
         ));
       });
-
+      console.log(panels);
       var accordion = _react2.default.createElement(
         _reactBootstrap.Accordion,
         null,
