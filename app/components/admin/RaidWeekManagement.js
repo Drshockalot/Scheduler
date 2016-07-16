@@ -134,11 +134,9 @@ class RaidWeekManagement extends React.Component {
     }
 
     var accordion = (
-      <tr>
       <Accordion>
         {panels}
       </Accordion>
-      </tr>
     );
 
     return (

@@ -6268,13 +6268,9 @@ var RaidWeekManagement = function (_React$Component) {
       }
 
       var accordion = _react2.default.createElement(
-        'tr',
+        _reactBootstrap.Accordion,
         null,
-        _react2.default.createElement(
-          _reactBootstrap.Accordion,
-          null,
-          panels
-        )
+        panels
       );
 
       return _react2.default.createElement(
