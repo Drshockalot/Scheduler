@@ -9,6 +9,7 @@ import {Calendar, CalendarControls} from 'react-yearly-calendar';
 import moment from 'moment';
 import { Accordion, Panel } from 'react-bootstrap';
 import _ from 'underscore';
+import monthOrders from './../../../utility/monthOrders';
 
 class RaidWeekManagement extends React.Component {
   constructor(props) {
@@ -127,7 +128,7 @@ class RaidWeekManagement extends React.Component {
     var panels = [];
     $.each(sortedWeeks, function(key, index) {
         panels.push(
-          <Panel header={key} eventKey={index}>
+          <Panel header={key} sortOrder={_.findWhere(monthOrders, {name: key}).order}  eventKey={index}>
             {sortedWeeks[key]}
           </Panel>
         );

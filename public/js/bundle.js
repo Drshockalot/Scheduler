@@ -6047,6 +6047,10 @@ var _underscore = require('underscore');
 
 var _underscore2 = _interopRequireDefault(_underscore);
 
+var _monthOrders = require('./../../../utility/monthOrders');
+
+var _monthOrders2 = _interopRequireDefault(_monthOrders);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -6263,7 +6267,7 @@ var RaidWeekManagement = function (_React$Component) {
       $.each(sortedWeeks, function (key, index) {
         panels.push(_react2.default.createElement(
           _reactBootstrap.Panel,
-          { header: key, eventKey: index },
+          { header: key, sortOrder: _underscore2.default.findWhere(_monthOrders2.default, { name: key }).order, eventKey: index },
           sortedWeeks[key]
         ));
       });
@@ -6457,7 +6461,7 @@ var RaidWeekManagement = function (_React$Component) {
 
 exports.default = RaidWeekManagement;
 
-},{"./../../actions/admin/RaidWeekManagementActions":16,"./../../stores/NavbarStore":44,"./../../stores/admin/RaidWeekManagementStore":57,"./AdminSideNav":33,"moment":161,"react":"react","react-bootstrap":254,"react-router":"react-router","react-yearly-calendar":329,"underscore":"underscore"}],38:[function(require,module,exports){
+},{"./../../../utility/monthOrders":343,"./../../actions/admin/RaidWeekManagementActions":16,"./../../stores/NavbarStore":44,"./../../stores/admin/RaidWeekManagementStore":57,"./AdminSideNav":33,"moment":161,"react":"react","react-bootstrap":254,"react-router":"react-router","react-yearly-calendar":329,"underscore":"underscore"}],38:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -34591,6 +34595,11 @@ module.exports = [{
     "side": "horde",
     "name": "Pandaren"
 }];
+
+},{}],343:[function(require,module,exports){
+'use strict';
+
+module.exports = [{ 'January': 1 }, { 'February': 2 }, { 'March': 3 }, { 'April': 4 }, { 'May': 5 }, { 'June': 6 }, { 'July': 7 }, { 'August': 8 }, { 'September': 9 }, { 'October': 10 }, { 'November': 11 }, { 'December': 12 }];
 
 },{}]},{},[40])
 
