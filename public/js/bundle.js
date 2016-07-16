@@ -6275,7 +6275,9 @@ var RaidWeekManagement = function (_React$Component) {
       var accordion = _react2.default.createElement(
         _reactBootstrap.Accordion,
         null,
-        panels
+        _underscore2.default.sortBy(panels, function (panel) {
+          return panel.props.sortOrder;
+        }).reverse()
       );
 
       return _react2.default.createElement(
