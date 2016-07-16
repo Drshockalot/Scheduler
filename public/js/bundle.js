@@ -4587,6 +4587,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var wowClasses = require('./../../../utility/WowClasses');
+
 var AttendanceManagement = function (_React$Component) {
   _inherits(AttendanceManagement, _React$Component);
 
@@ -4630,6 +4632,21 @@ var AttendanceManagement = function (_React$Component) {
       console.log('Received files: ', files);
       console.log(files[0]);
       _AttendanceManagementActions2.default.drop(files[0]);
+    }
+  }, {
+    key: 'classColour',
+    value: function classColour(character) {
+      var currentClass = _underscore2.default.findWhere(wowClasses, { id: parseInt(character.class) }).name;
+      var arr = currentClass.split(" ");
+
+      var ret = '';
+      for (var i = 0; i < arr.length; ++i) {
+        ret += arr[i].toLowerCase();
+        ret += '-';
+      }
+
+      ret += 'color';
+      return (0, _classnames2.default)(ret, { 'col-sm-1': true });;
     }
   }, {
     key: 'render',
@@ -4719,6 +4736,69 @@ var AttendanceManagement = function (_React$Component) {
             roster.name
           );
         });
+      }
+
+      if (this.state.selectRoster != 0) {
+        var roster = _underscore2.default.findWhere(this.state.rosters, { id: this.state.selectRoster });
+        var tankRows = [],
+            healerRows = [],
+            dpsRows = [],
+            standbyRows = [];
+        roster.characters.map(function (character) {
+          if (character.main_role == "Tank") {
+            tankCount++;
+            var classCSS = this.classColour(character);
+            tankRows.push(_react2.default.createElement(
+              'tr',
+              null,
+              _react2.default.createElement('td', { className: classCSS }),
+              _react2.default.createElement(
+                'td',
+                { className: 'col-sm-11 vert-align' },
+                character.name
+              )
+            ));
+          } else if (character.main_role == "Healer") {
+            healerCount++;
+            var classCSS = this.classColour(character);
+            healerRows.push(_react2.default.createElement(
+              'tr',
+              null,
+              _react2.default.createElement('td', { className: classCSS }),
+              _react2.default.createElement(
+                'td',
+                { className: 'col-sm-11 vert-align' },
+                character.name
+              )
+            ));
+          } else if (character.main_role == "DPS") {
+            dpsCount++;
+            var classCSS = this.classColour(character);
+            dpsRows.push(_react2.default.createElement(
+              'tr',
+              null,
+              _react2.default.createElement('td', { className: classCSS }),
+              _react2.default.createElement(
+                'td',
+                { className: 'col-sm-11 vert-align' },
+                character.name
+              )
+            ));
+          } else {
+            standbyCount++;
+            var classCSS = this.classColour(character);
+            standbyRows.push(_react2.default.createElement(
+              'tr',
+              null,
+              _react2.default.createElement('td', { className: classCSS }),
+              _react2.default.createElement(
+                'td',
+                { className: 'col-sm-11 vert-align' },
+                character.name
+              )
+            ));
+          }
+        }, this);
       }
 
       return _react2.default.createElement(
@@ -4888,6 +4968,144 @@ var AttendanceManagement = function (_React$Component) {
                           )
                         )
                       )
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'row' },
+                      _react2.default.createElement(
+                        'div',
+                        { className: 'col-md-10' },
+                        _react2.default.createElement(
+                          'table',
+                          { className: 'table' },
+                          _react2.default.createElement(
+                            'tbody',
+                            null,
+                            _react2.default.createElement(
+                              'tr',
+                              null,
+                              _react2.default.createElement(
+                                'td',
+                                { className: 'col-md-4' },
+                                _react2.default.createElement(
+                                  'strong',
+                                  null,
+                                  'Tanks'
+                                ),
+                                ' - Scheduled',
+                                _react2.default.createElement(
+                                  'strong',
+                                  null,
+                                  '(',
+                                  schedule_boss.boss.tank_count,
+                                  ')'
+                                ),
+                                ' - Assigned',
+                                _react2.default.createElement(
+                                  'strong',
+                                  null,
+                                  '(',
+                                  tankCount,
+                                  ')'
+                                )
+                              ),
+                              _react2.default.createElement(
+                                'td',
+                                { className: 'col-md-4' },
+                                _react2.default.createElement(
+                                  'strong',
+                                  null,
+                                  'Healers'
+                                ),
+                                ' - Scheduled',
+                                _react2.default.createElement(
+                                  'strong',
+                                  null,
+                                  '(',
+                                  schedule_boss.boss.healer_count,
+                                  ')'
+                                ),
+                                ' - Assigned',
+                                _react2.default.createElement(
+                                  'strong',
+                                  null,
+                                  '(',
+                                  healerCount,
+                                  ')'
+                                )
+                              ),
+                              _react2.default.createElement(
+                                'td',
+                                { className: 'col-md-4' },
+                                _react2.default.createElement(
+                                  'strong',
+                                  null,
+                                  'DPS'
+                                ),
+                                ' - Scheduled',
+                                _react2.default.createElement(
+                                  'strong',
+                                  null,
+                                  '(',
+                                  schedule_boss.boss.dps_count,
+                                  ')'
+                                ),
+                                ' - Assigned',
+                                _react2.default.createElement(
+                                  'strong',
+                                  null,
+                                  '(',
+                                  dpsCount,
+                                  ')'
+                                )
+                              )
+                            ),
+                            _react2.default.createElement(
+                              'tr',
+                              null,
+                              _react2.default.createElement(
+                                'td',
+                                { className: 'col-md-4' },
+                                _react2.default.createElement(
+                                  'table',
+                                  { className: 'table' },
+                                  _react2.default.createElement(
+                                    'tbody',
+                                    null,
+                                    tankRows
+                                  )
+                                )
+                              ),
+                              _react2.default.createElement(
+                                'td',
+                                { className: 'col-md-4' },
+                                _react2.default.createElement(
+                                  'table',
+                                  { className: 'table' },
+                                  _react2.default.createElement(
+                                    'tbody',
+                                    null,
+                                    healerRows
+                                  )
+                                )
+                              ),
+                              _react2.default.createElement(
+                                'td',
+                                { className: 'col-md-4' },
+                                _react2.default.createElement(
+                                  'table',
+                                  { className: 'table' },
+                                  _react2.default.createElement(
+                                    'tbody',
+                                    null,
+                                    dpsRows
+                                  )
+                                )
+                              )
+                            )
+                          )
+                        )
+                      )
                     )
                   )
                 )
@@ -4904,7 +5122,7 @@ var AttendanceManagement = function (_React$Component) {
 
 exports.default = AttendanceManagement;
 
-},{"../../actions/admin/AttendanceManagementActions":13,"../../stores/admin/AttendanceManagementStore":54,"./../../stores/NavbarStore":44,"./AdminSideNav":33,"classnames":60,"moment":161,"react":"react","react-dropzone":299,"react-radio-group":324,"react-router":"react-router","underscore":"underscore"}],35:[function(require,module,exports){
+},{"../../actions/admin/AttendanceManagementActions":13,"../../stores/admin/AttendanceManagementStore":54,"./../../../utility/WowClasses":342,"./../../stores/NavbarStore":44,"./AdminSideNav":33,"classnames":60,"moment":161,"react":"react","react-dropzone":299,"react-radio-group":324,"react-router":"react-router","underscore":"underscore"}],35:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

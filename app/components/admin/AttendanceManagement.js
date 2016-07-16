@@ -11,6 +11,7 @@ import {RadioGroup, Radio} from 'react-radio-group';
 import moment from 'moment';
 import classNames from 'classnames';
 import Dropzone from 'react-dropzone';
+var wowClasses = require('./../../../utility/WowClasses');
 
 class AttendanceManagement extends React.Component {
   constructor(props) {
@@ -43,6 +44,20 @@ class AttendanceManagement extends React.Component {
     console.log('Received files: ', files);
     console.log(files[0]);
     AttendanceManagementActions.drop(files[0]);
+  }
+
+  classColour(character) {
+    let currentClass = _.findWhere(wowClasses, {id: parseInt(character.class)}).name;
+    var arr = currentClass.split(" ");
+
+    var ret = '';
+    for (var i = 0; i < arr.length; ++i) {
+      ret += arr[i].toLowerCase();
+      ret += '-';
+    }
+
+    ret += 'color';
+    return classNames(ret, { 'col-sm-1' : true});;
   }
 
   render() {
@@ -83,6 +98,58 @@ class AttendanceManagement extends React.Component {
           <option key={roster.id} value={roster.id}>{roster.name}</option>
         );
       });
+    }
+
+    if(this.state.selectRoster != 0) {
+      var roster = _.findWhere(this.state.rosters, {id: this.state.selectRoster});
+      var tankRows = [], healerRows = [], dpsRows = [], standbyRows = [];
+      roster.characters.map(function(character) {
+        if(character.main_role == "Tank") {
+          tankCount++;
+          var classCSS = this.classColour(character);
+          tankRows.push(
+            <tr>
+              <td className={classCSS} />
+              <td className='col-sm-11 vert-align' >
+                {character.name}
+              </td>
+            </tr>
+          );
+        } else if(character.main_role == "Healer") {
+          healerCount++;
+          var classCSS = this.classColour(character);
+          healerRows.push(
+            <tr>
+              <td className={classCSS} />
+              <td className='col-sm-11 vert-align' >
+                {character.name}
+              </td>
+            </tr>
+          );
+        } else if(character.main_role == "DPS") {
+          dpsCount++;
+          var classCSS = this.classColour(character);
+          dpsRows.push(
+            <tr>
+              <td className={classCSS} />
+              <td className='col-sm-11 vert-align' >
+                {character.name}
+              </td>
+            </tr>
+          );
+        } else {
+          standbyCount++;
+          var classCSS = this.classColour(character);
+          standbyRows.push(
+            <tr>
+              <td className={classCSS} />
+              <td className='col-sm-11 vert-align' >
+                {character.name}
+              </td>
+            </tr>
+          );
+        }
+      }, this);
     }
 
     return (
@@ -150,6 +217,41 @@ class AttendanceManagement extends React.Component {
                             {selectRosterOptions}
                           </select>
                         </div>
+                      </div>
+                    </div>
+                    <div className='row'>
+                      <div className='col-md-10'>
+                        <table className='table'>
+                          <tbody>
+                            <tr>
+                              <td className='col-md-4'><strong>Tanks</strong> - Scheduled<strong>({schedule_boss.boss.tank_count})</strong> - Assigned<strong>({tankCount})</strong></td>
+                              <td className='col-md-4'><strong>Healers</strong> - Scheduled<strong>({schedule_boss.boss.healer_count})</strong> - Assigned<strong>({healerCount})</strong></td>
+                              <td className='col-md-4'><strong>DPS</strong> - Scheduled<strong>({schedule_boss.boss.dps_count})</strong> - Assigned<strong>({dpsCount})</strong></td>
+                            </tr>
+                            <tr>
+                              <td className='col-md-4'>
+                              <table className='table'>
+                                <tbody>
+                                  {tankRows}
+                                </tbody>
+                              </table></td>
+                              <td className='col-md-4'>
+                                <table className='table'>
+                                  <tbody>
+                                    {healerRows}
+                                  </tbody>
+                                </table>
+                              </td>
+                              <td className='col-md-4'>
+                                <table className='table'>
+                                  <tbody>
+                                    {dpsRows}
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </div>
                   </div>

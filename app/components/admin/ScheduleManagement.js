@@ -360,7 +360,6 @@ class ScheduleManagement extends React.Component {
           </div>
         );
       }, this);
-
     }
 
     return (
