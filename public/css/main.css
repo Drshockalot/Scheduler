@@ -8227,6 +8227,9 @@ label {
 .raidweek-cell {
   text-align: center;
 }
+.raidweek-row {
+  height: 30px;
+}
 .death-knight-color {
   height: 20px;
   background-color: #C41F3B;
