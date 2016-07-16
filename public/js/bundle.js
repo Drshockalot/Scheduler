@@ -6360,7 +6360,9 @@ var RaidWeekManagement = function (_React$Component) {
       $.each(sortedWeeks, function (key, index) {
         panels.push(_react2.default.createElement(
           _reactBootstrap.Panel,
-          { header: key, sortOrder: _underscore2.default.findWhere(_MonthOrders2.default, { name: key }).order, eventKey: index },
+          { header: key, sortOrder: _underscore2.default.findWhere(_MonthOrders2.default, { name: key }).order, eventKey: index, collapsable: true, expanded: this.state.panelState[key], onSelect: function onSelect() {
+              return _RaidWeekManagementActions2.default.togglePanel(key);
+            } },
           sortedWeeks[key]
         ));
       });
@@ -8925,6 +8927,10 @@ var _moment = require('moment');
 
 var _moment2 = _interopRequireDefault(_moment);
 
+var _underscore = require('underscore');
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -8940,6 +8946,7 @@ var RaidWeekManagementStore = function () {
     this.formTanks = 0;
     this.formHealers = 0;
     this.formDPS = 0;
+    this.panelState = [{ name: 'January', expanded: false }, { name: 'February', expanded: false }, { name: 'March', expanded: false }, { name: 'April', expanded: false }, { name: 'May', expanded: false }, { name: 'June', expanded: false }, { name: 'July', expanded: false }, { name: 'August', expanded: false }, { name: 'September', expanded: false }, { name: 'October', expanded: false }, { name: 'November', expanded: false }, { name: 'December', expanded: false }];
   }
 
   _createClass(RaidWeekManagementStore, [{
@@ -9013,6 +9020,12 @@ var RaidWeekManagementStore = function () {
     value: function onDeleteRaidWeekFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
     }
+  }, {
+    key: 'onTogglePanel',
+    value: function onTogglePanel(key) {
+      var pState = _underscore2.default.findWhere(this.panelState, { name: key });
+      pState.expanded = !pState.expanded;
+    }
   }]);
 
   return RaidWeekManagementStore;
@@ -9020,7 +9033,7 @@ var RaidWeekManagementStore = function () {
 
 exports.default = _alt2.default.createStore(RaidWeekManagementStore);
 
-},{"./../../actions/admin/RaidWeekManagementActions":16,"./../../alt":19,"moment":161}],58:[function(require,module,exports){
+},{"./../../actions/admin/RaidWeekManagementActions":16,"./../../alt":19,"moment":161,"underscore":"underscore"}],58:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

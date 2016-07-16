@@ -1,6 +1,7 @@
 import alt from './../../alt';
 import RaidWeekManagementActions from './../../actions/admin/RaidWeekManagementActions';
 import moment from 'moment';
+import _ from 'underscore';
 
 class RaidWeekManagementStore {
   constructor() {
@@ -11,6 +12,20 @@ class RaidWeekManagementStore {
     this.formTanks = 0;
     this.formHealers = 0;
     this.formDPS = 0;
+    this.panelState = [
+      { name: 'January', expanded: false },
+      { name: 'February', expanded: false },
+      { name: 'March', expanded: false },
+      { name: 'April', expanded: false },
+      { name: 'May', expanded: false },
+      { name: 'June', expanded: false },
+      { name: 'July', expanded: false },
+      { name: 'August', expanded: false },
+      { name: 'September', expanded: false },
+      { name: 'October', expanded: false },
+      { name: 'November', expanded: false },
+      { name: 'December', expanded: false },
+    ];
   }
 
   onSelectedDayChanged(date) {
@@ -69,6 +84,11 @@ class RaidWeekManagementStore {
 
   onDeleteRaidWeekFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
+  }
+
+  onTogglePanel(key) {
+    var pState = _.findWhere(this.panelState, {name: key});
+    pState.expanded = !pState.expanded;
   }
 }
 
