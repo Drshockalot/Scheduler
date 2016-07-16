@@ -124,9 +124,11 @@ class RaidWeekManagement extends React.Component {
     for(var month in sortedWeeks) {
       if(monthWeeks.length > 0) {
         panels.push(
-          <Panel header={monthWeeks[0].format('MMMM')} eventKey={i}>
-            {monthWeeks}
-          </Panel>
+          <tr>
+            <Panel header={monthWeeks[0].format('MMMM')} eventKey={i}>
+              {monthWeeks}
+            </Panel>
+          </tr>
         );
       }
     }

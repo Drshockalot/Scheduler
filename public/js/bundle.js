@@ -6256,9 +6256,13 @@ var RaidWeekManagement = function (_React$Component) {
       for (var month in sortedWeeks) {
         if (monthWeeks.length > 0) {
           panels.push(_react2.default.createElement(
-            _reactBootstrap.Panel,
-            { header: monthWeeks[0].format('MMMM'), eventKey: i },
-            monthWeeks
+            'tr',
+            null,
+            _react2.default.createElement(
+              _reactBootstrap.Panel,
+              { header: monthWeeks[0].format('MMMM'), eventKey: i },
+              monthWeeks
+            )
           ));
         }
       }
