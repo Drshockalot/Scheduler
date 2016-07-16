@@ -2994,7 +2994,7 @@ var ProfileCharacters = function (_React$Component) {
 
 exports.default = ProfileCharacters;
 
-},{"../../utility/WowClasses":341,"../../utility/WowRaces":342,"../actions/ProfileCharactersActions":5,"../stores/NavbarStore":44,"../stores/ProfileCharactersStore":45,"./ProfileSidenav":28,"react":"react","react-router":"react-router","underscore":"underscore"}],26:[function(require,module,exports){
+},{"../../utility/WowClasses":342,"../../utility/WowRaces":343,"../actions/ProfileCharactersActions":5,"../stores/NavbarStore":44,"../stores/ProfileCharactersStore":45,"./ProfileSidenav":28,"react":"react","react-router":"react-router","underscore":"underscore"}],26:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -4112,7 +4112,7 @@ var SingleScheduleView = function (_React$Component) {
 
 exports.default = SingleScheduleView;
 
-},{"../actions/SingleScheduleViewActions":9,"../stores/NavbarStore":44,"../stores/SingleScheduleViewStore":50,"./../../utility/WowClasses":341,"classnames":60,"react":"react","react-router":"react-router","underscore":"underscore"}],31:[function(require,module,exports){
+},{"../actions/SingleScheduleViewActions":9,"../stores/NavbarStore":44,"../stores/SingleScheduleViewStore":50,"./../../utility/WowClasses":342,"classnames":60,"react":"react","react-router":"react-router","underscore":"underscore"}],31:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -5051,7 +5051,7 @@ var CharacterManagement = function (_React$Component) {
 
 exports.default = CharacterManagement;
 
-},{"./../../../utility/WowClasses":341,"./../../../utility/WowRaces":342,"./../../actions/admin/CharacterManagementActions":14,"./../../stores/NavbarStore":44,"./../../stores/admin/CharacterManagementStore":55,"./AdminSideNav":33,"react":"react","react-router":"react-router","underscore":"underscore"}],36:[function(require,module,exports){
+},{"./../../../utility/WowClasses":342,"./../../../utility/WowRaces":343,"./../../actions/admin/CharacterManagementActions":14,"./../../stores/NavbarStore":44,"./../../stores/admin/CharacterManagementStore":55,"./AdminSideNav":33,"react":"react","react-router":"react-router","underscore":"underscore"}],36:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6047,9 +6047,9 @@ var _underscore = require('underscore');
 
 var _underscore2 = _interopRequireDefault(_underscore);
 
-var _monthOrders = require('./../../../utility/monthOrders');
+var _MonthOrders = require('./../../../utility/MonthOrders');
 
-var _monthOrders2 = _interopRequireDefault(_monthOrders);
+var _MonthOrders2 = _interopRequireDefault(_MonthOrders);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6267,7 +6267,7 @@ var RaidWeekManagement = function (_React$Component) {
       $.each(sortedWeeks, function (key, index) {
         panels.push(_react2.default.createElement(
           _reactBootstrap.Panel,
-          { header: key, sortOrder: _underscore2.default.findWhere(_monthOrders2.default, { name: key }).order, eventKey: index },
+          { header: key, sortOrder: _underscore2.default.findWhere(_MonthOrders2.default, { name: key }).order, eventKey: index },
           sortedWeeks[key]
         ));
       });
@@ -6461,7 +6461,7 @@ var RaidWeekManagement = function (_React$Component) {
 
 exports.default = RaidWeekManagement;
 
-},{"./../../../utility/monthOrders":343,"./../../actions/admin/RaidWeekManagementActions":16,"./../../stores/NavbarStore":44,"./../../stores/admin/RaidWeekManagementStore":57,"./AdminSideNav":33,"moment":161,"react":"react","react-bootstrap":254,"react-router":"react-router","react-yearly-calendar":329,"underscore":"underscore"}],38:[function(require,module,exports){
+},{"./../../../utility/MonthOrders":341,"./../../actions/admin/RaidWeekManagementActions":16,"./../../stores/NavbarStore":44,"./../../stores/admin/RaidWeekManagementStore":57,"./AdminSideNav":33,"moment":161,"react":"react","react-bootstrap":254,"react-router":"react-router","react-yearly-calendar":329,"underscore":"underscore"}],38:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -7758,7 +7758,7 @@ var ScheduleManagement = function (_React$Component) {
 
 exports.default = ScheduleManagement;
 
-},{"./../../../utility/WowClasses":341,"./../../actions/admin/ScheduleManagementActions":18,"./../../stores/NavbarStore":44,"./../../stores/admin/ScheduleManagementStore":59,"./AdminSideNav":33,"classnames":60,"moment":161,"react":"react","react-bootstrap":254,"react-router":"react-router","underscore":"underscore"}],40:[function(require,module,exports){
+},{"./../../../utility/WowClasses":342,"./../../actions/admin/ScheduleManagementActions":18,"./../../stores/NavbarStore":44,"./../../stores/admin/ScheduleManagementStore":59,"./AdminSideNav":33,"classnames":60,"moment":161,"react":"react","react-bootstrap":254,"react-router":"react-router","underscore":"underscore"}],40:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -34446,6 +34446,11 @@ module.exports = warning;
 }).call(this,require('_process'))
 
 },{"_process":162}],341:[function(require,module,exports){
+'use strict';
+
+module.exports = [{ name: 'January', order: 1 }, { name: 'February', order: 2 }, { name: 'March', order: 3 }, { name: 'April', order: 4 }, { name: 'May', order: 5 }, { name: 'June', order: 6 }, { name: 'July', order: 7 }, { name: 'August', order: 8 }, { name: 'September', order: 9 }, { name: 'October', order: 10 }, { name: 'November', order: 11 }, { name: 'December', order: 12 }];
+
+},{}],342:[function(require,module,exports){
 "use strict";
 
 module.exports = [{
@@ -34516,7 +34521,7 @@ module.exports = [{
     "token": "prot"
 }];
 
-},{}],342:[function(require,module,exports){
+},{}],343:[function(require,module,exports){
 "use strict";
 
 module.exports = [{
@@ -34595,11 +34600,6 @@ module.exports = [{
     "side": "horde",
     "name": "Pandaren"
 }];
-
-},{}],343:[function(require,module,exports){
-'use strict';
-
-module.exports = [{ 'January': 1 }, { 'February': 2 }, { 'March': 3 }, { 'April': 4 }, { 'May': 5 }, { 'June': 6 }, { 'July': 7 }, { 'August': 8 }, { 'September': 9 }, { 'October': 10 }, { 'November': 11 }, { 'December': 12 }];
 
 },{}]},{},[40])
 

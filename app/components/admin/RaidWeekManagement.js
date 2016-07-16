@@ -9,7 +9,7 @@ import {Calendar, CalendarControls} from 'react-yearly-calendar';
 import moment from 'moment';
 import { Accordion, Panel } from 'react-bootstrap';
 import _ from 'underscore';
-import monthOrders from './../../../utility/monthOrders';
+import monthOrders from './../../../utility/MonthOrders';
 
 class RaidWeekManagement extends React.Component {
   constructor(props) {
