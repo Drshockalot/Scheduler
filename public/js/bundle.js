@@ -6252,7 +6252,7 @@ var RaidWeekManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'div',
-                { className: 'col-md-2' },
+                { className: 'col-md-1' },
                 _react2.default.createElement(
                   'strong',
                   null,

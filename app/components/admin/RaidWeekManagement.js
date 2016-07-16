@@ -111,7 +111,7 @@ class RaidWeekManagement extends React.Component {
               <div className='col-md-1'><strong>S</strong></div>
               <div className='col-md-1'><strong>S</strong></div>
               <div className='col-md-1'><strong>M</strong></div>
-              <div className='col-md-2'><strong>T</strong></div>
+              <div className='col-md-1'><strong>T</strong></div>
               <div className='col-md-1'></div>
               <div className='col-md-1'></div>
             </div>
