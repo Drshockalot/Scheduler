@@ -4634,7 +4634,7 @@ var AttendanceManagement = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      var selectRaidWeekOptions, selectWeekdayButtons;
+      var selectRaidWeekOptions, selectWeekdayButtons, selectRaidOptions, selectRosterOptions;
       if (this.state.raidweeks.length > 0) {
         selectRaidWeekOptions = this.state.raidweeks.map(function (raidweek) {
           return _react2.default.createElement(
@@ -4699,6 +4699,26 @@ var AttendanceManagement = function (_React$Component) {
             'Sunday'
           )
         );
+      }
+
+      if (this.state.raids.length > 0) {
+        selectRaidOptions = this.state.raids.map(function (raid) {
+          return _react2.default.createElement(
+            'option',
+            { key: raid.id, value: raid.id },
+            raid.name
+          );
+        });
+      }
+
+      if (this.state.rosters.length > 0) {
+        selectRosterOptions = this.state.rosters.map(function (roster) {
+          return _react2.default.createElement(
+            'option',
+            { key: roster.id, value: roster.id },
+            roster.name
+          );
+        });
       }
 
       return _react2.default.createElement(

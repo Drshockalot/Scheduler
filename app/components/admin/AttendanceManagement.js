@@ -46,7 +46,7 @@ class AttendanceManagement extends React.Component {
   }
 
   render() {
-    var selectRaidWeekOptions, selectWeekdayButtons;
+    var selectRaidWeekOptions, selectWeekdayButtons, selectRaidOptions, selectRosterOptions;
     if(this.state.raidweeks.length > 0) {
       selectRaidWeekOptions = this.state.raidweeks.map(function(raidweek) {
         return (
@@ -67,6 +67,22 @@ class AttendanceManagement extends React.Component {
           <button className={classNames('btn', this.state.selectWeekday == 'sunday' ? 'btn-success' : 'btn-default')} onClick={() => AttendanceManagementActions.updateSelectWeekday('sunday')}>Sunday</button>
         </div>
       );
+    }
+
+    if(this.state.raids.length > 0) {
+      selectRaidOptions = this.state.raids.map(function(raid) {
+        return (
+          <option key={raid.id} value={raid.id}>{raid.name}</option>
+        );
+      });
+    }
+
+    if(this.state.rosters.length > 0) {
+      selectRosterOptions = this.state.rosters.map(function(roster) {
+        return (
+          <option key={roster.id} value={roster.id}>{roster.name}</option>
+        );
+      });
     }
 
     return (
