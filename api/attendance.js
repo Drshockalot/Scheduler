@@ -17,7 +17,7 @@ router.get('/admin', function(req, res, next) {
              Raid.forge()
                  .fetchAll()
                  .then(function(raids) {
-                   Roster.forge()
+                   Roster.forge({'withRelated': ['characters']})
                          .fetchAll()
                          .then(function(rosters) {
                            res.json({error: false, data: {message: "Raid Weeks retreived", raidweeks: raidweeks.toJSON(), rosters: rosters.toJSON(), raids: raids.toJSON()}});
