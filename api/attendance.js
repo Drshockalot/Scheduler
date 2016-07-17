@@ -54,7 +54,8 @@ router.post('/admin', upload.single('test'), function(req, res, next) {
 });
 
 router.post('/admin/roster', function(req, res, next) {
-  Character.query('name', 'in', req.body.names)
+  console.log(req.body);
+  Character.query({whereIn: {name: req.body.names}})
            .fetchAll()
            .then(function(characters) {
              var insertRows = [];
