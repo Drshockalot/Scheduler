@@ -58,7 +58,7 @@ router.post('/admin/roster', function(req, res, next) {
   console.log(req.body['names[]']);
   //Doesn't like req.body.names for some reason, investigate why
   Character.where('name', 'in', req.body['names[]'])
-           .fetch()
+           .fetchAll()
            .then(function(characters) {
              var insertRows = [];
              var jCharacters = characters.toJSON();
