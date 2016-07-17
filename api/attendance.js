@@ -54,9 +54,6 @@ router.post('/admin', upload.single('test'), function(req, res, next) {
 });
 
 router.post('/admin/roster', function(req, res, next) {
-  console.log(req.body);
-  console.log(req.body['names[]']);
-  //Doesn't like req.body.names for some reason, investigate why
   Character.where('name', 'in', req.body['names[]'])
            .fetchAll()
            .then(function(characters) {
