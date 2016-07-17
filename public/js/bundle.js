@@ -679,7 +679,7 @@ var AttendaceManagementActions = function () {
   function AttendaceManagementActions() {
     _classCallCheck(this, AttendaceManagementActions);
 
-    this.generateActions('loadComponentDataSuccess', 'loadComponentDataFailure', 'updateSelectRaidWeek', 'updateSelectWeekday', 'updateSelectRaid', 'updateSelectRoster', 'toggleCharacterState', 'uploadAttendanceFromRosterFormSuccess', 'uploadAttendanceFromRosterFormFailure');
+    this.generateActions('loadComponentDataSuccess', 'loadComponentDataFailure', 'updateSelectRaidWeek', 'updateSelectWeekday', 'updateSelectRaid', 'updateSelectRoster', 'toggleCharacterState', 'uploadAttendanceFromRosterFormSuccess', 'uploadAttendanceFromRosterFormFailure', 'updateUploadText');
   }
 
   _createClass(AttendaceManagementActions, [{
@@ -731,7 +731,7 @@ var AttendaceManagementActions = function () {
         nameList.push(attendanceModel['Standby'][i].name);
       }
       var data = { names: nameList, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday };
-      console.log(data);
+
       $.ajax({
         method: 'POST',
         url: '/api/attendance/admin/roster',
@@ -5077,7 +5077,9 @@ var AttendanceManagement = function (_React$Component) {
                         _react2.default.createElement(
                           'div',
                           { className: 'dropzone-text' },
-                          _react2.default.createElement('textarea', { className: 'form-control' }),
+                          _react2.default.createElement('textarea', { className: 'form-control', value: this.state.uploadText, onChange: function onChange(e) {
+                              return _AttendanceManagementActions2.default.updateUploadText(e.target.value);
+                            } }),
                           _react2.default.createElement('br', null),
                           _react2.default.createElement(
                             'button',
@@ -9030,6 +9032,7 @@ var AttendanceManagementStore = function () {
     this.selectRaid = 0;
     this.selectRoster = 0;
     this.selectWeekday = 'monday';
+    this.uploadText = '';
   }
 
   _createClass(AttendanceManagementStore, [{
@@ -9098,6 +9101,11 @@ var AttendanceManagementStore = function () {
     key: 'onUploadAttendanceFromRosterFormFailure',
     value: function onUploadAttendanceFromRosterFormFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onUpdateUploadText',
+    value: function onUpdateUploadText(value) {
+      this.uploadText = value;
     }
   }]);
 

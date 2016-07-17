@@ -40,16 +40,8 @@ router.get('/admin', function(req, res, next) {
 });
 
 router.post('/admin', upload.single('test'), function(req, res, next) {
-  console.log(req.file);
-
   fs.readFile(req.file.path, 'utf8', function(err, data) {
-    if(err) {
-      console.log('err -', err);
-      res.end('nuthin');
-    } else {
-      console.log('data -', data);
-      res.end('yay');
-    }
+    console.log(data);
   });
 });
 

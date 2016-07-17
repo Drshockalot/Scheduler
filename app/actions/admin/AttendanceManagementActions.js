@@ -15,7 +15,8 @@ class AttendaceManagementActions {
       'updateSelectRoster',
       'toggleCharacterState',
       'uploadAttendanceFromRosterFormSuccess',
-      'uploadAttendanceFromRosterFormFailure'
+      'uploadAttendanceFromRosterFormFailure',
+      'updateUploadText'
     );
   }
 
@@ -60,7 +61,7 @@ class AttendaceManagementActions {
       nameList.push(attendanceModel['Standby'][i].name);
     }
     var data = {names: nameList, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday};
-    console.log(data);
+
     $.ajax({
       method: 'POST',
       url: '/api/attendance/admin/roster',

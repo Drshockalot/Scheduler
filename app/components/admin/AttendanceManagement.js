@@ -253,7 +253,7 @@ class AttendanceManagement extends React.Component {
                     <div className='row'>
                       <div className='col-md-8'>
                         <div className='dropzone-text'>
-                          <textarea className='form-control'/>
+                          <textarea className='form-control' value={this.state.uploadText} onChange={e => AttendanceManagementActions.updateUploadText(e.target.value)}/>
                           <br />
                           <button className='btn btn-default pull-right'>Upload</button>
                         </div>

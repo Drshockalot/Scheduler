@@ -18,6 +18,7 @@ class AttendanceManagementStore {
     this.selectRaid = 0;
     this.selectRoster = 0;
     this.selectWeekday = 'monday';
+    this.uploadText = '';
   }
 
   onLoadComponentDataSuccess(result) {
@@ -76,6 +77,10 @@ class AttendanceManagementStore {
 
   onUploadAttendanceFromRosterFormFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
+  }
+
+  onUpdateUploadText(value) {
+    this.uploadText = value;
   }
 }
 
