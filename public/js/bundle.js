@@ -730,11 +730,12 @@ var AttendaceManagementActions = function () {
       for (var i = 0; i < attendanceModel['Standby'].length; ++i) {
         nameList.push(attendanceModel['Standby'][i].name);
       }
-
+      var data = { names: nameList, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday };
+      console.log(data);
       $.ajax({
         method: 'POST',
         url: '/api/attendance/admin/roster',
-        data: { names: nameList, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday }
+        data: data
       }).done(function (result) {
         console.log(result);
         _this2.uploadAttendanceFromRosterFormSuccess(reuslt);
