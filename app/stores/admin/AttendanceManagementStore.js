@@ -61,7 +61,7 @@ class AttendanceManagementStore {
 
     var roster = _.findWhere(this.rosters, {id: value});
     for(var i = 0; i < roster.characters.length; ++i) {
-      this.rosterAttendanceModel[roster.characters.main_role].push({name: roster.characters[i].name, state: true});
+      this.rosterAttendanceModel[roster.characters[i].main_role].push({name: roster.characters[i].name, state: true});
     }
   }
 
