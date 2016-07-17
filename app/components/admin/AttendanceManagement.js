@@ -123,6 +123,9 @@ class AttendanceManagement extends React.Component {
               <td className='col-sm-11 vert-align' >
                 {character.name}
               </td>
+              <td>
+                {actionButton}
+              </td>
             </tr>
           );
           this.state.rosterAttendanceModel[character.main_role].push({name: character.name, state: true});
@@ -145,6 +148,9 @@ class AttendanceManagement extends React.Component {
               <td className='col-sm-11 vert-align' >
                 {character.name}
               </td>
+              <td>
+                {actionButton}
+              </td>
             </tr>
           );
         } else if(character.main_role == "DPS") {
@@ -166,6 +172,9 @@ class AttendanceManagement extends React.Component {
               <td className='col-sm-11 vert-align' >
                 {character.name}
               </td>
+              <td>
+                {actionButton}
+              </td>
             </tr>
           );
         } else {
@@ -186,6 +195,9 @@ class AttendanceManagement extends React.Component {
               <td className={classCSS} />
               <td className='col-sm-11 vert-align' >
                 {character.name}
+              </td>
+              <td>
+                {actionButton}
               </td>
             </tr>
           );

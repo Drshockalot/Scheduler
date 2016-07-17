@@ -4770,6 +4770,11 @@ var AttendanceManagement = function (_React$Component) {
                 'td',
                 { className: 'col-sm-11 vert-align' },
                 character.name
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                actionButton
               )
             ));
             this.state.rosterAttendanceModel[character.main_role].push({ name: character.name, state: true });
@@ -4798,6 +4803,11 @@ var AttendanceManagement = function (_React$Component) {
                 'td',
                 { className: 'col-sm-11 vert-align' },
                 character.name
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                actionButton
               )
             ));
           } else if (character.main_role == "DPS") {
@@ -4825,6 +4835,11 @@ var AttendanceManagement = function (_React$Component) {
                 'td',
                 { className: 'col-sm-11 vert-align' },
                 character.name
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                actionButton
               )
             ));
           } else {
@@ -4852,6 +4867,11 @@ var AttendanceManagement = function (_React$Component) {
                 'td',
                 { className: 'col-sm-11 vert-align' },
                 character.name
+              ),
+              _react2.default.createElement(
+                'td',
+                null,
+                actionButton
               )
             ));
           }
