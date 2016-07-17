@@ -55,11 +55,15 @@ router.post('/admin', upload.single('test'), function(req, res, next) {
 
 router.post('/admin/roster', function(req, res, next) {
   console.log(req.body);
+  console.log(req.body.names);
+  //Doesn't like req.body.names for some reason, investigate why
   Character.where('name', 'in', ['Xenorie'])
            .fetch()
            .then(function(characters) {
              var insertRows = [];
-             characters.toJSON().map(function(character) {
+             var jCharacters = characters.toJSON();
+             console.log(jCharacters);
+             jCharacters.map(function(character) {
                return {
                  user_id: character.user_id,
                  raid_week_id: req.body.raidWeekId,
