@@ -67,7 +67,7 @@ class AttendaceManagementActions {
       data: data
     }).done((result) => {
       console.log(result);
-      this.uploadAttendanceFromRosterFormSuccess(reuslt);
+      this.uploadAttendanceFromRosterFormSuccess(result);
     }).fail((jqXhr) => {
       console.log(jqXhr);
       this.uploadAttendanceFromRosterFormFailure(jqXhr);

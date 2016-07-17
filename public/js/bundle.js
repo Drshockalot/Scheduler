@@ -738,7 +738,7 @@ var AttendaceManagementActions = function () {
         data: data
       }).done(function (result) {
         console.log(result);
-        _this2.uploadAttendanceFromRosterFormSuccess(reuslt);
+        _this2.uploadAttendanceFromRosterFormSuccess(result);
       }).fail(function (jqXhr) {
         console.log(jqXhr);
         _this2.uploadAttendanceFromRosterFormFailure(jqXhr);
