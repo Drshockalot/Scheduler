@@ -1914,6 +1914,46 @@ var Home = function (_React$Component) {
                       _react2.default.createElement(
                         'h4',
                         null,
+                        (0, _moment2.default)('2016-07-17').format('MMM Do YYYY')
+                      ),
+                      _react2.default.createElement(
+                        'ul',
+                        null,
+                        _react2.default.createElement(
+                          'li',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
+                            'Attendance Management'
+                          ),
+                          _react2.default.createElement(
+                            'ul',
+                            null,
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'A third method of logging attendance has been added - selecting characters manually from a roster'
+                            ),
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'NOTE: There is not yet a way to view attendance'
+                            )
+                          )
+                        )
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'h4',
+                        null,
                         (0, _moment2.default)('2016-07-16').format('MMM Do YYYY')
                       ),
                       _react2.default.createElement(

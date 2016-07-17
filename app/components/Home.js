@@ -110,6 +110,20 @@ class Home extends React.Component {
                 <tbody>
                   <tr>
                     <td>
+                      <h4>{moment('2016-07-17').format('MMM Do YYYY')}</h4>
+                      <ul>
+                        <li>
+                          <h5>Attendance Management</h5>
+                          <ul>
+                            <li>A third method of logging attendance has been added - selecting characters manually from a roster</li>
+                            <li>NOTE: There is not yet a way to view attendance</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       <h4>{moment('2016-07-16').format('MMM Do YYYY')}</h4>
                       <ul>
                         <li>
