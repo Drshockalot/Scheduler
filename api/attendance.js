@@ -62,7 +62,7 @@ router.post('/admin/roster', function(req, res, next) {
                  user_id: character.user_id,
                  raid_week_id: req.body.raidWeekId,
                  raid_id: req.body.raidId,
-                 raid_night: req.body.weekday
+                 week_day: req.body.weekday
                };
              });
              knex.batchInsert('raid_attendance', insertRows)
