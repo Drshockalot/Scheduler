@@ -8990,7 +8990,12 @@ var AttendanceManagementStore = function () {
     key: 'onUpdateSelectRoster',
     value: function onUpdateSelectRoster(value) {
       this.selectRoster = value;
-      this.rosterAttendanceModel = [];
+      this.rosterAttendanceModel = {
+        'Tank': [],
+        'Healer': [],
+        'DPS': [],
+        'Standby': []
+      };
 
       var roster = _underscore2.default.findWhere(this.rosters, { id: value });
       for (var i = 0; i < roster.characters.length; ++i) {

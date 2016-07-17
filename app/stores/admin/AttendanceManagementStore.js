@@ -52,7 +52,12 @@ class AttendanceManagementStore {
 
   onUpdateSelectRoster(value) {
     this.selectRoster = value;
-    this.rosterAttendanceModel = [];
+    this.rosterAttendanceModel = {
+      'Tank': [],
+      'Healer': [],
+      'DPS': [],
+      'Standby': []
+    };
 
     var roster = _.findWhere(this.rosters, {id: value});
     for(var i = 0; i < roster.characters.length; ++i) {
