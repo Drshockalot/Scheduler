@@ -679,7 +679,7 @@ var AttendaceManagementActions = function () {
   function AttendaceManagementActions() {
     _classCallCheck(this, AttendaceManagementActions);
 
-    this.generateActions('loadComponentDataSuccess', 'loadComponentDataFailure', 'updateSelectRaidWeek', 'updateSelectWeekday', 'updateSelectRaid', 'updateSelectRoster', 'toggleCharacterState');
+    this.generateActions('loadComponentDataSuccess', 'loadComponentDataFailure', 'updateSelectRaidWeek', 'updateSelectWeekday', 'updateSelectRaid', 'updateSelectRoster', 'toggleCharacterState', 'uploadAttendanceFromRosterFormSuccess', 'uploadAttendanceFromRosterFormFailure');
   }
 
   _createClass(AttendaceManagementActions, [{
@@ -710,6 +710,37 @@ var AttendaceManagementActions = function () {
         } else {
           console.log('res', res);
         }
+      });
+    }
+  }, {
+    key: 'uploadAttendanceFromRosterForm',
+    value: function uploadAttendanceFromRosterForm(attendanceModel, raidId, raidWeekId, weekday) {
+      var _this2 = this;
+
+      var nameList = [];
+      for (var i = 0; i < attendanceModel['Tank'].length; ++i) {
+        nameList.push(attendanceModel['Tank'][i].name);
+      }
+      for (var i = 0; i < attendanceModel['Healer'].length; ++i) {
+        nameList.push(attendanceModel['Healer'][i].name);
+      }
+      for (var i = 0; i < attendanceModel['DPS'].length; ++i) {
+        nameList.push(attendanceModel['DPS'][i].name);
+      }
+      for (var i = 0; i < attendanceModel['Standby'].length; ++i) {
+        nameList.push(attendanceModel['Standby'][i].name);
+      }
+
+      $.ajax({
+        method: 'POST',
+        url: '/api/attendance/admin/roster',
+        data: { names: nameList, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday }
+      }).done(function (result) {
+        console.log(result);
+        _this2.uploadAttendanceFromRosterFormSuccess(reuslt);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this2.uploadAttendanceFromRosterFormFailure(jqXhr);
       });
     }
   }]);
@@ -4651,6 +4682,8 @@ var AttendanceManagement = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       var selectRaidWeekOptions, selectWeekdayButtons, selectRaidOptions, selectRosterOptions;
       if (this.state.raidweeks.length > 0) {
         selectRaidWeekOptions = this.state.raidweeks.map(function (raidweek) {
@@ -5133,6 +5166,13 @@ var AttendanceManagement = function (_React$Component) {
                               )
                             )
                           )
+                        ),
+                        _react2.default.createElement(
+                          'button',
+                          { className: 'btn btn-default pull-right', onClick: function onClick() {
+                              return _AttendanceManagementActions2.default.uploadAttendanceFromRosterForm(_this2.state.rosterAttendanceModel, _this2.state.selectRaid, _this2.state.selectRaidWeek, _this2.state.selectWeekday);
+                            } },
+                          'Upload'
                         )
                       )
                     )
@@ -9007,6 +9047,16 @@ var AttendanceManagementStore = function () {
     value: function onToggleCharacterState(values) {
       var characterAttendanceModel = _underscore2.default.findWhere(this.rosterAttendanceModel[values[1]], { name: values[0] });
       characterAttendanceModel.state = !characterAttendanceModel.state;
+    }
+  }, {
+    key: 'onUploadAttendanceFromRosterFormSuccess',
+    value: function onUploadAttendanceFromRosterFormSuccess(result) {
+      toastr.success('Attendance logged', 'Success');
+    }
+  }, {
+    key: 'onUploadAttendanceFromRosterFormFailure',
+    value: function onUploadAttendanceFromRosterFormFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
     }
   }]);
 

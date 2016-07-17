@@ -69,6 +69,14 @@ class AttendanceManagementStore {
     var characterAttendanceModel = _.findWhere(this.rosterAttendanceModel[values[1]], {name: values[0]});
     characterAttendanceModel.state = !characterAttendanceModel.state;
   }
+
+  onUploadAttendanceFromRosterFormSuccess(result) {
+    toastr.success('Attendance logged', 'Success');
+  }
+
+  onUploadAttendanceFromRosterFormFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
 }
 
 export default alt.createStore(AttendanceManagementStore);

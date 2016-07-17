@@ -253,7 +253,7 @@ class AttendanceManagement extends React.Component {
                     <div className='row'>
                       <div className='col-md-8'>
                         <div className='dropzone-text'>
-                          <textarea className='form-control' />
+                          <textarea className='form-control'/>
                           <br />
                           <button className='btn btn-default pull-right'>Upload</button>
                         </div>
@@ -305,6 +305,7 @@ class AttendanceManagement extends React.Component {
                             </tr>
                           </tbody>
                         </table>
+                        <button className='btn btn-default pull-right' onClick={() => AttendanceManagementActions.uploadAttendanceFromRosterForm(this.state.rosterAttendanceModel, this.state.selectRaid, this.state.selectRaidWeek, this.state.selectWeekday)}>Upload</button>
                       </div>
                     </div>
                   </div>

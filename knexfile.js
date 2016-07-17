@@ -8,4 +8,4 @@ module.exports = {
                    password : process.env.HEROKU_POSTGRESQL_BRONZE_PASSWORD,
                    database : process.env.HEROKU_POSTGRESQL_BRONZE_DATABASE }
   }
-}
+};

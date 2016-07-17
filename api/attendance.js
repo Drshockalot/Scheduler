@@ -9,6 +9,10 @@ var upload = multer({ dest: './attendance/' });
 var Raid_Week = require('./../db/postgres/raid_week');
 var Roster = require('./../db/postgres/roster');
 var Raid = require('./../db/postgres/raid');
+var User = require('./../db/postgres/user');
+var Character = require('./../db/postgres/character');
+
+var knex = require('./../db/database').knex;
 
 router.get('/admin', function(req, res, next) {
   Raid_Week.forge()
@@ -47,6 +51,32 @@ router.post('/admin', upload.single('test'), function(req, res, next) {
       res.end('yay');
     }
   });
+});
+
+router.post('/admin/roster', function(req, res, next) {
+  Character.forge()
+           .where('name', 'in', req.body.names)
+           .then(function(characters) {
+             var insertRows = [];
+             characters.toJSON().map(function(character) {
+               return {
+                 user_id: character.user_id,
+                 raid_week_id: req.body.raidWeekId,
+                 raid_id: req.body.raidId,
+                 raid_night: req.body.weekday
+               };
+             });
+             knex.batchInsert('raid_attendance', insertRows)
+                 .then(function() {
+                   res.json({error: false, data: {message: "User Attendance inserted"}});
+                 })
+                 .catch(function(err) {
+                   res.status(500).json({error: true, data: {message: err.message}});
+                 });
+           })
+           .catch(function(err) {
+             res.status(500).json({error: true, data: {message: err.message}});
+           });
 });
 
 module.exports = router;

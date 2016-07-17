@@ -13,7 +13,9 @@ class AttendaceManagementActions {
       'updateSelectWeekday',
       'updateSelectRaid',
       'updateSelectRoster',
-      'toggleCharacterState'
+      'toggleCharacterState',
+      'uploadAttendanceFromRosterFormSuccess',
+      'uploadAttendanceFromRosterFormFailure'
     );
   }
 
@@ -40,6 +42,34 @@ class AttendaceManagementActions {
       } else {
         console.log('res', res);
       }
+    });
+  }
+
+  uploadAttendanceFromRosterForm(attendanceModel, raidId, raidWeekId, weekday) {
+    var nameList = [];
+    for(var i = 0; i < attendanceModel['Tank'].length; ++i) {
+      nameList.push(attendanceModel['Tank'][i].name);
+    }
+    for(var i = 0; i < attendanceModel['Healer'].length; ++i) {
+      nameList.push(attendanceModel['Healer'][i].name);
+    }
+    for(var i = 0; i < attendanceModel['DPS'].length; ++i) {
+      nameList.push(attendanceModel['DPS'][i].name);
+    }
+    for(var i = 0; i < attendanceModel['Standby'].length; ++i) {
+      nameList.push(attendanceModel['Standby'][i].name);
+    }
+
+    $.ajax({
+      method: 'POST',
+      url: '/api/attendance/admin/roster',
+      data: {names: nameList, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday}
+    }).done((result) => {
+      console.log(result);
+      this.uploadAttendanceFromRosterFormSuccess(reuslt);
+    }).fail((jqXhr) => {
+      console.log(jqXhr);
+      this.uploadAttendanceFromRosterFormFailure(jqXhr);
     });
   }
 }
