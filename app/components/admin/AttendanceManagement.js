@@ -225,6 +225,14 @@ class AttendanceManagement extends React.Component {
                         </div>
                       </div>
                       <div className='form-group'>
+                        <label className='col-sm-1 control-label'>Raid:</label>
+                        <div className='col-sm-5'>
+                          <select className='form-control' value={this.state.selectRaid} onChange={e => AttendanceManagementActions.updateSelectRaid(parseInt(e.target.value))}>
+                            {selectRaidOptions}
+                          </select>
+                        </div>
+                      </div>
+                      <div className='form-group'>
                         <label className='col-sm-1 control-label'>Week Day:</label>
                         <div className='col-sm-10'>
                           {selectWeekdayButtons}
@@ -255,14 +263,6 @@ class AttendanceManagement extends React.Component {
                   <div className='row'>
                   <h2>From Roster View</h2>
                     <div className='form-horizontal'>
-                      <div className='form-group'>
-                        <label className='col-sm-1 control-label'>Raid:</label>
-                        <div className='col-sm-5'>
-                          <select className='form-control' value={this.state.selectRaid} onChange={e => AttendanceManagementActions.updateSelectRaid(parseInt(e.target.value))}>
-                            {selectRaidOptions}
-                          </select>
-                        </div>
-                      </div>
                       <div className='form-group'>
                         <label className='col-sm-1 control-label'>Roster:</label>
                         <div className='col-sm-5'>

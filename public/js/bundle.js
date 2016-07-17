@@ -4934,6 +4934,26 @@ var AttendanceManagement = function (_React$Component) {
                         _react2.default.createElement(
                           'label',
                           { className: 'col-sm-1 control-label' },
+                          'Raid:'
+                        ),
+                        _react2.default.createElement(
+                          'div',
+                          { className: 'col-sm-5' },
+                          _react2.default.createElement(
+                            'select',
+                            { className: 'form-control', value: this.state.selectRaid, onChange: function onChange(e) {
+                                return _AttendanceManagementActions2.default.updateSelectRaid(parseInt(e.target.value));
+                              } },
+                            selectRaidOptions
+                          )
+                        )
+                      ),
+                      _react2.default.createElement(
+                        'div',
+                        { className: 'form-group' },
+                        _react2.default.createElement(
+                          'label',
+                          { className: 'col-sm-1 control-label' },
                           'Week Day:'
                         ),
                         _react2.default.createElement(
@@ -5005,26 +5025,6 @@ var AttendanceManagement = function (_React$Component) {
                     _react2.default.createElement(
                       'div',
                       { className: 'form-horizontal' },
-                      _react2.default.createElement(
-                        'div',
-                        { className: 'form-group' },
-                        _react2.default.createElement(
-                          'label',
-                          { className: 'col-sm-1 control-label' },
-                          'Raid:'
-                        ),
-                        _react2.default.createElement(
-                          'div',
-                          { className: 'col-sm-5' },
-                          _react2.default.createElement(
-                            'select',
-                            { className: 'form-control', value: this.state.selectRaid, onChange: function onChange(e) {
-                                return _AttendanceManagementActions2.default.updateSelectRaid(parseInt(e.target.value));
-                              } },
-                            selectRaidOptions
-                          )
-                        )
-                      ),
                       _react2.default.createElement(
                         'div',
                         { className: 'form-group' },
