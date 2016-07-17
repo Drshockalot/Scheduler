@@ -57,10 +57,7 @@ router.post('/admin/roster', function(req, res, next) {
   Character.where('name', 'in', req.body['names[]'])
            .fetchAll()
            .then(function(characters) {
-             var insertRows = [];
-             var jCharacters = characters.toJSON();
-             console.log(jCharacters);
-             jCharacters.map(function(character) {
+             var insertRows = jCharacters.toJSON().map(function(character) {
                return {
                  user_id: character.user_id,
                  raid_week_id: req.body.raidWeekId,
