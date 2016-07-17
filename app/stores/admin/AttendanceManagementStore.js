@@ -17,7 +17,7 @@ class AttendanceManagementStore {
     this.selectRaidWeek = 0;
     this.selectRaid = 0;
     this.selectRoster = 0;
-    this.selectWeekday = '';
+    this.selectWeekday = 'monday';
   }
 
   onLoadComponentDataSuccess(result) {
