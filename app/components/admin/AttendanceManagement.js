@@ -219,7 +219,7 @@ class AttendanceManagement extends React.Component {
                       <div className='form-group'>
                         <label className='col-sm-1 control-label'>Raid Week:</label>
                         <div className='col-sm-5'>
-                          <select className='form-control' value={this.state.selectRaidWeek} onChange={e => AttendanceManagementActions.updateSelectRaidWeek(e.target.value)}>
+                          <select className='form-control' value={this.state.selectRaidWeek} onChange={e => AttendanceManagementActions.updateSelectRaidWeek(parseInt(e.target.value))}>
                             {selectRaidWeekOptions}
                           </select>
                         </div>
@@ -258,7 +258,7 @@ class AttendanceManagement extends React.Component {
                       <div className='form-group'>
                         <label className='col-sm-1 control-label'>Raid:</label>
                         <div className='col-sm-5'>
-                          <select className='form-control' value={this.state.selectRaid} onChange={e => AttendanceManagementActions.updateSelectRaid(e.target.value)}>
+                          <select className='form-control' value={this.state.selectRaid} onChange={e => AttendanceManagementActions.updateSelectRaid(parseInt(e.target.value))}>
                             {selectRaidOptions}
                           </select>
                         </div>
@@ -266,7 +266,7 @@ class AttendanceManagement extends React.Component {
                       <div className='form-group'>
                         <label className='col-sm-1 control-label'>Roster:</label>
                         <div className='col-sm-5'>
-                          <select className='form-control' value={this.state.selectRoster} onChange={e => AttendanceManagementActions.updateSelectRoster(e.target.value)}>
+                          <select className='form-control' value={this.state.selectRoster} onChange={e => AttendanceManagementActions.updateSelectRoster(parseInt(e.target.value))}>
                             {selectRosterOptions}
                           </select>
                         </div>

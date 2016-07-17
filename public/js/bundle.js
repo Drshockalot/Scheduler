@@ -4922,7 +4922,7 @@ var AttendanceManagement = function (_React$Component) {
                           _react2.default.createElement(
                             'select',
                             { className: 'form-control', value: this.state.selectRaidWeek, onChange: function onChange(e) {
-                                return _AttendanceManagementActions2.default.updateSelectRaidWeek(e.target.value);
+                                return _AttendanceManagementActions2.default.updateSelectRaidWeek(parseInt(e.target.value));
                               } },
                             selectRaidWeekOptions
                           )
@@ -5019,7 +5019,7 @@ var AttendanceManagement = function (_React$Component) {
                           _react2.default.createElement(
                             'select',
                             { className: 'form-control', value: this.state.selectRaid, onChange: function onChange(e) {
-                                return _AttendanceManagementActions2.default.updateSelectRaid(e.target.value);
+                                return _AttendanceManagementActions2.default.updateSelectRaid(parseInt(e.target.value));
                               } },
                             selectRaidOptions
                           )
@@ -5039,7 +5039,7 @@ var AttendanceManagement = function (_React$Component) {
                           _react2.default.createElement(
                             'select',
                             { className: 'form-control', value: this.state.selectRoster, onChange: function onChange(e) {
-                                return _AttendanceManagementActions2.default.updateSelectRoster(e.target.value);
+                                return _AttendanceManagementActions2.default.updateSelectRoster(parseInt(e.target.value));
                               } },
                             selectRosterOptions
                           )
