@@ -55,7 +55,7 @@ router.post('/admin', upload.single('test'), function(req, res, next) {
 
 router.post('/admin/roster', function(req, res, next) {
   console.log(req.body);
-  Character.where('name', 'in', req.body.names)
+  Character.where('name', 'in', ['Xenorie'])
            .fetch()
            .then(function(characters) {
              var insertRows = [];
