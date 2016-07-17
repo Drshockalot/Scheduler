@@ -59,6 +59,11 @@ class AttendanceManagementStore {
       this.rosterAttendanceModel[roster.characters.main_role].push({name: roster.characters[i].name, state: true});
     }
   }
+
+  onToggleCharacterState(values) {
+    var characterAttendanceModel = _.findWhere(this.rosterAttendanceModel[values[1]], {name: values[0]});
+    characterAttendanceModel.state = !characterAttendanceModel.state;
+  }
 }
 
 export default alt.createStore(AttendanceManagementStore);

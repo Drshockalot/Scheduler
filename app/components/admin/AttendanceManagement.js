@@ -106,6 +106,17 @@ class AttendanceManagement extends React.Component {
       roster.characters.map(function(character) {
         if(character.main_role == "Tank") {
           var classCSS = this.classColour(character);
+          var state = _.findWhere(this.state.rosterAttendanceModel[character.main_role], {name: character.name}).state;
+          var actionButton;
+          if(state) {
+            actionButton = (
+              <button className='btn btn-success btn-circle' onClick={() => AttendanceManagementActions.toggleCharacterState(character.name, character.main_role)}>&#10003;</button>
+            );
+          } else {
+            actionButton = (
+              <button className='btn btn-default btn-circle' onClick={() => AttendanceManagementActions.toggleCharacterState(character.name, character.main_role)}></button>
+            );
+          }
           tankRows.push(
             <tr>
               <td className={classCSS} />
@@ -114,8 +125,20 @@ class AttendanceManagement extends React.Component {
               </td>
             </tr>
           );
+          this.state.rosterAttendanceModel[character.main_role].push({name: character.name, state: true});
         } else if(character.main_role == "Healer") {
           var classCSS = this.classColour(character);
+          var state = _.findWhere(this.state.rosterAttendanceModel[character.main_role], {name: character.name}).state;
+          var actionButton;
+          if(state) {
+            actionButton = (
+              <button className='btn btn-success btn-circle' onClick={() => AttendanceManagementActions.toggleCharacterState(character.name, character.main_role)}>&#10003;</button>
+            );
+          } else {
+            actionButton = (
+              <button className='btn btn-default btn-circle' onClick={() => AttendanceManagementActions.toggleCharacterState(character.name, character.main_role)}></button>
+            );
+          }
           healerRows.push(
             <tr>
               <td className={classCSS} />
@@ -126,6 +149,17 @@ class AttendanceManagement extends React.Component {
           );
         } else if(character.main_role == "DPS") {
           var classCSS = this.classColour(character);
+          var state = _.findWhere(this.state.rosterAttendanceModel[character.main_role], {name: character.name}).state;
+          var actionButton;
+          if(state) {
+            actionButton = (
+              <button className='btn btn-success btn-circle' onClick={() => AttendanceManagementActions.toggleCharacterState(character.name, character.main_role)}>&#10003;</button>
+            );
+          } else {
+            actionButton = (
+              <button className='btn btn-default btn-circle' onClick={() => AttendanceManagementActions.toggleCharacterState(character.name, character.main_role)}></button>
+            );
+          }
           dpsRows.push(
             <tr>
               <td className={classCSS} />
@@ -136,6 +170,17 @@ class AttendanceManagement extends React.Component {
           );
         } else {
           var classCSS = this.classColour(character);
+          var state = _.findWhere(this.state.rosterAttendanceModel[character.main_role], {name: character.name}).state;
+          var actionButton;
+          if(state) {
+            actionButton = (
+              <button className='btn btn-success btn-circle' onClick={() => AttendanceManagementActions.toggleCharacterState(character.name, character.main_role)}>&#10003;</button>
+            );
+          } else {
+            actionButton = (
+              <button className='btn btn-default btn-circle' onClick={() => AttendanceManagementActions.toggleCharacterState(character.name, character.main_role)}></button>
+            );
+          }
           standbyRows.push(
             <tr>
               <td className={classCSS} />

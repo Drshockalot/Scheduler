@@ -679,7 +679,7 @@ var AttendaceManagementActions = function () {
   function AttendaceManagementActions() {
     _classCallCheck(this, AttendaceManagementActions);
 
-    this.generateActions('loadComponentDataSuccess', 'loadComponentDataFailure', 'updateSelectRaidWeek', 'updateSelectWeekday', 'updateSelectRaid', 'updateSelectRoster');
+    this.generateActions('loadComponentDataSuccess', 'loadComponentDataFailure', 'updateSelectRaidWeek', 'updateSelectWeekday', 'updateSelectRaid', 'updateSelectRoster', 'toggleCharacterState');
   }
 
   _createClass(AttendaceManagementActions, [{
@@ -4747,6 +4747,21 @@ var AttendanceManagement = function (_React$Component) {
         roster.characters.map(function (character) {
           if (character.main_role == "Tank") {
             var classCSS = this.classColour(character);
+            var state = _underscore2.default.findWhere(this.state.rosterAttendanceModel[character.main_role], { name: character.name }).state;
+            var actionButton;
+            if (state) {
+              actionButton = _react2.default.createElement(
+                'button',
+                { className: 'btn btn-success btn-circle', onClick: function onClick() {
+                    return _AttendanceManagementActions2.default.toggleCharacterState(character.name, character.main_role);
+                  } },
+                '✓'
+              );
+            } else {
+              actionButton = _react2.default.createElement('button', { className: 'btn btn-default btn-circle', onClick: function onClick() {
+                  return _AttendanceManagementActions2.default.toggleCharacterState(character.name, character.main_role);
+                } });
+            }
             tankRows.push(_react2.default.createElement(
               'tr',
               null,
@@ -4757,8 +4772,24 @@ var AttendanceManagement = function (_React$Component) {
                 character.name
               )
             ));
+            this.state.rosterAttendanceModel[character.main_role].push({ name: character.name, state: true });
           } else if (character.main_role == "Healer") {
             var classCSS = this.classColour(character);
+            var state = _underscore2.default.findWhere(this.state.rosterAttendanceModel[character.main_role], { name: character.name }).state;
+            var actionButton;
+            if (state) {
+              actionButton = _react2.default.createElement(
+                'button',
+                { className: 'btn btn-success btn-circle', onClick: function onClick() {
+                    return _AttendanceManagementActions2.default.toggleCharacterState(character.name, character.main_role);
+                  } },
+                '✓'
+              );
+            } else {
+              actionButton = _react2.default.createElement('button', { className: 'btn btn-default btn-circle', onClick: function onClick() {
+                  return _AttendanceManagementActions2.default.toggleCharacterState(character.name, character.main_role);
+                } });
+            }
             healerRows.push(_react2.default.createElement(
               'tr',
               null,
@@ -4771,6 +4802,21 @@ var AttendanceManagement = function (_React$Component) {
             ));
           } else if (character.main_role == "DPS") {
             var classCSS = this.classColour(character);
+            var state = _underscore2.default.findWhere(this.state.rosterAttendanceModel[character.main_role], { name: character.name }).state;
+            var actionButton;
+            if (state) {
+              actionButton = _react2.default.createElement(
+                'button',
+                { className: 'btn btn-success btn-circle', onClick: function onClick() {
+                    return _AttendanceManagementActions2.default.toggleCharacterState(character.name, character.main_role);
+                  } },
+                '✓'
+              );
+            } else {
+              actionButton = _react2.default.createElement('button', { className: 'btn btn-default btn-circle', onClick: function onClick() {
+                  return _AttendanceManagementActions2.default.toggleCharacterState(character.name, character.main_role);
+                } });
+            }
             dpsRows.push(_react2.default.createElement(
               'tr',
               null,
@@ -4783,6 +4829,21 @@ var AttendanceManagement = function (_React$Component) {
             ));
           } else {
             var classCSS = this.classColour(character);
+            var state = _underscore2.default.findWhere(this.state.rosterAttendanceModel[character.main_role], { name: character.name }).state;
+            var actionButton;
+            if (state) {
+              actionButton = _react2.default.createElement(
+                'button',
+                { className: 'btn btn-success btn-circle', onClick: function onClick() {
+                    return _AttendanceManagementActions2.default.toggleCharacterState(character.name, character.main_role);
+                  } },
+                '✓'
+              );
+            } else {
+              actionButton = _react2.default.createElement('button', { className: 'btn btn-default btn-circle', onClick: function onClick() {
+                  return _AttendanceManagementActions2.default.toggleCharacterState(character.name, character.main_role);
+                } });
+            }
             standbyRows.push(_react2.default.createElement(
               'tr',
               null,
@@ -8915,6 +8976,12 @@ var AttendanceManagementStore = function () {
       for (var i = 0; i < roster.characters.length; ++i) {
         this.rosterAttendanceModel[roster.characters.main_role].push({ name: roster.characters[i].name, state: true });
       }
+    }
+  }, {
+    key: 'onToggleCharacterState',
+    value: function onToggleCharacterState(values) {
+      var characterAttendanceModel = _underscore2.default.findWhere(this.rosterAttendanceModel[values[1]], { name: values[0] });
+      characterAttendanceModel.state = !characterAttendanceModel.state;
     }
   }]);
 

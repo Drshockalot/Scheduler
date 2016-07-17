@@ -12,7 +12,8 @@ class AttendaceManagementActions {
       'updateSelectRaidWeek',
       'updateSelectWeekday',
       'updateSelectRaid',
-      'updateSelectRoster'
+      'updateSelectRoster',
+      'toggleCharacterState'
     );
   }
 
