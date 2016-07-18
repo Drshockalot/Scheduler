@@ -39,7 +39,7 @@ router.get('/admin', function(req, res, next) {
            });
 });
 
-router.post('/admin/file', upload.single('test'), function(req, res, next) {
+router.post('/admin/file', upload.single('attendance'), function(req, res, next) {
   fs.readFile(req.file.path, 'utf8', function(err, data) {
     console.log(data);
   });

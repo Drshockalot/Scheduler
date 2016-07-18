@@ -41,7 +41,7 @@ class AttendaceManagementActions {
     var fileData = new FormData();
     fileData.append('attendance', file);
 
-    request.post('/api/attendance/admin/file').send(test).end(function(jqXhr, result) {
+    request.post('/api/attendance/admin/file').send(fileData).end(function(jqXhr, result) {
       if(!jqXhr) {
         console.log(result);
         this.uploadFileSuccess(result);
