@@ -82,6 +82,22 @@ class AttendanceManagementStore {
   onUpdateUploadText(value) {
     this.uploadText = value;
   }
+
+  onUploadRawTextSuccess(result) {
+    toastr.success('Attendance logged', 'Success');
+  }
+
+  onUploadRawTextFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
+
+  onUploadFileSuccess(result) {
+    toastr.success('Attendance logged', 'Success');
+  }
+
+  onUploadFileFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
 }
 
 export default alt.createStore(AttendanceManagementStore);

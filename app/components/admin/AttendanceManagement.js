@@ -40,12 +40,6 @@ class AttendanceManagement extends React.Component {
     this.setState(state);
   }
 
-  onDrop(files) {
-    console.log('Received files: ', files);
-    console.log(files[0]);
-    AttendanceManagementActions.drop(files[0]);
-  }
-
   classColour(character) {
     let currentClass = _.findWhere(wowClasses, {id: parseInt(character.class)}).name;
     var arr = currentClass.split(" ");
@@ -244,7 +238,7 @@ class AttendanceManagement extends React.Component {
                     <h3>Upload File</h3>
                     <div className='row'>
                       <div className='col-md-8'>
-                        <Dropzone className='dropzone' onDrop={this.onDrop}>
+                        <Dropzone className='dropzone' onDrop={files => AttendanceManagementActions.uploadFile(files[0])}>
                           <div className="dropzone-content">Drag or click here to upload file (.txt or .csv)</div>
                         </Dropzone>
                       </div>
@@ -255,7 +249,7 @@ class AttendanceManagement extends React.Component {
                         <div className='dropzone-text'>
                           <textarea className='form-control' value={this.state.uploadText} onChange={e => AttendanceManagementActions.updateUploadText(e.target.value)}/>
                           <br />
-                          <button className='btn btn-default pull-right'>Upload</button>
+                          <button className='btn btn-default pull-right' onClick={() => AttendanceManagementActions.uploadRawText(this.state.uploadText, this.state.selectRaid, this.state.selectRaidWeek, this.state.selectWeekday)}>Upload</button>
                         </div>
                       </div>
                     </div>

@@ -16,7 +16,11 @@ class AttendaceManagementActions {
       'toggleCharacterState',
       'uploadAttendanceFromRosterFormSuccess',
       'uploadAttendanceFromRosterFormFailure',
-      'updateUploadText'
+      'updateUploadText',
+      'uploadRawTextSuccess',
+      'uploadRawTextFailure',
+      'uploadFileSuccess',
+      'uploadFileFailure'
     );
   }
 
@@ -33,15 +37,17 @@ class AttendaceManagementActions {
     });
   }
 
-  drop(file) {
-    var test = new FormData();
-    test.append('test', file);
+  uploadFile(file) {
+    var fileData = new FormData();
+    fileData.append('attendance', file);
 
-    request.post('/api/attendance/admin').send(test).end(function(err, res) {
-      if(err) {
-        console.log('err -', err);
+    request.post('/api/attendance/admin/file').send(test).end(function(jqXhr, result) {
+      if(!jqXhr) {
+        console.log(result);
+        this.uploadFileSuccess(result);
       } else {
-        console.log('res', res);
+        console.log(jqXhr);
+        this.uploadFileFailure(jqXhr);
       }
     });
   }
@@ -72,6 +78,27 @@ class AttendaceManagementActions {
     }).fail((jqXhr) => {
       console.log(jqXhr);
       this.uploadAttendanceFromRosterFormFailure(jqXhr);
+    });
+  }
+
+  uploadRawText(uploadText, raidId, raidWeekId, weekday) {
+    if(uploadText == '') {
+      toastr.warning('You cannot upload an empty batch of text');
+      return;
+    }
+    var names = uploadText.split(',');
+    var data = {names: names, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday};
+
+    $.ajax({
+      method: 'POST',
+      url: '/api/attendance/admin/text',
+      data: data
+    }).done((result) => {
+      console.log(result);
+      this.uploadRawTextSuccess(result);
+    }).fail((jqXhr) => {
+      console.log(jqXhr);
+      this.uploadRawTextFailure(jqXhr);
     });
   }
 }

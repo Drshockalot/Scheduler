@@ -679,7 +679,7 @@ var AttendaceManagementActions = function () {
   function AttendaceManagementActions() {
     _classCallCheck(this, AttendaceManagementActions);
 
-    this.generateActions('loadComponentDataSuccess', 'loadComponentDataFailure', 'updateSelectRaidWeek', 'updateSelectWeekday', 'updateSelectRaid', 'updateSelectRoster', 'toggleCharacterState', 'uploadAttendanceFromRosterFormSuccess', 'uploadAttendanceFromRosterFormFailure', 'updateUploadText');
+    this.generateActions('loadComponentDataSuccess', 'loadComponentDataFailure', 'updateSelectRaidWeek', 'updateSelectWeekday', 'updateSelectRaid', 'updateSelectRoster', 'toggleCharacterState', 'uploadAttendanceFromRosterFormSuccess', 'uploadAttendanceFromRosterFormFailure', 'updateUploadText', 'uploadRawTextSuccess', 'uploadRawTextFailure', 'uploadFileSuccess', 'uploadFileFailure');
   }
 
   _createClass(AttendaceManagementActions, [{
@@ -699,16 +699,18 @@ var AttendaceManagementActions = function () {
       });
     }
   }, {
-    key: 'drop',
-    value: function drop(file) {
-      var test = new FormData();
-      test.append('test', file);
+    key: 'uploadFile',
+    value: function uploadFile(file) {
+      var fileData = new FormData();
+      fileData.append('attendance', file);
 
-      request.post('/api/attendance/admin').send(test).end(function (err, res) {
-        if (err) {
-          console.log('err -', err);
+      request.post('/api/attendance/admin/file').send(test).end(function (jqXhr, result) {
+        if (!jqXhr) {
+          console.log(result);
+          this.uploadFileSuccess(result);
         } else {
-          console.log('res', res);
+          console.log(jqXhr);
+          this.uploadFileFailure(jqXhr);
         }
       });
     }
@@ -742,6 +744,30 @@ var AttendaceManagementActions = function () {
       }).fail(function (jqXhr) {
         console.log(jqXhr);
         _this2.uploadAttendanceFromRosterFormFailure(jqXhr);
+      });
+    }
+  }, {
+    key: 'uploadRawText',
+    value: function uploadRawText(uploadText, raidId, raidWeekId, weekday) {
+      var _this3 = this;
+
+      if (uploadText == '') {
+        toastr.warning('You cannot upload an empty batch of text');
+        return;
+      }
+      var names = uploadText.split(',');
+      var data = { names: names, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday };
+
+      $.ajax({
+        method: 'POST',
+        url: '/api/attendance/admin/text',
+        data: data
+      }).done(function (result) {
+        console.log(result);
+        _this3.uploadRawTextSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this3.uploadRawTextFailure(jqXhr);
       });
     }
   }]);
@@ -4699,13 +4725,6 @@ var AttendanceManagement = function (_React$Component) {
       this.setState(state);
     }
   }, {
-    key: 'onDrop',
-    value: function onDrop(files) {
-      console.log('Received files: ', files);
-      console.log(files[0]);
-      _AttendanceManagementActions2.default.drop(files[0]);
-    }
-  }, {
     key: 'classColour',
     value: function classColour(character) {
       var currentClass = _underscore2.default.findWhere(wowClasses, { id: parseInt(character.class) }).name;
@@ -5054,7 +5073,9 @@ var AttendanceManagement = function (_React$Component) {
                         { className: 'col-md-8' },
                         _react2.default.createElement(
                           _reactDropzone2.default,
-                          { className: 'dropzone', onDrop: this.onDrop },
+                          { className: 'dropzone', onDrop: function onDrop(files) {
+                              return _AttendanceManagementActions2.default.uploadFile(files[0]);
+                            } },
                           _react2.default.createElement(
                             'div',
                             { className: 'dropzone-content' },
@@ -5083,7 +5104,9 @@ var AttendanceManagement = function (_React$Component) {
                           _react2.default.createElement('br', null),
                           _react2.default.createElement(
                             'button',
-                            { className: 'btn btn-default pull-right' },
+                            { className: 'btn btn-default pull-right', onClick: function onClick() {
+                                return _AttendanceManagementActions2.default.uploadRawText(_this2.state.uploadText, _this2.state.selectRaid, _this2.state.selectRaidWeek, _this2.state.selectWeekday);
+                              } },
                             'Upload'
                           )
                         )
@@ -9106,6 +9129,26 @@ var AttendanceManagementStore = function () {
     key: 'onUpdateUploadText',
     value: function onUpdateUploadText(value) {
       this.uploadText = value;
+    }
+  }, {
+    key: 'onUploadRawTextSuccess',
+    value: function onUploadRawTextSuccess(result) {
+      toastr.success('Attendance logged', 'Success');
+    }
+  }, {
+    key: 'onUploadRawTextFailure',
+    value: function onUploadRawTextFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onUploadFileSuccess',
+    value: function onUploadFileSuccess(result) {
+      toastr.success('Attendance logged', 'Success');
+    }
+  }, {
+    key: 'onUploadFileFailure',
+    value: function onUploadFileFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
     }
   }]);
 
