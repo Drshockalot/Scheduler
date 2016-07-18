@@ -46,7 +46,15 @@ router.post('/admin/file', upload.single('test'), function(req, res, next) {
 });
 
 router.post('/admin/text', function(req, res, next) {
-
+  console.log(req.body);
+  Character.where('name', 'in', req.body['names[]'])
+           .fetchAll()
+           .then(function(characters) {
+             console.log(characters.toJSON());
+           })
+           .catch(function(err) {
+             res.status(500).json({error: true, data: {message: err.message}});
+           });
 });
 
 router.post('/admin/roster', function(req, res, next) {
