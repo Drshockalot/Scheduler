@@ -39,9 +39,18 @@ router.get('/admin', function(req, res, next) {
            });
 });
 
-router.post('/admin/file', upload.single('attendance'), function(req, res, next) {
+router.post('/admin/file', upload.single('files.attendance'), function(req, res, next) {
   fs.readFile(req.file.path, 'utf8', function(err, data) {
-    console.log(data);
+    var names = data.split(',');
+    console.log(names);
+    Character.where('name', 'in', names)
+             .fetchAll()
+             .then(function(characters) {
+               console.log(characters.toJSON());
+             })
+             .catch(function(err) {
+               res.status(500).json({error: true, data: {message: err.message}});
+             });
   });
 });
 
@@ -50,7 +59,21 @@ router.post('/admin/text', function(req, res, next) {
   Character.where('name', 'in', req.body['names[]'])
            .fetchAll()
            .then(function(characters) {
-             console.log(characters.toJSON());
+             var insertRows = characters.toJSON().map(function(character) {
+               return {
+                 user_id: character.user_id,
+                 raid_week_id: req.body.raidWeekId,
+                 raid_id: req.body.raidId,
+                 week_day: req.body.weekday
+               };
+             });
+             knex.batchInsert('raid_attendance', insertRows)
+                 .then(function() {
+                   res.json({error: false, data: {message: "User Attendance inserted"}});
+                 })
+                 .catch(function(err) {
+                   res.status(500).json({error: true, data: {message: err.message}});
+                 });
            })
            .catch(function(err) {
              res.status(500).json({error: true, data: {message: err.message}});

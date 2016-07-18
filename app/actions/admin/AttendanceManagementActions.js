@@ -37,10 +37,10 @@ class AttendaceManagementActions {
     });
   }
 
-  uploadFile(file) {
+  uploadFile(file, raidId, raidWeekId, weekday) {
     var fileData = new FormData();
     fileData.append('attendance', file);
-
+    var data = {files: fileData, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday};
     request.post('/api/attendance/admin/file').send(fileData).end(function(jqXhr, result) {
       if(!jqXhr) {
         console.log(result);

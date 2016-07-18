@@ -110,6 +110,21 @@ class Home extends React.Component {
                 <tbody>
                   <tr>
                     <td>
+                      <h4>{moment('2016-07-18').format('MMM Do YYYY')}</h4>
+                      <ul>
+                        <li>
+                          <h5>Attendance Management</h5>
+                          <ul>
+                            <li>You can now input attendance by submitting raw text</li>
+                            <li>NOTE: Names must currently be comma delimited with no spaces, this will be more flexible in the future</li>
+                            <li>NOTE: There is not yet a way to view attendance</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       <h4>{moment('2016-07-17').format('MMM Do YYYY')}</h4>
                       <ul>
                         <li>

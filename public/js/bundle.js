@@ -700,10 +700,10 @@ var AttendaceManagementActions = function () {
     }
   }, {
     key: 'uploadFile',
-    value: function uploadFile(file) {
+    value: function uploadFile(file, raidId, raidWeekId, weekday) {
       var fileData = new FormData();
       fileData.append('attendance', file);
-
+      var data = { files: fileData, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday };
       request.post('/api/attendance/admin/file').send(fileData).end(function (jqXhr, result) {
         if (!jqXhr) {
           console.log(result);
@@ -1931,6 +1931,51 @@ var Home = function (_React$Component) {
                 _react2.default.createElement(
                   'tbody',
                   null,
+                  _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'h4',
+                        null,
+                        (0, _moment2.default)('2016-07-18').format('MMM Do YYYY')
+                      ),
+                      _react2.default.createElement(
+                        'ul',
+                        null,
+                        _react2.default.createElement(
+                          'li',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
+                            'Attendance Management'
+                          ),
+                          _react2.default.createElement(
+                            'ul',
+                            null,
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'You can now input attendance by submitting raw text'
+                            ),
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'NOTE: Names must currently be comma delimited with no spaces, this will be more flexible in the future'
+                            ),
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'NOTE: There is not yet a way to view attendance'
+                            )
+                          )
+                        )
+                      )
+                    )
+                  ),
                   _react2.default.createElement(
                     'tr',
                     null,
@@ -5074,7 +5119,7 @@ var AttendanceManagement = function (_React$Component) {
                         _react2.default.createElement(
                           _reactDropzone2.default,
                           { className: 'dropzone', onDrop: function onDrop(files) {
-                              return _AttendanceManagementActions2.default.uploadFile(files[0]);
+                              return _AttendanceManagementActions2.default.uploadFile(files[0], _this2.state.selectRaid, _this2.state.selectRaidWeek, _this2.state.selectWeekday);
                             } },
                           _react2.default.createElement(
                             'div',
