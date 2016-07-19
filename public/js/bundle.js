@@ -7397,6 +7397,9 @@ var ScheduleManagement = function (_React$Component) {
   }, {
     key: 'generateAvailabilityPopover',
     value: function generateAvailabilityPopover(availability, characterName, raidWeekDays) {
+      console.log(raidWeekDays);
+      console.log(availability);
+      console.log(characterName);
       var popover;
       if (availability) {
         var wed = raidWeekDays.wednesday && !availability.wednesday ? _react2.default.createElement(
@@ -7683,10 +7686,7 @@ var ScheduleManagement = function (_React$Component) {
             if (character.main_role == "Tank") {
               var char = _.findWhere(schedule_boss.characters, { id: character.id });
               var availability = _.findWhere(character.user.user_availability, { raid_week_id: this.state.selectedRaidWeek });
-              console.log(this.state.raidweeks);
-              console.log(this.state.selectedRaidWeek);
               var raidWeekDays = _.findWhere(this.state.raidweeks, { id: parseInt(this.state.selectedRaidWeek) });
-              console.log(raidWeekDays);
               var availabilityPopover = this.generateAvailabilityPopover(availability, character.name, raidWeekDays);
               var actionButton;
               if (char) {
