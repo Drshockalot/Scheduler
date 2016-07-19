@@ -7739,7 +7739,8 @@ var ScheduleManagement = function (_React$Component) {
             if (character.main_role == "Healer") {
               var char = _.findWhere(schedule_boss.characters, { id: character.id });
               var availability = _.findWhere(character.user.user_availability, { raid_week_id: this.state.selectedRaidWeek });
-              var availabilityPopover = this.generateAvailabilityPopover(availability, character.name);
+              var raidWeekDays = _.findWhere(this.state.raidweeks, { id: parseInt(this.state.selectedRaidWeek) });
+              var availabilityPopover = this.generateAvailabilityPopover(availability, character.name, raidWeekDays);
               var actionButton;
               if (char) {
                 healerCount++;
@@ -7755,11 +7756,13 @@ var ScheduleManagement = function (_React$Component) {
                     return _ScheduleManagementActions2.default.addCharacterToScheduleBoss(schedule_boss.id, character.id);
                   } });
               }
+              var backgroundColor = '';
+              if (!availability) backgroundColor = 'no-attendance-logged';else if (this.absenceLogged(availability, raidWeekDays)) backgroundColor = 'days-absent';
 
               var classCSS = this.classColour(character);
               return _react2.default.createElement(
                 'tr',
-                null,
+                { className: (0, _classnames2.default)(backgroundColor) },
                 _react2.default.createElement('td', { className: classCSS }),
                 _react2.default.createElement(
                   'td',
@@ -7789,7 +7792,8 @@ var ScheduleManagement = function (_React$Component) {
             if (character.main_role == "DPS") {
               var char = _.findWhere(schedule_boss.characters, { id: character.id });
               var availability = _.findWhere(character.user.user_availability, { raid_week_id: this.state.selectedRaidWeek });
-              var availabilityPopover = this.generateAvailabilityPopover(availability, character.name);
+              var raidWeekDays = _.findWhere(this.state.raidweeks, { id: parseInt(this.state.selectedRaidWeek) });
+              var availabilityPopover = this.generateAvailabilityPopover(availability, character.name, raidWeekDays);
               var actionButton;
               if (char) {
                 dpsCount++;
@@ -7805,11 +7809,13 @@ var ScheduleManagement = function (_React$Component) {
                     return _ScheduleManagementActions2.default.addCharacterToScheduleBoss(schedule_boss.id, character.id);
                   } });
               }
+              var backgroundColor = '';
+              if (!availability) backgroundColor = 'no-attendance-logged';else if (this.absenceLogged(availability, raidWeekDays)) backgroundColor = 'days-absent';
 
               var classCSS = this.classColour(character);
               return _react2.default.createElement(
                 'tr',
-                null,
+                { className: (0, _classnames2.default)(backgroundColor) },
                 _react2.default.createElement('td', { className: classCSS }),
                 _react2.default.createElement(
                   'td',

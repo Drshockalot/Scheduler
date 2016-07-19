@@ -261,7 +261,8 @@ class ScheduleManagement extends React.Component {
           if(character.main_role == "Healer") {
             var char = _.findWhere(schedule_boss.characters, {id: character.id});
             var availability = _.findWhere(character.user.user_availability, {raid_week_id: this.state.selectedRaidWeek});
-            var availabilityPopover = this.generateAvailabilityPopover(availability, character.name);
+            var raidWeekDays = _.findWhere(this.state.raidweeks, {id: parseInt(this.state.selectedRaidWeek)});
+            var availabilityPopover = this.generateAvailabilityPopover(availability, character.name, raidWeekDays);
             var actionButton;
             if(char) {
               healerCount++;
@@ -273,10 +274,15 @@ class ScheduleManagement extends React.Component {
                 <button className='btn btn-default btn-circle' onClick={() => ScheduleManagementActions.addCharacterToScheduleBoss(schedule_boss.id, character.id)}></button>
               );
             }
+            var backgroundColor = '';
+            if(!availability)
+              backgroundColor = 'no-attendance-logged';
+            else if (this.absenceLogged(availability, raidWeekDays))
+              backgroundColor = 'days-absent';
 
             var classCSS = this.classColour(character);
             return (
-              <tr>
+              <tr className={classNames(backgroundColor)}>
                 <td className={classCSS} />
                 <td className='col-sm-4 vert-align'>
                   {availabilityPopover}
@@ -297,7 +303,8 @@ class ScheduleManagement extends React.Component {
           if(character.main_role == "DPS") {
             var char = _.findWhere(schedule_boss.characters, {id: character.id});
             var availability = _.findWhere(character.user.user_availability, {raid_week_id: this.state.selectedRaidWeek});
-            var availabilityPopover = this.generateAvailabilityPopover(availability, character.name);
+            var raidWeekDays = _.findWhere(this.state.raidweeks, {id: parseInt(this.state.selectedRaidWeek)});
+            var availabilityPopover = this.generateAvailabilityPopover(availability, character.name, raidWeekDays);
             var actionButton;
             if(char) {
               dpsCount++;
@@ -309,10 +316,15 @@ class ScheduleManagement extends React.Component {
                 <button className='btn btn-default btn-circle' onClick={() => ScheduleManagementActions.addCharacterToScheduleBoss(schedule_boss.id, character.id)}></button>
               );
             }
+            var backgroundColor = '';
+            if(!availability)
+              backgroundColor = 'no-attendance-logged';
+            else if (this.absenceLogged(availability, raidWeekDays))
+              backgroundColor = 'days-absent';
 
             var classCSS = this.classColour(character);
             return (
-              <tr>
+              <tr className={classNames(backgroundColor)}>
                 <td className={classCSS} />
                 <td className='col-sm-4 vert-align'>
                   {availabilityPopover}
