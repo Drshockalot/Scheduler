@@ -218,7 +218,7 @@ class ScheduleManagement extends React.Component {
             var availability = _.findWhere(character.user.user_availability, {raid_week_id: this.state.selectedRaidWeek});
             console.log(this.state.raidweeks);
             console.log(this.state.selectedRaidWeek);
-            var raidWeekDays = _.findWhere(this.state.raidweeks, {id: parseInt(this.selectedRaidWeek)});
+            var raidWeekDays = _.findWhere(this.state.raidweeks, {id: parseInt(this.state.selectedRaidWeek)});
             console.log(raidWeekDays);
             var availabilityPopover = this.generateAvailabilityPopover(availability, character.name, raidWeekDays);
             var actionButton;
