@@ -7683,7 +7683,10 @@ var ScheduleManagement = function (_React$Component) {
             if (character.main_role == "Tank") {
               var char = _.findWhere(schedule_boss.characters, { id: character.id });
               var availability = _.findWhere(character.user.user_availability, { raid_week_id: this.state.selectedRaidWeek });
+              console.log(this.state.raidweeks);
+              console.log(this.state.selectedRaidWeek);
               var raidWeekDays = _.findWhere(this.state.raidweeks, { id: this.selectedRaidWeek });
+              console.log(raidWeekDays);
               var availabilityPopover = this.generateAvailabilityPopover(availability, character.name, raidWeekDays);
               var actionButton;
               if (char) {
