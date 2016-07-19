@@ -53,16 +53,23 @@ class ScheduleManagement extends React.Component {
     return classNames(ret, { 'col-sm-1' : true});;
   }
 
-  generateAvailabilityPopover(availability, characterName) {
+  generateAvailabilityPopover(availability, characterName, raidWeekDays) {
     var popover;
     if(availability) {
-      var wed = !availability.wednesday ? <div className='clearfix hand-cursor'><strong><span>Wednesday</span></strong></div> : null;
-      var thurs = !availability.thursday ? <div className='clearfix hand-cursor'><strong><span>Thursday</span></strong></div> : null;
-      var fri = !availability.friday ? <div className='clearfix hand-cursor'><strong><span>Friday</span></strong></div> : null;
-      var sat = !availability.saturday ? <div className='clearfix hand-cursor'><strong><span>Saturday</span></strong></div> : null;
-      var sun = !availability.sunday ? <div className='clearfix hand-cursor'><strong><span>Sunday</span></strong></div> : null;
-      var mon = !availability.monday ? <div className='clearfix hand-cursor'><strong><span>Monday</span></strong></div> : null;
-      var tues = !availability.tuesday ? <div className='clearfix hand-cursor'><strong><span>Tuesday</span></strong></div> : null;
+      var wed = raidWeekDays.wednesday && !availability.wednesday ? <div className='clearfix hand-cursor'><strong><span>Wednesday</span></strong></div> : null;
+      var thurs = raidWeekDays.thursday && !availability.thursday ? <div className='clearfix hand-cursor'><strong><span>Thursday</span></strong></div> : null;
+      var fri = raidWeekDays.friday && !availability.friday ? <div className='clearfix hand-cursor'><strong><span>Friday</span></strong></div> : null;
+      var sat = raidWeekDays.saturday && !availability.saturday ? <div className='clearfix hand-cursor'><strong><span>Saturday</span></strong></div> : null;
+      var sun = raidWeekDays.sunday && !availability.sunday ? <div className='clearfix hand-cursor'><strong><span>Sunday</span></strong></div> : null;
+      var mon = raidWeekDays.monday && !availability.monday ? <div className='clearfix hand-cursor'><strong><span>Monday</span></strong></div> : null;
+      var tues = raidWeekDays.tuesday && !availability.tuesday ? <div className='clearfix hand-cursor'><strong><span>Tuesday</span></strong></div> : null;
+      var none = availability.wednesday &&
+                 availability.thursday &&
+                 availability.friday &&
+                 availability.saturday &&
+                 availability.sunday &&
+                 availability.monday &&
+                 availability.tuesday ? <div className='clearfix hand-cursor'><strong><span>None</span></strong></div> : null;
 
       popover = (
         <Popover id={availability.id} title='Absence'>
@@ -73,6 +80,7 @@ class ScheduleManagement extends React.Component {
           {sun}
           {mon}
           {tues}
+          {none}
         </Popover>
       );
     } else {
@@ -90,6 +98,16 @@ class ScheduleManagement extends React.Component {
     );
 
     return trigger;
+  }
+
+  absenceLogged(availability, raidWeekDays) {
+    return (raidWeekDays.wednesday && !availability.wednesday) ||
+           (raidWeekDays.thursday && !availability.thursday) ||
+           (raidWeekDays.friday && !availability.friday) ||
+           (raidWeekDays.saturday && !availability.saturday) ||
+           (raidWeekDays.sunday && !availability.sunday) ||
+           (raidWeekDays.monday && !availability.monday) ||
+           (raidWeekDays.tuesday && !availability.tuesday);
   }
 
   render() {
@@ -198,7 +216,8 @@ class ScheduleManagement extends React.Component {
           if(character.main_role == "Tank") {
             var char = _.findWhere(schedule_boss.characters, {id: character.id});
             var availability = _.findWhere(character.user.user_availability, {raid_week_id: this.state.selectedRaidWeek});
-            var availabilityPopover = this.generateAvailabilityPopover(availability, character.name);
+            var raidWeekDays = _.findWhere(this.state.raidweeks, {id: this.selectedRaidWeek});
+            var availabilityPopover = this.generateAvailabilityPopover(availability, character.name, raidWeekDays);
             var actionButton;
             if(char) {
               tankCount++;
@@ -210,10 +229,15 @@ class ScheduleManagement extends React.Component {
                 <button className='btn btn-default btn-circle' onClick={() => ScheduleManagementActions.addCharacterToScheduleBoss(schedule_boss.id, character.id)}></button>
               );
             }
+            var backgroundColor = '';
+            if(!availability)
+              backgroundColor = 'no-attendance-logged';
+            else if (this.absenceLogged(availability, raidWeekDays))
+              backgroundColor = 'days-absent';
 
             var classCSS = this.classColour(character);
             return (
-              <tr>
+              <tr className={classNames(backgroundColor)}>
                 <td className={classCSS} />
                 <td className='col-sm-4 vert-align' >
                   {availabilityPopover}

@@ -7396,10 +7396,10 @@ var ScheduleManagement = function (_React$Component) {
     }
   }, {
     key: 'generateAvailabilityPopover',
-    value: function generateAvailabilityPopover(availability, characterName) {
+    value: function generateAvailabilityPopover(availability, characterName, raidWeekDays) {
       var popover;
       if (availability) {
-        var wed = !availability.wednesday ? _react2.default.createElement(
+        var wed = raidWeekDays.wednesday && !availability.wednesday ? _react2.default.createElement(
           'div',
           { className: 'clearfix hand-cursor' },
           _react2.default.createElement(
@@ -7412,7 +7412,7 @@ var ScheduleManagement = function (_React$Component) {
             )
           )
         ) : null;
-        var thurs = !availability.thursday ? _react2.default.createElement(
+        var thurs = raidWeekDays.thursday && !availability.thursday ? _react2.default.createElement(
           'div',
           { className: 'clearfix hand-cursor' },
           _react2.default.createElement(
@@ -7425,7 +7425,7 @@ var ScheduleManagement = function (_React$Component) {
             )
           )
         ) : null;
-        var fri = !availability.friday ? _react2.default.createElement(
+        var fri = raidWeekDays.friday && !availability.friday ? _react2.default.createElement(
           'div',
           { className: 'clearfix hand-cursor' },
           _react2.default.createElement(
@@ -7438,7 +7438,7 @@ var ScheduleManagement = function (_React$Component) {
             )
           )
         ) : null;
-        var sat = !availability.saturday ? _react2.default.createElement(
+        var sat = raidWeekDays.saturday && !availability.saturday ? _react2.default.createElement(
           'div',
           { className: 'clearfix hand-cursor' },
           _react2.default.createElement(
@@ -7451,7 +7451,7 @@ var ScheduleManagement = function (_React$Component) {
             )
           )
         ) : null;
-        var sun = !availability.sunday ? _react2.default.createElement(
+        var sun = raidWeekDays.sunday && !availability.sunday ? _react2.default.createElement(
           'div',
           { className: 'clearfix hand-cursor' },
           _react2.default.createElement(
@@ -7464,7 +7464,7 @@ var ScheduleManagement = function (_React$Component) {
             )
           )
         ) : null;
-        var mon = !availability.monday ? _react2.default.createElement(
+        var mon = raidWeekDays.monday && !availability.monday ? _react2.default.createElement(
           'div',
           { className: 'clearfix hand-cursor' },
           _react2.default.createElement(
@@ -7477,7 +7477,7 @@ var ScheduleManagement = function (_React$Component) {
             )
           )
         ) : null;
-        var tues = !availability.tuesday ? _react2.default.createElement(
+        var tues = raidWeekDays.tuesday && !availability.tuesday ? _react2.default.createElement(
           'div',
           { className: 'clearfix hand-cursor' },
           _react2.default.createElement(
@@ -7487,6 +7487,19 @@ var ScheduleManagement = function (_React$Component) {
               'span',
               null,
               'Tuesday'
+            )
+          )
+        ) : null;
+        var none = availability.wednesday && availability.thursday && availability.friday && availability.saturday && availability.sunday && availability.monday && availability.tuesday ? _react2.default.createElement(
+          'div',
+          { className: 'clearfix hand-cursor' },
+          _react2.default.createElement(
+            'strong',
+            null,
+            _react2.default.createElement(
+              'span',
+              null,
+              'None'
             )
           )
         ) : null;
@@ -7500,7 +7513,8 @@ var ScheduleManagement = function (_React$Component) {
           sat,
           sun,
           mon,
-          tues
+          tues,
+          none
         );
       } else {
         popover = _react2.default.createElement(
@@ -7533,6 +7547,11 @@ var ScheduleManagement = function (_React$Component) {
       );
 
       return trigger;
+    }
+  }, {
+    key: 'absenceLogged',
+    value: function absenceLogged(availability, raidWeekDays) {
+      return raidWeekDays.wednesday && !availability.wednesday || raidWeekDays.thursday && !availability.thursday || raidWeekDays.friday && !availability.friday || raidWeekDays.saturday && !availability.saturday || raidWeekDays.sunday && !availability.sunday || raidWeekDays.monday && !availability.monday || raidWeekDays.tuesday && !availability.tuesday;
     }
   }, {
     key: 'render',
@@ -7664,7 +7683,8 @@ var ScheduleManagement = function (_React$Component) {
             if (character.main_role == "Tank") {
               var char = _.findWhere(schedule_boss.characters, { id: character.id });
               var availability = _.findWhere(character.user.user_availability, { raid_week_id: this.state.selectedRaidWeek });
-              var availabilityPopover = this.generateAvailabilityPopover(availability, character.name);
+              var raidWeekDays = _.findWhere(this.state.raidweeks, { id: this.selectedRaidWeek });
+              var availabilityPopover = this.generateAvailabilityPopover(availability, character.name, raidWeekDays);
               var actionButton;
               if (char) {
                 tankCount++;
@@ -7680,11 +7700,13 @@ var ScheduleManagement = function (_React$Component) {
                     return _ScheduleManagementActions2.default.addCharacterToScheduleBoss(schedule_boss.id, character.id);
                   } });
               }
+              var backgroundColor = '';
+              if (!availability) backgroundColor = 'no-attendance-logged';else if (this.absenceLogged(availability, raidWeekDays)) backgroundColor = 'days-absent';
 
               var classCSS = this.classColour(character);
               return _react2.default.createElement(
                 'tr',
-                null,
+                { className: (0, _classnames2.default)(backgroundColor) },
                 _react2.default.createElement('td', { className: classCSS }),
                 _react2.default.createElement(
                   'td',
