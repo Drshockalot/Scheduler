@@ -7401,7 +7401,7 @@ var ScheduleManagement = function (_React$Component) {
       console.log(availability);
       console.log(characterName);
       var popover;
-      if (availability != undefined) {
+      if (availability) {
         var wed = raidWeekDays.wednesday && !availability.wednesday ? _react2.default.createElement(
           'div',
           { className: 'clearfix hand-cursor' },
