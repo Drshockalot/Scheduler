@@ -237,6 +237,8 @@ class ScheduleManagement extends React.Component {
               backgroundColor = 'no-attendance-logged';
             else if (this.absenceLogged(availability, raidWeekDays))
               backgroundColor = 'days-absent';
+            else
+              backgroundColor = '';
 
             var classCSS = this.classColour(character);
             return (
@@ -323,6 +325,8 @@ class ScheduleManagement extends React.Component {
               backgroundColor = 'no-attendance-logged';
             else if (this.absenceLogged(availability, raidWeekDays))
               backgroundColor = 'days-absent';
+            else
+              backgroundColor = '';
 
             var classCSS = this.classColour(character);
             return (
