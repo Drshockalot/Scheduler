@@ -7757,7 +7757,7 @@ var ScheduleManagement = function (_React$Component) {
                   } });
               }
               var backgroundColor = '';
-              if (!availability) backgroundColor = '';else if (this.absenceLogged(availability, raidWeekDays)) backgroundColor = 'days-absent';else backgroundColor = 'can-attend-all';
+              if (!availability) backgroundColor = 'no-attendance-logged';else if (this.absenceLogged(availability, raidWeekDays)) backgroundColor = 'days-absent';else backgroundColor = '';
 
               var classCSS = this.classColour(character);
               return _react2.default.createElement(
