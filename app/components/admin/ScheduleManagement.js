@@ -75,7 +75,7 @@ class ScheduleManagement extends React.Component {
                  availability.tuesday ? <div className='clearfix hand-cursor'><strong><span>None</span></strong></div> : null;
 
       popover = (
-        <Popover id={availability.id} title='Absence'>
+        <Popover id={availability.id} title='Absent'>
           {wed}
           {thurs}
           {fri}
@@ -88,7 +88,7 @@ class ScheduleManagement extends React.Component {
       );
     } else {
       popover = (
-        <Popover id={characterName} title='Absence'>
+        <Popover id={characterName} title='Absent'>
           <div className='clearfix hand-cursor'><strong><span>N/A</span></strong></div>
         </Popover>
       );

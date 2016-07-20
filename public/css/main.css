@@ -8304,7 +8304,7 @@ label {
   cursor: pointer;
   text-decoration: none;
 }
-.no-attendance-logged {
+.days-absent {
   background-color: rgba(63, 191, 95, 0.44);
 }
 .can-attend-all {
