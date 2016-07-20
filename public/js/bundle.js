@@ -1940,6 +1940,51 @@ var Home = function (_React$Component) {
                       _react2.default.createElement(
                         'h4',
                         null,
+                        (0, _moment2.default)('2016-07-20').format('MMM Do YYYY')
+                      ),
+                      _react2.default.createElement(
+                        'ul',
+                        null,
+                        _react2.default.createElement(
+                          'li',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
+                            'Schedule Management'
+                          ),
+                          _react2.default.createElement(
+                            'ul',
+                            null,
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'Absent days now correctly correlate with the raiding days of that week'
+                            ),
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'Users that have not yet entered their availability for that week have their character rows highlighted with a light red color'
+                            ),
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'User that have entered their availability for that week but are absent for some days have their character rows highlighted with a light yellow/orange color'
+                            )
+                          )
+                        )
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'h4',
+                        null,
                         (0, _moment2.default)('2016-07-18').format('MMM Do YYYY')
                       ),
                       _react2.default.createElement(

@@ -110,6 +110,21 @@ class Home extends React.Component {
                 <tbody>
                   <tr>
                     <td>
+                      <h4>{moment('2016-07-20').format('MMM Do YYYY')}</h4>
+                      <ul>
+                        <li>
+                          <h5>Schedule Management</h5>
+                          <ul>
+                            <li>Absent days now correctly correlate with the raiding days of that week</li>
+                            <li>Users that have not yet entered their availability for that week have their character rows highlighted with a light red color</li>
+                            <li>User that have entered their availability for that week but are absent for some days have their character rows highlighted with a light yellow/orange color</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       <h4>{moment('2016-07-18').format('MMM Do YYYY')}</h4>
                       <ul>
                         <li>
