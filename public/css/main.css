@@ -8305,10 +8305,10 @@ label {
   text-decoration: none;
 }
 .no-attendance-logged {
-  background-color: rgba(235, 106, 106, 0.69);
+  background-color: rgba(63, 191, 95, 0.44);
 }
-.days-absent {
-  background-color: rgba(235, 179, 106, 0.58);
+.can-attend-all {
+  background-color: rgba(63, 191, 95, 0.67);
 }
 #wrapper {
   padding-left: 0;
