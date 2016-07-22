@@ -95,7 +95,7 @@ class ProfileCharacters extends React.Component {
               <div className='form-group'>
                 <label className='col-sm-6 control-label'><strong>Main Role:</strong></label>
                 <div className='col-sm-6'>
-                  <select className='form-control' id='main-role' value={this.state.storedCharacters[index].main_role} onChange={e => {ProfileCharactersActions.handleMainRoleChange(e.target.value, index)}}>
+                  <select className='form-control' id='main-role' value={this.state.storedCharacters[index].main_role} onChange={e => ProfileCharactersActions.handleMainRoleChange(e.target.value, index)}>
                     <option key='Tank' value='Tank'>Tank</option>
                     <option key='Healer' value='Healer'>Healer</option>
                     <option key='DPS' value='DPS'>DPS</option>
@@ -105,7 +105,7 @@ class ProfileCharacters extends React.Component {
               <div className='form-group'>
                 <label className='col-sm-6 control-label'><strong>Off Role:</strong></label>
                 <div className='col-sm-6'>
-                  <select className='form-control' id='off-role' value={this.state.storedCharacters[index].off_role} onChange={e => {ProfileCharactersActions.handleOffRoleChange(e.target.value, index)}}>
+                  <select className='form-control' id='off-role' value={this.state.storedCharacters[index].off_role} onChange={e => ProfileCharactersActions.handleOffRoleChange(e.target.value, index)}>
                     <option key='Tank' value='Tank'>Tank</option>
                     <option key='Healer' value='Healer'>Healer</option>
                     <option key='DPS' value='DPS'>DPS</option>

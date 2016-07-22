@@ -2963,7 +2963,7 @@ var ProfileCharacters = function (_React$Component) {
                   _react2.default.createElement(
                     'select',
                     { className: 'form-control', id: 'main-role', value: _this2.state.storedCharacters[index].main_role, onChange: function onChange(e) {
-                        _ProfileCharactersActions2.default.handleMainRoleChange(e.target.value, index);
+                        return _ProfileCharactersActions2.default.handleMainRoleChange(e.target.value, index);
                       } },
                     _react2.default.createElement(
                       'option',
@@ -3001,7 +3001,7 @@ var ProfileCharacters = function (_React$Component) {
                   _react2.default.createElement(
                     'select',
                     { className: 'form-control', id: 'off-role', value: _this2.state.storedCharacters[index].off_role, onChange: function onChange(e) {
-                        _ProfileCharactersActions2.default.handleOffRoleChange(e.target.value, index);
+                        return _ProfileCharactersActions2.default.handleOffRoleChange(e.target.value, index);
                       } },
                     _react2.default.createElement(
                       'option',
@@ -4528,7 +4528,7 @@ var Admin = function (_React$Component) {
   _createClass(Admin, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
-      if (_NavbarStore2.default.getState().userRole === 'member' || _NavbarStore2.default.getState().userRole === '') {
+      if (_NavbarStore2.default.getState().userRole === 'member' || _NavbarStore2.default.getState().userRole === '' && _reactRouter.browserHistory) {
         _reactRouter.browserHistory.push('/');
         toastr.error('You do not have authorization to access Admin', 'YOU SHALL NOT PASS!!');
       }
