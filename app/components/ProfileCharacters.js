@@ -73,6 +73,7 @@ class ProfileCharacters extends React.Component {
                 character.rank = 'main';
                 ProfileCharactersActions.confirmCharacter(character);
               }}>Main</button>
+              &nbsp;&nbsp;
               <button className='btn btn-default' onClick={() => {
                 character.rank = 'alt';
                 ProfileCharactersActions.confirmCharacter(character);

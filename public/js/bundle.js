@@ -2885,6 +2885,7 @@ var ProfileCharacters = function (_React$Component) {
                   } },
                 'Main'
               ),
+              '  ',
               _react2.default.createElement(
                 'button',
                 { className: 'btn btn-default', onClick: function onClick() {
