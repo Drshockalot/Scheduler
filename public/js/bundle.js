@@ -2819,40 +2819,40 @@ var ProfileCharacters = function (_React$Component) {
         var retrievedCharactersCopy = this.state.retrievedCharacters;
         var arr = [];
         Object.keys(retrievedCharactersCopy).map(function (i) {
-          if (retrievedCharactersCopy[i].level >= 100 && retrievedCharactersCopy[i].guild === "DarkStorm") {
+          if (retrievedCharactersCopy[i].level >= 100 && retrievedCharactersCopy[i].guild === "DarkStorm" && retrievedCharactersCopy[i].realm === "Zenedar") {
             arr.push(retrievedCharactersCopy[i]);
           }
         });
 
-        retrievedCharactersList = arr.map(function (character) {
+        retrievedCharactersList = arr.map(function (character, index) {
           var characterRace = _.findWhere(races, { id: character.race }).name;
           var characterClass = _.findWhere(classes, { id: character.class }).name;
           return _react2.default.createElement(
             'tr',
-            { key: character.name },
+            { key: 'character' + index },
             _react2.default.createElement(
               'td',
-              { key: character.name },
+              { key: 'name' + index },
               character.name
             ),
             _react2.default.createElement(
               'td',
-              { key: characterClass },
+              { key: 'class' + index },
               characterClass
             ),
             _react2.default.createElement(
               'td',
-              { key: characterRace },
+              { key: 'race' + index },
               characterRace
             ),
             _react2.default.createElement(
               'td',
-              { key: character.realm },
+              { key: 'realm' + index },
               character.realm
             ),
             _react2.default.createElement(
               'td',
-              { key: 'main/alt' },
+              { key: 'rank' + index },
               _react2.default.createElement(
                 'button',
                 { className: 'btn btn-primary', onClick: function onClick() {
@@ -2905,7 +2905,7 @@ var ProfileCharacters = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6 control-label text-left' },
+                  { className: 'col-sm-6 control-label text-center vert-align' },
                   character.name
                 )
               ),
@@ -2923,7 +2923,7 @@ var ProfileCharacters = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6 control-label text-left' },
+                  { className: 'col-sm-6 control-label text-center vert-align' },
                   _.findWhere(classes, { id: parseInt(character.class) }).name
                 )
               ),
@@ -2941,7 +2941,7 @@ var ProfileCharacters = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6 control-label text-left' },
+                  { className: 'col-sm-6 control-label text-center vert-align' },
                   character.realm
                 )
               ),
@@ -3035,7 +3035,7 @@ var ProfileCharacters = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6 control-label text-left' },
+                  { className: 'col-sm-6 control-label text-center vert-align' },
                   character.average_ilvl
                 )
               ),
@@ -3053,8 +3053,8 @@ var ProfileCharacters = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6 control-label text-left' },
-                  character.confirmed
+                  { className: 'col-sm-6 control-label text-center vert-align' },
+                  character.confirmed ? 'Yes' : 'No'
                 )
               ),
               _react2.default.createElement(

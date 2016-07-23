@@ -37,21 +37,22 @@ class ProfileCharacters extends React.Component {
       var arr = [];
       Object.keys(retrievedCharactersCopy).map(function(i) {
         if(retrievedCharactersCopy[i].level >= 100 &&
-           retrievedCharactersCopy[i].guild === "DarkStorm") {
+           retrievedCharactersCopy[i].guild === "DarkStorm" &&
+           retrievedCharactersCopy[i].realm === "Zenedar") {
             arr.push(retrievedCharactersCopy[i]);
         }
       });
 
-      retrievedCharactersList = arr.map((character) => {
+      retrievedCharactersList = arr.map((character, index) => {
         var characterRace = _.findWhere(races, { id : character.race }).name;
         var characterClass = _.findWhere(classes, { id : character.class }).name;
         return (
-          <tr key={character.name}>
-            <td key={character.name}>{character.name}</td>
-            <td key={characterClass}>{characterClass}</td>
-            <td key={characterRace}>{characterRace}</td>
-            <td key={character.realm}>{character.realm}</td>
-            <td key='main/alt'>
+          <tr key={'character' + index}>
+            <td key={'name' + index}>{character.name}</td>
+            <td key={'class' + index}>{characterClass}</td>
+            <td key={'race' + index}>{characterRace}</td>
+            <td key={'realm' + index}>{character.realm}</td>
+            <td key={'rank' + index}>
               <button className='btn btn-primary' onClick={() => {
                 character.rank = 'main';
                 ProfileCharactersActions.confirmCharacter(character);
@@ -76,19 +77,19 @@ class ProfileCharacters extends React.Component {
             <div className='form-horizontal'>
               <div className='form-group'>
                 <label className='col-sm-6 control-label'><strong>Name:</strong></label>
-                <div className='col-sm-6 control-label text-left'>
+                <div className='col-sm-6 control-label text-center vert-align'>
                   {character.name}
                 </div>
               </div>
               <div className='form-group'>
                 <label className='col-sm-6 control-label'><strong>Class:</strong></label>
-                <div className='col-sm-6 control-label text-left'>
+                <div className='col-sm-6 control-label text-center vert-align'>
                   {_.findWhere(classes, { id : parseInt(character.class) }).name}
                 </div>
               </div>
               <div className='form-group'>
                 <label className='col-sm-6 control-label'><strong>Realm:</strong></label>
-                <div className='col-sm-6 control-label text-left'>
+                <div className='col-sm-6 control-label text-center vert-align'>
                   {character.realm}
                 </div>
               </div>
@@ -114,14 +115,14 @@ class ProfileCharacters extends React.Component {
               </div>
               <div className='form-group'>
                 <label className='col-sm-6 control-label'><strong>Average ilvl:</strong></label>
-                <div className='col-sm-6 control-label text-left'>
+                <div className='col-sm-6 control-label text-center vert-align'>
                   {character.average_ilvl}
                 </div>
               </div>
               <div className='form-group'>
                 <label className='col-sm-6 control-label'><strong>Admin Confirmed:</strong></label>
-                <div className='col-sm-6 control-label text-left'>
-                  {character.confirmed}
+                <div className='col-sm-6 control-label text-center vert-align'>
+                  {character.confirmed ? 'Yes' : 'No'}
                 </div>
               </div>
               <div className='form-group'>
