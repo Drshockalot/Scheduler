@@ -2756,7 +2756,7 @@ var Profile = function (_React$Component) {
     key: 'componentWillMount',
     value: function componentWillMount() {
       if (_NavbarStore2.default.getState().userRole === '' || _NavbarStore2.default.getState().userRole === '') {
-        if (browserHistory != undefined) {
+        if (typeof browserHistory != 'undefined') {
           browserHistory.push('/');
           toastr.error('Please log in to access this page', 'YOU SHALL NOT PASS!!');
         } else {
