@@ -23,7 +23,7 @@ var auth = function(nextState, replace) {
   var role = NavbarStore.getState().userRole;
   if(!localStorage.role || localStorage.role === '') {
     replace({
-      pathname: '/?somesneakyguy=1',
+      pathname: '/#?somesneakyguy=1',
       state: { nextPathname: nextState.location.pathname }
     });
   }

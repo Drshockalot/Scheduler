@@ -8481,7 +8481,7 @@ var auth = function auth(nextState, replace) {
   var role = _NavbarStore2.default.getState().userRole;
   if (!localStorage.role || localStorage.role === '') {
     replace({
-      pathname: '/?somesneakyguy=1',
+      pathname: '/#?somesneakyguy=1',
       state: { nextPathname: nextState.location.pathname }
     });
   }
