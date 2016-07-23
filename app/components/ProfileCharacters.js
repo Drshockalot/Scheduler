@@ -17,7 +17,7 @@ class ProfileCharacters extends React.Component {
 
   componentDidMount() {
     ProfileCharactersStore.listen(this.onChange);
-    ProfileCharactersActions.getStoredCharacters();
+    ProfileCharactersActions.getChosenCharacters();
   }
 
   componentWillUnmount() {
