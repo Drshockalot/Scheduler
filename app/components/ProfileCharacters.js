@@ -186,7 +186,7 @@ class ProfileCharacters extends React.Component {
                           <td><strong>Race</strong></td>
                           <td><strong>Realm</strong></td>
                           <td><strong>Rank</strong></td>
-                        </tr> 
+                        </tr>
                         {retrievedCharactersList}
                         </tbody>
                       </table>
@@ -194,7 +194,7 @@ class ProfileCharacters extends React.Component {
               </div>
             </div>
             <div className='row'>
-              <h3>Confirmed Characters</h3>
+              <h3>Chosen Characters</h3>
             </div>
             <div className='row'>
               {chosenCharactersList}
