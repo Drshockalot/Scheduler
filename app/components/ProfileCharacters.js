@@ -170,6 +170,8 @@ class ProfileCharacters extends React.Component {
               <div className='col-md-2'>
                 <div className='btn btn-primary' onClick={ProfileCharactersActions.retrieveProfileCharacters}>Retrieve Characters</div>
               </div>
+            </div>
+            <div className='row'>
               <div className='col-md-10'>
                 <h3>Valid Characters</h3>
                 <table className='table'>

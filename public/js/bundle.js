@@ -3146,7 +3146,11 @@ var ProfileCharacters = function (_React$Component) {
                   { className: 'btn btn-primary', onClick: _ProfileCharactersActions2.default.retrieveProfileCharacters },
                   'Retrieve Characters'
                 )
-              ),
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'row' },
               _react2.default.createElement(
                 'div',
                 { className: 'col-md-10' },
