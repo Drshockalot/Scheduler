@@ -19,16 +19,13 @@ class Profile extends React.Component {
         browserHistory.push('/');
         toastr.error('Please log in to access this page', 'YOU SHALL NOT PASS!!');
       } else {
-        this.redirect = true;
+        const { history } = this.props;
+        history.pushState(null, '/login');
       }
     }
   }
 
   componentDidMount() {
-    if(this.redirect) {
-      toastr.warning('Please do not refresh the browser manually yet, the ability to do this will be added in the near future', 'Sad face');
-      window.location = '/';
-    }
     ProfileStore.listen(this.onChange);
   }
 

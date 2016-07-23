@@ -2761,17 +2761,15 @@ var Profile = function (_React$Component) {
           browserHistory.push('/');
           toastr.error('Please log in to access this page', 'YOU SHALL NOT PASS!!');
         } else {
-          this.redirect = true;
+          var history = this.props.history;
+
+          history.pushState(null, '/login');
         }
       }
     }
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      if (this.redirect) {
-        toastr.warning('Please do not refresh the browser manually yet, the ability to do this will be added in the near future', 'Sad face');
-        window.location = '/';
-      }
       _ProfileStore2.default.listen(this.onChange);
     }
   }, {
