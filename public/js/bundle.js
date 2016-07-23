@@ -2808,6 +2808,21 @@ var ProfileCharacters = function (_React$Component) {
       this.setState(state);
     }
   }, {
+    key: 'classColour',
+    value: function classColour(character) {
+      var currentClass = _.findWhere(wowClasses, { id: parseInt(character.class) }).name;
+      var arr = currentClass.split(" ");
+
+      var ret = '';
+      for (var i = 0; i < arr.length; ++i) {
+        ret += arr[i].toLowerCase();
+        ret += '-';
+      }
+
+      ret += 'color';
+      return classNames(ret, { 'col-sm-1': true });;
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
@@ -2830,6 +2845,7 @@ var ProfileCharacters = function (_React$Component) {
           return _react2.default.createElement(
             'tr',
             { key: 'character' + index },
+            _react2.default.createElement('td', { key: 'color' + index, className: classColour(character) }),
             _react2.default.createElement(
               'td',
               { key: 'name' + index },
@@ -3070,7 +3086,7 @@ var ProfileCharacters = function (_React$Component) {
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-default', onClick: function onClick() {
-                        _ProfileCharactersActions2.default.saveStoredCharacterDetails(_this2.state.chosenCharacters[index]);
+                        _ProfileCharactersActions2.default.saveChosenCharacterDetails(_this2.state.chosenCharacters[index]);
                       } },
                     'Save'
                   ),
@@ -3086,7 +3102,7 @@ var ProfileCharacters = function (_React$Component) {
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-danger', onClick: function onClick() {
-                        _ProfileCharactersActions2.default.deleteStoredCharacter(_this2.state.chosenCharacters[index]);
+                        _ProfileCharactersActions2.default.deleteChosenCharacter(_this2.state.chosenCharacters[index]);
                       } },
                     'Delete'
                   )
@@ -3125,7 +3141,7 @@ var ProfileCharacters = function (_React$Component) {
                 _react2.default.createElement(
                   'h3',
                   null,
-                  'Level 100 Characters'
+                  'Valid Characters'
                 ),
                 _react2.default.createElement(
                   'table',
@@ -3182,7 +3198,15 @@ var ProfileCharacters = function (_React$Component) {
                         )
                       )
                     ),
-                    retrievedCharactersList
+                    this.state.retrievedCharacters.length > 0 ? retrievedCharactersList : _react2.default.createElement(
+                      'tr',
+                      null,
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'You have no stored characters'
+                      )
+                    )
                   )
                 )
               )

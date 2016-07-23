@@ -28,6 +28,20 @@ class ProfileCharacters extends React.Component {
     this.setState(state);
   }
 
+  classColour(character) {
+    let currentClass = _.findWhere(wowClasses, {id: parseInt(character.class)}).name;
+    var arr = currentClass.split(" ");
+
+    var ret = '';
+    for (var i = 0; i < arr.length; ++i) {
+      ret += arr[i].toLowerCase();
+      ret += '-';
+    }
+
+    ret += 'color';
+    return classNames(ret, { 'col-sm-1' : true});;
+  }
+
   render() {
     var retrievedCharactersList;
     var chosenCharactersList;
@@ -48,6 +62,7 @@ class ProfileCharacters extends React.Component {
         var characterClass = _.findWhere(classes, { id : character.class }).name;
         return (
           <tr key={'character' + index}>
+            <td key={'color' + index} className={classColour(character)}></td>
             <td key={'name' + index}>{character.name}</td>
             <td key={'class' + index}>{characterClass}</td>
             <td key={'race' + index}>{characterRace}</td>
@@ -128,7 +143,7 @@ class ProfileCharacters extends React.Component {
               <div className='form-group'>
                 <div className='col-sm-offset-4 col-xs-8'>
                   <button className='btn btn-default' onClick={() => {
-                    ProfileCharactersActions.saveStoredCharacterDetails(this.state.chosenCharacters[index]);
+                    ProfileCharactersActions.saveChosenCharacterDetails(this.state.chosenCharacters[index]);
                   }}>Save</button>
                   &nbsp;&nbsp;
                   <button className='btn btn-info' onClick={() => {
@@ -136,7 +151,7 @@ class ProfileCharacters extends React.Component {
                   }}>Update ilvl</button>
                   &nbsp;&nbsp;
                   <button className='btn btn-danger' onClick={() => {
-                    ProfileCharactersActions.deleteStoredCharacter(this.state.chosenCharacters[index]);
+                    ProfileCharactersActions.deleteChosenCharacter(this.state.chosenCharacters[index]);
                   }}>Delete</button>
                 </div>
               </div>
@@ -156,7 +171,7 @@ class ProfileCharacters extends React.Component {
                 <div className='btn btn-primary' onClick={ProfileCharactersActions.retrieveProfileCharacters}>Retrieve Characters</div>
               </div>
               <div className='col-md-10'>
-                <h3>Level 100 Characters</h3>
+                <h3>Valid Characters</h3>
                 <table className='table'>
                   <tbody>
                     <tr>
@@ -166,7 +181,7 @@ class ProfileCharacters extends React.Component {
                       <td><strong>Realm</strong></td>
                       <td><strong>Rank</strong></td>
                     </tr>
-                    {retrievedCharactersList}
+                    {this.state.retrievedCharacters.length > 0 ? retrievedCharactersList : <tr><strong>You have no stored characters</strong></tr>}
                   </tbody>
                 </table>
               </div>
