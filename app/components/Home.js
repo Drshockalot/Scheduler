@@ -133,6 +133,12 @@ class Home extends React.Component {
                             <li>Security measures have been improved on the site, severely limiting access without logging in first</li>
                           </ul>
                         </li>
+                        <li>
+                          <h5>Website usability</h5>
+                          <ul>
+                            <li>Refreshing the web page should no longer crash the website (let me know if it happens to you)</li>
+                          </ul>
+                        </li>
                       </ul>
                     </td>
                   </tr>

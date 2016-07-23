@@ -2007,6 +2007,24 @@ var Home = function (_React$Component) {
                               'Security measures have been improved on the site, severely limiting access without logging in first'
                             )
                           )
+                        ),
+                        _react2.default.createElement(
+                          'li',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
+                            'Website usability'
+                          ),
+                          _react2.default.createElement(
+                            'ul',
+                            null,
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'Refreshing the web page should no longer crash the website (let me know if it happens to you)'
+                            )
+                          )
                         )
                       )
                     )
