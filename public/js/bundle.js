@@ -2517,9 +2517,9 @@ var Navbar = function (_React$Component) {
   }, {
     key: 'logout',
     value: function logout() {
-      window.location = '/auth/bnet/logout';
       _reactCookie2.default.remove('battletag', { path: '/' });
       _reactCookie2.default.remove('token', { path: '/' });
+      window.location = '/auth/bnet/logout';
     }
   }, {
     key: 'hardLogout',
