@@ -200,7 +200,7 @@ var ProfileCharactersActions = function () {
   function ProfileCharactersActions() {
     _classCallCheck(this, ProfileCharactersActions);
 
-    this.generateActions('populateRetrievedCharactersSuccess', 'populateRetrievedCharactersFailure', 'confirmCharacterSuccess', 'confirmCharacterFailure', 'updateChosenCharactersSuccess', 'updateChosenCharactersFailure', 'handleMainRoleChange', 'handleOffRoleChange', 'saveChosenCharacterDetailsSuccess', 'saveChosenCharacterDetailsFailure', 'deleteChosenCharacterSuccess', 'deleteChosenCharacterFailure', 'retrieveAverageIlvlFailure', 'updateCharacterIlvl', 'getChosenCharactersSuccess', 'getChosenCharactersFailure');
+    this.generateActions('populateRetrievedCharactersSuccess', 'populateRetrievedCharactersFailure', 'confirmCharacterSuccess', 'confirmCharacterFailure', 'updateChosenCharactersSuccess', 'updateChosenCharactersFailure', 'handleMainRoleChange', 'handleOffRoleChange', 'saveChosenCharacterDetailsSuccess', 'saveChosenCharacterDetailsFailure', 'deleteChosenCharacterSuccess', 'deleteChosenCharacterFailure', 'retrieveAverageIlvlFailure', 'updateCharacterIlvl', 'getChosenCharactersSuccess', 'getChosenCharactersFailure', 'restoreState');
   }
 
   _createClass(ProfileCharactersActions, [{
@@ -2906,7 +2906,9 @@ var ProfileCharacters = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _ProfileCharactersStore2.default.listen(this.onChange);
-      if (sessionStorage.profileCharacters) this.setState(JSON.parse(sessionStorage.profileCharacters));else _ProfileCharactersActions2.default.getChosenCharacters();
+      if (sessionStorage.profileCharacters) {
+        _ProfileCharactersActions2.default.restoreState(JSON.parse(sessionStorage.profileCharacters));
+      } else _ProfileCharactersActions2.default.getChosenCharacters();
     }
   }, {
     key: 'componentWillUnmount',
@@ -8851,6 +8853,13 @@ var ProfileCharactersStore = function () {
     value: function onUpdateCharacterIlvl(values) {
       this.chosenCharacters[values[1]].average_ilvl = values[0];
       toastr.success('Character ilvl has been updated', 'Character Confirmed');
+    }
+  }, {
+    key: 'onRestoreState',
+    value: function onRestoreState(state) {
+      for (var key in state) {
+        this[key] = state[key];
+      }
     }
   }]);
 

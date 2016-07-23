@@ -20,7 +20,8 @@ class ProfileCharactersActions {
       'retrieveAverageIlvlFailure',
       'updateCharacterIlvl',
       'getChosenCharactersSuccess',
-      'getChosenCharactersFailure'
+      'getChosenCharactersFailure',
+      'restoreState'
     );
   }
 

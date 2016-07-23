@@ -18,8 +18,9 @@ class ProfileCharacters extends React.Component {
 
   componentDidMount() {
     ProfileCharactersStore.listen(this.onChange);
-    if(sessionStorage.profileCharacters)
-      this.setState(JSON.parse(sessionStorage.profileCharacters));
+    if(sessionStorage.profileCharacters) {
+      ProfileCharactersActions.restoreState(JSON.parse(sessionStorage.profileCharacters));
+    }
     else
       ProfileCharactersActions.getChosenCharacters();
   }

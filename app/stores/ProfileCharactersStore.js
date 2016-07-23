@@ -73,6 +73,12 @@ class ProfileCharactersStore {
     this.chosenCharacters[values[1]].average_ilvl = values[0];
     toastr.success('Character ilvl has been updated', 'Character Confirmed');
   }
+
+  onRestoreState(state) {
+    for (var key in state) {
+      this[key] = state[key];
+    }
+  }
 }
 
 export default alt.createStore(ProfileCharactersStore);
