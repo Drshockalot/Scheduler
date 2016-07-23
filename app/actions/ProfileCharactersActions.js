@@ -1,7 +1,6 @@
 import alt from '../alt';
 import {assign} from 'underscore';
 import NavbarStore from '../stores/NavbarStore';
-import cookie from 'react-cookie';
 
 class ProfileCharactersActions {
   constructor() {
@@ -28,7 +27,7 @@ class ProfileCharactersActions {
   retrieveProfileCharacters() {
     $.ajax({
       method: 'GET',
-      url: 'https://eu.api.battle.net/wow/user/characters?locale=en_GB&apikey=8fc24vcgky6r8yzja8a4efxncgu8z77g&access_token=' + cookie.load('token')
+      url: 'https://eu.api.battle.net/wow/user/characters?locale=en_GB&apikey=8fc24vcgky6r8yzja8a4efxncgu8z77g&access_token=' + NavbarStore.getState().accessToken
     }).done((data) => {
       this.populateRetrievedCharactersSuccess(data);
     }).fail((jqXhr) => {
@@ -40,7 +39,7 @@ class ProfileCharactersActions {
   getChosenCharacters() {
     $.ajax({
       method: 'GET',
-      url: '/api/character/confirmed/' + encodeURIComponent(cookie.load('battletag'))
+      url: '/api/character/confirmed/' + encodeURIComponent(NavbarStore.getState().battletag)
     }).done((result) => {
       console.log(result);
       this.getChosenCharactersSuccess(result);
@@ -55,7 +54,7 @@ class ProfileCharactersActions {
     character.battletag = NavbarStore.getState().battletag;
     $.ajax({
       method: 'POST',
-      url: '/api/character/confirm/' + encodeURIComponent(cookie.load('battletag')),
+      url: '/api/character/confirm/' + encodeURIComponent(NavbarStore.getState().battletag),
       data: character
     }).done((result) => {
       console.log(result);

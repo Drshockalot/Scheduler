@@ -23,8 +23,6 @@ router.get('/bnet/status', function(req, res, next) {
   if(req.user == undefined) {
     res.send(null);
   } else {
-    cookie.setRawCookie('battletag=' + req.user.battletag);
-    cookie.setRawCookie('token=' + req.user.token);
     res.send(req.user);
   }
 });
