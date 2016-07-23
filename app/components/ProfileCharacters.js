@@ -68,11 +68,11 @@ class ProfileCharacters extends React.Component {
     }
 
     if(this.state.storedCharacters.length > 0) {
-      storedCharactersList = this.state.storedCharacters.map((character, index) => {
+      storedCharactersList = _.sortBy(this.state.storedCharacters, 'rank').reverse().map((character, index) => {
         return (
           <div className='col-md-4'>
             <div className='col-sm-offset-4 col-xs-8 text-center'>
-              <h4>{character.rank}</h4>
+              <h3>{character.rank}</h3>
             </div>
             <div className='form-horizontal'>
               <div className='form-group'>
@@ -120,20 +120,20 @@ class ProfileCharacters extends React.Component {
                 </div>
               </div>
               <div className='form-group'>
-                <label className='col-sm-4 control-label'><strong>Admin Confirmed:</strong></label>
+                <label className='col-sm-4 control-label'><strong>Confirmed:</strong></label>
                 <div className='col-xs-8 text-center vert-align'>
                   {character.confirmed ? 'Yes' : 'No'}
                 </div>
               </div>
               <div className='form-group'>
                 <div className='col-sm-offset-4 col-xs-8'>
-                  <button className='btn btn-info' onClick={() => {
-                    ProfileCharactersActions.updateIlvlForCharacter(this.state.storedCharacters[index], index);
-                  }}>Update ilvl</button>
-                  &nbsp;&nbsp;
                   <button className='btn btn-default' onClick={() => {
                     ProfileCharactersActions.saveStoredCharacterDetails(this.state.storedCharacters[index]);
                   }}>Save</button>
+                  &nbsp;&nbsp;
+                  <button className='btn btn-info' onClick={() => {
+                    ProfileCharactersActions.updateIlvlForCharacter(this.state.storedCharacters[index], index);
+                  }}>Update ilvl</button>
                   &nbsp;&nbsp;
                   <button className='btn btn-danger' onClick={() => {
                     ProfileCharactersActions.deleteStoredCharacter(this.state.storedCharacters[index]);

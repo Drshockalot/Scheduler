@@ -2875,7 +2875,7 @@ var ProfileCharacters = function (_React$Component) {
       }
 
       if (this.state.storedCharacters.length > 0) {
-        storedCharactersList = this.state.storedCharacters.map(function (character, index) {
+        storedCharactersList = _.sortBy(this.state.storedCharacters, 'rank').reverse().map(function (character, index) {
           return _react2.default.createElement(
             'div',
             { className: 'col-md-4' },
@@ -2883,7 +2883,7 @@ var ProfileCharacters = function (_React$Component) {
               'div',
               { className: 'col-sm-offset-4 col-xs-8 text-center' },
               _react2.default.createElement(
-                'h4',
+                'h3',
                 null,
                 character.rank
               )
@@ -3048,7 +3048,7 @@ var ProfileCharacters = function (_React$Component) {
                   _react2.default.createElement(
                     'strong',
                     null,
-                    'Admin Confirmed:'
+                    'Confirmed:'
                   )
                 ),
                 _react2.default.createElement(
@@ -3065,18 +3065,18 @@ var ProfileCharacters = function (_React$Component) {
                   { className: 'col-sm-offset-4 col-xs-8' },
                   _react2.default.createElement(
                     'button',
-                    { className: 'btn btn-info', onClick: function onClick() {
-                        _ProfileCharactersActions2.default.updateIlvlForCharacter(_this2.state.storedCharacters[index], index);
-                      } },
-                    'Update ilvl'
-                  ),
-                  '  ',
-                  _react2.default.createElement(
-                    'button',
                     { className: 'btn btn-default', onClick: function onClick() {
                         _ProfileCharactersActions2.default.saveStoredCharacterDetails(_this2.state.storedCharacters[index]);
                       } },
                     'Save'
+                  ),
+                  '  ',
+                  _react2.default.createElement(
+                    'button',
+                    { className: 'btn btn-info', onClick: function onClick() {
+                        _ProfileCharactersActions2.default.updateIlvlForCharacter(_this2.state.storedCharacters[index], index);
+                      } },
+                    'Update ilvl'
                   ),
                   '  ',
                   _react2.default.createElement(
