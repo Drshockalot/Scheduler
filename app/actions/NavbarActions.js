@@ -27,9 +27,7 @@ class NavbarActions {
     }).done((data) => {
       if(data) {
         this.updateBattletag(data.battletag);
-        cookie.save('battletag', data.battletag, { path: '/' });
         this.updateAccessToken(data.token);
-        cookie.save('token', data.token, { path: '/' });
         $.ajax({
           method: 'POST',
           url: '/api/user/log',

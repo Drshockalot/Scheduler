@@ -183,7 +183,7 @@ class ProfileCharacters extends React.Component {
                       <td><strong>Realm</strong></td>
                       <td><strong>Rank</strong></td>
                     </tr>
-                    {this.state.retrievedCharacters.length > 0 ? retrievedCharactersList : <tr><td><strong>You have no stored characters</strong></td></tr>}
+                    {this.state.retrievedCharacters.length > 0 ? retrievedCharactersList : <tr><td><strong>Press the Retrieve Characters button to display your valid characters</strong></td></tr>}
                   </tbody>
                 </table>
               </div>

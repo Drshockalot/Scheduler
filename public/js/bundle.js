@@ -112,9 +112,7 @@ var NavbarActions = function () {
       }).done(function (data) {
         if (data) {
           _this.updateBattletag(data.battletag);
-          _reactCookie2.default.save('battletag', data.battletag, { path: '/' });
           _this.updateAccessToken(data.token);
-          _reactCookie2.default.save('token', data.token, { path: '/' });
           $.ajax({
             method: 'POST',
             url: '/api/user/log',
@@ -2443,10 +2441,6 @@ var _NavbarActions = require('../actions/NavbarActions');
 
 var _NavbarActions2 = _interopRequireDefault(_NavbarActions);
 
-var _reactCookie = require('react-cookie');
-
-var _reactCookie2 = _interopRequireDefault(_reactCookie);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2517,8 +2511,6 @@ var Navbar = function (_React$Component) {
   }, {
     key: 'logout',
     value: function logout() {
-      _reactCookie2.default.remove('battletag', { path: '/' });
-      _reactCookie2.default.remove('token', { path: '/' });
       window.location = '/auth/bnet/logout';
     }
   }, {
@@ -2655,7 +2647,7 @@ var Navbar = function (_React$Component) {
 
 exports.default = Navbar;
 
-},{"../actions/NavbarActions":3,"../stores/NavbarStore":44,"react":"react","react-cookie":300,"react-router":"react-router"}],24:[function(require,module,exports){
+},{"../actions/NavbarActions":3,"../stores/NavbarStore":44,"react":"react","react-router":"react-router"}],24:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3223,7 +3215,7 @@ var ProfileCharacters = function (_React$Component) {
                         _react2.default.createElement(
                           'strong',
                           null,
-                          'You have no stored characters'
+                          'Press the Retrieve Characters button to display your valid characters'
                         )
                       )
                     )
