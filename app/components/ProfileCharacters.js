@@ -71,8 +71,8 @@ class ProfileCharacters extends React.Component {
       storedCharactersList = this.state.storedCharacters.map((character, index) => {
         return (
           <div className='col-md-4'>
-            <div className='col-sm-offset-4 col-xs-8'>
-              <h2>{character.rank}</h2>
+            <div className='col-sm-offset-4 col-xs-8 text-center'>
+              <h4>{character.rank}</h4>
             </div>
             <div className='form-horizontal'>
               <div className='form-group'>
@@ -127,20 +127,10 @@ class ProfileCharacters extends React.Component {
               </div>
               <div className='form-group'>
                 <div className='col-sm-offset-4 col-xs-8'>
-                  <button className='btn btn-default' onClick={() => {
-                    ProfileCharactersActions.saveStoredCharacterDetails(this.state.storedCharacters[index]);
-                  }}>Save</button>
-                </div>
-              </div>
-              <div className='form-group'>
-                <div className='col-sm-offset-4 col-xs-8'>
                   <button className='btn btn-danger' onClick={() => {
                     ProfileCharactersActions.deleteStoredCharacter(this.state.storedCharacters[index]);
                   }}>Delete</button>
-                </div>
-              </div>
-              <div className='form-group'>
-                <div className='col-sm-offset-4 col-xs-8'>
+                  &nbsp;&nbsp;
                   <button className='btn btn-info' onClick={() => {
                     ProfileCharactersActions.updateIlvlForCharacter(this.state.storedCharacters[index], index);
                   }}>Update ilvl</button>
