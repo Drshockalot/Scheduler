@@ -1712,7 +1712,7 @@ var Home = function (_React$Component) {
       _HomeStore2.default.listen(this.onChange);
       _HomeActions2.default.loadComponentData();
       if (this.props.location.query.somesneakyguy) {
-        toastr.error('You do not have authorization to access this page', 'YOU SHALL NOT PASS!!');
+        toastr.error('You do not have authorization to access this page, please log in', 'YOU SHALL NOT PASS!!');
       }
     }
   }, {
