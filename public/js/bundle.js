@@ -2758,10 +2758,11 @@ var Profile = function (_React$Component) {
       if (_NavbarStore2.default.getState().userRole === '' || _NavbarStore2.default.getState().userRole === '') {
         if (!browserHistory) {
           browserHistory.push('/');
+          toastr.error('Please log in to access this page', 'YOU SHALL NOT PASS!!');
         } else {
           window.location = '/';
+          toastr.warning('Please do not refresh the browser manually yet, the ability to do this will be added in the near future', 'Sad face');
         }
-        toastr.error('Please log in to access this page', 'YOU SHALL NOT PASS!!');
       }
     }
   }, {
