@@ -2762,14 +2762,16 @@ var Profile = function (_React$Component) {
           toastr.error('Please log in to access this page', 'YOU SHALL NOT PASS!!');
         } else {
           this.redirect = true;
-          toastr.warning('Please do not refresh the browser manually yet, the ability to do this will be added in the near future', 'Sad face');
         }
       }
     }
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      browserHistory.push('/');
+      if (this.redirect) {
+        browserHistory.push('/');
+        toastr.warning('Please do not refresh the browser manually yet, the ability to do this will be added in the near future', 'Sad face');
+      }
       _ProfileStore2.default.listen(this.onChange);
     }
   }, {
