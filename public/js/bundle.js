@@ -7971,7 +7971,7 @@ var ScheduleManagement = function (_React$Component) {
               } });
           }
 
-          if (!localStorage || localStorage.loggedin != 'y') return null;
+          if (!localStorage.loggedin || localStorage.loggedin != 'y') return null;
 
           return _react2.default.createElement(
             'div',
