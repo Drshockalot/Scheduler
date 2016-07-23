@@ -3334,61 +3334,61 @@ var ProfileRaidWeeks = function (_React$Component) {
             user_availabilityRow = _react2.default.createElement(
               'tr',
               null,
-              _react2.default.createElement('td', null),
-              _react2.default.createElement('td', null),
-              _react2.default.createElement('td', null),
+              _react2.default.createElement('td', { className: 'col-xs-1' }),
+              _react2.default.createElement('td', { className: 'col-xs-1' }),
+              _react2.default.createElement('td', { className: 'col-xs-1' }),
               _react2.default.createElement(
                 'td',
-                null,
-                _react2.default.createElement('input', { type: 'checkbox', checked: user_availability.wednesday, onChange: function onChange() {
+                { className: 'col-xs-1' },
+                _react2.default.createElement('input', { type: 'checkbox', disabled: raidweek.wednesday ? 'disabled' : '', checked: user_availability.wednesday, onChange: function onChange() {
                     return _ProfileRaidWeeksActions2.default.toggleUserAvailabilityDay(user_availability.id, 'wednesday');
                   } })
               ),
               _react2.default.createElement(
                 'td',
-                null,
-                _react2.default.createElement('input', { type: 'checkbox', checked: user_availability.thursday, onChange: function onChange() {
+                { className: 'col-xs-1' },
+                _react2.default.createElement('input', { type: 'checkbox', disabled: raidweek.wednesday ? 'disabled' : '', checked: user_availability.thursday, onChange: function onChange() {
                     return _ProfileRaidWeeksActions2.default.toggleUserAvailabilityDay(user_availability.id, 'thursday');
                   } })
               ),
               _react2.default.createElement(
                 'td',
-                null,
-                _react2.default.createElement('input', { type: 'checkbox', checked: user_availability.friday, onChange: function onChange() {
+                { className: 'col-xs-1' },
+                _react2.default.createElement('input', { type: 'checkbox', disabled: raidweek.wednesday ? 'disabled' : '', checked: user_availability.friday, onChange: function onChange() {
                     return _ProfileRaidWeeksActions2.default.toggleUserAvailabilityDay(user_availability.id, 'friday');
                   } })
               ),
               _react2.default.createElement(
                 'td',
-                null,
-                _react2.default.createElement('input', { type: 'checkbox', checked: user_availability.saturday, onChange: function onChange() {
+                { className: 'col-xs-1' },
+                _react2.default.createElement('input', { type: 'checkbox', disabled: raidweek.wednesday ? 'disabled' : '', checked: user_availability.saturday, onChange: function onChange() {
                     return _ProfileRaidWeeksActions2.default.toggleUserAvailabilityDay(user_availability.id, 'saturday');
                   } })
               ),
               _react2.default.createElement(
                 'td',
-                null,
-                _react2.default.createElement('input', { type: 'checkbox', checked: user_availability.sunday, onChange: function onChange() {
+                { className: 'col-xs-1' },
+                _react2.default.createElement('input', { type: 'checkbox', disabled: raidweek.wednesday ? 'disabled' : '', checked: user_availability.sunday, onChange: function onChange() {
                     return _ProfileRaidWeeksActions2.default.toggleUserAvailabilityDay(user_availability.id, 'sunday');
                   } })
               ),
               _react2.default.createElement(
                 'td',
-                null,
-                _react2.default.createElement('input', { type: 'checkbox', checked: user_availability.monday, onChange: function onChange() {
+                { className: 'col-xs-1' },
+                _react2.default.createElement('input', { type: 'checkbox', disabled: raidweek.wednesday ? 'disabled' : '', checked: user_availability.monday, onChange: function onChange() {
                     return _ProfileRaidWeeksActions2.default.toggleUserAvailabilityDay(user_availability.id, 'monday');
                   } })
               ),
               _react2.default.createElement(
                 'td',
-                null,
-                _react2.default.createElement('input', { type: 'checkbox', checked: user_availability.tuesday, onChange: function onChange() {
+                { className: 'col-xs-1' },
+                _react2.default.createElement('input', { type: 'checkbox', disabled: raidweek.wednesday ? 'disabled' : '', checked: user_availability.tuesday, onChange: function onChange() {
                     return _ProfileRaidWeeksActions2.default.toggleUserAvailabilityDay(user_availability.id, 'tuesday');
                   } })
               ),
               _react2.default.createElement(
                 'td',
-                null,
+                { className: 'col-xs-2' },
                 _react2.default.createElement(
                   'button',
                   { className: 'btn btn-primary', onClick: function onClick() {
@@ -3402,19 +3402,19 @@ var ProfileRaidWeeks = function (_React$Component) {
             user_availabilityRow = _react2.default.createElement(
               'tr',
               null,
-              _react2.default.createElement('td', null),
-              _react2.default.createElement('td', null),
-              _react2.default.createElement('td', null),
-              _react2.default.createElement('td', null),
-              _react2.default.createElement('td', null),
-              _react2.default.createElement('td', null),
-              _react2.default.createElement('td', null),
-              _react2.default.createElement('td', null),
-              _react2.default.createElement('td', null),
-              _react2.default.createElement('td', null),
+              _react2.default.createElement('td', { className: 'col-xs-1' }),
+              _react2.default.createElement('td', { className: 'col-xs-1' }),
+              _react2.default.createElement('td', { className: 'col-xs-1' }),
+              _react2.default.createElement('td', { className: 'col-xs-1' }),
+              _react2.default.createElement('td', { className: 'col-xs-1' }),
+              _react2.default.createElement('td', { className: 'col-xs-1' }),
+              _react2.default.createElement('td', { className: 'col-xs-1' }),
+              _react2.default.createElement('td', { className: 'col-xs-1' }),
+              _react2.default.createElement('td', { className: 'col-xs-1' }),
+              _react2.default.createElement('td', { className: 'col-xs-1' }),
               _react2.default.createElement(
                 'td',
-                null,
+                { className: 'col-xs-2' },
                 _react2.default.createElement(
                   'button',
                   { className: 'btn btn-primary', onClick: function onClick() {
@@ -3439,7 +3439,7 @@ var ProfileRaidWeeks = function (_React$Component) {
                   null,
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-1' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -3448,7 +3448,7 @@ var ProfileRaidWeeks = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-1' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -3457,7 +3457,7 @@ var ProfileRaidWeeks = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-1' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -3466,7 +3466,7 @@ var ProfileRaidWeeks = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-1' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -3475,7 +3475,7 @@ var ProfileRaidWeeks = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-1' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -3484,7 +3484,7 @@ var ProfileRaidWeeks = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-1' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -3493,7 +3493,7 @@ var ProfileRaidWeeks = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-1' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -3502,7 +3502,7 @@ var ProfileRaidWeeks = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-1' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -3511,7 +3511,7 @@ var ProfileRaidWeeks = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-1' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -3520,7 +3520,7 @@ var ProfileRaidWeeks = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-1' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -3533,52 +3533,52 @@ var ProfileRaidWeeks = function (_React$Component) {
                   null,
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-1' },
                     (0, _moment2.default)(raidweek.start).format('DD[/]MM[/]YYYY')
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-1' },
                     (0, _moment2.default)(raidweek.end).format('DD[/]MM[/]YYYY')
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-1' },
                     (0, _moment2.default)(raidweek.start).format('W')
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-1' },
                     _react2.default.createElement('input', { type: 'checkbox', checked: raidweek.wednesday, disabled: 'disabled' })
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-1' },
                     _react2.default.createElement('input', { type: 'checkbox', checked: raidweek.thursday, disabled: 'disabled' })
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-1' },
                     _react2.default.createElement('input', { type: 'checkbox', checked: raidweek.friday, disabled: 'disabled' })
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-1' },
                     _react2.default.createElement('input', { type: 'checkbox', checked: raidweek.saturday, disabled: 'disabled' })
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-1' },
                     _react2.default.createElement('input', { type: 'checkbox', checked: raidweek.sunday, disabled: 'disabled' })
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-1' },
                     _react2.default.createElement('input', { type: 'checkbox', checked: raidweek.monday, disabled: 'disabled' })
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-1' },
                     _react2.default.createElement('input', { type: 'checkbox', checked: raidweek.tuesday, disabled: 'disabled' })
                   )
                 ),
@@ -8828,14 +8828,6 @@ var ProfileRaidWeeksStore = function () {
   }, {
     key: 'onToggleUserAvailabilityDay',
     value: function onToggleUserAvailabilityDay(values) {
-      // var user_availability = _.findWhere(this.user_availability, {id: values[0]});
-      // user_availability[day] = !user_availability[day];
-      // for(var obj in this.user_availability) {
-      //   if(values[0] == obj.id) {
-      //     obj[values[1]] = !obj[values[1]];
-      //   }
-      // }
-
       for (var i = 0; i < this.user_availability.length; ++i) {
         if (values[0] == this.user_availability[i].id) {
           this.user_availability[i][values[1]] = !this.user_availability[i][values[1]];
