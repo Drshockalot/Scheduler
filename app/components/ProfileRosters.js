@@ -14,11 +14,14 @@ class ProfileRosters extends React.Component {
 
   componentDidMount() {
     ProfileRostersStore.listen(this.onChange);
+    if(sessionStorage.profileRosters)
+      ProfileRostersActions.restoreState(JSON.parse(sessionStorage.profileRosters));
     ProfileRostersActions.getComponentData();
   }
 
   componentWillUnmount() {
     ProfileRostersStore.unlisten(this.onChange);
+    sessionStorage.profileRosters = JSON.stringify(this.state);
   }
 
   onChange(state) {

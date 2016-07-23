@@ -44,7 +44,7 @@ var HomeActions = function () {
   function HomeActions() {
     _classCallCheck(this, HomeActions);
 
-    this.generateActions('loadComponentDataSuccess', 'loadComponentDataFailure');
+    this.generateActions('loadComponentDataSuccess', 'loadComponentDataFailure', 'restoreState');
   }
 
   _createClass(HomeActions, [{
@@ -99,7 +99,7 @@ var NavbarActions = function () {
   function NavbarActions() {
     _classCallCheck(this, NavbarActions);
 
-    this.generateActions('updateOnlineUsers', 'updateAjaxAnimation', 'updateSearchQuery', 'getCharacterCountSuccess', 'getCharacterCountFail', 'findCharacterSuccess', 'findCharacterFail', 'updateBattletag', 'updateAccessToken', 'checkLoginFailure', 'checkUserSuccess', 'checkUserFailure');
+    this.generateActions('updateOnlineUsers', 'updateAjaxAnimation', 'updateSearchQuery', 'getCharacterCountSuccess', 'getCharacterCountFail', 'findCharacterSuccess', 'findCharacterFail', 'updateBattletag', 'updateAccessToken', 'checkLoginFailure', 'checkUserSuccess', 'checkUserFailure', 'restoreState');
   }
 
   _createClass(NavbarActions, [{
@@ -345,7 +345,7 @@ var ProfileRaidWeeksActions = function () {
   function ProfileRaidWeeksActions() {
     _classCallCheck(this, ProfileRaidWeeksActions);
 
-    this.generateActions('getAllRaidWeekInfoSuccess', 'getAllRaidWeekInfoFailure', 'toggleUserAvailabilityDay', 'saveUserAvailabilitySuccess', 'saveUserAvailabilityFailure', 'createUserAvailabilitySuccess', 'createUserAvailabilityFailure');
+    this.generateActions('getAllRaidWeekInfoSuccess', 'getAllRaidWeekInfoFailure', 'toggleUserAvailabilityDay', 'saveUserAvailabilitySuccess', 'saveUserAvailabilityFailure', 'createUserAvailabilitySuccess', 'createUserAvailabilityFailure', 'restoreState');
   }
 
   _createClass(ProfileRaidWeeksActions, [{
@@ -437,7 +437,7 @@ var ProfileRostersActions = function () {
   function ProfileRostersActions() {
     _classCallCheck(this, ProfileRostersActions);
 
-    this.generateActions('getComponentDataSuccess', 'getComponentDataFailure');
+    this.generateActions('getComponentDataSuccess', 'getComponentDataFailure', 'restoreState');
   }
 
   _createClass(ProfileRostersActions, [{
@@ -1713,6 +1713,7 @@ var Home = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _HomeStore2.default.listen(this.onChange);
+      if (sessionStorage.home) _HomeActions2.default.restoreState(JSON.parse(sessionStorage.home));
       _HomeActions2.default.loadComponentData();
       if (this.props.location.query.somesneakyguy) {
         toastr.error('You do not have authorization to access this page, please log in', 'YOU SHALL NOT PASS!!');
@@ -1722,6 +1723,7 @@ var Home = function (_React$Component) {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _HomeStore2.default.unlisten(this.onChange);
+      sessionStorage.home = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -2587,12 +2589,14 @@ var Navbar = function (_React$Component) {
         }, 750);
       });
 
+      if (sessionStorage.navbar) _NavbarActions2.default.restoreState(JSON.parse(sessionStorage.navbar));
       _NavbarActions2.default.checkLogin();
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _NavbarStore2.default.unlisten(this.onChange);
+      sessionStorage.navbar = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -2906,9 +2910,8 @@ var ProfileCharacters = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _ProfileCharactersStore2.default.listen(this.onChange);
-      if (sessionStorage.profileCharacters) {
-        _ProfileCharactersActions2.default.restoreState(JSON.parse(sessionStorage.profileCharacters));
-      } else _ProfileCharactersActions2.default.getChosenCharacters();
+      if (sessionStorage.profileCharacters) _ProfileCharactersActions2.default.restoreState(JSON.parse(sessionStorage.profileCharacters));
+      _ProfileCharactersActions2.default.getChosenCharacters();
     }
   }, {
     key: 'componentWillUnmount',
@@ -3414,12 +3417,14 @@ var ProfileRaidWeeks = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _ProfileRaidWeeksStore2.default.listen(this.onChange);
+      if (sessionStorage.profileRaidweeks) _ProfileRaidWeeksActions2.default.restoreState(JSON.parse(sessionStorage.profileRaidweeks));
       _ProfileRaidWeeksActions2.default.getAllRaidWeekInfo();
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _ProfileRaidWeeksStore2.default.unlisten(this.onChange);
+      sessionStorage.profileRaidweeks = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -3778,12 +3783,14 @@ var ProfileRosters = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _ProfileRostersStore2.default.listen(this.onChange);
+      if (sessionStorage.profileRosters) _ProfileRostersActions2.default.restoreState(JSON.parse(sessionStorage.profileRosters));
       _ProfileRostersActions2.default.getComponentData();
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _ProfileRostersStore2.default.unlisten(this.onChange);
+      sessionStorage.profileRosters = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -8629,6 +8636,13 @@ var HomeStore = function () {
     value: function onLoadComponentDataFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
     }
+  }, {
+    key: 'onRestoreState',
+    value: function onRestoreState(state) {
+      for (var key in state) {
+        this[key] = state[key];
+      }
+    }
   }]);
 
   return HomeStore;
@@ -8733,6 +8747,13 @@ var NavbarStore = function () {
     key: 'onCheckUserFailure',
     value: function onCheckUserFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onRestoreState',
+    value: function onRestoreState(state) {
+      for (var key in state) {
+        this[key] = state[key];
+      }
     }
   }]);
 
@@ -8940,6 +8961,13 @@ var ProfileRaidWeeksStore = function () {
     value: function onSaveUserAvailabilityFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
     }
+  }, {
+    key: 'onRestoreState',
+    value: function onRestoreState(state) {
+      for (var key in state) {
+        this[key] = state[key];
+      }
+    }
   }]);
 
   return ProfileRaidWeeksStore;
@@ -8985,6 +9013,13 @@ var ProfileRostersStore = function () {
     key: 'onGetComponentDataFailure',
     value: function onGetComponentDataFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onRestoreState',
+    value: function onRestoreState(state) {
+      for (var key in state) {
+        this[key] = state[key];
+      }
     }
   }]);
 

@@ -5,7 +5,8 @@ class HomeActions {
   constructor() {
     this.generateActions(
       'loadComponentDataSuccess',
-      'loadComponentDataFailure'
+      'loadComponentDataFailure',
+      'restoreState'
     );
   }
 

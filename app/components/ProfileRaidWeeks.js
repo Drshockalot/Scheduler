@@ -16,11 +16,14 @@ class ProfileRaidWeeks extends React.Component {
 
   componentDidMount() {
     ProfileRaidWeeksStore.listen(this.onChange);
+    if(sessionStorage.profileRaidweeks)
+      ProfileRaidWeeksActions.restoreState(JSON.parse(sessionStorage.profileRaidweeks));
     ProfileRaidWeeksActions.getAllRaidWeekInfo();
   }
 
   componentWillUnmount() {
     ProfileRaidWeeksStore.unlisten(this.onChange);
+    sessionStorage.profileRaidweeks = JSON.stringify(this.state);
   }
 
   onChange(state) {

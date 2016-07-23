@@ -17,7 +17,8 @@ class NavbarActions {
       'updateAccessToken',
       'checkLoginFailure',
       'checkUserSuccess',
-      'checkUserFailure'
+      'checkUserFailure',
+      'restoreState'
     );
   }
 

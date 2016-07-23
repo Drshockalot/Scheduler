@@ -6,7 +6,8 @@ class ProfileRostersActions {
   constructor() {
     this.generateActions(
       'getComponentDataSuccess',
-      'getComponentDataFailure'
+      'getComponentDataFailure',
+      'restoreState'
     );
   }
 

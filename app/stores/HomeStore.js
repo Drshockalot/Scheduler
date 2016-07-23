@@ -14,6 +14,12 @@ class HomeStore {
   onLoadComponentDataFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
   }
+
+  onRestoreState(state) {
+    for (var key in state) {
+      this[key] = state[key];
+    }
+  }
 }
 
 export default alt.createStore(HomeStore);

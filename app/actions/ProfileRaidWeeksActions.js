@@ -13,7 +13,8 @@ class ProfileRaidWeeksActions {
       'saveUserAvailabilitySuccess',
       'saveUserAvailabilityFailure',
       'createUserAvailabilitySuccess',
-      'createUserAvailabilityFailure'
+      'createUserAvailabilityFailure',
+      'restoreState'
     );
   }
 
