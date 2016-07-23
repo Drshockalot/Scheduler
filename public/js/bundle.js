@@ -2753,6 +2753,18 @@ var Profile = function (_React$Component) {
   }
 
   _createClass(Profile, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      if (_NavbarStore2.default.getState().userRole === '' || _NavbarStore2.default.getState().userRole === '') {
+        if (!browserHistory) {
+          browserHistory.push('/');
+        } else {
+          window.location = '/';
+        }
+        toastr.error('Please log in to access this page', 'YOU SHALL NOT PASS!!');
+      }
+    }
+  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _ProfileStore2.default.listen(this.onChange);

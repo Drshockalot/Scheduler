@@ -12,6 +12,17 @@ class Profile extends React.Component {
     this.onChange = this.onChange.bind(this);
   }
 
+  componentWillMount() {
+    if (NavbarStore.getState().userRole === '' || NavbarStore.getState().userRole === '') {
+      if (!browserHistory) {
+        browserHistory.push('/');
+      } else {
+        window.location = '/';
+      }
+      toastr.error('Please log in to access this page', 'YOU SHALL NOT PASS!!');
+    }
+  }
+
   componentDidMount() {
     ProfileStore.listen(this.onChange);
   }
