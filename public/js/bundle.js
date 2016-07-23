@@ -2770,6 +2770,10 @@ var _ProfileSidenav = require('./ProfileSidenav');
 
 var _ProfileSidenav2 = _interopRequireDefault(_ProfileSidenav);
 
+var _classnames = require('classnames');
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2824,7 +2828,7 @@ var ProfileCharacters = function (_React$Component) {
       }
 
       ret += 'color';
-      return classNames(ret, { 'col-sm-1': true });;
+      return (0, _classnames2.default)(ret, { 'col-sm-1': true });;
     }
   }, {
     key: 'render',
@@ -3248,7 +3252,7 @@ var ProfileCharacters = function (_React$Component) {
 
 exports.default = ProfileCharacters;
 
-},{"../../utility/WowClasses":344,"../../utility/WowRaces":345,"../actions/ProfileCharactersActions":5,"../stores/NavbarStore":44,"../stores/ProfileCharactersStore":45,"./ProfileSidenav":28,"react":"react","react-router":"react-router","underscore":"underscore"}],26:[function(require,module,exports){
+},{"../../utility/WowClasses":344,"../../utility/WowRaces":345,"../actions/ProfileCharactersActions":5,"../stores/NavbarStore":44,"../stores/ProfileCharactersStore":45,"./ProfileSidenav":28,"classnames":60,"react":"react","react-router":"react-router","underscore":"underscore"}],26:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

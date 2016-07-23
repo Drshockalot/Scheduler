@@ -7,6 +7,7 @@ import ProfileSideNav from './ProfileSidenav';
 var classes = require('../../utility/WowClasses');
 var races = require('../../utility/WowRaces');
 var _ = require('underscore');
+import classNames from 'classnames';
 
 class ProfileCharacters extends React.Component {
   constructor(props) {
