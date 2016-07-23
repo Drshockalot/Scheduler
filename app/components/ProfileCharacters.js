@@ -77,19 +77,19 @@ class ProfileCharacters extends React.Component {
             <div className='form-horizontal'>
               <div className='form-group'>
                 <label className='col-sm-6 control-label'><strong>Name:</strong></label>
-                <div className='col-sm-6 control-label text-center vert-align'>
+                <div className='col-sm-6 text-center vert-align'>
                   {character.name}
                 </div>
               </div>
               <div className='form-group'>
                 <label className='col-sm-6 control-label'><strong>Class:</strong></label>
-                <div className='col-sm-6 control-label text-center vert-align'>
+                <div className='col-sm-6 text-center vert-align'>
                   {_.findWhere(classes, { id : parseInt(character.class) }).name}
                 </div>
               </div>
               <div className='form-group'>
                 <label className='col-sm-6 control-label'><strong>Realm:</strong></label>
-                <div className='col-sm-6 control-label text-center vert-align'>
+                <div className='col-sm-6 text-center vert-align'>
                   {character.realm}
                 </div>
               </div>
@@ -115,13 +115,13 @@ class ProfileCharacters extends React.Component {
               </div>
               <div className='form-group'>
                 <label className='col-sm-6 control-label'><strong>Average ilvl:</strong></label>
-                <div className='col-sm-6 control-label text-center vert-align'>
+                <div className='col-sm-6 text-center vert-align'>
                   {character.average_ilvl}
                 </div>
               </div>
               <div className='form-group'>
                 <label className='col-sm-6 control-label'><strong>Admin Confirmed:</strong></label>
-                <div className='col-sm-6 control-label text-center vert-align'>
+                <div className='col-sm-6 text-center vert-align'>
                   {character.confirmed ? 'Yes' : 'No'}
                 </div>
               </div>

@@ -2905,7 +2905,7 @@ var ProfileCharacters = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6 control-label text-center vert-align' },
+                  { className: 'col-sm-6 text-center vert-align' },
                   character.name
                 )
               ),
@@ -2923,7 +2923,7 @@ var ProfileCharacters = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6 control-label text-center vert-align' },
+                  { className: 'col-sm-6 text-center vert-align' },
                   _.findWhere(classes, { id: parseInt(character.class) }).name
                 )
               ),
@@ -2941,7 +2941,7 @@ var ProfileCharacters = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6 control-label text-center vert-align' },
+                  { className: 'col-sm-6 text-center vert-align' },
                   character.realm
                 )
               ),
@@ -3035,7 +3035,7 @@ var ProfileCharacters = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6 control-label text-center vert-align' },
+                  { className: 'col-sm-6 text-center vert-align' },
                   character.average_ilvl
                 )
               ),
@@ -3053,7 +3053,7 @@ var ProfileCharacters = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6 control-label text-center vert-align' },
+                  { className: 'col-sm-6 text-center vert-align' },
                   character.confirmed ? 'Yes' : 'No'
                 )
               ),
