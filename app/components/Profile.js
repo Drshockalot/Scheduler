@@ -19,7 +19,7 @@ class Profile extends React.Component {
         browserHistory.push('/');
         toastr.error('Please log in to access this page', 'YOU SHALL NOT PASS!!');
       } else {
-        this.context.router.push(null, '/');
+        this.context.router.push('/');
       }
     }
   }
