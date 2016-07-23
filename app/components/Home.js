@@ -127,6 +127,12 @@ class Home extends React.Component {
                             <li>Slight refactoring to the layout, page should look cleaner on the whole.</li>
                           </ul>
                         </li>
+                        <li>
+                          <h5>Security Measures</h5>
+                          <ul>
+                            <li>Security measures have been improved on the site, severely limiting access without logging in first</li>
+                          </ul>
+                        </li>
                       </ul>
                     </td>
                   </tr>

@@ -1991,6 +1991,24 @@ var Home = function (_React$Component) {
                               'Slight refactoring to the layout, page should look cleaner on the whole.'
                             )
                           )
+                        ),
+                        _react2.default.createElement(
+                          'li',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
+                            'Security Measures'
+                          ),
+                          _react2.default.createElement(
+                            'ul',
+                            null,
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'Security measures have been improved on the site, severely limiting access without logging in first'
+                            )
+                          )
                         )
                       )
                     )
@@ -8481,7 +8499,7 @@ var auth = function auth(nextState, replace) {
   var role = _NavbarStore2.default.getState().userRole;
   if (!localStorage.role || localStorage.role === '') {
     replace({
-      pathname: '/#?somesneakyguy=1',
+      pathname: '/',
       state: { nextPathname: nextState.location.pathname }
     });
   }
