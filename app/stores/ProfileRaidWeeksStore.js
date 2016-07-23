@@ -27,6 +27,7 @@ class ProfileRaidWeeksStore {
 
   onCreateUserAvailabilitySuccess(result) {
     this.user_availability = result.data.user_availability;
+    toastr.success('Raid week availability created', 'Success');
   }
 
   onCreateUserAvailabilityFailure(jqXhr) {
@@ -35,6 +36,7 @@ class ProfileRaidWeeksStore {
 
   onSaveUserAvailabilitySuccess(result) {
     this.user_availability = result.data.user_availability;
+    toastr.success('Raid week availability updated', 'Success');
   }
 
   onSaveUserAvailabilityFailure(jqXhr) {

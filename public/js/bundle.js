@@ -8838,6 +8838,7 @@ var ProfileRaidWeeksStore = function () {
     key: 'onCreateUserAvailabilitySuccess',
     value: function onCreateUserAvailabilitySuccess(result) {
       this.user_availability = result.data.user_availability;
+      toastr.success('Raid week availability created', 'Success');
     }
   }, {
     key: 'onCreateUserAvailabilityFailure',
@@ -8848,6 +8849,7 @@ var ProfileRaidWeeksStore = function () {
     key: 'onSaveUserAvailabilitySuccess',
     value: function onSaveUserAvailabilitySuccess(result) {
       this.user_availability = result.data.user_availability;
+      toastr.success('Raid week availability updated', 'Success');
     }
   }, {
     key: 'onSaveUserAvailabilityFailure',
