@@ -27,6 +27,7 @@ class NavbarActions {
     }).done((data) => {
       if(data) {
         this.updateBattletag(data.battletag);
+        cookie.save('battletag', data.battletag, { path: '/' });
         this.updateAccessToken(data.token);
         $.ajax({
           method: 'POST',
@@ -37,11 +38,13 @@ class NavbarActions {
         }).fail((jqXhr) => {
           this.checkUserFailure(jqXhr);
         });
+        return true;
       }
     }).fail((jqXhr) => {
       this.checkLoginFailure(jqXhr);
+      return false;
     });
-    return 0;
+    return false;
   }
 
   navigateProfile() {

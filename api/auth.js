@@ -5,7 +5,7 @@ var cookie = require('react-cookie');
 
 router.get('/bnet', passport.authenticate('bnet'));
 
-router.get('/bnet/callback', passport.authenticate('bnet', { failureRedirect: '/' }), function(req, res, next) {
+router.get('/bnet/callback', passport.authenticate('bnet', { failureRedirect: '/?failedLogin=1' }), function(req, res, next) {
   res.redirect('/');
 });
 
@@ -14,16 +14,19 @@ router.get('/bnet/logout', function(req, res, next) {
   res.redirect('/');
 });
 
-router.get('/bnet/logout/hard', function(req, res, next) {
-  req.logout();
-  res.redirect('https://eu.battle.net/en/?logout');
-});
-
 router.get('/bnet/status', function(req, res, next) {
   if(req.user == undefined) {
     res.send(null);
   } else {
     res.send(req.user);
+  }
+});
+
+router.get('/', function(req, res, next) {
+  if(req.user) {
+    res.send(req.user);
+  } else {
+    req.send(nul);
   }
 });
 

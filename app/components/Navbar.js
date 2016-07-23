@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router';
 import NavbarStore from '../stores/NavbarStore';
 import NavbarActions from '../actions/NavbarActions';
+import cookie from 'react-cookie';
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -53,11 +54,8 @@ class Navbar extends React.Component {
   }
 
   logout() {
+    cookie.remove('battletag', { path: '/' });
     window.location = '/auth/bnet/logout';
-  }
-
-  hardLogout() {
-    window.location = '/auth/bnet/logout/hard';
   }
 
   render() {

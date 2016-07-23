@@ -112,6 +112,7 @@ var NavbarActions = function () {
       }).done(function (data) {
         if (data) {
           _this.updateBattletag(data.battletag);
+          _reactCookie2.default.save('battletag', data.battletag, { path: '/' });
           _this.updateAccessToken(data.token);
           $.ajax({
             method: 'POST',
@@ -122,11 +123,13 @@ var NavbarActions = function () {
           }).fail(function (jqXhr) {
             _this.checkUserFailure(jqXhr);
           });
+          return true;
         }
       }).fail(function (jqXhr) {
         _this.checkLoginFailure(jqXhr);
+        return false;
       });
-      return 0;
+      return false;
     }
   }, {
     key: 'navigateProfile',
@@ -2497,6 +2500,10 @@ var _NavbarActions = require('../actions/NavbarActions');
 
 var _NavbarActions2 = _interopRequireDefault(_NavbarActions);
 
+var _reactCookie = require('react-cookie');
+
+var _reactCookie2 = _interopRequireDefault(_reactCookie);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2567,12 +2574,8 @@ var Navbar = function (_React$Component) {
   }, {
     key: 'logout',
     value: function logout() {
+      _reactCookie2.default.remove('battletag', { path: '/' });
       window.location = '/auth/bnet/logout';
-    }
-  }, {
-    key: 'hardLogout',
-    value: function hardLogout() {
-      window.location = '/auth/bnet/logout/hard';
     }
   }, {
     key: 'render',
@@ -2703,7 +2706,7 @@ var Navbar = function (_React$Component) {
 
 exports.default = Navbar;
 
-},{"../actions/NavbarActions":3,"../stores/NavbarStore":44,"react":"react","react-router":"react-router"}],24:[function(require,module,exports){
+},{"../actions/NavbarActions":3,"../stores/NavbarStore":44,"react":"react","react-cookie":300,"react-router":"react-router"}],24:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -8473,13 +8476,30 @@ var _NavbarStore2 = _interopRequireDefault(_NavbarStore);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var auth = function auth(nextState, replace) {
-  var role = _NavbarStore2.default.getState().userRole;
-  if (role === '') {
+  $.ajax({
+    method: 'GET',
+    url: '/auth/',
+    async: false
+  }).done(function (result) {
+    if (!result) {
+      replace({
+        pathname: '/?somesneakyguy=1',
+        state: { nextPathname: nextState.location.pathname }
+      });
+    }
+
+    if (result && result.role === '') {
+      replace({
+        pathname: '/?somesneakyguy=1',
+        state: { nextPathname: nextState.location.pathname }
+      });
+    }
+  }).fail(function () {
     replace({
       pathname: '/?somesneakyguy=1',
       state: { nextPathname: nextState.location.pathname }
     });
-  }
+  });
 };
 
 var adminAuth = function adminAuth(nextState, replace) {

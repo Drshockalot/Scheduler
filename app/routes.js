@@ -20,13 +20,30 @@ import ScheduleView from './components/ScheduleView';
 
 import NavbarStore from './stores/NavbarStore';
 var auth = function(nextState, replace) {
-  var role = NavbarStore.getState().userRole;
-  if(role === '') {
+  $.ajax({
+    method: 'GET',
+    url: '/auth/',
+    async: false
+  }).done((result) => {
+    if(!result) {
+      replace({
+        pathname: '/?somesneakyguy=1',
+        state: { nextPathname: nextState.location.pathname }
+      });
+    }
+
+    if(result && result.role === '') {
+      replace({
+        pathname: '/?somesneakyguy=1',
+        state: { nextPathname: nextState.location.pathname }
+      });
+    }
+  }).fail(() => {
     replace({
       pathname: '/?somesneakyguy=1',
       state: { nextPathname: nextState.location.pathname }
     });
-  }
+  });
 };
 
 var adminAuth = function(nextState, replace) {
