@@ -30,7 +30,7 @@ class ProfileRaidWeeks extends React.Component {
   render() {
     var raidweeklist;
     if(this.state.raidweeks.length > 0) {
-      raidweeklist = this.state.raidweeks.map(function(raidweek, index) {
+      raidweeklist = _.sortBy(this.state.raidweeks, 'start').reverse().map(function(raidweek, index) {
         var user_availabilityRow;
         var user_availability = _.findWhere(this.state.user_availability, { raid_week_id: raidweek.id });
         if(user_availability) {
