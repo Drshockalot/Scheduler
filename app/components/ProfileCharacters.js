@@ -62,7 +62,7 @@ class ProfileCharacters extends React.Component {
         var characterClass = _.findWhere(classes, { id : character.class }).name;
         return (
           <tr key={'character' + index}>
-            <td key={'color' + index} className={classColour(character)}></td>
+            <td key={'color' + index} className={this.classColour(character)}></td>
             <td key={'name' + index}>{character.name}</td>
             <td key={'class' + index}>{characterClass}</td>
             <td key={'race' + index}>{characterRace}</td>
@@ -172,7 +172,7 @@ class ProfileCharacters extends React.Component {
               </div>
             </div>
             <div className='row'>
-              <div className='col-md-10'>
+              <div className='col-xs-12'>
                 <h3>Valid Characters</h3>
                 <table className='table'>
                   <tbody>

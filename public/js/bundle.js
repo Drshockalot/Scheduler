@@ -2849,7 +2849,7 @@ var ProfileCharacters = function (_React$Component) {
           return _react2.default.createElement(
             'tr',
             { key: 'character' + index },
-            _react2.default.createElement('td', { key: 'color' + index, className: classColour(character) }),
+            _react2.default.createElement('td', { key: 'color' + index, className: _this2.classColour(character) }),
             _react2.default.createElement(
               'td',
               { key: 'name' + index },
@@ -3145,7 +3145,7 @@ var ProfileCharacters = function (_React$Component) {
               { className: 'row' },
               _react2.default.createElement(
                 'div',
-                { className: 'col-md-10' },
+                { className: 'col-xs-12' },
                 _react2.default.createElement(
                   'h3',
                   null,
