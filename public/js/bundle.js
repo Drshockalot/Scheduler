@@ -1935,7 +1935,7 @@ var Home = function (_React$Component) {
               _react2.default.createElement(
                 'h2',
                 null,
-                'ReadMe'
+                'Website Updates'
               ),
               _react2.default.createElement(
                 'table',

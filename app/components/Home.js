@@ -111,7 +111,7 @@ class Home extends React.Component {
               </table>
             </div>
             <div className='col-md-6'>
-              <h2>ReadMe</h2>
+              <h2>Website Updates</h2>
               <table className='table table-striped'>
                 <tbody>
                   <tr>
