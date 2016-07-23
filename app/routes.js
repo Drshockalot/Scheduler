@@ -21,7 +21,7 @@ import ScheduleView from './components/ScheduleView';
 import NavbarStore from './stores/NavbarStore';
 var auth = function(nextState, replace) {
   if(typeof(Storage) !== "undefined"){
-    if(!localStorage.role || localStorage.role === '') {
+    if(!sessionStorage.role || sessionStorage.role === '') {
       replace({
         pathname: '/',
         state: { nextPathname: nextState.location.pathname }
@@ -32,7 +32,7 @@ var auth = function(nextState, replace) {
 
 var adminAuth = function(nextState, replace) {
   if(typeof(Storage) !== "undefined"){
-    if(!localStorage.role || localStorage.role != 'admin') {
+    if(!sessionStorage.role || sessionStorage.role != 'admin') {
       replace({
         pathname: '/',
         state: { nextPathname: nextState.location.pathname }

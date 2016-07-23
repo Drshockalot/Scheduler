@@ -351,7 +351,7 @@ class ScheduleManagement extends React.Component {
           );
         }
 
-        if(!localStorage.loggedin || localStorage.loggedin != 'y')
+        if(sessionStorage.loggedin != 'y')
           return(null);
 
         return (

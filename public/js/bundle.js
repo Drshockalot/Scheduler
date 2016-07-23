@@ -112,7 +112,7 @@ var NavbarActions = function () {
       }).done(function (data) {
         if (data) {
           _this.updateBattletag(data.battletag);
-          localStorage.battletag = data.battletag;
+          sessionStorage.battletag = data.battletag;
           _this.updateAccessToken(data.token);
           $.ajax({
             method: 'POST',
@@ -120,8 +120,8 @@ var NavbarActions = function () {
             data: { battletag: data.battletag, role: 'member' }
           }).done(function (result) {
             _this.checkUserSuccess(result.data.user.role);
-            localStorage.role = result.data.user.role;
-            localStorage.loggedin = 'y';
+            sessionStorage.role = result.data.user.role;
+            sessionStorage.loggedin = 'y';
           }).fail(function (jqXhr) {
             _this.checkUserFailure(jqXhr);
           });
@@ -2615,8 +2615,9 @@ var Navbar = function (_React$Component) {
   }, {
     key: 'logout',
     value: function logout() {
-      localStorage.removeItem('battletag');
-      localStorage.removeItem('role');
+      sessionStorage.removeItem('battletag');
+      sessionStorage.removeItem('role');
+      sessionStorage.removeItem('loggedin');
       window.location = '/auth/bnet/logout';
     }
   }, {
@@ -7971,7 +7972,7 @@ var ScheduleManagement = function (_React$Component) {
               } });
           }
 
-          if (!localStorage.loggedin || localStorage.loggedin != 'y') return null;
+          if (sessionStorage.loggedin != 'y') return null;
 
           return _react2.default.createElement(
             'div',
@@ -8521,7 +8522,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var auth = function auth(nextState, replace) {
   if (typeof Storage !== "undefined") {
-    if (!localStorage.role || localStorage.role === '') {
+    if (!sessionStorage.role || sessionStorage.role === '') {
       replace({
         pathname: '/',
         state: { nextPathname: nextState.location.pathname }
@@ -8532,7 +8533,7 @@ var auth = function auth(nextState, replace) {
 
 var adminAuth = function adminAuth(nextState, replace) {
   if (typeof Storage !== "undefined") {
-    if (!localStorage.role || localStorage.role != 'admin') {
+    if (!sessionStorage.role || sessionStorage.role != 'admin') {
       replace({
         pathname: '/',
         state: { nextPathname: nextState.location.pathname }

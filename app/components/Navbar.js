@@ -54,8 +54,9 @@ class Navbar extends React.Component {
   }
 
   logout() {
-    localStorage.removeItem('battletag');
-    localStorage.removeItem('role');
+    sessionStorage.removeItem('battletag');
+    sessionStorage.removeItem('role');
+    sessionStorage.removeItem('loggedin');
     window.location = '/auth/bnet/logout';
   }
 

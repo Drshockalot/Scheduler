@@ -27,7 +27,7 @@ class NavbarActions {
     }).done((data) => {
       if(data) {
         this.updateBattletag(data.battletag);
-        localStorage.battletag = data.battletag;
+        sessionStorage.battletag = data.battletag;
         this.updateAccessToken(data.token);
         $.ajax({
           method: 'POST',
@@ -35,8 +35,8 @@ class NavbarActions {
           data: { battletag: data.battletag, role: 'member' }
         }).done((result) => {
           this.checkUserSuccess(result.data.user.role);
-          localStorage.role = result.data.user.role;
-          localStorage.loggedin = 'y';
+          sessionStorage.role = result.data.user.role;
+          sessionStorage.loggedin = 'y';
         }).fail((jqXhr) => {
           this.checkUserFailure(jqXhr);
         });
