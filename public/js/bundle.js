@@ -2906,12 +2906,14 @@ var ProfileCharacters = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _ProfileCharactersStore2.default.listen(this.onChange);
+      if (sessionStorage.profileCharacters) this.setState(JSON.parse(sessionStorage.profileCharacters));
       _ProfileCharactersActions2.default.getChosenCharacters();
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _NavbarStore2.default.unlisten(this.onChange);
+      sessionStorage.profileCharacters = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -7971,8 +7973,6 @@ var ScheduleManagement = function (_React$Component) {
                 return _ScheduleManagementActions2.default.invertScheduleBossPublishedState(schedule_boss.id);
               } });
           }
-
-          if (sessionStorage.loggedin != 'y') return null;
 
           return _react2.default.createElement(
             'div',

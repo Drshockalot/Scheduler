@@ -351,9 +351,6 @@ class ScheduleManagement extends React.Component {
           );
         }
 
-        if(sessionStorage.loggedin != 'y')
-          return(null);
-
         return (
           <div className='row'>
             <table className='table'>

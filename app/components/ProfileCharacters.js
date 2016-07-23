@@ -18,11 +18,14 @@ class ProfileCharacters extends React.Component {
 
   componentDidMount() {
     ProfileCharactersStore.listen(this.onChange);
+    if(sessionStorage.profileCharacters)
+      this.setState(JSON.parse(sessionStorage.profileCharacters));
     ProfileCharactersActions.getChosenCharacters();
   }
 
   componentWillUnmount() {
     NavbarStore.unlisten(this.onChange);
+    sessionStorage.profileCharacters = JSON.stringify(this.state);
   }
 
   onChange(state) {
