@@ -2754,18 +2754,6 @@ var Profile = function (_React$Component) {
   }
 
   _createClass(Profile, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      if (_NavbarStore2.default.getState().userRole === '' || _NavbarStore2.default.getState().userRole === '') {
-        if (typeof browserHistory != 'undefined') {
-          browserHistory.push('/');
-          toastr.error('Please log in to access this page', 'YOU SHALL NOT PASS!!');
-        } else {
-          this.context.router.push('/');
-        }
-      }
-    }
-  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _ProfileStore2.default.listen(this.onChange);
@@ -4620,14 +4608,6 @@ var Admin = function (_React$Component) {
   }
 
   _createClass(Admin, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      if (_NavbarStore2.default.getState().userRole === 'member' || _NavbarStore2.default.getState().userRole === '' && _reactRouter.browserHistory) {
-        _reactRouter.browserHistory.push('/');
-        toastr.error('You do not have authorization to access Admin', 'YOU SHALL NOT PASS!!');
-      }
-    }
-  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _AdminStore2.default.listen(this.onChange);
@@ -8535,17 +8515,43 @@ var _ScheduleView = require('./components/ScheduleView');
 
 var _ScheduleView2 = _interopRequireDefault(_ScheduleView);
 
+var _NavbarStore = require('./stores/NavbarStore');
+
+var _NavbarStore2 = _interopRequireDefault(_NavbarStore);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var auth = function auth(nextState, replace) {
+  var role = _NavbarStore2.default.getState().userRole;
+  if (role === '') {
+    replace({
+      pathname: '/',
+      state: { nextPathname: nextState.location.pathname }
+    });
+    toastr.error('You do not have authorization to access this page', 'YOU SHALL NOT PASS!!');
+  }
+};
+
+var adminAuth = function adminAuth(nextState, replace) {
+  var role = _NavbarStore2.default.getState().userRole;
+  if (role != 'admin') {
+    replace({
+      pathname: '/',
+      state: { nextPathname: nextState.location.pathname }
+    });
+    toastr.error('You do not have authorization to access this page', 'YOU SHALL NOT PASS!!');
+  }
+};
 
 exports.default = _react2.default.createElement(
   _reactRouter.Route,
   { component: _App2.default },
   _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Home2.default }),
-  _react2.default.createElement(_reactRouter.Route, { path: '/profile', component: _Profile2.default }),
+  _react2.default.createElement(_reactRouter.Route, { path: '/profile', component: _Profile2.default, onEnter: auth }),
   _react2.default.createElement(_reactRouter.Route, { path: '/profile/character', component: _ProfileCharacters2.default }),
   _react2.default.createElement(_reactRouter.Route, { path: '/profile/raidweek', component: _ProfileRaidWeeks2.default }),
   _react2.default.createElement(_reactRouter.Route, { path: '/profile/roster', component: _ProfileRosters2.default }),
-  _react2.default.createElement(_reactRouter.Route, { path: '/admin', component: _Admin2.default }),
+  _react2.default.createElement(_reactRouter.Route, { path: '/admin', component: _Admin2.default, onEnter: adminAuth }),
   _react2.default.createElement(_reactRouter.Route, { path: '/admin/roster', component: _RosterManagement2.default }),
   _react2.default.createElement(_reactRouter.Route, { path: '/admin/character', component: _CharacterManagement2.default }),
   _react2.default.createElement(_reactRouter.Route, { path: '/admin/schedule', component: _ScheduleManagement2.default }),
@@ -8555,7 +8561,7 @@ exports.default = _react2.default.createElement(
   _react2.default.createElement(_reactRouter.Route, { path: '/schedule', component: _ScheduleView2.default })
 );
 
-},{"./components/App":20,"./components/Home":22,"./components/Profile":24,"./components/ProfileCharacters":25,"./components/ProfileRaidWeeks":26,"./components/ProfileRosters":27,"./components/ScheduleView":29,"./components/admin/Admin":32,"./components/admin/AttendanceManagement":34,"./components/admin/CharacterManagement":35,"./components/admin/RaidManagement":36,"./components/admin/RaidWeekManagement":37,"./components/admin/RosterManagement":38,"./components/admin/ScheduleManagement":39,"react":"react","react-router":"react-router"}],42:[function(require,module,exports){
+},{"./components/App":20,"./components/Home":22,"./components/Profile":24,"./components/ProfileCharacters":25,"./components/ProfileRaidWeeks":26,"./components/ProfileRosters":27,"./components/ScheduleView":29,"./components/admin/Admin":32,"./components/admin/AttendanceManagement":34,"./components/admin/CharacterManagement":35,"./components/admin/RaidManagement":36,"./components/admin/RaidWeekManagement":37,"./components/admin/RosterManagement":38,"./components/admin/ScheduleManagement":39,"./stores/NavbarStore":44,"react":"react","react-router":"react-router"}],42:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

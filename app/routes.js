@@ -18,14 +18,37 @@ import ProfileRosters from './components/ProfileRosters';
 
 import ScheduleView from './components/ScheduleView';
 
+import NavbarStore from './stores/NavbarStore';
+var auth = function(nextState, replace) {
+  var role = NavbarStore.getState().userRole;
+  if(role === '') {
+    replace({
+      pathname: '/',
+      state: { nextPathname: nextState.location.pathname }
+    });
+    toastr.error('You do not have authorization to access this page', 'YOU SHALL NOT PASS!!');
+  }
+};
+
+var adminAuth = function(nextState, replace) {
+  var role = NavbarStore.getState().userRole;
+  if(role != 'admin') {
+    replace({
+      pathname: '/',
+      state: { nextPathname: nextState.location.pathname }
+    });
+    toastr.error('You do not have authorization to access this page', 'YOU SHALL NOT PASS!!');
+  }
+};
+
 export default (
   <Route component={App}>
     <Route path='/' component={Home} />
-    <Route path='/profile' component={Profile} />
+    <Route path='/profile' component={Profile} onEnter={auth}/>
     <Route path='/profile/character' component={ProfileCharacters} />
     <Route path='/profile/raidweek' component={ProfileRaidWeeks} />
     <Route path='/profile/roster' component={ProfileRosters} />
-    <Route path='/admin' component={Admin} />
+    <Route path='/admin' component={Admin} onEnter={adminAuth} />
     <Route path='/admin/roster' component={RosterManagement} />
     <Route path='/admin/character' component={CharacterManagement} />
     <Route path='/admin/schedule' component={ScheduleManagement} />
