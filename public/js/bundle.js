@@ -2803,6 +2803,10 @@ var Profile = function (_React$Component) {
   return Profile;
 }(_react2.default.Component);
 
+Profile.contextTypes = {
+  router: _react2.default.PropTypes.func.isRequired
+};
+
 exports.default = Profile;
 
 },{"../actions/ProfileActions":4,"../stores/NavbarStore":44,"../stores/ProfileStore":48,"./ProfileSidenav":28,"react":"react","react-router":"react-router"}],25:[function(require,module,exports){
