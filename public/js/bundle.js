@@ -2569,7 +2569,7 @@ var Navbar = function (_React$Component) {
               null,
               _react2.default.createElement(
                 'a',
-                { href: '/auth/bnet/logout' },
+                { onClick: this.logout },
                 'Logout'
               )
             )

@@ -75,7 +75,7 @@ class Navbar extends React.Component {
           <a href='/profile' className='dropdown-toggle' data-toggle='dropdown'>{this.state.battletag ? this.state.battletag : cookie.load('battletag')} <span className='caret'></span></a>
           <ul className='dropdown-menu'>
             <li><a onClick={NavbarActions.navigateProfile}>Profile</a></li>
-            <li><a href='/auth/bnet/logout'>Logout</a></li>
+            <li><a onClick={this.logout}>Logout</a></li>
           </ul>
         </li>;
     }
