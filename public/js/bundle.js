@@ -2443,6 +2443,10 @@ var _NavbarActions = require('../actions/NavbarActions');
 
 var _NavbarActions2 = _interopRequireDefault(_NavbarActions);
 
+var _reactCookie = require('react-cookie');
+
+var _reactCookie2 = _interopRequireDefault(_reactCookie);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2525,7 +2529,7 @@ var Navbar = function (_React$Component) {
     value: function render() {
       var profilePane;
 
-      if (!this.state.battletag) {
+      if (!this.state.battletag && !_reactCookie2.default.load('battletag')) {
         profilePane = _react2.default.createElement(
           'li',
           null,
@@ -2542,7 +2546,7 @@ var Navbar = function (_React$Component) {
           _react2.default.createElement(
             'a',
             { href: '/profile', className: 'dropdown-toggle', 'data-toggle': 'dropdown' },
-            this.state.battletag,
+            this.state.battletag ? this.state.battletag : _reactCookie2.default.load('battletag'),
             ' ',
             _react2.default.createElement('span', { className: 'caret' })
           ),
@@ -2649,7 +2653,7 @@ var Navbar = function (_React$Component) {
 
 exports.default = Navbar;
 
-},{"../actions/NavbarActions":3,"../stores/NavbarStore":44,"react":"react","react-router":"react-router"}],24:[function(require,module,exports){
+},{"../actions/NavbarActions":3,"../stores/NavbarStore":44,"react":"react","react-cookie":300,"react-router":"react-router"}],24:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

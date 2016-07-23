@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router';
 import NavbarStore from '../stores/NavbarStore';
 import NavbarActions from '../actions/NavbarActions';
+import cookie from 'react-cookie';
 
 class Navbar extends React.Component {
   constructor(props) {
@@ -63,13 +64,13 @@ class Navbar extends React.Component {
   render() {
     var profilePane;
 
-    if(!this.state.battletag) {
+    if(!this.state.battletag && !cookie.load('battletag')) {
         profilePane = <li>
           <a href='/auth/bnet'>Login</a>
         </li>;
     } else {
         profilePane = <li className='dropdown'>
-          <a href='/profile' className='dropdown-toggle' data-toggle='dropdown'>{this.state.battletag} <span className='caret'></span></a>
+          <a href='/profile' className='dropdown-toggle' data-toggle='dropdown'>{this.state.battletag ? this.state.battletag : cookie.load('battletag')} <span className='caret'></span></a>
           <ul className='dropdown-menu'>
             <li><a onClick={NavbarActions.navigateProfile}>Profile</a></li>
             <li><a href='/auth/bnet/logout'>Logout</a></li>
