@@ -22,11 +22,14 @@ class AttendanceManagement extends React.Component {
 
   componentDidMount() {
     AttendanceManagementStore.listen(this.onChange);
+    if(sessionStorage.attendanceManagement)
+      AttendanceManagementActions.restoreState(JSON.parse(sessionStorage.attendanceManagement));
     AttendanceManagementActions.loadComponentData();
   }
 
   componentWillUnmount() {
     AttendanceManagementStore.unlisten(this.onChange);
+    sessionStorage.attendanceManagement = JSON.stringify(this.state);
   }
 
   onChange(state) {

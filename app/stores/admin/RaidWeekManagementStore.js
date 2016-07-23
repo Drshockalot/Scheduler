@@ -90,6 +90,12 @@ class RaidWeekManagementStore {
     var pState = _.findWhere(this.panelState, {name: key});
     pState.expanded = !pState.expanded;
   }
+
+  onRestoreState(state) {
+    for (var key in state) {
+      this[key] = state[key];
+    }
+  }
 }
 
 export default alt.createStore(RaidWeekManagementStore);

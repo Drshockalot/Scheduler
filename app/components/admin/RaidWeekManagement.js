@@ -20,11 +20,14 @@ class RaidWeekManagement extends React.Component {
 
   componentDidMount() {
     RaidWeekManagementStore.listen(this.onChange);
+    if(sessionStorage.raidweekManagement)
+      RaidWeekManagementActions.restoreState(JSON.parse(sessionStorage.raidweekManagement));
     RaidWeekManagementActions.getAllRaidWeeks();
   }
 
   componentWillUnmount() {
     RaidWeekManagementStore.unlisten(this.onChange);
+    sessionStorage.raidweekManagement = JSON.stringify(this.state);
   }
 
   onChange(state) {

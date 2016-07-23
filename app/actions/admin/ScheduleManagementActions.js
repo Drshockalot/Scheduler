@@ -32,7 +32,8 @@ class ScheduleManagementActions {
       'deleteScheduleBossSuccess',
       'deleteScheduleBossFailure',
       'addScheduleRaidBossesSuccess',
-      'addScheduleRaidBossesFailure'
+      'addScheduleRaidBossesFailure',
+      'restoreState'
     );
   }
 

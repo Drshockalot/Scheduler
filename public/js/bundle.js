@@ -686,7 +686,7 @@ var AttendaceManagementActions = function () {
   function AttendaceManagementActions() {
     _classCallCheck(this, AttendaceManagementActions);
 
-    this.generateActions('loadComponentDataSuccess', 'loadComponentDataFailure', 'updateSelectRaidWeek', 'updateSelectWeekday', 'updateSelectRaid', 'updateSelectRoster', 'toggleCharacterState', 'uploadAttendanceFromRosterFormSuccess', 'uploadAttendanceFromRosterFormFailure', 'updateUploadText', 'uploadRawTextSuccess', 'uploadRawTextFailure', 'uploadFileSuccess', 'uploadFileFailure');
+    this.generateActions('loadComponentDataSuccess', 'loadComponentDataFailure', 'updateSelectRaidWeek', 'updateSelectWeekday', 'updateSelectRaid', 'updateSelectRoster', 'toggleCharacterState', 'uploadAttendanceFromRosterFormSuccess', 'uploadAttendanceFromRosterFormFailure', 'updateUploadText', 'uploadRawTextSuccess', 'uploadRawTextFailure', 'uploadFileSuccess', 'uploadFileFailure', 'restoreState');
   }
 
   _createClass(AttendaceManagementActions, [{
@@ -805,7 +805,7 @@ var CharacterManagementActions = function () {
   function CharacterManagementActions() {
     _classCallCheck(this, CharacterManagementActions);
 
-    this.generateActions('getCharactersForConfirmationSuccess', 'getCharactersForConfirmationFailure', 'confirmCharacterSuccess', 'confirmCharacterFailure', 'unconfirmCharacterSuccess', 'unconfirmCharacterFailure');
+    this.generateActions('getCharactersForConfirmationSuccess', 'getCharactersForConfirmationFailure', 'confirmCharacterSuccess', 'confirmCharacterFailure', 'unconfirmCharacterSuccess', 'unconfirmCharacterFailure', 'restoreState');
   }
 
   _createClass(CharacterManagementActions, [{
@@ -885,7 +885,7 @@ var RaidManagementActions = function () {
   function RaidManagementActions() {
     _classCallCheck(this, RaidManagementActions);
 
-    this.generateActions('updateFormRaidName', 'updateFormRaidDescription', 'updateFormBossName', 'updateFormBossPublicNote', 'updateFormBossOfficerNote', 'createRaidSuccess', 'createRaidFailure', 'loadRaidsSuccess', 'loadRaidsFailure', 'updateSelectedRaid', 'createBossSuccess', 'createBossFailure', 'editBoss', 'deleteBossSuccess', 'deleteBossFailure', 'deleteRaidSuccess', 'deleteRaidFailure', 'updateFormTanks', 'updateFormHealers', 'updateFormDPS', 'updateEditFormTanks', 'updateEditFormHealers', 'updateEditFormDPS', 'updateEditFormBossName', 'updateEditFormBossPublicNote', 'updateEditFormBossOfficerNote', 'editBoss', 'showEditBossModal', 'closeEditBossModal', 'updateBossSuccess', 'updateBossFailure');
+    this.generateActions('updateFormRaidName', 'updateFormRaidDescription', 'updateFormBossName', 'updateFormBossPublicNote', 'updateFormBossOfficerNote', 'createRaidSuccess', 'createRaidFailure', 'loadRaidsSuccess', 'loadRaidsFailure', 'updateSelectedRaid', 'createBossSuccess', 'createBossFailure', 'editBoss', 'deleteBossSuccess', 'deleteBossFailure', 'deleteRaidSuccess', 'deleteRaidFailure', 'updateFormTanks', 'updateFormHealers', 'updateFormDPS', 'updateEditFormTanks', 'updateEditFormHealers', 'updateEditFormDPS', 'updateEditFormBossName', 'updateEditFormBossPublicNote', 'updateEditFormBossOfficerNote', 'editBoss', 'showEditBossModal', 'closeEditBossModal', 'updateBossSuccess', 'updateBossFailure', 'restoreState');
   }
 
   _createClass(RaidManagementActions, [{
@@ -1035,7 +1035,7 @@ var RaidWeekManagementActions = function () {
   function RaidWeekManagementActions() {
     _classCallCheck(this, RaidWeekManagementActions);
 
-    this.generateActions('selectedDayChanged', 'nextYear', 'prevYear', 'goToToday', 'createNewRaidWeekSuccess', 'createNewRaidWeekFailure', 'getAllRaidWeeksSuccess', 'getAllRaidWeeksFailure', 'toggleRaidWeekDay', 'deleteRaidWeekSuccess', 'deleteRaidWeekFailure', 'updateRaidWeekSuccess', 'updateRaidWeekFailure');
+    this.generateActions('selectedDayChanged', 'nextYear', 'prevYear', 'goToToday', 'createNewRaidWeekSuccess', 'createNewRaidWeekFailure', 'getAllRaidWeeksSuccess', 'getAllRaidWeeksFailure', 'toggleRaidWeekDay', 'deleteRaidWeekSuccess', 'deleteRaidWeekFailure', 'updateRaidWeekSuccess', 'updateRaidWeekFailure', 'restoreState');
   }
 
   _createClass(RaidWeekManagementActions, [{
@@ -1146,7 +1146,7 @@ var RosterManagementActions = function () {
   function RosterManagementActions() {
     _classCallCheck(this, RosterManagementActions);
 
-    this.generateActions('getAllRostersSuccess', 'getAllRostersFailure', 'updateSelectedRosterSuccess', 'updateSelectedRosterFailure', 'removeCharacterFromRosterSuccess', 'removeCharacterFromRosterFailure', 'addCharacterToRosterSuccess', 'addCharacterToRosterFailure', 'setSelectedRosterName', 'getSelectedRosterName');
+    this.generateActions('getAllRostersSuccess', 'getAllRostersFailure', 'updateSelectedRosterSuccess', 'updateSelectedRosterFailure', 'removeCharacterFromRosterSuccess', 'removeCharacterFromRosterFailure', 'addCharacterToRosterSuccess', 'addCharacterToRosterFailure', 'setSelectedRosterName', 'getSelectedRosterName', 'restoreState');
   }
 
   _createClass(RosterManagementActions, [{
@@ -1273,7 +1273,7 @@ var ScheduleManagementActions = function () {
   function ScheduleManagementActions() {
     _classCallCheck(this, ScheduleManagementActions);
 
-    this.generateActions('updateFormRaidWeek', 'updateFormRoster', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'updateFormRaid', 'updateFormBoss', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure', 'addScheduleBossSuccess', 'addScheduleBossFailure', 'addCharacterToScheduleBossSuccess', 'addCharacterToScheduleBossFailure', 'removeCharacterFromScheduleBossSuccess', 'removeCharacterFromScheduleBossFailure', 'invertScheduleBossPublishedStateSuccess', 'invertScheduleBossPublishedStateFailure', 'showDeleteBossModal', 'hideDeleteBossModal', 'deleteScheduleBossSuccess', 'deleteScheduleBossFailure', 'addScheduleRaidBossesSuccess', 'addScheduleRaidBossesFailure');
+    this.generateActions('updateFormRaidWeek', 'updateFormRoster', 'updateFormScheduleName', 'updateFormScheduleDescription', 'updateSelectedRaidWeekCompleted', 'updateSelectedSchedule', 'updateFormRaid', 'updateFormBoss', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'createScheduleSuccess', 'createScheduleFailure', 'addScheduleBossSuccess', 'addScheduleBossFailure', 'addCharacterToScheduleBossSuccess', 'addCharacterToScheduleBossFailure', 'removeCharacterFromScheduleBossSuccess', 'removeCharacterFromScheduleBossFailure', 'invertScheduleBossPublishedStateSuccess', 'invertScheduleBossPublishedStateFailure', 'showDeleteBossModal', 'hideDeleteBossModal', 'deleteScheduleBossSuccess', 'deleteScheduleBossFailure', 'addScheduleRaidBossesSuccess', 'addScheduleRaidBossesFailure', 'restoreState');
   }
 
   _createClass(ScheduleManagementActions, [{
@@ -4923,12 +4923,14 @@ var AttendanceManagement = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _AttendanceManagementStore2.default.listen(this.onChange);
+      if (sessionStorage.attendanceManagement) _AttendanceManagementActions2.default.restoreState(JSON.parse(sessionStorage.attendanceManagement));
       _AttendanceManagementActions2.default.loadComponentData();
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _AttendanceManagementStore2.default.unlisten(this.onChange);
+      sessionStorage.attendanceManagement = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -5531,12 +5533,14 @@ var CharacterManagement = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _CharacterManagementStore2.default.listen(this.onChange);
+      if (sessionState.characterManagement) _CharacterManagementActions2.default.restoreState(JSON.parse(sessionState.characterManagement));
       _CharacterManagementActions2.default.getCharactersForConfirmation();
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _CharacterManagementStore2.default.unlisten(this.onChange);
+      sessionState.characterManagement = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -5786,12 +5790,14 @@ var RaidManagement = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _RaidManagementStore2.default.listen(this.onChange);
+      if (sessionStorage.raidManagement) _RaidManagementActions2.default.restoreState(JSON.parse(sessionStorage.raidManagement));
       _RaidManagementActions2.default.loadRaids();
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _RaidManagementStore2.default.unlisten(this.onChange);
+      sessionStorage.raidManagement = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -6741,12 +6747,14 @@ var RaidWeekManagement = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _RaidWeekManagementStore2.default.listen(this.onChange);
+      if (sessionStorage.raidweekManagement) _RaidWeekManagementActions2.default.restoreState(JSON.parse(sessionStorage.raidweekManagement));
       _RaidWeekManagementActions2.default.getAllRaidWeeks();
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _RaidWeekManagementStore2.default.unlisten(this.onChange);
+      sessionStorage.raidweekManagement = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -7171,12 +7179,14 @@ var RosterManagement = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _RosterManagementStore2.default.listen(this.onChange);
+      if (sessionStorage.rosterManagement) _RosterManagementActions2.default.restoreState(JSON.parse(sessionStorage.rosterManagement));
       _RosterManagementActions2.default.getAllRosters();
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _RosterManagementStore2.default.unlisten(this.onChange);
+      sessionStorage.rosterManagement = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -7493,12 +7503,13 @@ var ScheduleManagement = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _ScheduleManagementStore2.default.listen(this.onChange);
-      _ScheduleManagementActions2.default.loadComponentData();
+      if (sessionStorage.scheduleManagement) _ScheduleManagementActions2.default.restoreState(JSON.parse(sessionStorage.scheduleManagement));else _ScheduleManagementActions2.default.loadComponentData();
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _ScheduleManagementStore2.default.unlisten(this.onChange);
+      sessionStorage.scheduleManagement = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -9412,6 +9423,13 @@ var AttendanceManagementStore = function () {
     value: function onUploadFileFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
     }
+  }, {
+    key: 'onRestoreState',
+    value: function onRestoreState(state) {
+      for (var key in state) {
+        this[key] = state[key];
+      }
+    }
   }]);
 
   return AttendanceManagementStore;
@@ -9477,6 +9495,13 @@ var CharacterManagementStore = function () {
     key: 'onUnconfirmCharacterFailure',
     value: function onUnconfirmCharacterFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onRestoreState',
+    value: function onRestoreState(state) {
+      for (var key in state) {
+        this[key] = state[key];
+      }
     }
   }]);
 
@@ -9720,6 +9745,13 @@ var RaidManagementStore = function () {
     value: function onUpdateBossFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
     }
+  }, {
+    key: 'onRestoreState',
+    value: function onRestoreState(state) {
+      for (var key in state) {
+        this[key] = state[key];
+      }
+    }
   }]);
 
   return RaidManagementStore;
@@ -9847,6 +9879,13 @@ var RaidWeekManagementStore = function () {
       var pState = _underscore2.default.findWhere(this.panelState, { name: key });
       pState.expanded = !pState.expanded;
     }
+  }, {
+    key: 'onRestoreState',
+    value: function onRestoreState(state) {
+      for (var key in state) {
+        this[key] = state[key];
+      }
+    }
   }]);
 
   return RaidWeekManagementStore;
@@ -9927,6 +9966,13 @@ var RosterManagementStore = function () {
     key: 'onAddCharacterToRosterFailure',
     value: function onAddCharacterToRosterFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onRestoreState',
+    value: function onRestoreState(state) {
+      for (var key in state) {
+        this[key] = state[key];
+      }
     }
   }]);
 
@@ -10165,6 +10211,13 @@ var ScheduleManagementStore = function () {
     key: 'onAddScheduleRaidBossesFailure',
     value: function onAddScheduleRaidBossesFailure(jqXhr) {
       toastr.error(jqXhr.repsonseJSON.message);
+    }
+  }, {
+    key: 'onRestoreState',
+    value: function onRestoreState(state) {
+      for (var key in state) {
+        this[key] = state[key];
+      }
     }
   }]);
 

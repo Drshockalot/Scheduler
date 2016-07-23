@@ -8,7 +8,8 @@ class CharacterManagementActions {
       'confirmCharacterSuccess',
       'confirmCharacterFailure',
       'unconfirmCharacterSuccess',
-      'unconfirmCharacterFailure'
+      'unconfirmCharacterFailure',
+      'restoreState'
     );
   }
 

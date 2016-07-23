@@ -17,11 +17,14 @@ class RaidManagement extends React.Component {
 
   componentDidMount() {
     RaidManagementStore.listen(this.onChange);
+    if(sessionStorage.raidManagement)
+      RaidManagementActions.restoreState(JSON.parse(sessionStorage.raidManagement));
     RaidManagementActions.loadRaids();
   }
 
   componentWillUnmount() {
     RaidManagementStore.unlisten(this.onChange);
+    sessionStorage.raidManagement = JSON.stringify(this.state);
   }
 
   onChange(state) {
@@ -29,7 +32,7 @@ class RaidManagement extends React.Component {
   }
 
   render() {
-    var currentRaidId
+    var currentRaidId;
     var raidOptionList;
     var raidBossList;
     if(this.state.raids.length > 0) {
@@ -320,7 +323,13 @@ class RaidManagement extends React.Component {
             </div>
           </Modal.Body>
           <Modal.Footer>
-            <button className='btn btn-default' onClick={() => RaidManagementActions.updateBoss(this.state.editFormBossId, this.state.editFormBossName, this.state.editFormBossPublicNote, this.state.editFormBossOfficerNote, this.state.editFormTanks, this.state.editFormHealers, this.state.editFormDPS)}>Update</button>
+            <button className='btn btn-default' onClick={() => RaidManagementActions.updateBoss(this.state.editFormBossId,
+                                                                                                this.state.editFormBossName,
+                                                                                                this.state.editFormBossPublicNote,
+                                                                                                this.state.editFormBossOfficerNote,
+                                                                                                this.state.editFormTanks,
+                                                                                                this.state.editFormHealers,
+                                                                                                this.state.editFormDPS)}>Update</button>
           </Modal.Footer>
         </Modal>
       </div>

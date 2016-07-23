@@ -19,11 +19,14 @@ class CharacterManagement extends React.Component {
 
   componentDidMount() {
     CharacterManagementStore.listen(this.onChange);
+    if(sessionState.characterManagement)
+      CharacterManagementActions.restoreState(JSON.parse(sessionState.characterManagement));
     CharacterManagementActions.getCharactersForConfirmation();
   }
 
   componentWillUnmount() {
     CharacterManagementStore.unlisten(this.onChange);
+    sessionState.characterManagement = JSON.stringify(this.state);
   }
 
   onChange(state) {
@@ -41,11 +44,11 @@ class CharacterManagement extends React.Component {
           if(character.confirmed == 0) {
             btn = <button value={character.id} className='btn btn-success' onClick={e => {
               CharacterManagementActions.confirmCharacter(e.target.value);
-            }}>Confirm</button>
+            }}>Confirm</button>;
           } else {
             btn = <button value={character.id} className='btn btn-danger' onClick={e => {
               CharacterManagementActions.unconfirmCharacter(e.target.value);
-            }}>Unconfirm</button>
+            }}>Unconfirm</button>;
           }
           return (
             <tr>

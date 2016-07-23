@@ -15,7 +15,8 @@ class RaidWeekManagementActions {
       'deleteRaidWeekSuccess',
       'deleteRaidWeekFailure',
       'updateRaidWeekSuccess',
-      'updateRaidWeekFailure'
+      'updateRaidWeekFailure',
+      'restoreState'
     );
   }
 

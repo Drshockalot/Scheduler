@@ -14,7 +14,8 @@ class RosterManagementActions {
       'addCharacterToRosterSuccess',
       'addCharacterToRosterFailure',
       'setSelectedRosterName',
-      'getSelectedRosterName'
+      'getSelectedRosterName',
+      'restoreState'
     );
   }
 

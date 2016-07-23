@@ -20,7 +20,8 @@ class AttendaceManagementActions {
       'uploadRawTextSuccess',
       'uploadRawTextFailure',
       'uploadFileSuccess',
-      'uploadFileFailure'
+      'uploadFileFailure',
+      'restoreState'
     );
   }
 

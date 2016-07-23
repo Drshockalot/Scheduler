@@ -16,11 +16,14 @@ class RosterManagement extends React.Component {
 
   componentDidMount() {
     RosterManagementStore.listen(this.onChange);
+    if(sessionStorage.rosterManagement)
+      RosterManagementActions.restoreState(JSON.parse(sessionStorage.rosterManagement));
     RosterManagementActions.getAllRosters();
   }
 
   componentWillUnmount() {
     RosterManagementStore.unlisten(this.onChange);
+    sessionStorage.rosterManagement = JSON.stringify(this.state);
   }
 
   onChange(state) {

@@ -33,7 +33,8 @@ class RaidManagementActions {
       'showEditBossModal',
       'closeEditBossModal',
       'updateBossSuccess',
-      'updateBossFailure'
+      'updateBossFailure',
+      'restoreState'
     );
   }
 
