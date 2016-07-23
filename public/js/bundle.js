@@ -2023,6 +2023,11 @@ var Home = function (_React$Component) {
                               'li',
                               null,
                               'Refreshing the web page should no longer crash the website (let me know if it happens to you)'
+                            ),
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'NOTE: Doing this might cause you to lose some work that you have not saved, but it should be minimal, I should soon have a system in place where a refresh will affect nothing'
                             )
                           )
                         )

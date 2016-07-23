@@ -137,6 +137,7 @@ class Home extends React.Component {
                           <h5>Website usability</h5>
                           <ul>
                             <li>Refreshing the web page should no longer crash the website (let me know if it happens to you)</li>
+                            <li>NOTE: Doing this might cause you to lose some work that you have not saved, but it should be minimal, I should soon have a system in place where a refresh will affect nothing</li>
                           </ul>
                         </li>
                       </ul>
