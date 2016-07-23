@@ -5,7 +5,7 @@ class ProfileCharactersStore {
   constructor() {
     this.bindActions(ProfileCharactersActions);
     this.retrievedCharacters = [];
-    this.storedCharacters = [];
+    this.chosenCharacters = [];
   }
 
   onPopulateRetrievedCharactersSuccess(data) {
@@ -32,35 +32,35 @@ class ProfileCharactersStore {
     toastr.error(jqXhr.responseJSON.message);
   }
 
-  onUpdateStoredCharactersSuccess(characters) {
-    this.storedCharacters = characters.data;
+  onUpdateChosenCharactersSuccess(characters) {
+    this.chosenCharacters = characters.data;
   }
 
-  onUpdateStoredCharactersFailure(jqXhr) {
+  onUpdateChosenCharactersFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
   }
 
   onHandleMainRoleChange(value) {
-    this.storedCharacters[value[1]].main_role = value[0];
+    this.chosenCharacters[value[1]].main_role = value[0];
   }
 
   onHandleOffRoleChange(value) {
-    this.storedCharacters[value[1]].off_role = value[0];
+    this.chosenCharacters[value[1]].off_role = value[0];
   }
 
-  onSaveStoredCharacterDetailsSuccess(value) {
+  onSaveChosenCharacterDetailsSuccess(value) {
     toastr.success(value.data.character.name + ' has been updated', 'Character Data Saved');
   }
 
-  onSaveStoredCharacterDetailsFailure(jqXhr) {
+  onSaveChosenCharacterDetailsFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
   }
 
-  onDeleteStoredCharacterSuccess(value) {
+  onDeleteChosenCharacterSuccess(value) {
     toastr.success(value + ' has been deleted', 'Character Deleted');
   }
 
-  onDeleteStoredCharacterFailure(jqXhr) {
+  onDeleteChosenCharacterFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
   }
 
@@ -69,7 +69,7 @@ class ProfileCharactersStore {
   }
 
   onUpdateCharacterIlvl(values) {
-    this.storedCharacters[values[1]].average_ilvl = values[0];
+    this.chosenCharacters[values[1]].average_ilvl = values[0];
     toastr.success('Character ilvl has been updated', 'Character Confirmed');
   }
 }

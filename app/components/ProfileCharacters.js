@@ -30,7 +30,7 @@ class ProfileCharacters extends React.Component {
 
   render() {
     var retrievedCharactersList;
-    var storedCharactersList;
+    var chosenCharactersList;
 
     if(this.state.retrievedCharacters.length > 0) {
       var retrievedCharactersCopy = this.state.retrievedCharacters;
@@ -67,12 +67,12 @@ class ProfileCharacters extends React.Component {
       });
     }
 
-    if(this.state.storedCharacters.length > 0) {
-      storedCharactersList = _.sortBy(this.state.storedCharacters, 'rank').reverse().map((character, index) => {
+    if(this.state.chosenCharacters.length > 0) {
+      chosenCharactersList = _.sortBy(this.state.chosenCharacters, 'rank').reverse().map((character, index) => {
         return (
           <div className='col-md-4'>
             <div className='col-sm-offset-4 col-xs-8 text-center'>
-              <h3>{character.rank}</h3>
+              <h3><strong>{character.rank}</strong></h3>
             </div>
             <div className='form-horizontal'>
               <div className='form-group'>
@@ -96,7 +96,7 @@ class ProfileCharacters extends React.Component {
               <div className='form-group'>
                 <label className='col-sm-4 control-label'><strong>Main Role:</strong></label>
                 <div className='col-xs-8'>
-                  <select className='form-control' id='main-role' value={this.state.storedCharacters[index].main_role} onChange={e => ProfileCharactersActions.handleMainRoleChange(e.target.value, index)}>
+                  <select className='form-control' id='main-role' value={this.state.chosenCharacters[index].main_role} onChange={e => ProfileCharactersActions.handleMainRoleChange(e.target.value, index)}>
                     <option key='Tank' value='Tank'>Tank</option>
                     <option key='Healer' value='Healer'>Healer</option>
                     <option key='DPS' value='DPS'>DPS</option>
@@ -106,7 +106,7 @@ class ProfileCharacters extends React.Component {
               <div className='form-group'>
                 <label className='col-sm-4 control-label'><strong>Off Role:</strong></label>
                 <div className='col-xs-8'>
-                  <select className='form-control' id='off-role' value={this.state.storedCharacters[index].off_role} onChange={e => ProfileCharactersActions.handleOffRoleChange(e.target.value, index)}>
+                  <select className='form-control' id='off-role' value={this.state.chosenCharacters[index].off_role} onChange={e => ProfileCharactersActions.handleOffRoleChange(e.target.value, index)}>
                     <option key='Tank' value='Tank'>Tank</option>
                     <option key='Healer' value='Healer'>Healer</option>
                     <option key='DPS' value='DPS'>DPS</option>
@@ -128,15 +128,15 @@ class ProfileCharacters extends React.Component {
               <div className='form-group'>
                 <div className='col-sm-offset-4 col-xs-8'>
                   <button className='btn btn-default' onClick={() => {
-                    ProfileCharactersActions.saveStoredCharacterDetails(this.state.storedCharacters[index]);
+                    ProfileCharactersActions.saveStoredCharacterDetails(this.state.chosenCharacters[index]);
                   }}>Save</button>
                   &nbsp;&nbsp;
                   <button className='btn btn-info' onClick={() => {
-                    ProfileCharactersActions.updateIlvlForCharacter(this.state.storedCharacters[index], index);
+                    ProfileCharactersActions.updateIlvlForCharacter(this.state.chosenCharacters[index], index);
                   }}>Update ilvl</button>
                   &nbsp;&nbsp;
                   <button className='btn btn-danger' onClick={() => {
-                    ProfileCharactersActions.deleteStoredCharacter(this.state.storedCharacters[index]);
+                    ProfileCharactersActions.deleteStoredCharacter(this.state.chosenCharacters[index]);
                   }}>Delete</button>
                 </div>
               </div>
@@ -175,7 +175,7 @@ class ProfileCharacters extends React.Component {
               <h3>Confirmed Characters</h3>
             </div>
             <div className='row'>
-              {storedCharactersList}
+              {chosenCharactersList}
             </div>
           </div>
         </div>

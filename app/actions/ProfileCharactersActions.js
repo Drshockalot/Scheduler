@@ -9,14 +9,14 @@ class ProfileCharactersActions {
       'populateRetrievedCharactersFailure',
       'confirmCharacterSuccess',
       'confirmCharacterFailure',
-      'updateStoredCharactersSuccess',
-      'updateStoredCharactersFailure',
+      'updateChosenCharactersSuccess',
+      'updateChosenCharactersFailure',
       'handleMainRoleChange',
       'handleOffRoleChange',
-      'saveStoredCharacterDetailsSuccess',
-      'saveStoredCharacterDetailsFailure',
-      'deleteStoredCharacterSuccess',
-      'deleteStoredCharacterFailure',
+      'saveChosenCharacterDetailsSuccess',
+      'saveChosenCharacterDetailsFailure',
+      'deleteChosenCharacterSuccess',
+      'deleteChosenCharacterFailure',
       'retrieveAverageIlvlFailure',
       'updateCharacterIlvl'
     );
@@ -34,16 +34,16 @@ class ProfileCharactersActions {
     return 0;
   }
 
-  getStoredCharacters() {
+  getChosenCharacters() {
     $.ajax({
       method: 'GET',
       url: '/api/character/confirmed/' + encodeURIComponent(NavbarStore.getState().battletag)
     }).done((result) => {
       console.log(result);
-      this.updateStoredCharactersSuccess(result);
+      this.updateChosenCharactersSuccess(result);
     }).fail((jqXhr) => {
       console.log(jqXhr);
-      this.updateStoredCharactersFailure(jqXhr);
+      this.updateChosenCharactersFailure(jqXhr);
     });
     return 0;
   }
@@ -57,7 +57,7 @@ class ProfileCharactersActions {
     }).done((result) => {
       console.log(result);
       this.confirmCharacterSuccess(result);
-      this.getStoredCharacters();
+      this.getChosenCharacters();
     }).fail((jqXhr) => {
       console.log(jqXhr);
       this.confirmCharacterFailure(jqXhr);
@@ -65,29 +65,29 @@ class ProfileCharactersActions {
     return 0;
   }
 
-  saveStoredCharacterDetails(character) {
+  saveChosenCharacterDetails(character) {
     $.ajax({
       method: 'PUT',
       url: '/api/character/' + character.id,
       data: character
     }).done((result) => {
-      this.saveStoredCharacterDetailsSuccess(result);
+      this.saveChosenCharacterDetailsSuccess(result);
     }).fail((jqXhr) => {
-      this.saveStoredCharacterDetailsFailure(jqXhr);
+      this.saveChosenCharacterDetailsFailure(jqXhr);
     });
     return 0;
   }
 
-  deleteStoredCharacter(character) {
+  deleteChosenCharacter(character) {
     $.ajax({
       method: 'DELETE',
       url: '/api/character/' + character.id,
       data: character
     }).done((result) => {
-      this.deleteStoredCharacterSuccess(character.name);
-      this.getStoredCharacters();
+      this.deleteChosenCharacterSuccess(character.name);
+      this.getChosenCharacters();
     }).fail((jqXhr) => {
-      this.deleteStoredCharacterFailure(jqXhr);
+      this.deleteChosenCharacterFailure(jqXhr);
     });
     return 0;
   }
@@ -98,7 +98,7 @@ class ProfileCharactersActions {
       url: 'https://eu.api.battle.net/wow/character/' + character.realm + '/' + character.name + '?fields=items&locale=en_GB&apikey=8fc24vcgky6r8yzja8a4efxncgu8z77g'
     }).done((result) => {
       character.average_ilvl = result.items.averageItemLevel;
-      this.saveStoredCharacterDetails(character);
+      this.saveChosenCharacterDetails(character);
       this.updateCharacterIlvl(result.items.averageItemLevel, index);
     }).fail((jqXhr) => {
       this.retrieveAverageIlvlFailure(jqXhr);

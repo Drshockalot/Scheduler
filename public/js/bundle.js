@@ -193,7 +193,7 @@ var ProfileCharactersActions = function () {
   function ProfileCharactersActions() {
     _classCallCheck(this, ProfileCharactersActions);
 
-    this.generateActions('populateRetrievedCharactersSuccess', 'populateRetrievedCharactersFailure', 'confirmCharacterSuccess', 'confirmCharacterFailure', 'updateStoredCharactersSuccess', 'updateStoredCharactersFailure', 'handleMainRoleChange', 'handleOffRoleChange', 'saveStoredCharacterDetailsSuccess', 'saveStoredCharacterDetailsFailure', 'deleteStoredCharacterSuccess', 'deleteStoredCharacterFailure', 'retrieveAverageIlvlFailure', 'updateCharacterIlvl');
+    this.generateActions('populateRetrievedCharactersSuccess', 'populateRetrievedCharactersFailure', 'confirmCharacterSuccess', 'confirmCharacterFailure', 'updateChosenCharactersSuccess', 'updateChosenCharactersFailure', 'handleMainRoleChange', 'handleOffRoleChange', 'saveChosenCharacterDetailsSuccess', 'saveChosenCharacterDetailsFailure', 'deleteChosenCharacterSuccess', 'deleteChosenCharacterFailure', 'retrieveAverageIlvlFailure', 'updateCharacterIlvl');
   }
 
   _createClass(ProfileCharactersActions, [{
@@ -212,8 +212,8 @@ var ProfileCharactersActions = function () {
       return 0;
     }
   }, {
-    key: 'getStoredCharacters',
-    value: function getStoredCharacters() {
+    key: 'getChosenCharacters',
+    value: function getChosenCharacters() {
       var _this2 = this;
 
       $.ajax({
@@ -221,10 +221,10 @@ var ProfileCharactersActions = function () {
         url: '/api/character/confirmed/' + encodeURIComponent(_NavbarStore2.default.getState().battletag)
       }).done(function (result) {
         console.log(result);
-        _this2.updateStoredCharactersSuccess(result);
+        _this2.updateChosenCharactersSuccess(result);
       }).fail(function (jqXhr) {
         console.log(jqXhr);
-        _this2.updateStoredCharactersFailure(jqXhr);
+        _this2.updateChosenCharactersFailure(jqXhr);
       });
       return 0;
     }
@@ -241,7 +241,7 @@ var ProfileCharactersActions = function () {
       }).done(function (result) {
         console.log(result);
         _this3.confirmCharacterSuccess(result);
-        _this3.getStoredCharacters();
+        _this3.getChosenCharacters();
       }).fail(function (jqXhr) {
         console.log(jqXhr);
         _this3.confirmCharacterFailure(jqXhr);
@@ -249,8 +249,8 @@ var ProfileCharactersActions = function () {
       return 0;
     }
   }, {
-    key: 'saveStoredCharacterDetails',
-    value: function saveStoredCharacterDetails(character) {
+    key: 'saveChosenCharacterDetails',
+    value: function saveChosenCharacterDetails(character) {
       var _this4 = this;
 
       $.ajax({
@@ -258,15 +258,15 @@ var ProfileCharactersActions = function () {
         url: '/api/character/' + character.id,
         data: character
       }).done(function (result) {
-        _this4.saveStoredCharacterDetailsSuccess(result);
+        _this4.saveChosenCharacterDetailsSuccess(result);
       }).fail(function (jqXhr) {
-        _this4.saveStoredCharacterDetailsFailure(jqXhr);
+        _this4.saveChosenCharacterDetailsFailure(jqXhr);
       });
       return 0;
     }
   }, {
-    key: 'deleteStoredCharacter',
-    value: function deleteStoredCharacter(character) {
+    key: 'deleteChosenCharacter',
+    value: function deleteChosenCharacter(character) {
       var _this5 = this;
 
       $.ajax({
@@ -274,10 +274,10 @@ var ProfileCharactersActions = function () {
         url: '/api/character/' + character.id,
         data: character
       }).done(function (result) {
-        _this5.deleteStoredCharacterSuccess(character.name);
-        _this5.getStoredCharacters();
+        _this5.deleteChosenCharacterSuccess(character.name);
+        _this5.getChosenCharacters();
       }).fail(function (jqXhr) {
-        _this5.deleteStoredCharacterFailure(jqXhr);
+        _this5.deleteChosenCharacterFailure(jqXhr);
       });
       return 0;
     }
@@ -291,7 +291,7 @@ var ProfileCharactersActions = function () {
         url: 'https://eu.api.battle.net/wow/character/' + character.realm + '/' + character.name + '?fields=items&locale=en_GB&apikey=8fc24vcgky6r8yzja8a4efxncgu8z77g'
       }).done(function (result) {
         character.average_ilvl = result.items.averageItemLevel;
-        _this6.saveStoredCharacterDetails(character);
+        _this6.saveChosenCharacterDetails(character);
         _this6.updateCharacterIlvl(result.items.averageItemLevel, index);
       }).fail(function (jqXhr) {
         _this6.retrieveAverageIlvlFailure(jqXhr);
@@ -2813,7 +2813,7 @@ var ProfileCharacters = function (_React$Component) {
       var _this2 = this;
 
       var retrievedCharactersList;
-      var storedCharactersList;
+      var chosenCharactersList;
 
       if (this.state.retrievedCharacters.length > 0) {
         var retrievedCharactersCopy = this.state.retrievedCharacters;
@@ -2874,8 +2874,8 @@ var ProfileCharacters = function (_React$Component) {
         });
       }
 
-      if (this.state.storedCharacters.length > 0) {
-        storedCharactersList = _.sortBy(this.state.storedCharacters, 'rank').reverse().map(function (character, index) {
+      if (this.state.chosenCharacters.length > 0) {
+        chosenCharactersList = _.sortBy(this.state.chosenCharacters, 'rank').reverse().map(function (character, index) {
           return _react2.default.createElement(
             'div',
             { className: 'col-md-4' },
@@ -2885,7 +2885,11 @@ var ProfileCharacters = function (_React$Component) {
               _react2.default.createElement(
                 'h3',
                 null,
-                character.rank
+                _react2.default.createElement(
+                  'strong',
+                  null,
+                  character.rank
+                )
               )
             ),
             _react2.default.createElement(
@@ -2962,7 +2966,7 @@ var ProfileCharacters = function (_React$Component) {
                   { className: 'col-xs-8' },
                   _react2.default.createElement(
                     'select',
-                    { className: 'form-control', id: 'main-role', value: _this2.state.storedCharacters[index].main_role, onChange: function onChange(e) {
+                    { className: 'form-control', id: 'main-role', value: _this2.state.chosenCharacters[index].main_role, onChange: function onChange(e) {
                         return _ProfileCharactersActions2.default.handleMainRoleChange(e.target.value, index);
                       } },
                     _react2.default.createElement(
@@ -3000,7 +3004,7 @@ var ProfileCharacters = function (_React$Component) {
                   { className: 'col-xs-8' },
                   _react2.default.createElement(
                     'select',
-                    { className: 'form-control', id: 'off-role', value: _this2.state.storedCharacters[index].off_role, onChange: function onChange(e) {
+                    { className: 'form-control', id: 'off-role', value: _this2.state.chosenCharacters[index].off_role, onChange: function onChange(e) {
                         return _ProfileCharactersActions2.default.handleOffRoleChange(e.target.value, index);
                       } },
                     _react2.default.createElement(
@@ -3066,7 +3070,7 @@ var ProfileCharacters = function (_React$Component) {
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-default', onClick: function onClick() {
-                        _ProfileCharactersActions2.default.saveStoredCharacterDetails(_this2.state.storedCharacters[index]);
+                        _ProfileCharactersActions2.default.saveStoredCharacterDetails(_this2.state.chosenCharacters[index]);
                       } },
                     'Save'
                   ),
@@ -3074,7 +3078,7 @@ var ProfileCharacters = function (_React$Component) {
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-info', onClick: function onClick() {
-                        _ProfileCharactersActions2.default.updateIlvlForCharacter(_this2.state.storedCharacters[index], index);
+                        _ProfileCharactersActions2.default.updateIlvlForCharacter(_this2.state.chosenCharacters[index], index);
                       } },
                     'Update ilvl'
                   ),
@@ -3082,7 +3086,7 @@ var ProfileCharacters = function (_React$Component) {
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-danger', onClick: function onClick() {
-                        _ProfileCharactersActions2.default.deleteStoredCharacter(_this2.state.storedCharacters[index]);
+                        _ProfileCharactersActions2.default.deleteStoredCharacter(_this2.state.chosenCharacters[index]);
                       } },
                     'Delete'
                   )
@@ -3195,7 +3199,7 @@ var ProfileCharacters = function (_React$Component) {
             _react2.default.createElement(
               'div',
               { className: 'row' },
-              storedCharactersList
+              chosenCharactersList
             )
           )
         )
@@ -8653,7 +8657,7 @@ var ProfileCharactersStore = function () {
 
     this.bindActions(_ProfileCharactersActions2.default);
     this.retrievedCharacters = [];
-    this.storedCharacters = [];
+    this.chosenCharacters = [];
   }
 
   _createClass(ProfileCharactersStore, [{
@@ -8685,43 +8689,43 @@ var ProfileCharactersStore = function () {
       toastr.error(jqXhr.responseJSON.message);
     }
   }, {
-    key: 'onUpdateStoredCharactersSuccess',
-    value: function onUpdateStoredCharactersSuccess(characters) {
-      this.storedCharacters = characters.data;
+    key: 'onUpdateChosenCharactersSuccess',
+    value: function onUpdateChosenCharactersSuccess(characters) {
+      this.chosenCharacters = characters.data;
     }
   }, {
-    key: 'onUpdateStoredCharactersFailure',
-    value: function onUpdateStoredCharactersFailure(jqXhr) {
+    key: 'onUpdateChosenCharactersFailure',
+    value: function onUpdateChosenCharactersFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
     }
   }, {
     key: 'onHandleMainRoleChange',
     value: function onHandleMainRoleChange(value) {
-      this.storedCharacters[value[1]].main_role = value[0];
+      this.chosenCharacters[value[1]].main_role = value[0];
     }
   }, {
     key: 'onHandleOffRoleChange',
     value: function onHandleOffRoleChange(value) {
-      this.storedCharacters[value[1]].off_role = value[0];
+      this.chosenCharacters[value[1]].off_role = value[0];
     }
   }, {
-    key: 'onSaveStoredCharacterDetailsSuccess',
-    value: function onSaveStoredCharacterDetailsSuccess(value) {
+    key: 'onSaveChosenCharacterDetailsSuccess',
+    value: function onSaveChosenCharacterDetailsSuccess(value) {
       toastr.success(value.data.character.name + ' has been updated', 'Character Data Saved');
     }
   }, {
-    key: 'onSaveStoredCharacterDetailsFailure',
-    value: function onSaveStoredCharacterDetailsFailure(jqXhr) {
+    key: 'onSaveChosenCharacterDetailsFailure',
+    value: function onSaveChosenCharacterDetailsFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
     }
   }, {
-    key: 'onDeleteStoredCharacterSuccess',
-    value: function onDeleteStoredCharacterSuccess(value) {
+    key: 'onDeleteChosenCharacterSuccess',
+    value: function onDeleteChosenCharacterSuccess(value) {
       toastr.success(value + ' has been deleted', 'Character Deleted');
     }
   }, {
-    key: 'onDeleteStoredCharacterFailure',
-    value: function onDeleteStoredCharacterFailure(jqXhr) {
+    key: 'onDeleteChosenCharacterFailure',
+    value: function onDeleteChosenCharacterFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
     }
   }, {
@@ -8732,7 +8736,7 @@ var ProfileCharactersStore = function () {
   }, {
     key: 'onUpdateCharacterIlvl',
     value: function onUpdateCharacterIlvl(values) {
-      this.storedCharacters[values[1]].average_ilvl = values[0];
+      this.chosenCharacters[values[1]].average_ilvl = values[0];
       toastr.success('Character ilvl has been updated', 'Character Confirmed');
     }
   }]);
