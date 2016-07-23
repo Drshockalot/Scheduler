@@ -113,6 +113,7 @@ var NavbarActions = function () {
         if (data) {
           _this.updateBattletag(data.battletag);
           localStorage.battletag = data.battletag;
+          console.log(localStorage.battletag);
           _this.updateAccessToken(data.token);
           $.ajax({
             method: 'POST',
@@ -121,6 +122,7 @@ var NavbarActions = function () {
           }).done(function (result) {
             _this.checkUserSuccess(result.data.user.role);
             localStorage.role = result.data.user.role;
+            console.log(localStorage.role);
           }).fail(function (jqXhr) {
             _this.checkUserFailure(jqXhr);
           });
@@ -2759,6 +2761,11 @@ var Profile = function (_React$Component) {
   }
 
   _createClass(Profile, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      if (localStorage.role == '') {}
+    }
+  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _ProfileStore2.default.listen(this.onChange);

@@ -13,6 +13,12 @@ class Profile extends React.Component {
     this.redirect = false;
   }
 
+  componentWillMount() {
+    if(localStorage.role == '') {
+
+    }
+  }
+
   componentDidMount() {
     ProfileStore.listen(this.onChange);
   }

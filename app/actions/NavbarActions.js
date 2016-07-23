@@ -28,6 +28,7 @@ class NavbarActions {
       if(data) {
         this.updateBattletag(data.battletag);
         localStorage.battletag = data.battletag;
+        console.log(localStorage.battletag);
         this.updateAccessToken(data.token);
         $.ajax({
           method: 'POST',
@@ -36,6 +37,7 @@ class NavbarActions {
         }).done((result) => {
           this.checkUserSuccess(result.data.user.role);
           localStorage.role = result.data.user.role;
+          console.log(localStorage.role);
         }).fail((jqXhr) => {
           this.checkUserFailure(jqXhr);
         });
