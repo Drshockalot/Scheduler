@@ -2531,7 +2531,7 @@ var Navbar = function (_React$Component) {
     value: function render() {
       var profilePane;
 
-      if (!this.state.battletag && !_reactCookie2.default.load('battletag')) {
+      if (!this.state.battletag) {
         profilePane = _react2.default.createElement(
           'li',
           null,
@@ -2548,7 +2548,7 @@ var Navbar = function (_React$Component) {
           _react2.default.createElement(
             'a',
             { href: '/profile', className: 'dropdown-toggle', 'data-toggle': 'dropdown' },
-            this.state.battletag ? this.state.battletag : _reactCookie2.default.load('battletag'),
+            this.state.battletag,
             ' ',
             _react2.default.createElement('span', { className: 'caret' })
           ),
