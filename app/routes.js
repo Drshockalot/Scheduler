@@ -23,7 +23,7 @@ var auth = function(nextState, replace) {
   var role = NavbarStore.getState().userRole;
   if(role === '') {
     replace({
-      pathname: '/?somesneakyguy=1',
+      pathname: '/',
       state: { nextPathname: nextState.location.pathname }
     });
   }
