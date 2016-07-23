@@ -2814,7 +2814,7 @@ var ProfileCharacters = function (_React$Component) {
   }, {
     key: 'classColour',
     value: function classColour(character) {
-      var currentClass = _.findWhere(wowClasses, { id: parseInt(character.class) }).name;
+      var currentClass = _.findWhere(classes, { id: parseInt(character.class) }).name;
       var arr = currentClass.split(" ");
 
       var ret = '';

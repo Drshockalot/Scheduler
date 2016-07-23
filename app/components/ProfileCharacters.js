@@ -29,7 +29,7 @@ class ProfileCharacters extends React.Component {
   }
 
   classColour(character) {
-    let currentClass = _.findWhere(wowClasses, {id: parseInt(character.class)}).name;
+    let currentClass = _.findWhere(classes, {id: parseInt(character.class)}).name;
     var arr = currentClass.split(" ");
 
     var ret = '';
