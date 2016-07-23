@@ -1963,12 +1963,12 @@ var Home = function (_React$Component) {
                           _react2.default.createElement(
                             'h5',
                             null,
+                            'Website Performance ',
                             _react2.default.createElement(
                               'strong',
                               null,
                               'New!'
-                            ),
-                            'Website Performance'
+                            )
                           ),
                           _react2.default.createElement(
                             'ul',
