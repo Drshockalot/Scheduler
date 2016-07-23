@@ -41,8 +41,4 @@ class Profile extends React.Component {
   }
 }
 
-Profile.contextTypes = {
-    router: React.PropTypes.func.isRequired
-};
-
 export default Profile;
