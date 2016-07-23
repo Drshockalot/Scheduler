@@ -2749,6 +2749,7 @@ var Profile = function (_React$Component) {
 
     _this.state = _ProfileStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
+    _this.redirect = false;
     return _this;
   }
 
@@ -2760,7 +2761,7 @@ var Profile = function (_React$Component) {
           browserHistory.push('/');
           toastr.error('Please log in to access this page', 'YOU SHALL NOT PASS!!');
         } else {
-          window.location = '/';
+          this.redirect = true;
           toastr.warning('Please do not refresh the browser manually yet, the ability to do this will be added in the near future', 'Sad face');
         }
       }
@@ -2768,6 +2769,7 @@ var Profile = function (_React$Component) {
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
+      browserHistory.push('/');
       _ProfileStore2.default.listen(this.onChange);
     }
   }, {

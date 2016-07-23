@@ -10,6 +10,7 @@ class Profile extends React.Component {
     super(props);
     this.state = ProfileStore.getState();
     this.onChange = this.onChange.bind(this);
+    this.redirect = false;
   }
 
   componentWillMount() {
@@ -18,13 +19,14 @@ class Profile extends React.Component {
         browserHistory.push('/');
         toastr.error('Please log in to access this page', 'YOU SHALL NOT PASS!!');
       } else {
-        window.location = '/';
+        this.redirect = true;
         toastr.warning('Please do not refresh the browser manually yet, the ability to do this will be added in the near future', 'Sad face');
       }
     }
   }
 
   componentDidMount() {
+    browserHistory.push('/');
     ProfileStore.listen(this.onChange);
   }
 
