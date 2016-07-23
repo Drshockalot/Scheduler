@@ -31,12 +31,12 @@ class ViewRosters extends React.Component {
 
   render() {
     var rosterListCopy = this.state.rosterList;
-    var arr = Object.keys(rosterListCopy).map(function(i) {return rosterListCopy[i]});
+    var arr = Object.keys(rosterListCopy).map(function(i) {return rosterListCopy[i];});
 
     let list = arr.map((roster) => {
       return (
         <option key={roster._id} value={roster.name}>{roster.name}</option>
-      )
+      );
     });
 
     return (

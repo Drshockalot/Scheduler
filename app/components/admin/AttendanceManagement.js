@@ -20,13 +20,6 @@ class AttendanceManagement extends React.Component {
     this.onChange = this.onChange.bind(this);
   }
 
-  componentWillMount() {
-    if (NavbarStore.getState().userRole === 'member' || NavbarStore.getState().userRole === '') {
-      browserHistory.push('/');
-      toastr.error('You do not have authorization to access Admin', 'YOU SHALL NOT PASS!!');
-    }
-  }
-
   componentDidMount() {
     AttendanceManagementStore.listen(this.onChange);
     AttendanceManagementActions.loadComponentData();

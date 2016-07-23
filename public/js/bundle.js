@@ -4864,14 +4864,6 @@ var AttendanceManagement = function (_React$Component) {
   }
 
   _createClass(AttendanceManagement, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      if (_NavbarStore2.default.getState().userRole === 'member' || _NavbarStore2.default.getState().userRole === '') {
-        _reactRouter.browserHistory.push('/');
-        toastr.error('You do not have authorization to access Admin', 'YOU SHALL NOT PASS!!');
-      }
-    }
-  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _AttendanceManagementStore2.default.listen(this.onChange);
@@ -5480,14 +5472,6 @@ var CharacterManagement = function (_React$Component) {
   }
 
   _createClass(CharacterManagement, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      if (_NavbarStore2.default.getState().userRole === 'member' || _NavbarStore2.default.getState().userRole === '') {
-        _reactRouter.browserHistory.push('/');
-        toastr.error('You do not have authorization to access Admin', 'YOU SHALL NOT PASS!!');
-      }
-    }
-  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _CharacterManagementStore2.default.listen(this.onChange);
@@ -5743,14 +5727,6 @@ var RaidManagement = function (_React$Component) {
   }
 
   _createClass(RaidManagement, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      if (_NavbarStore2.default.getState().userRole === 'member' || _NavbarStore2.default.getState().userRole === '') {
-        _reactRouter.browserHistory.push('/');
-        toastr.error('You do not have authorization to access Admin', 'YOU SHALL NOT PASS!!');
-      }
-    }
-  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _RaidManagementStore2.default.listen(this.onChange);
@@ -6706,14 +6682,6 @@ var RaidWeekManagement = function (_React$Component) {
   }
 
   _createClass(RaidWeekManagement, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      if (_NavbarStore2.default.getState().userRole === 'member' || _NavbarStore2.default.getState().userRole === '') {
-        _reactRouter.browserHistory.push('/');
-        toastr.error('You do not have authorization to access Admin', 'YOU SHALL NOT PASS!!');
-      }
-    }
-  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _RaidWeekManagementStore2.default.listen(this.onChange);
@@ -7144,14 +7112,6 @@ var RosterManagement = function (_React$Component) {
   }
 
   _createClass(RosterManagement, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      if (_NavbarStore2.default.getState().userRole === 'member' || _NavbarStore2.default.getState().userRole === '') {
-        _reactRouter.browserHistory.push('/');
-        toastr.error('You do not have authorization to access Admin', 'YOU SHALL NOT PASS!!');
-      }
-    }
-  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _RosterManagementStore2.default.listen(this.onChange);
@@ -7474,14 +7434,6 @@ var ScheduleManagement = function (_React$Component) {
   }
 
   _createClass(ScheduleManagement, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      if (_NavbarStore2.default.getState().userRole === 'member' || _NavbarStore2.default.getState().userRole === '') {
-        _reactRouter.browserHistory.push('/');
-        toastr.error('You do not have authorization to access Admin', 'YOU SHALL NOT PASS!!');
-      }
-    }
-  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _ScheduleManagementStore2.default.listen(this.onChange);
@@ -8546,17 +8498,17 @@ exports.default = _react2.default.createElement(
   { component: _App2.default },
   _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Home2.default }),
   _react2.default.createElement(_reactRouter.Route, { path: '/profile', component: _Profile2.default, onEnter: auth }),
-  _react2.default.createElement(_reactRouter.Route, { path: '/profile/character', component: _ProfileCharacters2.default }),
-  _react2.default.createElement(_reactRouter.Route, { path: '/profile/raidweek', component: _ProfileRaidWeeks2.default }),
-  _react2.default.createElement(_reactRouter.Route, { path: '/profile/roster', component: _ProfileRosters2.default }),
+  _react2.default.createElement(_reactRouter.Route, { path: '/profile/character', component: _ProfileCharacters2.default, onEnter: auth }),
+  _react2.default.createElement(_reactRouter.Route, { path: '/profile/raidweek', component: _ProfileRaidWeeks2.default, onEnter: auth }),
+  _react2.default.createElement(_reactRouter.Route, { path: '/profile/roster', component: _ProfileRosters2.default, onEnter: auth }),
   _react2.default.createElement(_reactRouter.Route, { path: '/admin', component: _Admin2.default, onEnter: adminAuth }),
-  _react2.default.createElement(_reactRouter.Route, { path: '/admin/roster', component: _RosterManagement2.default }),
-  _react2.default.createElement(_reactRouter.Route, { path: '/admin/character', component: _CharacterManagement2.default }),
-  _react2.default.createElement(_reactRouter.Route, { path: '/admin/schedule', component: _ScheduleManagement2.default }),
-  _react2.default.createElement(_reactRouter.Route, { path: '/admin/raidweek', component: _RaidWeekManagement2.default }),
-  _react2.default.createElement(_reactRouter.Route, { path: '/admin/raid', component: _RaidManagement2.default }),
-  _react2.default.createElement(_reactRouter.Route, { path: '/admin/attendance', component: _AttendanceManagement2.default }),
-  _react2.default.createElement(_reactRouter.Route, { path: '/schedule', component: _ScheduleView2.default })
+  _react2.default.createElement(_reactRouter.Route, { path: '/admin/roster', component: _RosterManagement2.default, onEnter: adminAuth }),
+  _react2.default.createElement(_reactRouter.Route, { path: '/admin/character', component: _CharacterManagement2.default, onEnter: adminAuth }),
+  _react2.default.createElement(_reactRouter.Route, { path: '/admin/schedule', component: _ScheduleManagement2.default, onEnter: adminAuth }),
+  _react2.default.createElement(_reactRouter.Route, { path: '/admin/raidweek', component: _RaidWeekManagement2.default, onEnter: adminAuth }),
+  _react2.default.createElement(_reactRouter.Route, { path: '/admin/raid', component: _RaidManagement2.default, onEnter: adminAuth }),
+  _react2.default.createElement(_reactRouter.Route, { path: '/admin/attendance', component: _AttendanceManagement2.default, onEnter: adminAuth }),
+  _react2.default.createElement(_reactRouter.Route, { path: '/schedule', component: _ScheduleView2.default, onEnter: auth })
 );
 
 },{"./components/App":20,"./components/Home":22,"./components/Profile":24,"./components/ProfileCharacters":25,"./components/ProfileRaidWeeks":26,"./components/ProfileRosters":27,"./components/ScheduleView":29,"./components/admin/Admin":32,"./components/admin/AttendanceManagement":34,"./components/admin/CharacterManagement":35,"./components/admin/RaidManagement":36,"./components/admin/RaidWeekManagement":37,"./components/admin/RosterManagement":38,"./components/admin/ScheduleManagement":39,"./stores/NavbarStore":44,"react":"react","react-router":"react-router"}],42:[function(require,module,exports){

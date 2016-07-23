@@ -44,16 +44,16 @@ export default (
   <Route component={App}>
     <Route path='/' component={Home} />
     <Route path='/profile' component={Profile} onEnter={auth}/>
-    <Route path='/profile/character' component={ProfileCharacters} />
-    <Route path='/profile/raidweek' component={ProfileRaidWeeks} />
-    <Route path='/profile/roster' component={ProfileRosters} />
+    <Route path='/profile/character' component={ProfileCharacters} onEnter={auth}/>
+    <Route path='/profile/raidweek' component={ProfileRaidWeeks} onEnter={auth}/>
+    <Route path='/profile/roster' component={ProfileRosters} onEnter={auth}/>
     <Route path='/admin' component={Admin} onEnter={adminAuth} />
-    <Route path='/admin/roster' component={RosterManagement} />
-    <Route path='/admin/character' component={CharacterManagement} />
-    <Route path='/admin/schedule' component={ScheduleManagement} />
-    <Route path='/admin/raidweek' component={RaidWeekManagement} />
-    <Route path='/admin/raid' component={RaidManagement} />
-    <Route path='/admin/attendance' component={AttendanceManagement} />
-    <Route path='/schedule' component={ScheduleView} />
+    <Route path='/admin/roster' component={RosterManagement} onEnter={adminAuth}/>
+    <Route path='/admin/character' component={CharacterManagement} onEnter={adminAuth}/>
+    <Route path='/admin/schedule' component={ScheduleManagement} onEnter={adminAuth}/>
+    <Route path='/admin/raidweek' component={RaidWeekManagement} onEnter={adminAuth}/>
+    <Route path='/admin/raid' component={RaidManagement} onEnter={adminAuth}/>
+    <Route path='/admin/attendance' component={AttendanceManagement} onEnter={adminAuth}/>
+    <Route path='/schedule' component={ScheduleView} onEnter={auth}/>
   </Route>
 );
