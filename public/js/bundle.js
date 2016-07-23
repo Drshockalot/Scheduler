@@ -113,7 +113,6 @@ var NavbarActions = function () {
         if (data) {
           _this.updateBattletag(data.battletag);
           localStorage.battletag = data.battletag;
-          console.log(localStorage.battletag);
           _this.updateAccessToken(data.token);
           $.ajax({
             method: 'POST',
@@ -122,7 +121,6 @@ var NavbarActions = function () {
           }).done(function (result) {
             _this.checkUserSuccess(result.data.user.role);
             localStorage.role = result.data.user.role;
-            console.log(localStorage.role);
           }).fail(function (jqXhr) {
             _this.checkUserFailure(jqXhr);
           });
@@ -8496,23 +8494,25 @@ var _NavbarStore2 = _interopRequireDefault(_NavbarStore);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var auth = function auth(nextState, replace) {
-  var role = _NavbarStore2.default.getState().userRole;
-  if (!localStorage.role || localStorage.role === '') {
-    replace({
-      pathname: '/',
-      state: { nextPathname: nextState.location.pathname }
-    });
+  if (typeof Storage !== "undefined") {
+    if (!localStorage.role || localStorage.role === '') {
+      replace({
+        pathname: '/',
+        state: { nextPathname: nextState.location.pathname }
+      });
+    }
   }
 };
 
 var adminAuth = function adminAuth(nextState, replace) {
-  var role = _NavbarStore2.default.getState().userRole;
-  if (!localStorage.role || localStorage.role != 'admin') {
-    replace({
-      pathname: '/',
-      state: { nextPathname: nextState.location.pathname }
-    });
-    toastr.error('You do not have authorization to access this page', 'YOU SHALL NOT PASS!!');
+  if (typeof Storage !== "undefined") {
+    if (!localStorage.role || localStorage.role != 'admin') {
+      replace({
+        pathname: '/',
+        state: { nextPathname: nextState.location.pathname }
+      });
+      toastr.error('You do not have authorization to access this page', 'YOU SHALL NOT PASS!!');
+    }
   }
 };
 

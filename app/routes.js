@@ -20,23 +20,25 @@ import ScheduleView from './components/ScheduleView';
 
 import NavbarStore from './stores/NavbarStore';
 var auth = function(nextState, replace) {
-  var role = NavbarStore.getState().userRole;
-  if(!localStorage.role || localStorage.role === '') {
-    replace({
-      pathname: '/',
-      state: { nextPathname: nextState.location.pathname }
-    });
-  }
+  if(typeof(Storage) !== "undefined"){
+    if(!localStorage.role || localStorage.role === '') {
+      replace({
+        pathname: '/',
+        state: { nextPathname: nextState.location.pathname }
+      });
+    }
+ }
 };
 
 var adminAuth = function(nextState, replace) {
-  var role = NavbarStore.getState().userRole;
-  if(!localStorage.role || localStorage.role != 'admin') {
-    replace({
-      pathname: '/',
-      state: { nextPathname: nextState.location.pathname }
-    });
-    toastr.error('You do not have authorization to access this page', 'YOU SHALL NOT PASS!!');
+  if(typeof(Storage) !== "undefined"){
+    if(!localStorage.role || localStorage.role != 'admin') {
+      replace({
+        pathname: '/',
+        state: { nextPathname: nextState.location.pathname }
+      });
+      toastr.error('You do not have authorization to access this page', 'YOU SHALL NOT PASS!!');
+    }
   }
 };
 
