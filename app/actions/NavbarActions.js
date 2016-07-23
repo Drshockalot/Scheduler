@@ -1,6 +1,7 @@
 import alt from '../alt';
 import {assign} from 'underscore';
-import { browserHistory } from 'react-router'
+import { browserHistory } from 'react-router';
+import cookie from 'react-cookie';
 
 class NavbarActions {
   constructor() {
@@ -26,7 +27,9 @@ class NavbarActions {
     }).done((data) => {
       if(data) {
         this.updateBattletag(data.battletag);
+        cookie.save('battletag', data.battletag, { path: '/' });
         this.updateAccessToken(data.token);
+        cookie.save('token', data.token, { path: '/' });
         $.ajax({
           method: 'POST',
           url: '/api/user/log',
