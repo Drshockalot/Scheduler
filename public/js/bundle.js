@@ -2881,7 +2881,7 @@ var ProfileCharacters = function (_React$Component) {
             { className: 'col-md-4' },
             _react2.default.createElement(
               'div',
-              { className: 'col-sm-offset-6 col-sm-6' },
+              { className: 'col-sm-offset-4 col-xs-8' },
               _react2.default.createElement(
                 'h2',
                 null,
@@ -2896,7 +2896,7 @@ var ProfileCharacters = function (_React$Component) {
                 { className: 'form-group' },
                 _react2.default.createElement(
                   'label',
-                  { className: 'col-sm-6 control-label' },
+                  { className: 'col-sm-4 control-label' },
                   _react2.default.createElement(
                     'strong',
                     null,
@@ -2905,7 +2905,7 @@ var ProfileCharacters = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6 text-center vert-align' },
+                  { className: 'col-xs-8 text-center vert-align' },
                   character.name
                 )
               ),
@@ -2914,7 +2914,7 @@ var ProfileCharacters = function (_React$Component) {
                 { className: 'form-group' },
                 _react2.default.createElement(
                   'label',
-                  { className: 'col-sm-6 control-label' },
+                  { className: 'col-sm-4 control-label' },
                   _react2.default.createElement(
                     'strong',
                     null,
@@ -2923,7 +2923,7 @@ var ProfileCharacters = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6 text-center vert-align' },
+                  { className: 'col-xs-8 text-center vert-align' },
                   _.findWhere(classes, { id: parseInt(character.class) }).name
                 )
               ),
@@ -2932,7 +2932,7 @@ var ProfileCharacters = function (_React$Component) {
                 { className: 'form-group' },
                 _react2.default.createElement(
                   'label',
-                  { className: 'col-sm-6 control-label' },
+                  { className: 'col-sm-4 control-label' },
                   _react2.default.createElement(
                     'strong',
                     null,
@@ -2941,7 +2941,7 @@ var ProfileCharacters = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6 text-center vert-align' },
+                  { className: 'col-xs-8 text-center vert-align' },
                   character.realm
                 )
               ),
@@ -2950,7 +2950,7 @@ var ProfileCharacters = function (_React$Component) {
                 { className: 'form-group' },
                 _react2.default.createElement(
                   'label',
-                  { className: 'col-sm-6 control-label' },
+                  { className: 'col-sm-4 control-label' },
                   _react2.default.createElement(
                     'strong',
                     null,
@@ -2959,7 +2959,7 @@ var ProfileCharacters = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6' },
+                  { className: 'col-xs-8' },
                   _react2.default.createElement(
                     'select',
                     { className: 'form-control', id: 'main-role', value: _this2.state.storedCharacters[index].main_role, onChange: function onChange(e) {
@@ -2988,7 +2988,7 @@ var ProfileCharacters = function (_React$Component) {
                 { className: 'form-group' },
                 _react2.default.createElement(
                   'label',
-                  { className: 'col-sm-6 control-label' },
+                  { className: 'col-sm-4 control-label' },
                   _react2.default.createElement(
                     'strong',
                     null,
@@ -2997,7 +2997,7 @@ var ProfileCharacters = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6' },
+                  { className: 'col-xs-8' },
                   _react2.default.createElement(
                     'select',
                     { className: 'form-control', id: 'off-role', value: _this2.state.storedCharacters[index].off_role, onChange: function onChange(e) {
@@ -3026,7 +3026,7 @@ var ProfileCharacters = function (_React$Component) {
                 { className: 'form-group' },
                 _react2.default.createElement(
                   'label',
-                  { className: 'col-sm-6 control-label' },
+                  { className: 'col-sm-4 control-label' },
                   _react2.default.createElement(
                     'strong',
                     null,
@@ -3035,7 +3035,7 @@ var ProfileCharacters = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6 text-center vert-align' },
+                  { className: 'col-xs-8 text-center vert-align' },
                   character.average_ilvl
                 )
               ),
@@ -3044,7 +3044,7 @@ var ProfileCharacters = function (_React$Component) {
                 { className: 'form-group' },
                 _react2.default.createElement(
                   'label',
-                  { className: 'col-sm-6 control-label' },
+                  { className: 'col-sm-4 control-label' },
                   _react2.default.createElement(
                     'strong',
                     null,
@@ -3053,7 +3053,7 @@ var ProfileCharacters = function (_React$Component) {
                 ),
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-6 text-center vert-align' },
+                  { className: 'col-xs-8 text-center vert-align' },
                   character.confirmed ? 'Yes' : 'No'
                 )
               ),
@@ -3062,7 +3062,7 @@ var ProfileCharacters = function (_React$Component) {
                 { className: 'form-group' },
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-offset-6 col-sm-6' },
+                  { className: 'col-sm-offset-4 col-xs-8' },
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-default', onClick: function onClick() {
@@ -3077,7 +3077,7 @@ var ProfileCharacters = function (_React$Component) {
                 { className: 'form-group' },
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-offset-6 col-sm-6' },
+                  { className: 'col-sm-offset-4 col-xs-8' },
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-danger', onClick: function onClick() {
@@ -3092,7 +3092,7 @@ var ProfileCharacters = function (_React$Component) {
                 { className: 'form-group' },
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-sm-offset-6 col-sm-6' },
+                  { className: 'col-sm-offset-4 col-xs-8' },
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-info', onClick: function onClick() {

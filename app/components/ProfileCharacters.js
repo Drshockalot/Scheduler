@@ -71,31 +71,31 @@ class ProfileCharacters extends React.Component {
       storedCharactersList = this.state.storedCharacters.map((character, index) => {
         return (
           <div className='col-md-4'>
-            <div className='col-sm-offset-6 col-sm-6'>
+            <div className='col-sm-offset-4 col-xs-8'>
               <h2>{character.rank}</h2>
             </div>
             <div className='form-horizontal'>
               <div className='form-group'>
-                <label className='col-sm-6 control-label'><strong>Name:</strong></label>
-                <div className='col-sm-6 text-center vert-align'>
+                <label className='col-sm-4 control-label'><strong>Name:</strong></label>
+                <div className='col-xs-8 text-center vert-align'>
                   {character.name}
                 </div>
               </div>
               <div className='form-group'>
-                <label className='col-sm-6 control-label'><strong>Class:</strong></label>
-                <div className='col-sm-6 text-center vert-align'>
+                <label className='col-sm-4 control-label'><strong>Class:</strong></label>
+                <div className='col-xs-8 text-center vert-align'>
                   {_.findWhere(classes, { id : parseInt(character.class) }).name}
                 </div>
               </div>
               <div className='form-group'>
-                <label className='col-sm-6 control-label'><strong>Realm:</strong></label>
-                <div className='col-sm-6 text-center vert-align'>
+                <label className='col-sm-4 control-label'><strong>Realm:</strong></label>
+                <div className='col-xs-8 text-center vert-align'>
                   {character.realm}
                 </div>
               </div>
               <div className='form-group'>
-                <label className='col-sm-6 control-label'><strong>Main Role:</strong></label>
-                <div className='col-sm-6'>
+                <label className='col-sm-4 control-label'><strong>Main Role:</strong></label>
+                <div className='col-xs-8'>
                   <select className='form-control' id='main-role' value={this.state.storedCharacters[index].main_role} onChange={e => ProfileCharactersActions.handleMainRoleChange(e.target.value, index)}>
                     <option key='Tank' value='Tank'>Tank</option>
                     <option key='Healer' value='Healer'>Healer</option>
@@ -104,8 +104,8 @@ class ProfileCharacters extends React.Component {
                 </div>
               </div>
               <div className='form-group'>
-                <label className='col-sm-6 control-label'><strong>Off Role:</strong></label>
-                <div className='col-sm-6'>
+                <label className='col-sm-4 control-label'><strong>Off Role:</strong></label>
+                <div className='col-xs-8'>
                   <select className='form-control' id='off-role' value={this.state.storedCharacters[index].off_role} onChange={e => ProfileCharactersActions.handleOffRoleChange(e.target.value, index)}>
                     <option key='Tank' value='Tank'>Tank</option>
                     <option key='Healer' value='Healer'>Healer</option>
@@ -114,33 +114,33 @@ class ProfileCharacters extends React.Component {
                 </div>
               </div>
               <div className='form-group'>
-                <label className='col-sm-6 control-label'><strong>Average ilvl:</strong></label>
-                <div className='col-sm-6 text-center vert-align'>
+                <label className='col-sm-4 control-label'><strong>Average ilvl:</strong></label>
+                <div className='col-xs-8 text-center vert-align'>
                   {character.average_ilvl}
                 </div>
               </div>
               <div className='form-group'>
-                <label className='col-sm-6 control-label'><strong>Admin Confirmed:</strong></label>
-                <div className='col-sm-6 text-center vert-align'>
+                <label className='col-sm-4 control-label'><strong>Admin Confirmed:</strong></label>
+                <div className='col-xs-8 text-center vert-align'>
                   {character.confirmed ? 'Yes' : 'No'}
                 </div>
               </div>
               <div className='form-group'>
-                <div className='col-sm-offset-6 col-sm-6'>
+                <div className='col-sm-offset-4 col-xs-8'>
                   <button className='btn btn-default' onClick={() => {
                     ProfileCharactersActions.saveStoredCharacterDetails(this.state.storedCharacters[index]);
                   }}>Save</button>
                 </div>
               </div>
               <div className='form-group'>
-                <div className='col-sm-offset-6 col-sm-6'>
+                <div className='col-sm-offset-4 col-xs-8'>
                   <button className='btn btn-danger' onClick={() => {
                     ProfileCharactersActions.deleteStoredCharacter(this.state.storedCharacters[index]);
                   }}>Delete</button>
                 </div>
               </div>
               <div className='form-group'>
-                <div className='col-sm-offset-6 col-sm-6'>
+                <div className='col-sm-offset-4 col-xs-8'>
                   <button className='btn btn-info' onClick={() => {
                     ProfileCharactersActions.updateIlvlForCharacter(this.state.storedCharacters[index], index);
                   }}>Update ilvl</button>
