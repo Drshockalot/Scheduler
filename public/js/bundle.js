@@ -5533,14 +5533,14 @@ var CharacterManagement = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _CharacterManagementStore2.default.listen(this.onChange);
-      if (sessionState.characterManagement) _CharacterManagementActions2.default.restoreState(JSON.parse(sessionState.characterManagement));
+      if (sessionStorage.characterManagement) _CharacterManagementActions2.default.restoreState(JSON.parse(sessionStorage.characterManagement));
       _CharacterManagementActions2.default.getCharactersForConfirmation();
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _CharacterManagementStore2.default.unlisten(this.onChange);
-      sessionState.characterManagement = JSON.stringify(this.state);
+      sessionStorage.characterManagement = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
