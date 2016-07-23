@@ -8520,7 +8520,7 @@ var auth = function auth(nextState, replace) {
   if (typeof Storage !== "undefined") {
     if (!localStorage.role || localStorage.role === '') {
       replace({
-        pathname: '/#!?somesneakyguy=1',
+        pathname: '/',
         state: { nextPathname: nextState.location.pathname }
       });
     }
