@@ -3065,18 +3065,26 @@ var ProfileCharacters = function (_React$Component) {
                   { className: 'col-sm-offset-4 col-xs-8' },
                   _react2.default.createElement(
                     'button',
-                    { className: 'btn btn-danger', onClick: function onClick() {
-                        _ProfileCharactersActions2.default.deleteStoredCharacter(_this2.state.storedCharacters[index]);
-                      } },
-                    'Delete'
-                  ),
-                  '  ',
-                  _react2.default.createElement(
-                    'button',
                     { className: 'btn btn-info', onClick: function onClick() {
                         _ProfileCharactersActions2.default.updateIlvlForCharacter(_this2.state.storedCharacters[index], index);
                       } },
                     'Update ilvl'
+                  ),
+                  '  ',
+                  _react2.default.createElement(
+                    'button',
+                    { className: 'btn btn-default', onClick: function onClick() {
+                        _ProfileCharactersActions2.default.saveStoredCharacterDetails(_this2.state.storedCharacters[index]);
+                      } },
+                    'Save'
+                  ),
+                  '  ',
+                  _react2.default.createElement(
+                    'button',
+                    { className: 'btn btn-danger', onClick: function onClick() {
+                        _ProfileCharactersActions2.default.deleteStoredCharacter(_this2.state.storedCharacters[index]);
+                      } },
+                    'Delete'
                   )
                 )
               )

@@ -127,13 +127,17 @@ class ProfileCharacters extends React.Component {
               </div>
               <div className='form-group'>
                 <div className='col-sm-offset-4 col-xs-8'>
-                  <button className='btn btn-danger' onClick={() => {
-                    ProfileCharactersActions.deleteStoredCharacter(this.state.storedCharacters[index]);
-                  }}>Delete</button>
-                  &nbsp;&nbsp;
                   <button className='btn btn-info' onClick={() => {
                     ProfileCharactersActions.updateIlvlForCharacter(this.state.storedCharacters[index], index);
                   }}>Update ilvl</button>
+                  &nbsp;&nbsp;
+                  <button className='btn btn-default' onClick={() => {
+                    ProfileCharactersActions.saveStoredCharacterDetails(this.state.storedCharacters[index]);
+                  }}>Save</button>
+                  &nbsp;&nbsp;
+                  <button className='btn btn-danger' onClick={() => {
+                    ProfileCharactersActions.deleteStoredCharacter(this.state.storedCharacters[index]);
+                  }}>Delete</button>
                 </div>
               </div>
             </div>
