@@ -1963,6 +1963,34 @@ var Home = function (_React$Component) {
                           _react2.default.createElement(
                             'h5',
                             null,
+                            _react2.default.createElement(
+                              'strong',
+                              null,
+                              'New!'
+                            ),
+                            'Website Performance'
+                          ),
+                          _react2.default.createElement(
+                            'ul',
+                            null,
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'A new caching system has been put in place to retain state even on page switch or refresh'
+                            ),
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'This should increase the speed of the website'
+                            )
+                          )
+                        ),
+                        _react2.default.createElement(
+                          'li',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
                             'Profile Characters'
                           ),
                           _react2.default.createElement(
@@ -7534,9 +7562,6 @@ var ScheduleManagement = function (_React$Component) {
   }, {
     key: 'generateAvailabilityPopover',
     value: function generateAvailabilityPopover(availability, characterName, raidWeekDays) {
-      console.log(raidWeekDays);
-      console.log(availability);
-      console.log(characterName);
       var popover;
       if (availability) {
         var wed = raidWeekDays.wednesday && !availability.wednesday ? _react2.default.createElement(

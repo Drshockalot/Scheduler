@@ -51,9 +51,6 @@ class ScheduleManagement extends React.Component {
   }
 
   generateAvailabilityPopover(availability, characterName, raidWeekDays) {
-    console.log(raidWeekDays);
-    console.log(availability);
-    console.log(characterName);
     var popover;
     if(availability) {
       var wed = raidWeekDays.wednesday && !availability.wednesday ? <div className='clearfix hand-cursor'><strong><span>Wednesday</span></strong></div> : null;

@@ -119,6 +119,13 @@ class Home extends React.Component {
                       <h4>{moment('2016-07-23').format('MMM Do YYYY')}</h4>
                       <ul>
                         <li>
+                          <h5><strong>New!</strong>Website Performance</h5>
+                          <ul>
+                            <li>A new caching system has been put in place to retain state even on page switch or refresh</li>
+                            <li>This should increase the speed of the website</li>
+                          </ul>
+                        </li>
+                        <li>
                           <h5>Profile Characters</h5>
                           <ul>
                             <li>Slight refactoring to the layout, page should look cleaner on the whole.</li>
