@@ -1,5 +1,6 @@
 import alt from '../alt';
 import ProfileCharactersActions from '../actions/ProfileCharactersActions';
+import _ from 'underscore';
 
 class ProfileCharactersStore {
   constructor() {
@@ -32,11 +33,11 @@ class ProfileCharactersStore {
     toastr.error(jqXhr.responseJSON.message);
   }
 
-  onUpdateChosenCharactersSuccess(characters) {
-    this.chosenCharacters = characters.data;
+  onGetChosenCharactersSuccess(characters) {
+    this.chosenCharacters = _.sortBy(characters.data, 'rank').reverse();
   }
 
-  onUpdateChosenCharactersFailure(jqXhr) {
+  onGetChosenCharactersFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
   }
 

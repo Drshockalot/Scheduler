@@ -83,7 +83,7 @@ class ProfileCharacters extends React.Component {
     }
 
     if(this.state.chosenCharacters.length > 0) {
-      chosenCharactersList = _.sortBy(this.state.chosenCharacters, 'rank').reverse().map((character, index) => {
+      chosenCharactersList = this.state.chosenCharacters.map((character, index) => {
         return (
           <div className='col-md-4'>
             <div className='col-sm-offset-4 col-xs-8 text-center'>
@@ -142,9 +142,9 @@ class ProfileCharacters extends React.Component {
               </div>
               <div className='form-group'>
                 <div className='col-sm-offset-4 col-xs-8'>
-                  <button className='btn btn-default' onClick={() => {
-                    ProfileCharactersActions.saveChosenCharacterDetails(this.state.chosenCharacters[index]);
-                  }}>Save</button>
+                  <button className='btn btn-default' onClick={() =>
+                    ProfileCharactersActions.saveChosenCharacterDetails(this.state.chosenCharacters[index])
+                  }>Save</button>
                   &nbsp;&nbsp;
                   <button className='btn btn-info' onClick={() => {
                     ProfileCharactersActions.updateIlvlForCharacter(this.state.chosenCharacters[index], index);
@@ -181,7 +181,7 @@ class ProfileCharacters extends React.Component {
                       <td><strong>Realm</strong></td>
                       <td><strong>Rank</strong></td>
                     </tr>
-                    {this.state.retrievedCharacters.length > 0 ? retrievedCharactersList : <tr><strong>You have no stored characters</strong></tr>}
+                    {this.state.retrievedCharacters.length > 0 ? retrievedCharactersList : <tr><td><strong>You have no stored characters</strong></td></tr>}
                   </tbody>
                 </table>
               </div>

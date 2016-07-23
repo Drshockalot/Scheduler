@@ -193,7 +193,7 @@ var ProfileCharactersActions = function () {
   function ProfileCharactersActions() {
     _classCallCheck(this, ProfileCharactersActions);
 
-    this.generateActions('populateRetrievedCharactersSuccess', 'populateRetrievedCharactersFailure', 'confirmCharacterSuccess', 'confirmCharacterFailure', 'updateChosenCharactersSuccess', 'updateChosenCharactersFailure', 'handleMainRoleChange', 'handleOffRoleChange', 'saveChosenCharacterDetailsSuccess', 'saveChosenCharacterDetailsFailure', 'deleteChosenCharacterSuccess', 'deleteChosenCharacterFailure', 'retrieveAverageIlvlFailure', 'updateCharacterIlvl');
+    this.generateActions('populateRetrievedCharactersSuccess', 'populateRetrievedCharactersFailure', 'confirmCharacterSuccess', 'confirmCharacterFailure', 'updateChosenCharactersSuccess', 'updateChosenCharactersFailure', 'handleMainRoleChange', 'handleOffRoleChange', 'saveChosenCharacterDetailsSuccess', 'saveChosenCharacterDetailsFailure', 'deleteChosenCharacterSuccess', 'deleteChosenCharacterFailure', 'retrieveAverageIlvlFailure', 'updateCharacterIlvl', 'getChosenCharactersSuccess', 'getChosenCharactersFailure');
   }
 
   _createClass(ProfileCharactersActions, [{
@@ -221,10 +221,10 @@ var ProfileCharactersActions = function () {
         url: '/api/character/confirmed/' + encodeURIComponent(_NavbarStore2.default.getState().battletag)
       }).done(function (result) {
         console.log(result);
-        _this2.updateChosenCharactersSuccess(result);
+        _this2.getChosenCharactersSuccess(result);
       }).fail(function (jqXhr) {
         console.log(jqXhr);
-        _this2.updateChosenCharactersFailure(jqXhr);
+        _this2.getChosenCharactersFailure(jqXhr);
       });
       return 0;
     }
@@ -2891,7 +2891,7 @@ var ProfileCharacters = function (_React$Component) {
       }
 
       if (this.state.chosenCharacters.length > 0) {
-        chosenCharactersList = _.sortBy(this.state.chosenCharacters, 'rank').reverse().map(function (character, index) {
+        chosenCharactersList = this.state.chosenCharacters.map(function (character, index) {
           return _react2.default.createElement(
             'div',
             { className: 'col-md-4' },
@@ -3086,7 +3086,7 @@ var ProfileCharacters = function (_React$Component) {
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-default', onClick: function onClick() {
-                        _ProfileCharactersActions2.default.saveChosenCharacterDetails(_this2.state.chosenCharacters[index]);
+                        return _ProfileCharactersActions2.default.saveChosenCharacterDetails(_this2.state.chosenCharacters[index]);
                       } },
                     'Save'
                   ),
@@ -3202,9 +3202,13 @@ var ProfileCharacters = function (_React$Component) {
                       'tr',
                       null,
                       _react2.default.createElement(
-                        'strong',
+                        'td',
                         null,
-                        'You have no stored characters'
+                        _react2.default.createElement(
+                          'strong',
+                          null,
+                          'You have no stored characters'
+                        )
                       )
                     )
                   )
@@ -8671,6 +8675,10 @@ var _ProfileCharactersActions = require('../actions/ProfileCharactersActions');
 
 var _ProfileCharactersActions2 = _interopRequireDefault(_ProfileCharactersActions);
 
+var _underscore = require('underscore');
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -8713,13 +8721,13 @@ var ProfileCharactersStore = function () {
       toastr.error(jqXhr.responseJSON.message);
     }
   }, {
-    key: 'onUpdateChosenCharactersSuccess',
-    value: function onUpdateChosenCharactersSuccess(characters) {
-      this.chosenCharacters = characters.data;
+    key: 'onGetChosenCharactersSuccess',
+    value: function onGetChosenCharactersSuccess(characters) {
+      this.chosenCharacters = _underscore2.default.sortBy(characters.data, 'rank').reverse();
     }
   }, {
-    key: 'onUpdateChosenCharactersFailure',
-    value: function onUpdateChosenCharactersFailure(jqXhr) {
+    key: 'onGetChosenCharactersFailure',
+    value: function onGetChosenCharactersFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
     }
   }, {
@@ -8770,7 +8778,7 @@ var ProfileCharactersStore = function () {
 
 exports.default = _alt2.default.createStore(ProfileCharactersStore);
 
-},{"../actions/ProfileCharactersActions":5,"../alt":19}],46:[function(require,module,exports){
+},{"../actions/ProfileCharactersActions":5,"../alt":19,"underscore":"underscore"}],46:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

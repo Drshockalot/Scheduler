@@ -18,7 +18,9 @@ class ProfileCharactersActions {
       'deleteChosenCharacterSuccess',
       'deleteChosenCharacterFailure',
       'retrieveAverageIlvlFailure',
-      'updateCharacterIlvl'
+      'updateCharacterIlvl',
+      'getChosenCharactersSuccess',
+      'getChosenCharactersFailure'
     );
   }
 
@@ -40,10 +42,10 @@ class ProfileCharactersActions {
       url: '/api/character/confirmed/' + encodeURIComponent(NavbarStore.getState().battletag)
     }).done((result) => {
       console.log(result);
-      this.updateChosenCharactersSuccess(result);
+      this.getChosenCharactersSuccess(result);
     }).fail((jqXhr) => {
       console.log(jqXhr);
-      this.updateChosenCharactersFailure(jqXhr);
+      this.getChosenCharactersFailure(jqXhr);
     });
     return 0;
   }
