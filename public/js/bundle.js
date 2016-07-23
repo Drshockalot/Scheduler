@@ -112,7 +112,7 @@ var NavbarActions = function () {
       }).done(function (data) {
         if (data) {
           _this.updateBattletag(data.battletag);
-          _reactCookie2.default.save('battletag', data.battletag, { path: '/' });
+          localStorage.battletag = data.battletag;
           _this.updateAccessToken(data.token);
           $.ajax({
             method: 'POST',
@@ -120,16 +120,15 @@ var NavbarActions = function () {
             data: { battletag: data.battletag, role: 'member' }
           }).done(function (result) {
             _this.checkUserSuccess(result.data.user.role);
+            localStorage.role = result.data.user.role;
           }).fail(function (jqXhr) {
             _this.checkUserFailure(jqXhr);
           });
-          return true;
         }
       }).fail(function (jqXhr) {
         _this.checkLoginFailure(jqXhr);
-        return false;
       });
-      return false;
+      return 0;
     }
   }, {
     key: 'navigateProfile',
@@ -8476,35 +8475,18 @@ var _NavbarStore2 = _interopRequireDefault(_NavbarStore);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var auth = function auth(nextState, replace) {
-  $.ajax({
-    method: 'GET',
-    url: '/auth/',
-    async: false
-  }).done(function (result) {
-    if (!result) {
-      replace({
-        pathname: '/?somesneakyguy=1',
-        state: { nextPathname: nextState.location.pathname }
-      });
-    }
-
-    if (result && result.role === '') {
-      replace({
-        pathname: '/?somesneakyguy=1',
-        state: { nextPathname: nextState.location.pathname }
-      });
-    }
-  }).fail(function () {
+  var role = _NavbarStore2.default.getState().userRole;
+  if (!localStorage.role || localStorage.role === '') {
     replace({
       pathname: '/?somesneakyguy=1',
       state: { nextPathname: nextState.location.pathname }
     });
-  });
+  }
 };
 
 var adminAuth = function adminAuth(nextState, replace) {
   var role = _NavbarStore2.default.getState().userRole;
-  if (role != 'admin') {
+  if (!localStorage.role || localStorage.role != 'admin') {
     replace({
       pathname: '/',
       state: { nextPathname: nextState.location.pathname }

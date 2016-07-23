@@ -27,7 +27,7 @@ class NavbarActions {
     }).done((data) => {
       if(data) {
         this.updateBattletag(data.battletag);
-        cookie.save('battletag', data.battletag, { path: '/' });
+        localStorage.battletag = data.battletag;
         this.updateAccessToken(data.token);
         $.ajax({
           method: 'POST',
@@ -35,16 +35,15 @@ class NavbarActions {
           data: { battletag: data.battletag, role: 'member' }
         }).done((result) => {
           this.checkUserSuccess(result.data.user.role);
+          localStorage.role = result.data.user.role;
         }).fail((jqXhr) => {
           this.checkUserFailure(jqXhr);
         });
-        return true;
       }
     }).fail((jqXhr) => {
       this.checkLoginFailure(jqXhr);
-      return false;
     });
-    return false;
+    return 0;
   }
 
   navigateProfile() {
