@@ -2742,7 +2742,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Profile = function (_React$Component) {
   _inherits(Profile, _React$Component);
 
-  function Profile(props) {
+  function Profile(props, context) {
     _classCallCheck(this, Profile);
 
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Profile).call(this, props));
@@ -2761,9 +2761,7 @@ var Profile = function (_React$Component) {
           browserHistory.push('/');
           toastr.error('Please log in to access this page', 'YOU SHALL NOT PASS!!');
         } else {
-          var router = this.context.router;
-
-          router.push(null, '/');
+          this.context.router.push(null, '/');
         }
       }
     }

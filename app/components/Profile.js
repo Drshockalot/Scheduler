@@ -6,7 +6,7 @@ import NavbarStore from '../stores/NavbarStore';
 import ProfileSideNav from './ProfileSidenav';
 
 class Profile extends React.Component {
-  constructor(props) {
+  constructor(props, context) {
     super(props);
     this.state = ProfileStore.getState();
     this.onChange = this.onChange.bind(this);
@@ -19,8 +19,7 @@ class Profile extends React.Component {
         browserHistory.push('/');
         toastr.error('Please log in to access this page', 'YOU SHALL NOT PASS!!');
       } else {
-        const { router } = this.context;
-        router.push(null, '/');
+        this.context.router.push(null, '/');
       }
     }
   }
