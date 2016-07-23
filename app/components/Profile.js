@@ -26,8 +26,8 @@ class Profile extends React.Component {
 
   componentDidMount() {
     if(this.redirect) {
-      browserHistory.push('/');
       toastr.warning('Please do not refresh the browser manually yet, the ability to do this will be added in the near future', 'Sad face');
+      window.location = '/';
     }
     ProfileStore.listen(this.onChange);
   }

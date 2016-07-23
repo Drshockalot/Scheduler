@@ -2769,8 +2769,8 @@ var Profile = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       if (this.redirect) {
-        browserHistory.push('/');
         toastr.warning('Please do not refresh the browser manually yet, the ability to do this will be added in the near future', 'Sad face');
+        window.location = '/';
       }
       _ProfileStore2.default.listen(this.onChange);
     }
