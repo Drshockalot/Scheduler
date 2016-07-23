@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var cookie = require('react-cookie');
 
 router.get('/bnet', passport.authenticate('bnet'));
 
-router.get('/bnet/callback', passport.authenticate('bnet', { failureRedirect: '/admin' }), function(req, res, next) {
+router.get('/bnet/callback', passport.authenticate('bnet', { failureRedirect: '/' }), function(req, res, next) {
   res.redirect('/');
 });
 
@@ -22,6 +23,8 @@ router.get('/bnet/status', function(req, res, next) {
   if(req.user == undefined) {
     res.send(null);
   } else {
+    cookie.setRawCookie('battletag=' + req.user.battletag);
+    cookie.setRawCookie('token=' + req.user.token);
     res.send(req.user);
   }
 });

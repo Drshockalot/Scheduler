@@ -66,7 +66,7 @@ class Navbar extends React.Component {
     if(!this.state.battletag) {
         profilePane = <li>
           <a href='/auth/bnet'>Login</a>
-        </li>
+        </li>;
     } else {
         profilePane = <li className='dropdown'>
           <a href='/profile' className='dropdown-toggle' data-toggle='dropdown'>{this.state.battletag} <span className='caret'></span></a>
@@ -74,7 +74,7 @@ class Navbar extends React.Component {
             <li><a onClick={NavbarActions.navigateProfile}>Profile</a></li>
             <li><a href='/auth/bnet/logout'>Logout</a></li>
           </ul>
-        </li>
+        </li>;
     }
 
     return (
