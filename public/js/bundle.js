@@ -2575,7 +2575,8 @@ var Navbar = function (_React$Component) {
   }, {
     key: 'logout',
     value: function logout() {
-      _reactCookie2.default.remove('battletag', { path: '/' });
+      localStorage.removeItem('battletag');
+      localStorage.removeItem('role');
       window.location = '/auth/bnet/logout';
     }
   }, {
@@ -2761,11 +2762,6 @@ var Profile = function (_React$Component) {
   }
 
   _createClass(Profile, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      if (localStorage.role == '') {}
-    }
-  }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _ProfileStore2.default.listen(this.onChange);
