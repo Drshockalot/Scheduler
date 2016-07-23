@@ -2761,9 +2761,9 @@ var Profile = function (_React$Component) {
           browserHistory.push('/');
           toastr.error('Please log in to access this page', 'YOU SHALL NOT PASS!!');
         } else {
-          var history = this.context.history;
+          var location = this.props.location;
 
-          history.push(null, '/');
+          location.push(null, '/');
         }
       }
     }
