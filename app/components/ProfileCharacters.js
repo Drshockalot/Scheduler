@@ -187,7 +187,7 @@ class ProfileCharacters extends React.Component {
                           <td><strong>Realm</strong></td>
                           <td><strong>Rank</strong></td>
                         </tr> 
-                        retrievedCharactersList
+                        {retrievedCharactersList}
                         </tbody>
                       </table>
                       : <strong>Press the Retrieve Characters button to display your valid characters</strong>}

@@ -3212,7 +3212,7 @@ var ProfileCharacters = function (_React$Component) {
                         )
                       )
                     ),
-                    'retrievedCharactersList'
+                    retrievedCharactersList
                   )
                 ) : _react2.default.createElement(
                   'strong',
