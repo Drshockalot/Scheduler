@@ -14,7 +14,7 @@ class Profile extends React.Component {
 
   componentWillMount() {
     if (NavbarStore.getState().userRole === '' || NavbarStore.getState().userRole === '') {
-      if (!browserHistory) {
+      if (browserHistory) {
         browserHistory.push('/');
         toastr.error('Please log in to access this page', 'YOU SHALL NOT PASS!!');
       } else {
