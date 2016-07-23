@@ -36,6 +36,7 @@ class NavbarActions {
         }).done((result) => {
           this.checkUserSuccess(result.data.user.role);
           localStorage.role = result.data.user.role;
+          localStorage.loggedin = 'y';
         }).fail((jqXhr) => {
           this.checkUserFailure(jqXhr);
         });

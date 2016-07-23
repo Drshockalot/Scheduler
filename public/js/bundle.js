@@ -121,6 +121,7 @@ var NavbarActions = function () {
           }).done(function (result) {
             _this.checkUserSuccess(result.data.user.role);
             localStorage.role = result.data.user.role;
+            localStorage.loggedin = 'y';
           }).fail(function (jqXhr) {
             _this.checkUserFailure(jqXhr);
           });
@@ -7969,6 +7970,8 @@ var ScheduleManagement = function (_React$Component) {
                 return _ScheduleManagementActions2.default.invertScheduleBossPublishedState(schedule_boss.id);
               } });
           }
+
+          if (!localStorage || localStorage.loggedin != 'y') return null;
 
           return _react2.default.createElement(
             'div',
