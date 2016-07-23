@@ -176,19 +176,21 @@ class ProfileCharacters extends React.Component {
             <div className='row'>
               <div className='col-xs-12'>
                 <h3>Valid Characters</h3>
-                <table className='table'>
-                  <tbody>
-                    <tr>
-                      <td></td>
-                      <td><strong>Name</strong></td>
-                      <td><strong>Class</strong></td>
-                      <td><strong>Race</strong></td>
-                      <td><strong>Realm</strong></td>
-                      <td><strong>Rank</strong></td>
-                    </tr>
-                    {this.state.retrievedCharacters.length > 0 ? retrievedCharactersList : <tr><td><strong>Press the Retrieve Characters button to display your valid characters</strong></td></tr>}
-                  </tbody>
-                </table>
+                    {this.state.retrievedCharacters.length > 0 ?
+                      <table className='table'>
+                      <tbody>
+                        <tr>
+                          <td></td>
+                          <td><strong>Name</strong></td>
+                          <td><strong>Class</strong></td>
+                          <td><strong>Race</strong></td>
+                          <td><strong>Realm</strong></td>
+                          <td><strong>Rank</strong></td>
+                        </tr> 
+                        retrievedCharactersList
+                        </tbody>
+                      </table>
+                      : <strong>Press the Retrieve Characters button to display your valid characters</strong>}
               </div>
             </div>
             <div className='row'>

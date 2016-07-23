@@ -3156,7 +3156,7 @@ var ProfileCharacters = function (_React$Component) {
                   null,
                   'Valid Characters'
                 ),
-                _react2.default.createElement(
+                this.state.retrievedCharacters.length > 0 ? _react2.default.createElement(
                   'table',
                   { className: 'table' },
                   _react2.default.createElement(
@@ -3212,20 +3212,12 @@ var ProfileCharacters = function (_React$Component) {
                         )
                       )
                     ),
-                    this.state.retrievedCharacters.length > 0 ? retrievedCharactersList : _react2.default.createElement(
-                      'tr',
-                      null,
-                      _react2.default.createElement(
-                        'td',
-                        null,
-                        _react2.default.createElement(
-                          'strong',
-                          null,
-                          'Press the Retrieve Characters button to display your valid characters'
-                        )
-                      )
-                    )
+                    'retrievedCharactersList'
                   )
+                ) : _react2.default.createElement(
+                  'strong',
+                  null,
+                  'Press the Retrieve Characters button to display your valid characters'
                 )
               )
             ),
