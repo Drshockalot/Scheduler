@@ -20,7 +20,8 @@ class ProfileCharacters extends React.Component {
     ProfileCharactersStore.listen(this.onChange);
     if(sessionStorage.profileCharacters)
       this.setState(JSON.parse(sessionStorage.profileCharacters));
-    ProfileCharactersActions.getChosenCharacters();
+    else
+      ProfileCharactersActions.getChosenCharacters();
   }
 
   componentWillUnmount() {

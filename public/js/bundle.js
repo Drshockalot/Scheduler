@@ -2906,8 +2906,7 @@ var ProfileCharacters = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _ProfileCharactersStore2.default.listen(this.onChange);
-      if (sessionStorage.profileCharacters) this.setState(JSON.parse(sessionStorage.profileCharacters));
-      _ProfileCharactersActions2.default.getChosenCharacters();
+      if (sessionStorage.profileCharacters) this.setState(JSON.parse(sessionStorage.profileCharacters));else _ProfileCharactersActions2.default.getChosenCharacters();
     }
   }, {
     key: 'componentWillUnmount',
