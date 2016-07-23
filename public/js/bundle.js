@@ -1711,6 +1711,9 @@ var Home = function (_React$Component) {
     value: function componentDidMount() {
       _HomeStore2.default.listen(this.onChange);
       _HomeActions2.default.loadComponentData();
+      if (this.props.location.query.somesneakyguy) {
+        toastr.error('You do not have authorization to access this page', 'YOU SHALL NOT PASS!!');
+      }
     }
   }, {
     key: 'componentWillUnmount',
@@ -8525,10 +8528,9 @@ var auth = function auth(nextState, replace) {
   var role = _NavbarStore2.default.getState().userRole;
   if (role === '') {
     replace({
-      pathname: '/',
+      pathname: '/?somesneakyguy=1',
       state: { nextPathname: nextState.location.pathname }
     });
-    toastr.error('You do not have authorization to access this page', 'YOU SHALL NOT PASS!!');
   }
 };
 

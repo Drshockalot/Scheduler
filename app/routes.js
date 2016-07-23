@@ -23,10 +23,9 @@ var auth = function(nextState, replace) {
   var role = NavbarStore.getState().userRole;
   if(role === '') {
     replace({
-      pathname: '/',
+      pathname: '/?somesneakyguy=1',
       state: { nextPathname: nextState.location.pathname }
     });
-    toastr.error('You do not have authorization to access this page', 'YOU SHALL NOT PASS!!');
   }
 };
 

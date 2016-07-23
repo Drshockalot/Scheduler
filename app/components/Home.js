@@ -19,6 +19,9 @@ class Home extends React.Component {
   componentDidMount() {
     HomeStore.listen(this.onChange);
     HomeActions.loadComponentData();
+    if(this.props.location.query.somesneakyguy) {
+      toastr.error('You do not have authorization to access this page', 'YOU SHALL NOT PASS!!');
+    }
   }
 
   componentWillUnmount() {
