@@ -3340,49 +3340,49 @@ var ProfileRaidWeeks = function (_React$Component) {
               _react2.default.createElement(
                 'td',
                 { className: 'col-xs-1' },
-                _react2.default.createElement('input', { type: 'checkbox', disabled: raidweek.wednesday, checked: user_availability.wednesday, onChange: function onChange() {
+                _react2.default.createElement('input', { type: 'checkbox', disabled: !raidweek.wednesday, checked: user_availability.wednesday, onChange: function onChange() {
                     return _ProfileRaidWeeksActions2.default.toggleUserAvailabilityDay(user_availability.id, 'wednesday');
                   } })
               ),
               _react2.default.createElement(
                 'td',
                 { className: 'col-xs-1' },
-                _react2.default.createElement('input', { type: 'checkbox', disabled: raidweek.thursday, checked: user_availability.thursday, onChange: function onChange() {
+                _react2.default.createElement('input', { type: 'checkbox', disabled: !raidweek.thursday, checked: user_availability.thursday, onChange: function onChange() {
                     return _ProfileRaidWeeksActions2.default.toggleUserAvailabilityDay(user_availability.id, 'thursday');
                   } })
               ),
               _react2.default.createElement(
                 'td',
                 { className: 'col-xs-1' },
-                _react2.default.createElement('input', { type: 'checkbox', disabled: raidweek.friday, checked: user_availability.friday, onChange: function onChange() {
+                _react2.default.createElement('input', { type: 'checkbox', disabled: !raidweek.friday, checked: user_availability.friday, onChange: function onChange() {
                     return _ProfileRaidWeeksActions2.default.toggleUserAvailabilityDay(user_availability.id, 'friday');
                   } })
               ),
               _react2.default.createElement(
                 'td',
                 { className: 'col-xs-1' },
-                _react2.default.createElement('input', { type: 'checkbox', disabled: raidweek.saturday, checked: user_availability.saturday, onChange: function onChange() {
+                _react2.default.createElement('input', { type: 'checkbox', disabled: !raidweek.saturday, checked: user_availability.saturday, onChange: function onChange() {
                     return _ProfileRaidWeeksActions2.default.toggleUserAvailabilityDay(user_availability.id, 'saturday');
                   } })
               ),
               _react2.default.createElement(
                 'td',
                 { className: 'col-xs-1' },
-                _react2.default.createElement('input', { type: 'checkbox', disabled: raidweek.sunday, checked: user_availability.sunday, onChange: function onChange() {
+                _react2.default.createElement('input', { type: 'checkbox', disabled: !raidweek.sunday, checked: user_availability.sunday, onChange: function onChange() {
                     return _ProfileRaidWeeksActions2.default.toggleUserAvailabilityDay(user_availability.id, 'sunday');
                   } })
               ),
               _react2.default.createElement(
                 'td',
                 { className: 'col-xs-1' },
-                _react2.default.createElement('input', { type: 'checkbox', disabled: raidweek.monday, checked: user_availability.monday, onChange: function onChange() {
+                _react2.default.createElement('input', { type: 'checkbox', disabled: !raidweek.monday, checked: user_availability.monday, onChange: function onChange() {
                     return _ProfileRaidWeeksActions2.default.toggleUserAvailabilityDay(user_availability.id, 'monday');
                   } })
               ),
               _react2.default.createElement(
                 'td',
                 { className: 'col-xs-1' },
-                _react2.default.createElement('input', { type: 'checkbox', disabled: raidweek.tuesday, checked: user_availability.tuesday, onChange: function onChange() {
+                _react2.default.createElement('input', { type: 'checkbox', disabled: !raidweek.tuesday, checked: user_availability.tuesday, onChange: function onChange() {
                     return _ProfileRaidWeeksActions2.default.toggleUserAvailabilityDay(user_availability.id, 'tuesday');
                   } })
               ),
@@ -3391,7 +3391,7 @@ var ProfileRaidWeeks = function (_React$Component) {
                 { className: 'col-xs-2' },
                 _react2.default.createElement(
                   'button',
-                  { className: 'btn btn-primary', onClick: function onClick() {
+                  { className: 'btn btn-success', onClick: function onClick() {
                       return _ProfileRaidWeeksActions2.default.saveUserAvailability(_.findWhere(_this2.state.user_availability, { raid_week_id: raidweek.id }));
                     } },
                   'Save'
