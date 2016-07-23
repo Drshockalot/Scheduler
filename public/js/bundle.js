@@ -2856,27 +2856,27 @@ var ProfileCharacters = function (_React$Component) {
             _react2.default.createElement('td', { key: 'color' + index, className: _this2.classColour(character) }),
             _react2.default.createElement(
               'td',
-              { key: 'name' + index },
+              { key: 'name' + index, className: 'vert-align' },
               character.name
             ),
             _react2.default.createElement(
               'td',
-              { key: 'class' + index },
+              { key: 'class' + index, className: 'vert-align' },
               characterClass
             ),
             _react2.default.createElement(
               'td',
-              { key: 'race' + index },
+              { key: 'race' + index, className: 'vert-align' },
               characterRace
             ),
             _react2.default.createElement(
               'td',
-              { key: 'realm' + index },
+              { key: 'realm' + index, className: 'vert-align' },
               character.realm
             ),
             _react2.default.createElement(
               'td',
-              { key: 'rank' + index },
+              { key: 'rank' + index, className: 'vert-align' },
               _react2.default.createElement(
                 'button',
                 { className: 'btn btn-primary', onClick: function onClick() {
@@ -3164,6 +3164,7 @@ var ProfileCharacters = function (_React$Component) {
                     _react2.default.createElement(
                       'tr',
                       null,
+                      _react2.default.createElement('td', null),
                       _react2.default.createElement(
                         'td',
                         null,

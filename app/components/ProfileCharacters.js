@@ -64,11 +64,11 @@ class ProfileCharacters extends React.Component {
         return (
           <tr key={'character' + index}>
             <td key={'color' + index} className={this.classColour(character)}></td>
-            <td key={'name' + index}>{character.name}</td>
-            <td key={'class' + index}>{characterClass}</td>
-            <td key={'race' + index}>{characterRace}</td>
-            <td key={'realm' + index}>{character.realm}</td>
-            <td key={'rank' + index}>
+            <td key={'name' + index} className='vert-align'>{character.name}</td>
+            <td key={'class' + index} className='vert-align'>{characterClass}</td>
+            <td key={'race' + index} className='vert-align'>{characterRace}</td>
+            <td key={'realm' + index} className='vert-align'>{character.realm}</td>
+            <td key={'rank' + index} className='vert-align'>
               <button className='btn btn-primary' onClick={() => {
                 character.rank = 'main';
                 ProfileCharactersActions.confirmCharacter(character);
@@ -178,6 +178,7 @@ class ProfileCharacters extends React.Component {
                 <table className='table'>
                   <tbody>
                     <tr>
+                      <td></td>
                       <td><strong>Name</strong></td>
                       <td><strong>Class</strong></td>
                       <td><strong>Race</strong></td>
