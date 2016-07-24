@@ -2853,7 +2853,7 @@ var Profile = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      if (typeof Storage === 'undefined' || sessionStorage.role === '') return null;
+      if (typeof Storage === 'undefined' || sessionStorage.role === '' || _NavbarStore2.default.getState().userRole === '') return null;
 
       return _react2.default.createElement(
         'div',
@@ -3262,7 +3262,7 @@ var ProfileCharacters = function (_React$Component) {
         });
       }
 
-      if (typeof Storage === 'undefined' || sessionStorage.role === '') return null;
+      if (typeof Storage === 'undefined' || sessionStorage.role === '' || _NavbarStore2.default.getState().userRole === '') return null;
 
       return _react2.default.createElement(
         'div',
@@ -3733,7 +3733,7 @@ var ProfileRaidWeeks = function (_React$Component) {
         }, this);
       }
 
-      if (typeof Storage === 'undefined' || sessionStorage.role === '') return null;
+      if (typeof Storage === 'undefined' || sessionStorage.role === '' || _NavbarStore2.default.getState().userRole === '') return null;
 
       return _react2.default.createElement(
         'div',
@@ -3881,7 +3881,7 @@ var ProfileRosters = function (_React$Component) {
         }, this);
       }
 
-      if (typeof Storage === 'undefined' || sessionStorage.role === '') return null;
+      if (typeof Storage === 'undefined' || sessionStorage.role === '' || _NavbarStore2.default.getState().userRole === '') return null;
 
       return _react2.default.createElement(
         'div',
@@ -4094,7 +4094,7 @@ var ScheduleView = function (_React$Component) {
           break;
       }
 
-      if (typeof Storage === 'undefined' || sessionStorage.role === '') return null;
+      if (typeof Storage === 'undefined' || sessionStorage.role === '' || _NavbarStore2.default.getState().userRole === '') return null;
 
       return _react2.default.createElement(
         'div',
