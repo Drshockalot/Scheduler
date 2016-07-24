@@ -400,7 +400,7 @@ class ScheduleManagement extends React.Component {
       }, this);
     }
 
-    if(typeof(Storage) === 'undefined' |sessionStorage.role != 'admin')
+    if(typeof(Storage) === 'undefined' || sessionStorage.role != 'admin')
       return null;
 
     return (
