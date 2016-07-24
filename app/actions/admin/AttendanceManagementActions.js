@@ -42,9 +42,7 @@ class AttendaceManagementActions {
     //var data = {files: fileData, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday};
     var reader = new FileReader();
     reader.readAsText(file);
-    while (reader.readyState != 2) {
 
-    }
     console.log(reader.result);
     // $.ajax({
     //   method: 'POST',
