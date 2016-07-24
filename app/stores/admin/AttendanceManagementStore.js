@@ -28,6 +28,7 @@ class AttendanceManagementStore {
     this.selectRaid = this.raids[0].id;
     this.rosters = result.data.rosters;
     this.selectRoster = this.rosters[0].id;
+    this.selectWeekday = 'monday';
 
     for(var i = 0; i < this.rosters[0].characters.length; ++i) {
       this.rosterAttendanceModel[this.rosters[0].characters[i].main_role].push({name: this.rosters[0].characters[i].name, state: true});
