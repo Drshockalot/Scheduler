@@ -40,7 +40,6 @@ router.get('/admin', function(req, res, next) {
 });
 
 router.post('/admin/file', upload.single('attendance'), function(req, res, next) {
-  console.log(req.body);
   Character.where('name', 'in', req.body['names[]'])
            .fetchAll()
            .then(function(characters) {
