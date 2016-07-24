@@ -9420,7 +9420,7 @@ var AttendanceManagementStore = function () {
     key: 'onUpdateSelectRaidWeek',
     value: function onUpdateSelectRaidWeek(value) {
       this.selectRaidWeek = value;
-      this.selectWeekday = '';
+      this.selectWeekday = 'monday';
     }
   }, {
     key: 'onUpdateSelectWeekday',
