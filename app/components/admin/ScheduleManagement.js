@@ -400,6 +400,9 @@ class ScheduleManagement extends React.Component {
       }, this);
     }
 
+    if(sessionStorage.role != 'admin')
+      return null;
+
     return (
       <div id='wrapper'>
         <AdminSideNav />

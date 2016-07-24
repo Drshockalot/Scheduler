@@ -8207,6 +8207,8 @@ var ScheduleManagement = function (_React$Component) {
         }, this);
       }
 
+      if (sessionStorage.role != 'admin') return null;
+
       return _react2.default.createElement(
         'div',
         { id: 'wrapper' },
