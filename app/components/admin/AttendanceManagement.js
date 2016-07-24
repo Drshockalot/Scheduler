@@ -46,9 +46,9 @@ class AttendanceManagement extends React.Component {
         <div id='page-content-wrapper'>
           <div className='container-fluid'>
             <div className='row'>
-              <button className={classNames('btn', { 'btn-default': this.state.viewMode != 1, 'btn-success': this.state.viewMode == 1})} onClick={AttendanceManagementActions.updateViewMode(1)}>Add Attendance</button>
-              <button className={classNames('btn', { 'btn-default': this.state.viewMode != 2, 'btn-success': this.state.viewMode == 2})} onClick={AttendanceManagementActions.updateViewMode(1)}>View Attendance</button>
-              <button className={classNames('btn', { 'btn-default': this.state.viewMode != 3, 'btn-success': this.state.viewMode == 3})} onClick={AttendanceManagementActions.updateViewMode(1)}>Delete Attendance</button>
+              <button className={classNames('btn', { 'btn-default': this.state.viewMode != 1, 'btn-success': this.state.viewMode == 1})} onClick={() => AttendanceManagementActions.updateViewMode(1)}>Add Attendance</button>
+              <button className={classNames('btn', { 'btn-default': this.state.viewMode != 2, 'btn-success': this.state.viewMode == 2})} onClick={() => AttendanceManagementActions.updateViewMode(1)}>View Attendance</button>
+              <button className={classNames('btn', { 'btn-default': this.state.viewMode != 3, 'btn-success': this.state.viewMode == 3})} onClick={() => AttendanceManagementActions.updateViewMode(1)}>Delete Attendance</button>
             </div>
             {this.state.viewMode == 1 ? <AddAttendance /> : null}
             {this.state.viewMode == 2 ? <ViewAttendance /> : null}

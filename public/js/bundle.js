@@ -5707,17 +5707,23 @@ var AttendanceManagement = function (_React$Component) {
               { className: 'row' },
               _react2.default.createElement(
                 'button',
-                { className: (0, _classnames2.default)('btn', { 'btn-default': this.state.viewMode != 1, 'btn-success': this.state.viewMode == 1 }), onClick: _AttendanceManagementActions2.default.updateViewMode(1) },
+                { className: (0, _classnames2.default)('btn', { 'btn-default': this.state.viewMode != 1, 'btn-success': this.state.viewMode == 1 }), onClick: function onClick() {
+                    return _AttendanceManagementActions2.default.updateViewMode(1);
+                  } },
                 'Add Attendance'
               ),
               _react2.default.createElement(
                 'button',
-                { className: (0, _classnames2.default)('btn', { 'btn-default': this.state.viewMode != 2, 'btn-success': this.state.viewMode == 2 }), onClick: _AttendanceManagementActions2.default.updateViewMode(1) },
+                { className: (0, _classnames2.default)('btn', { 'btn-default': this.state.viewMode != 2, 'btn-success': this.state.viewMode == 2 }), onClick: function onClick() {
+                    return _AttendanceManagementActions2.default.updateViewMode(1);
+                  } },
                 'View Attendance'
               ),
               _react2.default.createElement(
                 'button',
-                { className: (0, _classnames2.default)('btn', { 'btn-default': this.state.viewMode != 3, 'btn-success': this.state.viewMode == 3 }), onClick: _AttendanceManagementActions2.default.updateViewMode(1) },
+                { className: (0, _classnames2.default)('btn', { 'btn-default': this.state.viewMode != 3, 'btn-success': this.state.viewMode == 3 }), onClick: function onClick() {
+                    return _AttendanceManagementActions2.default.updateViewMode(1);
+                  } },
                 'Delete Attendance'
               )
             ),
