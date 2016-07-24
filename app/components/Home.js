@@ -116,6 +116,33 @@ class Home extends React.Component {
                 <tbody>
                   <tr>
                     <td>
+                      <h4>{moment('2016-07-24').format('MMM Do YYYY')}</h4>
+                      <ul>
+                        <li>
+                          <h5>Attendance Management</h5>
+                          <ul>
+                            <li>You can now upload attendance via uploading a text file, note that this currently holds the same restrictions as uploading raw text</li>
+                            <li>Attendance Management has been split up into three sections:
+                              <ul>
+                                <li>Add Attendance</li>
+                                <li>View Attendance</li>
+                                <li>Delete Attendance</li>
+                              </ul>
+                            </li>
+                            <li>The previous Attendance Management has been transfered to Add Attendance, the other two sections are currently in development</li>
+                          </ul>
+                        </li>
+                        <li>
+                          <h5>User Profiles</h5>
+                          <ul>
+                            <li>Derp mentioned the Schedules section within profile, it is still happening, just behind the priority of Attendance Management</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       <h4>{moment('2016-07-23').format('MMM Do YYYY')}</h4>
                       <ul>
                         <li>
