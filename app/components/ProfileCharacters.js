@@ -166,6 +166,9 @@ class ProfileCharacters extends React.Component {
       });
     }
 
+    if(typeof(Storage) === 'undefined' || sessionStorage.role === '')
+      return null;
+
     return (
       <div id='wrapper'>
       <ProfileSideNav />

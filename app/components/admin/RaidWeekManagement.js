@@ -153,6 +153,9 @@ class RaidWeekManagement extends React.Component {
       </Accordion>
     );
 
+    if(typeof(Storage) === 'undefined' || sessionStorage.role != 'admin')
+      return null;
+
     return (
       <div id='wrapper'>
         <AdminSideNav />

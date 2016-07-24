@@ -74,6 +74,9 @@ class RaidManagement extends React.Component {
       }, this);
     }
 
+    if(typeof(Storage) === 'undefined' || sessionStorage.role != 'admin')
+      return null;
+
     return (
       <div id='wrapper'>
       <AdminSideNav />

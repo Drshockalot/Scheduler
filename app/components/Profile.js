@@ -26,6 +26,9 @@ class Profile extends React.Component {
   }
 
   render() {
+    if(typeof(Storage) === 'undefined' || sessionStorage.role === '')
+      return null;
+
     return (
       <div id='wrapper'>
       <ProfileSideNav />

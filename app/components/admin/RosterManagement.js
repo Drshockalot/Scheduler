@@ -68,6 +68,9 @@ class RosterManagement extends React.Component {
         );
     });
 
+    if(typeof(Storage) === 'undefined' || sessionStorage.role != 'admin')
+      return null;
+
     return (
       <div id='wrapper'>
         <AdminSideNav></AdminSideNav>

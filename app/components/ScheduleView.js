@@ -38,6 +38,9 @@ class ScheduleView extends React.Component {
         break;
     }
 
+    if(typeof(Storage) === 'undefined' || sessionStorage.role === '')
+      return null;
+
     return (
       <div id='wrapper'>
       <div id='sidebar-wrapper'>
