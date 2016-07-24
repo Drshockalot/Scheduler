@@ -5000,9 +5000,9 @@ var AttendanceManagement = function (_React$Component) {
     key: 'readFile',
     value: function readFile(file) {
       var reader = new FileReader();
-      reader.onload(function () {
+      reader.onload = function () {
         _AttendanceManagementActions2.default.uploadFile(this.result, this.state.selectRaid, this.state.selectRaidWeek, this.state.selectWeekday);
-      });
+      };
       reader.readAsText(file);
     }
   }, {

@@ -52,9 +52,9 @@ class AttendanceManagement extends React.Component {
 
   readFile(file) {
     var reader = new FileReader();
-    reader.onload(function() {
+    reader.onload = function() {
       AttendanceManagementActions.uploadFile(this.result, this.state.selectRaid, this.state.selectRaidWeek, this.state.selectWeekday);
-    });
+    };
     reader.readAsText(file);
   }
 
