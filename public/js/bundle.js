@@ -719,7 +719,7 @@ var AttendaceManagementActions = function () {
           console.log(jqXhr);
           this.uploadFileFailure(jqXhr);
         }
-      });
+      }).bind(this);
     }
   }, {
     key: 'uploadAttendanceFromRosterForm',

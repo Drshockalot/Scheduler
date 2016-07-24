@@ -50,7 +50,7 @@ class AttendaceManagementActions {
         console.log(jqXhr);
         this.uploadFileFailure(jqXhr);
       }
-    });
+    }).bind(this);
   }
 
   uploadAttendanceFromRosterForm(attendanceModel, raidId, raidWeekId, weekday) {
