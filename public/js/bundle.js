@@ -5712,6 +5712,7 @@ var AttendanceManagement = function (_React$Component) {
                   } },
                 'Add Attendance'
               ),
+              '   ',
               _react2.default.createElement(
                 'button',
                 { className: (0, _classnames2.default)('btn', { 'btn-default': this.state.viewMode != 2, 'btn-success': this.state.viewMode == 2 }), onClick: function onClick() {
@@ -5719,6 +5720,7 @@ var AttendanceManagement = function (_React$Component) {
                   } },
                 'View Attendance'
               ),
+              '   ',
               _react2.default.createElement(
                 'button',
                 { className: (0, _classnames2.default)('btn', { 'btn-default': this.state.viewMode != 3, 'btn-success': this.state.viewMode == 3 }), onClick: function onClick() {
