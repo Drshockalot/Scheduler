@@ -711,10 +711,10 @@ var AttendaceManagementActions = function () {
       var _this2 = this;
 
       var data = { names: fileText.split(','), raidId: raidId, raidWeekId: raidWeekId, weekday: weekday };
-
+      console.log(data);
       $.ajax({
         method: 'POST',
-        url: '/api/attendance/file',
+        url: '/api/attendance/admin/file',
         data: data
       }).done(function (result) {
         console.log(result);

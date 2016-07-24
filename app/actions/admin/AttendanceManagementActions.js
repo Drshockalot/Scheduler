@@ -40,10 +40,10 @@ class AttendaceManagementActions {
 
   uploadFile(fileText, raidId, raidWeekId, weekday) {
     var data = {names: fileText.split(','), raidId: raidId, raidWeekId: raidWeekId, weekday: weekday};
-
+    console.log(data);
     $.ajax({
       method: 'POST',
-      url: '/api/attendance/file',
+      url: '/api/attendance/admin/file',
       data: data
     }).done((result) => {
       console.log(result);
