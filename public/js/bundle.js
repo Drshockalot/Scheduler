@@ -708,17 +708,11 @@ var AttendaceManagementActions = function () {
   }, {
     key: 'uploadFile',
     value: function uploadFile(file, raidId, raidWeekId, weekday) {
-      var fileData = new FormData();
-      console.log(file);
-      fileData.append('attendance', file);
       var data = { files: fileData, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday };
       var reader = new FileReader();
-      var textData = '';
-      reader.onload = function () {
-        textData = this.result;
-      };
       reader.readAsText(file);
-      console.log(textData);
+      while (reader.readyState != 2) {}
+      console.log(reader.result);
       // $.ajax({
       //   method: 'POST',
       //   url: '/api/attendance/file',
