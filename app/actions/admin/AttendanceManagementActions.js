@@ -38,30 +38,20 @@ class AttendaceManagementActions {
     });
   }
 
-  uploadFile(file, raidId, raidWeekId, weekday) {
-    //var data = {files: fileData, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday};
-    var reader = new FileReader();
-    reader.readAsText(file);
+  uploadFile(fileText, raidId, raidWeekId, weekday) {
+    var data = {names: fileText.split(','), raidId: raidId, raidWeekId: raidWeekId, weekday: weekday};
 
-    console.log(reader.result);
-    // $.ajax({
-    //   method: 'POST',
-    //   url: '/api/attendance/file',
-    //   data:
-    // }).done((result) => {
-    //
-    // }).fail((jqXhr) => {
-    //
-    // });
-    // request.post('/api/attendance/admin/file').send(fileData).end(function(jqXhr, result) {
-    //   if(!jqXhr) {
-    //     console.log(result);
-    //     this.uploadFileSuccess(result);
-    //   } else {
-    //     console.log(jqXhr);
-    //     this.uploadFileFailure(jqXhr);
-    //   }
-    // }).bind(this);
+    $.ajax({
+      method: 'POST',
+      url: '/api/attendance/file',
+      data: data
+    }).done((result) => {
+      console.log(result);
+      this.uploadFileSuccess(result);
+    }).fail((jqXhr) => {
+      console.log(jqXhr);
+      this.uploadFileFailure(jqXhr);
+    });
   }
 
   uploadAttendanceFromRosterForm(attendanceModel, raidId, raidWeekId, weekday) {

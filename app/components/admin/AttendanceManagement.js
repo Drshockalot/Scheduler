@@ -50,6 +50,14 @@ class AttendanceManagement extends React.Component {
     return classNames(ret, { 'col-sm-1' : true});;
   }
 
+  readFile(file) {
+    var reader = new FileReader();
+    reader.onload(function() {
+      AttendanceManagementActions.uploadFile(this.result, this.state.selectRaid, this.state.selectRaidWeek, this.state.selectWeekday);
+    });
+    reader.readAsText(file);
+  }
+
   render() {
     var selectRaidWeekOptions, selectWeekdayButtons, selectRaidOptions, selectRosterOptions;
     if(this.state.raidweeks.length > 0) {
@@ -237,7 +245,7 @@ class AttendanceManagement extends React.Component {
                     <h3>Upload File</h3>
                     <div className='row'>
                       <div className='col-md-8'>
-                        <Dropzone className='dropzone' onDrop={files => AttendanceManagementActions.uploadFile(files[0], this.state.selectRaid, this.state.selectRaidWeek, this.state.selectWeekday)}>
+                        <Dropzone className='dropzone' onDrop={files => this.readFile(files[0])}>
                           <div className="dropzone-content">Drag or click here to upload file (.txt or .csv)</div>
                         </Dropzone>
                       </div>

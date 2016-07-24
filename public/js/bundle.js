@@ -707,35 +707,27 @@ var AttendaceManagementActions = function () {
     }
   }, {
     key: 'uploadFile',
-    value: function uploadFile(file, raidId, raidWeekId, weekday) {
-      //var data = {files: fileData, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday};
-      var reader = new FileReader();
-      reader.readAsText(file);
+    value: function uploadFile(fileText, raidId, raidWeekId, weekday) {
+      var _this2 = this;
 
-      console.log(reader.result);
-      // $.ajax({
-      //   method: 'POST',
-      //   url: '/api/attendance/file',
-      //   data:
-      // }).done((result) => {
-      //
-      // }).fail((jqXhr) => {
-      //
-      // });
-      // request.post('/api/attendance/admin/file').send(fileData).end(function(jqXhr, result) {
-      //   if(!jqXhr) {
-      //     console.log(result);
-      //     this.uploadFileSuccess(result);
-      //   } else {
-      //     console.log(jqXhr);
-      //     this.uploadFileFailure(jqXhr);
-      //   }
-      // }).bind(this);
+      var data = { names: fileText.split(','), raidId: raidId, raidWeekId: raidWeekId, weekday: weekday };
+
+      $.ajax({
+        method: 'POST',
+        url: '/api/attendance/file',
+        data: data
+      }).done(function (result) {
+        console.log(result);
+        _this2.uploadFileSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this2.uploadFileFailure(jqXhr);
+      });
     }
   }, {
     key: 'uploadAttendanceFromRosterForm',
     value: function uploadAttendanceFromRosterForm(attendanceModel, raidId, raidWeekId, weekday) {
-      var _this2 = this;
+      var _this3 = this;
 
       var nameList = [];
       for (var i = 0; i < attendanceModel['Tank'].length; ++i) {
@@ -758,16 +750,16 @@ var AttendaceManagementActions = function () {
         data: data
       }).done(function (result) {
         console.log(result);
-        _this2.uploadAttendanceFromRosterFormSuccess(result);
+        _this3.uploadAttendanceFromRosterFormSuccess(result);
       }).fail(function (jqXhr) {
         console.log(jqXhr);
-        _this2.uploadAttendanceFromRosterFormFailure(jqXhr);
+        _this3.uploadAttendanceFromRosterFormFailure(jqXhr);
       });
     }
   }, {
     key: 'uploadRawText',
     value: function uploadRawText(uploadText, raidId, raidWeekId, weekday) {
-      var _this3 = this;
+      var _this4 = this;
 
       if (uploadText == '') {
         toastr.warning('You cannot upload an empty batch of text');
@@ -782,10 +774,10 @@ var AttendaceManagementActions = function () {
         data: data
       }).done(function (result) {
         console.log(result);
-        _this3.uploadRawTextSuccess(result);
+        _this4.uploadRawTextSuccess(result);
       }).fail(function (jqXhr) {
         console.log(jqXhr);
-        _this3.uploadRawTextFailure(jqXhr);
+        _this4.uploadRawTextFailure(jqXhr);
       });
     }
   }]);
@@ -5005,6 +4997,15 @@ var AttendanceManagement = function (_React$Component) {
       return (0, _classnames2.default)(ret, { 'col-sm-1': true });;
     }
   }, {
+    key: 'readFile',
+    value: function readFile(file) {
+      var reader = new FileReader();
+      reader.onload(function () {
+        _AttendanceManagementActions2.default.uploadFile(this.result, this.state.selectRaid, this.state.selectRaidWeek, this.state.selectWeekday);
+      });
+      reader.readAsText(file);
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _this2 = this;
@@ -5341,7 +5342,7 @@ var AttendanceManagement = function (_React$Component) {
                         _react2.default.createElement(
                           _reactDropzone2.default,
                           { className: 'dropzone', onDrop: function onDrop(files) {
-                              return _AttendanceManagementActions2.default.uploadFile(files[0], _this2.state.selectRaid, _this2.state.selectRaidWeek, _this2.state.selectWeekday);
+                              return _this2.readFile(files[0]);
                             } },
                           _react2.default.createElement(
                             'div',
