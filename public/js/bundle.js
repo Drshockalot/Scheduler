@@ -4719,6 +4719,8 @@ var Admin = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      if (typeof Storage === 'undefined' || sessionStorage.role != 'admin' || _NavbarStore2.default.getState().userRole != 'admin') return null;
+
       return _react2.default.createElement(
         'div',
         { id: 'wrapper' },
@@ -5223,7 +5225,7 @@ var AttendanceManagement = function (_React$Component) {
         }, this);
       }
 
-      if (typeof Storage === 'undefined' || sessionStorage.role != 'admin') return null;
+      if (typeof Storage === 'undefined' || sessionStorage.role != 'admin' || _NavbarStore2.default.getState().userRole != 'admin') return null;
 
       return _react2.default.createElement(
         'div',
@@ -5934,7 +5936,7 @@ var RaidManagement = function (_React$Component) {
         }, this);
       }
 
-      if (typeof Storage === 'undefined' || sessionStorage.role != 'admin') return null;
+      if (typeof Storage === 'undefined' || sessionStorage.role != 'admin' || _NavbarStore2.default.getState().userRole != 'admin') return null;
 
       return _react2.default.createElement(
         'div',
@@ -7089,7 +7091,7 @@ var RaidWeekManagement = function (_React$Component) {
         }).reverse()
       );
 
-      if (typeof Storage === 'undefined' || sessionStorage.role != 'admin') return null;
+      if (typeof Storage === 'undefined' || sessionStorage.role != 'admin' || _NavbarStore2.default.getState().userRole != 'admin') return null;
 
       return _react2.default.createElement(
         'div',
@@ -7323,7 +7325,7 @@ var RosterManagement = function (_React$Component) {
         );
       });
 
-      if (typeof Storage === 'undefined' || sessionStorage.role != 'admin') return null;
+      if (typeof Storage === 'undefined' || sessionStorage.role != 'admin' || _NavbarStore2.default.getState().userRole != 'admin') return null;
 
       return _react2.default.createElement(
         'div',
@@ -8227,7 +8229,7 @@ var ScheduleManagement = function (_React$Component) {
         }, this);
       }
 
-      if (typeof Storage === 'undefined' || sessionStorage.role != 'admin') return null;
+      if (typeof Storage === 'undefined' || sessionStorage.role != 'admin' || _NavbarStore2.default.getState().userRole != 'admin') return null;
 
       return _react2.default.createElement(
         'div',

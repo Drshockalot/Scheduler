@@ -74,7 +74,7 @@ class RaidManagement extends React.Component {
       }, this);
     }
 
-    if(typeof(Storage) === 'undefined' || sessionStorage.role != 'admin')
+    if(typeof(Storage) === 'undefined' || (sessionStorage.role != 'admin' || NavbarStore.getState().userRole != 'admin'))
       return null;
 
     return (
