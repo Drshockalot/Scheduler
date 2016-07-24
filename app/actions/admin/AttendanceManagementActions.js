@@ -39,7 +39,7 @@ class AttendaceManagementActions {
   }
 
   uploadFile(file, raidId, raidWeekId, weekday) {
-    var data = {files: fileData, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday};
+    //var data = {files: fileData, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday};
     var reader = new FileReader();
     reader.readAsText(file);
     while (reader.readyState != 2) {
