@@ -709,17 +709,32 @@ var AttendaceManagementActions = function () {
     key: 'uploadFile',
     value: function uploadFile(file, raidId, raidWeekId, weekday) {
       var fileData = new FormData();
+      console.log(file);
       fileData.append('attendance', file);
       var data = { files: fileData, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday };
-      request.post('/api/attendance/admin/file').send(fileData).end(function (jqXhr, result) {
-        if (!jqXhr) {
-          console.log(result);
-          this.uploadFileSuccess(result);
-        } else {
-          console.log(jqXhr);
-          this.uploadFileFailure(jqXhr);
-        }
-      }).bind(this);
+      var reader = new FileReader();
+      reader.onload = function () {
+        console.log(this.result);
+      };
+      reader.readAsText(file);
+      // $.ajax({
+      //   method: 'POST',
+      //   url: '/api/attendance/file',
+      //   data:
+      // }).done((result) => {
+      //
+      // }).fail((jqXhr) => {
+      //
+      // });
+      // request.post('/api/attendance/admin/file').send(fileData).end(function(jqXhr, result) {
+      //   if(!jqXhr) {
+      //     console.log(result);
+      //     this.uploadFileSuccess(result);
+      //   } else {
+      //     console.log(jqXhr);
+      //     this.uploadFileFailure(jqXhr);
+      //   }
+      // }).bind(this);
     }
   }, {
     key: 'uploadAttendanceFromRosterForm',
