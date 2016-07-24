@@ -52,8 +52,11 @@ class AttendanceManagement extends React.Component {
 
   readFile(file) {
     var reader = new FileReader();
+    var selectRaid = this.state.selectRaid;
+    var selectRaidWeek = this.state.selectRaidWeek;
+    var selectWeekday = this.state.selectWeekday;
     reader.onload = function() {
-      AttendanceManagementActions.uploadFile(this.result, this.state.selectRaid, this.state.selectRaidWeek, this.state.selectWeekday);
+      AttendanceManagementActions.uploadFile(this.result, selectRaid, selectRaidWeek, selectWeekday);
     };
     reader.readAsText(file);
   }

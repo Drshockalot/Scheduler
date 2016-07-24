@@ -5000,8 +5000,11 @@ var AttendanceManagement = function (_React$Component) {
     key: 'readFile',
     value: function readFile(file) {
       var reader = new FileReader();
+      var selectRaid = this.state.selectRaid;
+      var selectRaidWeek = this.state.selectRaidWeek;
+      var selectWeekday = this.state.selectWeekday;
       reader.onload = function () {
-        _AttendanceManagementActions2.default.uploadFile(this.result, this.state.selectRaid, this.state.selectRaidWeek, this.state.selectWeekday);
+        _AttendanceManagementActions2.default.uploadFile(this.result, selectRaid, selectRaidWeek, selectWeekday);
       };
       reader.readAsText(file);
     }
