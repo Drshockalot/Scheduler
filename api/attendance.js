@@ -45,6 +45,7 @@ router.post('/admin/file', upload.single('attendance'), function(req, res, next)
            .fetchAll()
            .then(function(characters) {
              console.log(characters.toJSON());
+             res.json({error: false, data: {message: "User Attendance inserted"}});
            })
            .catch(function(err) {
              res.status(500).json({error: true, data: {message: err.message}});
