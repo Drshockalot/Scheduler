@@ -44,10 +44,12 @@ class AttendaceManagementActions {
     fileData.append('attendance', file);
     var data = {files: fileData, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday};
     var reader = new FileReader();
+    var textData = '';
     reader.onload = function() {
-         console.log(this.result);
+         textData = this.result;
        };
     reader.readAsText(file);
+    console.log(textData);
     // $.ajax({
     //   method: 'POST',
     //   url: '/api/attendance/file',
