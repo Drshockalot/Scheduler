@@ -6211,7 +6211,7 @@ var DeleteAttendance = function (_React$Component) {
       }
 
       var attendanceRecordRows;
-      var groupedAttendanceRecords = _underscore2.default.groupBy(this.state.attendanceRecords, 'raid.name');
+      var groupedAttendanceRecords = _underscore2.default.groupBy(this.state.attendanceRecords, 'raid_id');
       console.log(groupedAttendanceRecords);
       // if(this.state.attendanceRecords.length > 0) {
       //   attendanceRecordRows = this.state.attendanceRecords
