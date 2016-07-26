@@ -6248,7 +6248,7 @@ var DeleteAttendance = function (_React$Component) {
                 row.user.battletag
               )
             );
-          });
+          }, this);
 
           return _react2.default.createElement(
             'div',
@@ -6307,7 +6307,7 @@ var DeleteAttendance = function (_React$Component) {
               )
             )
           );
-        });
+        }, this);
       }
 
       return _react2.default.createElement(

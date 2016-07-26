@@ -57,7 +57,7 @@ class DeleteAttendance extends React.Component {
               <td className='col-xs-2 vert-align text-center'>{row.user.battletag}</td>
             </tr>
           );
-        });
+        }, this);
 
         return (
           <div className='row'>
@@ -78,7 +78,7 @@ class DeleteAttendance extends React.Component {
             </div>
           </div>
         );
-      });
+      }, this);
     }
 
     return (
