@@ -37,6 +37,7 @@ class DeleteAttendance extends React.Component {
 
     var attendanceRecordRows;
     var groupedAttendanceRecords = _.groupBy(this.state.attendanceRecords, 'raid.name');
+    console.log(groupedAttendanceRecords);
     // if(this.state.attendanceRecords.length > 0) {
     //   attendanceRecordRows = this.state.attendanceRecords
     // }
