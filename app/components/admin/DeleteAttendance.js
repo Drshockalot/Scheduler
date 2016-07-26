@@ -62,23 +62,19 @@ class DeleteAttendance extends React.Component {
 
         return (
           <div className='row'>
-            <div className='row'>
+            <div className='col-xs-8 col-xs-offset-2'>
               <h3>{raidRows[0].raid.name}</h3>
-            </div>
-            <div className='row'>
-              <div className='col-xs-6 col-xs-offset-3'>
-                <table className='table'>
-                  <tbody>
-                  <tr>
-                    <td className='col-xs-3 text-center'><strong>Raid Week</strong></td>
-                    <td className='col-xs-3 text-center'><strong>Weekday</strong></td>
-                    <td className='col-xs-3 text-center'><strong>User</strong></td>
-                    <td className='col-xs-3 text-center'></td>
-                  </tr>
-                    {recordRows}
-                  </tbody>
-                </table>
-              </div>
+              <table className='table'>
+                <tbody>
+                <tr>
+                  <td className='col-xs-3 text-center'><strong>Raid Week</strong></td>
+                  <td className='col-xs-3 text-center'><strong>Weekday</strong></td>
+                  <td className='col-xs-3 text-center'><strong>User</strong></td>
+                  <td className='col-xs-3 text-center'></td>
+                </tr>
+                  {recordRows}
+                </tbody>
+              </table>
             </div>
           </div>
         );
