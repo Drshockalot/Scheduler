@@ -12,7 +12,7 @@ class DeleteAttendanceActions {
   loadComponentData() {
     $.ajax({
       method: 'GET',
-      url: '/api/attendance/admin'
+      url: '/api/attendance/admin/all'
     }).done((result) => {
       console.log(result);
       this.loadComponentDataSuccess(result);

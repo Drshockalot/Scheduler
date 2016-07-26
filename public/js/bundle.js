@@ -925,7 +925,7 @@ var DeleteAttendanceActions = function () {
 
       $.ajax({
         method: 'GET',
-        url: '/api/attendance/admin'
+        url: '/api/attendance/admin/all'
       }).done(function (result) {
         console.log(result);
         _this.loadComponentDataSuccess(result);
@@ -1562,7 +1562,7 @@ var ViewAttendanceActions = function () {
 
       $.ajax({
         method: 'GET',
-        url: '/api/attendance/admin'
+        url: '/api/attendance/admin/all'
       }).done(function (result) {
         console.log(result);
         _this.loadComponentDataSuccess(result);

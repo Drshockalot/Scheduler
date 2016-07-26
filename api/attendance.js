@@ -25,7 +25,7 @@ router.get('/admin', function(req, res, next) {
                    Roster.forge()
                          .fetchAll({'withRelated': ['characters']})
                          .then(function(rosters) {
-                           res.json({error: false, data: {message: "Raid Weeks retreived", raidweeks: raidweeks.toJSON(), rosters: rosters.toJSON(), raids: raids.toJSON()}});
+                           res.json({error: false, data: {message: "Data for the Add Attendance page retrieved", raidweeks: raidweeks.toJSON(), rosters: rosters.toJSON(), raids: raids.toJSON()}});
                          })
                          .catch(function(err) {
                            res.status(500).json({error: true, data: {message: err.message}});
@@ -116,7 +116,7 @@ router.post('/admin/roster', function(req, res, next) {
            });
 });
 
-router.get('/admin', function(req, res, next) {
+router.get('/admin/all', function(req, res, next) {
   Raid_Attendance.forge()
                  .fetchAll({'withRelated': ['user', 'raid', 'raid_week']})
                  .then(function(attendanceRecords) {
