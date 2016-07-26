@@ -2,6 +2,7 @@ let Bookshelf = require('./../database').bookshelf;
 
 require('./boss');
 require('./schedule_boss');
+require('./raid_attendance');
 var Raid = Bookshelf.Model.extend({
   tableName: 'raid',
   hasTimestamps: true,
@@ -10,6 +11,9 @@ var Raid = Bookshelf.Model.extend({
   },
   schedule_bosses: function() {
     return this.hasMany('Schedule_Boss');
+  },
+  raid_attendance: function() {
+    return this.hasMany('Raid_Attendance');
   }
 });
 

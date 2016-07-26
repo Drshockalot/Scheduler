@@ -5,6 +5,8 @@ import DeleteAttendanceActions from '../../actions/admin/DeleteAttendanceActions
 import NavbarStore from './../../stores/NavbarStore';
 import { browserHistory } from 'react-router';
 
+import _ from 'underscore';
+
 class DeleteAttendance extends React.Component {
   constructor(props) {
     super(props);
@@ -14,10 +16,14 @@ class DeleteAttendance extends React.Component {
 
   componentDidMount() {
     DeleteAttendanceStore.listen(this.onChange);
+    if(sessionStorage.deleteAttendance)
+      DeleteAttendanceActions.restoreState(JSON.parse(sessionStorage.deleteAttendance));
+    DeleteAttendanceActions.loadComponentData();
   }
 
   componentWillUnmount() {
     DeleteAttendanceStore.unlisten(this.onChange);
+    sessionStorage.deleteAttendance = JSON.stringify(this.state);
   }
 
   onChange(state) {
@@ -25,8 +31,15 @@ class DeleteAttendance extends React.Component {
   }
 
   render() {
-    if(typeof(Storage) === 'undefined' || (sessionStorage.role != 'admin' || NavbarStore.getState().userRole != 'admin'))
+    if(typeof(Storage) === 'undefined' || (sessionStorage.role != 'admin' || NavbarStore.getState().userRole != 'admin')) {
       return null;
+    }
+
+    var attendanceRecordRows;
+    var groupedAttendanceRecords = _.groupBy(this.state.attendanceRecords, 'raid.name');
+    // if(this.state.attendanceRecords.length > 0) {
+    //   attendanceRecordRows = this.state.attendanceRecords
+    // }
 
     return (
       <div className='row'>

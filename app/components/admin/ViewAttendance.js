@@ -14,10 +14,14 @@ class ViewAttendance extends React.Component {
 
   componentDidMount() {
     ViewAttendanceStore.listen(this.onChange);
+    if(sessionStorage.viewAttendance)
+      ViewAttendanceActions.restoreState(JSON.parse(sessionStorage.viewAttendance));
+    ViewAttendanceActions.loadComponentData();
   }
 
   componentWillUnmount() {
     ViewAttendanceStore.unlisten(this.onChange);
+    sessionStorage.viewAttendance = JSON.stringify(this.state);
   }
 
   onChange(state) {

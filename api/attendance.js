@@ -11,6 +11,7 @@ var Roster = require('./../db/postgres/roster');
 var Raid = require('./../db/postgres/raid');
 var User = require('./../db/postgres/user');
 var Character = require('./../db/postgres/character');
+var Raid_Attendance = require('./../db/postgres/raid_attendance');
 
 var knex = require('./../db/database').knex;
 
@@ -113,6 +114,17 @@ router.post('/admin/roster', function(req, res, next) {
            .catch(function(err) {
              res.status(500).json({error: true, data: {message: err.message}});
            });
+});
+
+router.get('/admin', function(req, res, next) {
+  Raid_Attendance.forge()
+                 .fetchAll({'withRelated': ['user', 'raid', 'raid_week']})
+                 .then(function(attendanceRecords) {
+                   res.json({error: false, data: {message: 'Attendance records retrieved', attendanceRecords: attendanceRecords.toJSON()}});
+                 })
+                 .catch(function(err) {
+                   res.status(500).json({error: true, data: {message: err.message}});
+                 });
 });
 
 module.exports = router;

@@ -901,6 +901,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _alt = require('../../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
@@ -909,11 +911,33 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var DeleteAttendanceActions = function DeleteAttendanceActions() {
-  _classCallCheck(this, DeleteAttendanceActions);
+var DeleteAttendanceActions = function () {
+  function DeleteAttendanceActions() {
+    _classCallCheck(this, DeleteAttendanceActions);
 
-  this.generateActions('placeholder');
-};
+    this.generateActions('restoreState', 'loadComponentDataSuccess', 'loadComponentDataFailure');
+  }
+
+  _createClass(DeleteAttendanceActions, [{
+    key: 'loadComponentData',
+    value: function loadComponentData() {
+      var _this = this;
+
+      $.ajax({
+        method: 'GET',
+        url: '/api/attendance/admin'
+      }).done(function (result) {
+        console.log(result);
+        _this.loadComponentDataSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this.loadComponentDataFailure(jqXhr);
+      });
+    }
+  }]);
+
+  return DeleteAttendanceActions;
+}();
 
 exports.default = _alt2.default.createActions(DeleteAttendanceActions);
 
@@ -1514,6 +1538,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _alt = require('../../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
@@ -1522,11 +1548,33 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var ViewAttendanceActions = function ViewAttendanceActions() {
-  _classCallCheck(this, ViewAttendanceActions);
+var ViewAttendanceActions = function () {
+  function ViewAttendanceActions() {
+    _classCallCheck(this, ViewAttendanceActions);
 
-  this.generateActions('placeholder');
-};
+    this.generateActions('restoreState', 'loadComponentDataSuccess', 'loadComponentDataFailure');
+  }
+
+  _createClass(ViewAttendanceActions, [{
+    key: 'loadComponentData',
+    value: function loadComponentData() {
+      var _this = this;
+
+      $.ajax({
+        method: 'GET',
+        url: '/api/attendance/admin'
+      }).done(function (result) {
+        console.log(result);
+        _this.loadComponentDataSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this.loadComponentDataFailure(jqXhr);
+      });
+    }
+  }]);
+
+  return ViewAttendanceActions;
+}();
 
 exports.default = _alt2.default.createActions(ViewAttendanceActions);
 
@@ -6112,6 +6160,10 @@ var _NavbarStore = require('./../../stores/NavbarStore');
 
 var _NavbarStore2 = _interopRequireDefault(_NavbarStore);
 
+var _underscore = require('underscore');
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -6137,11 +6189,14 @@ var DeleteAttendance = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _DeleteAttendanceStore2.default.listen(this.onChange);
+      if (sessionStorage.deleteAttendance) _DeleteAttendanceActions2.default.restoreState(JSON.parse(sessionStorage.deleteAttendance));
+      _DeleteAttendanceActions2.default.loadComponentData();
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _DeleteAttendanceStore2.default.unlisten(this.onChange);
+      sessionStorage.deleteAttendance = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -6151,7 +6206,15 @@ var DeleteAttendance = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      if (typeof Storage === 'undefined' || sessionStorage.role != 'admin' || _NavbarStore2.default.getState().userRole != 'admin') return null;
+      if (typeof Storage === 'undefined' || sessionStorage.role != 'admin' || _NavbarStore2.default.getState().userRole != 'admin') {
+        return null;
+      }
+
+      var attendanceRecordRows;
+      var groupedAttendanceRecords = _underscore2.default.groupBy(this.state.attendanceRecords, 'raid.name');
+      // if(this.state.attendanceRecords.length > 0) {
+      //   attendanceRecordRows = this.state.attendanceRecords
+      // }
 
       return _react2.default.createElement('div', { className: 'row' });
     }
@@ -6162,7 +6225,7 @@ var DeleteAttendance = function (_React$Component) {
 
 exports.default = DeleteAttendance;
 
-},{"../../actions/admin/DeleteAttendanceActions":16,"../../stores/admin/DeleteAttendanceStore":63,"./../../stores/NavbarStore":50,"react":"react","react-router":"react-router"}],41:[function(require,module,exports){
+},{"../../actions/admin/DeleteAttendanceActions":16,"../../stores/admin/DeleteAttendanceStore":63,"./../../stores/NavbarStore":50,"react":"react","react-router":"react-router","underscore":"underscore"}],41:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -8925,11 +8988,14 @@ var ViewAttendance = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _ViewAttendanceStore2.default.listen(this.onChange);
+      if (sessionStorage.viewAttendance) _ViewAttendanceActions2.default.restoreState(JSON.parse(sessionStorage.viewAttendance));
+      _ViewAttendanceActions2.default.loadComponentData();
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _ViewAttendanceStore2.default.unlisten(this.onChange);
+      sessionStorage.viewAttendance = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -10079,6 +10145,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _alt = require('../../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
@@ -10091,11 +10159,35 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var DeleteAttendanceStore = function DeleteAttendanceStore() {
-  _classCallCheck(this, DeleteAttendanceStore);
+var DeleteAttendanceStore = function () {
+  function DeleteAttendanceStore() {
+    _classCallCheck(this, DeleteAttendanceStore);
 
-  this.bindActions(_DeleteAttendanceActions2.default);
-};
+    this.bindActions(_DeleteAttendanceActions2.default);
+    this.attendanceRecords = [];
+  }
+
+  _createClass(DeleteAttendanceStore, [{
+    key: 'onLoadComponentDataSuccess',
+    value: function onLoadComponentDataSuccess(result) {
+      this.attendanceRecords = result.data.attendanceRecords;
+    }
+  }, {
+    key: 'onLoadComponentDataFailure',
+    value: function onLoadComponentDataFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onRestoreState',
+    value: function onRestoreState(state) {
+      for (var key in state) {
+        this[key] = state[key];
+      }
+    }
+  }]);
+
+  return DeleteAttendanceStore;
+}();
 
 exports.default = _alt2.default.createStore(DeleteAttendanceStore);
 
@@ -10822,6 +10914,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _alt = require('../../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
@@ -10834,11 +10928,35 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var ViewAttendanceStore = function ViewAttendanceStore() {
-  _classCallCheck(this, ViewAttendanceStore);
+var ViewAttendanceStore = function () {
+  function ViewAttendanceStore() {
+    _classCallCheck(this, ViewAttendanceStore);
 
-  this.bindActions(_ViewAttendanceActions2.default);
-};
+    this.bindActions(_ViewAttendanceActions2.default);
+    this.attendanceRecords = [];
+  }
+
+  _createClass(ViewAttendanceStore, [{
+    key: 'onLoadComponentDataSuccess',
+    value: function onLoadComponentDataSuccess(result) {
+      this.attendanceRecords = result.data.attendanceRecords;
+    }
+  }, {
+    key: 'onLoadComponentDataFailure',
+    value: function onLoadComponentDataFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }, {
+    key: 'onRestoreState',
+    value: function onRestoreState(state) {
+      for (var key in state) {
+        this[key] = state[key];
+      }
+    }
+  }]);
+
+  return ViewAttendanceStore;
+}();
 
 exports.default = _alt2.default.createStore(ViewAttendanceStore);
 
