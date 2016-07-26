@@ -6164,6 +6164,10 @@ var _underscore = require('underscore');
 
 var _underscore2 = _interopRequireDefault(_underscore);
 
+var _moment = require('moment');
+
+var _moment2 = _interopRequireDefault(_moment);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -6204,20 +6208,114 @@ var DeleteAttendance = function (_React$Component) {
       this.setState(state);
     }
   }, {
+    key: 'capitalize',
+    value: function capitalize(str) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+  }, {
     key: 'render',
     value: function render() {
       if (typeof Storage === 'undefined' || sessionStorage.role != 'admin' || _NavbarStore2.default.getState().userRole != 'admin') {
         return null;
       }
 
-      var attendanceRecordRows;
-      var groupedAttendanceRecords = _underscore2.default.groupBy(this.state.attendanceRecords, 'raid_id');
-      console.log(groupedAttendanceRecords);
-      // if(this.state.attendanceRecords.length > 0) {
-      //   attendanceRecordRows = this.state.attendanceRecords
-      // }
+      var attendanceRecordTables = null;
+      if (this.state.attendanceRecords.length > 0) {
+        var groupedAttendanceRecords = _underscore2.default.groupBy(this.state.attendanceRecords, 'raid_id');
+        var groupedAttendanceRecordsArray = [];
+        for (var key in groupedAttendanceRecords) {
+          groupedAttendanceRecordsArray.push(groupedAttendanceRecords[key]);
+        }
 
-      return _react2.default.createElement('div', { className: 'row' });
+        attendanceRecordTables = groupedAttendanceRecordsArray.map(function (raidRows) {
+          var recordRows = raidRows.map(function (row) {
+            return _react2.default.createElement(
+              'tr',
+              null,
+              _react2.default.createElement(
+                'td',
+                { className: 'col-xs-2 vert-align text-center' },
+                (0, _moment2.default)(row.raid_week.start).format('W')
+              ),
+              _react2.default.createElement(
+                'td',
+                { className: 'col-xs-2 vert-align text-center' },
+                this.capitalize(row.week_day)
+              ),
+              _react2.default.createElement(
+                'td',
+                { className: 'col-xs-2 vert-align text-center' },
+                row.user.battletag
+              )
+            );
+          });
+
+          return _react2.default.createElement(
+            'div',
+            { className: 'row' },
+            _react2.default.createElement(
+              'div',
+              { className: 'row' },
+              _react2.default.createElement(
+                'h3',
+                null,
+                raidRows[0].name
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'row' },
+              _react2.default.createElement(
+                'table',
+                { className: 'table' },
+                _react2.default.createElement(
+                  'tbody',
+                  null,
+                  _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'col-xs-2' },
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'Raid Week'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'col-xs-2' },
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'Weekday'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'col-xs-2' },
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'User'
+                      )
+                    )
+                  ),
+                  recordRows
+                )
+              )
+            )
+          );
+        });
+      }
+
+      return _react2.default.createElement(
+        'div',
+        { className: 'row' },
+        _react2.default.createElement('div', { className: 'row' }),
+        attendanceRecordTables
+      );
     }
   }]);
 
@@ -6226,7 +6324,7 @@ var DeleteAttendance = function (_React$Component) {
 
 exports.default = DeleteAttendance;
 
-},{"../../actions/admin/DeleteAttendanceActions":16,"../../stores/admin/DeleteAttendanceStore":63,"./../../stores/NavbarStore":50,"react":"react","react-router":"react-router","underscore":"underscore"}],41:[function(require,module,exports){
+},{"../../actions/admin/DeleteAttendanceActions":16,"../../stores/admin/DeleteAttendanceStore":63,"./../../stores/NavbarStore":50,"moment":171,"react":"react","react-router":"react-router","underscore":"underscore"}],41:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
