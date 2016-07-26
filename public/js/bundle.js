@@ -6264,7 +6264,7 @@ var DeleteAttendance = function (_React$Component) {
             { className: 'row' },
             _react2.default.createElement(
               'div',
-              { className: 'col-xs-8 col-xs-offset-2' },
+              { className: 'col-xs-8' },
               _react2.default.createElement(
                 'h3',
                 null,

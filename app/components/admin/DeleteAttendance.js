@@ -62,7 +62,7 @@ class DeleteAttendance extends React.Component {
 
         return (
           <div className='row'>
-            <div className='col-xs-8 col-xs-offset-2'>
+            <div className='col-xs-8'>
               <h3>{raidRows[0].raid.name}</h3>
               <table className='table'>
                 <tbody>
