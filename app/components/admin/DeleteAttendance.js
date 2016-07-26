@@ -52,9 +52,10 @@ class DeleteAttendance extends React.Component {
         var recordRows = raidRows.map(function(row) {
           return (
             <tr>
-              <td className='col-xs-2 vert-align text-center'>{moment(row.raid_week.start).format('W')}</td>
-              <td className='col-xs-2 vert-align text-center'>{this.capitalize(row.week_day)}</td>
-              <td className='col-xs-2 vert-align text-center'>{row.user.battletag}</td>
+              <td className='col-xs-3 vert-align text-center'>{moment(row.raid_week.start).format('W')}</td>
+              <td className='col-xs-3 vert-align text-center'>{this.capitalize(row.week_day)}</td>
+              <td className='col-xs-3 vert-align text-center'>{row.user.battletag}</td>
+              <td className='col-xs-3 vert-align text-center'><button className='btn btn-danger'>Delete</button></td>
             </tr>
           );
         }, this);
@@ -62,19 +63,22 @@ class DeleteAttendance extends React.Component {
         return (
           <div className='row'>
             <div className='row'>
-              <h3>{raidRows[0].name}</h3>
+              <h3>{raidRows[0].raid.name}</h3>
             </div>
             <div className='row'>
-              <table className='table'>
-                <tbody>
-                <tr>
-                  <td className='col-xs-2'><strong>Raid Week</strong></td>
-                  <td className='col-xs-2'><strong>Weekday</strong></td>
-                  <td className='col-xs-2'><strong>User</strong></td>
-                </tr>
-                  {recordRows}
-                </tbody>
-              </table>
+              <div className='col-xs-6 col-xs-offset-3'>
+                <table className='table'>
+                  <tbody>
+                  <tr>
+                    <td className='col-xs-3 text-center'><strong>Raid Week</strong></td>
+                    <td className='col-xs-3 text-center'><strong>Weekday</strong></td>
+                    <td className='col-xs-3 text-center'><strong>User</strong></td>
+                    <td className='col-xs-3 text-center'></td>
+                  </tr>
+                    {recordRows}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         );

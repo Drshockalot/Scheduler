@@ -6234,18 +6234,27 @@ var DeleteAttendance = function (_React$Component) {
               null,
               _react2.default.createElement(
                 'td',
-                { className: 'col-xs-2 vert-align text-center' },
+                { className: 'col-xs-3 vert-align text-center' },
                 (0, _moment2.default)(row.raid_week.start).format('W')
               ),
               _react2.default.createElement(
                 'td',
-                { className: 'col-xs-2 vert-align text-center' },
+                { className: 'col-xs-3 vert-align text-center' },
                 this.capitalize(row.week_day)
               ),
               _react2.default.createElement(
                 'td',
-                { className: 'col-xs-2 vert-align text-center' },
+                { className: 'col-xs-3 vert-align text-center' },
                 row.user.battletag
+              ),
+              _react2.default.createElement(
+                'td',
+                { className: 'col-xs-3 vert-align text-center' },
+                _react2.default.createElement(
+                  'button',
+                  { className: 'btn btn-danger' },
+                  'Delete'
+                )
               )
             );
           }, this);
@@ -6259,50 +6268,55 @@ var DeleteAttendance = function (_React$Component) {
               _react2.default.createElement(
                 'h3',
                 null,
-                raidRows[0].name
+                raidRows[0].raid.name
               )
             ),
             _react2.default.createElement(
               'div',
               { className: 'row' },
               _react2.default.createElement(
-                'table',
-                { className: 'table' },
+                'div',
+                { className: 'col-xs-6 col-xs-offset-3' },
                 _react2.default.createElement(
-                  'tbody',
-                  null,
+                  'table',
+                  { className: 'table' },
                   _react2.default.createElement(
-                    'tr',
+                    'tbody',
                     null,
                     _react2.default.createElement(
-                      'td',
-                      { className: 'col-xs-2' },
+                      'tr',
+                      null,
                       _react2.default.createElement(
-                        'strong',
-                        null,
-                        'Raid Week'
-                      )
+                        'td',
+                        { className: 'col-xs-3 text-center' },
+                        _react2.default.createElement(
+                          'strong',
+                          null,
+                          'Raid Week'
+                        )
+                      ),
+                      _react2.default.createElement(
+                        'td',
+                        { className: 'col-xs-3 text-center' },
+                        _react2.default.createElement(
+                          'strong',
+                          null,
+                          'Weekday'
+                        )
+                      ),
+                      _react2.default.createElement(
+                        'td',
+                        { className: 'col-xs-3 text-center' },
+                        _react2.default.createElement(
+                          'strong',
+                          null,
+                          'User'
+                        )
+                      ),
+                      _react2.default.createElement('td', { className: 'col-xs-3 text-center' })
                     ),
-                    _react2.default.createElement(
-                      'td',
-                      { className: 'col-xs-2' },
-                      _react2.default.createElement(
-                        'strong',
-                        null,
-                        'Weekday'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'td',
-                      { className: 'col-xs-2' },
-                      _react2.default.createElement(
-                        'strong',
-                        null,
-                        'User'
-                      )
-                    )
-                  ),
-                  recordRows
+                    recordRows
+                  )
                 )
               )
             )
