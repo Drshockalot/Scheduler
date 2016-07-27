@@ -6168,6 +6168,8 @@ var _moment = require('moment');
 
 var _moment2 = _interopRequireDefault(_moment);
 
+var _reactBootstrap = require('react-bootstrap');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -6227,6 +6229,36 @@ var DeleteAttendance = function (_React$Component) {
           groupedAttendanceRecordsArray.push(groupedAttendanceRecords[key]);
         }
 
+        var characterRows = row.user.characters.map(function (character) {
+          return _react2.default.createElement(
+            'div',
+            { className: 'clearfix hand-cursor' },
+            character.name,
+            _react2.default.createElement('strong', null)
+          );
+        });
+
+        var popover = _react2.default.createElement(
+          _reactBootstrap.Popover,
+          { id: row.user.id, title: 'Characters' },
+          characterRows
+        );
+
+        var trigger = _react2.default.createElement(
+          _reactBootstrap.OverlayTrigger,
+          { placement: 'right', trigger: 'click', rootClose: true, overlay: popover },
+          _react2.default.createElement(
+            'strong',
+            { className: 'hand-cursor' },
+            _react2.default.createElement(
+              'u',
+              null,
+              row.user.battletag,
+              '    ❯'
+            )
+          )
+        );
+
         attendanceRecordTables = groupedAttendanceRecordsArray.map(function (raidRows) {
           var recordRows = raidRows.map(function (row) {
             return _react2.default.createElement(
@@ -6245,7 +6277,7 @@ var DeleteAttendance = function (_React$Component) {
               _react2.default.createElement(
                 'td',
                 { className: 'col-xs-3 vert-align text-center' },
-                row.user.battletag
+                trigger
               ),
               _react2.default.createElement(
                 'td',
@@ -6330,7 +6362,7 @@ var DeleteAttendance = function (_React$Component) {
 
 exports.default = DeleteAttendance;
 
-},{"../../actions/admin/DeleteAttendanceActions":16,"../../stores/admin/DeleteAttendanceStore":63,"./../../stores/NavbarStore":50,"moment":171,"react":"react","react-router":"react-router","underscore":"underscore"}],41:[function(require,module,exports){
+},{"../../actions/admin/DeleteAttendanceActions":16,"../../stores/admin/DeleteAttendanceStore":63,"./../../stores/NavbarStore":50,"moment":171,"react":"react","react-bootstrap":264,"react-router":"react-router","underscore":"underscore"}],41:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

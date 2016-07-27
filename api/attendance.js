@@ -118,7 +118,7 @@ router.post('/admin/roster', function(req, res, next) {
 
 router.get('/admin/all', function(req, res, next) {
   Raid_Attendance.forge()
-                 .fetchAll({'withRelated': ['user', 'raid', 'raid_week']})
+                 .fetchAll({'withRelated': ['user', 'user.characters', 'raid', 'raid_week']})
                  .then(function(attendanceRecords) {
                    res.json({error: false, data: {message: 'Attendance records retrieved', attendanceRecords: attendanceRecords.toJSON()}});
                  })

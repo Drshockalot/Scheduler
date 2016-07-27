@@ -7,6 +7,7 @@ import { browserHistory } from 'react-router';
 
 import _ from 'underscore';
 import moment from 'moment';
+import { OverlayTrigger, Popover } from 'react-bootstrap';
 
 class DeleteAttendance extends React.Component {
   constructor(props) {
@@ -48,13 +49,31 @@ class DeleteAttendance extends React.Component {
         groupedAttendanceRecordsArray.push(groupedAttendanceRecords[key]);
       }
 
+      var characterRows = row.user.characters.map(function(character) {
+        return (
+          <div className='clearfix hand-cursor'>{character.name}<strong></strong></div>
+        );
+      });
+
+      var popover = (
+        <Popover id={row.user.id} title='Characters'>
+          {characterRows}
+        </Popover>
+      );
+
+      var trigger = (
+        <OverlayTrigger placement='right' trigger='click' rootClose overlay={popover}>
+          <strong className='hand-cursor'><u>{row.user.battletag}    &#10095;</u></strong>
+        </OverlayTrigger>
+      );
+
       attendanceRecordTables = groupedAttendanceRecordsArray.map(function(raidRows) {
         var recordRows = raidRows.map(function(row) {
           return (
             <tr>
               <td className='col-xs-3 vert-align text-center'>{moment(row.raid_week.start).format('W')}</td>
               <td className='col-xs-3 vert-align text-center'>{this.capitalize(row.week_day)}</td>
-              <td className='col-xs-3 vert-align text-center'>{row.user.battletag}</td>
+              <td className='col-xs-3 vert-align text-center'>{trigger}</td>
               <td className='col-xs-3 vert-align text-center'><button className='btn btn-danger'>Delete</button></td>
             </tr>
           );
