@@ -106,7 +106,7 @@ class DeleteAttendance extends React.Component {
 
         </div>
         {attendanceRecordTables}
-        <Modal show={this.state.showDeleteRowModal} onHide={DeleteAttendanceActions.hideDeleteBossModal}>
+        <Modal show={this.state.showDeleteRowModal} onHide={DeleteAttendanceActions.hideDeleteRowModal}>
           <Modal.Header closeButton>
             <Modal.Title>Delete Attendance Record</Modal.Title>
           </Modal.Header>

@@ -6358,7 +6358,7 @@ var DeleteAttendance = function (_React$Component) {
         attendanceRecordTables,
         _react2.default.createElement(
           _reactBootstrap.Modal,
-          { show: this.state.showDeleteRowModal, onHide: _DeleteAttendanceActions2.default.hideDeleteBossModal },
+          { show: this.state.showDeleteRowModal, onHide: _DeleteAttendanceActions2.default.hideDeleteRowModal },
           _react2.default.createElement(
             _reactBootstrap.Modal.Header,
             { closeButton: true },
