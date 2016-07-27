@@ -6252,12 +6252,8 @@ var DeleteAttendance = function (_React$Component) {
               _react2.default.createElement(
                 'strong',
                 { className: 'hand-cursor' },
-                _react2.default.createElement(
-                  'u',
-                  null,
-                  row.user.battletag,
-                  '    ❯'
-                )
+                row.user.battletag,
+                '    ❯'
               )
             );
 
@@ -6266,17 +6262,17 @@ var DeleteAttendance = function (_React$Component) {
               null,
               _react2.default.createElement(
                 'td',
-                { className: 'col-xs-3 vert-align text-center' },
+                { className: 'col-xs-2 vert-align text-center' },
                 (0, _moment2.default)(row.raid_week.start).format('W')
               ),
               _react2.default.createElement(
                 'td',
-                { className: 'col-xs-3 vert-align text-center' },
+                { className: 'col-xs-2 vert-align text-center' },
                 this.capitalize(row.week_day)
               ),
               _react2.default.createElement(
                 'td',
-                { className: 'col-xs-3 vert-align text-center' },
+                { className: 'col-xs-5 vert-align text-center' },
                 trigger
               ),
               _react2.default.createElement(
@@ -6296,7 +6292,7 @@ var DeleteAttendance = function (_React$Component) {
             { className: 'row' },
             _react2.default.createElement(
               'div',
-              { className: 'col-xs-8' },
+              { className: 'col-xs-10' },
               _react2.default.createElement(
                 'h3',
                 null,
@@ -6313,7 +6309,7 @@ var DeleteAttendance = function (_React$Component) {
                     null,
                     _react2.default.createElement(
                       'td',
-                      { className: 'col-xs-3 text-center' },
+                      { className: 'col-xs-2 text-center' },
                       _react2.default.createElement(
                         'strong',
                         null,
@@ -6322,7 +6318,7 @@ var DeleteAttendance = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                       'td',
-                      { className: 'col-xs-3 text-center' },
+                      { className: 'col-xs-2 text-center' },
                       _react2.default.createElement(
                         'strong',
                         null,
@@ -6331,7 +6327,7 @@ var DeleteAttendance = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                       'td',
-                      { className: 'col-xs-3 text-center' },
+                      { className: 'col-xs-5 text-center' },
                       _react2.default.createElement(
                         'strong',
                         null,
