@@ -31,6 +31,15 @@ class DeleteAttendanceStore {
   onHideDeleteRowModal() {
     this.showDeleteRowModal = false;
   }
+
+  onDeleteRecordSuccess(result) {
+    this.attendanceRecords = result.data.attendanceRecords;
+    toastr.success('Attendance record deleted', 'Success');
+  }
+
+  onDeleteRecordFailure(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
 }
 
 export default alt.createStore(DeleteAttendanceStore);

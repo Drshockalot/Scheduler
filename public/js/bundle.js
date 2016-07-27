@@ -915,7 +915,7 @@ var DeleteAttendanceActions = function () {
   function DeleteAttendanceActions() {
     _classCallCheck(this, DeleteAttendanceActions);
 
-    this.generateActions('restoreState', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'hideDeleteRowModal', 'showDeleteRowModal');
+    this.generateActions('restoreState', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'hideDeleteRowModal', 'showDeleteRowModal', 'deleteRecordSuccess', 'deleteRecordFailure');
   }
 
   _createClass(DeleteAttendanceActions, [{
@@ -936,7 +936,20 @@ var DeleteAttendanceActions = function () {
     }
   }, {
     key: 'deleteRecord',
-    value: function deleteRecord(recordId) {}
+    value: function deleteRecord(recordId) {
+      var _this2 = this;
+
+      $.ajax({
+        method: 'DELETE',
+        url: '/api/attendance/admin/' + recordId
+      }).done(function (result) {
+        console.log(result);
+        _this2.deleteRecordSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this2.deleteRecordFailure(jqXhr);
+      });
+    }
   }]);
 
   return DeleteAttendanceActions;
@@ -6255,7 +6268,7 @@ var DeleteAttendance = function (_React$Component) {
               _reactBootstrap.OverlayTrigger,
               { placement: 'right', trigger: 'click', rootClose: true, overlay: popover },
               _react2.default.createElement(
-                'strong',
+                'div',
                 { className: 'hand-cursor' },
                 row.user.battletag,
                 '    ❯'
@@ -10370,6 +10383,17 @@ var DeleteAttendanceStore = function () {
     key: 'onHideDeleteRowModal',
     value: function onHideDeleteRowModal() {
       this.showDeleteRowModal = false;
+    }
+  }, {
+    key: 'onDeleteRecordSuccess',
+    value: function onDeleteRecordSuccess(result) {
+      this.attendanceRecords = result.data.attendanceRecords;
+      toastr.success('Attendance record deleted', 'Success');
+    }
+  }, {
+    key: 'onDeleteRecordFailure',
+    value: function onDeleteRecordFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
     }
   }]);
 

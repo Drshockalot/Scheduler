@@ -7,7 +7,9 @@ class DeleteAttendanceActions {
       'loadComponentDataSuccess',
       'loadComponentDataFailure',
       'hideDeleteRowModal',
-      'showDeleteRowModal'
+      'showDeleteRowModal',
+      'deleteRecordSuccess',
+      'deleteRecordFailure'
     );
   }
 
@@ -25,7 +27,16 @@ class DeleteAttendanceActions {
   }
 
   deleteRecord(recordId) {
-    
+    $.ajax({
+      method: 'DELETE',
+      url: '/api/attendance/admin/' + recordId
+    }).done((result) => {
+      console.log(result);
+      this.deleteRecordSuccess(result);
+    }).fail((jqXhr) => {
+      console.log(jqXhr);
+      this.deleteRecordFailure(jqXhr);
+    });
   }
 }
 

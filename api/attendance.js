@@ -127,4 +127,23 @@ router.get('/admin/all', function(req, res, next) {
                  });
 });
 
+router.delete('/admin/:recordid', function(req, res, next) {
+  Raid_attendance.forge({ id: req.params.recordid })
+                 .fetch()
+                 .then(function(attendanceRecord) {
+                   attendanceRecord.destroy();
+                   Raid_Attendance.forge()
+                                  .fetchAll({'withRelated': ['user', 'user.characters', 'raid', 'raid_week']})
+                                  .then(function(attendanceRecords) {
+                                    res.json({error: false, data: {message: 'Attendance record deleted', attendanceRecords: attendanceRecords.toJSON()}});
+                                  })
+                                  .catch(function(err) {
+                                    res.status(500).json({error: true, data: {message: err.message}});
+                                  });
+                 })
+                 .catch(function(err) {
+                   res.status(500).json({error: true, data: {message: err.message}});
+                 });
+});
+
 module.exports = router;
