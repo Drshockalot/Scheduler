@@ -128,7 +128,7 @@ router.get('/admin/all', function(req, res, next) {
 });
 
 router.delete('/admin/:recordid', function(req, res, next) {
-  Raid_attendance.forge({ id: req.params.recordid })
+  Raid_Attendance.forge({id: req.params.recordid})
                  .fetch()
                  .then(function(attendanceRecord) {
                    attendanceRecord.destroy()
