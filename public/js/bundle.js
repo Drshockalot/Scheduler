@@ -6268,7 +6268,7 @@ var DeleteAttendance = function (_React$Component) {
               _reactBootstrap.OverlayTrigger,
               { placement: 'right', trigger: 'click', rootClose: true, overlay: popover },
               _react2.default.createElement(
-                'div',
+                'span',
                 { className: 'hand-cursor' },
                 row.user.battletag,
                 '    ❯'
