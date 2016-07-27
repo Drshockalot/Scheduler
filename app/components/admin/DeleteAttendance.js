@@ -65,7 +65,7 @@ class DeleteAttendance extends React.Component {
 
           var trigger = (
             <OverlayTrigger placement='right' trigger='click' rootClose overlay={popover}>
-              <strong className='hand-cursor'>{row.user.battletag}    &#10095;</strong>
+              <strong className='hand-cursor'>{row.user.battletag}&nbsp;&nbsp;&nbsp;&nbsp;&#10095;</strong>
             </OverlayTrigger>
           );
 

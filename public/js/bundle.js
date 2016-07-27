@@ -6253,7 +6253,7 @@ var DeleteAttendance = function (_React$Component) {
                 'strong',
                 { className: 'hand-cursor' },
                 row.user.battletag,
-                '    ❯'
+                '    ❯'
               )
             );
 
