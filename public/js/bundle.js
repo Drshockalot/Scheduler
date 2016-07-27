@@ -6357,19 +6357,19 @@ var DeleteAttendance = function (_React$Component) {
         _react2.default.createElement('div', { className: 'row' }),
         attendanceRecordTables,
         _react2.default.createElement(
-          Modal,
+          _reactBootstrap.Modal,
           { show: this.state.showDeleteRowModal, onHide: _DeleteAttendanceActions2.default.hideDeleteBossModal },
           _react2.default.createElement(
-            Modal.Header,
+            _reactBootstrap.Modal.Header,
             { closeButton: true },
             _react2.default.createElement(
-              Modal.Title,
+              _reactBootstrap.Modal.Title,
               null,
               'Delete Attendance Record'
             )
           ),
           _react2.default.createElement(
-            Modal.Body,
+            _reactBootstrap.Modal.Body,
             null,
             _react2.default.createElement(
               'strong',
@@ -6379,7 +6379,7 @@ var DeleteAttendance = function (_React$Component) {
             ' If you delete this record, it cannot be regained'
           ),
           _react2.default.createElement(
-            Modal.Footer,
+            _reactBootstrap.Modal.Footer,
             null,
             _react2.default.createElement(
               'button',

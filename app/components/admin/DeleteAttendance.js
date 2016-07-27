@@ -7,7 +7,7 @@ import { browserHistory } from 'react-router';
 
 import _ from 'underscore';
 import moment from 'moment';
-import { OverlayTrigger, Popover } from 'react-bootstrap';
+import { OverlayTrigger, Popover, Modal } from 'react-bootstrap';
 
 class DeleteAttendance extends React.Component {
   constructor(props) {
