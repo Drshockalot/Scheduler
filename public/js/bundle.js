@@ -6229,38 +6229,38 @@ var DeleteAttendance = function (_React$Component) {
           groupedAttendanceRecordsArray.push(groupedAttendanceRecords[key]);
         }
 
-        var characterRows = row.user.characters.map(function (character) {
-          return _react2.default.createElement(
-            'div',
-            { className: 'clearfix hand-cursor' },
-            character.name,
-            _react2.default.createElement('strong', null)
-          );
-        });
-
-        var popover = _react2.default.createElement(
-          _reactBootstrap.Popover,
-          { id: row.user.id, title: 'Characters' },
-          characterRows
-        );
-
-        var trigger = _react2.default.createElement(
-          _reactBootstrap.OverlayTrigger,
-          { placement: 'right', trigger: 'click', rootClose: true, overlay: popover },
-          _react2.default.createElement(
-            'strong',
-            { className: 'hand-cursor' },
-            _react2.default.createElement(
-              'u',
-              null,
-              row.user.battletag,
-              '    ❯'
-            )
-          )
-        );
-
         attendanceRecordTables = groupedAttendanceRecordsArray.map(function (raidRows) {
           var recordRows = raidRows.map(function (row) {
+            var characterRows = row.user.characters.map(function (character) {
+              return _react2.default.createElement(
+                'div',
+                { className: 'clearfix hand-cursor' },
+                character.name,
+                _react2.default.createElement('strong', null)
+              );
+            });
+
+            var popover = _react2.default.createElement(
+              _reactBootstrap.Popover,
+              { id: row.user.id, title: 'Characters' },
+              characterRows
+            );
+
+            var trigger = _react2.default.createElement(
+              _reactBootstrap.OverlayTrigger,
+              { placement: 'right', trigger: 'click', rootClose: true, overlay: popover },
+              _react2.default.createElement(
+                'strong',
+                { className: 'hand-cursor' },
+                _react2.default.createElement(
+                  'u',
+                  null,
+                  row.user.battletag,
+                  '    ❯'
+                )
+              )
+            );
+
             return _react2.default.createElement(
               'tr',
               null,

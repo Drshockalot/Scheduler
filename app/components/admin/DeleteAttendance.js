@@ -49,26 +49,26 @@ class DeleteAttendance extends React.Component {
         groupedAttendanceRecordsArray.push(groupedAttendanceRecords[key]);
       }
 
-      var characterRows = row.user.characters.map(function(character) {
-        return (
-          <div className='clearfix hand-cursor'>{character.name}<strong></strong></div>
-        );
-      });
-
-      var popover = (
-        <Popover id={row.user.id} title='Characters'>
-          {characterRows}
-        </Popover>
-      );
-
-      var trigger = (
-        <OverlayTrigger placement='right' trigger='click' rootClose overlay={popover}>
-          <strong className='hand-cursor'><u>{row.user.battletag}    &#10095;</u></strong>
-        </OverlayTrigger>
-      );
-
       attendanceRecordTables = groupedAttendanceRecordsArray.map(function(raidRows) {
         var recordRows = raidRows.map(function(row) {
+          var characterRows = row.user.characters.map(function(character) {
+            return (
+              <div className='clearfix hand-cursor'>{character.name}<strong></strong></div>
+            );
+          });
+
+          var popover = (
+            <Popover id={row.user.id} title='Characters'>
+              {characterRows}
+            </Popover>
+          );
+
+          var trigger = (
+            <OverlayTrigger placement='right' trigger='click' rootClose overlay={popover}>
+              <strong className='hand-cursor'><u>{row.user.battletag}    &#10095;</u></strong>
+            </OverlayTrigger>
+          );
+
           return (
             <tr>
               <td className='col-xs-3 vert-align text-center'>{moment(row.raid_week.start).format('W')}</td>
