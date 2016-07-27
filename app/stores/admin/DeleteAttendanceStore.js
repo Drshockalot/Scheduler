@@ -5,6 +5,8 @@ class DeleteAttendanceStore {
   constructor() {
     this.bindActions(DeleteAttendanceActions);
     this.attendanceRecords = [];
+    this.showDeleteRowModal = false;
+    this.rowToDelete = 0;
   }
 
   onLoadComponentDataSuccess(result) {
@@ -19,6 +21,15 @@ class DeleteAttendanceStore {
     for (var key in state) {
       this[key] = state[key];
     }
+  }
+
+  onShowDeleteRowModal(recordId) {
+    this.rowToDelete = recordId;
+    this.showDeleteRowModal = true;
+  }
+
+  onHideDeleteRowModal() {
+    this.showDeleteRowModal = false;
   }
 }
 

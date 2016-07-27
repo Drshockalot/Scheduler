@@ -74,7 +74,7 @@ class DeleteAttendance extends React.Component {
               <td className='col-xs-2 vert-align text-center'>{moment(row.raid_week.start).format('W')}</td>
               <td className='col-xs-2 vert-align text-center'>{this.capitalize(row.week_day)}</td>
               <td className='col-xs-5 vert-align text-center'>{trigger}</td>
-              <td className='col-xs-3 vert-align text-center'><button className='btn btn-danger'>Delete</button></td>
+              <td className='col-xs-3 vert-align text-center'><button className='btn btn-danger' onClick={() => DeleteAttendanceActions.showDeleteRowModal(row.id)}>Delete</button></td>
             </tr>
           );
         }, this);
@@ -106,6 +106,17 @@ class DeleteAttendance extends React.Component {
 
         </div>
         {attendanceRecordTables}
+        <Modal show={this.state.showDeleteRowModal} onHide={DeleteAttendanceActions.hideDeleteBossModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>Delete Attendance Record</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <strong>WARNING!!</strong> If you delete this record, it cannot be regained
+          </Modal.Body>
+          <Modal.Footer>
+            <button className='btn btn-danger' onClick={() => DeleteAttendanceActions.deleteRecord(this.state.rowToDelete)}>Delete</button>
+          </Modal.Footer>
+        </Modal>
       </div>
     );
   }

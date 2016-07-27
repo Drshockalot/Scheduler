@@ -915,7 +915,7 @@ var DeleteAttendanceActions = function () {
   function DeleteAttendanceActions() {
     _classCallCheck(this, DeleteAttendanceActions);
 
-    this.generateActions('restoreState', 'loadComponentDataSuccess', 'loadComponentDataFailure');
+    this.generateActions('restoreState', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'hideDeleteRowModal', 'showDeleteRowModal');
   }
 
   _createClass(DeleteAttendanceActions, [{
@@ -934,6 +934,9 @@ var DeleteAttendanceActions = function () {
         _this.loadComponentDataFailure(jqXhr);
       });
     }
+  }, {
+    key: 'deleteRecord',
+    value: function deleteRecord(recordId) {}
   }]);
 
   return DeleteAttendanceActions;
@@ -6217,6 +6220,8 @@ var DeleteAttendance = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       if (typeof Storage === 'undefined' || sessionStorage.role != 'admin' || _NavbarStore2.default.getState().userRole != 'admin') {
         return null;
       }
@@ -6280,7 +6285,9 @@ var DeleteAttendance = function (_React$Component) {
                 { className: 'col-xs-3 vert-align text-center' },
                 _react2.default.createElement(
                   'button',
-                  { className: 'btn btn-danger' },
+                  { className: 'btn btn-danger', onClick: function onClick() {
+                      return _DeleteAttendanceActions2.default.showDeleteRowModal(row.id);
+                    } },
                   'Delete'
                 )
               )
@@ -6348,7 +6355,41 @@ var DeleteAttendance = function (_React$Component) {
         'div',
         { className: 'row' },
         _react2.default.createElement('div', { className: 'row' }),
-        attendanceRecordTables
+        attendanceRecordTables,
+        _react2.default.createElement(
+          Modal,
+          { show: this.state.showDeleteRowModal, onHide: _DeleteAttendanceActions2.default.hideDeleteBossModal },
+          _react2.default.createElement(
+            Modal.Header,
+            { closeButton: true },
+            _react2.default.createElement(
+              Modal.Title,
+              null,
+              'Delete Attendance Record'
+            )
+          ),
+          _react2.default.createElement(
+            Modal.Body,
+            null,
+            _react2.default.createElement(
+              'strong',
+              null,
+              'WARNING!!'
+            ),
+            ' If you delete this record, it cannot be regained'
+          ),
+          _react2.default.createElement(
+            Modal.Footer,
+            null,
+            _react2.default.createElement(
+              'button',
+              { className: 'btn btn-danger', onClick: function onClick() {
+                  return _DeleteAttendanceActions2.default.deleteRecord(_this2.state.rowToDelete);
+                } },
+              'Delete'
+            )
+          )
+        )
       );
     }
   }]);
@@ -10298,6 +10339,8 @@ var DeleteAttendanceStore = function () {
 
     this.bindActions(_DeleteAttendanceActions2.default);
     this.attendanceRecords = [];
+    this.showDeleteRowModal = false;
+    this.rowToDelete = 0;
   }
 
   _createClass(DeleteAttendanceStore, [{
@@ -10316,6 +10359,17 @@ var DeleteAttendanceStore = function () {
       for (var key in state) {
         this[key] = state[key];
       }
+    }
+  }, {
+    key: 'onShowDeleteRowModal',
+    value: function onShowDeleteRowModal(recordId) {
+      this.rowToDelete = recordId;
+      this.showDeleteRowModal = true;
+    }
+  }, {
+    key: 'onHideDeleteRowModal',
+    value: function onHideDeleteRowModal() {
+      this.showDeleteRowModal = false;
     }
   }]);
 

@@ -5,7 +5,9 @@ class DeleteAttendanceActions {
     this.generateActions(
       'restoreState',
       'loadComponentDataSuccess',
-      'loadComponentDataFailure'
+      'loadComponentDataFailure',
+      'hideDeleteRowModal',
+      'showDeleteRowModal'
     );
   }
 
@@ -20,6 +22,10 @@ class DeleteAttendanceActions {
       console.log(jqXhr);
       this.loadComponentDataFailure(jqXhr);
     });
+  }
+
+  deleteRecord(recordId) {
+    
   }
 }
 
