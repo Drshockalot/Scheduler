@@ -12,6 +12,7 @@ var Raid = require('./../db/postgres/raid');
 var User = require('./../db/postgres/user');
 var Character = require('./../db/postgres/character');
 var Raid_Attendance = require('./../db/postgres/raid_attendance');
+var Attendance_Count = require('./../db/postgres/attendance_count');
 
 var knex = require('./../db/database').knex;
 
@@ -49,11 +50,19 @@ router.post('/admin/file', upload.single('attendance'), function(req, res, next)
                  user_id: character.user_id,
                  raid_week_id: req.body.raidWeekId,
                  raid_id: req.body.raidId,
-                 week_day: req.body.weekday
+                 week_day: req.body.weekday,
+                 roster_id: req.body.rosterId
                };
                knex.batchInsert('raid_attendance', insertRows)
                    .then(function() {
-                     res.json({error: false, data: {message: "User Attendance inserted"}});
+                     Attendance_Count.forge({raid_id: req.body.raidId, roster_id: req.body.rosterId})
+                                     .save()
+                                     .then(function() {
+                                       res.json({error: false, data: {message: "User Attendance inserted"}});
+                                     })
+                                     .catch(function(err) {
+                                       res.status(500).json({error: true, data: {message: err.message}});
+                                     });
                    })
                    .catch(function(err) {
                      res.status(500).json({error: true, data: {message: err.message}});
@@ -75,12 +84,20 @@ router.post('/admin/text', function(req, res, next) {
                  user_id: character.user_id,
                  raid_week_id: req.body.raidWeekId,
                  raid_id: req.body.raidId,
-                 week_day: req.body.weekday
+                 week_day: req.body.weekday,
+                 roster_id: req.body.rosterId
                };
              });
              knex.batchInsert('raid_attendance', insertRows)
                  .then(function() {
-                   res.json({error: false, data: {message: "User Attendance inserted"}});
+                   Attendance_Count.forge({raid_id: req.body.raidId, roster_id: req.body.rosterId})
+                                   .save()
+                                   .then(function() {
+                                     res.json({error: false, data: {message: "User Attendance inserted"}});
+                                   })
+                                   .catch(function(err) {
+                                     res.status(500).json({error: true, data: {message: err.message}});
+                                   });
                  })
                  .catch(function(err) {
                    res.status(500).json({error: true, data: {message: err.message}});
@@ -100,12 +117,20 @@ router.post('/admin/roster', function(req, res, next) {
                  user_id: character.user_id,
                  raid_week_id: req.body.raidWeekId,
                  raid_id: req.body.raidId,
-                 week_day: req.body.weekday
+                 week_day: req.body.weekday,
+                 roster_id: req.body.rosterId
                };
              });
              knex.batchInsert('raid_attendance', insertRows)
                  .then(function() {
-                   res.json({error: false, data: {message: "User Attendance inserted"}});
+                   Attendance_Count.forge({raid_id: req.body.raidId, roster_id: req.body.rosterId})
+                                   .save()
+                                   .then(function() {
+                                     res.json({error: false, data: {message: "User Attendance inserted"}});
+                                   })
+                                   .catch(function(err) {
+                                     res.status(500).json({error: true, data: {message: err.message}});
+                                   });
                  })
                  .catch(function(err) {
                    res.status(500).json({error: true, data: {message: err.message}});

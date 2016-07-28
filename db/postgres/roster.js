@@ -2,6 +2,7 @@ let Bookshelf = require('./../database').bookshelf;
 
 require('./character');
 require('./schedule');
+require('./raid_attendance');
 var Roster = Bookshelf.Model.extend({
   tableName: 'roster',
   hasTimestamps: true,
@@ -10,6 +11,9 @@ var Roster = Bookshelf.Model.extend({
   },
   schedules: function() {
     return this.belongsToMany('Schedule');
+  },
+  raid_attendance: function() {
+    return this.belongsToMany('Raid_Attendance');
   }
 });
 

@@ -55,8 +55,9 @@ class AddAttendance extends React.Component {
     var selectRaid = this.state.selectRaid;
     var selectRaidWeek = this.state.selectRaidWeek;
     var selectWeekday = this.state.selectWeekday;
+    var selectRoster = this.state.selectRoster;
     reader.onload = function() {
-      AddAttendanceActions.uploadFile(this.result, selectRaid, selectRaidWeek, selectWeekday);
+      AddAttendanceActions.uploadFile(this.result, selectRaid, selectRaidWeek, selectWeekday, selectRoster);
     };
     reader.readAsText(file);
   }
@@ -233,6 +234,14 @@ class AddAttendance extends React.Component {
                   </div>
                 </div>
                 <div className='form-group'>
+                  <label className='col-sm-1 control-label'>Roster:</label>
+                  <div className='col-sm-5'>
+                    <select className='form-control' value={this.state.selectRoster} onChange={e => AddAttendanceActions.updateSelectRoster(parseInt(e.target.value))}>
+                      {selectRosterOptions}
+                    </select>
+                  </div>
+                </div>
+                <div className='form-group'>
                   <label className='col-sm-1 control-label'>Week Day:</label>
                   <div className='col-sm-10'>
                     {selectWeekdayButtons}
@@ -255,23 +264,13 @@ class AddAttendance extends React.Component {
                   <div className='dropzone-text'>
                     <textarea className='form-control' value={this.state.uploadText} onChange={e => AddAttendanceActions.updateUploadText(e.target.value)}/>
                     <br />
-                    <button className='btn btn-default pull-right' onClick={() => AddAttendanceActions.uploadRawText(this.state.uploadText, this.state.selectRaid, this.state.selectRaidWeek, this.state.selectWeekday)}>Upload</button>
+                    <button className='btn btn-default pull-right' onClick={() => AddAttendanceActions.uploadRawText(this.state.uploadText, this.state.selectRaid, this.state.selectRaidWeek, this.state.selectWeekday, this.state.selectRoster)}>Upload</button>
                   </div>
                 </div>
               </div>
             </div>
             <div className='row'>
             <h2>From Roster View</h2>
-              <div className='form-horizontal'>
-                <div className='form-group'>
-                  <label className='col-sm-1 control-label'>Roster:</label>
-                  <div className='col-sm-5'>
-                    <select className='form-control' value={this.state.selectRoster} onChange={e => AddAttendanceActions.updateSelectRoster(parseInt(e.target.value))}>
-                      {selectRosterOptions}
-                    </select>
-                  </div>
-                </div>
-              </div>
               <div className='row'>
                 <div className='col-md-10'>
                   <table className='table'>
@@ -305,7 +304,7 @@ class AddAttendance extends React.Component {
                       </tr>
                     </tbody>
                   </table>
-                  <button className='btn btn-default pull-right' onClick={() => AddAttendanceActions.uploadAttendanceFromRosterForm(this.state.rosterAttendanceModel, this.state.selectRaid, this.state.selectRaidWeek, this.state.selectWeekday)}>Upload</button>
+                  <button className='btn btn-default pull-right' onClick={() => AddAttendanceActions.uploadAttendanceFromRosterForm(this.state.rosterAttendanceModel, this.state.selectRaid, this.state.selectRaidWeek, this.state.selectWeekday, this.state.selectRoster)}>Upload</button>
                 </div>
               </div>
             </div>

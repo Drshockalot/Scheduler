@@ -3,6 +3,7 @@ let Bookshelf = require('./../database').bookshelf;
 require('./user');
 require('./raid_week');
 require('./raid');
+require('./roster');
 var Raid_Attendance = Bookshelf.Model.extend({
   tableName: 'raid_attendance',
   hasTimestamps: true,
@@ -14,6 +15,9 @@ var Raid_Attendance = Bookshelf.Model.extend({
   },
   raid: function() {
     return this.belongsTo('Raid');
+  },
+  roster: function() {
+    return this.belongsTo('Roster');
   }
 });
 

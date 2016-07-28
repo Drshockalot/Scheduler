@@ -607,10 +607,10 @@ var AddAttendanceActions = function () {
     }
   }, {
     key: 'uploadFile',
-    value: function uploadFile(fileText, raidId, raidWeekId, weekday) {
+    value: function uploadFile(fileText, raidId, raidWeekId, weekday, rosterId) {
       var _this2 = this;
 
-      var data = { names: fileText.split(','), raidId: raidId, raidWeekId: raidWeekId, weekday: weekday };
+      var data = { names: fileText.split(','), raidId: raidId, raidWeekId: raidWeekId, weekday: weekday, rosterId: rosterId };
       console.log(data);
       $.ajax({
         method: 'POST',
@@ -626,7 +626,7 @@ var AddAttendanceActions = function () {
     }
   }, {
     key: 'uploadAttendanceFromRosterForm',
-    value: function uploadAttendanceFromRosterForm(attendanceModel, raidId, raidWeekId, weekday) {
+    value: function uploadAttendanceFromRosterForm(attendanceModel, raidId, raidWeekId, weekday, rosterId) {
       var _this3 = this;
 
       var nameList = [];
@@ -642,7 +642,7 @@ var AddAttendanceActions = function () {
       for (var i = 0; i < attendanceModel['Standby'].length; ++i) {
         nameList.push(attendanceModel['Standby'][i].name);
       }
-      var data = { names: nameList, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday };
+      var data = { names: nameList, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday, rosterId: rosterId };
 
       $.ajax({
         method: 'POST',
@@ -658,7 +658,7 @@ var AddAttendanceActions = function () {
     }
   }, {
     key: 'uploadRawText',
-    value: function uploadRawText(uploadText, raidId, raidWeekId, weekday) {
+    value: function uploadRawText(uploadText, raidId, raidWeekId, weekday, rosterId) {
       var _this4 = this;
 
       if (uploadText == '') {
@@ -666,7 +666,7 @@ var AddAttendanceActions = function () {
         return;
       }
       var names = uploadText.split(',');
-      var data = { names: names, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday };
+      var data = { names: names, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday, rosterId: rosterId };
 
       $.ajax({
         method: 'POST',
@@ -4854,8 +4854,9 @@ var AddAttendance = function (_React$Component) {
       var selectRaid = this.state.selectRaid;
       var selectRaidWeek = this.state.selectRaidWeek;
       var selectWeekday = this.state.selectWeekday;
+      var selectRoster = this.state.selectRoster;
       reader.onload = function () {
-        _AddAttendanceActions2.default.uploadFile(this.result, selectRaid, selectRaidWeek, selectWeekday);
+        _AddAttendanceActions2.default.uploadFile(this.result, selectRaid, selectRaidWeek, selectWeekday, selectRoster);
       };
       reader.readAsText(file);
     }
@@ -5159,6 +5160,26 @@ var AddAttendance = function (_React$Component) {
                   _react2.default.createElement(
                     'label',
                     { className: 'col-sm-1 control-label' },
+                    'Roster:'
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'col-sm-5' },
+                    _react2.default.createElement(
+                      'select',
+                      { className: 'form-control', value: this.state.selectRoster, onChange: function onChange(e) {
+                          return _AddAttendanceActions2.default.updateSelectRoster(parseInt(e.target.value));
+                        } },
+                      selectRosterOptions
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'form-group' },
+                  _react2.default.createElement(
+                    'label',
+                    { className: 'col-sm-1 control-label' },
                     'Week Day:'
                   ),
                   _react2.default.createElement(
@@ -5217,7 +5238,7 @@ var AddAttendance = function (_React$Component) {
                     _react2.default.createElement(
                       'button',
                       { className: 'btn btn-default pull-right', onClick: function onClick() {
-                          return _AddAttendanceActions2.default.uploadRawText(_this2.state.uploadText, _this2.state.selectRaid, _this2.state.selectRaidWeek, _this2.state.selectWeekday);
+                          return _AddAttendanceActions2.default.uploadRawText(_this2.state.uploadText, _this2.state.selectRaid, _this2.state.selectRaidWeek, _this2.state.selectWeekday, _this2.state.selectRoster);
                         } },
                       'Upload'
                     )
@@ -5232,30 +5253,6 @@ var AddAttendance = function (_React$Component) {
                 'h2',
                 null,
                 'From Roster View'
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'form-horizontal' },
-                _react2.default.createElement(
-                  'div',
-                  { className: 'form-group' },
-                  _react2.default.createElement(
-                    'label',
-                    { className: 'col-sm-1 control-label' },
-                    'Roster:'
-                  ),
-                  _react2.default.createElement(
-                    'div',
-                    { className: 'col-sm-5' },
-                    _react2.default.createElement(
-                      'select',
-                      { className: 'form-control', value: this.state.selectRoster, onChange: function onChange(e) {
-                          return _AddAttendanceActions2.default.updateSelectRoster(parseInt(e.target.value));
-                        } },
-                      selectRosterOptions
-                    )
-                  )
-                )
               ),
               _react2.default.createElement(
                 'div',
@@ -5348,7 +5345,7 @@ var AddAttendance = function (_React$Component) {
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-default pull-right', onClick: function onClick() {
-                        return _AddAttendanceActions2.default.uploadAttendanceFromRosterForm(_this2.state.rosterAttendanceModel, _this2.state.selectRaid, _this2.state.selectRaidWeek, _this2.state.selectWeekday);
+                        return _AddAttendanceActions2.default.uploadAttendanceFromRosterForm(_this2.state.rosterAttendanceModel, _this2.state.selectRaid, _this2.state.selectRaidWeek, _this2.state.selectWeekday, _this2.state.selectRoster);
                       } },
                     'Upload'
                   )
@@ -10389,6 +10386,7 @@ var DeleteAttendanceStore = function () {
     value: function onDeleteRecordSuccess(result) {
       this.attendanceRecords = result.data.attendanceRecords;
       toastr.success('Attendance record deleted', 'Success');
+      this.showDeleteRowModal = false;
     }
   }, {
     key: 'onDeleteRecordFailure',
