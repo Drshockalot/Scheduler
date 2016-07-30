@@ -130,7 +130,6 @@ class AddAttendance extends React.Component {
               </td>
             </tr>
           );
-          this.state.rosterAttendanceModel[character.main_role].push({name: character.name, state: true});
         } else if(character.main_role == "Healer") {
           var classCSS = this.classColour(character);
           var state = _.findWhere(this.state.rosterAttendanceModel[character.main_role], {name: character.name}).state;
