@@ -9216,10 +9216,10 @@ var ViewAttendance = function (_React$Component) {
         });
       }
 
-      if (this.state.attendanceRecords.length > 0) {
+      if (this.state.attendanceRecords.length > 0 && this.state.attendanceCount.length > 0) {
         var selectedRaid = _underscore2.default.findWhere(this.state.raids, { id: Number(this.state.selectRaid) });
         var selectedRoster = _underscore2.default.findWhere(this.state.rosters, { id: Number(this.state.selectRoster) });
-        var totalCount = _underscore2.default.findWhere(this.state.attendanceCount, { raid_id: this.state.selectRaid, roster_id: this.state.selctRoster }).length;
+        var totalCount = _underscore2.default.findWhere(this.state.attendanceCount, { raid_id: parseInt(this.state.selectRaid), roster_id: parseInt(this.state.selctRoster) }).length;
 
         userAttendanceRows = selectedRoster.characters.map(function (character) {
           var user = character.user;
