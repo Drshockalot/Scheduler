@@ -630,19 +630,15 @@ var AddAttendanceActions = function () {
       var _this3 = this;
 
       var nameList = [];
-      var tankModel = _.uniq(attendanceModel['Tank']);
-      var healerModel = _.uniq(attendanceModel['Healer']);
-      var dpsModel = _.uniq(attendanceModel['DPS']);
-      for (var i = 0; i < tankModel.length; ++i) {
-        if (tankModel[i].state) nameList.push(tankModel[i].name);
+      for (var i = 0; i < attendanceModel['Tank'].length; ++i) {
+        if (attendanceModel['Tank'][i].state) nameList.push(attendanceModel['Tank'][i].name);
       }
-      for (var i = 0; i < healerModel.length; ++i) {
-        if (healerModel.state) nameList.push(healerModel[i].name);
+      for (var i = 0; i < attendanceModel['Healer'].length; ++i) {
+        if (attendanceModel['Healer'][i].state) nameList.push(attendanceModel['Healer'][i].name);
       }
-      for (var i = 0; i < dpsModel.length; ++i) {
-        if (dpsModel[i].state) nameList.push(dpsModel[i].name);
+      for (var i = 0; i < attendanceModel['DPS'].length; ++i) {
+        if (attendanceModel['DPS'][i].state) nameList.push(attendanceModel['DPS'][i].name);
       }
-      // Not currently used
       // for(var i = 0; i < attendanceModel['Standby'].length; ++i) {
       //   if(attendanceModel['Standby'][i].state)
       //     nameList.push(attendanceModel['Standby'][i].name);
@@ -10195,8 +10191,7 @@ var AddAttendanceStore = function () {
     this.rosterAttendanceModel = {
       'Tank': [],
       'Healer': [],
-      'DPS': [],
-      'Standby': []
+      'DPS': []
     };
     this.selectRaidWeek = 0;
     this.selectRaid = 0;
@@ -10219,8 +10214,7 @@ var AddAttendanceStore = function () {
       this.rosterAttendanceModel = {
         'Tank': [],
         'Healer': [],
-        'DPS': [],
-        'Standby': []
+        'DPS': []
       };
 
       var roster = _underscore2.default.findWhere(this.rosters, { id: Number(this.selectRoster) });
@@ -10256,8 +10250,7 @@ var AddAttendanceStore = function () {
       this.rosterAttendanceModel = {
         'Tank': [],
         'Healer': [],
-        'DPS': [],
-        'Standby': []
+        'DPS': []
       };
 
       var roster = _underscore2.default.findWhere(this.rosters, { id: value });
