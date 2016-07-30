@@ -9221,11 +9221,16 @@ var ViewAttendance = function (_React$Component) {
         var selectedRoster = _underscore2.default.findWhere(this.state.rosters, { id: Number(this.state.selectRoster) });
         var totalCount = _underscore2.default.findWhere(this.state.attendanceCount, { raid_id: Number(this.state.selectRaid), roster_id: Number(this.state.selectRoster) }).length;
         console.log('total count - ', totalCount);
+
+        var loggedUsers = [];
         var users = selectedRoster.characters.map(function (character) {
-          return character.user;
+          if (!_underscore2.default.findWhere(loggedUsers, { id: character.user.id })) {
+            loggedUsers.push(character.user);
+            return character.user;
+          }
         });
 
-        userAttendanceRows = _underscore2.default.uniq(users).map(function (user) {
+        userAttendanceRows = users.map(function (user) {
           var userCharacters = user.characters;
           var userAttendanceCount = _underscore2.default.findWhere(this.state.attendanceRecords, { user_id: Number(user.id), raid_id: Number(this.state.selectRaid), roster_id: Number(this.state.selectRoster) }).length;
           console.log('user attendancecount - ', userAttendanceCount);
