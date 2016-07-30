@@ -630,18 +630,23 @@ var AddAttendanceActions = function () {
       var _this3 = this;
 
       var nameList = [];
-      for (var i = 0; i < attendanceModel['Tank'].length; ++i) {
-        if (attendanceModel['Tank'][i].state) nameList.push(attendanceModel['Tank'][i].name);
+      tankModel = _.uniq(attendanceModel['Tank']);
+      healerModel = _.uniq(attendanceModel['Healer']);
+      dpsModel = _.uniq(attendanceModel['DPS']);
+      for (var i = 0; i < tankModel.length; ++i) {
+        if (tankModel[i].state) nameList.push(tankModel[i].name);
       }
-      for (var i = 0; i < attendanceModel['Healer'].length; ++i) {
-        if (attendanceModel['Healer'][i].state) nameList.push(attendanceModel['Healer'][i].name);
+      for (var i = 0; i < healerModel.length; ++i) {
+        if (healerModel.state) nameList.push(healerModel[i].name);
       }
-      for (var i = 0; i < attendanceModel['DPS'].length; ++i) {
-        if (attendanceModel['DPS'][i].state) nameList.push(attendanceModel['DPS'][i].name);
+      for (var i = 0; i < dpsModel.length; ++i) {
+        if (dpsModel[i].state) nameList.push(dpsModel[i].name);
       }
-      for (var i = 0; i < attendanceModel['Standby'].length; ++i) {
-        if (attendanceModel['Standby'][i].state) nameList.push(attendanceModel['Standby'][i].name);
-      }
+      // Not currently used
+      // for(var i = 0; i < attendanceModel['Standby'].length; ++i) {
+      //   if(attendanceModel['Standby'][i].state)
+      //     nameList.push(attendanceModel['Standby'][i].name);
+      // }
       var data = { names: nameList, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday, rosterId: rosterId };
       console.log(data);
       $.ajax({
