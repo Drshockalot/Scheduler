@@ -57,15 +57,15 @@ class ViewAttendance extends React.Component {
     if(this.state.attendanceRecords.length > 0 && this.state.attendanceCount.length > 0) {
       var selectedRaid = _.findWhere(this.state.raids, {id: Number(this.state.selectRaid)});
       var selectedRoster = _.findWhere(this.state.rosters, {id: Number(this.state.selectRoster)});
-      var totalCount = _.findWhere(this.state.attendanceCount, {raid_id: this.state.selectRaid, roster_id: this.state.selectRoster}).length;
+      var totalCount = _.findWhere(this.state.attendanceCount, {raid_id: Number(this.state.selectRaid), roster_id: Number(this.state.selectRoster)}).length;
       console.log('total count - ', totalCount);
       var users = selectedRoster.characters.map(function(character) {
         return character.user;
       });
 
-      userAttendanceRows = users.map(function(user) {
+      userAttendanceRows = _.uniq(users).map(function(user) {
         var userCharacters = user.characters;
-        var userAttendanceCount = _.findWhere(this.state.attendanceRecords, {user_id: user.id, raid_id: this.state.selectRaid, roster_id: this.state.selectRoster}).length;
+        var userAttendanceCount = _.findWhere(this.state.attendanceRecords, {user_id: Number(user.id), raid_id: Number(this.state.selectRaid), roster_id: Number(this.state.selectRoster)}).length;
         console.log('user attendancecount - ', userAttendanceCount);
         var attendancePercentage = (userAttendanceCount / totalCount) * 100;
         console.log('attendancePercentage - ', attendancePercentage);
