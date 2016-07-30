@@ -157,7 +157,7 @@ router.get('/admin/view', function(req, res, next) {
                  .fetchAll()
                  .then(function(attendanceRecords) {
                    Roster.forge()
-                         .fetchAll({'withRelated': ['characters', 'characters.user']})
+                         .fetchAll({'withRelated': ['characters', 'characters.user', 'characters.user.characters']})
                          .then(function(rosters) {
                            Raid.forge()
                                .fetchAll()
