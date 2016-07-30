@@ -10198,6 +10198,10 @@ var AddAttendanceStore = function () {
     this.selectRoster = 0;
     this.selectWeekday = 'monday';
     this.uploadText = '';
+
+    this.tankModel = [];
+    this.healerModel = [];
+    this.dpsModel = [];
   }
 
   _createClass(AddAttendanceStore, [{
@@ -10210,6 +10214,9 @@ var AddAttendanceStore = function () {
       this.rosters = result.data.rosters;
       this.selectRoster = this.rosters[0].id;
       this.selectWeekday = 'monday';
+      this.tankModel = [];
+      this.healerModel = [];
+      this.dpsModel = [];
 
       this.rosterAttendanceModel = {
         'DPS': [],
@@ -10218,6 +10225,25 @@ var AddAttendanceStore = function () {
       };
 
       var roster = _underscore2.default.findWhere(this.rosters, { id: Number(this.selectRoster) });
+
+      for (var i = 0; i < roster.characters.length; i++) {
+        if (roster.characters[i].main_role == 'Tank') {
+          this.tankModel.push({ name: roster.characters[i].name, state: true });
+        }
+      }
+
+      for (var i = 0; i < roster.characters.length; i++) {
+        if (roster.characters[i].main_role == 'Healer') {
+          this.healerModel.push({ name: roster.characters[i].name, state: true });
+        }
+      }
+
+      for (var i = 0; i < roster.characters.length; i++) {
+        if (roster.characters[i].main_role == 'DPS') {
+          this.dpsModel.push({ name: roster.characters[i].name, state: true });
+        }
+      }
+
       for (var i = 0; i < roster.characters.length; i++) {
         this.rosterAttendanceModel[roster.characters[i].main_role].push({ name: roster.characters[i].name, state: true });
       }
