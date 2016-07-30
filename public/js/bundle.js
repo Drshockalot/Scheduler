@@ -1586,6 +1586,7 @@ var ViewAttendanceActions = function () {
         console.log(jqXhr);
         _this.loadComponentDataFailure(jqXhr);
       });
+      return 0;
     }
   }]);
 
