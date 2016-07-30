@@ -116,6 +116,21 @@ class Home extends React.Component {
                 <tbody>
                   <tr>
                     <td>
+                      <h4>{moment('2016-07-30').format('MMM Do YYYY')}</h4>
+                      <ul>
+                        <li>
+                          <h5>Attendance Management</h5>
+                          <ul>
+                            <li>You can now view the attendance percentage of each user</li>
+                            <li>The only currently supported filters are Raid and Roster</li>
+                            <li>Inputting attendance from text file or raw text now allows space between character names and commas</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       <h4>{moment('2016-07-24').format('MMM Do YYYY')}</h4>
                       <ul>
                         <li>

@@ -2101,6 +2101,51 @@ var Home = function (_React$Component) {
                       _react2.default.createElement(
                         'h4',
                         null,
+                        (0, _moment2.default)('2016-07-30').format('MMM Do YYYY')
+                      ),
+                      _react2.default.createElement(
+                        'ul',
+                        null,
+                        _react2.default.createElement(
+                          'li',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
+                            'Attendance Management'
+                          ),
+                          _react2.default.createElement(
+                            'ul',
+                            null,
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'You can now view the attendance percentage of each user'
+                            ),
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'The only currently supported filters are Raid and Roster'
+                            ),
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'Inputting attendance from text file or raw text now allows space between character names and commas'
+                            )
+                          )
+                        )
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'h4',
+                        null,
                         (0, _moment2.default)('2016-07-24').format('MMM Do YYYY')
                       ),
                       _react2.default.createElement(
