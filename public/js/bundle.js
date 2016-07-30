@@ -9280,7 +9280,7 @@ var ViewAttendance = function (_React$Component) {
             _react2.default.createElement(
               'td',
               { className: 'col-xs-3 text-center vert-align' },
-              isNaN(attendancePercentage) ? 0 : attendancePercentage,
+              isNaN(attendancePercentage) ? 0 : attendancePercentage.toFixed(2),
               ' %'
             )
           );

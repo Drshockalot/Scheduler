@@ -94,7 +94,7 @@ class ViewAttendance extends React.Component {
             <td className='col-xs-3 text-center vert-align'>{selectedRaid.name}</td>
             <td className='col-xs-3 text-center vert-align'>{selectedRoster.name}</td>
             <td className='col-xs-3 text-center vert-align'>{trigger}</td>
-            <td className='col-xs-3 text-center vert-align'>{isNaN(attendancePercentage) ? 0 : attendancePercentage}&nbsp;%</td>
+            <td className='col-xs-3 text-center vert-align'>{isNaN(attendancePercentage) ? 0 : attendancePercentage.toFixed(2)}&nbsp;%</td>
           </tr>
         );
       }, this);
