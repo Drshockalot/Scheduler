@@ -9219,10 +9219,7 @@ var ViewAttendance = function (_React$Component) {
       if (this.state.attendanceRecords.length > 0 && this.state.attendanceCount.length > 0) {
         var selectedRaid = _underscore2.default.findWhere(this.state.raids, { id: Number(this.state.selectRaid) });
         var selectedRoster = _underscore2.default.findWhere(this.state.rosters, { id: Number(this.state.selectRoster) });
-        console.log(Number(this.state.selectRaid));
-        console.log(Number(this.state.selectRoster));
         var totalCount = _underscore2.default.where(this.state.attendanceCount, { raid_id: Number(this.state.selectRaid), roster_id: Number(this.state.selectRoster) }).length;
-        console.log('total count - ', totalCount);
 
         var loggedUsers = [];
         for (var i = 0; i < selectedRoster.characters.length; ++i) {
@@ -9234,9 +9231,6 @@ var ViewAttendance = function (_React$Component) {
         console.log(loggedUsers);
         userAttendanceRows = loggedUsers.map(function (user) {
           var userCharacters = user.characters;
-          console.log(user.id);
-          console.log(this.state.selectRaid);
-          console.log(this.state.selectRoster);
           var userAttendanceCount = _underscore2.default.where(this.state.attendanceRecords, { user_id: Number(user.id), raid_id: Number(this.state.selectRaid), roster_id: Number(this.state.selectRoster) }).length;
           var attendancePercentage = userAttendanceCount / totalCount * 100;
 
@@ -9325,7 +9319,7 @@ var ViewAttendance = function (_React$Component) {
                   _react2.default.createElement(
                     'select',
                     { className: 'form-control', value: this.state.selectRaid, onChange: function onChange(e) {
-                        return AddAttendanceActions.updateSelectRaid(parseInt(e.target.value));
+                        return _ViewAttendanceActions2.default.updateSelectRaid(parseInt(e.target.value));
                       } },
                     selectRaidOptions
                   )
@@ -9345,7 +9339,7 @@ var ViewAttendance = function (_React$Component) {
                   _react2.default.createElement(
                     'select',
                     { className: 'form-control', value: this.state.selectRoster, onChange: function onChange(e) {
-                        return AddAttendanceActions.updateSelectRoster(parseInt(e.target.value));
+                        return _ViewAttendanceActions2.default.updateSelectRoster(parseInt(e.target.value));
                       } },
                     selectRosterOptions
                   )

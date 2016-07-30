@@ -57,10 +57,7 @@ class ViewAttendance extends React.Component {
     if(this.state.attendanceRecords.length > 0 && this.state.attendanceCount.length > 0) {
       var selectedRaid = _.findWhere(this.state.raids, {id: Number(this.state.selectRaid)});
       var selectedRoster = _.findWhere(this.state.rosters, {id: Number(this.state.selectRoster)});
-      console.log(Number(this.state.selectRaid));
-      console.log(Number(this.state.selectRoster));
       var totalCount = _.where(this.state.attendanceCount, {raid_id: Number(this.state.selectRaid), roster_id: Number(this.state.selectRoster)}).length;
-      console.log('total count - ', totalCount);
 
       var loggedUsers = [];
       for(var i = 0; i < selectedRoster.characters.length; ++i) {
@@ -72,9 +69,6 @@ class ViewAttendance extends React.Component {
       console.log(loggedUsers);
       userAttendanceRows = loggedUsers.map(function(user) {
         var userCharacters = user.characters;
-        console.log(user.id);
-        console.log(this.state.selectRaid);
-        console.log(this.state.selectRoster);
         var userAttendanceCount = _.where(this.state.attendanceRecords, {user_id: Number(user.id), raid_id: Number(this.state.selectRaid), roster_id: Number(this.state.selectRoster)}).length;
         var attendancePercentage = (userAttendanceCount / totalCount) * 100;
 
@@ -116,7 +110,7 @@ class ViewAttendance extends React.Component {
               <div className='form-group'>
                 <label className='col-sm-1 control-label'>Raid:</label>
                 <div className='col-sm-5'>
-                  <select className='form-control' value={this.state.selectRaid} onChange={e => AddAttendanceActions.updateSelectRaid(parseInt(e.target.value))}>
+                  <select className='form-control' value={this.state.selectRaid} onChange={e => ViewAttendanceActions.updateSelectRaid(parseInt(e.target.value))}>
                     {selectRaidOptions}
                   </select>
                 </div>
@@ -124,7 +118,7 @@ class ViewAttendance extends React.Component {
               <div className='form-group'>
                 <label className='col-sm-1 control-label'>Roster:</label>
                 <div className='col-sm-5'>
-                  <select className='form-control' value={this.state.selectRoster} onChange={e => AddAttendanceActions.updateSelectRoster(parseInt(e.target.value))}>
+                  <select className='form-control' value={this.state.selectRoster} onChange={e => ViewAttendanceActions.updateSelectRoster(parseInt(e.target.value))}>
                     {selectRosterOptions}
                   </select>
                 </div>
