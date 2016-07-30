@@ -270,7 +270,6 @@ class AddAttendance extends React.Component {
               </div>
             </div>
             <div className='row'>
-            <h2>From Roster View</h2>
               <div className='row'>
                 <div className='col-md-10'>
                   <table className='table'>

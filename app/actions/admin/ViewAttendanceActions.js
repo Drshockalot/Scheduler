@@ -5,14 +5,16 @@ class ViewAttendanceActions {
     this.generateActions(
       'restoreState',
       'loadComponentDataSuccess',
-      'loadComponentDataFailure'
+      'loadComponentDataFailure',
+      'updateSelectRaid',
+      'updateSelectRoster'
     );
   }
 
   loadComponentData() {
     $.ajax({
       method: 'GET',
-      url: '/api/attendance/admin/all'
+      url: '/api/attendance/admin/view'
     }).done((result) => {
       console.log(result);
       this.loadComponentDataSuccess(result);

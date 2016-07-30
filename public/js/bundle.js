@@ -1568,7 +1568,7 @@ var ViewAttendanceActions = function () {
   function ViewAttendanceActions() {
     _classCallCheck(this, ViewAttendanceActions);
 
-    this.generateActions('restoreState', 'loadComponentDataSuccess', 'loadComponentDataFailure');
+    this.generateActions('restoreState', 'loadComponentDataSuccess', 'loadComponentDataFailure', 'updateSelectRaid', 'updateSelectRoster');
   }
 
   _createClass(ViewAttendanceActions, [{
@@ -1578,7 +1578,7 @@ var ViewAttendanceActions = function () {
 
       $.ajax({
         method: 'GET',
-        url: '/api/attendance/admin/all'
+        url: '/api/attendance/admin/view'
       }).done(function (result) {
         console.log(result);
         _this.loadComponentDataSuccess(result);
@@ -5249,11 +5249,6 @@ var AddAttendance = function (_React$Component) {
             _react2.default.createElement(
               'div',
               { className: 'row' },
-              _react2.default.createElement(
-                'h2',
-                null,
-                'From Roster View'
-              ),
               _react2.default.createElement(
                 'div',
                 { className: 'row' },
@@ -9147,6 +9142,12 @@ var _NavbarStore = require('./../../stores/NavbarStore');
 
 var _NavbarStore2 = _interopRequireDefault(_NavbarStore);
 
+var _underscore = require('underscore');
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
+var _reactBootstrap = require('react-bootstrap');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -9189,9 +9190,215 @@ var ViewAttendance = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      if (typeof Storage === 'undefined' || sessionStorage.role != 'admin' || _NavbarStore2.default.getState().userRole != 'admin') return null;
+      if (typeof Storage === 'undefined' || sessionStorage.role != 'admin' || _NavbarStore2.default.getState().userRole != 'admin') {
+        return null;
+      }
 
-      return _react2.default.createElement('div', { className: 'row' });
+      var selectRaidOptions, selectRosterOptions, userAttendanceRows;
+
+      if (this.state.raids.length > 0) {
+        selectRaidOptions = this.state.raids.map(function (raid) {
+          return _react2.default.createElement(
+            'option',
+            { key: raid.id, value: raid.id },
+            raid.name
+          );
+        });
+      }
+
+      if (this.state.rosters.length > 0) {
+        selectRosterOptions = this.state.rosters.map(function (roster) {
+          return _react2.default.createElement(
+            'option',
+            { key: roster.id, value: roster.id },
+            roster.name
+          );
+        });
+      }
+
+      if (this.state.attendanceRecords.length > 0) {
+        var selectedRaid = _underscore2.default.findWhere(this.state.raids, { id: Number(this.state.selectRaid) });
+        var selectedRoster = _underscore2.default.findWhere(this.state.rosters, { id: Number(this.state.selectRoster) });
+        var totalCount = _underscore2.default.findWhere(this.state.attendanceCount, { raid_id: this.state.selectRaid, roster_id: this.state.selctRoster }).length;
+
+        userAttendanceRows = selectedRoster.characters.map(function (character) {
+          var user = character.user;
+          var userCharacters = character.user.characters;
+          var userAttendanceCount = _underscore2.default.findWhere(this.state.attendanceRecords, { user_id: user.id, raid_id: this.state.selectRaid, roster_id: this.state.selectRoster }).length;
+          var attendancePercentage = userAttendanceCount / totalCount * 100;
+
+          var characterRows = userCharacters.map(function (character) {
+            return _react2.default.createElement(
+              'div',
+              { className: 'clearfix hand-cursor' },
+              character.name,
+              _react2.default.createElement('strong', null)
+            );
+          });
+
+          var popover = _react2.default.createElement(
+            _reactBootstrap.Popover,
+            { id: user.id, title: 'Characters' },
+            characterRows
+          );
+
+          var trigger = _react2.default.createElement(
+            _reactBootstrap.OverlayTrigger,
+            { placement: 'right', trigger: 'click', rootClose: true, overlay: popover },
+            _react2.default.createElement(
+              'span',
+              { className: 'hand-cursor' },
+              user.battletag,
+              '    ❯'
+            )
+          );
+
+          return _react2.default.createElement(
+            'tr',
+            null,
+            _react2.default.createElement(
+              'td',
+              { className: 'col-xs-3 text-center vert-align' },
+              selectedRaid.name
+            ),
+            _react2.default.createElement(
+              'td',
+              { className: 'col-xs-3 text-center vert-align' },
+              selectedRoster.name
+            ),
+            _react2.default.createElement(
+              'td',
+              { className: 'col-xs-3 text-center vert-align' },
+              trigger
+            ),
+            _react2.default.createElement(
+              'td',
+              { className: 'col-xs-3 text-center vert-align' },
+              attendancePercentage,
+              ' %'
+            )
+          );
+        }, this);
+      }
+
+      return _react2.default.createElement(
+        'div',
+        { className: 'row' },
+        _react2.default.createElement(
+          'div',
+          { className: 'row' },
+          _react2.default.createElement(
+            'div',
+            { className: 'col-xs-5' },
+            _react2.default.createElement(
+              'h2',
+              null,
+              'View Attendance'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'form-horizontal' },
+              _react2.default.createElement(
+                'div',
+                { className: 'form-group' },
+                _react2.default.createElement(
+                  'label',
+                  { className: 'col-sm-1 control-label' },
+                  'Raid:'
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-sm-5' },
+                  _react2.default.createElement(
+                    'select',
+                    { className: 'form-control', value: this.state.selectRaid, onChange: function onChange(e) {
+                        return AddAttendanceActions.updateSelectRaid(parseInt(e.target.value));
+                      } },
+                    selectRaidOptions
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'form-group' },
+                _react2.default.createElement(
+                  'label',
+                  { className: 'col-sm-1 control-label' },
+                  'Roster:'
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-sm-5' },
+                  _react2.default.createElement(
+                    'select',
+                    { className: 'form-control', value: this.state.selectRoster, onChange: function onChange(e) {
+                        return AddAttendanceActions.updateSelectRoster(parseInt(e.target.value));
+                      } },
+                    selectRosterOptions
+                  )
+                )
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'row' },
+          _react2.default.createElement(
+            'div',
+            { className: 'col-xs-10' },
+            _react2.default.createElement(
+              'table',
+              { className: 'table' },
+              _react2.default.createElement(
+                'tbody',
+                null,
+                _react2.default.createElement(
+                  'tr',
+                  null,
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-xs-3 text-center' },
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Raid'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-xs-3 text-center' },
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Roster'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-xs-3 text-center' },
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'User'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-xs-3 text-center' },
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Attendance'
+                    )
+                  )
+                ),
+                userAttendanceRows
+              )
+            )
+          )
+        )
+      );
     }
   }]);
 
@@ -9200,7 +9407,7 @@ var ViewAttendance = function (_React$Component) {
 
 exports.default = ViewAttendance;
 
-},{"../../actions/admin/ViewAttendanceActions":21,"../../stores/admin/ViewAttendanceStore":68,"./../../stores/NavbarStore":50,"react":"react","react-router":"react-router"}],46:[function(require,module,exports){
+},{"../../actions/admin/ViewAttendanceActions":21,"../../stores/admin/ViewAttendanceStore":68,"./../../stores/NavbarStore":50,"react":"react","react-bootstrap":264,"react-router":"react-router","underscore":"underscore"}],46:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
@@ -11143,12 +11350,22 @@ var ViewAttendanceStore = function () {
 
     this.bindActions(_ViewAttendanceActions2.default);
     this.attendanceRecords = [];
+    this.rosters = [];
+    this.raids = [];
+    this.attendanceCount = [];
+    this.selectRoster = 0;
+    this.selectRaid = 0;
   }
 
   _createClass(ViewAttendanceStore, [{
     key: 'onLoadComponentDataSuccess',
     value: function onLoadComponentDataSuccess(result) {
       this.attendanceRecords = result.data.attendanceRecords;
+      this.rosters = result.data.rosters;
+      this.selectRoster = this.rosters[0].id;
+      this.raids = result.data.raids;
+      this.selectRaid = this.raids[0].id;
+      this.attendanceCount = result.data.attendanceCount;
     }
   }, {
     key: 'onLoadComponentDataFailure',
@@ -11161,6 +11378,16 @@ var ViewAttendanceStore = function () {
       for (var key in state) {
         this[key] = state[key];
       }
+    }
+  }, {
+    key: 'onUpdateSelectRoster',
+    value: function onUpdateSelectRoster(value) {
+      this.selectRoster = value;
+    }
+  }, {
+    key: 'onUpdateSelectRaid',
+    value: function onUpdateSelectRaid(value) {
+      this.selectRaid = value;
     }
   }]);
 

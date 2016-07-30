@@ -152,6 +152,41 @@ router.get('/admin/all', function(req, res, next) {
                  });
 });
 
+router.get('/admin/view', function(req, res, next) {
+  Raid_Attendance.forge()
+                 .fetchAll()
+                 .then(function(attendanceRecords) {
+                   Roster.forge()
+                         .fetchAll({'withRelated': ['characters', 'characters.user']})
+                         .then(function(rosters) {
+                           Raid.forge()
+                               .fetchAll()
+                               .then(function(raids) {
+                                 Attendance_Count.forge()
+                                                 .fetchAll()
+                                                 .then(function(attendanceCount) {
+                                                   res.json({error: false, data: {message: 'Data retrieved', attendanceRecords: attendanceRecords.toJSON(),
+                                                                                                             rosters: rosters.toJSON(),
+                                                                                                             raids: raids.toJSON(),
+                                                                                                             attendanceCount: attendanceCount.toJSON()}});
+                                                 })
+                                                 .catch(function(err) {
+                                                   res.status(500).json({error: true, data: {message: err.message}});
+                                                 });
+                               })
+                               .catch(function(err) {
+                                 res.status(500).json({error: true, data: {message: err.message}});
+                               });
+                         })
+                         .catch(function(err) {
+                           res.status(500).json({error: true, data: {message: err.message}});
+                         });
+                 })
+                 .catch(function(err) {
+                   res.status(500).json({error: true, data: {message: err.message}});
+                 });
+});
+
 router.delete('/admin/:recordid', function(req, res, next) {
   Raid_Attendance.forge({id: req.params.recordid})
                  .fetch()
