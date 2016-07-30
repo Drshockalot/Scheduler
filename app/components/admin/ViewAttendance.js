@@ -61,14 +61,13 @@ class ViewAttendance extends React.Component {
       console.log('total count - ', totalCount);
 
       var loggedUsers = [];
-      var users = selectedRoster.characters.map(function(character) {
-        if(!_.findWhere(loggedUsers, {id: character.user.id})) {
-          loggedUsers.push(character.user);
-          return character.user;
+      for(var i = 0; i < selectedRoster.characters.length; ++i) {
+        if(!_.findWhere(loggedUsers, {id: selectedRoster.characters[i].user.id})) {
+          loggedUsers.push(selectedRoster.characters[i]);
         }
-      });
+      }
 
-      userAttendanceRows = users.map(function(user) {
+      userAttendanceRows = loggedUsers.map(function(user) {
         var userCharacters = user.characters;
         var userAttendanceCount = _.findWhere(this.state.attendanceRecords, {user_id: Number(user.id), raid_id: Number(this.state.selectRaid), roster_id: Number(this.state.selectRoster)}).length;
         console.log('user attendancecount - ', userAttendanceCount);
