@@ -37,8 +37,9 @@ class AddAttendanceStore {
       'Standby': []
     };
 
-    for(var i = 0; i < this.rosters[0].characters.length; ++i) {
-      this.rosterAttendanceModel[this.rosters[0].characters[i].main_role].push({name: this.rosters[0].characters[i].name, state: true});
+    var roster = _.findWhere(this.rosters, {id: Number(this.selectRoster)});
+    for(var i = 0; i < roster.characters.length; i++) {
+      this.rosterAttendanceModel[roster.characters[i].main_role].push({name: roster.characters[i].name, state: true});
     }
   }
 
@@ -69,7 +70,7 @@ class AddAttendanceStore {
     };
 
     var roster = _.findWhere(this.rosters, {id: value});
-    for(var i = 0; i < roster.characters.length; ++i) {
+    for(var i = 0; i < roster.characters.length; i++) {
       this.rosterAttendanceModel[roster.characters[i].main_role].push({name: roster.characters[i].name, state: true});
     }
   }
