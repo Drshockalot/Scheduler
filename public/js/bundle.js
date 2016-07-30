@@ -9262,7 +9262,7 @@ var ViewAttendance = function (_React$Component) {
 
           return _react2.default.createElement(
             'tr',
-            null,
+            { sortOrder: attendancePercentage },
             _react2.default.createElement(
               'td',
               { className: 'col-xs-3 text-center vert-align' },
@@ -9400,7 +9400,9 @@ var ViewAttendance = function (_React$Component) {
                     )
                   )
                 ),
-                userAttendanceRows
+                _underscore2.default.sortBy(userAttendanceRows, function (row) {
+                  return row.props.sortOrder;
+                })
               )
             )
           )

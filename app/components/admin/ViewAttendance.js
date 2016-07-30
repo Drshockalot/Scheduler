@@ -91,7 +91,7 @@ class ViewAttendance extends React.Component {
         );
 
         return (
-          <tr>
+          <tr sortOrder={attendancePercentage}>
             <td className='col-xs-3 text-center vert-align'>{selectedRaid.name}</td>
             <td className='col-xs-3 text-center vert-align'>{selectedRoster.name}</td>
             <td className='col-xs-3 text-center vert-align'>{trigger}</td>
@@ -136,7 +136,7 @@ class ViewAttendance extends React.Component {
                   <td className='col-xs-3 text-center'><strong>User</strong></td>
                   <td className='col-xs-3 text-center'><strong>Attendance</strong></td>
                 </tr>
-                {userAttendanceRows}
+                {_.sortBy(userAttendanceRows, function(row) {return row.props.sortOrder;})}
               </tbody>
             </table>
           </div>
