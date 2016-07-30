@@ -69,7 +69,7 @@ class AddAttendanceActions {
       nameList.push(attendanceModel['Standby'][i].name);
     }
     var data = {names: nameList, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday, rosterId: rosterId};
-
+    console.log(data);
     $.ajax({
       method: 'POST',
       url: '/api/attendance/admin/roster',
