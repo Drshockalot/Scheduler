@@ -9220,12 +9220,17 @@ var ViewAttendance = function (_React$Component) {
         var selectedRaid = _underscore2.default.findWhere(this.state.raids, { id: Number(this.state.selectRaid) });
         var selectedRoster = _underscore2.default.findWhere(this.state.rosters, { id: Number(this.state.selectRoster) });
         var totalCount = _underscore2.default.findWhere(this.state.attendanceCount, { raid_id: this.state.selectRaid, roster_id: this.state.selectRoster }).length;
+        console.log('total count - ', totalCount);
+        var users = selectedRoster.characters.map(function (character) {
+          return character.user;
+        });
 
-        userAttendanceRows = selectedRoster.characters.map(function (character) {
-          var user = character.user;
-          var userCharacters = character.user.characters;
+        userAttendanceRows = users.map(function (user) {
+          var userCharacters = user.characters;
           var userAttendanceCount = _underscore2.default.findWhere(this.state.attendanceRecords, { user_id: user.id, raid_id: this.state.selectRaid, roster_id: this.state.selectRoster }).length;
+          console.log('user attendancecount - ', userAttendanceCount);
           var attendancePercentage = userAttendanceCount / totalCount * 100;
+          console.log('attendancePercentage - ', attendancePercentage);
 
           var characterRows = userCharacters.map(function (character) {
             return _react2.default.createElement(
@@ -9289,7 +9294,7 @@ var ViewAttendance = function (_React$Component) {
           { className: 'row' },
           _react2.default.createElement(
             'div',
-            { className: 'col-xs-5' },
+            { className: 'col-xs-12' },
             _react2.default.createElement(
               'h2',
               null,

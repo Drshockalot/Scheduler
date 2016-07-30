@@ -58,12 +58,17 @@ class ViewAttendance extends React.Component {
       var selectedRaid = _.findWhere(this.state.raids, {id: Number(this.state.selectRaid)});
       var selectedRoster = _.findWhere(this.state.rosters, {id: Number(this.state.selectRoster)});
       var totalCount = _.findWhere(this.state.attendanceCount, {raid_id: this.state.selectRaid, roster_id: this.state.selectRoster}).length;
+      console.log('total count - ', totalCount);
+      var users = selectedRoster.characters.map(function(character) {
+        return character.user;
+      });
 
-      userAttendanceRows = selectedRoster.characters.map(function(character) {
-        var user = character.user;
-        var userCharacters = character.user.characters;
+      userAttendanceRows = users.map(function(user) {
+        var userCharacters = user.characters;
         var userAttendanceCount = _.findWhere(this.state.attendanceRecords, {user_id: user.id, raid_id: this.state.selectRaid, roster_id: this.state.selectRoster}).length;
+        console.log('user attendancecount - ', userAttendanceCount);
         var attendancePercentage = (userAttendanceCount / totalCount) * 100;
+        console.log('attendancePercentage - ', attendancePercentage);
 
         var characterRows = userCharacters.map(function(character) {
           return (
@@ -97,7 +102,7 @@ class ViewAttendance extends React.Component {
     return (
       <div className='row'>
         <div className='row'>
-          <div className='col-xs-5'>
+          <div className='col-xs-12'>
             <h2>View Attendance</h2>
             <div className='form-horizontal'>
               <div className='form-group'>
