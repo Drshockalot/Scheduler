@@ -7,6 +7,7 @@ var Raid = require('./../db/postgres/raid');
 var RaidWeek = require('./../db/postgres/raid_week');
 var Schedule_Boss = require('./../db/postgres/schedule_boss');
 var Roster = require('./../db/postgres/roster');
+var User = require('./../db/postgres/user');
 
 var knex = require('./../db/database').knex;
 
