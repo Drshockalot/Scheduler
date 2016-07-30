@@ -39,7 +39,11 @@ class AddAttendanceActions {
   }
 
   uploadFile(fileText, raidId, raidWeekId, weekday, rosterId) {
-    var data = {names: fileText.split(','), raidId: raidId, raidWeekId: raidWeekId, weekday: weekday, rosterId: rosterId};
+    var names = fileText.split(',');
+    for (var i = 0; i < names.length; ++i) {
+      names[i] = names[i].trim();
+    }
+    var data = {names: names, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday, rosterId: rosterId};
     console.log(data);
     $.ajax({
       method: 'POST',
@@ -72,6 +76,9 @@ class AddAttendanceActions {
     //   if(attendanceModel['Standby'][i].state)
     //     nameList.push(attendanceModel['Standby'][i].name);
     // }
+    for (var i = 0; i < names.length; ++i) {
+      names[i] = names[i].trim();
+    }
     var data = {names: nameList, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday, rosterId: rosterId};
     console.log(data);
     $.ajax({
@@ -88,11 +95,14 @@ class AddAttendanceActions {
   }
 
   uploadRawText(uploadText, raidId, raidWeekId, weekday, rosterId) {
-    if(uploadText == '') {
+    if(uploadText.trim() == '') {
       toastr.warning('You cannot upload an empty batch of text');
       return;
     }
     var names = uploadText.split(',');
+    for (var i = 0; i < names.length; ++i) {
+      names[i] = names[i].trim();
+    }
     var data = {names: names, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday, rosterId: rosterId};
 
     $.ajax({
