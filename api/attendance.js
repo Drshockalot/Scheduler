@@ -1,10 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var moment = require('moment');
-
-var fs = require('fs');
-var multer = require('multer');
-var upload = multer({ dest: './attendance/' });
+var _ = require('underscore');
 
 var Raid_Week = require('./../db/postgres/raid_week');
 var Roster = require('./../db/postgres/roster');
@@ -41,7 +38,7 @@ router.get('/admin', function(req, res, next) {
            });
 });
 
-router.post('/admin/file', upload.single('attendance'), function(req, res, next) {
+router.post('/admin/file', function(req, res, next) {
   Character.where('name', 'in', req.body['names[]'])
            .fetchAll()
            .then(function(characters) {
@@ -110,11 +107,18 @@ router.post('/admin/text', function(req, res, next) {
 
 router.post('/admin/roster', function(req, res, next) {
   Character.where('name', 'in', req.body['names[]'])
-           .fetchAll()
+           .fetchAll({'withRelated': ['user']})
            .then(function(characters) {
-             var insertRows = characters.toJSON().map(function(character) {
+             var loggedUsers = [];
+             for(var i = 0; i < characters.length; ++i) {
+               if(!_.findWhere(loggedUsers, {id: characters[i].user.id})) {
+                 loggedUsers.push(characters[i].user);
+               }
+             }
+
+             var insertRows = loggedUsers.toJSON().map(function(user) {
                return {
-                 user_id: character.user_id,
+                 user_id: user.id,
                  raid_week_id: req.body.raidWeekId,
                  raid_id: req.body.raidId,
                  week_day: req.body.weekday,
