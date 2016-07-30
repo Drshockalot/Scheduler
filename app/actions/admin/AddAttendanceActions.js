@@ -76,9 +76,6 @@ class AddAttendanceActions {
     //   if(attendanceModel['Standby'][i].state)
     //     nameList.push(attendanceModel['Standby'][i].name);
     // }
-    for (var i = 0; i < names.length; ++i) {
-      names[i] = names[i].trim();
-    }
     var data = {names: nameList, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday, rosterId: rosterId};
     console.log(data);
     $.ajax({
