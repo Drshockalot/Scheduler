@@ -110,9 +110,10 @@ router.post('/admin/roster', function(req, res, next) {
            .fetchAll({'withRelated': ['user']})
            .then(function(characters) {
              var loggedUsers = [];
-             for(var i = 0; i < characters.length; ++i) {
-               if(!_.findWhere(loggedUsers, {id: characters[i].user.id})) {
-                 loggedUsers.push(characters[i].user);
+             var jCharacters = characters.toJSON();
+             for(var i = 0; i < jCharacters.length; ++i) {
+               if(!_.findWhere(loggedUsers, {id: jCharacters[i].user.id})) {
+                 loggedUsers.push(jCharacters[i].user);
                }
              }
 
