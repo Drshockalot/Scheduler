@@ -9228,7 +9228,6 @@ var ViewAttendance = function (_React$Component) {
           }
         }
 
-        console.log(loggedUsers);
         userAttendanceRows = loggedUsers.map(function (user) {
           var userCharacters = user.characters;
           var userAttendanceCount = _underscore2.default.where(this.state.attendanceRecords, { user_id: Number(user.id), raid_id: Number(this.state.selectRaid), roster_id: Number(this.state.selectRoster) }).length;
@@ -9262,7 +9261,7 @@ var ViewAttendance = function (_React$Component) {
 
           return _react2.default.createElement(
             'tr',
-            { sortOrder: attendancePercentage },
+            { sortOrder: isNaN(attendancePercentage) ? 0 : attendancePercentage },
             _react2.default.createElement(
               'td',
               { className: 'col-xs-3 text-center vert-align' },
@@ -9281,7 +9280,7 @@ var ViewAttendance = function (_React$Component) {
             _react2.default.createElement(
               'td',
               { className: 'col-xs-3 text-center vert-align' },
-              attendancePercentage,
+              isNaN(attendancePercentage) ? 0 : attendancePercentage,
               ' %'
             )
           );
@@ -9402,7 +9401,7 @@ var ViewAttendance = function (_React$Component) {
                 ),
                 _underscore2.default.sortBy(userAttendanceRows, function (row) {
                   return row.props.sortOrder;
-                })
+                }).reverse()
               )
             )
           )

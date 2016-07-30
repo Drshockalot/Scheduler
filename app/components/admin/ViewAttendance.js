@@ -66,7 +66,6 @@ class ViewAttendance extends React.Component {
         }
       }
 
-      console.log(loggedUsers);
       userAttendanceRows = loggedUsers.map(function(user) {
         var userCharacters = user.characters;
         var userAttendanceCount = _.where(this.state.attendanceRecords, {user_id: Number(user.id), raid_id: Number(this.state.selectRaid), roster_id: Number(this.state.selectRoster)}).length;
@@ -91,11 +90,11 @@ class ViewAttendance extends React.Component {
         );
 
         return (
-          <tr sortOrder={attendancePercentage}>
+          <tr sortOrder={isNaN(attendancePercentage) ? 0 : attendancePercentage}>
             <td className='col-xs-3 text-center vert-align'>{selectedRaid.name}</td>
             <td className='col-xs-3 text-center vert-align'>{selectedRoster.name}</td>
             <td className='col-xs-3 text-center vert-align'>{trigger}</td>
-            <td className='col-xs-3 text-center vert-align'>{attendancePercentage}&nbsp;%</td>
+            <td className='col-xs-3 text-center vert-align'>{isNaN(attendancePercentage) ? 0 : attendancePercentage}&nbsp;%</td>
           </tr>
         );
       }, this);
@@ -136,7 +135,7 @@ class ViewAttendance extends React.Component {
                   <td className='col-xs-3 text-center'><strong>User</strong></td>
                   <td className='col-xs-3 text-center'><strong>Attendance</strong></td>
                 </tr>
-                {_.sortBy(userAttendanceRows, function(row) {return row.props.sortOrder;})}
+                {_.sortBy(userAttendanceRows, function(row) {return row.props.sortOrder;}).reverse()}
               </tbody>
             </table>
           </div>
