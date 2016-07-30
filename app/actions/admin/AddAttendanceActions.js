@@ -56,9 +56,9 @@ class AddAttendanceActions {
 
   uploadAttendanceFromRosterForm(attendanceModel, raidId, raidWeekId, weekday, rosterId) {
     var nameList = [];
-    tankModel = _.uniq(attendanceModel['Tank']);
-    healerModel = _.uniq(attendanceModel['Healer']);
-    dpsModel = _.uniq(attendanceModel['DPS']);
+    var tankModel = _.uniq(attendanceModel['Tank']);
+    var healerModel = _.uniq(attendanceModel['Healer']);
+    var dpsModel = _.uniq(attendanceModel['DPS']);
     for(var i = 0; i < tankModel.length; ++i) {
       if(tankModel[i].state)
         nameList.push(tankModel[i].name);
