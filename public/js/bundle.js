@@ -500,7 +500,7 @@ var ProfileSchedulesActions = function () {
 
       $.ajax({
         method: 'GET',
-        url: '/api/schedules/profile/' + encodeURIComponent(_NavbarStore2.default.getState().battletag)
+        url: '/api/schedule/profile/' + encodeURIComponent(_NavbarStore2.default.getState().battletag)
       }).done(function (result) {
         console.log(result);
         _this.loadComponentDataSuccess(result);

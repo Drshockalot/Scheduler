@@ -14,7 +14,7 @@ class ProfileSchedulesActions {
   loadComponentData() {
     $.ajax({
       method: 'GET',
-      url: '/api/schedules/profile/' + encodeURIComponent(NavbarStore.getState().battletag)
+      url: '/api/schedule/profile/' + encodeURIComponent(NavbarStore.getState().battletag)
     }).done((result) => {
       console.log(result);
       this.loadComponentDataSuccess(result);
