@@ -10211,6 +10211,13 @@ var AddAttendanceStore = function () {
       this.selectRoster = this.rosters[0].id;
       this.selectWeekday = 'monday';
 
+      this.rosterAttendanceModel = {
+        'Tank': [],
+        'Healer': [],
+        'DPS': [],
+        'Standby': []
+      };
+
       for (var i = 0; i < this.rosters[0].characters.length; ++i) {
         this.rosterAttendanceModel[this.rosters[0].characters[i].main_role].push({ name: this.rosters[0].characters[i].name, state: true });
       }
