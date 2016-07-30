@@ -144,7 +144,7 @@ router.post('/admin/roster', function(req, res, next) {
                };
              });
              knex.batchInsert('raid_attendance', insertRows)
-                 .then(function() {
+             .then(function() {
                    Attendance_Count.forge({raid_id: req.body.raidId, roster_id: req.body.rosterId})
                                    .save()
                                    .then(function() {
