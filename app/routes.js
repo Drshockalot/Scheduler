@@ -15,6 +15,7 @@ import Profile from './components/Profile';
 import ProfileCharacters from './components/ProfileCharacters';
 import ProfileRaidWeeks from './components/ProfileRaidWeeks';
 import ProfileRosters from './components/ProfileRosters';
+import ProfileSchedules from './components/ProfileSchedules';
 
 import ScheduleView from './components/ScheduleView';
 
@@ -49,6 +50,7 @@ export default (
     <Route path='/profile/character' component={ProfileCharacters} onEnter={auth}/>
     <Route path='/profile/raidweek' component={ProfileRaidWeeks} onEnter={auth}/>
     <Route path='/profile/roster' component={ProfileRosters} onEnter={auth}/>
+    <Route path='/profile/schedule' component={ProfileSchedules} onEnter={auth}/>
     <Route path='/admin' component={Admin} onEnter={adminAuth} />
     <Route path='/admin/roster' component={RosterManagement} onEnter={adminAuth}/>
     <Route path='/admin/character' component={CharacterManagement} onEnter={adminAuth}/>
