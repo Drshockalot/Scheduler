@@ -117,7 +117,7 @@ router.post('/admin/roster', function(req, res, next) {
                }
              }
 
-             var insertRows = loggedUsers.toJSON().map(function(user) {
+             var insertRows = loggedUsers.map(function(user) {
                return {
                  user_id: user.id,
                  raid_week_id: req.body.raidWeekId,
