@@ -10245,7 +10245,18 @@ var AddAttendanceStore = function () {
       }
 
       for (var i = 0; i < roster.characters.length; i++) {
-        this.rosterAttendanceModel[roster.characters[i].main_role].push({ name: roster.characters[i].name, state: true });
+        //this.rosterAttendanceModel[roster.characters[i].main_role].push({name: roster.characters[i].name, state: true});
+        if (roster.characters[i].main_role == 'Tank') {
+          this.rosterAttendanceModel['Tank'].push({ name: roster.characters[i].name, state: true });
+        }
+
+        if (roster.characters[i].main_role == 'Healer') {
+          this.rosterAttendanceModel['Healer'].push({ name: roster.characters[i].name, state: true });
+        }
+
+        if (roster.characters[i].main_role == 'DPS') {
+          this.rosterAttendanceModel['DPS'].push({ name: roster.characters[i].name, state: true });
+        }
       }
     }
   }, {
