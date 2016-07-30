@@ -631,16 +631,16 @@ var AddAttendanceActions = function () {
 
       var nameList = [];
       for (var i = 0; i < attendanceModel['Tank'].length; ++i) {
-        nameList.push(attendanceModel['Tank'][i].name);
+        if (attendanceModel['Tank'][i].state) nameList.push(attendanceModel['Tank'][i].name);
       }
       for (var i = 0; i < attendanceModel['Healer'].length; ++i) {
-        nameList.push(attendanceModel['Healer'][i].name);
+        if (attendanceModel['Healer'][i].state) nameList.push(attendanceModel['Healer'][i].name);
       }
       for (var i = 0; i < attendanceModel['DPS'].length; ++i) {
-        nameList.push(attendanceModel['DPS'][i].name);
+        if (attendanceModel['DPS'][i].state) nameList.push(attendanceModel['DPS'][i].name);
       }
       for (var i = 0; i < attendanceModel['Standby'].length; ++i) {
-        nameList.push(attendanceModel['Standby'][i].name);
+        if (attendanceModel['Standby'][i].state) nameList.push(attendanceModel['Standby'][i].name);
       }
       var data = { names: nameList, raidId: raidId, raidWeekId: raidWeekId, weekday: weekday, rosterId: rosterId };
       console.log(data);
