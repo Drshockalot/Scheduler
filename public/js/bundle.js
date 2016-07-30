@@ -9227,10 +9227,11 @@ var ViewAttendance = function (_React$Component) {
         var loggedUsers = [];
         for (var i = 0; i < selectedRoster.characters.length; ++i) {
           if (!_underscore2.default.findWhere(loggedUsers, { id: selectedRoster.characters[i].user.id })) {
-            loggedUsers.push(selectedRoster.characters[i]);
+            loggedUsers.push(selectedRoster.characters[i].user);
           }
         }
 
+        console.log(loggedUsers);
         userAttendanceRows = loggedUsers.map(function (user) {
           var userCharacters = user.characters;
           console.log(user.id);
