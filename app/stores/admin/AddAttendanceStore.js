@@ -9,9 +9,9 @@ class AddAttendanceStore {
     this.raids = [];
     this.rosters = [];
     this.rosterAttendanceModel = {
+      'DPS': [],
       'Tank': [],
-      'Healer': [],
-      'DPS': []
+      'Healer': []
     };
     this.selectRaidWeek = 0;
     this.selectRaid = 0;
@@ -30,9 +30,9 @@ class AddAttendanceStore {
     this.selectWeekday = 'monday';
 
     this.rosterAttendanceModel = {
+      'DPS': [],
       'Tank': [],
-      'Healer': [],
-      'DPS': []
+      'Healer': []
     };
 
     var roster = _.findWhere(this.rosters, {id: Number(this.selectRoster)});
@@ -61,9 +61,9 @@ class AddAttendanceStore {
   onUpdateSelectRoster(value) {
     this.selectRoster = value;
     this.rosterAttendanceModel = {
+      'DPS': [],
       'Tank': [],
-      'Healer': [],
-      'DPS': []
+      'Healer': []
     };
 
     var roster = _.findWhere(this.rosters, {id: value});

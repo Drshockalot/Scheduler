@@ -10189,9 +10189,9 @@ var AddAttendanceStore = function () {
     this.raids = [];
     this.rosters = [];
     this.rosterAttendanceModel = {
+      'DPS': [],
       'Tank': [],
-      'Healer': [],
-      'DPS': []
+      'Healer': []
     };
     this.selectRaidWeek = 0;
     this.selectRaid = 0;
@@ -10212,9 +10212,9 @@ var AddAttendanceStore = function () {
       this.selectWeekday = 'monday';
 
       this.rosterAttendanceModel = {
+        'DPS': [],
         'Tank': [],
-        'Healer': [],
-        'DPS': []
+        'Healer': []
       };
 
       var roster = _underscore2.default.findWhere(this.rosters, { id: Number(this.selectRoster) });
@@ -10248,9 +10248,9 @@ var AddAttendanceStore = function () {
     value: function onUpdateSelectRoster(value) {
       this.selectRoster = value;
       this.rosterAttendanceModel = {
+        'DPS': [],
         'Tank': [],
-        'Healer': [],
-        'DPS': []
+        'Healer': []
       };
 
       var roster = _underscore2.default.findWhere(this.rosters, { id: value });
