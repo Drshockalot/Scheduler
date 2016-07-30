@@ -470,6 +470,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _alt = require('../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
@@ -484,11 +486,33 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var ProfileSchedulesActions = function ProfileSchedulesActions() {
-  _classCallCheck(this, ProfileSchedulesActions);
+var ProfileSchedulesActions = function () {
+  function ProfileSchedulesActions() {
+    _classCallCheck(this, ProfileSchedulesActions);
 
-  this.generateActions('placeholder');
-};
+    this.generateActions('restoreState', 'loadComponentDataSuccess', 'loadComponentDataFailure');
+  }
+
+  _createClass(ProfileSchedulesActions, [{
+    key: 'loadComponentData',
+    value: function loadComponentData() {
+      var _this = this;
+
+      $.ajax({
+        method: 'GET',
+        url: '/api/schedules/profile/' + encodeURIComponent(_NavbarStore2.default.getState().battletag)
+      }).done(function (result) {
+        console.log(result);
+        _this.loadComponentDataSuccess(result);
+      }).fail(function (jqXhr) {
+        console.log(jqXhr);
+        _this.loadComponentDataFailure(jqXhr);
+      });
+    }
+  }]);
+
+  return ProfileSchedulesActions;
+}();
 
 exports.default = _alt2.default.createActions(ProfileSchedulesActions);
 
@@ -4276,11 +4300,14 @@ var ProfileSchedules = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _ProfileSchedulesStore2.default.listen(this.onChange);
+      if (sessionStorage.profileSchedules) _ProfileSchedulesActions2.default.restoreState(JSON.parse(sessionStorage.profileSchedules));
+      _ProfileSchedulesActions2.default.loadComponentData();
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _ProfileSchedulesStore2.default.unlisten(this.onChange);
+      sessionStorage.profileSchedules = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -10209,6 +10236,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _alt = require('../alt');
 
 var _alt2 = _interopRequireDefault(_alt);
@@ -10221,11 +10250,35 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var ProfileSchedulesStore = function ProfileSchedulesStore() {
-  _classCallCheck(this, ProfileSchedulesStore);
+var ProfileSchedulesStore = function () {
+  function ProfileSchedulesStore() {
+    _classCallCheck(this, ProfileSchedulesStore);
 
-  this.bindActions(_ProfileSchedulesActions2.default);
-};
+    this.bindActions(_ProfileSchedulesActions2.default);
+    this.user = null;
+  }
+
+  _createClass(ProfileSchedulesStore, [{
+    key: 'onRestoreState',
+    value: function onRestoreState(state) {
+      for (var key in state) {
+        this[key] = state[key];
+      }
+    }
+  }, {
+    key: 'onLoadComponentDataSuccess',
+    value: function onLoadComponentDataSuccess(result) {
+      this.user = result.data.user;
+    }
+  }, {
+    key: 'onLoadComponentDataFailure',
+    value: function onLoadComponentDataFailure(jqXhr) {
+      toastr.error(jqXhr.responseJSON.message);
+    }
+  }]);
+
+  return ProfileSchedulesStore;
+}();
 
 exports.default = _alt2.default.createStore(ProfileSchedulesStore);
 

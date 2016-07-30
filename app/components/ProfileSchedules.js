@@ -15,10 +15,14 @@ class ProfileSchedules extends React.Component {
 
   componentDidMount() {
     ProfileSchedulesStore.listen(this.onChange);
+    if(sessionStorage.profileSchedules)
+      ProfileSchedulesActions.restoreState(JSON.parse(sessionStorage.profileSchedules));
+    ProfileSchedulesActions.loadComponentData();
   }
 
   componentWillUnmount() {
     ProfileSchedulesStore.unlisten(this.onChange);
+    sessionStorage.profileSchedules = JSON.stringify(this.state);
   }
 
   onChange(state) {

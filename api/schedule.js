@@ -224,4 +224,15 @@ router.put('/admin/raid', function(req, res, next) {
       });
 });
 
+router.get('/profile/:battletag', function(req, res, next) {
+  User.forge({battletag: req.params.battletag})
+      .fetch({'withRelated': ['characters', 'characters.schedule_bosses', 'characters.schedule_bosses.boss', 'characters.schedule_bosses.raid', 'characters.schedule_bosses.schedule']})
+      .then(function(user) {
+        res.json({error: false, data: {message: 'Component data retrieved', user: user.toJSON()}});
+      })
+      .catch(function(err) {
+        res.status(500).json({error: true, data: {message: err.message}});
+      });
+});
+
 module.exports = router;
