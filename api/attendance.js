@@ -43,13 +43,23 @@ router.post('/admin/file', function(req, res, next) {
            .fetchAll()
            .then(function(characters) {
              var insertRows = characters.toJSON().map(function(character) {
-               return {
-                 user_id: character.user_id,
-                 raid_week_id: req.body.raidWeekId,
-                 raid_id: req.body.raidId,
-                 week_day: req.body.weekday,
-                 roster_id: req.body.rosterId
-               };
+               var loggedUsers = [];
+               var jCharacters = characters.toJSON();
+               for(var i = 0; i < jCharacters.length; ++i) {
+                 if(!_.findWhere(loggedUsers, {id: jCharacters[i].user.id})) {
+                   loggedUsers.push(jCharacters[i].user);
+                 }
+               }
+
+               var insertRows = loggedUsers.map(function(user) {
+                 return {
+                   user_id: user.id,
+                   raid_week_id: req.body.raidWeekId,
+                   raid_id: req.body.raidId,
+                   week_day: req.body.weekday,
+                   roster_id: req.body.rosterId
+                 };
+               });
                knex.batchInsert('raid_attendance', insertRows)
                    .then(function() {
                      Attendance_Count.forge({raid_id: req.body.raidId, roster_id: req.body.rosterId})
@@ -72,13 +82,20 @@ router.post('/admin/file', function(req, res, next) {
 });
 
 router.post('/admin/text', function(req, res, next) {
-  console.log(req.body);
   Character.where('name', 'in', req.body['names[]'])
            .fetchAll()
            .then(function(characters) {
-             var insertRows = characters.toJSON().map(function(character) {
+             var loggedUsers = [];
+             var jCharacters = characters.toJSON();
+             for(var i = 0; i < jCharacters.length; ++i) {
+               if(!_.findWhere(loggedUsers, {id: jCharacters[i].user.id})) {
+                 loggedUsers.push(jCharacters[i].user);
+               }
+             }
+
+             var insertRows = loggedUsers.map(function(user) {
                return {
-                 user_id: character.user_id,
+                 user_id: user.id,
                  raid_week_id: req.body.raidWeekId,
                  raid_id: req.body.raidId,
                  week_day: req.body.weekday,
