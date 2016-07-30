@@ -40,7 +40,7 @@ router.get('/admin', function(req, res, next) {
 
 router.post('/admin/file', function(req, res, next) {
   Character.where('name', 'in', req.body['names[]'])
-           .fetchAll()
+           .fetchAll({'withRelated': ['user']})
            .then(function(characters) {
              var insertRows = characters.toJSON().map(function(character) {
                var loggedUsers = [];
@@ -83,7 +83,7 @@ router.post('/admin/file', function(req, res, next) {
 
 router.post('/admin/text', function(req, res, next) {
   Character.where('name', 'in', req.body['names[]'])
-           .fetchAll()
+           .fetchAll({'withRelated': ['user']})
            .then(function(characters) {
              var loggedUsers = [];
              var jCharacters = characters.toJSON();
