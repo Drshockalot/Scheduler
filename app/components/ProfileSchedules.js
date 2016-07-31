@@ -67,28 +67,27 @@ class ProfileSchedules extends React.Component {
             for (var i = 0; i < bossesBySchedule[schedule].length; ++i) {
               scheduleGroup.push(
                 <tr sortOrder={moment(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W')} scheduleName={bossesBySchedule[schedule][i].schedule.name}>
-                  <td className='col-xs-3 vert-align text-center'>{bossesBySchedule[schedule][i].schedule.name}</td>
-                  <td className='col-xs-3 vert-align text-center'>{moment(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W')}</td>
-                  <td className='col-xs-3 vert-align text-center'>{bossesBySchedule[schedule][i].raid.name}</td>
-                  <td className='col-xs-3 vert-align text-center'>{bossesBySchedule[schedule][i].boss.name}</td>
+                  <td className='col-xs-2 vert-align text-center'>{moment(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W')}</td>
+                  <td className='col-xs-2 vert-align text-center'>{bossesBySchedule[schedule][i].raid.name}</td>
+                  <td className='col-xs-2 vert-align text-center'>{bossesBySchedule[schedule][i].boss.name}</td>
                 </tr>
               );
             }
             tableContent.push(scheduleGroup);
           }
           var finalContent = [];
+          tableContent = _.sortBy(tableContent, function(schedule) { return Number(schedule[0].props.sortOrder);});
           for(var i = 0; i < tableContent.length; ++i) {
             finalContent.push(
               <div className='row'>
-                <div className='col-xs-12'>
+                <div className='col-xs-10 col-xs-offset-1'>
                   <h4>{tableContent[i][0].props.scheduleName}</h4>
                   <table className='table'>
                     <tbody>
                       <tr>
-                        <td className='col-xs-3 vert-align text-center'><strong>Schedule</strong></td>
-                        <td className='col-xs-3 vert-align text-center'><strong>Raid Week</strong></td>
-                        <td className='col-xs-3 vert-align text-center'><strong>Raid</strong></td>
-                        <td className='col-xs-3 vert-align text-center'><strong>Boss</strong></td>
+                        <td className='col-xs-2 vert-align text-center'><strong>Raid Week</strong></td>
+                        <td className='col-xs-2 vert-align text-center'><strong>Raid</strong></td>
+                        <td className='col-xs-2 vert-align text-center'><strong>Boss</strong></td>
                       </tr>
                       {tableContent[i]}
                     </tbody>

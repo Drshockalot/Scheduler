@@ -4368,22 +4368,17 @@ var ProfileSchedules = function (_React$Component) {
                   { sortOrder: (0, _moment2.default)(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W'), scheduleName: bossesBySchedule[schedule][i].schedule.name },
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-xs-3 vert-align text-center' },
-                    bossesBySchedule[schedule][i].schedule.name
-                  ),
-                  _react2.default.createElement(
-                    'td',
-                    { className: 'col-xs-3 vert-align text-center' },
+                    { className: 'col-xs-2 vert-align text-center' },
                     (0, _moment2.default)(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W')
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-xs-3 vert-align text-center' },
+                    { className: 'col-xs-2 vert-align text-center' },
                     bossesBySchedule[schedule][i].raid.name
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-xs-3 vert-align text-center' },
+                    { className: 'col-xs-2 vert-align text-center' },
                     bossesBySchedule[schedule][i].boss.name
                   )
                 ));
@@ -4391,13 +4386,16 @@ var ProfileSchedules = function (_React$Component) {
               tableContent.push(scheduleGroup);
             }
             var finalContent = [];
+            tableContent = _underscore2.default.sortBy(tableContent, function (schedule) {
+              return Number(schedule[0].props.sortOrder);
+            });
             for (var i = 0; i < tableContent.length; ++i) {
               finalContent.push(_react2.default.createElement(
                 'div',
                 { className: 'row' },
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-xs-12' },
+                  { className: 'col-xs-10 col-xs-offset-1' },
                   _react2.default.createElement(
                     'h4',
                     null,
@@ -4414,16 +4412,7 @@ var ProfileSchedules = function (_React$Component) {
                         null,
                         _react2.default.createElement(
                           'td',
-                          { className: 'col-xs-3 vert-align text-center' },
-                          _react2.default.createElement(
-                            'strong',
-                            null,
-                            'Schedule'
-                          )
-                        ),
-                        _react2.default.createElement(
-                          'td',
-                          { className: 'col-xs-3 vert-align text-center' },
+                          { className: 'col-xs-2 vert-align text-center' },
                           _react2.default.createElement(
                             'strong',
                             null,
@@ -4432,7 +4421,7 @@ var ProfileSchedules = function (_React$Component) {
                         ),
                         _react2.default.createElement(
                           'td',
-                          { className: 'col-xs-3 vert-align text-center' },
+                          { className: 'col-xs-2 vert-align text-center' },
                           _react2.default.createElement(
                             'strong',
                             null,
@@ -4441,7 +4430,7 @@ var ProfileSchedules = function (_React$Component) {
                         ),
                         _react2.default.createElement(
                           'td',
-                          { className: 'col-xs-3 vert-align text-center' },
+                          { className: 'col-xs-2 vert-align text-center' },
                           _react2.default.createElement(
                             'strong',
                             null,
