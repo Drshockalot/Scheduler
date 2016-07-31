@@ -4482,7 +4482,7 @@ var ProfileSchedules = function (_React$Component) {
                         tableContent.map(function (scheduleGroup) {
                           return _underscore2.default.sortBy(scheduleGroup, function (boss) {
                             return boss.props.sortOrder;
-                          }).reverse().map(function (schedule_boss) {
+                          }).map(function (schedule_boss) {
                             return schedule_boss;
                           });
                         })
