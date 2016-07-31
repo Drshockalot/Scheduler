@@ -4493,7 +4493,11 @@ var ProfileSchedules = function (_React$Component) {
             _react2.default.createElement(
               'div',
               { className: 'row' },
-              pageContent
+              _react2.default.createElement(
+                'div',
+                { className: 'col-xs-12' },
+                pageContent
+              )
             )
           )
         )
