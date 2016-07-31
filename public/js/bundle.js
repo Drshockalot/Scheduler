@@ -4274,6 +4274,14 @@ var _ProfileSidenav = require('./ProfileSidenav');
 
 var _ProfileSidenav2 = _interopRequireDefault(_ProfileSidenav);
 
+var _classnames = require('classnames');
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+var _underscore = require('underscore');
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -4281,6 +4289,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var WowClasses = require('../../utility/WowClasses');
 
 var ProfileSchedules = function (_React$Component) {
   _inherits(ProfileSchedules, _React$Component);
@@ -4315,9 +4325,157 @@ var ProfileSchedules = function (_React$Component) {
       this.setState(state);
     }
   }, {
+    key: 'classColour',
+    value: function classColour(character) {
+      var currentClass = _underscore2.default.findWhere(wowClasses, { id: parseInt(character.class) }).name;
+      var arr = currentClass.split(" ");
+
+      var ret = '';
+      for (var i = 0; i < arr.length; ++i) {
+        ret += arr[i].toLowerCase();
+        ret += '-';
+      }
+
+      ret += 'color';
+      return (0, _classnames2.default)(ret, { 'col-sm-1': true });;
+    }
+  }, {
     key: 'render',
     value: function render() {
-      if (typeof Storage === 'undefined' || sessionStorage.role === '' || _NavbarStore2.default.getState().userRole === '') return null;
+      if (typeof Storage === 'undefined' || sessionStorage.role === '' || _NavbarStore2.default.getState().userRole === '') {
+        return null;
+      }
+
+      var pageContent;
+      if (user) {
+        if (user.characters.length > 0) {
+          var characterList = user.characters.map(function (character, index) {
+            var bossesBySchedule = _underscore2.default.groupBy(character.schedule_bosses, 'schedule_id');
+            var tableContent = [];
+            for (var schedule in bossesBySchedule) {
+              var scheduleGroup = [];
+              for (var i = 0; i < bossesBySchedule[schedule].length; ++i) {
+                scheduleGroup.push(_react2.default.createElement(
+                  'tr',
+                  null,
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-xs-3 vert-align text-center' },
+                    bossesBySchedule[schedule][i].schedule.name
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-xs-3 vert-align text-center' },
+                    moment(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W')
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-xs-3 vert-align text-center' },
+                    bossesBySchedule[schedule][i].raid.name
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-xs-3 vert-align text-center' },
+                    bossesBySchedule[schedule][i].boss.name
+                  )
+                ));
+              }
+              tableContent.push(scheduleGroup);
+            }
+
+            return _react2.default.createElement(
+              'div',
+              { className: 'row' },
+              _react2.default.createElement(
+                'div',
+                { className: 'row' },
+                _react2.default.createElement('div', { className: classColour(character) }),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-xs-11' },
+                  _react2.default.createElement(
+                    'h3',
+                    null,
+                    character.name
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'row' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-xs-12' },
+                  _react2.default.createElement(
+                    'table',
+                    { className: 'table' },
+                    _react2.default.createElement(
+                      'tbody',
+                      null,
+                      _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                          'td',
+                          { className: 'col-xs-3 vert-align text-center' },
+                          _react2.default.createElement(
+                            'strong',
+                            null,
+                            'Schedule'
+                          )
+                        ),
+                        _react2.default.createElement(
+                          'td',
+                          { className: 'col-xs-3 vert-align text-center' },
+                          _react2.default.createElement(
+                            'strong',
+                            null,
+                            'Raid Week'
+                          )
+                        ),
+                        _react2.default.createElement(
+                          'td',
+                          { className: 'col-xs-3 vert-align text-center' },
+                          _react2.default.createElement(
+                            'strong',
+                            null,
+                            'Raid'
+                          )
+                        ),
+                        _react2.default.createElement(
+                          'td',
+                          { className: 'col-xs-3 vert-align text-center' },
+                          _react2.default.createElement(
+                            'strong',
+                            null,
+                            'Boss'
+                          )
+                        )
+                      ),
+                      '//Need to iterate through and output the inner arrays',
+                      tableContent.map(function (scheduleGroup) {
+                        return scheduleGroup.map(function (schedule_boss) {
+                          return schedule_boss;
+                        });
+                      })
+                    )
+                  )
+                )
+              )
+            );
+          }, this);
+        } else {
+          pageContent = _react2.default.createElement(
+            'div',
+            { className: 'col-xs-12 text-center' },
+            _react2.default.createElement(
+              'strong',
+              null,
+              'You have no characters registered available for scheduling'
+            )
+          );
+        }
+      }
 
       return _react2.default.createElement(
         'div',
@@ -4329,7 +4487,11 @@ var ProfileSchedules = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'container-fluid' },
-            _react2.default.createElement('div', { className: 'row' })
+            _react2.default.createElement(
+              'div',
+              { className: 'row' },
+              pageContent
+            )
           )
         )
       );
@@ -4341,7 +4503,7 @@ var ProfileSchedules = function (_React$Component) {
 
 exports.default = ProfileSchedules;
 
-},{"../actions/ProfileSchedulesActions":8,"../stores/NavbarStore":52,"../stores/ProfileSchedulesStore":56,"./ProfileSidenav":33,"react":"react","react-router":"react-router"}],33:[function(require,module,exports){
+},{"../../utility/WowClasses":356,"../actions/ProfileSchedulesActions":8,"../stores/NavbarStore":52,"../stores/ProfileSchedulesStore":56,"./ProfileSidenav":33,"classnames":72,"react":"react","react-router":"react-router","underscore":"underscore"}],33:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
