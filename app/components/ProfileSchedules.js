@@ -66,7 +66,7 @@ class ProfileSchedules extends React.Component {
             var scheduleGroup = [];
             for (var i = 0; i < bossesBySchedule[schedule].length; ++i) {
               var bossDay = moment(bossesBySchedule[schedule][i].schedule.raid_week.start);
-              if(!bossesBySchedule[schedule][i].published || bossday.subtract(1, 'days').isBefore(moment())) {
+              if(!bossesBySchedule[schedule][i].published || bossDay.subtract(1, 'days').isBefore(moment())) {
                 continue;
               }
               scheduleGroup.push(
