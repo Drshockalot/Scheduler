@@ -43,17 +43,6 @@ class ScheduleView extends React.Component {
 
     return (
       <div id='wrapper'>
-      <div id='sidebar-wrapper'>
-        <ul className='sidebar-nav'>
-          <li><strong>Filter</strong></li>
-          <li><button className='btn btn-default btn-block' onClick={() => ScheduleViewActions.setFilterType(1)}>All</button></li>
-          <li><button className='btn btn-default btn-block' onClick={() => ScheduleViewActions.setFilterType(2)}>My Characters</button></li>
-          <li>
-            Raid Week:
-            <br />
-          </li>
-        </ul>
-      </div>
         <div id='page-content-wrapper'>
           <div className='container-fluid'>
             {scheduleView}

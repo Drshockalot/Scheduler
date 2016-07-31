@@ -110,49 +110,53 @@ class SingleScheduleView extends React.Component {
 
         return (
           <div className='row'>
-            <table className='table'>
-              <tbody>
-                <tr>
-                  <td className='col-md-1'><strong>Raid</strong></td>
-                  <td className='col-md-1'><strong>Boss</strong></td>
-                  <td className='col-md-2'><strong>Tanks</strong> <strong>({tankCount})</strong></td>
-                  <td className='col-md-2'><strong>Healers</strong> <strong>({healerCount})</strong></td>
-                  <td className='col-md-2'><strong>DPS</strong> <strong>({dpsCount})</strong></td>
-                  <td className='col-md-2'><strong>Standby</strong> <strong>({standbyCount})</strong></td>
-                </tr>
-                <tr>
-                  <td className='col-md-1'>{schedule_boss.raid.name}</td>
-                  <td className='col-md-1'>{schedule_boss.boss.name}</td>
-                  <td className='col-md-2'>
-                  <table className='table'>
-                    <tbody>
-                      {tankRows}
-                    </tbody>
-                  </table></td>
-                  <td className='col-md-2'>
-                    <table className='table'>
-                      <tbody>
-                        {healerRows}
-                      </tbody>
-                    </table>
-                  </td>
-                  <td className='col-md-2'>
-                    <table className='table'>
-                      <tbody>
-                        {dpsRows}
-                      </tbody>
-                    </table>
-                  </td>
-                  <td className='col-md-2'>
-                    <table className='table'>
-                      <tbody>
-                        {standbyRows}
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <div className='col-xs-10 col-xs-offset-1'>
+              <div className='row'>
+                <table className='table'>
+                  <tbody>
+                    <tr>
+                      <td className='col-md-1'><strong>Raid</strong></td>
+                      <td className='col-md-1'><strong>Boss</strong></td>
+                      <td className='col-md-2'><strong>Tanks</strong> <strong>({tankCount})</strong></td>
+                      <td className='col-md-2'><strong>Healers</strong> <strong>({healerCount})</strong></td>
+                      <td className='col-md-2'><strong>DPS</strong> <strong>({dpsCount})</strong></td>
+                      <td className='col-md-2'><strong>Standby</strong> <strong>({standbyCount})</strong></td>
+                    </tr>
+                    <tr>
+                      <td className='col-md-1'>{schedule_boss.raid.name}</td>
+                      <td className='col-md-1'>{schedule_boss.boss.name}</td>
+                      <td className='col-md-2'>
+                      <table className='table'>
+                        <tbody>
+                          {tankRows}
+                        </tbody>
+                      </table></td>
+                      <td className='col-md-2'>
+                        <table className='table'>
+                          <tbody>
+                            {healerRows}
+                          </tbody>
+                        </table>
+                      </td>
+                      <td className='col-md-2'>
+                        <table className='table'>
+                          <tbody>
+                            {dpsRows}
+                          </tbody>
+                        </table>
+                      </td>
+                      <td className='col-md-2'>
+                        <table className='table'>
+                          <tbody>
+                            {standbyRows}
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         );
       }, this);
