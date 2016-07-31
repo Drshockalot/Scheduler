@@ -66,16 +66,15 @@ class ProfileSchedules extends React.Component {
             var scheduleGroup = [];
             var bossDay = moment(bossesBySchedule[schedule][0].schedule.raid_week.start);
             if(!bossesBySchedule[schedule][0].published || bossDay.subtract(1, 'days').isBefore(moment())) {
-              continue;
-            }
-            for (var i = 0; i < bossesBySchedule[schedule].length; ++i) {
-              scheduleGroup.push(
-                <tr sortOrder={moment(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W')} scheduleName={bossesBySchedule[schedule][i].schedule.name}>
-                  <td className='col-xs-2 vert-align text-center'>{moment(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W')}</td>
-                  <td className='col-xs-2 vert-align text-center'>{bossesBySchedule[schedule][i].raid.name}</td>
-                  <td className='col-xs-2 vert-align text-center'>{bossesBySchedule[schedule][i].boss.name}</td>
-                </tr>
-              );
+              for (var i = 0; i < bossesBySchedule[schedule].length; ++i) {
+                scheduleGroup.push(
+                  <tr sortOrder={moment(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W')} scheduleName={bossesBySchedule[schedule][i].schedule.name}>
+                    <td className='col-xs-2 vert-align text-center'>{moment(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W')}</td>
+                    <td className='col-xs-2 vert-align text-center'>{bossesBySchedule[schedule][i].raid.name}</td>
+                    <td className='col-xs-2 vert-align text-center'>{bossesBySchedule[schedule][i].boss.name}</td>
+                  </tr>
+                );
+              }
             }
             tableContent.push(scheduleGroup);
           }
