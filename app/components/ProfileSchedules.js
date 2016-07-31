@@ -55,7 +55,7 @@ class ProfileSchedules extends React.Component {
     var pageContent;
     if(this.state.user) {
       if(this.state.user.characters.length > 0) {
-        var characterList = this.state.user.characters.map(function(character, index) {
+        pageContent = this.state.user.characters.map(function(character, index) {
           var bossesBySchedule = _.groupBy(character.schedule_bosses, 'schedule_id');
           var tableContent = [];
           for (var schedule in bossesBySchedule) {
