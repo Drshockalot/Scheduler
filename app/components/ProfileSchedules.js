@@ -103,7 +103,7 @@ class ProfileSchedules extends React.Component {
                           <td className='col-xs-3 vert-align text-center'><strong>Boss</strong></td>
                         </tr>
                         {tableContent.map(function(scheduleGroup) {
-                          return _.sortBy(scheduleGroup, function(boss) {return boss.props.sortOrder;}).map(function(schedule_boss) {
+                          return _.sortBy(scheduleGroup, function(boss) {return boss.props.sortOrder;}).reverse().map(function(schedule_boss) {
                             return schedule_boss;
                           });
                         })}
