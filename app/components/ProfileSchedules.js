@@ -4,7 +4,7 @@ import ProfileSchedulesStore from '../stores/ProfileSchedulesStore';
 import ProfileSchedulesActions from '../actions/ProfileSchedulesActions';
 import NavbarStore from '../stores/NavbarStore';
 import ProfileSideNav from './ProfileSidenav';
-var WowClasses = require('../../utility/WowClasses');
+var wowClasses = require('../../utility/WowClasses');
 import classNames from 'classnames';
 import _ from 'underscore';
 
