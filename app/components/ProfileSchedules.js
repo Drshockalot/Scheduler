@@ -76,7 +76,7 @@ class ProfileSchedules extends React.Component {
             tableContent.push(scheduleGroup);
           }
           var finalContent = [];
-          tableContent = _.sortBy(tableContent, function(schedule) { return Number(schedule[0].props.sortOrder);});
+          tableContent = _.sortBy(tableContent, function(schedule) { return Number(schedule[0].props.sortOrder);}).reverse();
           for(var i = 0; i < tableContent.length; ++i) {
             finalContent.push(
               <div className='row'>
