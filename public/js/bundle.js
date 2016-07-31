@@ -4389,7 +4389,7 @@ var ProfileSchedules = function (_React$Component) {
               _react2.default.createElement(
                 'div',
                 { className: 'row' },
-                _react2.default.createElement('div', { className: classColour(character) }),
+                _react2.default.createElement('div', { className: this.classColour(character) }),
                 _react2.default.createElement(
                   'div',
                   { className: 'col-xs-11' },

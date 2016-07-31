@@ -75,7 +75,7 @@ class ProfileSchedules extends React.Component {
           return (
             <div className='row'>
               <div className='row'>
-                <div className={classColour(character)}></div>
+                <div className={this.classColour(character)}></div>
                 <div className='col-xs-11'><h3>{character.name}</h3></div>
               </div>
               <div className='row'>
