@@ -4362,11 +4362,11 @@ var ProfileSchedules = function (_React$Component) {
             var tableContent = [];
             for (var schedule in bossesBySchedule) {
               var scheduleGroup = [];
+              var bossDay = (0, _moment2.default)(bossesBySchedule[schedule][0].schedule.raid_week.start);
+              if (!bossesBySchedule[schedule][0].published || bossDay.subtract(1, 'days').isBefore((0, _moment2.default)())) {
+                continue;
+              }
               for (var i = 0; i < bossesBySchedule[schedule].length; ++i) {
-                var bossDay = (0, _moment2.default)(bossesBySchedule[schedule][i].schedule.raid_week.start);
-                if (!bossesBySchedule[schedule][i].published || bossDay.subtract(1, 'days').isBefore((0, _moment2.default)())) {
-                  continue;
-                }
                 scheduleGroup.push(_react2.default.createElement(
                   'tr',
                   { sortOrder: (0, _moment2.default)(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W'), scheduleName: bossesBySchedule[schedule][i].schedule.name },
