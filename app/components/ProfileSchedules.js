@@ -112,11 +112,11 @@ class ProfileSchedules extends React.Component {
             <div className='row'>
               <div className='col-xs-12'>
                 <div className='row'>
-                  <div className='col-xs-12'>
+                  <div className='col-xs-6'>
                     <table className='table'>
                       <tbody>
                         <tr>
-                          <td style={{width: '5% !important'}} className={this.classColour(character)}></td>
+                          <td className={this.classColour(character)}></td>
                           <td><h3>{character.name}</h3></td>
                         </tr>
                       </tbody>
