@@ -116,7 +116,7 @@ class ProfileSchedules extends React.Component {
                     <table className='table'>
                       <tbody>
                         <tr>
-                          <td style='width: 5% !important' className={this.classColour(character)}></td>
+                          <td style={{width: '5% !important'}} className={this.classColour(character)}></td>
                           <td><h3>{character.name}</h3></td>
                         </tr>
                       </tbody>

@@ -4474,7 +4474,7 @@ var ProfileSchedules = function (_React$Component) {
                         _react2.default.createElement(
                           'tr',
                           null,
-                          _react2.default.createElement('td', { style: 'width: 5% !important', className: this.classColour(character) }),
+                          _react2.default.createElement('td', { style: { width: '5% !important' }, className: this.classColour(character) }),
                           _react2.default.createElement(
                             'td',
                             null,
