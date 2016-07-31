@@ -4365,7 +4365,7 @@ var ProfileSchedules = function (_React$Component) {
               for (var i = 0; i < bossesBySchedule[schedule].length; ++i) {
                 scheduleGroup.push(_react2.default.createElement(
                   'tr',
-                  { sortOrder: (0, _moment2.default)(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W') },
+                  { sortOrder: (0, _moment2.default)(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W'), scheduleName: bossesBySchedule[schedule][i].schedule.name },
                   _react2.default.createElement(
                     'td',
                     { className: 'col-xs-3 vert-align text-center' },
@@ -4389,6 +4389,71 @@ var ProfileSchedules = function (_React$Component) {
                 ));
               }
               tableContent.push(scheduleGroup);
+            }
+            var finalContent = [];
+            for (var i = 0; i < tableContent.length; ++i) {
+              finalContent.push(_react2.default.createElement(
+                'div',
+                { className: 'row' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-xs-12' },
+                  _react2.default.createElement(
+                    'h4',
+                    null,
+                    'tableContent[i][0].props.scheduleName'
+                  ),
+                  _react2.default.createElement(
+                    'table',
+                    { className: 'table' },
+                    _react2.default.createElement(
+                      'tbody',
+                      null,
+                      _react2.default.createElement(
+                        'tr',
+                        null,
+                        _react2.default.createElement(
+                          'td',
+                          { className: 'col-xs-3 vert-align text-center' },
+                          _react2.default.createElement(
+                            'strong',
+                            null,
+                            'Schedule'
+                          )
+                        ),
+                        _react2.default.createElement(
+                          'td',
+                          { className: 'col-xs-3 vert-align text-center' },
+                          _react2.default.createElement(
+                            'strong',
+                            null,
+                            'Raid Week'
+                          )
+                        ),
+                        _react2.default.createElement(
+                          'td',
+                          { className: 'col-xs-3 vert-align text-center' },
+                          _react2.default.createElement(
+                            'strong',
+                            null,
+                            'Raid'
+                          )
+                        ),
+                        _react2.default.createElement(
+                          'td',
+                          { className: 'col-xs-3 vert-align text-center' },
+                          _react2.default.createElement(
+                            'strong',
+                            null,
+                            'Boss'
+                          )
+                        )
+                      ),
+                      tableContent[i]
+                    )
+                  )
+                )
+              ));
             }
 
             return _react2.default.createElement(
@@ -4433,61 +4498,7 @@ var ProfileSchedules = function (_React$Component) {
                   _react2.default.createElement(
                     'div',
                     { className: 'col-xs-12' },
-                    _react2.default.createElement(
-                      'table',
-                      { className: 'table' },
-                      _react2.default.createElement(
-                        'tbody',
-                        null,
-                        _react2.default.createElement(
-                          'tr',
-                          null,
-                          _react2.default.createElement(
-                            'td',
-                            { className: 'col-xs-3 vert-align text-center' },
-                            _react2.default.createElement(
-                              'strong',
-                              null,
-                              'Schedule'
-                            )
-                          ),
-                          _react2.default.createElement(
-                            'td',
-                            { className: 'col-xs-3 vert-align text-center' },
-                            _react2.default.createElement(
-                              'strong',
-                              null,
-                              'Raid Week'
-                            )
-                          ),
-                          _react2.default.createElement(
-                            'td',
-                            { className: 'col-xs-3 vert-align text-center' },
-                            _react2.default.createElement(
-                              'strong',
-                              null,
-                              'Raid'
-                            )
-                          ),
-                          _react2.default.createElement(
-                            'td',
-                            { className: 'col-xs-3 vert-align text-center' },
-                            _react2.default.createElement(
-                              'strong',
-                              null,
-                              'Boss'
-                            )
-                          )
-                        ),
-                        tableContent.map(function (scheduleGroup) {
-                          return _underscore2.default.sortBy(scheduleGroup, function (boss) {
-                            return boss.props.sortOrder;
-                          }).reverse().map(function (schedule_boss) {
-                            return schedule_boss;
-                          });
-                        })
-                      )
-                    )
+                    finalContent
                   )
                 )
               )
