@@ -4354,6 +4354,10 @@ var ProfileSchedules = function (_React$Component) {
       if (this.state.user) {
         if (this.state.user.characters.length > 0) {
           pageContent = this.state.user.characters.map(function (character, index) {
+            if (character.schedule_bosses.length == 0) {
+              return null;
+            }
+
             var bossesBySchedule = _underscore2.default.groupBy(character.schedule_bosses, 'schedule_id');
             var tableContent = [];
             for (var schedule in bossesBySchedule) {
@@ -4361,7 +4365,7 @@ var ProfileSchedules = function (_React$Component) {
               for (var i = 0; i < bossesBySchedule[schedule].length; ++i) {
                 scheduleGroup.push(_react2.default.createElement(
                   'tr',
-                  null,
+                  { sortOrder: (0, _moment2.default)(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W') },
                   _react2.default.createElement(
                     'td',
                     { className: 'col-xs-3 vert-align text-center' },
@@ -4476,7 +4480,9 @@ var ProfileSchedules = function (_React$Component) {
                           )
                         ),
                         tableContent.map(function (scheduleGroup) {
-                          return scheduleGroup.map(function (schedule_boss) {
+                          return _underscore2.default.sortBy(scheduleGroup, function (boss) {
+                            return boss.props.sortOrder;
+                          }).reverse().map(function (schedule_boss) {
                             return schedule_boss;
                           });
                         })

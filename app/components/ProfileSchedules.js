@@ -56,13 +56,17 @@ class ProfileSchedules extends React.Component {
     if(this.state.user) {
       if(this.state.user.characters.length > 0) {
         pageContent = this.state.user.characters.map(function(character, index) {
+          if (character.schedule_bosses.length == 0) {
+            return null;
+          }
+
           var bossesBySchedule = _.groupBy(character.schedule_bosses, 'schedule_id');
           var tableContent = [];
           for (var schedule in bossesBySchedule) {
             var scheduleGroup = [];
             for (var i = 0; i < bossesBySchedule[schedule].length; ++i) {
               scheduleGroup.push(
-                <tr>
+                <tr sortOrder={moment(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W')}>
                   <td className='col-xs-3 vert-align text-center'>{bossesBySchedule[schedule][i].schedule.name}</td>
                   <td className='col-xs-3 vert-align text-center'>{moment(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W')}</td>
                   <td className='col-xs-3 vert-align text-center'>{bossesBySchedule[schedule][i].raid.name}</td>
@@ -99,7 +103,7 @@ class ProfileSchedules extends React.Component {
                           <td className='col-xs-3 vert-align text-center'><strong>Boss</strong></td>
                         </tr>
                         {tableContent.map(function(scheduleGroup) {
-                          return scheduleGroup.map(function(schedule_boss) {
+                          return _.sortBy(scheduleGroup, function(boss) {return boss.props.sortOrder;}).reverse().map(function(schedule_boss) {
                             return schedule_boss;
                           });
                         })}
