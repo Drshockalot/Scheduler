@@ -4363,7 +4363,7 @@ var ProfileSchedules = function (_React$Component) {
             for (var schedule in bossesBySchedule) {
               var scheduleGroup = [];
               var bossDay = (0, _moment2.default)(bossesBySchedule[schedule][0].schedule.raid_week.start);
-              if (!bossesBySchedule[schedule][0].published || bossDay.subtract(1, 'days').isBefore((0, _moment2.default)())) {
+              if (bossesBySchedule[schedule][0].published || bossDay.subtract(1, 'days').isAfter((0, _moment2.default)())) {
                 for (var i = 0; i < bossesBySchedule[schedule].length; ++i) {
                   scheduleGroup.push(_react2.default.createElement(
                     'tr',
