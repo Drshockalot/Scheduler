@@ -4392,8 +4392,7 @@ var ProfileSchedules = function (_React$Component) {
             var finalContent = [];
             console.log(tableContent);
             tableContent = _underscore2.default.sortBy(tableContent, function (schedule) {
-              var sortOrder = Number(schedule[0].props.sortOrder);
-              return sortOrder ? sortOrder : 0;
+              if (schedule.length > 0) return Number(schedule[0].props.sortOrder);
             }).reverse();
             for (var i = 0; i < tableContent.length; ++i) {
               finalContent.push(_react2.default.createElement(
