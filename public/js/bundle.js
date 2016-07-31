@@ -4347,9 +4347,9 @@ var ProfileSchedules = function (_React$Component) {
       }
 
       var pageContent;
-      if (user) {
-        if (user.characters.length > 0) {
-          var characterList = user.characters.map(function (character, index) {
+      if (this.state.user) {
+        if (this.state.user.characters.length > 0) {
+          var characterList = this.state.user.characters.map(function (character, index) {
             var bossesBySchedule = _underscore2.default.groupBy(character.schedule_bosses, 'schedule_id');
             var tableContent = [];
             for (var schedule in bossesBySchedule) {
