@@ -75,27 +75,37 @@ class ProfileSchedules extends React.Component {
 
           return (
             <div className='row'>
-              <div className='row'>
-                <div className={this.classColour(character)}></div>
-                <div className='col-xs-11'><h3>{character.name}</h3></div>
-              </div>
-              <div className='row'>
-                <div className='col-xs-12'>
-                  <table className='table'>
-                    <tbody>
-                      <tr>
-                        <td className='col-xs-3 vert-align text-center'><strong>Schedule</strong></td>
-                        <td className='col-xs-3 vert-align text-center'><strong>Raid Week</strong></td>
-                        <td className='col-xs-3 vert-align text-center'><strong>Raid</strong></td>
-                        <td className='col-xs-3 vert-align text-center'><strong>Boss</strong></td>
-                      </tr>
-                      {tableContent.map(function(scheduleGroup) {
-                        return scheduleGroup.map(function(schedule_boss) {
-                          return schedule_boss;
-                        });
-                      })}
-                    </tbody>
-                  </table>
+              <div className='col-xs-12'>
+                <div className='row'>
+                  <div className='col-xs-12'>
+                    <table className='table'>
+                      <tbody>
+                        <tr>
+                          <td className={this.classColour(character)}></td>
+                          <td><h3>{character.name}</h3></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div className='row'>
+                  <div className='col-xs-12'>
+                    <table className='table'>
+                      <tbody>
+                        <tr>
+                          <td className='col-xs-3 vert-align text-center'><strong>Schedule</strong></td>
+                          <td className='col-xs-3 vert-align text-center'><strong>Raid Week</strong></td>
+                          <td className='col-xs-3 vert-align text-center'><strong>Raid</strong></td>
+                          <td className='col-xs-3 vert-align text-center'><strong>Boss</strong></td>
+                        </tr>
+                        {tableContent.map(function(scheduleGroup) {
+                          return scheduleGroup.map(function(schedule_boss) {
+                            return schedule_boss;
+                          });
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>

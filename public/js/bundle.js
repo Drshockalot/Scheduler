@@ -4392,75 +4392,95 @@ var ProfileSchedules = function (_React$Component) {
               { className: 'row' },
               _react2.default.createElement(
                 'div',
-                { className: 'row' },
-                _react2.default.createElement('div', { className: this.classColour(character) }),
+                { className: 'col-xs-12' },
                 _react2.default.createElement(
                   'div',
-                  { className: 'col-xs-11' },
+                  { className: 'row' },
                   _react2.default.createElement(
-                    'h3',
-                    null,
-                    character.name
-                  )
-                )
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'row' },
-                _react2.default.createElement(
-                  'div',
-                  { className: 'col-xs-12' },
-                  _react2.default.createElement(
-                    'table',
-                    { className: 'table' },
+                    'div',
+                    { className: 'col-xs-12' },
                     _react2.default.createElement(
-                      'tbody',
-                      null,
+                      'table',
+                      { className: 'table' },
                       _react2.default.createElement(
-                        'tr',
+                        'tbody',
                         null,
                         _react2.default.createElement(
-                          'td',
-                          { className: 'col-xs-3 vert-align text-center' },
+                          'tr',
+                          null,
+                          _react2.default.createElement('td', { className: this.classColour(character) }),
                           _react2.default.createElement(
-                            'strong',
+                            'td',
                             null,
-                            'Schedule'
-                          )
-                        ),
-                        _react2.default.createElement(
-                          'td',
-                          { className: 'col-xs-3 vert-align text-center' },
-                          _react2.default.createElement(
-                            'strong',
-                            null,
-                            'Raid Week'
-                          )
-                        ),
-                        _react2.default.createElement(
-                          'td',
-                          { className: 'col-xs-3 vert-align text-center' },
-                          _react2.default.createElement(
-                            'strong',
-                            null,
-                            'Raid'
-                          )
-                        ),
-                        _react2.default.createElement(
-                          'td',
-                          { className: 'col-xs-3 vert-align text-center' },
-                          _react2.default.createElement(
-                            'strong',
-                            null,
-                            'Boss'
+                            _react2.default.createElement(
+                              'h3',
+                              null,
+                              character.name
+                            )
                           )
                         )
-                      ),
-                      tableContent.map(function (scheduleGroup) {
-                        return scheduleGroup.map(function (schedule_boss) {
-                          return schedule_boss;
-                        });
-                      })
+                      )
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'row' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'col-xs-12' },
+                    _react2.default.createElement(
+                      'table',
+                      { className: 'table' },
+                      _react2.default.createElement(
+                        'tbody',
+                        null,
+                        _react2.default.createElement(
+                          'tr',
+                          null,
+                          _react2.default.createElement(
+                            'td',
+                            { className: 'col-xs-3 vert-align text-center' },
+                            _react2.default.createElement(
+                              'strong',
+                              null,
+                              'Schedule'
+                            )
+                          ),
+                          _react2.default.createElement(
+                            'td',
+                            { className: 'col-xs-3 vert-align text-center' },
+                            _react2.default.createElement(
+                              'strong',
+                              null,
+                              'Raid Week'
+                            )
+                          ),
+                          _react2.default.createElement(
+                            'td',
+                            { className: 'col-xs-3 vert-align text-center' },
+                            _react2.default.createElement(
+                              'strong',
+                              null,
+                              'Raid'
+                            )
+                          ),
+                          _react2.default.createElement(
+                            'td',
+                            { className: 'col-xs-3 vert-align text-center' },
+                            _react2.default.createElement(
+                              'strong',
+                              null,
+                              'Boss'
+                            )
+                          )
+                        ),
+                        tableContent.map(function (scheduleGroup) {
+                          return scheduleGroup.map(function (schedule_boss) {
+                            return schedule_boss;
+                          });
+                        })
+                      )
                     )
                   )
                 )
