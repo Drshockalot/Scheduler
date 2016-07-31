@@ -4401,7 +4401,7 @@ var ProfileSchedules = function (_React$Component) {
                   _react2.default.createElement(
                     'h4',
                     null,
-                    'tableContent[i][0].props.scheduleName'
+                    tableContent[i][0].props.scheduleName
                   ),
                   _react2.default.createElement(
                     'table',

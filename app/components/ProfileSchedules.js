@@ -81,7 +81,7 @@ class ProfileSchedules extends React.Component {
             finalContent.push(
               <div className='row'>
                 <div className='col-xs-12'>
-                  <h4>tableContent[i][0].props.scheduleName</h4>
+                  <h4>{tableContent[i][0].props.scheduleName}</h4>
                   <table className='table'>
                     <tbody>
                       <tr>
