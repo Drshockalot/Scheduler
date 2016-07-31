@@ -4965,171 +4965,163 @@ var SingleScheduleView = function (_React$Component) {
             'div',
             { className: 'row' },
             _react2.default.createElement(
-              'div',
-              { className: 'col-xs-10 col-xs-offset-1' },
+              'table',
+              { className: 'table' },
               _react2.default.createElement(
-                'div',
-                { className: 'row' },
+                'tbody',
+                null,
                 _react2.default.createElement(
-                  'table',
-                  { className: 'table' },
+                  'tr',
+                  null,
                   _react2.default.createElement(
-                    'tbody',
-                    null,
+                    'td',
+                    { className: 'col-md-1' },
                     _react2.default.createElement(
-                      'tr',
+                      'strong',
                       null,
-                      _react2.default.createElement(
-                        'td',
-                        { className: 'col-md-1' },
-                        _react2.default.createElement(
-                          'strong',
-                          null,
-                          'Raid'
-                        )
-                      ),
-                      _react2.default.createElement(
-                        'td',
-                        { className: 'col-md-1' },
-                        _react2.default.createElement(
-                          'strong',
-                          null,
-                          'Boss'
-                        )
-                      ),
-                      _react2.default.createElement(
-                        'td',
-                        { className: 'col-md-2' },
-                        _react2.default.createElement(
-                          'strong',
-                          null,
-                          'Tanks'
-                        ),
-                        ' ',
-                        _react2.default.createElement(
-                          'strong',
-                          null,
-                          '(',
-                          tankCount,
-                          ')'
-                        )
-                      ),
-                      _react2.default.createElement(
-                        'td',
-                        { className: 'col-md-2' },
-                        _react2.default.createElement(
-                          'strong',
-                          null,
-                          'Healers'
-                        ),
-                        ' ',
-                        _react2.default.createElement(
-                          'strong',
-                          null,
-                          '(',
-                          healerCount,
-                          ')'
-                        )
-                      ),
-                      _react2.default.createElement(
-                        'td',
-                        { className: 'col-md-2' },
-                        _react2.default.createElement(
-                          'strong',
-                          null,
-                          'DPS'
-                        ),
-                        ' ',
-                        _react2.default.createElement(
-                          'strong',
-                          null,
-                          '(',
-                          dpsCount,
-                          ')'
-                        )
-                      ),
-                      _react2.default.createElement(
-                        'td',
-                        { className: 'col-md-2' },
-                        _react2.default.createElement(
-                          'strong',
-                          null,
-                          'Standby'
-                        ),
-                        ' ',
-                        _react2.default.createElement(
-                          'strong',
-                          null,
-                          '(',
-                          standbyCount,
-                          ')'
-                        )
-                      )
+                      'Raid'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-md-1' },
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Boss'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-md-2' },
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Tanks'
                     ),
+                    ' ',
                     _react2.default.createElement(
-                      'tr',
+                      'strong',
                       null,
+                      '(',
+                      tankCount,
+                      ')'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-md-2' },
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Healers'
+                    ),
+                    ' ',
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      '(',
+                      healerCount,
+                      ')'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-md-2' },
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'DPS'
+                    ),
+                    ' ',
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      '(',
+                      dpsCount,
+                      ')'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-md-2' },
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Standby'
+                    ),
+                    ' ',
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      '(',
+                      standbyCount,
+                      ')'
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  'tr',
+                  null,
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-md-1' },
+                    schedule_boss.raid.name
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-md-1' },
+                    schedule_boss.boss.name
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-md-2' },
+                    _react2.default.createElement(
+                      'table',
+                      { className: 'table' },
                       _react2.default.createElement(
-                        'td',
-                        { className: 'col-md-1' },
-                        schedule_boss.raid.name
-                      ),
+                        'tbody',
+                        null,
+                        tankRows
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-md-2' },
+                    _react2.default.createElement(
+                      'table',
+                      { className: 'table' },
                       _react2.default.createElement(
-                        'td',
-                        { className: 'col-md-1' },
-                        schedule_boss.boss.name
-                      ),
+                        'tbody',
+                        null,
+                        healerRows
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-md-2' },
+                    _react2.default.createElement(
+                      'table',
+                      { className: 'table' },
                       _react2.default.createElement(
-                        'td',
-                        { className: 'col-md-2' },
-                        _react2.default.createElement(
-                          'table',
-                          { className: 'table' },
-                          _react2.default.createElement(
-                            'tbody',
-                            null,
-                            tankRows
-                          )
-                        )
-                      ),
+                        'tbody',
+                        null,
+                        dpsRows
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-md-2' },
+                    _react2.default.createElement(
+                      'table',
+                      { className: 'table' },
                       _react2.default.createElement(
-                        'td',
-                        { className: 'col-md-2' },
-                        _react2.default.createElement(
-                          'table',
-                          { className: 'table' },
-                          _react2.default.createElement(
-                            'tbody',
-                            null,
-                            healerRows
-                          )
-                        )
-                      ),
-                      _react2.default.createElement(
-                        'td',
-                        { className: 'col-md-2' },
-                        _react2.default.createElement(
-                          'table',
-                          { className: 'table' },
-                          _react2.default.createElement(
-                            'tbody',
-                            null,
-                            dpsRows
-                          )
-                        )
-                      ),
-                      _react2.default.createElement(
-                        'td',
-                        { className: 'col-md-2' },
-                        _react2.default.createElement(
-                          'table',
-                          { className: 'table' },
-                          _react2.default.createElement(
-                            'tbody',
-                            null,
-                            standbyRows
-                          )
-                        )
+                        'tbody',
+                        null,
+                        standbyRows
                       )
                     )
                   )
@@ -5143,8 +5135,16 @@ var SingleScheduleView = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { className: 'row' },
-        scheduleName,
-        scheduleBossRows
+        _react2.default.createElement(
+          'div',
+          { className: 'row' },
+          _react2.default.createElement(
+            'div',
+            { className: 'col-xs-10 col-xs-offset-1' },
+            scheduleName,
+            scheduleBossRows
+          )
+        )
       );
     }
   }]);
