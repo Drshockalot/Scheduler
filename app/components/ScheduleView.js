@@ -42,11 +42,9 @@ class ScheduleView extends React.Component {
       return null;
 
     return (
-      <div id='wrapper'>
-        <div id='page-content-wrapper'>
-          <div className='container-fluid'>
-            {scheduleView}
-          </div>
+      <div id='page-content-wrapper'>
+        <div className='container-fluid'>
+          {scheduleView}
         </div>
       </div>
     );
