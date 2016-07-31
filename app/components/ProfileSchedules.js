@@ -89,7 +89,6 @@ class ProfileSchedules extends React.Component {
                         <td className='col-xs-3 vert-align text-center'><strong>Raid</strong></td>
                         <td className='col-xs-3 vert-align text-center'><strong>Boss</strong></td>
                       </tr>
-                      //Need to iterate through and output the inner arrays
                       {tableContent.map(function(scheduleGroup) {
                         return scheduleGroup.map(function(schedule_boss) {
                           return schedule_boss;

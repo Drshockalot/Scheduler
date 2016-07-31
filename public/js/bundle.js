@@ -4456,7 +4456,6 @@ var ProfileSchedules = function (_React$Component) {
                           )
                         )
                       ),
-                      '//Need to iterate through and output the inner arrays',
                       tableContent.map(function (scheduleGroup) {
                         return scheduleGroup.map(function (schedule_boss) {
                           return schedule_boss;
