@@ -86,6 +86,9 @@ class ProfileSchedules extends React.Component {
               return Number(schedule[0].props.sortOrder);
           }).reverse();
           for(var i = 0; i < tableContent.length; ++i) {
+            if(tableContent[i].length  == 0) {
+              continue;
+            }
             finalContent.push(
               <div className='row'>
                 <div className='col-xs-10 col-xs-offset-1'>

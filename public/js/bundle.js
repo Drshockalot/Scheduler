@@ -4395,6 +4395,9 @@ var ProfileSchedules = function (_React$Component) {
               if (schedule.length > 0) return Number(schedule[0].props.sortOrder);
             }).reverse();
             for (var i = 0; i < tableContent.length; ++i) {
+              if (tableContent[i].length == 0) {
+                continue;
+              }
               finalContent.push(_react2.default.createElement(
                 'div',
                 { className: 'row' },
