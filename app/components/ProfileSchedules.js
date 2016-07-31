@@ -65,6 +65,10 @@ class ProfileSchedules extends React.Component {
           for (var schedule in bossesBySchedule) {
             var scheduleGroup = [];
             for (var i = 0; i < bossesBySchedule[schedule].length; ++i) {
+              var bossDay = moment(bossesBySchedule[schedule][i].schedule.raid_week.start);
+              if(!bossesBySchedule[schedule][i].published || bossday.subtract(1, 'days').isBefore(moment())) {
+                continue;
+              }
               scheduleGroup.push(
                 <tr sortOrder={moment(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W')} scheduleName={bossesBySchedule[schedule][i].schedule.name}>
                   <td className='col-xs-2 vert-align text-center'>{moment(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W')}</td>
