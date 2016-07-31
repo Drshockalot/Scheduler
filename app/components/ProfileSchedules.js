@@ -7,6 +7,7 @@ import ProfileSideNav from './ProfileSidenav';
 var wowClasses = require('../../utility/WowClasses');
 import classNames from 'classnames';
 import _ from 'underscore';
+import moment from 'moment';
 
 class ProfileSchedules extends React.Component {
   constructor(props, context) {

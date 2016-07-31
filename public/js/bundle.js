@@ -4282,6 +4282,10 @@ var _underscore = require('underscore');
 
 var _underscore2 = _interopRequireDefault(_underscore);
 
+var _moment = require('moment');
+
+var _moment2 = _interopRequireDefault(_moment);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -4366,7 +4370,7 @@ var ProfileSchedules = function (_React$Component) {
                   _react2.default.createElement(
                     'td',
                     { className: 'col-xs-3 vert-align text-center' },
-                    moment(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W')
+                    (0, _moment2.default)(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W')
                   ),
                   _react2.default.createElement(
                     'td',
@@ -4503,7 +4507,7 @@ var ProfileSchedules = function (_React$Component) {
 
 exports.default = ProfileSchedules;
 
-},{"../../utility/WowClasses":356,"../actions/ProfileSchedulesActions":8,"../stores/NavbarStore":52,"../stores/ProfileSchedulesStore":56,"./ProfileSidenav":33,"classnames":72,"react":"react","react-router":"react-router","underscore":"underscore"}],33:[function(require,module,exports){
+},{"../../utility/WowClasses":356,"../actions/ProfileSchedulesActions":8,"../stores/NavbarStore":52,"../stores/ProfileSchedulesStore":56,"./ProfileSidenav":33,"classnames":72,"moment":174,"react":"react","react-router":"react-router","underscore":"underscore"}],33:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
