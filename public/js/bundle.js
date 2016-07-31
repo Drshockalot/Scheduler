@@ -2154,6 +2154,51 @@ var Home = function (_React$Component) {
                       _react2.default.createElement(
                         'h4',
                         null,
+                        (0, _moment2.default)('2016-07-31').format('MMM Do YYYY')
+                      ),
+                      _react2.default.createElement(
+                        'ul',
+                        null,
+                        _react2.default.createElement(
+                          'li',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
+                            'User Profile'
+                          ),
+                          _react2.default.createElement(
+                            'ul',
+                            null,
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'A new section has been added: Schedules'
+                            ),
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'This section shows the user all of the published bosses and raids that their characters have been assigned to'
+                            ),
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'This will only show future bosses/schedules'
+                            )
+                          )
+                        )
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'h4',
+                        null,
                         (0, _moment2.default)('2016-07-30').format('MMM Do YYYY')
                       ),
                       _react2.default.createElement(

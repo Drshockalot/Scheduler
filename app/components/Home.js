@@ -116,6 +116,21 @@ class Home extends React.Component {
                 <tbody>
                   <tr>
                     <td>
+                      <h4>{moment('2016-07-31').format('MMM Do YYYY')}</h4>
+                      <ul>
+                        <li>
+                          <h5>User Profile</h5>
+                          <ul>
+                            <li>A new section has been added: Schedules</li>
+                            <li>This section shows the user all of the published bosses and raids that their characters have been assigned to</li>
+                            <li>This will only show future bosses/schedules</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       <h4>{moment('2016-07-30').format('MMM Do YYYY')}</h4>
                       <ul>
                         <li>
