@@ -187,10 +187,18 @@ router.get('/admin/view', function(req, res, next) {
                                  Attendance_Count.forge()
                                                  .fetchAll()
                                                  .then(function(attendanceCount) {
-                                                   res.json({error: false, data: {message: 'Data retrieved', attendanceRecords: attendanceRecords.toJSON(),
-                                                                                                             rosters: rosters.toJSON(),
-                                                                                                             raids: raids.toJSON(),
-                                                                                                             attendanceCount: attendanceCount.toJSON()}});
+                                                   User.forge()
+                                                       .fetchAll({'withRelated': ['characters', 'characters.schedule_bosses', 'characters.schedule_bosses.boss', 'characters.schedule_bosses.raid', 'characters.schedule_bosses.schedule', 'characters.schedule_bosses.schedule.raid_week']})
+                                                       .then(function(users) {
+                                                         res.json({error: false, data: {message: 'Data retrieved', attendanceRecords: attendanceRecords.toJSON(),
+                                                                                                                   rosters: rosters.toJSON(),
+                                                                                                                   raids: raids.toJSON(),
+                                                                                                                   attendanceCount: attendanceCount.toJSON(),
+                                                                                                                   users: users.toJSON()}});
+                                                       })
+                                                       .catch(function(err) {
+                                                         res.status(500).json({error: true, data: {message: err.message}});
+                                                       });
                                                  })
                                                  .catch(function(err) {
                                                    res.status(500).json({error: true, data: {message: err.message}});

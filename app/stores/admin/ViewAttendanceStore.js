@@ -8,6 +8,7 @@ class ViewAttendanceStore {
     this.rosters = [];
     this.raids = [];
     this.attendanceCount = [];
+    this.users = [];
     this.selectRoster = 0;
     this.selectRaid = 0;
   }
@@ -19,6 +20,7 @@ class ViewAttendanceStore {
     this.raids = result.data.raids;
     this.selectRaid = this.raids[0].id;
     this.attendanceCount = result.data.attendanceCount;
+    this.users = result.data.users;
   }
 
   onLoadComponentDataFailure(jqXhr) {

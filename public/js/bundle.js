@@ -9605,7 +9605,7 @@ var ViewAttendance = function (_React$Component) {
         return null;
       }
 
-      var selectRaidOptions, selectRosterOptions, userAttendanceRows;
+      var selectRaidOptions, selectRosterOptions, byRaidAttendanceRows;
 
       if (this.state.raids.length > 0) {
         selectRaidOptions = this.state.raids.map(function (raid) {
@@ -9628,18 +9628,22 @@ var ViewAttendance = function (_React$Component) {
       }
 
       if (this.state.attendanceRecords.length > 0 && this.state.attendanceCount.length > 0) {
-        var selectedRaid = _underscore2.default.findWhere(this.state.raids, { id: Number(this.state.selectRaid) });
-        var selectedRoster = _underscore2.default.findWhere(this.state.rosters, { id: Number(this.state.selectRoster) });
-        var totalCount = _underscore2.default.where(this.state.attendanceCount, { raid_id: Number(this.state.selectRaid), roster_id: Number(this.state.selectRoster) }).length;
+        // var selectedRaid = _.findWhere(this.state.raids, {id: Number(this.state.selectRaid)});
+        // var selectedRoster = _.findWhere(this.state.rosters, {id: Number(this.state.selectRoster)});
+        // var totalCount = _.where(this.state.attendanceCount, {raid_id: Number(this.state.selectRaid), roster_id: Number(this.state.selectRoster)}).length;
 
-        var loggedUsers = [];
-        for (var i = 0; i < selectedRoster.characters.length; ++i) {
-          if (!_underscore2.default.findWhere(loggedUsers, { id: selectedRoster.characters[i].user.id })) {
-            loggedUsers.push(selectedRoster.characters[i].user);
-          }
-        }
+        // var loggedUsers = [];
+        // for(var i = 0; i < selectedRoster.characters.length; ++i) {
+        //   if(!_.findWhere(loggedUsers, {id: selectedRoster.characters[i].user.id})) {
+        //     loggedUsers.push(selectedRoster.characters[i].user);
+        //   }
+        // }
 
-        userAttendanceRows = loggedUsers.map(function (user) {
+        byRaidAttendanceRows = this.state.users.map(function (user) {
+          var selectedRaid = _underscore2.default.findWhere(this.state.raids, { id: Number(this.state.selectRaid) });
+          var selectedRoster = _underscore2.default.findWhere(this.state.rosters, { id: Number(this.state.selectRoster) });
+          var totalCount = _underscore2.default.where(this.state.attendanceCount, { raid_id: Number(this.state.selectRaid), roster_id: Number(this.state.selectRoster) }).length;
+
           var userCharacters = user.characters;
           var userAttendanceCount = _underscore2.default.where(this.state.attendanceRecords, { user_id: Number(user.id), raid_id: Number(this.state.selectRaid), roster_id: Number(this.state.selectRoster) }).length;
           var attendancePercentage = userAttendanceCount / totalCount * 100;
@@ -9675,23 +9679,66 @@ var ViewAttendance = function (_React$Component) {
             { sortOrder: isNaN(attendancePercentage) ? 0 : attendancePercentage },
             _react2.default.createElement(
               'td',
-              { className: 'col-xs-3 text-center vert-align' },
-              selectedRaid.name
-            ),
-            _react2.default.createElement(
-              'td',
-              { className: 'col-xs-3 text-center vert-align' },
-              selectedRoster.name
-            ),
-            _react2.default.createElement(
-              'td',
-              { className: 'col-xs-3 text-center vert-align' },
+              { className: 'col-xs-6 text-center vert-align' },
               trigger
             ),
             _react2.default.createElement(
               'td',
-              { className: 'col-xs-3 text-center vert-align' },
+              { className: 'col-xs-6 text-center vert-align' },
               isNaN(attendancePercentage) ? 0 : attendancePercentage.toFixed(2),
+              ' %'
+            )
+          );
+        }, this);
+
+        generalAttendanceRows = this.state.users.map(function (user) {
+          var userCharacters = user.characters;
+          var userAttendanceCount = _underscore2.default.where(this.state.attendanceRecords, { user_id: Number(user.id) }).length;
+          var totalAttendanceCount = this.state.attendanceCount.length;
+          var lifetimeAttendancePercentage = userAttendanceCount / totalAttendanceCount * 100;
+
+          var characterRows = userCharacters.map(function (character) {
+            return _react2.default.createElement(
+              'div',
+              { className: 'clearfix hand-cursor' },
+              character.name,
+              _react2.default.createElement('strong', null)
+            );
+          });
+
+          var popover = _react2.default.createElement(
+            _reactBootstrap.Popover,
+            { id: user.id, title: 'Characters' },
+            characterRows
+          );
+
+          var trigger = _react2.default.createElement(
+            _reactBootstrap.OverlayTrigger,
+            { placement: 'right', trigger: 'click', rootClose: true, overlay: popover },
+            _react2.default.createElement(
+              'span',
+              { className: 'hand-cursor' },
+              user.battletag,
+              '    ❯'
+            )
+          );
+
+          return _react2.default.createElement(
+            'tr',
+            { sortOrder: isNaN(lifetimeAttendancePercentage) ? 0 : lifetimeAttendancePercentage },
+            _react2.default.createElement(
+              'td',
+              { className: 'col-xs-2 text-center vert-align' },
+              trigger
+            ),
+            _react2.default.createElement('td', { className: 'col-xs-2 text-center vert-align' }),
+            _react2.default.createElement('td', { className: 'col-xs-2 text-center vert-align' }),
+            _react2.default.createElement('td', { className: 'col-xs-2 text-center vert-align' }),
+            _react2.default.createElement('td', { className: 'col-xs-2 text-center vert-align' }),
+            _react2.default.createElement(
+              'td',
+              { className: 'col-xs-2 text-center vert-align' },
+              isNaN(lifetimeAttendancePercentage) ? 0 : lifetimeAttendancePercentage.toFixed(2),
               ' %'
             )
           );
@@ -9710,7 +9757,97 @@ var ViewAttendance = function (_React$Component) {
             _react2.default.createElement(
               'h2',
               null,
-              'View Attendance'
+              'View General Attendance'
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'row' },
+          _react2.default.createElement(
+            'div',
+            { className: 'col-xs-10' },
+            _react2.default.createElement(
+              'table',
+              { className: 'table' },
+              _react2.default.createElement(
+                'tbody',
+                null,
+                _react2.default.createElement(
+                  'tr',
+                  null,
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-xs-3 text-center' },
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'User'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-xs-3 text-center' },
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Last 15 days'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-xs-3 text-center' },
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Last 30 days'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-xs-3 text-center' },
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Last 60 days'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-xs-3 text-center' },
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Last 90 days'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
+                    { className: 'col-xs-3 text-center' },
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Lifetime'
+                    )
+                  )
+                ),
+                _underscore2.default.sortBy(generalAttendanceRows, function (row) {
+                  return row.props.sortOrder;
+                }).reverse()
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'row' },
+          _react2.default.createElement(
+            'div',
+            { className: 'col-xs-12' },
+            _react2.default.createElement(
+              'h2',
+              null,
+              'View Attendance By Raid'
             ),
             _react2.default.createElement(
               'div',
@@ -9779,24 +9916,6 @@ var ViewAttendance = function (_React$Component) {
                     _react2.default.createElement(
                       'strong',
                       null,
-                      'Raid'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'td',
-                    { className: 'col-xs-3 text-center' },
-                    _react2.default.createElement(
-                      'strong',
-                      null,
-                      'Roster'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'td',
-                    { className: 'col-xs-3 text-center' },
-                    _react2.default.createElement(
-                      'strong',
-                      null,
                       'User'
                     )
                   ),
@@ -9810,7 +9929,7 @@ var ViewAttendance = function (_React$Component) {
                     )
                   )
                 ),
-                _underscore2.default.sortBy(userAttendanceRows, function (row) {
+                _underscore2.default.sortBy(byRaidAttendanceRows, function (row) {
                   return row.props.sortOrder;
                 }).reverse()
               )
@@ -11838,6 +11957,7 @@ var ViewAttendanceStore = function () {
     this.rosters = [];
     this.raids = [];
     this.attendanceCount = [];
+    this.users = [];
     this.selectRoster = 0;
     this.selectRaid = 0;
   }
@@ -11851,6 +11971,7 @@ var ViewAttendanceStore = function () {
       this.raids = result.data.raids;
       this.selectRaid = this.raids[0].id;
       this.attendanceCount = result.data.attendanceCount;
+      this.users = result.data.users;
     }
   }, {
     key: 'onLoadComponentDataFailure',
