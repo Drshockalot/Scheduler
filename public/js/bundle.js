@@ -9686,7 +9686,11 @@ var ViewAttendance = function (_React$Component) {
               'td',
               { className: 'col-xs-6 text-center vert-align' },
               isNaN(attendancePercentage) ? 0 : attendancePercentage.toFixed(2),
-              ' %'
+              ' % (',
+              userAttendanceCount,
+              '/',
+              totalAttendanceCount,
+              ')'
             )
           );
         }, this);
@@ -9739,7 +9743,11 @@ var ViewAttendance = function (_React$Component) {
               'td',
               { className: 'col-xs-2 text-center vert-align' },
               isNaN(lifetimeAttendancePercentage) ? 0 : lifetimeAttendancePercentage.toFixed(2),
-              ' %'
+              ' % (',
+              lifetimeAttendancePercentage,
+              '/',
+              totalAttendanceCount,
+              ')'
             )
           );
         }, this);
