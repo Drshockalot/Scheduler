@@ -9605,7 +9605,7 @@ var ViewAttendance = function (_React$Component) {
         return null;
       }
 
-      var selectRaidOptions, selectRosterOptions, byRaidAttendanceRows;
+      var selectRaidOptions, selectRosterOptions, byRaidAttendanceRows, generalAttendanceRows;
 
       if (this.state.raids.length > 0) {
         selectRaidOptions = this.state.raids.map(function (raid) {
