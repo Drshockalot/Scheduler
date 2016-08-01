@@ -132,7 +132,7 @@ class ViewAttendance extends React.Component {
             <td className='col-xs-2 text-center vert-align'></td>
             <td className='col-xs-2 text-center vert-align'></td>
             <td className='col-xs-2 text-center vert-align'></td>
-            <td className='col-xs-2 text-center vert-align'>{isNaN(lifetimeAttendancePercentage) ? 0 : lifetimeAttendancePercentage.toFixed(2)}&nbsp;%&nbsp;({lifetimeAttendancePercentage}/{totalAttendanceCount})</td>
+            <td className='col-xs-2 text-center vert-align'>{isNaN(lifetimeAttendancePercentage) ? 0 : lifetimeAttendancePercentage.toFixed(2)}&nbsp;%&nbsp;({userAttendanceCount}/{totalAttendanceCount})</td>
           </tr>
         );
       }, this);

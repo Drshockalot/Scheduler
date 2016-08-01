@@ -9744,7 +9744,7 @@ var ViewAttendance = function (_React$Component) {
               { className: 'col-xs-2 text-center vert-align' },
               isNaN(lifetimeAttendancePercentage) ? 0 : lifetimeAttendancePercentage.toFixed(2),
               ' % (',
-              lifetimeAttendancePercentage,
+              userAttendanceCount,
               '/',
               totalAttendanceCount,
               ')'
