@@ -36,7 +36,7 @@ class ViewAttendance extends React.Component {
       return null;
     }
 
-    var selectRaidOptions, selectRosterOptions, byRaidAttendanceRows, generalAttendanceRows;
+    var selectRaidOptions, byRaidAttendanceRows, generalAttendanceRows;
 
     if(this.state.raids.length > 0) {
       selectRaidOptions = this.state.raids.map(function(raid) {
@@ -46,33 +46,12 @@ class ViewAttendance extends React.Component {
       });
     }
 
-    if(this.state.rosters.length > 0) {
-      selectRosterOptions = this.state.rosters.map(function(roster) {
-        return (
-          <option key={roster.id} value={roster.id}>{roster.name}</option>
-        );
-      });
-    }
-
     if(this.state.attendanceRecords.length > 0 && this.state.attendanceCount.length > 0) {
-      // var selectedRaid = _.findWhere(this.state.raids, {id: Number(this.state.selectRaid)});
-      // var selectedRoster = _.findWhere(this.state.rosters, {id: Number(this.state.selectRoster)});
-      // var totalCount = _.where(this.state.attendanceCount, {raid_id: Number(this.state.selectRaid), roster_id: Number(this.state.selectRoster)}).length;
-
-      // var loggedUsers = [];
-      // for(var i = 0; i < selectedRoster.characters.length; ++i) {
-      //   if(!_.findWhere(loggedUsers, {id: selectedRoster.characters[i].user.id})) {
-      //     loggedUsers.push(selectedRoster.characters[i].user);
-      //   }
-      // }
-
       byRaidAttendanceRows = this.state.users.map(function(user) {
         var selectedRaid = _.findWhere(this.state.raids, {id: Number(this.state.selectRaid)});
-        var selectedRoster = _.findWhere(this.state.rosters, {id: Number(this.state.selectRoster)});
-        var totalCount = _.where(this.state.attendanceCount, {raid_id: Number(this.state.selectRaid), roster_id: Number(this.state.selectRoster)}).length;
-
+        var totalCount = _.where(this.state.attendanceCount, {raid_id: Number(this.state.selectRaid)}).length;
         var userCharacters = user.characters;
-        var userAttendanceCount = _.where(this.state.attendanceRecords, {user_id: Number(user.id), raid_id: Number(this.state.selectRaid), roster_id: Number(this.state.selectRoster)}).length;
+        var userAttendanceCount = _.where(this.state.attendanceRecords, {user_id: Number(user.id), raid_id: Number(this.state.selectRaid)}).length;
         var attendancePercentage = (userAttendanceCount / totalCount) * 100;
 
         var characterRows = userCharacters.map(function(character) {
@@ -171,14 +150,6 @@ class ViewAttendance extends React.Component {
                 <div className='col-sm-5'>
                   <select className='form-control' value={this.state.selectRaid} onChange={e => ViewAttendanceActions.updateSelectRaid(parseInt(e.target.value))}>
                     {selectRaidOptions}
-                  </select>
-                </div>
-              </div>
-              <div className='form-group'>
-                <label className='col-sm-1 control-label'>Roster:</label>
-                <div className='col-sm-5'>
-                  <select className='form-control' value={this.state.selectRoster} onChange={e => ViewAttendanceActions.updateSelectRoster(parseInt(e.target.value))}>
-                    {selectRosterOptions}
                   </select>
                 </div>
               </div>

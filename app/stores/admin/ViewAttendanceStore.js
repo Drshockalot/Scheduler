@@ -5,18 +5,14 @@ class ViewAttendanceStore {
   constructor() {
     this.bindActions(ViewAttendanceActions);
     this.attendanceRecords = [];
-    this.rosters = [];
     this.raids = [];
     this.attendanceCount = [];
     this.users = [];
-    this.selectRoster = 0;
     this.selectRaid = 0;
   }
 
   onLoadComponentDataSuccess(result) {
     this.attendanceRecords = result.data.attendanceRecords;
-    this.rosters = result.data.rosters;
-    this.selectRoster = this.rosters[0].id;
     this.raids = result.data.raids;
     this.selectRaid = this.raids[0].id;
     this.attendanceCount = result.data.attendanceCount;

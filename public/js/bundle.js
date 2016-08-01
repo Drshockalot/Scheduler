@@ -9605,7 +9605,7 @@ var ViewAttendance = function (_React$Component) {
         return null;
       }
 
-      var selectRaidOptions, selectRosterOptions, byRaidAttendanceRows, generalAttendanceRows;
+      var selectRaidOptions, byRaidAttendanceRows, generalAttendanceRows;
 
       if (this.state.raids.length > 0) {
         selectRaidOptions = this.state.raids.map(function (raid) {
@@ -9617,35 +9617,12 @@ var ViewAttendance = function (_React$Component) {
         });
       }
 
-      if (this.state.rosters.length > 0) {
-        selectRosterOptions = this.state.rosters.map(function (roster) {
-          return _react2.default.createElement(
-            'option',
-            { key: roster.id, value: roster.id },
-            roster.name
-          );
-        });
-      }
-
       if (this.state.attendanceRecords.length > 0 && this.state.attendanceCount.length > 0) {
-        // var selectedRaid = _.findWhere(this.state.raids, {id: Number(this.state.selectRaid)});
-        // var selectedRoster = _.findWhere(this.state.rosters, {id: Number(this.state.selectRoster)});
-        // var totalCount = _.where(this.state.attendanceCount, {raid_id: Number(this.state.selectRaid), roster_id: Number(this.state.selectRoster)}).length;
-
-        // var loggedUsers = [];
-        // for(var i = 0; i < selectedRoster.characters.length; ++i) {
-        //   if(!_.findWhere(loggedUsers, {id: selectedRoster.characters[i].user.id})) {
-        //     loggedUsers.push(selectedRoster.characters[i].user);
-        //   }
-        // }
-
         byRaidAttendanceRows = this.state.users.map(function (user) {
           var selectedRaid = _underscore2.default.findWhere(this.state.raids, { id: Number(this.state.selectRaid) });
-          var selectedRoster = _underscore2.default.findWhere(this.state.rosters, { id: Number(this.state.selectRoster) });
-          var totalCount = _underscore2.default.where(this.state.attendanceCount, { raid_id: Number(this.state.selectRaid), roster_id: Number(this.state.selectRoster) }).length;
-
+          var totalCount = _underscore2.default.where(this.state.attendanceCount, { raid_id: Number(this.state.selectRaid) }).length;
           var userCharacters = user.characters;
-          var userAttendanceCount = _underscore2.default.where(this.state.attendanceRecords, { user_id: Number(user.id), raid_id: Number(this.state.selectRaid), roster_id: Number(this.state.selectRoster) }).length;
+          var userAttendanceCount = _underscore2.default.where(this.state.attendanceRecords, { user_id: Number(user.id), raid_id: Number(this.state.selectRaid) }).length;
           var attendancePercentage = userAttendanceCount / totalCount * 100;
 
           var characterRows = userCharacters.map(function (character) {
@@ -9877,26 +9854,6 @@ var ViewAttendance = function (_React$Component) {
                         return _ViewAttendanceActions2.default.updateSelectRaid(parseInt(e.target.value));
                       } },
                     selectRaidOptions
-                  )
-                )
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'form-group' },
-                _react2.default.createElement(
-                  'label',
-                  { className: 'col-sm-1 control-label' },
-                  'Roster:'
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'col-sm-5' },
-                  _react2.default.createElement(
-                    'select',
-                    { className: 'form-control', value: this.state.selectRoster, onChange: function onChange(e) {
-                        return _ViewAttendanceActions2.default.updateSelectRoster(parseInt(e.target.value));
-                      } },
-                    selectRosterOptions
                   )
                 )
               )
@@ -11962,11 +11919,9 @@ var ViewAttendanceStore = function () {
 
     this.bindActions(_ViewAttendanceActions2.default);
     this.attendanceRecords = [];
-    this.rosters = [];
     this.raids = [];
     this.attendanceCount = [];
     this.users = [];
-    this.selectRoster = 0;
     this.selectRaid = 0;
   }
 
@@ -11974,8 +11929,6 @@ var ViewAttendanceStore = function () {
     key: 'onLoadComponentDataSuccess',
     value: function onLoadComponentDataSuccess(result) {
       this.attendanceRecords = result.data.attendanceRecords;
-      this.rosters = result.data.rosters;
-      this.selectRoster = this.rosters[0].id;
       this.raids = result.data.raids;
       this.selectRaid = this.raids[0].id;
       this.attendanceCount = result.data.attendanceCount;
