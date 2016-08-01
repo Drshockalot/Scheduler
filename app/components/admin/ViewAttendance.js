@@ -96,7 +96,7 @@ class ViewAttendance extends React.Component {
         return (
           <tr sortOrder={isNaN(attendancePercentage) ? 0 : attendancePercentage}>
             <td className='col-xs-6 text-center vert-align'>{trigger}</td>
-            <td className='col-xs-6 text-center vert-align'>{isNaN(attendancePercentage) ? 0 : attendancePercentage.toFixed(2)}&nbsp;%&nbsp;({userAttendanceCount}/{totalAttendanceCount})</td>
+            <td className='col-xs-6 text-center vert-align'>{isNaN(attendancePercentage) ? 0 : attendancePercentage.toFixed(2)}&nbsp;%&nbsp;({userAttendanceCount}/{totalCount})</td>
           </tr>
         );
       }, this);

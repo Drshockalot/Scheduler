@@ -9689,7 +9689,7 @@ var ViewAttendance = function (_React$Component) {
               ' % (',
               userAttendanceCount,
               '/',
-              totalAttendanceCount,
+              totalCount,
               ')'
             )
           );
