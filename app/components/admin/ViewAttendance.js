@@ -150,12 +150,12 @@ class ViewAttendance extends React.Component {
             <table className='table'>
               <tbody>
                 <tr>
-                  <td className='col-xs-3 text-center'><strong>User</strong></td>
-                  <td className='col-xs-3 text-center'><strong>Last 15 days</strong></td>
-                  <td className='col-xs-3 text-center'><strong>Last 30 days</strong></td>
-                  <td className='col-xs-3 text-center'><strong>Last 60 days</strong></td>
-                  <td className='col-xs-3 text-center'><strong>Last 90 days</strong></td>
-                  <td className='col-xs-3 text-center'><strong>Lifetime</strong></td>
+                  <td className='col-xs-2 text-center'><strong>User</strong></td>
+                  <td className='col-xs-2 text-center'><strong>Last 15 days</strong></td>
+                  <td className='col-xs-2 text-center'><strong>Last 30 days</strong></td>
+                  <td className='col-xs-2 text-center'><strong>Last 60 days</strong></td>
+                  <td className='col-xs-2 text-center'><strong>Last 90 days</strong></td>
+                  <td className='col-xs-2 text-center'><strong>Lifetime</strong></td>
                 </tr>
                 {_.sortBy(generalAttendanceRows, function(row) {return row.props.sortOrder;}).reverse()}
               </tbody>

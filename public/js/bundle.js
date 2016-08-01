@@ -9778,7 +9778,7 @@ var ViewAttendance = function (_React$Component) {
                   null,
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-xs-3 text-center' },
+                    { className: 'col-xs-2 text-center' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -9787,7 +9787,7 @@ var ViewAttendance = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-xs-3 text-center' },
+                    { className: 'col-xs-2 text-center' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -9796,7 +9796,7 @@ var ViewAttendance = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-xs-3 text-center' },
+                    { className: 'col-xs-2 text-center' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -9805,7 +9805,7 @@ var ViewAttendance = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-xs-3 text-center' },
+                    { className: 'col-xs-2 text-center' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -9814,7 +9814,7 @@ var ViewAttendance = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-xs-3 text-center' },
+                    { className: 'col-xs-2 text-center' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -9823,7 +9823,7 @@ var ViewAttendance = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-xs-3 text-center' },
+                    { className: 'col-xs-2 text-center' },
                     _react2.default.createElement(
                       'strong',
                       null,
