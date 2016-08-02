@@ -9605,7 +9605,7 @@ var ViewAttendance = function (_React$Component) {
         return null;
       }
 
-      var selectRaidOptions, byRaidAttendanceRows, generalAttendanceRows;
+      var selectRaidOptions, generalAttendanceRows;
 
       if (this.state.raids.length > 0) {
         selectRaidOptions = this.state.raids.map(function (raid) {
@@ -9618,65 +9618,52 @@ var ViewAttendance = function (_React$Component) {
       }
 
       if (this.state.attendanceRecords.length > 0 && this.state.attendanceCount.length > 0) {
-        byRaidAttendanceRows = this.state.users.map(function (user) {
-          var selectedRaid = _underscore2.default.findWhere(this.state.raids, { id: Number(this.state.selectRaid) });
-          var totalCount = _underscore2.default.where(this.state.attendanceCount, { raid_id: Number(this.state.selectRaid) }).length;
-          var userCharacters = user.characters;
-          var userAttendanceCount = _underscore2.default.where(this.state.attendanceRecords, { user_id: Number(user.id), raid_id: Number(this.state.selectRaid) }).length;
-          var attendancePercentage = userAttendanceCount / totalCount * 100;
-
-          var characterRows = userCharacters.map(function (character) {
-            return _react2.default.createElement(
-              'div',
-              { className: 'clearfix hand-cursor' },
-              character.name,
-              _react2.default.createElement('strong', null)
-            );
-          });
-
-          var popover = _react2.default.createElement(
-            _reactBootstrap.Popover,
-            { id: user.id, title: 'Characters' },
-            characterRows
-          );
-
-          var trigger = _react2.default.createElement(
-            _reactBootstrap.OverlayTrigger,
-            { placement: 'right', trigger: 'click', rootClose: true, overlay: popover },
-            _react2.default.createElement(
-              'span',
-              { className: 'hand-cursor' },
-              user.battletag,
-              '    ❯'
-            )
-          );
-
-          return _react2.default.createElement(
-            'tr',
-            { sortOrder: isNaN(attendancePercentage) ? 0 : attendancePercentage },
-            _react2.default.createElement(
-              'td',
-              { className: 'col-xs-6 text-center vert-align' },
-              trigger
-            ),
-            _react2.default.createElement(
-              'td',
-              { className: 'col-xs-6 text-center vert-align' },
-              isNaN(attendancePercentage) ? 0 : attendancePercentage.toFixed(2),
-              '% (',
-              userAttendanceCount,
-              '/',
-              totalCount,
-              ')'
-            )
-          );
-        }, this);
-
         generalAttendanceRows = this.state.users.map(function (user) {
           var userCharacters = user.characters;
-          var userAttendanceCount = _underscore2.default.where(this.state.attendanceRecords, { user_id: Number(user.id) }).length;
+
           var totalAttendanceCount = this.state.attendanceCount.length;
-          var lifetimeAttendancePercentage = userAttendanceCount / totalAttendanceCount * 100;
+
+          var totalByRaidCount = _underscore2.default.where(this.state.attendanceCount, { raid_id: Number(this.state.selectRaid) }).length;
+          var userByRaidAttendanceCount = _underscore2.default.where(this.state.attendanceRecords, { user_id: Number(user.id), raid_id: Number(this.state.selectRaid) }).length;
+          var byRaidAttendancePercentage = userByRaidAttendanceCount / totalByRaidCount * 100;
+
+          var totalUserAttendance = _underscore2.default.where(this.state.attendanceRecords, { user_id: Number(user.id) });
+          var totalUserAttendanceCount = totalUserAttendance.length;
+
+          var totalTimeBasedResults = _underscore2.default.countBy(this.state.attendanceRecords, function (row) {
+            if (moment(row.created_at).isAfter(moment().subtract(90, 'days'))) {
+              return '90days';
+            }
+            if (moment(row.created_at).isAfter(moment().subtract(60, 'days'))) {
+              return '60days';
+            }
+            if (moment(row.created_at).isAfter(moment().subtract(30, 'days'))) {
+              return '30days';
+            }
+          });
+          var totalAttendanceCount90Days = totalTimeBasedResults['90days'];
+          var totalAttendanceCount60Days = totalTimeBasedResults['60days'];
+          var totalAttendanceCount30Days = totalTimeBasedResults['30days'];
+
+          var userTimeBasedResults = _underscore2.default.countBy(totalUserAttendance, function (row) {
+            if (moment(row.created_at).isAfter(moment().subtract(90, 'days'))) {
+              return '90days';
+            }
+            if (moment(row.created_at).isAfter(moment().subtract(60, 'days'))) {
+              return '60days';
+            }
+            if (moment(row.created_at).isAfter(moment().subtract(30, 'days'))) {
+              return '30days';
+            }
+          }).length;
+          var userAttendanceCount90Days = userTimeBasedResults['90days'];
+          var userAttendanceCount60Days = userTimeBasedResults['60days'];
+          var userAttendanceCount30Days = userTimeBasedResults['30days'];
+
+          var lifetimeAttendancePercentage = totalUserAttendanceCount / totalAttendanceCount * 100;
+          var since90DaysAttendancePercentage = userAttendanceCount90Days / totalAttendanceCount90Days * 100;
+          var since60DaysAttendancePercentage = userAttendanceCount60Days / totalAttendanceCount60Days * 100;
+          var since30DaysAttendancePercentage = userAttendanceCount30Days / totalAttendanceCount30Days * 100;
 
           var characterRows = userCharacters.map(function (character) {
             return _react2.default.createElement(
@@ -9712,18 +9699,54 @@ var ViewAttendance = function (_React$Component) {
               { className: 'col-xs-2 text-center vert-align' },
               trigger
             ),
-            _react2.default.createElement('td', { className: 'col-xs-2 text-center vert-align' }),
-            _react2.default.createElement('td', { className: 'col-xs-2 text-center vert-align' }),
-            _react2.default.createElement('td', { className: 'col-xs-2 text-center vert-align' }),
-            _react2.default.createElement('td', { className: 'col-xs-2 text-center vert-align' }),
+            _react2.default.createElement(
+              'td',
+              { className: 'col-xs-2 text-center vert-align' },
+              isNaN(since30DaysAttendancePercentage) ? 0 : since30DaysAttendancePercentage.toFixed(2),
+              '% (',
+              userAttendanceCount30Days,
+              '/',
+              totalAttendanceCount30Days,
+              ')'
+            ),
+            _react2.default.createElement(
+              'td',
+              { className: 'col-xs-2 text-center vert-align' },
+              isNaN(since60DaysAttendancePercentage) ? 0 : since60DaysAttendancePercentage.toFixed(2),
+              '% (',
+              userAttendanceCount60Days,
+              '/',
+              totalAttendanceCount60Days,
+              ')'
+            ),
+            _react2.default.createElement(
+              'td',
+              { className: 'col-xs-2 text-center vert-align' },
+              isNaN(since90DaysAttendancePercentage) ? 0 : since90DaysAttendancePercentage.toFixed(2),
+              '% (',
+              userAttendanceCount90Days,
+              '/',
+              totalAttendanceCount90Days,
+              ')'
+            ),
             _react2.default.createElement(
               'td',
               { className: 'col-xs-2 text-center vert-align' },
               isNaN(lifetimeAttendancePercentage) ? 0 : lifetimeAttendancePercentage.toFixed(2),
               '% (',
-              userAttendanceCount,
+              totalUserAttendanceCount,
               '/',
               totalAttendanceCount,
+              ')'
+            ),
+            _react2.default.createElement(
+              'td',
+              { className: 'col-xs-2 text-center vert-align' },
+              isNaN(byRaidAttendancePercentage) ? 0 : byRaidAttendancePercentage.toFixed(2),
+              '% (',
+              userByRaidAttendanceCount,
+              '/',
+              totalByRaidCount,
               ')'
             )
           );
@@ -9753,6 +9776,30 @@ var ViewAttendance = function (_React$Component) {
             'div',
             { className: 'col-xs-10' },
             _react2.default.createElement(
+              'div',
+              { className: 'form-horizontal' },
+              _react2.default.createElement(
+                'div',
+                { className: 'form-group' },
+                _react2.default.createElement(
+                  'label',
+                  { className: 'col-sm-1 control-label' },
+                  'Raid:'
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'col-sm-5' },
+                  _react2.default.createElement(
+                    'select',
+                    { className: 'form-control', value: this.state.selectRaid, onChange: function onChange(e) {
+                        return _ViewAttendanceActions2.default.updateSelectRaid(parseInt(e.target.value));
+                      } },
+                    selectRaidOptions
+                  )
+                )
+              )
+            ),
+            _react2.default.createElement(
               'table',
               { className: 'table' },
               _react2.default.createElement(
@@ -9768,15 +9815,6 @@ var ViewAttendance = function (_React$Component) {
                       'strong',
                       null,
                       'User'
-                    )
-                  ),
-                  _react2.default.createElement(
-                    'td',
-                    { className: 'col-xs-2 text-center' },
-                    _react2.default.createElement(
-                      'strong',
-                      null,
-                      'Last 15 days'
                     )
                   ),
                   _react2.default.createElement(
@@ -9814,87 +9852,18 @@ var ViewAttendance = function (_React$Component) {
                       null,
                       'Lifetime'
                     )
-                  )
-                ),
-                _underscore2.default.sortBy(generalAttendanceRows, function (row) {
-                  return row.props.sortOrder;
-                }).reverse()
-              )
-            )
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'row' },
-          _react2.default.createElement(
-            'div',
-            { className: 'col-xs-12' },
-            _react2.default.createElement(
-              'h2',
-              null,
-              'View Attendance By Raid'
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'form-horizontal' },
-              _react2.default.createElement(
-                'div',
-                { className: 'form-group' },
-                _react2.default.createElement(
-                  'label',
-                  { className: 'col-sm-1 control-label' },
-                  'Raid:'
-                ),
-                _react2.default.createElement(
-                  'div',
-                  { className: 'col-sm-5' },
-                  _react2.default.createElement(
-                    'select',
-                    { className: 'form-control', value: this.state.selectRaid, onChange: function onChange(e) {
-                        return _ViewAttendanceActions2.default.updateSelectRaid(parseInt(e.target.value));
-                      } },
-                    selectRaidOptions
-                  )
-                )
-              )
-            )
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'row' },
-          _react2.default.createElement(
-            'div',
-            { className: 'col-xs-10' },
-            _react2.default.createElement(
-              'table',
-              { className: 'table' },
-              _react2.default.createElement(
-                'tbody',
-                null,
-                _react2.default.createElement(
-                  'tr',
-                  null,
-                  _react2.default.createElement(
-                    'td',
-                    { className: 'col-xs-3 text-center' },
-                    _react2.default.createElement(
-                      'strong',
-                      null,
-                      'User'
-                    )
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-xs-3 text-center' },
+                    { className: 'col-xs-2 text-center' },
                     _react2.default.createElement(
                       'strong',
                       null,
-                      'Attendance'
+                      _underscore2.default.findWhere(this.state.raids, { id: Number(this.state.selectRaid) }).name
                     )
                   )
                 ),
-                _underscore2.default.sortBy(byRaidAttendanceRows, function (row) {
+                _underscore2.default.sortBy(generalAttendanceRows, function (row) {
                   return row.props.sortOrder;
                 }).reverse()
               )
