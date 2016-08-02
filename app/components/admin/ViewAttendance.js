@@ -75,20 +75,23 @@ class ViewAttendance extends React.Component {
         var totalAttendanceCount60Days = totalTimeBasedResults['60days'];
         var totalAttendanceCount30Days = totalTimeBasedResults['30days'];
 
-        var userTimeBasedResults = _.countBy(totalUserAttendance, function(row) {
-          if(moment(row.created_at).isAfter(moment().subtract(90, 'days'))) {
-            return '90days';
-          }
-          if(moment(row.created_at).isAfter(moment().subtract(60, 'days'))) {
-            return '60days';
-          }
-          if(moment(row.created_at).isAfter(moment().subtract(30, 'days'))) {
-            return '30days';
-          }
-        }).length;
-        var userAttendanceCount90Days = userTimeBasedResults['90days'];
-        var userAttendanceCount60Days = userTimeBasedResults['60days'];
-        var userAttendanceCount30Days = userTimeBasedResults['30days'];
+        var userAttendanceCount90Days, userAttendanceCount60Days, userAttendanceCount30Days, userTimeBasedResults;
+        if(totalUserAttendanceCount > 0) {
+          userTimeBasedResults = _.countBy(totalUserAttendance, function(row) {
+            if(moment(row.created_at).isAfter(moment().subtract(90, 'days'))) {
+              return '90days';
+            }
+            if(moment(row.created_at).isAfter(moment().subtract(60, 'days'))) {
+              return '60days';
+            }
+            if(moment(row.created_at).isAfter(moment().subtract(30, 'days'))) {
+              return '30days';
+            }
+          });
+          userAttendanceCount90Days = userTimeBasedResults['90days'];
+          userAttendanceCount60Days = userTimeBasedResults['60days'];
+          userAttendanceCount30Days = userTimeBasedResults['30days'];
+        }
 
         var lifetimeAttendancePercentage = (totalUserAttendanceCount / totalAttendanceCount) * 100;
         var since90DaysAttendancePercentage = (userAttendanceCount90Days / totalAttendanceCount90Days) * 100;
