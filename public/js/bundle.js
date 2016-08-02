@@ -9762,6 +9762,7 @@ var ViewAttendance = function (_React$Component) {
         }, this);
       }
 
+      console.log(generalAttendanceRows);
       return _react2.default.createElement(
         'div',
         { className: 'row' },

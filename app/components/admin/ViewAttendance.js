@@ -131,6 +131,7 @@ class ViewAttendance extends React.Component {
       }, this);
     }
 
+    console.log(generalAttendanceRows);
     return (
       <div className='row'>
         <div className='row'>
