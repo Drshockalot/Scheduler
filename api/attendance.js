@@ -57,7 +57,8 @@ router.post('/admin/file', function(req, res, next) {
                    raid_week_id: req.body.raidWeekId,
                    raid_id: req.body.raidId,
                    week_day: req.body.weekday,
-                   roster_id: req.body.rosterId
+                   roster_id: req.body.rosterId,
+                   created_at: moment()
                  };
                });
                knex.batchInsert('raid_attendance', insertRows)
@@ -99,7 +100,8 @@ router.post('/admin/text', function(req, res, next) {
                  raid_week_id: req.body.raidWeekId,
                  raid_id: req.body.raidId,
                  week_day: req.body.weekday,
-                 roster_id: req.body.rosterId
+                 roster_id: req.body.rosterId,
+                 created_at: moment()
                };
              });
              knex.batchInsert('raid_attendance', insertRows)
@@ -140,7 +142,8 @@ router.post('/admin/roster', function(req, res, next) {
                  raid_week_id: req.body.raidWeekId,
                  raid_id: req.body.raidId,
                  week_day: req.body.weekday,
-                 roster_id: req.body.rosterId
+                 roster_id: req.body.rosterId,
+                 created_at: moment()
                };
              });
              knex.batchInsert('raid_attendance', insertRows)
