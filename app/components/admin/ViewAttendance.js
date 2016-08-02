@@ -61,14 +61,14 @@ class ViewAttendance extends React.Component {
         var totalUserAttendanceCount = totalUserAttendance.length;
 
         var totalTimeBasedResults = _.countBy(this.state.attendanceRecords, function(row) {
-          if(moment(row.created_at).isAfter(moment().subtract(90, 'days'))) {
-            return '90days';
+          if(moment(row.created_at).isAfter(moment().subtract(30, 'days'))) {
+            return '30days';
           }
           if(moment(row.created_at).isAfter(moment().subtract(60, 'days'))) {
             return '60days';
           }
-          if(moment(row.created_at).isAfter(moment().subtract(30, 'days'))) {
-            return '30days';
+          if(moment(row.created_at).isAfter(moment().subtract(90, 'days'))) {
+            return '90days';
           }
         });
         var totalAttendanceCount90Days = totalTimeBasedResults['90days'];
@@ -78,14 +78,14 @@ class ViewAttendance extends React.Component {
         var userAttendanceCount90Days, userAttendanceCount60Days, userAttendanceCount30Days, userTimeBasedResults;
         if(totalUserAttendanceCount > 0) {
           userTimeBasedResults = _.countBy(totalUserAttendance, function(row) {
-            if(moment(row.created_at).isAfter(moment().subtract(90, 'days'))) {
-              return '90days';
+            if(moment(row.created_at).isAfter(moment().subtract(30, 'days'))) {
+              return '30days';
             }
             if(moment(row.created_at).isAfter(moment().subtract(60, 'days'))) {
               return '60days';
             }
-            if(moment(row.created_at).isAfter(moment().subtract(30, 'days'))) {
-              return '30days';
+            if(moment(row.created_at).isAfter(moment().subtract(90, 'days'))) {
+              return '90days';
             }
           });
           userAttendanceCount90Days = userTimeBasedResults['90days'];

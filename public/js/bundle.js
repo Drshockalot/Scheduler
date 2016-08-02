@@ -9635,14 +9635,14 @@ var ViewAttendance = function (_React$Component) {
           var totalUserAttendanceCount = totalUserAttendance.length;
 
           var totalTimeBasedResults = _underscore2.default.countBy(this.state.attendanceRecords, function (row) {
-            if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(90, 'days'))) {
-              return '90days';
+            if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(30, 'days'))) {
+              return '30days';
             }
             if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(60, 'days'))) {
               return '60days';
             }
-            if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(30, 'days'))) {
-              return '30days';
+            if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(90, 'days'))) {
+              return '90days';
             }
           });
           var totalAttendanceCount90Days = totalTimeBasedResults['90days'];
@@ -9652,14 +9652,14 @@ var ViewAttendance = function (_React$Component) {
           var userAttendanceCount90Days, userAttendanceCount60Days, userAttendanceCount30Days, userTimeBasedResults;
           if (totalUserAttendanceCount > 0) {
             userTimeBasedResults = _underscore2.default.countBy(totalUserAttendance, function (row) {
-              if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(90, 'days'))) {
-                return '90days';
+              if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(30, 'days'))) {
+                return '30days';
               }
               if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(60, 'days'))) {
                 return '60days';
               }
-              if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(30, 'days'))) {
-                return '30days';
+              if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(90, 'days'))) {
+                return '90days';
               }
             });
             userAttendanceCount90Days = userTimeBasedResults['90days'];
