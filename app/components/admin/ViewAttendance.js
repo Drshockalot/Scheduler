@@ -121,9 +121,9 @@ class ViewAttendance extends React.Component {
         return (
           <tr sortOrder={isNaN(lifetimeAttendancePercentage) ? 0 : lifetimeAttendancePercentage}>
             <td className='col-xs-2 text-center vert-align'>{trigger}</td>
-            <td className='col-xs-2 text-center vert-align'>{isNaN(since30DaysAttendancePercentage) ? 0 : since30DaysAttendancePercentage.toFixed(1)}%&nbsp;({userAttendanceCount30Days}/{totalAttendanceCount30Days})</td>
-            <td className='col-xs-2 text-center vert-align'>{isNaN(since60DaysAttendancePercentage) ? 0 : since60DaysAttendancePercentage.toFixed(1)}%&nbsp;({userAttendanceCount60Days}/{totalAttendanceCount60Days})</td>
-            <td className='col-xs-2 text-center vert-align'>{isNaN(since90DaysAttendancePercentage) ? 0 : since90DaysAttendancePercentage.toFixed(1)}%&nbsp;({userAttendanceCount90Days}/{totalAttendanceCount90Days})</td>
+            <td className='col-xs-2 text-center vert-align'>{isNaN(since30DaysAttendancePercentage) ? 0 : since30DaysAttendancePercentage.toFixed(1)}%&nbsp;({userAttendanceCount30Days ? userAttendanceCount30Days : 0}/{totalAttendanceCount30Days})</td>
+            <td className='col-xs-2 text-center vert-align'>{isNaN(since60DaysAttendancePercentage) ? 0 : since60DaysAttendancePercentage.toFixed(1)}%&nbsp;({userAttendanceCount60Days ? userAttendanceCount60Days : 0}/{totalAttendanceCount60Days})</td>
+            <td className='col-xs-2 text-center vert-align'>{isNaN(since90DaysAttendancePercentage) ? 0 : since90DaysAttendancePercentage.toFixed(1)}%&nbsp;({userAttendanceCount90Days ? userAttendanceCount90Days : 0}/{totalAttendanceCount90Days})</td>
             <td className='col-xs-2 text-center vert-align'>{isNaN(lifetimeAttendancePercentage) ? 0 : lifetimeAttendancePercentage.toFixed(1)}%&nbsp;({totalUserAttendanceCount}/{totalAttendanceCount})</td>
             <td className='col-xs-2 text-center vert-align'>{isNaN(byRaidAttendancePercentage) ? 0 : byRaidAttendancePercentage.toFixed(1)}%&nbsp;({userByRaidAttendanceCount}/{totalByRaidCount})</td>
           </tr>

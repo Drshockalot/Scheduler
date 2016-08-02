@@ -9713,7 +9713,7 @@ var ViewAttendance = function (_React$Component) {
               { className: 'col-xs-2 text-center vert-align' },
               isNaN(since30DaysAttendancePercentage) ? 0 : since30DaysAttendancePercentage.toFixed(1),
               '% (',
-              userAttendanceCount30Days,
+              userAttendanceCount30Days ? userAttendanceCount30Days : 0,
               '/',
               totalAttendanceCount30Days,
               ')'
@@ -9723,7 +9723,7 @@ var ViewAttendance = function (_React$Component) {
               { className: 'col-xs-2 text-center vert-align' },
               isNaN(since60DaysAttendancePercentage) ? 0 : since60DaysAttendancePercentage.toFixed(1),
               '% (',
-              userAttendanceCount60Days,
+              userAttendanceCount60Days ? userAttendanceCount60Days : 0,
               '/',
               totalAttendanceCount60Days,
               ')'
@@ -9733,7 +9733,7 @@ var ViewAttendance = function (_React$Component) {
               { className: 'col-xs-2 text-center vert-align' },
               isNaN(since90DaysAttendancePercentage) ? 0 : since90DaysAttendancePercentage.toFixed(1),
               '% (',
-              userAttendanceCount90Days,
+              userAttendanceCount90Days ? userAttendanceCount90Days : 0,
               '/',
               totalAttendanceCount90Days,
               ')'
