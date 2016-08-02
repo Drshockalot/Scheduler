@@ -2154,6 +2154,75 @@ var Home = function (_React$Component) {
                       _react2.default.createElement(
                         'h4',
                         null,
+                        (0, _moment2.default)('2016-08-02').format('MMM Do YYYY')
+                      ),
+                      _react2.default.createElement(
+                        'ul',
+                        null,
+                        _react2.default.createElement(
+                          'li',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
+                            'View Attendance'
+                          ),
+                          _react2.default.createElement(
+                            'ul',
+                            null,
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'The entire section has been revamped'
+                            ),
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'You can now view attendance for each user by the following filters:',
+                              _react2.default.createElement(
+                                'ul',
+                                null,
+                                _react2.default.createElement(
+                                  'li',
+                                  null,
+                                  'Past 30 days'
+                                ),
+                                _react2.default.createElement(
+                                  'li',
+                                  null,
+                                  'Past 60 days'
+                                ),
+                                _react2.default.createElement(
+                                  'li',
+                                  null,
+                                  'Past 90 days'
+                                ),
+                                _react2.default.createElement(
+                                  'li',
+                                  null,
+                                  'Lifetime'
+                                ),
+                                _react2.default.createElement(
+                                  'li',
+                                  null,
+                                  'A special column which is filtered by raid'
+                                )
+                              )
+                            )
+                          )
+                        )
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'h4',
+                        null,
                         (0, _moment2.default)('2016-07-31').format('MMM Do YYYY')
                       ),
                       _react2.default.createElement(
