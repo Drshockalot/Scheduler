@@ -152,7 +152,7 @@ class ViewAttendance extends React.Component {
                   <td className='col-xs-2 text-center'><strong>Last 60 days</strong></td>
                   <td className='col-xs-2 text-center'><strong>Last 90 days</strong></td>
                   <td className='col-xs-2 text-center'><strong>Lifetime</strong></td>
-                  <td className='col-xs-2 text-center'><strong>{_.findWhere(this.state.raids, {id: Number(this.state.selectRaid)}).name}</strong></td>
+                  <td className='col-xs-2 text-center'><strong>{this.state.raids.length > 0 ? _.findWhere(this.state.raids, {id: Number(this.state.selectRaid)}).name : null}</strong></td>
                 </tr>
                 {_.sortBy(generalAttendanceRows, function(row) {return row.props.sortOrder;}).reverse()}
               </tbody>

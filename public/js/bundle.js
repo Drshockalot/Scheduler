@@ -9859,7 +9859,7 @@ var ViewAttendance = function (_React$Component) {
                     _react2.default.createElement(
                       'strong',
                       null,
-                      _underscore2.default.findWhere(this.state.raids, { id: Number(this.state.selectRaid) }).name
+                      this.state.raids.length > 0 ? _underscore2.default.findWhere(this.state.raids, { id: Number(this.state.selectRaid) }).name : null
                     )
                   )
                 ),
