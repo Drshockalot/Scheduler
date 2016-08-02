@@ -116,6 +116,28 @@ class Home extends React.Component {
                 <tbody>
                   <tr>
                     <td>
+                      <h4>{moment('2016-08-02').format('MMM Do YYYY')}</h4>
+                      <ul>
+                        <li>
+                          <h5>View Attendance</h5>
+                          <ul>
+                            <li>The entire section has been revamped</li>
+                            <li>You can now view attendance for each user by the following filters:
+                              <ul>
+                                <li>Past 30 days</li>
+                                <li>Past 60 days</li>
+                                <li>Past 90 days</li>
+                                <li>Lifetime</li>
+                                <li>A special column which is filtered by raid</li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       <h4>{moment('2016-07-31').format('MMM Do YYYY')}</h4>
                       <ul>
                         <li>
