@@ -9634,37 +9634,39 @@ var ViewAttendance = function (_React$Component) {
           var totalUserAttendance = _underscore2.default.where(this.state.attendanceRecords, { user_id: Number(user.id) });
           var totalUserAttendanceCount = totalUserAttendance.length;
 
-          var totalTimeBasedResults = _underscore2.default.countBy(this.state.attendanceRecords, function (row) {
-            if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(30, 'days'))) {
-              return '30days';
-            }
-            if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(60, 'days'))) {
-              return '60days';
-            }
+          var totalAttendanceCount90Days = _underscore2.default.countBy(this.state.attendanceCount, function (row) {
             if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(90, 'days'))) {
               return '90days';
             }
-          });
-          var totalAttendanceCount90Days = totalTimeBasedResults['90days'];
-          var totalAttendanceCount60Days = totalTimeBasedResults['60days'];
-          var totalAttendanceCount30Days = totalTimeBasedResults['30days'];
+          })['90days'];
+          var totalAttendanceCount60Days = _underscore2.default.countBy(this.state.attendanceCount, function (row) {
+            if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(60, 'days'))) {
+              return '60days';
+            }
+          })['60days'];
+          var totalAttendanceCount30Days = _underscore2.default.countBy(this.state.attendanceCount, function (row) {
+            if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(30, 'days'))) {
+              return '30days';
+            }
+          })['30days'];
 
           var userAttendanceCount90Days, userAttendanceCount60Days, userAttendanceCount30Days, userTimeBasedResults;
           if (totalUserAttendanceCount > 0) {
-            userTimeBasedResults = _underscore2.default.countBy(totalUserAttendance, function (row) {
-              if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(30, 'days'))) {
-                return '30days';
-              }
-              if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(60, 'days'))) {
-                return '60days';
-              }
+            userAttendanceCount90Days = _underscore2.default.countBy(totalUserAttendance, function (row) {
               if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(90, 'days'))) {
                 return '90days';
               }
-            });
-            userAttendanceCount90Days = userTimeBasedResults['90days'];
-            userAttendanceCount60Days = userTimeBasedResults['60days'];
-            userAttendanceCount30Days = userTimeBasedResults['30days'];
+            })['90days'];
+            userAttendanceCount60Days = _underscore2.default.countBy(totalUserAttendance, function (row) {
+              if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(60, 'days'))) {
+                return '60days';
+              }
+            })['60days'];
+            userAttendanceCount30Days = _underscore2.default.countBy(totalUserAttendance, function (row) {
+              if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(30, 'days'))) {
+                return '30days';
+              }
+            })['30days'];
           }
 
           var lifetimeAttendancePercentage = totalUserAttendanceCount / totalAttendanceCount * 100;

@@ -63,7 +63,7 @@ router.post('/admin/file', function(req, res, next) {
                });
                knex.batchInsert('raid_attendance', insertRows)
                    .then(function() {
-                     Attendance_Count.forge({raid_id: req.body.raidId, roster_id: req.body.rosterId})
+                     Attendance_Count.forge({raid_id: req.body.raidId, roster_id: req.body.rosterId, created_at: moment()})
                                      .save()
                                      .then(function() {
                                        res.json({error: false, data: {message: "User Attendance inserted"}});
@@ -106,7 +106,7 @@ router.post('/admin/text', function(req, res, next) {
              });
              knex.batchInsert('raid_attendance', insertRows)
                  .then(function() {
-                   Attendance_Count.forge({raid_id: req.body.raidId, roster_id: req.body.rosterId})
+                   Attendance_Count.forge({raid_id: req.body.raidId, roster_id: req.body.rosterId, created_at: moment()})
                                    .save()
                                    .then(function() {
                                      res.json({error: false, data: {message: "User Attendance inserted"}});
@@ -148,7 +148,7 @@ router.post('/admin/roster', function(req, res, next) {
              });
              knex.batchInsert('raid_attendance', insertRows)
              .then(function() {
-                   Attendance_Count.forge({raid_id: req.body.raidId, roster_id: req.body.rosterId})
+                   Attendance_Count.forge({raid_id: req.body.raidId, roster_id: req.body.rosterId, created_at: moment()})
                                    .save()
                                    .then(function() {
                                      res.json({error: false, data: {message: "User Attendance inserted"}});
