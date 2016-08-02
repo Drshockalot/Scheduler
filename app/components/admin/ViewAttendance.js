@@ -5,6 +5,7 @@ import ViewAttendanceActions from '../../actions/admin/ViewAttendanceActions';
 import NavbarStore from './../../stores/NavbarStore';
 import { browserHistory } from 'react-router';
 
+import moment from 'moment';
 import _ from 'underscore';
 import { OverlayTrigger, Popover } from 'react-bootstrap';
 

@@ -9553,6 +9553,10 @@ var _NavbarStore = require('./../../stores/NavbarStore');
 
 var _NavbarStore2 = _interopRequireDefault(_NavbarStore);
 
+var _moment = require('moment');
+
+var _moment2 = _interopRequireDefault(_moment);
+
 var _underscore = require('underscore');
 
 var _underscore2 = _interopRequireDefault(_underscore);
@@ -9631,13 +9635,13 @@ var ViewAttendance = function (_React$Component) {
           var totalUserAttendanceCount = totalUserAttendance.length;
 
           var totalTimeBasedResults = _underscore2.default.countBy(this.state.attendanceRecords, function (row) {
-            if (moment(row.created_at).isAfter(moment().subtract(90, 'days'))) {
+            if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(90, 'days'))) {
               return '90days';
             }
-            if (moment(row.created_at).isAfter(moment().subtract(60, 'days'))) {
+            if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(60, 'days'))) {
               return '60days';
             }
-            if (moment(row.created_at).isAfter(moment().subtract(30, 'days'))) {
+            if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(30, 'days'))) {
               return '30days';
             }
           });
@@ -9646,13 +9650,13 @@ var ViewAttendance = function (_React$Component) {
           var totalAttendanceCount30Days = totalTimeBasedResults['30days'];
 
           var userTimeBasedResults = _underscore2.default.countBy(totalUserAttendance, function (row) {
-            if (moment(row.created_at).isAfter(moment().subtract(90, 'days'))) {
+            if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(90, 'days'))) {
               return '90days';
             }
-            if (moment(row.created_at).isAfter(moment().subtract(60, 'days'))) {
+            if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(60, 'days'))) {
               return '60days';
             }
-            if (moment(row.created_at).isAfter(moment().subtract(30, 'days'))) {
+            if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(30, 'days'))) {
               return '30days';
             }
           }).length;
@@ -9879,7 +9883,7 @@ var ViewAttendance = function (_React$Component) {
 
 exports.default = ViewAttendance;
 
-},{"../../actions/admin/ViewAttendanceActions":22,"../../stores/admin/ViewAttendanceStore":71,"./../../stores/NavbarStore":52,"react":"react","react-bootstrap":267,"react-router":"react-router","underscore":"underscore"}],48:[function(require,module,exports){
+},{"../../actions/admin/ViewAttendanceActions":22,"../../stores/admin/ViewAttendanceStore":71,"./../../stores/NavbarStore":52,"moment":174,"react":"react","react-bootstrap":267,"react-router":"react-router","underscore":"underscore"}],48:[function(require,module,exports){
 'use strict';
 
 var _react = require('react');
