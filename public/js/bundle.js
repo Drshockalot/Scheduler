@@ -9711,7 +9711,7 @@ var ViewAttendance = function (_React$Component) {
             _react2.default.createElement(
               'td',
               { className: 'col-xs-2 text-center vert-align' },
-              isNaN(since30DaysAttendancePercentage) ? 0 : since30DaysAttendancePercentage.toFixed(2),
+              isNaN(since30DaysAttendancePercentage) ? 0 : since30DaysAttendancePercentage.toFixed(1),
               '% (',
               userAttendanceCount30Days,
               '/',
@@ -9721,7 +9721,7 @@ var ViewAttendance = function (_React$Component) {
             _react2.default.createElement(
               'td',
               { className: 'col-xs-2 text-center vert-align' },
-              isNaN(since60DaysAttendancePercentage) ? 0 : since60DaysAttendancePercentage.toFixed(2),
+              isNaN(since60DaysAttendancePercentage) ? 0 : since60DaysAttendancePercentage.toFixed(1),
               '% (',
               userAttendanceCount60Days,
               '/',
@@ -9731,7 +9731,7 @@ var ViewAttendance = function (_React$Component) {
             _react2.default.createElement(
               'td',
               { className: 'col-xs-2 text-center vert-align' },
-              isNaN(since90DaysAttendancePercentage) ? 0 : since90DaysAttendancePercentage.toFixed(2),
+              isNaN(since90DaysAttendancePercentage) ? 0 : since90DaysAttendancePercentage.toFixed(1),
               '% (',
               userAttendanceCount90Days,
               '/',
@@ -9741,7 +9741,7 @@ var ViewAttendance = function (_React$Component) {
             _react2.default.createElement(
               'td',
               { className: 'col-xs-2 text-center vert-align' },
-              isNaN(lifetimeAttendancePercentage) ? 0 : lifetimeAttendancePercentage.toFixed(2),
+              isNaN(lifetimeAttendancePercentage) ? 0 : lifetimeAttendancePercentage.toFixed(1),
               '% (',
               totalUserAttendanceCount,
               '/',
@@ -9751,7 +9751,7 @@ var ViewAttendance = function (_React$Component) {
             _react2.default.createElement(
               'td',
               { className: 'col-xs-2 text-center vert-align' },
-              isNaN(byRaidAttendancePercentage) ? 0 : byRaidAttendancePercentage.toFixed(2),
+              isNaN(byRaidAttendancePercentage) ? 0 : byRaidAttendancePercentage.toFixed(1),
               '% (',
               userByRaidAttendanceCount,
               '/',
