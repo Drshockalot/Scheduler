@@ -61,6 +61,7 @@ class SingleScheduleView extends React.Component {
         dpsRows = [];
         standbyRows = [];
         schedule_boss.characters.map(function(character) {
+
           if(character.main_role == "Tank") {
             tankCount++;
             var classCSS = this.classColour(character);
@@ -94,7 +95,9 @@ class SingleScheduleView extends React.Component {
                 </td>
               </tr>
             );
-          } else {
+          }
+          var standbyCharacters = _.difference(this.state.schedule.roster.characters, schedule_boss.characters);
+          standbyCharacters.map(function(character) {
             standbyCount++;
             var classCSS = this.classColour(character);
             standbyRows.push(
@@ -105,7 +108,7 @@ class SingleScheduleView extends React.Component {
                 </td>
               </tr>
             );
-          }
+          });
         }, this);
 
         return (

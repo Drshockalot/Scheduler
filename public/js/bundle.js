@@ -4975,6 +4975,7 @@ var SingleScheduleView = function (_React$Component) {
           dpsRows = [];
           standbyRows = [];
           schedule_boss.characters.map(function (character) {
+
             if (character.main_role == "Tank") {
               tankCount++;
               var classCSS = this.classColour(character);
@@ -5014,7 +5015,9 @@ var SingleScheduleView = function (_React$Component) {
                   character.name
                 )
               ));
-            } else {
+            }
+            var standbyCharacters = _underscore2.default.difference(this.state.schedule.roster.characters, schedule_boss.characters);
+            standbyCharacters.map(function (character) {
               standbyCount++;
               var classCSS = this.classColour(character);
               standbyRows.push(_react2.default.createElement(
@@ -5027,7 +5030,7 @@ var SingleScheduleView = function (_React$Component) {
                   character.name
                 )
               ));
-            }
+            });
           }, this);
 
           return _react2.default.createElement(
