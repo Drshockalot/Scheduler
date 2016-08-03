@@ -108,7 +108,7 @@ class SingleScheduleView extends React.Component {
                 </td>
               </tr>
             );
-          });
+          }, this);
         }, this);
 
         return (

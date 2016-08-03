@@ -5030,7 +5030,7 @@ var SingleScheduleView = function (_React$Component) {
                   character.name
                 )
               ));
-            });
+            }, this);
           }, this);
 
           return _react2.default.createElement(
