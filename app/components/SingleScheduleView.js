@@ -55,11 +55,9 @@ class SingleScheduleView extends React.Component {
         var tankCount = 0;
         var healerCount = 0;
         var dpsCount = 0;
-        var standbyCount = 0;
         tankRows = [];
         healerRows = [];
         dpsRows = [];
-        standbyRows = [];
         schedule_boss.characters.map(function(character) {
 
           if(character.main_role == "Tank") {
@@ -96,30 +94,28 @@ class SingleScheduleView extends React.Component {
               </tr>
             );
           }
-          var standbyCharacters = _.difference(this.state.schedule.roster.characters, schedule_boss.characters);
-          var stbc = [];
-          for(var i = 0; i < this.state.schedule.roster.characters.length; ++i) {
-            if(!_.findWhere(schedule_boss.characters, {id: this.state.schedule.roster.characters[i].id})) {
-              stbc.push(this.state.schedule.roster.characters[i]);
-            }
+        }, this);
+
+        var standbyCount = 0;
+        standbyRows = [];
+        var stbc = [];
+        for(var i = 0; i < this.state.schedule.roster.characters.length; ++i) {
+          if(!_.findWhere(schedule_boss.characters, {id: this.state.schedule.roster.characters[i].id})) {
+            stbc.push(this.state.schedule.roster.characters[i]);
           }
-          // console.log(this.state.schedule.roster.characters);
-          // console.log(schedule_boss.characters);
-          // console.log(standbyCharacters);
-          console.log(stbc);
-          stbc.map(function(character) {
-            standbyCount++;
-            var classCSS = this.classColour(character);
-            standbyRows.push(
-              <tr>
-                <td className={classCSS} />
-                <td className='col-sm-11 vert-align' >
-                  {character.name}
-                </td>
-              </tr>
-            );
-          }, this);
-          console.log(standbyRows);
+        }
+
+        stbc.map(function(character) {
+          standbyCount++;
+          var classCSS = this.classColour(character);
+          standbyRows.push(
+            <tr>
+              <td className={classCSS} />
+              <td className='col-sm-11 vert-align' >
+                {character.name}
+              </td>
+            </tr>
+          );
         }, this);
 
         return (
