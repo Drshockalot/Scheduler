@@ -97,6 +97,9 @@ class SingleScheduleView extends React.Component {
             );
           }
           var standbyCharacters = _.difference(this.state.schedule.roster.characters, schedule_boss.characters);
+          console.log(this.state.schedule.roster.characters);
+          console.log(schedule_boss.characters);
+          console.log(standbyCharacters);
           standbyCharacters.map(function(character) {
             standbyCount++;
             var classCSS = this.classColour(character);
