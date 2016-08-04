@@ -167,6 +167,12 @@ table.calendar td.loggedDay.selected {
 .dropzone-text textarea {
   height: 300px !important;
 }
+.td-column {
+  border-left: grey solid 1px;
+}
+.td-column:last-of-type {
+  border-right: grey solid 1px;
+}
 .rwHeader {
   background-color: #FFB275;
 }
