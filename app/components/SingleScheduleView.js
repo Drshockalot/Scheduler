@@ -97,10 +97,17 @@ class SingleScheduleView extends React.Component {
             );
           }
           var standbyCharacters = _.difference(this.state.schedule.roster.characters, schedule_boss.characters);
-          console.log(this.state.schedule.roster.characters);
-          console.log(schedule_boss.characters);
-          console.log(standbyCharacters);
-          standbyCharacters.map(function(character) {
+          var stbc = [];
+          for(var i = 0; i < this.state.schedule.roster.characters.length; ++i) {
+            if(!_.findWhere(schedule_boss.characters, {id: this.state.schedule.roster.characters[i].id})) {
+              stbc.push(this.state.schedule.roster.characters[i]);
+            }
+          }
+          // console.log(this.state.schedule.roster.characters);
+          // console.log(schedule_boss.characters);
+          // console.log(standbyCharacters);
+          console.log(stbc);
+          stbc.map(function(character) {
             standbyCount++;
             var classCSS = this.classColour(character);
             standbyRows.push(
