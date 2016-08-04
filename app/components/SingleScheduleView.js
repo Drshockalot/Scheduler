@@ -119,6 +119,7 @@ class SingleScheduleView extends React.Component {
               </tr>
             );
           }, this);
+          console.log(standbyRows);
         }, this);
 
         return (

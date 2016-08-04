@@ -5041,6 +5041,7 @@ var SingleScheduleView = function (_React$Component) {
                 )
               ));
             }, this);
+            console.log(standbyRows);
           }, this);
 
           return _react2.default.createElement(
