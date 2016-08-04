@@ -173,7 +173,7 @@ class SingleScheduleView extends React.Component {
     return (
       <div className='row'>
         <div className='row'>
-          <div className='col-xs-12'>
+          <div className='col-xs-10 col-xs-offset-1'>
             <div className='row text-center'>
               {scheduleName}
             </div>
