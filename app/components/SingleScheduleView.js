@@ -125,35 +125,35 @@ class SingleScheduleView extends React.Component {
                 <tr>
                   <td className='col-md-1'><strong>Raid</strong></td>
                   <td className='col-md-1'><strong>Boss</strong></td>
-                  <td className='col-md-2'><strong>Tanks</strong> <strong>({tankCount})</strong></td>
-                  <td className='col-md-2'><strong>Healers</strong> <strong>({healerCount})</strong></td>
-                  <td className='col-md-2'><strong>DPS</strong> <strong>({dpsCount})</strong></td>
-                  <td className='col-md-2'><strong>Standby</strong> <strong>({standbyCount})</strong></td>
+                  <td className='col-md-1'><strong>Tanks</strong> <strong>({tankCount})</strong></td>
+                  <td className='col-md-1'><strong>Healers</strong> <strong>({healerCount})</strong></td>
+                  <td className='col-md-1'><strong>DPS</strong> <strong>({dpsCount})</strong></td>
+                  <td className='col-md-1'><strong>Standby</strong> <strong>({standbyCount})</strong></td>
                 </tr>
                 <tr>
                   <td className='col-md-1'>{schedule_boss.raid.name}</td>
                   <td className='col-md-1'>{schedule_boss.boss.name}</td>
-                  <td className='col-md-2'>
+                  <td className='col-md-1'>
                   <table className='table'>
                     <tbody>
                       {tankRows}
                     </tbody>
                   </table></td>
-                  <td className='col-md-2'>
+                  <td className='col-md-1'>
                     <table className='table'>
                       <tbody>
                         {healerRows}
                       </tbody>
                     </table>
                   </td>
-                  <td className='col-md-2'>
+                  <td className='col-md-1'>
                     <table className='table'>
                       <tbody>
                         {dpsRows}
                       </tbody>
                     </table>
                   </td>
-                  <td className='col-md-2'>
+                  <td className='col-md-1'>
                     <table className='table'>
                       <tbody>
                         {standbyRows}
@@ -171,7 +171,7 @@ class SingleScheduleView extends React.Component {
     return (
       <div className='row'>
         <div className='row'>
-          <div className='col-xs-10 col-xs-offset-1'>
+          <div className='col-xs-12'>
             {scheduleName}
             {scheduleBossRows}
           </div>
