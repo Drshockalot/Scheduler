@@ -135,27 +135,28 @@ class SingleScheduleView extends React.Component {
                   <td className='col-md-2'>{schedule_boss.boss.public_note}</td>
                   <td className='col-md-1'>{schedule_boss.raid.name}</td>
                   <td className='col-md-1'>{schedule_boss.boss.name}</td>
-                  <td className='col-md-2'>
-                  <table className='table'>
-                    <tbody>
-                      {tankRows}
-                    </tbody>
-                  </table></td>
-                  <td className='col-md-2'>
+                  <td className='col-md-2 td-column'>
+                    <table className='table'>
+                      <tbody>
+                        {tankRows}
+                      </tbody>
+                    </table>
+                  </td>
+                  <td className='col-md-2 td-column'>
                     <table className='table'>
                       <tbody>
                         {healerRows}
                       </tbody>
                     </table>
                   </td>
-                  <td className='col-md-2'>
+                  <td className='col-md-2 td-column'>
                     <table className='table'>
                       <tbody>
                         {dpsRows}
                       </tbody>
                     </table>
                   </td>
-                  <td className='col-md-2'>
+                  <td className='col-md-2 td-column'>
                     <table className='table'>
                       <tbody>
                         {standbyRows}

@@ -5168,7 +5168,7 @@ var SingleScheduleView = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-2' },
+                    { className: 'col-md-2 td-column' },
                     _react2.default.createElement(
                       'table',
                       { className: 'table' },
@@ -5181,7 +5181,7 @@ var SingleScheduleView = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-2' },
+                    { className: 'col-md-2 td-column' },
                     _react2.default.createElement(
                       'table',
                       { className: 'table' },
@@ -5194,7 +5194,7 @@ var SingleScheduleView = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-2' },
+                    { className: 'col-md-2 td-column' },
                     _react2.default.createElement(
                       'table',
                       { className: 'table' },
@@ -5207,7 +5207,7 @@ var SingleScheduleView = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-2' },
+                    { className: 'col-md-2 td-column' },
                     _react2.default.createElement(
                       'table',
                       { className: 'table' },
