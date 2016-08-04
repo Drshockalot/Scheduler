@@ -5054,6 +5054,15 @@ var SingleScheduleView = function (_React$Component) {
                   null,
                   _react2.default.createElement(
                     'td',
+                    { className: 'col-md-2' },
+                    _react2.default.createElement(
+                      'strong',
+                      null,
+                      'Note'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'td',
                     { className: 'col-md-1' },
                     _react2.default.createElement(
                       'strong',
@@ -5072,7 +5081,7 @@ var SingleScheduleView = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-1' },
+                    { className: 'col-md-2' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -5089,7 +5098,7 @@ var SingleScheduleView = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-1' },
+                    { className: 'col-md-2' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -5106,7 +5115,7 @@ var SingleScheduleView = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-1' },
+                    { className: 'col-md-2' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -5123,7 +5132,7 @@ var SingleScheduleView = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-1' },
+                    { className: 'col-md-2' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -5144,6 +5153,11 @@ var SingleScheduleView = function (_React$Component) {
                   null,
                   _react2.default.createElement(
                     'td',
+                    { className: 'col-md-2' },
+                    schedule_boss.boss.public_note
+                  ),
+                  _react2.default.createElement(
+                    'td',
                     { className: 'col-md-1' },
                     schedule_boss.raid.name
                   ),
@@ -5154,7 +5168,7 @@ var SingleScheduleView = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-1' },
+                    { className: 'col-md-2' },
                     _react2.default.createElement(
                       'table',
                       { className: 'table' },
@@ -5167,7 +5181,7 @@ var SingleScheduleView = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-1' },
+                    { className: 'col-md-2' },
                     _react2.default.createElement(
                       'table',
                       { className: 'table' },
@@ -5180,7 +5194,7 @@ var SingleScheduleView = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-1' },
+                    { className: 'col-md-2' },
                     _react2.default.createElement(
                       'table',
                       { className: 'table' },
@@ -5193,7 +5207,7 @@ var SingleScheduleView = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-md-1' },
+                    { className: 'col-md-2' },
                     _react2.default.createElement(
                       'table',
                       { className: 'table' },
@@ -5220,8 +5234,16 @@ var SingleScheduleView = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'col-xs-12' },
-            scheduleName,
-            scheduleBossRows
+            _react2.default.createElement(
+              'div',
+              { className: 'row text-center' },
+              scheduleName
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'row' },
+              scheduleBossRows
+            )
           )
         )
       );
