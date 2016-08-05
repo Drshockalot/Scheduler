@@ -1816,6 +1816,8 @@ var _moment = require('moment');
 
 var _moment2 = _interopRequireDefault(_moment);
 
+var _reactBootstrap = require('react-bootstrap');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1937,13 +1939,13 @@ var AttendancePublicView = function (_React$Component) {
           });
 
           var popover = _react2.default.createElement(
-            Popover,
+            _reactBootstrap.Popover,
             { id: user.id, title: 'Characters' },
             characterRows
           );
 
           var trigger = _react2.default.createElement(
-            OverlayTrigger,
+            _reactBootstrap.OverlayTrigger,
             { placement: 'right', trigger: 'click', rootClose: true, overlay: popover },
             _react2.default.createElement(
               'span',
@@ -2149,7 +2151,7 @@ var AttendancePublicView = function (_React$Component) {
 
 exports.default = AttendancePublicView;
 
-},{"../actions/AttendancePublicViewActions":1,"../stores/AttendancePublicViewStore":52,"../stores/NavbarStore":55,"moment":177,"react":"react","react-router":"react-router","underscore":"underscore"}],27:[function(require,module,exports){
+},{"../actions/AttendancePublicViewActions":1,"../stores/AttendancePublicViewStore":52,"../stores/NavbarStore":55,"moment":177,"react":"react","react-bootstrap":270,"react-router":"react-router","underscore":"underscore"}],27:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

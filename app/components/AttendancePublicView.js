@@ -6,6 +6,7 @@ import NavbarStore from '../stores/NavbarStore';
 
 import _ from 'underscore';
 import moment from 'moment';
+import { OverlayTrigger, Popover } from 'react-bootstrap';
 
 class AttendancePublicView extends React.Component {
   constructor(props, context) {
