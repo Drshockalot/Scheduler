@@ -21,21 +21,25 @@ import ScheduleView from './components/ScheduleView';
 import AttendancePublicView from './components/AttendancePublicView';
 
 import NavbarStore from './stores/NavbarStore';
-var auth = function(transition) {
+var auth = function(nextState, replace) {
   if(typeof(Storage) !== "undefined"){
     if(!sessionStorage.role || sessionStorage.role === '') {
-      console.log('yay');
-      transition.redirect('/', {}, {nextPath: transition.path});
+      replace({
+        pathname: '/',
+        state: { nextPathname: nextState.location.pathname }
+      });
       toastr.error('Only logged in users are allowed to view this page', 'Please log in');
     }
  }
 };
 
-var adminAuth = function(transition) {
+var adminAuth = function(nextState, replace) {
   if(typeof(Storage) !== "undefined"){
     if(!sessionStorage.role || sessionStorage.role != 'admin') {
-      console.log('yay');
-      transition.redirect('/', {}, {nextPath: transition.path});
+      replace({
+        pathname: '/',
+        state: { nextPathname: nextState.location.pathname }
+      });
       toastr.error('You do not have authorization to access this page', 'YOU SHALL NOT PASS!!');
     }
   }

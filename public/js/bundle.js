@@ -10656,21 +10656,25 @@ var _NavbarStore2 = _interopRequireDefault(_NavbarStore);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var auth = function auth(transition) {
+var auth = function auth(nextState, replace) {
   if (typeof Storage !== "undefined") {
     if (!sessionStorage.role || sessionStorage.role === '') {
-      console.log('yay');
-      transition.redirect('/', {}, { nextPath: transition.path });
+      replace({
+        pathname: '/',
+        state: { nextPathname: nextState.location.pathname }
+      });
       toastr.error('Only logged in users are allowed to view this page', 'Please log in');
     }
   }
 };
 
-var adminAuth = function adminAuth(transition) {
+var adminAuth = function adminAuth(nextState, replace) {
   if (typeof Storage !== "undefined") {
     if (!sessionStorage.role || sessionStorage.role != 'admin') {
-      console.log('yay');
-      transition.redirect('/', {}, { nextPath: transition.path });
+      replace({
+        pathname: '/',
+        state: { nextPathname: nextState.location.pathname }
+      });
       toastr.error('You do not have authorization to access this page', 'YOU SHALL NOT PASS!!');
     }
   }
