@@ -5474,23 +5474,43 @@ var SingleScheduleView = function (_React$Component) {
           null,
           this.state.schedule.name
         );
-        if (this.state.schedule.schedule_bosses.length == 0) {
+
+        if (_underscore2.default.filter(this.state.schedule.schedule_bosses, function (boss) {
+          return boss.published;
+        }).length == 0) {
           return _react2.default.createElement(
             'div',
             { className: 'row' },
             _react2.default.createElement(
               'div',
-              { className: 'col-xs-12' },
+              { className: 'row' },
               _react2.default.createElement(
                 'div',
-                { className: 'text-center' },
+                { className: 'col-xs-10 col-xs-offset-1' },
                 _react2.default.createElement(
-                  'h3',
-                  null,
+                  'div',
+                  { className: 'row text-center' },
+                  scheduleName
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'row' },
                   _react2.default.createElement(
-                    'b',
-                    null,
-                    'No bosses have been published for this schedule'
+                    'div',
+                    { className: 'col-xs-12' },
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'text-center' },
+                      _react2.default.createElement(
+                        'h3',
+                        null,
+                        _react2.default.createElement(
+                          'b',
+                          null,
+                          'No bosses have been published for this schedule'
+                        )
+                      )
+                    )
                   )
                 )
               )

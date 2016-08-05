@@ -48,12 +48,24 @@ class SingleScheduleView extends React.Component {
       scheduleName = (
         <h1>{this.state.schedule.name}</h1>
       );
-      if(this.state.schedule.schedule_bosses.length == 0) {
+
+      if(_.filter(this.state.schedule.schedule_bosses, function(boss) {
+        return boss.published;
+      }).length == 0) {
         return (
           <div className='row'>
-            <div className='col-xs-12'>
-              <div className='text-center'>
-                <h3><b>No bosses have been published for this schedule</b></h3>
+            <div className='row'>
+              <div className='col-xs-10 col-xs-offset-1'>
+                <div className='row text-center'>
+                  {scheduleName}
+                </div>
+                <div className='row'>
+                  <div className='col-xs-12'>
+                    <div className='text-center'>
+                      <h3><b>No bosses have been published for this schedule</b></h3>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
