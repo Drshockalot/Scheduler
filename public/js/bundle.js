@@ -5045,11 +5045,15 @@ var SingleScheduleView = function (_React$Component) {
             { className: 'row' },
             _react2.default.createElement(
               'div',
-              { className: 'row' },
+              { className: 'row schedule-boss-header' },
               _react2.default.createElement(
                 'h3',
                 null,
-                schedule_boss.boss.name
+                _react2.default.createElement(
+                  'b',
+                  null,
+                  schedule_boss.boss.name
+                )
               )
             ),
             _react2.default.createElement(
