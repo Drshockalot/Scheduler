@@ -12,15 +12,18 @@ class AttendancePublicView extends React.Component {
     super(props);
     this.state = AttendancePublicViewStore.getState();
     this.onChange = this.onChange.bind(this);
-    this.redirect = false;
   }
 
   componentDidMount() {
     AttendancePublicViewStore.listen(this.onChange);
+    if(sessionStorage.attendancePublicView)
+      AttendancePublicViewActions.restoreState(JSON.parse(sessionStorage.attendancePublicView));
+    AttendancePublicViewActions.loadComponentData();
   }
 
   componentWillUnmount() {
     AttendancePublicViewStore.unlisten(this.onChange);
+    sessionStorage.attendancePublicView = JSON.stringify(this.state);
   }
 
   onChange(state) {

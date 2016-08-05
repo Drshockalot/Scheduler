@@ -1834,7 +1834,6 @@ var AttendancePublicView = function (_React$Component) {
 
     _this.state = _AttendancePublicViewStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
-    _this.redirect = false;
     return _this;
   }
 
@@ -1842,11 +1841,14 @@ var AttendancePublicView = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _AttendancePublicViewStore2.default.listen(this.onChange);
+      if (sessionStorage.attendancePublicView) _AttendancePublicViewActions2.default.restoreState(JSON.parse(sessionStorage.attendancePublicView));
+      _AttendancePublicViewActions2.default.loadComponentData();
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _AttendancePublicViewStore2.default.unlisten(this.onChange);
+      sessionStorage.attendancePublicView = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
