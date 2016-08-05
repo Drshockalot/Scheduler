@@ -108,6 +108,7 @@ class Navbar extends React.Component {
         <div id='navbar' className='navbar-collapse collapse'>
           <ul className='nav navbar-nav'>
             <li><Link to='/'>Home</Link></li>
+            <li><Link to='/attendance'>Attendance</Link></li>
             <li><Link to='/admin'>Admin</Link></li>
             {profilePane}
           </ul>

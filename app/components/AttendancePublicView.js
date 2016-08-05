@@ -1,31 +1,23 @@
 import React from 'react';
 import {Link} from 'react-router';
-import ViewAttendanceStore from '../../stores/admin/ViewAttendanceStore';
-import ViewAttendanceActions from '../../actions/admin/ViewAttendanceActions';
-import NavbarStore from './../../stores/NavbarStore';
-import { browserHistory } from 'react-router';
+import AttendancePublicViewStore from '../stores/AttendancePublicViewStore';
+import AttendancePublicViewActions from '../actions/AttendancePublicViewActions';
+import NavbarStore from '../stores/NavbarStore';
 
-import moment from 'moment';
-import _ from 'underscore';
-import { OverlayTrigger, Popover } from 'react-bootstrap';
-
-class ViewAttendance extends React.Component {
-  constructor(props) {
+class AttendancePublicView extends React.Component {
+  constructor(props, context) {
     super(props);
-    this.state = ViewAttendanceStore.getState();
+    this.state = AttendancePublicViewStore.getState();
     this.onChange = this.onChange.bind(this);
+    this.redirect = false;
   }
 
   componentDidMount() {
-    ViewAttendanceStore.listen(this.onChange);
-    if(sessionStorage.viewAttendance)
-      ViewAttendanceActions.restoreState(JSON.parse(sessionStorage.viewAttendance));
-    ViewAttendanceActions.loadComponentData();
+    AttendancePublicViewStore.listen(this.onChange);
   }
 
   componentWillUnmount() {
-    ViewAttendanceStore.unlisten(this.onChange);
-    sessionStorage.viewAttendance = JSON.stringify(this.state);
+    AttendancePublicViewStore.unlisten(this.onChange);
   }
 
   onChange(state) {
@@ -33,7 +25,7 @@ class ViewAttendance extends React.Component {
   }
 
   render() {
-    if(typeof(Storage) === 'undefined' || (sessionStorage.role != 'admin' || NavbarStore.getState().userRole != 'admin')) {
+    if(typeof(Storage) === 'undefined' || (sessionStorage.role === '' || NavbarStore.getState().userRole === '')) {
       return null;
     }
 
@@ -132,37 +124,41 @@ class ViewAttendance extends React.Component {
     }
 
     return (
-      <div className='row'>
-        <div className='row'>
-          <div className='col-xs-12'>
-            <h2>View General Attendance</h2>
-          </div>
-        </div>
-        <div className='row'>
-          <div className='col-xs-10'>
-            <div className='form-horizontal'>
-              <div className='form-group'>
-                <label className='col-sm-1 control-label'>Raid:</label>
-                <div className='col-sm-5'>
-                  <select className='form-control' value={this.state.selectRaid} onChange={e => ViewAttendanceActions.updateSelectRaid(parseInt(e.target.value))}>
-                    {selectRaidOptions}
-                  </select>
-                </div>
+      <div id='page-content-wrapper'>
+        <div className='container-fluid'>
+          <div className='row'>
+            <div className='row'>
+              <div className='col-xs-12'>
+                <h2>View General Attendance</h2>
               </div>
             </div>
-            <table className='table'>
-              <tbody>
-                <tr>
-                  <td className='col-xs-2 text-center'><strong>User</strong></td>
-                  <td className='col-xs-2 text-center'><strong>Last 30 days</strong></td>
-                  <td className='col-xs-2 text-center'><strong>Last 60 days</strong></td>
-                  <td className='col-xs-2 text-center'><strong>Last 90 days</strong></td>
-                  <td className='col-xs-2 text-center'><strong>Lifetime</strong></td>
-                  <td className='col-xs-2 text-center'><strong>{this.state.raids.length > 0 ? _.findWhere(this.state.raids, {id: Number(this.state.selectRaid)}).name : null}</strong></td>
-                </tr>
-                {_.sortBy(generalAttendanceRows, function(row) {return row.props.sortOrder;}).reverse()}
-              </tbody>
-            </table>
+            <div className='row'>
+              <div className='col-xs-10'>
+                <div className='form-horizontal'>
+                  <div className='form-group'>
+                    <label className='col-sm-1 control-label'>Raid:</label>
+                    <div className='col-sm-5'>
+                      <select className='form-control' value={this.state.selectRaid} onChange={e => ViewAttendanceActions.updateSelectRaid(parseInt(e.target.value))}>
+                        {selectRaidOptions}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <table className='table'>
+                  <tbody>
+                    <tr>
+                      <td className='col-xs-2 text-center'><strong>User</strong></td>
+                      <td className='col-xs-2 text-center'><strong>Last 30 days</strong></td>
+                      <td className='col-xs-2 text-center'><strong>Last 60 days</strong></td>
+                      <td className='col-xs-2 text-center'><strong>Last 90 days</strong></td>
+                      <td className='col-xs-2 text-center'><strong>Lifetime</strong></td>
+                      <td className='col-xs-2 text-center'><strong>{this.state.raids.length > 0 ? _.findWhere(this.state.raids, {id: Number(this.state.selectRaid)}).name : null}</strong></td>
+                    </tr>
+                    {_.sortBy(generalAttendanceRows, function(row) {return row.props.sortOrder;}).reverse()}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -170,4 +166,4 @@ class ViewAttendance extends React.Component {
   }
 }
 
-export default ViewAttendance;
+export default AttendancePublicView;

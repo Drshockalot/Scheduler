@@ -18,6 +18,7 @@ import ProfileRosters from './components/ProfileRosters';
 import ProfileSchedules from './components/ProfileSchedules';
 
 import ScheduleView from './components/ScheduleView';
+import AttendancePublicView from './components/AttendancePublicView';
 
 import NavbarStore from './stores/NavbarStore';
 var auth = function(nextState, replace) {
@@ -59,5 +60,6 @@ export default (
     <Route path='/admin/raid' component={RaidManagement} onEnter={adminAuth}/>
     <Route path='/admin/attendance' component={AttendanceManagement} onEnter={adminAuth}/>
     <Route path='/schedule' component={ScheduleView} onEnter={auth}/>
+    <Route path='/attendance' component={AttendancePublicView} onEnter={auth}/>
   </Route>
 );
