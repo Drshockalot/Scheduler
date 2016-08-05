@@ -24,6 +24,7 @@ import NavbarStore from './stores/NavbarStore';
 var auth = function(transition) {
   if(typeof(Storage) !== "undefined"){
     if(!sessionStorage.role || sessionStorage.role === '') {
+      console.log('yay');
       transition.redirect('/', {}, {nextPath: transition.path});
       toastr.error('Only logged in users are allowed to view this page', 'Please log in');
     }
@@ -33,6 +34,7 @@ var auth = function(transition) {
 var adminAuth = function(transition) {
   if(typeof(Storage) !== "undefined"){
     if(!sessionStorage.role || sessionStorage.role != 'admin') {
+      console.log('yay');
       transition.redirect('/', {}, {nextPath: transition.path});
       toastr.error('You do not have authorization to access this page', 'YOU SHALL NOT PASS!!');
     }

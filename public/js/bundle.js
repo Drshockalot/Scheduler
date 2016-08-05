@@ -10659,6 +10659,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var auth = function auth(transition) {
   if (typeof Storage !== "undefined") {
     if (!sessionStorage.role || sessionStorage.role === '') {
+      console.log('yay');
       transition.redirect('/', {}, { nextPath: transition.path });
       toastr.error('Only logged in users are allowed to view this page', 'Please log in');
     }
@@ -10668,6 +10669,7 @@ var auth = function auth(transition) {
 var adminAuth = function adminAuth(transition) {
   if (typeof Storage !== "undefined") {
     if (!sessionStorage.role || sessionStorage.role != 'admin') {
+      console.log('yay');
       transition.redirect('/', {}, { nextPath: transition.path });
       toastr.error('You do not have authorization to access this page', 'YOU SHALL NOT PASS!!');
     }
