@@ -145,7 +145,7 @@ class AttendancePublicView extends React.Component {
                   <div className='form-group'>
                     <label className='col-sm-1 control-label'>Raid:</label>
                     <div className='col-sm-5'>
-                      <select className='form-control' value={this.state.selectRaid} onChange={e => ViewAttendanceActions.updateSelectRaid(parseInt(e.target.value))}>
+                      <select className='form-control' value={this.state.selectRaid} onChange={e => AttendancePublicView.updateSelectRaid(parseInt(e.target.value))}>
                         {selectRaidOptions}
                       </select>
                     </div>

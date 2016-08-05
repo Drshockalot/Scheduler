@@ -2062,7 +2062,7 @@ var AttendancePublicView = function (_React$Component) {
                       _react2.default.createElement(
                         'select',
                         { className: 'form-control', value: this.state.selectRaid, onChange: function onChange(e) {
-                            return ViewAttendanceActions.updateSelectRaid(parseInt(e.target.value));
+                            return AttendancePublicView.updateSelectRaid(parseInt(e.target.value));
                           } },
                         selectRaidOptions
                       )
