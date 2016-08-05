@@ -48,6 +48,18 @@ class SingleScheduleView extends React.Component {
       scheduleName = (
         <h1>{this.state.schedule.name}</h1>
       );
+      if(this.state.schedule.schedule_bosses.length == 0) {
+        return (
+          <div className='row'>
+            <div className='col-xs-12'>
+              <div className='text-center'>
+                <h3><b>No bosses have been published for this schedule</b></h3>
+              </div>
+            </div>
+          </div>
+        );
+      }
+
       scheduleBossRows = this.state.schedule.schedule_bosses.filter(function(schedule_boss) {
         return schedule_boss.published;
                //Put in the 20 character requirement for bosses to show

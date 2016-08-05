@@ -5474,6 +5474,30 @@ var SingleScheduleView = function (_React$Component) {
           null,
           this.state.schedule.name
         );
+        if (this.state.schedule.schedule_bosses.length == 0) {
+          return _react2.default.createElement(
+            'div',
+            { className: 'row' },
+            _react2.default.createElement(
+              'div',
+              { className: 'col-xs-12' },
+              _react2.default.createElement(
+                'div',
+                { className: 'text-center' },
+                _react2.default.createElement(
+                  'h3',
+                  null,
+                  _react2.default.createElement(
+                    'b',
+                    null,
+                    'No bosses have been published for this schedule'
+                  )
+                )
+              )
+            )
+          );
+        }
+
         scheduleBossRows = this.state.schedule.schedule_bosses.filter(function (schedule_boss) {
           return schedule_boss.published;
           //Put in the 20 character requirement for bosses to show
