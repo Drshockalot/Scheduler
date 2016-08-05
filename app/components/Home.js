@@ -116,6 +116,31 @@ class Home extends React.Component {
                 <tbody>
                   <tr>
                     <td>
+                      <h4>{moment('2016-08-05').format('MMM Do YYYY')}</h4>
+                      <ul>
+                        <li>
+                          <h5>Public Attendance View  -<strong>New!</strong>-</h5>
+                          <ul>
+                            <li>A new section has been added, allowing the public to view general attendance</li>
+                          </ul>
+                        </li>
+                        <li>
+                          <h5>Attendance Views</h5>
+                          <ul>
+                            <li>Only users that have characters registered in the system will be shown on the attendance views</li>
+                          </ul>
+                        </li>
+                        <li>
+                          <h5>View Schedule</h5>
+                          <ul>
+                            <li>The public schedule view has gone under a slight reskinning</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       <h4>{moment('2016-08-02').format('MMM Do YYYY')}</h4>
                       <ul>
                         <li>
