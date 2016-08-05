@@ -46,7 +46,7 @@ class SingleScheduleView extends React.Component {
     var scheduleBossRows, scheduleName, tankRows = [], healerRows = [], dpsRows = [], standbyRows = [];
     if(this.state.schedule != null) {
       scheduleName = (
-        <h3>{this.state.schedule.name}</h3>
+        <h1>{this.state.schedule.name}</h1>
       );
       scheduleBossRows = this.state.schedule.schedule_bosses.filter(function(schedule_boss) {
         return schedule_boss.published;
@@ -120,43 +120,44 @@ class SingleScheduleView extends React.Component {
 
         return (
           <div className='row'>
+            <div className='row'>
+              <h3>{schedule_boss.boss.name}</h3>
+            </div>
             <table className='table'>
               <tbody>
                 <tr>
-                  <td className='col-md-2'><strong>Note</strong></td>
+                  <td className='col-md-3'><strong>Note</strong></td>
                   <td className='col-md-1'><strong>Raid</strong></td>
-                  <td className='col-md-1'><strong>Boss</strong></td>
                   <td className='col-md-2'><strong>Tanks</strong> <strong>({tankCount})</strong></td>
                   <td className='col-md-2'><strong>Healers</strong> <strong>({healerCount})</strong></td>
                   <td className='col-md-2'><strong>DPS</strong> <strong>({dpsCount})</strong></td>
                   <td className='col-md-2'><strong>Standby</strong> <strong>({standbyCount})</strong></td>
                 </tr>
                 <tr>
-                  <td className='col-md-2'>{schedule_boss.boss.public_note}</td>
+                  <td className='col-md-3'>{schedule_boss.boss.public_note}</td>
                   <td className='col-md-1'>{schedule_boss.raid.name}</td>
-                  <td className='col-md-1'>{schedule_boss.boss.name}</td>
-                  <td className='col-md-2 td-column'>
+                  <td className='col-md-2'>
                     <table className='table'>
                       <tbody>
                         {tankRows}
                       </tbody>
                     </table>
                   </td>
-                  <td className='col-md-2 td-column'>
+                  <td className='col-md-2'>
                     <table className='table'>
                       <tbody>
                         {healerRows}
                       </tbody>
                     </table>
                   </td>
-                  <td className='col-md-2 td-column'>
+                  <td className='col-md-2'>
                     <table className='table'>
                       <tbody>
                         {dpsRows}
                       </tbody>
                     </table>
                   </td>
-                  <td className='col-md-2 td-column'>
+                  <td className='col-md-2'>
                     <table className='table'>
                       <tbody>
                         {standbyRows}
