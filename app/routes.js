@@ -28,6 +28,7 @@ var auth = function(nextState, replace) {
         pathname: '/',
         state: { nextPathname: nextState.location.pathname }
       });
+      toastr.error('Only logged in users are allowed to view this page', 'Please log in');
     }
  }
 };
