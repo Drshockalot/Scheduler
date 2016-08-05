@@ -135,12 +135,12 @@ class AttendancePublicView extends React.Component {
         <div className='container-fluid'>
           <div className='row'>
             <div className='row'>
-              <div className='col-xs-12'>
+              <div className='col-xs-10 col-xs-offset-1'>
                 <h2>View General Attendance</h2>
               </div>
             </div>
             <div className='row'>
-              <div className='col-xs-10'>
+              <div className='col-xs-10 col-xs-offset-1'>
                 <div className='form-horizontal'>
                   <div className='form-group'>
                     <label className='col-sm-1 control-label'>Raid:</label>

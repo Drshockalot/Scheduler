@@ -2031,7 +2031,7 @@ var AttendancePublicView = function (_React$Component) {
               { className: 'row' },
               _react2.default.createElement(
                 'div',
-                { className: 'col-xs-12' },
+                { className: 'col-xs-10 col-xs-offset-1' },
                 _react2.default.createElement(
                   'h2',
                   null,
@@ -2044,7 +2044,7 @@ var AttendancePublicView = function (_React$Component) {
               { className: 'row' },
               _react2.default.createElement(
                 'div',
-                { className: 'col-xs-10' },
+                { className: 'col-xs-10 col-xs-offset-1' },
                 _react2.default.createElement(
                   'div',
                   { className: 'form-horizontal' },
