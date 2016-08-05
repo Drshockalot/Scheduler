@@ -121,52 +121,54 @@ class SingleScheduleView extends React.Component {
         return (
           <div className='row'>
             <div className='row schedule-boss-header'>
-              <h3><b>{schedule_boss.boss.name}</b></h3>
+              <h3><b>{schedule_boss.boss.name} ({schedule_boss.raid.name})</b></h3>
             </div>
-            <table className='table'>
-              <tbody>
-                <tr>
-                  <td className='col-md-3'><strong>Note</strong></td>
-                  <td className='col-md-1'><strong>Raid</strong></td>
-                  <td className='col-md-2'><strong>Tanks</strong> <strong>({tankCount})</strong></td>
-                  <td className='col-md-2'><strong>Healers</strong> <strong>({healerCount})</strong></td>
-                  <td className='col-md-2'><strong>DPS</strong> <strong>({dpsCount})</strong></td>
-                  <td className='col-md-2'><strong>Standby</strong> <strong>({standbyCount})</strong></td>
-                </tr>
-                <tr>
-                  <td className='col-md-3'>{schedule_boss.boss.public_note}</td>
-                  <td className='col-md-1'>{schedule_boss.raid.name}</td>
-                  <td className='col-md-2'>
-                    <table className='table'>
-                      <tbody>
-                        {tankRows}
-                      </tbody>
-                    </table>
-                  </td>
-                  <td className='col-md-2'>
-                    <table className='table'>
-                      <tbody>
-                        {healerRows}
-                      </tbody>
-                    </table>
-                  </td>
-                  <td className='col-md-2'>
-                    <table className='table'>
-                      <tbody>
-                        {dpsRows}
-                      </tbody>
-                    </table>
-                  </td>
-                  <td className='col-md-2'>
-                    <table className='table'>
-                      <tbody>
-                        {standbyRows}
-                      </tbody>
-                    </table>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <div className='row'>
+              <div className='col-xs-10 col-xs-offset-1'>
+                <table className='table'>
+                  <tbody>
+                    <tr>
+                      <td className='col-md-4'><strong>Note</strong></td>
+                      <td className='col-md-2'><strong>Tanks</strong> <strong>({tankCount})</strong></td>
+                      <td className='col-md-2'><strong>Healers</strong> <strong>({healerCount})</strong></td>
+                      <td className='col-md-2'><strong>DPS</strong> <strong>({dpsCount})</strong></td>
+                      <td className='col-md-2'><strong>Standby</strong> <strong>({standbyCount})</strong></td>
+                    </tr>
+                    <tr>
+                      <td className='col-md-1'>{schedule_boss.raid.name}</td>
+                      <td className='col-md-2'>
+                        <table className='table'>
+                          <tbody>
+                            {tankRows}
+                          </tbody>
+                        </table>
+                      </td>
+                      <td className='col-md-2'>
+                        <table className='table'>
+                          <tbody>
+                            {healerRows}
+                          </tbody>
+                        </table>
+                      </td>
+                      <td className='col-md-2'>
+                        <table className='table'>
+                          <tbody>
+                            {dpsRows}
+                          </tbody>
+                        </table>
+                      </td>
+                      <td className='col-md-2'>
+                        <table className='table'>
+                          <tbody>
+                            {standbyRows}
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         );
       }, this);
