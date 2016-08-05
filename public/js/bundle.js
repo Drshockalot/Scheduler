@@ -1808,6 +1808,14 @@ var _NavbarStore = require('../stores/NavbarStore');
 
 var _NavbarStore2 = _interopRequireDefault(_NavbarStore);
 
+var _underscore = require('underscore');
+
+var _underscore2 = _interopRequireDefault(_underscore);
+
+var _moment = require('moment');
+
+var _moment2 = _interopRequireDefault(_moment);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1870,43 +1878,43 @@ var AttendancePublicView = function (_React$Component) {
 
           var totalAttendanceCount = this.state.attendanceCount.length;
 
-          var totalByRaidCount = _.where(this.state.attendanceCount, { raid_id: Number(this.state.selectRaid) }).length;
-          var userByRaidAttendanceCount = _.where(this.state.attendanceRecords, { user_id: Number(user.id), raid_id: Number(this.state.selectRaid) }).length;
+          var totalByRaidCount = _underscore2.default.where(this.state.attendanceCount, { raid_id: Number(this.state.selectRaid) }).length;
+          var userByRaidAttendanceCount = _underscore2.default.where(this.state.attendanceRecords, { user_id: Number(user.id), raid_id: Number(this.state.selectRaid) }).length;
           var byRaidAttendancePercentage = userByRaidAttendanceCount / totalByRaidCount * 100;
 
-          var totalUserAttendance = _.where(this.state.attendanceRecords, { user_id: Number(user.id) });
+          var totalUserAttendance = _underscore2.default.where(this.state.attendanceRecords, { user_id: Number(user.id) });
           var totalUserAttendanceCount = totalUserAttendance.length;
 
-          var totalAttendanceCount90Days = _.countBy(this.state.attendanceCount, function (row) {
-            if (moment(row.created_at).isAfter(moment().subtract(90, 'days'))) {
+          var totalAttendanceCount90Days = _underscore2.default.countBy(this.state.attendanceCount, function (row) {
+            if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(90, 'days'))) {
               return '90days';
             }
           })['90days'];
-          var totalAttendanceCount60Days = _.countBy(this.state.attendanceCount, function (row) {
-            if (moment(row.created_at).isAfter(moment().subtract(60, 'days'))) {
+          var totalAttendanceCount60Days = _underscore2.default.countBy(this.state.attendanceCount, function (row) {
+            if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(60, 'days'))) {
               return '60days';
             }
           })['60days'];
-          var totalAttendanceCount30Days = _.countBy(this.state.attendanceCount, function (row) {
-            if (moment(row.created_at).isAfter(moment().subtract(30, 'days'))) {
+          var totalAttendanceCount30Days = _underscore2.default.countBy(this.state.attendanceCount, function (row) {
+            if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(30, 'days'))) {
               return '30days';
             }
           })['30days'];
 
           var userAttendanceCount90Days, userAttendanceCount60Days, userAttendanceCount30Days, userTimeBasedResults;
           if (totalUserAttendanceCount > 0) {
-            userAttendanceCount90Days = _.countBy(totalUserAttendance, function (row) {
-              if (moment(row.created_at).isAfter(moment().subtract(90, 'days'))) {
+            userAttendanceCount90Days = _underscore2.default.countBy(totalUserAttendance, function (row) {
+              if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(90, 'days'))) {
                 return '90days';
               }
             })['90days'];
-            userAttendanceCount60Days = _.countBy(totalUserAttendance, function (row) {
-              if (moment(row.created_at).isAfter(moment().subtract(60, 'days'))) {
+            userAttendanceCount60Days = _underscore2.default.countBy(totalUserAttendance, function (row) {
+              if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(60, 'days'))) {
                 return '60days';
               }
             })['60days'];
-            userAttendanceCount30Days = _.countBy(totalUserAttendance, function (row) {
-              if (moment(row.created_at).isAfter(moment().subtract(30, 'days'))) {
+            userAttendanceCount30Days = _underscore2.default.countBy(totalUserAttendance, function (row) {
+              if ((0, _moment2.default)(row.created_at).isAfter((0, _moment2.default)().subtract(30, 'days'))) {
                 return '30days';
               }
             })['30days'];
@@ -2117,11 +2125,11 @@ var AttendancePublicView = function (_React$Component) {
                         _react2.default.createElement(
                           'strong',
                           null,
-                          this.state.raids.length > 0 ? _.findWhere(this.state.raids, { id: Number(this.state.selectRaid) }).name : null
+                          this.state.raids.length > 0 ? _underscore2.default.findWhere(this.state.raids, { id: Number(this.state.selectRaid) }).name : null
                         )
                       )
                     ),
-                    _.sortBy(generalAttendanceRows, function (row) {
+                    _underscore2.default.sortBy(generalAttendanceRows, function (row) {
                       return row.props.sortOrder;
                     }).reverse()
                   )
@@ -2139,7 +2147,7 @@ var AttendancePublicView = function (_React$Component) {
 
 exports.default = AttendancePublicView;
 
-},{"../actions/AttendancePublicViewActions":1,"../stores/AttendancePublicViewStore":52,"../stores/NavbarStore":55,"react":"react","react-router":"react-router"}],27:[function(require,module,exports){
+},{"../actions/AttendancePublicViewActions":1,"../stores/AttendancePublicViewStore":52,"../stores/NavbarStore":55,"moment":177,"react":"react","react-router":"react-router","underscore":"underscore"}],27:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

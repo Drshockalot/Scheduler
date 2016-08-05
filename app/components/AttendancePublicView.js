@@ -4,6 +4,9 @@ import AttendancePublicViewStore from '../stores/AttendancePublicViewStore';
 import AttendancePublicViewActions from '../actions/AttendancePublicViewActions';
 import NavbarStore from '../stores/NavbarStore';
 
+import _ from 'underscore';
+import moment from 'moment';
+
 class AttendancePublicView extends React.Component {
   constructor(props, context) {
     super(props);
