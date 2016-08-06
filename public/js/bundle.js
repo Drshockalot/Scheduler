@@ -10885,7 +10885,6 @@ var NavbarStore = function () {
     this.searchQuery = '';
     this.ajaxAnimationClass = '';
     this.battletag = '';
-    this.accessToken = '';
     this.userRole = '';
   }
 

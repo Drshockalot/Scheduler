@@ -9,7 +9,6 @@ class NavbarStore {
     this.searchQuery = '';
     this.ajaxAnimationClass = '';
     this.battletag = '';
-    this.accessToken = '';
     this.userRole = '';
   }
 
