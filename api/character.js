@@ -213,7 +213,7 @@ router.delete('/admin/unconfirm/:characterid', function(req, res, next) {
 });
 
 router.get('/blizzard', function(req, res, next) {
-  https.get('https://eu.api.battle.net/wow/user/characters?locale=en_GB&apikey=8fc24vcgky6r8yzja8a4efxncgu8z77g&access_token=' + req.user.token, function(res) {
+  https.get('https://eu.api.battle.net/wow/user/characters?locale=en_GB&apikey=8fc24vcgky6r8yzja8a4efxncgu8z77g&access_token=' + req.session.user.token, function(res) {
     res.json({error: false, data: {message: "Character Unconfirmed", characters: res}});
   }).on('error', function(e) {
     res.json({error: true, data: {message: "Could not retrieve characters"}});
