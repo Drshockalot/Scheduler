@@ -104,16 +104,14 @@ class Home extends React.Component {
           <div className='row'>
             <div className='col-md-6'>
               <h2>Schedules</h2>
+              <div className='col-xs-4 vert-align text-center'>
+                <h4>Raid Weeks</h4>
+              </div>
+              <div className='col-xs-8 vert-align text-center'>
+                <h4>Schedules</h4>
+              </div>
               <table className='table table-striped'>
                 <tbody>
-                  <tr>
-                    <td className='col-xs-4 vert-align text-center'>
-                      <h5>Raid Weeks</h5>
-                    </td>
-                    <td className='col-xs-8 vert-align'>
-                      <h5>Schedules</h5>
-                    </td>
-                  </tr>
                   {schedules}
                 </tbody>
               </table>

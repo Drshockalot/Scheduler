@@ -2549,33 +2549,29 @@ var Home = function (_React$Component) {
                 'Schedules'
               ),
               _react2.default.createElement(
+                'div',
+                { className: 'col-xs-4 vert-align text-center' },
+                _react2.default.createElement(
+                  'h4',
+                  null,
+                  'Raid Weeks'
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-xs-8 vert-align text-center' },
+                _react2.default.createElement(
+                  'h4',
+                  null,
+                  'Schedules'
+                )
+              ),
+              _react2.default.createElement(
                 'table',
                 { className: 'table table-striped' },
                 _react2.default.createElement(
                   'tbody',
                   null,
-                  _react2.default.createElement(
-                    'tr',
-                    null,
-                    _react2.default.createElement(
-                      'td',
-                      { className: 'col-xs-4 vert-align text-center' },
-                      _react2.default.createElement(
-                        'h5',
-                        null,
-                        'Raid Weeks'
-                      )
-                    ),
-                    _react2.default.createElement(
-                      'td',
-                      { className: 'col-xs-8 vert-align' },
-                      _react2.default.createElement(
-                        'h5',
-                        null,
-                        'Schedules'
-                      )
-                    )
-                  ),
                   schedules
                 )
               )
