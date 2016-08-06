@@ -44,7 +44,7 @@ class RaidWeekManagement extends React.Component {
   }
 
   render() {
-    var chosenDay = this.state.selectedDay.isoWeekday();
+    var chosenDay = moment(this.state.selectedDay).isoWeekday();
     var copyToAdd = moment(this.state.selectedDay);
     var copyToSub = moment(this.state.selectedDay);
     var weekBeginning, weekEnd;
