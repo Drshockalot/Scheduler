@@ -11003,7 +11003,7 @@ var ProfileCharactersStore = function () {
   _createClass(ProfileCharactersStore, [{
     key: 'onPopulateRetrievedCharactersSuccess',
     value: function onPopulateRetrievedCharactersSuccess(data) {
-      this.retrievedCharacters = JSON.parse(data.data.characters);
+      this.retrievedCharacters = JSON.parse(data.data.characters).characters;
     }
   }, {
     key: 'onPopulateRetrievedCharactersFailure',
