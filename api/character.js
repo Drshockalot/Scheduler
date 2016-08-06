@@ -8,6 +8,7 @@ var User = require('./../db/postgres/user');
 var classes = require('./../utility/WowClasses');
 
 var https = require('https');
+var request = require('request');
 
 router.get('/user/:battletag', function(req, res, next) {
   User.forge({battletag: req.params.battletag})
@@ -213,12 +214,19 @@ router.delete('/admin/unconfirm/:characterid', function(req, res, next) {
 });
 
 router.get('/blizzard', function(req, res, next) {
-  https.get('https://eu.api.battle.net/wow/user/characters?locale=en_GB&apikey=8fc24vcgky6r8yzja8a4efxncgu8z77g&access_token=' + req.session.passport.user.token, function(response) {
-    console.log(response);
-    res.json({error: false, data: {message: "Character Unconfirmed", characters: response.characters}});
-  }).on('error', function(e) {
+  request('https://eu.api.battle.net/wow/user/characters?locale=en_GB&apikey=8fc24vcgky6r8yzja8a4efxncgu8z77g&access_token=' + req.session.passport.user.token, function(error, response, body) {
+    if (!error && response.statusCode == 200) {
+    res.json({error: false, data: {message: "Characters retrieved", characters: body}});
+  } else {
     res.json({error: true, data: {message: "Could not retrieve characters"}});
+  }
   });
+  // https.get('https://eu.api.battle.net/wow/user/characters?locale=en_GB&apikey=8fc24vcgky6r8yzja8a4efxncgu8z77g&access_token=' + req.session.passport.user.token, function(response) {
+  //   console.log(response);
+  //
+  // }).on('error', function(e) {
+  //
+  // });
 });
 
 module.exports = router;
