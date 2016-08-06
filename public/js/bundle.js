@@ -167,7 +167,6 @@ var NavbarActions = function () {
         if (data) {
           _this.updateBattletag(data.battletag);
           sessionStorage.battletag = data.battletag;
-          _this.updateAccessToken(data.token);
           $.ajax({
             method: 'POST',
             url: '/api/user/log',
@@ -2555,6 +2554,28 @@ var Home = function (_React$Component) {
                 _react2.default.createElement(
                   'tbody',
                   null,
+                  _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'col-xs-4 vert-align text-center' },
+                      _react2.default.createElement(
+                        'h5',
+                        null,
+                        'Raid Weeks'
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'col-xs-8 vert-align' },
+                      _react2.default.createElement(
+                        'h5',
+                        null,
+                        'Schedules'
+                      )
+                    )
+                  ),
                   schedules
                 )
               )

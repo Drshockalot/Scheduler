@@ -106,6 +106,14 @@ class Home extends React.Component {
               <h2>Schedules</h2>
               <table className='table table-striped'>
                 <tbody>
+                  <tr>
+                    <td className='col-xs-4 vert-align text-center'>
+                      <h5>Raid Weeks</h5>
+                    </td>
+                    <td className='col-xs-8 vert-align'>
+                      <h5>Schedules</h5>
+                    </td>
+                  </tr>
                   {schedules}
                 </tbody>
               </table>

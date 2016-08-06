@@ -29,7 +29,6 @@ class NavbarActions {
       if(data) {
         this.updateBattletag(data.battletag);
         sessionStorage.battletag = data.battletag;
-        this.updateAccessToken(data.token);
         $.ajax({
           method: 'POST',
           url: '/api/user/log',
