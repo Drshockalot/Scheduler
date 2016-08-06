@@ -103,7 +103,7 @@ class Home extends React.Component {
         <div className='container-fluid-eighty'>
           <div className='row'>
             <div className='col-md-6'>
-              <h2>Schedules</h2>
+              <h2>Timetable</h2>
               <div className='col-xs-4 vert-align text-center'>
                 <h4>Raid Weeks</h4>
               </div>

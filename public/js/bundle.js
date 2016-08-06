@@ -2546,7 +2546,7 @@ var Home = function (_React$Component) {
               _react2.default.createElement(
                 'h2',
                 null,
-                'Schedules'
+                'Timetable'
               ),
               _react2.default.createElement(
                 'div',
