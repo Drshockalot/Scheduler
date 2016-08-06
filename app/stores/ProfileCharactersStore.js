@@ -10,7 +10,7 @@ class ProfileCharactersStore {
   }
 
   onPopulateRetrievedCharactersSuccess(data) {
-    this.retrievedCharacters = data.characters;
+    this.retrievedCharacters = data;
   }
 
   onPopulateRetrievedCharactersFailure(jqXhr) {
