@@ -264,10 +264,12 @@ var ProfileCharactersActions = function () {
 
       $.ajax({
         method: 'GET',
-        url: 'https://eu.api.battle.net/wow/user/characters?locale=en_GB&apikey=8fc24vcgky6r8yzja8a4efxncgu8z77g&access_token=' + _NavbarStore2.default.getState().accessToken
+        url: '/api/character/blizzard'
       }).done(function (data) {
+        console.log(data);
         _this.populateRetrievedCharactersSuccess(data);
       }).fail(function (jqXhr) {
+        console.log(data);
         _this.populateRetrievedCharactersFailure(jqXhr);
       });
       return 0;

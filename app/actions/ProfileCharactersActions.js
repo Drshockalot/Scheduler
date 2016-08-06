@@ -28,10 +28,12 @@ class ProfileCharactersActions {
   retrieveProfileCharacters() {
     $.ajax({
       method: 'GET',
-      url: 'https://eu.api.battle.net/wow/user/characters?locale=en_GB&apikey=8fc24vcgky6r8yzja8a4efxncgu8z77g&access_token=' + NavbarStore.getState().accessToken
+      url: '/api/character/blizzard'
     }).done((data) => {
+      console.log(data);
       this.populateRetrievedCharactersSuccess(data);
     }).fail((jqXhr) => {
+      console.log(data);
       this.populateRetrievedCharactersFailure(jqXhr);
     });
     return 0;

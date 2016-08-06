@@ -7,6 +7,8 @@ var User = require('./../db/postgres/user');
 
 var classes = require('./../utility/WowClasses');
 
+var http = require('http');
+
 router.get('/user/:battletag', function(req, res, next) {
   User.forge({battletag: req.params.battletag})
       .fetch({'withRelated': ['characters']})
@@ -133,7 +135,7 @@ router.put('/:characterid', function(req, res, next) {
              })
              .catch(function(err) {
                res.status(500).json({error: true, data: {message: err.message}});
-             })
+             });
            })
            .catch(function(err) {
              res.status(500).json({error: true, data: {message: err.message}});
@@ -150,7 +152,7 @@ router.delete('/:characterid', function(req, res, next) {
                       })
                       .catch(function(err) {
                         res.status(500).json({error: true, data: {message: err.message}});
-                      })
+                      });
            })
            .catch(function(err) {
              res.status(500).json({error: true, data: {message: err.message}});
@@ -208,6 +210,14 @@ router.delete('/admin/unconfirm/:characterid', function(req, res, next) {
            .catch(function(err) {
              res.status(500).json({error: true, data: {message: err.message}});
            });
+});
+
+router.get('/blizzard', function(req, res, next) {
+  http.get('https://eu.api.battle.net/wow/user/characters?locale=en_GB&apikey=8fc24vcgky6r8yzja8a4efxncgu8z77g&access_token=' + req.user.token, function(res) {
+    res.json({error: false, data: {message: "Character Unconfirmed", characters: res}});
+  }).on('error', function(e) {
+    res.json({error: true, data: {message: "Could not retrieve characters"}});
+  });
 });
 
 module.exports = router;
