@@ -12453,8 +12453,8 @@ var ScheduleManagementStore = function () {
       this.selectedSchedule = value;
     }
   }, {
-    key: 'onUpdateFormRaidName',
-    value: function onUpdateFormRaidName(value) {
+    key: 'onUpdateFormRaid',
+    value: function onUpdateFormRaid(value) {
       this.formRaid = value;
     }
   }, {
