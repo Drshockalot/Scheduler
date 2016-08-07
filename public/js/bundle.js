@@ -9541,34 +9541,15 @@ var ScheduleManagement = function (_React$Component) {
         })();
       }
 
-      var formRaidOptions, formBossOptions;
+      var formRaidOptions;
 
       if (this.state.raids.length > 0) {
-        var _optionCount = 0;
         formRaidOptions = this.state.raids.map(function (raid, index) {
-          if (raid.id == this.state.formRaid) {
-            if (raid.bosses.length > 0) {
-              formBossOptions = raid.bosses.map(function (boss, index) {
-                return _react2.default.createElement(
-                  'option',
-                  { key: boss.id, value: boss.id },
-                  boss.name
-                );
-              }, this);
-            } else {
-              formBossOptions = _react2.default.createElement(
-                'option',
-                null,
-                'No Bosses'
-              );
-            }
-
-            return _react2.default.createElement(
-              'option',
-              { key: raid.id, value: raid.id },
-              raid.name
-            );
-          }
+          return _react2.default.createElement(
+            'option',
+            { key: raid.id, value: raid.id },
+            raid.name
+          );
         }, this);
       }
 
