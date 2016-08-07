@@ -53,7 +53,7 @@ class ScheduleManagementStore {
   }
 
   onUpdateFormRaidName(value) {
-    this.formRaidName = value;
+    this.formRaid = value;
   }
 
   onUpdateFormBoss(value) {

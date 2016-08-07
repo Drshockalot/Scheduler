@@ -12455,7 +12455,7 @@ var ScheduleManagementStore = function () {
   }, {
     key: 'onUpdateFormRaidName',
     value: function onUpdateFormRaidName(value) {
-      this.formRaidName = value;
+      this.formRaid = value;
     }
   }, {
     key: 'onUpdateFormBoss',
