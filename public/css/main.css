@@ -173,7 +173,8 @@ table.calendar td.loggedDay.selected {
 .td-column:last-of-type {
   border-right: grey solid 1px;
 }
-.schedule-boss-header {
+.schedule-boss-header,
+.home-timetable-header {
   border-bottom: grey solid 1px;
 }
 .rwHeader {

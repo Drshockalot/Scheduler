@@ -2550,20 +2550,24 @@ var Home = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'div',
-                { className: 'col-xs-4 vert-align text-center' },
+                { className: 'home-timetable-header' },
                 _react2.default.createElement(
-                  'h4',
-                  null,
-                  'Raid Weeks'
-                )
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'col-xs-8 vert-align text-center' },
+                  'div',
+                  { className: 'col-xs-4 vert-align text-center' },
+                  _react2.default.createElement(
+                    'h4',
+                    null,
+                    'Raid Weeks'
+                  )
+                ),
                 _react2.default.createElement(
-                  'h4',
-                  null,
-                  'Schedules'
+                  'div',
+                  { className: 'col-xs-8 vert-align text-center' },
+                  _react2.default.createElement(
+                    'h4',
+                    null,
+                    'Schedules'
+                  )
                 )
               ),
               _react2.default.createElement(
