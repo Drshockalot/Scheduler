@@ -23,8 +23,7 @@ class ScheduleManagement extends React.Component {
     ScheduleManagementStore.listen(this.onChange);
     if(sessionStorage.scheduleManagement)
       ScheduleManagementActions.restoreState(JSON.parse(sessionStorage.scheduleManagement));
-    else
-      ScheduleManagementActions.loadComponentData();
+    ScheduleManagementActions.loadComponentData();
   }
 
   componentWillUnmount() {

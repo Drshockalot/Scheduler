@@ -5742,7 +5742,7 @@ var SingleScheduleView = function (_React$Component) {
                       _react2.default.createElement(
                         'td',
                         { className: 'col-md-1' },
-                        schedule_boss.raid.name
+                        schedule_boss.boss.public_note
                       ),
                       _react2.default.createElement(
                         'td',
@@ -9277,7 +9277,8 @@ var ScheduleManagement = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _ScheduleManagementStore2.default.listen(this.onChange);
-      if (sessionStorage.scheduleManagement) _ScheduleManagementActions2.default.restoreState(JSON.parse(sessionStorage.scheduleManagement));else _ScheduleManagementActions2.default.loadComponentData();
+      if (sessionStorage.scheduleManagement) _ScheduleManagementActions2.default.restoreState(JSON.parse(sessionStorage.scheduleManagement));
+      _ScheduleManagementActions2.default.loadComponentData();
     }
   }, {
     key: 'componentWillUnmount',

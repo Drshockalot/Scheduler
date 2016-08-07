@@ -159,7 +159,7 @@ class SingleScheduleView extends React.Component {
                       <td className='col-md-2'><strong>Standby</strong> <strong>({standbyCount})</strong></td>
                     </tr>
                     <tr>
-                      <td className='col-md-1'>{schedule_boss.raid.name}</td>
+                      <td className='col-md-1'>{schedule_boss.boss.public_note}</td>
                       <td className='col-md-2'>
                         <table className='table'>
                           <tbody>
