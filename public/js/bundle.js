@@ -11705,36 +11705,43 @@ var AddAttendanceStore = function () {
     key: 'onUploadAttendanceFromRosterFormSuccess',
     value: function onUploadAttendanceFromRosterFormSuccess(result) {
       toastr.success('Attendance logged', 'Success');
+      this.showConfirmUploadModal = false;
     }
   }, {
     key: 'onUploadAttendanceFromRosterFormFailure',
     value: function onUploadAttendanceFromRosterFormFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
+      this.showConfirmUploadModal = false;
     }
   }, {
     key: 'onUpdateUploadText',
     value: function onUpdateUploadText(value) {
       this.uploadText = value;
+      this.showConfirmUploadModal = false;
     }
   }, {
     key: 'onUploadRawTextSuccess',
     value: function onUploadRawTextSuccess(result) {
       toastr.success('Attendance logged', 'Success');
+      this.showConfirmUploadModal = false;
     }
   }, {
     key: 'onUploadRawTextFailure',
     value: function onUploadRawTextFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
+      this.showConfirmUploadModal = false;
     }
   }, {
     key: 'onUploadFileSuccess',
     value: function onUploadFileSuccess(result) {
       toastr.success('Attendance logged', 'Success');
+      this.showConfirmUploadModal = false;
     }
   }, {
     key: 'onUploadFileFailure',
     value: function onUploadFileFailure(jqXhr) {
       toastr.error(jqXhr.responseJSON.message);
+      this.showConfirmUploadModal = false;
     }
   }, {
     key: 'onRestoreState',

@@ -87,30 +87,37 @@ class AddAttendanceStore {
 
   onUploadAttendanceFromRosterFormSuccess(result) {
     toastr.success('Attendance logged', 'Success');
+    this.showConfirmUploadModal = false;
   }
 
   onUploadAttendanceFromRosterFormFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
+    this.showConfirmUploadModal = false;
   }
 
   onUpdateUploadText(value) {
     this.uploadText = value;
+    this.showConfirmUploadModal = false;
   }
 
   onUploadRawTextSuccess(result) {
     toastr.success('Attendance logged', 'Success');
+    this.showConfirmUploadModal = false;
   }
 
   onUploadRawTextFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
+    this.showConfirmUploadModal = false;
   }
 
   onUploadFileSuccess(result) {
     toastr.success('Attendance logged', 'Success');
+    this.showConfirmUploadModal = false;
   }
 
   onUploadFileFailure(jqXhr) {
     toastr.error(jqXhr.responseJSON.message);
+    this.showConfirmUploadModal = false;
   }
 
   onRestoreState(state) {
