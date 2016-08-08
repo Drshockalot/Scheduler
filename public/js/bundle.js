@@ -718,6 +718,7 @@ var AddAttendanceActions = function () {
     value: function uploadFile(fileText, raidId, raidWeekId, weekday, rosterId) {
       var _this2 = this;
 
+      console.log('api');
       var names = fileText.split(',');
       for (var i = 0; i < names.length; ++i) {
         names[i] = names[i].trim();
