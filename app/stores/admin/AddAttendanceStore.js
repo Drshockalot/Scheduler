@@ -126,14 +126,17 @@ class AddAttendanceStore {
   onConfirmFileUpload(file) {
     this.uploadFile = file;
     this.attemptedUploadType = 1;
+    this.showConfirmUploadModal = true;
   }
 
   onConfirmTextUpload() {
     this.attemptedUploadType = 2;
+    this.showConfirmUploadModal = true;
   }
 
   onConfirmRosterUpload() {
     this.attemptedUploadType = 3;
+    this.showConfirmUploadModal = true;
   }
 }
 

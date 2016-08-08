@@ -331,7 +331,7 @@ class AddAttendance extends React.Component {
             </div>
           </div>
         </div>
-        <Modal show={this.state.showConfirmUploadModal} onHide={AddAttendanceActions.hideConfirmUploadModal}>
+        <Modal show={this.state.showConfirmUploadModal} onHide={() => AddAttendanceActions.hideConfirmUploadModal()}>
           <Modal.Header closeButton>
             <Modal.Title>Confirm Upload Choices</Modal.Title>
           </Modal.Header>

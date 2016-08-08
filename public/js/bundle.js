@@ -6467,7 +6467,9 @@ var AddAttendance = function (_React$Component) {
         ),
         _react2.default.createElement(
           _reactBootstrap.Modal,
-          { show: this.state.showConfirmUploadModal, onHide: _AddAttendanceActions2.default.hideConfirmUploadModal },
+          { show: this.state.showConfirmUploadModal, onHide: function onHide() {
+              return _AddAttendanceActions2.default.hideConfirmUploadModal();
+            } },
           _react2.default.createElement(
             _reactBootstrap.Modal.Header,
             { closeButton: true },
@@ -11735,16 +11737,19 @@ var AddAttendanceStore = function () {
     value: function onConfirmFileUpload(file) {
       this.uploadFile = file;
       this.attemptedUploadType = 1;
+      this.showConfirmUploadModal = true;
     }
   }, {
     key: 'onConfirmTextUpload',
     value: function onConfirmTextUpload() {
       this.attemptedUploadType = 2;
+      this.showConfirmUploadModal = true;
     }
   }, {
     key: 'onConfirmRosterUpload',
     value: function onConfirmRosterUpload() {
       this.attemptedUploadType = 3;
+      this.showConfirmUploadModal = true;
     }
   }]);
 
