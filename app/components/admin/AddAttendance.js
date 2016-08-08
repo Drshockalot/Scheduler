@@ -13,6 +13,8 @@ import classNames from 'classnames';
 import Dropzone from 'react-dropzone';
 var wowClasses = require('./../../../utility/WowClasses');
 
+import { Modal, OverlayTrigger, Popover } from 'react-bootstrap';
+
 class AddAttendance extends React.Component {
   constructor(props) {
     super(props);
@@ -60,6 +62,20 @@ class AddAttendance extends React.Component {
       AddAttendanceActions.uploadFile(this.result, selectRaid, selectRaidWeek, selectWeekday, selectRoster);
     };
     reader.readAsText(file);
+  }
+
+  continueUpload() {
+    switch(this.state.attemptedUploadType) {
+      case 1:
+        this.readFile(this.state.uploadFile);
+        break;
+      case 2:
+        AddAttendanceActions.uploadRawText(this.state.uploadText, this.state.selectRaid, this.state.selectRaidWeek, this.state.selectWeekday, this.state.selectRoster);
+        break;
+      case 3:
+        AddAttendanceActions.uploadAttendanceFromRosterForm(this.state.rosterAttendanceModel, this.state.selectRaid, this.state.selectRaidWeek, this.state.selectWeekday, this.state.selectRoster);
+        break;
+    }
   }
 
   render() {
@@ -252,7 +268,7 @@ class AddAttendance extends React.Component {
               <h3>Upload File</h3>
               <div className='row'>
                 <div className='col-md-8'>
-                  <Dropzone className='dropzone' onDrop={files => this.readFile(files[0])}>
+                  <Dropzone className='dropzone' onDrop={files => AddAttendanceActions.confirmFileUpload(files[0])}>
                     <div className="dropzone-content">Drag or click here to upload file (.txt or .csv)</div>
                   </Dropzone>
                 </div>
@@ -263,7 +279,7 @@ class AddAttendance extends React.Component {
                   <div className='dropzone-text'>
                     <textarea className='form-control' value={this.state.uploadText} onChange={e => AddAttendanceActions.updateUploadText(e.target.value)}/>
                     <br />
-                    <button className='btn btn-default pull-right' onClick={() => AddAttendanceActions.uploadRawText(this.state.uploadText, this.state.selectRaid, this.state.selectRaidWeek, this.state.selectWeekday, this.state.selectRoster)}>Upload</button>
+                    <button className='btn btn-default pull-right' onClick={() => AddAttendanceActions.confirmTextUpload()}>Upload</button>
                   </div>
                 </div>
               </div>
@@ -302,12 +318,51 @@ class AddAttendance extends React.Component {
                       </tr>
                     </tbody>
                   </table>
-                  <button className='btn btn-default pull-right' onClick={() => AddAttendanceActions.uploadAttendanceFromRosterForm(this.state.rosterAttendanceModel, this.state.selectRaid, this.state.selectRaidWeek, this.state.selectWeekday, this.state.selectRoster)}>Upload</button>
+                  <button className='btn btn-default pull-right' onClick={() => AddAttendanceActions.confirmRosterUpload()}>Upload</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <Modal show={this.state.showConfirmUploadModal} onHide={AddAttendanceActions.hideConfirmUploadModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>Confirm Upload Choices</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div className='row'>
+              <div className='col-xs-12'>
+                <h4>Attendance Selections</h4>
+              </div>
+            </div>
+            <div className='row'>
+              <table className='table'>
+                <tbody>
+                  <tr>
+                    <td className='col-xs-6 pull-right vert-align'>Raid Week:</td>
+                    <td className='col-xs-6 pull-left vert-align'>{moment(_.findWhere(this.state.raidweeks, {id: Number(this.state.selectRaidWeek)})).format('W')}</td>
+                  </tr>
+                  <tr>
+                    <td className='col-xs-6 pull-right vert-align'>Raid:</td>
+                    <td className='col-xs-6 pull-left vert-align'>{_.findWhere(this.state.raids, {id: Number(this.state.selectRaid)}).name}</td>
+                  </tr>
+                  <tr>
+                    <td className='col-xs-6 pull-right vert-align'>Roster:</td>
+                    <td className='col-xs-6 pull-left vert-align'>{_.findWhere(this.state.rosters, {id: Number(this.state.selectRoster)}).name}</td>
+                  </tr>
+                  <tr>
+                    <td className='col-xs-6 pull-right vert-align'>Week Day:</td>
+                    <td className='col-xs-6 pull-left vert-align'>{this.state.selectWeekday.charAt(0).toUpperCase() + this.state.selectWeekday.slice(1)}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </Modal.Body>
+          <Modal.Footer>
+            <button className='btn btn-success' onClick={() => this.continueUpload()}>Upload</button>
+            &nbsp;&nbsp;
+            <button className='btn btn-danger' onClick={() => AddAttendanceActions.hideConfirmUploadModal()}>Cancel</button>
+          </Modal.Footer>
+        </Modal>
       </div>
     );
   }

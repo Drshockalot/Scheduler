@@ -19,6 +19,11 @@ class AddAttendanceStore {
     this.selectRoster = 0;
     this.selectWeekday = 'monday';
     this.uploadText = '';
+
+    this.showConfirmUploadModal = false;
+    this.attemptedUploadType = 0;
+
+    this.uploadFile = null;
   }
 
   onLoadComponentDataSuccess(result) {
@@ -112,6 +117,23 @@ class AddAttendanceStore {
     for (var key in state) {
       this[key] = state[key];
     }
+  }
+
+  onHideConfirmUploadModal() {
+    this.showConfirmUploadModal = false;
+  }
+
+  onConfirmFileUpload(file) {
+    this.uploadFile = file;
+    this.attemptedUploadType = 1;
+  }
+
+  onConfirmTextUpload() {
+    this.attemptedUploadType = 2;
+  }
+
+  onConfirmRosterUpload() {
+    this.attemptedUploadType = 3;
   }
 }
 

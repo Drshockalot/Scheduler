@@ -7,7 +7,7 @@ import { browserHistory } from 'react-router';
 
 import moment from 'moment';
 import _ from 'underscore';
-import { OverlayTrigger, Popover } from 'react-bootstrap';
+import { Modal, OverlayTrigger, Popover } from 'react-bootstrap';
 
 class ViewAttendance extends React.Component {
   constructor(props) {

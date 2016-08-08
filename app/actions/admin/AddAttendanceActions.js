@@ -21,7 +21,11 @@ class AddAttendanceActions {
       'uploadRawTextFailure',
       'uploadFileSuccess',
       'uploadFileFailure',
-      'restoreState'
+      'restoreState',
+      'confirmFileUpload',
+      'confirmTextUpload',
+      'confirmRosterUpload',
+      'hideConfirmUploadModal'
     );
   }
 

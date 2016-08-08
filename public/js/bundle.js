@@ -694,7 +694,7 @@ var AddAttendanceActions = function () {
   function AddAttendanceActions() {
     _classCallCheck(this, AddAttendanceActions);
 
-    this.generateActions('loadComponentDataSuccess', 'loadComponentDataFailure', 'updateSelectRaidWeek', 'updateSelectWeekday', 'updateSelectRaid', 'updateSelectRoster', 'toggleCharacterState', 'uploadAttendanceFromRosterFormSuccess', 'uploadAttendanceFromRosterFormFailure', 'updateUploadText', 'uploadRawTextSuccess', 'uploadRawTextFailure', 'uploadFileSuccess', 'uploadFileFailure', 'restoreState');
+    this.generateActions('loadComponentDataSuccess', 'loadComponentDataFailure', 'updateSelectRaidWeek', 'updateSelectWeekday', 'updateSelectRaid', 'updateSelectRoster', 'toggleCharacterState', 'uploadAttendanceFromRosterFormSuccess', 'uploadAttendanceFromRosterFormFailure', 'updateUploadText', 'uploadRawTextSuccess', 'uploadRawTextFailure', 'uploadFileSuccess', 'uploadFileFailure', 'restoreState', 'confirmFileUpload', 'confirmTextUpload', 'confirmRosterUpload', 'hideConfirmUploadModal');
   }
 
   _createClass(AddAttendanceActions, [{
@@ -5884,6 +5884,8 @@ var _reactDropzone = require('react-dropzone');
 
 var _reactDropzone2 = _interopRequireDefault(_reactDropzone);
 
+var _reactBootstrap = require('react-bootstrap');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -5952,6 +5954,21 @@ var AddAttendance = function (_React$Component) {
         _AddAttendanceActions2.default.uploadFile(this.result, selectRaid, selectRaidWeek, selectWeekday, selectRoster);
       };
       reader.readAsText(file);
+    }
+  }, {
+    key: 'continueUpload',
+    value: function continueUpload() {
+      switch (this.state.attemptedUploadType) {
+        case 1:
+          this.readFile(this.state.uploadFile);
+          break;
+        case 2:
+          _AddAttendanceActions2.default.uploadRawText(this.state.uploadText, this.state.selectRaid, this.state.selectRaidWeek, this.state.selectWeekday, this.state.selectRoster);
+          break;
+        case 3:
+          _AddAttendanceActions2.default.uploadAttendanceFromRosterForm(this.state.rosterAttendanceModel, this.state.selectRaid, this.state.selectRaidWeek, this.state.selectWeekday, this.state.selectRoster);
+          break;
+      }
     }
   }, {
     key: 'render',
@@ -6299,7 +6316,7 @@ var AddAttendance = function (_React$Component) {
                   _react2.default.createElement(
                     _reactDropzone2.default,
                     { className: 'dropzone', onDrop: function onDrop(files) {
-                        return _this2.readFile(files[0]);
+                        return _AddAttendanceActions2.default.confirmFileUpload(files[0]);
                       } },
                     _react2.default.createElement(
                       'div',
@@ -6330,7 +6347,7 @@ var AddAttendance = function (_React$Component) {
                     _react2.default.createElement(
                       'button',
                       { className: 'btn btn-default pull-right', onClick: function onClick() {
-                          return _AddAttendanceActions2.default.uploadRawText(_this2.state.uploadText, _this2.state.selectRaid, _this2.state.selectRaidWeek, _this2.state.selectWeekday, _this2.state.selectRoster);
+                          return _AddAttendanceActions2.default.confirmTextUpload();
                         } },
                       'Upload'
                     )
@@ -6432,12 +6449,129 @@ var AddAttendance = function (_React$Component) {
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-default pull-right', onClick: function onClick() {
-                        return _AddAttendanceActions2.default.uploadAttendanceFromRosterForm(_this2.state.rosterAttendanceModel, _this2.state.selectRaid, _this2.state.selectRaidWeek, _this2.state.selectWeekday, _this2.state.selectRoster);
+                        return _AddAttendanceActions2.default.confirmRosterUpload();
                       } },
                     'Upload'
                   )
                 )
               )
+            )
+          )
+        ),
+        _react2.default.createElement(
+          _reactBootstrap.Modal,
+          { show: this.state.showConfirmUploadModal, onHide: _AddAttendanceActions2.default.hideConfirmUploadModal },
+          _react2.default.createElement(
+            _reactBootstrap.Modal.Header,
+            { closeButton: true },
+            _react2.default.createElement(
+              _reactBootstrap.Modal.Title,
+              null,
+              'Confirm Upload Choices'
+            )
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Modal.Body,
+            null,
+            _react2.default.createElement(
+              'div',
+              { className: 'row' },
+              _react2.default.createElement(
+                'div',
+                { className: 'col-xs-12' },
+                _react2.default.createElement(
+                  'h4',
+                  null,
+                  'Attendance Selections'
+                )
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'row' },
+              _react2.default.createElement(
+                'table',
+                { className: 'table' },
+                _react2.default.createElement(
+                  'tbody',
+                  null,
+                  _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'col-xs-6 pull-right vert-align' },
+                      'Raid Week:'
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'col-xs-6 pull-left vert-align' },
+                      (0, _moment2.default)(_underscore2.default.findWhere(this.state.raidweeks, { id: Number(this.state.selectRaidWeek) })).format('W')
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'col-xs-6 pull-right vert-align' },
+                      'Raid:'
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'col-xs-6 pull-left vert-align' },
+                      _underscore2.default.findWhere(this.state.raids, { id: Number(this.state.selectRaid) }).name
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'col-xs-6 pull-right vert-align' },
+                      'Roster:'
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'col-xs-6 pull-left vert-align' },
+                      _underscore2.default.findWhere(this.state.rosters, { id: Number(this.state.selectRoster) }).name
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'col-xs-6 pull-right vert-align' },
+                      'Week Day:'
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'col-xs-6 pull-left vert-align' },
+                      this.state.selectWeekday.charAt(0).toUpperCase() + this.state.selectWeekday.slice(1)
+                    )
+                  )
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Modal.Footer,
+            null,
+            _react2.default.createElement(
+              'button',
+              { className: 'btn btn-success', onClick: function onClick() {
+                  return _this2.continueUpload();
+                } },
+              'Upload'
+            ),
+            '  ',
+            _react2.default.createElement(
+              'button',
+              { className: 'btn btn-danger', onClick: function onClick() {
+                  return _AddAttendanceActions2.default.hideConfirmUploadModal();
+                } },
+              'Cancel'
             )
           )
         )
@@ -6450,7 +6584,7 @@ var AddAttendance = function (_React$Component) {
 
 exports.default = AddAttendance;
 
-},{"../../actions/admin/AddAttendanceActions":12,"../../stores/admin/AddAttendanceStore":63,"./../../../utility/WowClasses":359,"./../../stores/NavbarStore":55,"./AdminSideNav":41,"classnames":75,"moment":177,"react":"react","react-dropzone":316,"react-radio-group":341,"react-router":"react-router","underscore":"underscore"}],39:[function(require,module,exports){
+},{"../../actions/admin/AddAttendanceActions":12,"../../stores/admin/AddAttendanceStore":63,"./../../../utility/WowClasses":359,"./../../stores/NavbarStore":55,"./AdminSideNav":41,"classnames":75,"moment":177,"react":"react","react-bootstrap":270,"react-dropzone":316,"react-radio-group":341,"react-router":"react-router","underscore":"underscore"}],39:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -11469,6 +11603,11 @@ var AddAttendanceStore = function () {
     this.selectRoster = 0;
     this.selectWeekday = 'monday';
     this.uploadText = '';
+
+    this.showConfirmUploadModal = false;
+    this.attemptedUploadType = 0;
+
+    this.uploadFile = null;
   }
 
   _createClass(AddAttendanceStore, [{
@@ -11578,6 +11717,27 @@ var AddAttendanceStore = function () {
       for (var key in state) {
         this[key] = state[key];
       }
+    }
+  }, {
+    key: 'onHideConfirmUploadModal',
+    value: function onHideConfirmUploadModal() {
+      this.showConfirmUploadModal = false;
+    }
+  }, {
+    key: 'onConfirmFileUpload',
+    value: function onConfirmFileUpload(file) {
+      this.uploadFile = file;
+      this.attemptedUploadType = 1;
+    }
+  }, {
+    key: 'onConfirmTextUpload',
+    value: function onConfirmTextUpload() {
+      this.attemptedUploadType = 2;
+    }
+  }, {
+    key: 'onConfirmRosterUpload',
+    value: function onConfirmRosterUpload() {
+      this.attemptedUploadType = 3;
     }
   }]);
 
