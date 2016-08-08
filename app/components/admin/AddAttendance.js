@@ -53,6 +53,7 @@ class AddAttendance extends React.Component {
   }
 
   readFile(file) {
+    console.log('test');
     var reader = new FileReader();
     var selectRaid = this.state.selectRaid;
     var selectRaidWeek = this.state.selectRaidWeek;

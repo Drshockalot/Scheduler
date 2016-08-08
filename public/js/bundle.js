@@ -5945,6 +5945,7 @@ var AddAttendance = function (_React$Component) {
   }, {
     key: 'readFile',
     value: function readFile(file) {
+      console.log('test');
       var reader = new FileReader();
       var selectRaid = this.state.selectRaid;
       var selectRaidWeek = this.state.selectRaidWeek;
