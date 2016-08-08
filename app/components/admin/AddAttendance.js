@@ -65,6 +65,7 @@ class AddAttendance extends React.Component {
   }
 
   continueUpload() {
+    AddAttendanceActions.disableConfirmUploadButton();
     switch(this.state.attemptedUploadType) {
       case 1:
         this.readFile(this.state.uploadFile);
@@ -365,7 +366,7 @@ class AddAttendance extends React.Component {
             </div>
           </Modal.Body>
           <Modal.Footer>
-            <button className='btn btn-success' onClick={() => this.continueUpload()}>Upload</button>
+            <button className='btn btn-success' onClick={() => this.continueUpload()} disabled={this.state.confirmUploadDisabled}>Upload</button>
             &nbsp;&nbsp;
             <button className='btn btn-danger' onClick={() => AddAttendanceActions.hideConfirmUploadModal()}>Cancel</button>
           </Modal.Footer>

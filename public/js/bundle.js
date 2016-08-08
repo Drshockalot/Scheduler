@@ -694,7 +694,7 @@ var AddAttendanceActions = function () {
   function AddAttendanceActions() {
     _classCallCheck(this, AddAttendanceActions);
 
-    this.generateActions('loadComponentDataSuccess', 'loadComponentDataFailure', 'updateSelectRaidWeek', 'updateSelectWeekday', 'updateSelectRaid', 'updateSelectRoster', 'toggleCharacterState', 'uploadAttendanceFromRosterFormSuccess', 'uploadAttendanceFromRosterFormFailure', 'updateUploadText', 'uploadRawTextSuccess', 'uploadRawTextFailure', 'uploadFileSuccess', 'uploadFileFailure', 'restoreState', 'confirmFileUpload', 'confirmTextUpload', 'confirmRosterUpload', 'hideConfirmUploadModal');
+    this.generateActions('loadComponentDataSuccess', 'loadComponentDataFailure', 'updateSelectRaidWeek', 'updateSelectWeekday', 'updateSelectRaid', 'updateSelectRoster', 'toggleCharacterState', 'uploadAttendanceFromRosterFormSuccess', 'uploadAttendanceFromRosterFormFailure', 'updateUploadText', 'uploadRawTextSuccess', 'uploadRawTextFailure', 'uploadFileSuccess', 'uploadFileFailure', 'restoreState', 'confirmFileUpload', 'confirmTextUpload', 'confirmRosterUpload', 'hideConfirmUploadModal', 'disableConfirmUploadButton');
   }
 
   _createClass(AddAttendanceActions, [{
@@ -5958,6 +5958,7 @@ var AddAttendance = function (_React$Component) {
   }, {
     key: 'continueUpload',
     value: function continueUpload() {
+      _AddAttendanceActions2.default.disableConfirmUploadButton();
       switch (this.state.attemptedUploadType) {
         case 1:
           this.readFile(this.state.uploadFile);
@@ -6587,7 +6588,7 @@ var AddAttendance = function (_React$Component) {
               'button',
               { className: 'btn btn-success', onClick: function onClick() {
                   return _this2.continueUpload();
-                } },
+                }, disabled: this.state.confirmUploadDisabled },
               'Upload'
             ),
             '  ',
@@ -11633,6 +11634,8 @@ var AddAttendanceStore = function () {
     this.attemptedUploadType = 0;
 
     this.uploadFile = null;
+
+    this.confirmUploadDisabled = false;
   }
 
   _createClass(AddAttendanceStore, [{
@@ -11754,6 +11757,7 @@ var AddAttendanceStore = function () {
     key: 'onHideConfirmUploadModal',
     value: function onHideConfirmUploadModal() {
       this.showConfirmUploadModal = false;
+      this.confirmUploadDisabled = false;
     }
   }, {
     key: 'onConfirmFileUpload',
@@ -11761,18 +11765,26 @@ var AddAttendanceStore = function () {
       this.uploadFile = file;
       this.attemptedUploadType = 1;
       this.showConfirmUploadModal = true;
+      this.confirmUploadDisabled = false;
     }
   }, {
     key: 'onConfirmTextUpload',
     value: function onConfirmTextUpload() {
       this.attemptedUploadType = 2;
       this.showConfirmUploadModal = true;
+      this.confirmUploadDisabled = false;
     }
   }, {
     key: 'onConfirmRosterUpload',
     value: function onConfirmRosterUpload() {
       this.attemptedUploadType = 3;
       this.showConfirmUploadModal = true;
+      this.confirmUploadDisabled = false;
+    }
+  }, {
+    key: 'onDisableConfirmUploadButton',
+    value: function onDisableConfirmUploadButton() {
+      this.confirmUploadDisabled = true;
     }
   }]);
 

@@ -24,6 +24,8 @@ class AddAttendanceStore {
     this.attemptedUploadType = 0;
 
     this.uploadFile = null;
+
+    this.confirmUploadDisabled = false;
   }
 
   onLoadComponentDataSuccess(result) {
@@ -128,22 +130,30 @@ class AddAttendanceStore {
 
   onHideConfirmUploadModal() {
     this.showConfirmUploadModal = false;
+    this.confirmUploadDisabled = false;
   }
 
   onConfirmFileUpload(file) {
     this.uploadFile = file;
     this.attemptedUploadType = 1;
     this.showConfirmUploadModal = true;
+    this.confirmUploadDisabled = false;
   }
 
   onConfirmTextUpload() {
     this.attemptedUploadType = 2;
     this.showConfirmUploadModal = true;
+    this.confirmUploadDisabled = false;
   }
 
   onConfirmRosterUpload() {
     this.attemptedUploadType = 3;
     this.showConfirmUploadModal = true;
+    this.confirmUploadDisabled = false;
+  }
+
+  onDisableConfirmUploadButton() {
+    this.confirmUploadDisabled = true;
   }
 }
 

@@ -25,7 +25,8 @@ class AddAttendanceActions {
       'confirmFileUpload',
       'confirmTextUpload',
       'confirmRosterUpload',
-      'hideConfirmUploadModal'
+      'hideConfirmUploadModal',
+      'disableConfirmUploadButton'
     );
   }
 
