@@ -337,7 +337,7 @@ class AddAttendance extends React.Component {
           </Modal.Header>
           <Modal.Body>
             <div className='row'>
-              <div className='col-xs-12'>
+              <div className='col-xs-12 text-center'>
                 <h4>Attendance Selections</h4>
               </div>
             </div>
@@ -345,20 +345,20 @@ class AddAttendance extends React.Component {
               <table className='table'>
                 <tbody>
                   <tr>
-                    <td className='col-xs-6 pull-right vert-align'>Raid Week:</td>
-                    <td className='col-xs-6 pull-left vert-align'>{raidWeekModalValue}</td>
+                    <td className='col-xs-6 vert-align'><strong>Raid Week:</strong></td>
+                    <td className='col-xs-6 vert-align'>{raidWeekModalValue}</td>
                   </tr>
                   <tr>
-                    <td className='col-xs-6 pull-right vert-align'>Raid:</td>
-                    <td className='col-xs-6 pull-left vert-align'>{raidModalValue}</td>
+                    <td className='col-xs-6 vert-align'><strong>Raid:</strong></td>
+                    <td className='col-xs-6 vert-align'>{raidModalValue}</td>
                   </tr>
                   <tr>
-                    <td className='col-xs-6 pull-right vert-align'>Roster:</td>
-                    <td className='col-xs-6 pull-left vert-align'>{rosterModalValue}</td>
+                    <td className='col-xs-6 vert-align'><strong>Roster:</strong></td>
+                    <td className='col-xs-6 vert-align'>{rosterModalValue}</td>
                   </tr>
                   <tr>
-                    <td className='col-xs-6 pull-right vert-align'>Week Day:</td>
-                    <td className='col-xs-6 pull-left vert-align'>{this.state.selectWeekday.charAt(0).toUpperCase() + this.state.selectWeekday.slice(1)}</td>
+                    <td className='col-xs-6 vert-align'><strong>Week Day:</strong></td>
+                    <td className='col-xs-6 vert-align'>{this.state.selectWeekday.charAt(0).toUpperCase() + this.state.selectWeekday.slice(1)}</td>
                   </tr>
                 </tbody>
               </table>

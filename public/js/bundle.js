@@ -6487,7 +6487,7 @@ var AddAttendance = function (_React$Component) {
               { className: 'row' },
               _react2.default.createElement(
                 'div',
-                { className: 'col-xs-12' },
+                { className: 'col-xs-12 text-center' },
                 _react2.default.createElement(
                   'h4',
                   null,
@@ -6509,12 +6509,16 @@ var AddAttendance = function (_React$Component) {
                     null,
                     _react2.default.createElement(
                       'td',
-                      { className: 'col-xs-6 pull-right vert-align' },
-                      'Raid Week:'
+                      { className: 'col-xs-6 vert-align' },
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'Raid Week:'
+                      )
                     ),
                     _react2.default.createElement(
                       'td',
-                      { className: 'col-xs-6 pull-left vert-align' },
+                      { className: 'col-xs-6 vert-align' },
                       raidWeekModalValue
                     )
                   ),
@@ -6523,12 +6527,16 @@ var AddAttendance = function (_React$Component) {
                     null,
                     _react2.default.createElement(
                       'td',
-                      { className: 'col-xs-6 pull-right vert-align' },
-                      'Raid:'
+                      { className: 'col-xs-6 vert-align' },
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'Raid:'
+                      )
                     ),
                     _react2.default.createElement(
                       'td',
-                      { className: 'col-xs-6 pull-left vert-align' },
+                      { className: 'col-xs-6 vert-align' },
                       raidModalValue
                     )
                   ),
@@ -6537,12 +6545,16 @@ var AddAttendance = function (_React$Component) {
                     null,
                     _react2.default.createElement(
                       'td',
-                      { className: 'col-xs-6 pull-right vert-align' },
-                      'Roster:'
+                      { className: 'col-xs-6 vert-align' },
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'Roster:'
+                      )
                     ),
                     _react2.default.createElement(
                       'td',
-                      { className: 'col-xs-6 pull-left vert-align' },
+                      { className: 'col-xs-6 vert-align' },
                       rosterModalValue
                     )
                   ),
@@ -6551,12 +6563,16 @@ var AddAttendance = function (_React$Component) {
                     null,
                     _react2.default.createElement(
                       'td',
-                      { className: 'col-xs-6 pull-right vert-align' },
-                      'Week Day:'
+                      { className: 'col-xs-6 vert-align' },
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'Week Day:'
+                      )
                     ),
                     _react2.default.createElement(
                       'td',
-                      { className: 'col-xs-6 pull-left vert-align' },
+                      { className: 'col-xs-6 vert-align' },
                       this.state.selectWeekday.charAt(0).toUpperCase() + this.state.selectWeekday.slice(1)
                     )
                   )
