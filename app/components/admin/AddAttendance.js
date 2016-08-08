@@ -80,7 +80,10 @@ class AddAttendance extends React.Component {
 
   render() {
     var selectRaidWeekOptions, selectWeekdayButtons, selectRaidOptions, selectRosterOptions;
+    var raidWeekModalValue;
     if(this.state.raidweeks.length > 0) {
+      raidWeekModalValue = moment(_.findWhere(this.state.raidweeks, {id: Number(this.state.selectRaidWeek)})).format('W');
+
       selectRaidWeekOptions = this.state.raidweeks.map(function(raidweek) {
         return (
           <option key={raidweek.id} value={raidweek.id}>{moment(raidweek.start).format('W')}</option>
@@ -102,7 +105,9 @@ class AddAttendance extends React.Component {
       );
     }
 
+    var raidModalValue;
     if(this.state.raids.length > 0) {
+      raidModalValue = _.findWhere(this.state.raids, {id: Number(this.state.selectRaid)}).name;
       selectRaidOptions = this.state.raids.map(function(raid) {
         return (
           <option key={raid.id} value={raid.id}>{raid.name}</option>
@@ -110,7 +115,9 @@ class AddAttendance extends React.Component {
       });
     }
 
+    var rosterModalValue;
     if(this.state.rosters.length > 0) {
+      rosterModalValue = _.findWhere(this.state.rosters, {id: Number(this.state.selectRoster)}).name;
       selectRosterOptions = this.state.rosters.map(function(roster) {
         return (
           <option key={roster.id} value={roster.id}>{roster.name}</option>
@@ -339,15 +346,15 @@ class AddAttendance extends React.Component {
                 <tbody>
                   <tr>
                     <td className='col-xs-6 pull-right vert-align'>Raid Week:</td>
-                    <td className='col-xs-6 pull-left vert-align'>{moment(_.findWhere(this.state.raidweeks, {id: Number(this.state.selectRaidWeek)})).format('W')}</td>
+                    <td className='col-xs-6 pull-left vert-align'>{raidWeekModalValue}</td>
                   </tr>
                   <tr>
                     <td className='col-xs-6 pull-right vert-align'>Raid:</td>
-                    <td className='col-xs-6 pull-left vert-align'>{_.findWhere(this.state.raids, {id: Number(this.state.selectRaid)}).name}</td>
+                    <td className='col-xs-6 pull-left vert-align'>{raidModalValue}</td>
                   </tr>
                   <tr>
                     <td className='col-xs-6 pull-right vert-align'>Roster:</td>
-                    <td className='col-xs-6 pull-left vert-align'>{_.findWhere(this.state.rosters, {id: Number(this.state.selectRoster)}).name}</td>
+                    <td className='col-xs-6 pull-left vert-align'>{rosterModalValue}</td>
                   </tr>
                   <tr>
                     <td className='col-xs-6 pull-right vert-align'>Week Day:</td>

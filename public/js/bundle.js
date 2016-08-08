@@ -5976,7 +5976,10 @@ var AddAttendance = function (_React$Component) {
       var _this2 = this;
 
       var selectRaidWeekOptions, selectWeekdayButtons, selectRaidOptions, selectRosterOptions;
+      var raidWeekModalValue;
       if (this.state.raidweeks.length > 0) {
+        raidWeekModalValue = (0, _moment2.default)(_underscore2.default.findWhere(this.state.raidweeks, { id: Number(this.state.selectRaidWeek) })).format('W');
+
         selectRaidWeekOptions = this.state.raidweeks.map(function (raidweek) {
           return _react2.default.createElement(
             'option',
@@ -6042,7 +6045,9 @@ var AddAttendance = function (_React$Component) {
         );
       }
 
+      var raidModalValue;
       if (this.state.raids.length > 0) {
+        raidModalValue = _underscore2.default.findWhere(this.state.raids, { id: Number(this.state.selectRaid) }).name;
         selectRaidOptions = this.state.raids.map(function (raid) {
           return _react2.default.createElement(
             'option',
@@ -6052,7 +6057,9 @@ var AddAttendance = function (_React$Component) {
         });
       }
 
+      var rosterModalValue;
       if (this.state.rosters.length > 0) {
+        rosterModalValue = _underscore2.default.findWhere(this.state.rosters, { id: Number(this.state.selectRoster) }).name;
         selectRosterOptions = this.state.rosters.map(function (roster) {
           return _react2.default.createElement(
             'option',
@@ -6506,7 +6513,7 @@ var AddAttendance = function (_React$Component) {
                     _react2.default.createElement(
                       'td',
                       { className: 'col-xs-6 pull-left vert-align' },
-                      (0, _moment2.default)(_underscore2.default.findWhere(this.state.raidweeks, { id: Number(this.state.selectRaidWeek) })).format('W')
+                      raidWeekModalValue
                     )
                   ),
                   _react2.default.createElement(
@@ -6520,7 +6527,7 @@ var AddAttendance = function (_React$Component) {
                     _react2.default.createElement(
                       'td',
                       { className: 'col-xs-6 pull-left vert-align' },
-                      _underscore2.default.findWhere(this.state.raids, { id: Number(this.state.selectRaid) }).name
+                      raidModalValue
                     )
                   ),
                   _react2.default.createElement(
@@ -6534,7 +6541,7 @@ var AddAttendance = function (_React$Component) {
                     _react2.default.createElement(
                       'td',
                       { className: 'col-xs-6 pull-left vert-align' },
-                      _underscore2.default.findWhere(this.state.rosters, { id: Number(this.state.selectRoster) }).name
+                      rosterModalValue
                     )
                   ),
                   _react2.default.createElement(
