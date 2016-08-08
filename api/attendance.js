@@ -39,6 +39,7 @@ router.get('/admin', function(req, res, next) {
 });
 
 router.post('/admin/file', function(req, res, next) {
+  console.log('call');
   Character.where('name', 'in', req.body['names[]'])
            .fetchAll({'withRelated': ['user']})
            .then(function(characters) {
