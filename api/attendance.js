@@ -40,6 +40,7 @@ router.get('/admin', function(req, res, next) {
 
 router.post('/admin/file', function(req, res, next) {
   console.log('call');
+  var test = 0;
   Character.where('name', 'in', req.body['names[]'])
            .fetchAll({'withRelated': ['user']})
            .then(function(characters) {
@@ -62,20 +63,25 @@ router.post('/admin/file', function(req, res, next) {
                    created_at: moment()
                  };
                });
-               knex.batchInsert('raid_attendance', insertRows)
-                   .then(function() {
-                     Attendance_Count.forge({raid_id: req.body.raidId, roster_id: req.body.rosterId, created_at: moment()})
-                                     .save()
-                                     .then(function() {
-                                       res.json({error: false, data: {message: "User Attendance inserted"}});
-                                     })
-                                     .catch(function(err) {
-                                       res.status(500).json({error: true, data: {message: err.message}});
-                                     });
-                   })
-                   .catch(function(err) {
-                     res.status(500).json({error: true, data: {message: err.message}});
-                   });
+
+               if(test == 0) {
+                 test++;
+                 knex.batchInsert('raid_attendance', insertRows)
+                     .then(function() {
+                       Attendance_Count.forge({raid_id: req.body.raidId, roster_id: req.body.rosterId, created_at: moment()})
+                                       .save()
+                                       .then(function() {
+                                         res.json({error: false, data: {message: "User Attendance inserted"}});
+                                       })
+                                       .catch(function(err) {
+                                         res.status(500).json({error: true, data: {message: err.message}});
+                                       });
+                     })
+                     .catch(function(err) {
+                       res.status(500).json({error: true, data: {message: err.message}});
+                     });
+
+               }
              });
            })
            .catch(function(err) {
