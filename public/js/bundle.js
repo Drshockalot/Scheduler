@@ -4509,7 +4509,7 @@ var ProfileRaidWeeks = function (_React$Component) {
               _react2.default.createElement(
                 'td',
                 { className: 'col-xs-3' },
-                _react2.default.createElement('input', { type: 'textarea', value: user_availability.note, onChange: function onChange(e) {
+                _react2.default.createElement('textarea', { value: user_availability.note, onChange: function onChange(e) {
                     return _ProfileRaidWeeksActions2.default.updateUserAvailabilityNote(user_availability.id, e.target.value);
                   } })
               ),
