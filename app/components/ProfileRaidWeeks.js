@@ -77,6 +77,7 @@ class ProfileRaidWeeks extends React.Component {
               <table className='table'>
                 <tbody>
                   <tr>
+                    <td className='col-xs-2'></td>
                     <td className='col-xs-1'><strong>W</strong></td>
                     <td className='col-xs-1'><strong>T</strong></td>
                     <td className='col-xs-1'><strong>F</strong></td>

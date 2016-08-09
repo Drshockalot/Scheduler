@@ -4580,6 +4580,7 @@ var ProfileRaidWeeks = function (_React$Component) {
                   _react2.default.createElement(
                     'tr',
                     null,
+                    _react2.default.createElement('td', { className: 'col-xs-2' }),
                     _react2.default.createElement(
                       'td',
                       { className: 'col-xs-1' },
