@@ -39,6 +39,7 @@ class ProfileRaidWeeks extends React.Component {
         if(user_availability) {
           user_availabilityRow = (
             <tr>
+              <td className='col-xs-2'>Your availability:</td>
               <td className='col-xs-1'><input type='checkbox' disabled={!raidweek.wednesday} checked={user_availability.wednesday} onChange={() => ProfileRaidWeeksActions.toggleUserAvailabilityDay(user_availability.id, 'wednesday')} /></td>
               <td className='col-xs-1'><input type='checkbox' disabled={!raidweek.thursday} checked={user_availability.thursday} onChange={() => ProfileRaidWeeksActions.toggleUserAvailabilityDay(user_availability.id, 'thursday')} /></td>
               <td className='col-xs-1'><input type='checkbox' disabled={!raidweek.friday} checked={user_availability.friday} onChange={() => ProfileRaidWeeksActions.toggleUserAvailabilityDay(user_availability.id, 'friday')} /></td>

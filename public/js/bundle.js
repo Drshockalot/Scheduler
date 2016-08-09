@@ -4459,6 +4459,11 @@ var ProfileRaidWeeks = function (_React$Component) {
               null,
               _react2.default.createElement(
                 'td',
+                { className: 'col-xs-2' },
+                'Your availability:'
+              ),
+              _react2.default.createElement(
+                'td',
                 { className: 'col-xs-1' },
                 _react2.default.createElement('input', { type: 'checkbox', disabled: !raidweek.wednesday, checked: user_availability.wednesday, onChange: function onChange() {
                     return _ProfileRaidWeeksActions2.default.toggleUserAvailabilityDay(user_availability.id, 'wednesday');
