@@ -49,7 +49,7 @@ class ProfileRaidWeeksStore {
     }
   }
 
-  onUdateUserAvailabilityNote(values) {
+  onUpdateUserAvailabilityNote(values) {
     console.log('id', values[0]);
     console.log('value', values[1]);
     for(var i = 0; i < this.user_availability.length; ++i) {

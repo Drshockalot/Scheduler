@@ -11318,8 +11318,8 @@ var ProfileRaidWeeksStore = function () {
       }
     }
   }, {
-    key: 'onUdateUserAvailabilityNote',
-    value: function onUdateUserAvailabilityNote(values) {
+    key: 'onUpdateUserAvailabilityNote',
+    value: function onUpdateUserAvailabilityNote(values) {
       console.log('id', values[0]);
       console.log('value', values[1]);
       for (var i = 0; i < this.user_availability.length; ++i) {
