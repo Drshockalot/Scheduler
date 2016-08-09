@@ -9564,7 +9564,12 @@ var ScheduleManagement = function (_React$Component) {
           sun,
           mon,
           tues,
-          none
+          none,
+          _react2.default.createElement(
+            'div',
+            { className: 'row' },
+            availability.user_note
+          )
         );
       } else {
         popover = _react2.default.createElement(
@@ -9624,7 +9629,7 @@ var ScheduleManagement = function (_React$Component) {
           );
         }, this);
 
-        selectedRaidWeekOptions = this.state.raidweeks.map(function (raidweek, index) {
+        selectedRaidWeekOptions = _.sortBy(this.state.raidweeks, 'start').reverse().map(function (raidweek, index) {
           if (raidweek.id === this.state.selectedRaidWeek) {
             selectedRaidWeekId = raidweek.id;
           }

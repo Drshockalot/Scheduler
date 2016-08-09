@@ -77,6 +77,9 @@ class ScheduleManagement extends React.Component {
           {mon}
           {tues}
           {none}
+          <div className='row'>
+            {availability.user_note}
+          </div>
         </Popover>
       );
     } else {
@@ -121,7 +124,7 @@ class ScheduleManagement extends React.Component {
         );
       }, this);
 
-      selectedRaidWeekOptions = this.state.raidweeks.map(function(raidweek, index) {
+      selectedRaidWeekOptions = _.sortBy(this.state.raidweeks, 'start').reverse().map(function(raidweek, index) {
         if(raidweek.id === this.state.selectedRaidWeek) {
           selectedRaidWeekId = raidweek.id;
         }
