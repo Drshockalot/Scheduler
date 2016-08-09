@@ -48,6 +48,14 @@ class ProfileRaidWeeksStore {
       this[key] = state[key];
     }
   }
+
+  onUdateUserAvailabilityNote(values) {
+    for(var i = 0; i < this.user_availability.length; ++i) {
+      if(values[0] == this.user_availability[i].id) {
+        this.user_availability[i].note = values[1];
+      }
+    }
+  }
 }
 
 export default alt.createStore(ProfileRaidWeeksStore);

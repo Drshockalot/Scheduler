@@ -100,7 +100,8 @@ router.put('/user', function(req, res, next) {
                                      saturday: req.body.saturday,
                                      sunday: req.body.sunday,
                                      monday: req.body.monday,
-                                     tuesday: req.body.tuesday })
+                                     tuesday: req.body.tuesday,
+                                     note: req.body.note })
                              .then(function(savedUa) {
                                User_Availability.where({user_id: user.get('id')})
                                                 .fetchAll({require: true})
