@@ -78,7 +78,9 @@ class ScheduleManagement extends React.Component {
           {tues}
           {none}
           <div className='row'>
-            {availability.user_note}
+            <div className='col-xs-12'>
+              {availability.user_note}
+            </div>
           </div>
         </Popover>
       );

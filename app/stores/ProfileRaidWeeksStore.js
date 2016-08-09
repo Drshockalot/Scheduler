@@ -50,8 +50,6 @@ class ProfileRaidWeeksStore {
   }
 
   onUpdateUserAvailabilityNote(values) {
-    console.log('id', values[0]);
-    console.log('value', values[1]);
     for(var i = 0; i < this.user_availability.length; ++i) {
       if(values[0] == this.user_availability[i].id) {
         this.user_availability[i].user_note = values[1];

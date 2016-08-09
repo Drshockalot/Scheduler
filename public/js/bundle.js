@@ -9568,7 +9568,11 @@ var ScheduleManagement = function (_React$Component) {
           _react2.default.createElement(
             'div',
             { className: 'row' },
-            availability.user_note
+            _react2.default.createElement(
+              'div',
+              { className: 'col-xs-12' },
+              availability.user_note
+            )
           )
         );
       } else {
@@ -11325,8 +11329,6 @@ var ProfileRaidWeeksStore = function () {
   }, {
     key: 'onUpdateUserAvailabilityNote',
     value: function onUpdateUserAvailabilityNote(values) {
-      console.log('id', values[0]);
-      console.log('value', values[1]);
       for (var i = 0; i < this.user_availability.length; ++i) {
         if (values[0] == this.user_availability[i].id) {
           this.user_availability[i].user_note = values[1];
