@@ -5983,7 +5983,7 @@ var AddAttendance = function (_React$Component) {
       if (this.state.raidweeks.length > 0) {
         raidWeekModalValue = (0, _moment2.default)(_underscore2.default.findWhere(this.state.raidweeks, { id: Number(this.state.selectRaidWeek) })).format('W');
 
-        selectRaidWeekOptions = this.state.raidweeks.map(function (raidweek) {
+        selectRaidWeekOptions = _underscore2.default.sortBy(this.state.raidweeks, 'start').reverse().map(function (raidweek) {
           return _react2.default.createElement(
             'option',
             { key: raidweek.id, value: raidweek.id },
@@ -9636,7 +9636,7 @@ var ScheduleManagement = function (_React$Component) {
       var formRaidWeekId, selectedRaidWeekId, selectedScheduleId, selectedRosterId;
 
       if (this.state.raidweeks.length > 0) {
-        raidWeekOptions = this.state.raidweeks.map(function (raidweek, index) {
+        raidWeekOptions = _.sortBy(this.state.raidweeks, 'start').reverse().map(function (raidweek, index) {
           if (raidweek.id === this.state.formRaidWeek) {
             formRaidWeekId = raidweek.id;
           }

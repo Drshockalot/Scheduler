@@ -111,7 +111,7 @@ class ScheduleManagement extends React.Component {
     var formRaidWeekId, selectedRaidWeekId, selectedScheduleId, selectedRosterId;
 
     if(this.state.raidweeks.length > 0) {
-      raidWeekOptions = this.state.raidweeks.map(function(raidweek, index) {
+      raidWeekOptions = _.sortBy(this.state.raidweeks, 'start').reverse().map(function(raidweek, index) {
         if(raidweek.id === this.state.formRaidWeek) {
           formRaidWeekId = raidweek.id;
         }

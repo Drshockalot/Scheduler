@@ -86,7 +86,7 @@ class AddAttendance extends React.Component {
     if(this.state.raidweeks.length > 0) {
       raidWeekModalValue = moment(_.findWhere(this.state.raidweeks, {id: Number(this.state.selectRaidWeek)})).format('W');
 
-      selectRaidWeekOptions = this.state.raidweeks.map(function(raidweek) {
+      selectRaidWeekOptions = _.sortBy(this.state.raidweeks, 'start').reverse().map(function(raidweek) {
         return (
           <option key={raidweek.id} value={raidweek.id}>{moment(raidweek.start).format('W')}</option>
         );
