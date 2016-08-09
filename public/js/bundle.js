@@ -4529,17 +4529,22 @@ var ProfileRaidWeeks = function (_React$Component) {
             user_availabilityRow = _react2.default.createElement(
               'tr',
               null,
-              _react2.default.createElement('td', { className: 'col-xs-1' }),
-              _react2.default.createElement('td', { className: 'col-xs-1' }),
-              _react2.default.createElement('td', { className: 'col-xs-1' }),
-              _react2.default.createElement('td', { className: 'col-xs-1' }),
-              _react2.default.createElement('td', { className: 'col-xs-1' }),
-              _react2.default.createElement('td', { className: 'col-xs-1' }),
-              _react2.default.createElement('td', { className: 'col-xs-1' }),
-              _react2.default.createElement('td', { className: 'col-xs-3' }),
               _react2.default.createElement(
                 'td',
                 { className: 'col-xs-2' },
+                'Your availability:'
+              ),
+              _react2.default.createElement('td', { className: 'col-xs-1' }),
+              _react2.default.createElement('td', { className: 'col-xs-1' }),
+              _react2.default.createElement('td', { className: 'col-xs-1' }),
+              _react2.default.createElement('td', { className: 'col-xs-1' }),
+              _react2.default.createElement('td', { className: 'col-xs-1' }),
+              _react2.default.createElement('td', { className: 'col-xs-1' }),
+              _react2.default.createElement('td', { className: 'col-xs-1' }),
+              _react2.default.createElement('td', { className: 'col-xs-2' }),
+              _react2.default.createElement(
+                'td',
+                { className: 'col-xs-1' },
                 _react2.default.createElement(
                   'button',
                   { className: 'btn btn-primary', onClick: function onClick() {
@@ -4637,12 +4642,16 @@ var ProfileRaidWeeks = function (_React$Component) {
                         null,
                         'T'
                       )
-                    ),
-                    _react2.default.createElement('td', { className: 'col-xs-5' })
+                    )
                   ),
                   _react2.default.createElement(
                     'tr',
                     null,
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'col-xs-2' },
+                      'Raiding Days:'
+                    ),
                     _react2.default.createElement(
                       'td',
                       { className: 'col-xs-1' },
@@ -4677,8 +4686,7 @@ var ProfileRaidWeeks = function (_React$Component) {
                       'td',
                       { className: 'col-xs-1' },
                       _react2.default.createElement('input', { type: 'checkbox', checked: raidweek.tuesday, disabled: 'disabled' })
-                    ),
-                    _react2.default.createElement('td', { className: 'col-xs-5' })
+                    )
                   ),
                   user_availabilityRow
                 )

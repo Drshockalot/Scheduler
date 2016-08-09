@@ -55,6 +55,7 @@ class ProfileRaidWeeks extends React.Component {
         } else {
           user_availabilityRow = (
             <tr>
+              <td className='col-xs-2'>Your availability:</td>
               <td className='col-xs-1'></td>
               <td className='col-xs-1'></td>
               <td className='col-xs-1'></td>
@@ -62,8 +63,8 @@ class ProfileRaidWeeks extends React.Component {
               <td className='col-xs-1'></td>
               <td className='col-xs-1'></td>
               <td className='col-xs-1'></td>
-              <td className='col-xs-3'></td>
-              <td className='col-xs-2'>
+              <td className='col-xs-2'></td>
+              <td className='col-xs-1'>
                 <button className='btn btn-primary' onClick={() => ProfileRaidWeeksActions.createUserAvailability(raidweek)}>Create</button>
               </td>
             </tr>
@@ -83,9 +84,9 @@ class ProfileRaidWeeks extends React.Component {
                     <td className='col-xs-1'><strong>S</strong></td>
                     <td className='col-xs-1'><strong>M</strong></td>
                     <td className='col-xs-1'><strong>T</strong></td>
-                    <td className='col-xs-5'></td>
                   </tr>
                   <tr>
+                    <td className='col-xs-2'>Raiding Days:</td>
                     <td className='col-xs-1'><input type='checkbox' checked={raidweek.wednesday} disabled='disabled'/></td>
                     <td className='col-xs-1'><input type='checkbox' checked={raidweek.thursday} disabled='disabled'/></td>
                     <td className='col-xs-1'><input type='checkbox' checked={raidweek.friday} disabled='disabled'/></td>
@@ -93,7 +94,6 @@ class ProfileRaidWeeks extends React.Component {
                     <td className='col-xs-1'><input type='checkbox' checked={raidweek.sunday} disabled='disabled'/></td>
                     <td className='col-xs-1'><input type='checkbox' checked={raidweek.monday} disabled='disabled'/></td>
                     <td className='col-xs-1'><input type='checkbox' checked={raidweek.tuesday} disabled='disabled'/></td>
-                    <td className='col-xs-5'></td>
                   </tr>
                   {user_availabilityRow}
                 </tbody>
