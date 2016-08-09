@@ -4509,7 +4509,7 @@ var ProfileRaidWeeks = function (_React$Component) {
               _react2.default.createElement(
                 'td',
                 { className: 'col-xs-3' },
-                _react2.default.createElement('textarea', { value: user_availability.note, onChange: function onChange(e) {
+                _react2.default.createElement('textarea', { value: user_availability.user_note, onChange: function onChange(e) {
                     return _ProfileRaidWeeksActions2.default.updateUserAvailabilityNote(user_availability.id, e.target.value);
                   } })
               ),
@@ -11322,7 +11322,7 @@ var ProfileRaidWeeksStore = function () {
     value: function onUdateUserAvailabilityNote(values) {
       for (var i = 0; i < this.user_availability.length; ++i) {
         if (values[0] == this.user_availability[i].id) {
-          this.user_availability[i].note = values[1];
+          this.user_availability[i].user_note = values[1];
         }
       }
     }

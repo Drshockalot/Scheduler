@@ -52,7 +52,7 @@ class ProfileRaidWeeksStore {
   onUdateUserAvailabilityNote(values) {
     for(var i = 0; i < this.user_availability.length; ++i) {
       if(values[0] == this.user_availability[i].id) {
-        this.user_availability[i].note = values[1];
+        this.user_availability[i].user_note = values[1];
       }
     }
   }
