@@ -16,7 +16,7 @@ router.get('/bnet/logout', function(req, res, next) {
 
 router.get('/bnet/status', function(req, res, next) {
   if(!req.user) {
-    res.status(302).redirect('/');
+    res.send(null);
   } else {
     res.send(req.user);
   }

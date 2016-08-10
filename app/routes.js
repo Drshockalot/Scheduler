@@ -21,30 +21,25 @@ import ScheduleView from './components/ScheduleView';
 import AttendancePublicView from './components/AttendancePublicView';
 
 import NavbarStore from './stores/NavbarStore';
-import promise from 'bluebird';
-
 var auth = function(nextState, replace) {
   if(typeof(Storage) !== "undefined"){
-    $.ajax({
-      method: 'GET',
-      url: '/auth/bnet/status'
-    }).then(function(loggedIn) {
-      if(!loggedIn) {
-        console.log('test');
-        replace({ pathname: '/', query: { the: 'query' } });
-        toastr.error('Only logged in users are allowed to view this page', 'Please log in');
-      }
-    });
-    // if(!sessionStorage.role || sessionStorage.role === '') {
-    //
-    // }
+    if(!sessionStorage.role || sessionStorage.role === '') {
+      replace({
+        pathname: '/',
+        state: { nextPathname: nextState.location.pathname }
+      });
+      toastr.error('Only logged in users are allowed to view this page', 'Please log in');
+    }
  }
 };
 
 var adminAuth = function(nextState, replace) {
   if(typeof(Storage) !== "undefined"){
     if(!sessionStorage.role || sessionStorage.role != 'admin') {
-      replace('/');
+      replace({
+        pathname: '/',
+        state: { nextPathname: nextState.location.pathname }
+      });
       toastr.error('You do not have authorization to access this page', 'YOU SHALL NOT PASS!!');
     }
   }
