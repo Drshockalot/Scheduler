@@ -10838,7 +10838,7 @@ var auth = function auth(nextState, replace) {
       url: '/auth/bnet/status'
     }).then(function (loggedIn) {
       if (!loggedIn) {
-        replace('/');
+        replace('/test');
         toastr.error('Only logged in users are allowed to view this page', 'Please log in');
       }
     });
