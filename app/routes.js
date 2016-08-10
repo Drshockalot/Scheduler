@@ -21,15 +21,25 @@ import ScheduleView from './components/ScheduleView';
 import AttendancePublicView from './components/AttendancePublicView';
 
 import NavbarStore from './stores/NavbarStore';
+import promise from 'bluebird';
+
 var auth = function(nextState, replace) {
   if(typeof(Storage) !== "undefined"){
-    if(!sessionStorage.role || sessionStorage.role === '') {
-      replace({
-        pathname: '/',
-        state: { nextPathname: nextState.location.pathname }
-      });
-      toastr.error('Only logged in users are allowed to view this page', 'Please log in');
-    }
+    $.ajax({
+      method: 'GET',
+      url: 'api/auth/bnet/status'
+    }).then(function(loggedIn) {
+      if(!loggedIn) {
+        replace({
+          pathname: '/',
+          state: { nextPathname: nextState.location.pathname }
+        });
+        toastr.error('Only logged in users are allowed to view this page', 'Please log in');
+      }
+    });
+    // if(!sessionStorage.role || sessionStorage.role === '') {
+    //
+    // }
  }
 };
 
