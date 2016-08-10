@@ -30,6 +30,7 @@ var auth = function(nextState, replace) {
       url: '/auth/bnet/status'
     }).then(function(loggedIn) {
       if(!loggedIn) {
+        console.log('test');
         replace('/test');
         toastr.error('Only logged in users are allowed to view this page', 'Please log in');
       }
