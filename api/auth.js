@@ -15,8 +15,8 @@ router.get('/bnet/logout', function(req, res, next) {
 });
 
 router.get('/bnet/status', function(req, res, next) {
-  if(req.user == undefined) {
-    res.redirect('/');
+  if(!req.user) {
+    res.status(302).redirect('/');
   } else {
     res.send(req.user);
   }
