@@ -27,7 +27,7 @@ var auth = function(nextState, replace) {
   if(typeof(Storage) !== "undefined"){
     $.ajax({
       method: 'GET',
-      url: 'api/auth/bnet/status'
+      url: '/auth/bnet/status'
     }).then(function(loggedIn) {
       if(!loggedIn) {
         replace({
