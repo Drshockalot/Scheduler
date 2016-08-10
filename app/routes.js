@@ -31,7 +31,7 @@ var auth = function(nextState, replace) {
     }).then(function(loggedIn) {
       if(!loggedIn) {
         console.log('test');
-        window.location = '/';
+        replace({ pathname: '/', query: { the: 'query' } });
         toastr.error('Only logged in users are allowed to view this page', 'Please log in');
       }
     });
