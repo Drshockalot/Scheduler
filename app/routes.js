@@ -30,7 +30,7 @@ var auth = function(nextState, replace) {
       url: '/auth/bnet/status'
     }).then(function(loggedIn) {
       if(!loggedIn) {
-        replace({ nextPathname: nextState.location.pathname }, '/', nextState.location.query);
+        replace('/');
         toastr.error('Only logged in users are allowed to view this page', 'Please log in');
       }
     });
@@ -43,10 +43,7 @@ var auth = function(nextState, replace) {
 var adminAuth = function(nextState, replace) {
   if(typeof(Storage) !== "undefined"){
     if(!sessionStorage.role || sessionStorage.role != 'admin') {
-      replace({
-        pathname: '/',
-        state: { nextPathname: nextState.location.pathname }
-      });
+      replace('/');
       toastr.error('You do not have authorization to access this page', 'YOU SHALL NOT PASS!!');
     }
   }
