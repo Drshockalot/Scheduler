@@ -2453,7 +2453,7 @@ var Home = function (_React$Component) {
 
           return _react2.default.createElement(
             'tr',
-            null,
+            { key: schedule.id },
             _react2.default.createElement(
               'td',
               { className: 'col-md-4 vert-align text-center' },

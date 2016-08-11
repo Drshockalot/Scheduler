@@ -86,7 +86,7 @@ class Home extends React.Component {
         );
 
         return (
-          <tr>
+          <tr key={schedule.id}>
             <td className='col-md-4 vert-align text-center'>
               {trigger}
             </td>
