@@ -2312,13 +2312,13 @@ var Home = function (_React$Component) {
             var raidListItems = raids.map(function (raid) {
               return _react2.default.createElement(
                 'li',
-                null,
+                { key: raid.id },
                 raid
               );
             });
             return _react2.default.createElement(
               'div',
-              { className: 'row' },
+              { className: 'row', key: schedule.id },
               _react2.default.createElement(
                 _reactRouter.Link,
                 { to: '/schedule?type=1&schedule=' + schedule.id },

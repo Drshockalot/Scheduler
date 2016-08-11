@@ -46,11 +46,11 @@ class Home extends React.Component {
           var raids = _.keys(countResult);
           var raidListItems = raids.map(function(raid) {
             return (
-              <li>{raid}</li>
+              <li key={raid.id}>{raid}</li>
             );
           });
           return (
-            <div className='row'>
+            <div className='row' key={schedule.id}>
               <Link to={'/schedule?type=1&schedule=' + schedule.id}>{schedule.name}</Link>
                 <ul>
                   {raidListItems}
