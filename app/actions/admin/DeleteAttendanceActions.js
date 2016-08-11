@@ -18,12 +18,11 @@ class DeleteAttendanceActions {
       method: 'GET',
       url: '/api/attendance/admin/all'
     }).done((result) => {
-      console.log(result);
       this.loadComponentDataSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.loadComponentDataFailure(jqXhr);
     });
+    return 0;
   }
 
   deleteRecord(recordId) {
@@ -31,12 +30,11 @@ class DeleteAttendanceActions {
       method: 'DELETE',
       url: '/api/attendance/admin/' + recordId
     }).done((result) => {
-      console.log(result);
       this.deleteRecordSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.deleteRecordFailure(jqXhr);
     });
+    return 0;
   }
 }
 

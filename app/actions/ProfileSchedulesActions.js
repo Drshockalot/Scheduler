@@ -16,12 +16,11 @@ class ProfileSchedulesActions {
       method: 'GET',
       url: '/api/schedule/profile/' + encodeURIComponent(NavbarStore.getState().battletag)
     }).done((result) => {
-      console.log(result);
       this.loadComponentDataSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.loadComponentDataFailure(jqXhr);
     });
+    return 0;
   }
 }
 

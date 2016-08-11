@@ -30,10 +30,8 @@ class ProfileCharactersActions {
       method: 'GET',
       url: '/api/character/blizzard'
     }).done((data) => {
-      console.log(data);
       this.populateRetrievedCharactersSuccess(data);
     }).fail((jqXhr) => {
-      console.log(data);
       this.populateRetrievedCharactersFailure(jqXhr);
     });
     return 0;
@@ -44,10 +42,8 @@ class ProfileCharactersActions {
       method: 'GET',
       url: '/api/character/confirmed/' + encodeURIComponent(NavbarStore.getState().battletag)
     }).done((result) => {
-      console.log(result);
       this.getChosenCharactersSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.getChosenCharactersFailure(jqXhr);
     });
     return 0;

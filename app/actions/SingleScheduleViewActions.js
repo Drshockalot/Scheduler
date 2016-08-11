@@ -17,12 +17,11 @@ class SingleScheduleViewActions {
       method: 'GET',
       url: '/api/schedule/single/' + scheduleId
     }).done((result) => {
-      console.log(result);
       this.loadSingleScheduleSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.loadSingleScheduleFailure(jqXhr);
     });
+    return 0;
   }
 
   loadUserCharacters() {
@@ -30,12 +29,11 @@ class SingleScheduleViewActions {
       method: 'GET',
       url: '/api/character/user/' + encodeURIComponent(NavbarStore.getState().battletag)
     }).done((result) => {
-      console.log(result);
       this.loadUserCharactersSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.loadUserCharactersFailure(jqXhr);
     });
+    return 0;
   }
 }
 

@@ -16,12 +16,11 @@ class ProfileRostersActions {
       method: 'GET',
       url: '/api/roster/' + encodeURIComponent(NavbarStore.getState().battletag)
     }).done((result) => {
-      console.log(result);
       this.getComponentDataSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.getComponentDataFailure(jqXhr);
     });
+    return 0;
   }
 }
 

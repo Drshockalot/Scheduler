@@ -43,12 +43,11 @@ class RaidManagementActions {
       method: 'GET',
       url: '/api/raid'
     }).done((result) => {
-      console.log(result);
       this.loadRaidsSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.loadRaidsFailure(jqXhr);
     });
+    return 0;
   }
 
   createRaid(raidName, raidDescription) {
@@ -60,12 +59,11 @@ class RaidManagementActions {
       url: '/api/raid/admin',
       data: data
     }).done((result) => {
-      console.log(result);
       this.createRaidSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.createRaidFailure(jqXhr);
     });
+    return 0;
   }
 
   deleteRaid(raidId) {
@@ -73,12 +71,11 @@ class RaidManagementActions {
       method: 'DELETE',
       url: '/api/raid/admin/' + raidId
     }).done((result) => {
-      console.log(result);
       this.deleteRaidSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.deleteRaidFailure(jqXhr);
     });
+    return 0;
   }
 
   createBoss(bossName, bossPublicNote, bossOfficerNote, raidId, tank_count, healer_count, dps_count) {
@@ -95,12 +92,11 @@ class RaidManagementActions {
       url: '/api/boss/admin',
       data: data
     }).done((result) => {
-      console.log(result);
       this.createBossSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.createBossFailure(jqXhr);
     });
+    return 0;
   }
 
   deleteBoss(boss) {
@@ -109,12 +105,11 @@ class RaidManagementActions {
       url: '/api/boss/admin',
       data: boss
     }).done((result) => {
-      console.log(result);
       this.deleteBossSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.deleteBossFailure(jqXhr);
     });
+    return 0;
   }
 
   updateBoss(bossId, bossName, bossPublicNote, bossOfficerNote, tank_count, healer_count, dps_count) {
@@ -131,12 +126,11 @@ class RaidManagementActions {
       url: '/api/boss/admin',
       data: data
     }).done((result) => {
-      console.log(result);
       this.updateBossSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.updateBossFailure(jqXhr);
     });
+    return 0;
   }
 }
 

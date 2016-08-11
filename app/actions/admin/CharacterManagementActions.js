@@ -18,10 +18,8 @@ class CharacterManagementActions {
       method: 'GET',
       url: '/api/character/admin/confirmation'
     }).done((result) => {
-      console.log(result);
       this.getCharactersForConfirmationSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.getCharactersForConfirmationFailure(jqXhr);
     });
     return 0;

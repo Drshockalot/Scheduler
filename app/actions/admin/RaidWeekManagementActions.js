@@ -30,10 +30,8 @@ class RaidWeekManagementActions {
       method: 'GET',
       url: '/api/raidweek',
     }).done((result) => {
-      console.log(result);
       this.getAllRaidWeeksSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.getAllRaidWeeksFailure(jqXhr);
     });
     return 0;
@@ -47,10 +45,8 @@ class RaidWeekManagementActions {
       url: '/api/raidweek/admin',
       data: {start: start, end: end}
     }).done((result) => {
-      console.log(result);
       this.createNewRaidWeekSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.createNewRaidWeekFailure(jqXhr);
     });
     return 0;
@@ -62,10 +58,8 @@ class RaidWeekManagementActions {
       url: '/api/raidweek/admin',
       data: raidweek
     }).done((result) => {
-      console.log(result);
       this.updateRaidWeekSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.updateRaidWeekFailure(jqXhr);
     });
     return 0;
@@ -76,10 +70,8 @@ class RaidWeekManagementActions {
       method: 'DELETE',
       url: '/api/raidweek/admin/' + id
     }).done((result) => {
-      console.log(result);
       this.deleteRaidWeekSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.deleteRaidWeekFailure(jqXhr);
     });
     return 0;

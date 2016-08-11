@@ -35,12 +35,11 @@ class AddAttendanceActions {
       method: 'GET',
       url: '/api/attendance/admin'
     }).done((result) => {
-      console.log(result);
       this.loadComponentDataSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.loadComponentDataFailure(jqXhr);
     });
+    return 0;
   }
 
   uploadFile(fileText, raidId, raidWeekId, weekday, rosterId) {
@@ -56,12 +55,11 @@ class AddAttendanceActions {
       url: '/api/attendance/admin/file',
       data: data
     }).done((result) => {
-      console.log(result);
       this.uploadFileSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.uploadFileFailure(jqXhr);
     });
+    return 0;
   }
 
   uploadAttendanceFromRosterForm(attendanceModel, raidId, raidWeekId, weekday, rosterId) {
@@ -89,12 +87,11 @@ class AddAttendanceActions {
       url: '/api/attendance/admin/roster',
       data: data
     }).done((result) => {
-      console.log(result);
       this.uploadAttendanceFromRosterFormSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.uploadAttendanceFromRosterFormFailure(jqXhr);
     });
+    return 0;
   }
 
   uploadRawText(uploadText, raidId, raidWeekId, weekday, rosterId) {
@@ -113,12 +110,11 @@ class AddAttendanceActions {
       url: '/api/attendance/admin/text',
       data: data
     }).done((result) => {
-      console.log(result);
       this.uploadRawTextSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.uploadRawTextFailure(jqXhr);
     });
+    return 0;
   }
 }
 

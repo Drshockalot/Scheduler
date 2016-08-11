@@ -18,10 +18,8 @@ class AttendancePublicViewActions {
       method: 'GET',
       url: '/api/attendance/public'
     }).done((result) => {
-      console.log(result);
       this.loadComponentDataSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.loadComponentDataFailure(jqXhr);
     });
     return 0;

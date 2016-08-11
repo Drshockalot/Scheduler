@@ -59,10 +59,8 @@ class ScheduleManagementActions {
       method: 'GET',
       url: '/api/schedule'
     }).done((result) => {
-      console.log(result);
       this.loadComponentDataSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.loadComponentDataFailure(jqXhr);
     });
     return 0;
@@ -78,10 +76,8 @@ class ScheduleManagementActions {
       url: '/api/schedule/admin',
       data: data
     }).done((result) => {
-      console.log(result);
       this.createScheduleSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.createScheduleFailure(jqXhr);
     });
     return 0;
@@ -99,10 +95,8 @@ class ScheduleManagementActions {
       url: '/api/schedule/admin/boss',
       data: data
     }).done((result) => {
-      console.log(result);
       this.addScheduleBossSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.addScheduleBossFailure(jqXhr);
     });
     return 0;
@@ -116,10 +110,8 @@ class ScheduleManagementActions {
       url: '/api/schedule/admin/character',
       data: data
     }).done((result) => {
-      console.log(result);
       this.addCharacterToScheduleBossSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.addCharacterToScheduleBossFailure(jqXhr);
     });
     return 0;
@@ -133,10 +125,8 @@ class ScheduleManagementActions {
       url: '/api/schedule/admin/character',
       data: data
     }).done((result) => {
-      console.log(result);
       this.removeCharacterFromScheduleBossSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.removeCharacterFromScheduleBossFailure(jqXhr);
     });
     return 0;
@@ -147,10 +137,8 @@ class ScheduleManagementActions {
       method: 'PUT',
       url: '/api/schedule/admin/publish/' + scheduleBossId
     }).done((result) => {
-      console.log(result);
       this.invertScheduleBossPublishedStateSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.invertScheduleBossPublishedStateFailure(jqXhr);
     });
   }
@@ -161,12 +149,11 @@ class ScheduleManagementActions {
       method: 'DELETE',
       url: '/api/schedule/admin/boss/' + scheduleBossId
     }).done((result) => {
-      console.log(result);
       this.deleteScheduleBossSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.deleteScheduleBossFailure(jqXhr);
     });
+    return 0;
   }
 
   addScheduleRaidBosses(raidId, scheduleId) {
@@ -175,12 +162,11 @@ class ScheduleManagementActions {
       url: '/api/schedule/admin/raid',
       data: {raidId: raidId, scheduleId: scheduleId}
     }).done((result) => {
-      console.log(result);
       this.addScheduleRaidBossesSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.addScheduleRaidBossesFailure(jqXhr);
     });
+    return 0;
   }
 }
 

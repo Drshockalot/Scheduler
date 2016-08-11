@@ -24,10 +24,8 @@ class ProfileRaidWeeksActions {
       method: 'GET',
       url: '/api/raidweek/user/' + encodeURIComponent(NavbarStore.getState().battletag)
     }).done((result) => {
-      console.log(result);
       this.getAllRaidWeekInfoSuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.getAllRaidWeekInfoFailure(jqXhr);
     });
     return 0;
@@ -40,10 +38,8 @@ class ProfileRaidWeeksActions {
       url: '/api/raidweek/user',
       data: raidweek
     }).done((result) => {
-      console.log(result);
       this.createUserAvailabilitySuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.createUserAvailabilityFailure(jqXhr);
     });
     return 0;
@@ -56,10 +52,8 @@ class ProfileRaidWeeksActions {
       url: '/api/raidweek/user',
       data: ua
     }).done((result) => {
-      console.log(result);
       this.saveUserAvailabilitySuccess(result);
     }).fail((jqXhr) => {
-      console.log(jqXhr);
       this.saveUserAvailabilityFailure(jqXhr);
     });
     return 0;

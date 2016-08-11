@@ -37,10 +37,8 @@ var AttendancePublicViewActions = function () {
         method: 'GET',
         url: '/api/attendance/public'
       }).done(function (result) {
-        console.log(result);
         _this.loadComponentDataSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this.loadComponentDataFailure(jqXhr);
       });
       return 0;
@@ -110,12 +108,11 @@ var HomeActions = function () {
         method: 'GET',
         url: '/api/home'
       }).done(function (result) {
-        console.log(result);
         _this.loadComponentDataSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this.loadComponentDataFailure(jqXhr);
       });
+      return 0;
     }
   }]);
 
@@ -265,10 +262,8 @@ var ProfileCharactersActions = function () {
         method: 'GET',
         url: '/api/character/blizzard'
       }).done(function (data) {
-        console.log(data);
         _this.populateRetrievedCharactersSuccess(data);
       }).fail(function (jqXhr) {
-        console.log(data);
         _this.populateRetrievedCharactersFailure(jqXhr);
       });
       return 0;
@@ -282,10 +277,8 @@ var ProfileCharactersActions = function () {
         method: 'GET',
         url: '/api/character/confirmed/' + encodeURIComponent(_NavbarStore2.default.getState().battletag)
       }).done(function (result) {
-        console.log(result);
         _this2.getChosenCharactersSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this2.getChosenCharactersFailure(jqXhr);
       });
       return 0;
@@ -412,10 +405,8 @@ var ProfileRaidWeeksActions = function () {
         method: 'GET',
         url: '/api/raidweek/user/' + encodeURIComponent(_NavbarStore2.default.getState().battletag)
       }).done(function (result) {
-        console.log(result);
         _this.getAllRaidWeekInfoSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this.getAllRaidWeekInfoFailure(jqXhr);
       });
       return 0;
@@ -431,10 +422,8 @@ var ProfileRaidWeeksActions = function () {
         url: '/api/raidweek/user',
         data: raidweek
       }).done(function (result) {
-        console.log(result);
         _this2.createUserAvailabilitySuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this2.createUserAvailabilityFailure(jqXhr);
       });
       return 0;
@@ -450,10 +439,8 @@ var ProfileRaidWeeksActions = function () {
         url: '/api/raidweek/user',
         data: ua
       }).done(function (result) {
-        console.log(result);
         _this3.saveUserAvailabilitySuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this3.saveUserAvailabilityFailure(jqXhr);
       });
       return 0;
@@ -504,12 +491,11 @@ var ProfileRostersActions = function () {
         method: 'GET',
         url: '/api/roster/' + encodeURIComponent(_NavbarStore2.default.getState().battletag)
       }).done(function (result) {
-        console.log(result);
         _this.getComponentDataSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this.getComponentDataFailure(jqXhr);
       });
+      return 0;
     }
   }]);
 
@@ -557,12 +543,11 @@ var ProfileSchedulesActions = function () {
         method: 'GET',
         url: '/api/schedule/profile/' + encodeURIComponent(_NavbarStore2.default.getState().battletag)
       }).done(function (result) {
-        console.log(result);
         _this.loadComponentDataSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this.loadComponentDataFailure(jqXhr);
       });
+      return 0;
     }
   }]);
 
@@ -639,12 +624,11 @@ var SingleScheduleViewActions = function () {
         method: 'GET',
         url: '/api/schedule/single/' + scheduleId
       }).done(function (result) {
-        console.log(result);
         _this.loadSingleScheduleSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this.loadSingleScheduleFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'loadUserCharacters',
@@ -655,12 +639,11 @@ var SingleScheduleViewActions = function () {
         method: 'GET',
         url: '/api/character/user/' + encodeURIComponent(_NavbarStore2.default.getState().battletag)
       }).done(function (result) {
-        console.log(result);
         _this2.loadUserCharactersSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this2.loadUserCharactersFailure(jqXhr);
       });
+      return 0;
     }
   }]);
 
@@ -706,12 +689,11 @@ var AddAttendanceActions = function () {
         method: 'GET',
         url: '/api/attendance/admin'
       }).done(function (result) {
-        console.log(result);
         _this.loadComponentDataSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this.loadComponentDataFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'uploadFile',
@@ -730,12 +712,11 @@ var AddAttendanceActions = function () {
         url: '/api/attendance/admin/file',
         data: data
       }).done(function (result) {
-        console.log(result);
         _this2.uploadFileSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this2.uploadFileFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'uploadAttendanceFromRosterForm',
@@ -763,12 +744,11 @@ var AddAttendanceActions = function () {
         url: '/api/attendance/admin/roster',
         data: data
       }).done(function (result) {
-        console.log(result);
         _this3.uploadAttendanceFromRosterFormSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this3.uploadAttendanceFromRosterFormFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'uploadRawText',
@@ -790,12 +770,11 @@ var AddAttendanceActions = function () {
         url: '/api/attendance/admin/text',
         data: data
       }).done(function (result) {
-        console.log(result);
         _this4.uploadRawTextSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this4.uploadRawTextFailure(jqXhr);
       });
+      return 0;
     }
   }]);
 
@@ -964,10 +943,8 @@ var CharacterManagementActions = function () {
         method: 'GET',
         url: '/api/character/admin/confirmation'
       }).done(function (result) {
-        console.log(result);
         _this.getCharactersForConfirmationSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this.getCharactersForConfirmationFailure(jqXhr);
       });
       return 0;
@@ -1044,12 +1021,11 @@ var DeleteAttendanceActions = function () {
         method: 'GET',
         url: '/api/attendance/admin/all'
       }).done(function (result) {
-        console.log(result);
         _this.loadComponentDataSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this.loadComponentDataFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'deleteRecord',
@@ -1060,12 +1036,11 @@ var DeleteAttendanceActions = function () {
         method: 'DELETE',
         url: '/api/attendance/admin/' + recordId
       }).done(function (result) {
-        console.log(result);
         _this2.deleteRecordSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this2.deleteRecordFailure(jqXhr);
       });
+      return 0;
     }
   }]);
 
@@ -1107,12 +1082,11 @@ var RaidManagementActions = function () {
         method: 'GET',
         url: '/api/raid'
       }).done(function (result) {
-        console.log(result);
         _this.loadRaidsSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this.loadRaidsFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'createRaid',
@@ -1127,12 +1101,11 @@ var RaidManagementActions = function () {
         url: '/api/raid/admin',
         data: data
       }).done(function (result) {
-        console.log(result);
         _this2.createRaidSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this2.createRaidFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'deleteRaid',
@@ -1143,12 +1116,11 @@ var RaidManagementActions = function () {
         method: 'DELETE',
         url: '/api/raid/admin/' + raidId
       }).done(function (result) {
-        console.log(result);
         _this3.deleteRaidSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this3.deleteRaidFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'createBoss',
@@ -1168,12 +1140,11 @@ var RaidManagementActions = function () {
         url: '/api/boss/admin',
         data: data
       }).done(function (result) {
-        console.log(result);
         _this4.createBossSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this4.createBossFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'deleteBoss',
@@ -1185,12 +1156,11 @@ var RaidManagementActions = function () {
         url: '/api/boss/admin',
         data: boss
       }).done(function (result) {
-        console.log(result);
         _this5.deleteBossSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this5.deleteBossFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'updateBoss',
@@ -1210,12 +1180,11 @@ var RaidManagementActions = function () {
         url: '/api/boss/admin',
         data: data
       }).done(function (result) {
-        console.log(result);
         _this6.updateBossSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this6.updateBossFailure(jqXhr);
       });
+      return 0;
     }
   }]);
 
@@ -1263,10 +1232,8 @@ var RaidWeekManagementActions = function () {
         method: 'GET',
         url: '/api/raidweek'
       }).done(function (result) {
-        console.log(result);
         _this.getAllRaidWeeksSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this.getAllRaidWeeksFailure(jqXhr);
       });
       return 0;
@@ -1283,10 +1250,8 @@ var RaidWeekManagementActions = function () {
         url: '/api/raidweek/admin',
         data: { start: start, end: end }
       }).done(function (result) {
-        console.log(result);
         _this2.createNewRaidWeekSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this2.createNewRaidWeekFailure(jqXhr);
       });
       return 0;
@@ -1301,10 +1266,8 @@ var RaidWeekManagementActions = function () {
         url: '/api/raidweek/admin',
         data: raidweek
       }).done(function (result) {
-        console.log(result);
         _this3.updateRaidWeekSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this3.updateRaidWeekFailure(jqXhr);
       });
       return 0;
@@ -1318,10 +1281,8 @@ var RaidWeekManagementActions = function () {
         method: 'DELETE',
         url: '/api/raidweek/admin/' + id
       }).done(function (result) {
-        console.log(result);
         _this4.deleteRaidWeekSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this4.deleteRaidWeekFailure(jqXhr);
       });
       return 0;
@@ -1372,7 +1333,6 @@ var RosterManagementActions = function () {
         _this.setSelectedRosterName(result.data.rosters[0].name);
         _this.updateRosterListAfterCharacterChange(result.data.rosters[0].id);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this.getAllRostersFailure(jqXhr);
       });
       return 0;
@@ -1386,10 +1346,8 @@ var RosterManagementActions = function () {
         method: 'GET',
         url: '/api/roster/admin/' + _.findWhere(rosterList, { name: rosterName }).id
       }).done(function (result) {
-        console.log(result);
         _this2.updateSelectedRosterSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this2.updateSelectedRosterFailure(jqXhr);
       });
       return 0;
@@ -1403,10 +1361,8 @@ var RosterManagementActions = function () {
         method: 'GET',
         url: '/api/roster/admin/' + rosterid
       }).done(function (result) {
-        console.log(result);
         _this3.updateSelectedRosterSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this3.updateSelectedRosterFailure(jqXhr);
       });
       return 0;
@@ -1420,11 +1376,9 @@ var RosterManagementActions = function () {
         method: 'PUT',
         url: '/api/roster/admin/unlink/' + characterid + '/' + rosterid
       }).done(function (result) {
-        console.log(result);
         _this4.removeCharacterFromRosterSuccess(result);
         _this4.updateRosterListAfterCharacterChange(rosterid);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this4.removeCharacterFromRosterFailure(jqXhr);
       });
       return 0;
@@ -1438,11 +1392,9 @@ var RosterManagementActions = function () {
         method: 'PUT',
         url: '/api/roster/admin/link/' + characterid + '/' + rosterid
       }).done(function (result) {
-        console.log(result);
         _this5.addCharacterToRosterSuccess(result);
         _this5.updateRosterListAfterCharacterChange(rosterid);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this5.addCharacterToRosterFailure(jqXhr);
       });
       return 0;
@@ -1513,10 +1465,8 @@ var ScheduleManagementActions = function () {
         method: 'GET',
         url: '/api/schedule'
       }).done(function (result) {
-        console.log(result);
         _this.loadComponentDataSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this.loadComponentDataFailure(jqXhr);
       });
       return 0;
@@ -1535,10 +1485,8 @@ var ScheduleManagementActions = function () {
         url: '/api/schedule/admin',
         data: data
       }).done(function (result) {
-        console.log(result);
         _this2.createScheduleSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this2.createScheduleFailure(jqXhr);
       });
       return 0;
@@ -1559,10 +1507,8 @@ var ScheduleManagementActions = function () {
         url: '/api/schedule/admin/boss',
         data: data
       }).done(function (result) {
-        console.log(result);
         _this3.addScheduleBossSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this3.addScheduleBossFailure(jqXhr);
       });
       return 0;
@@ -1579,10 +1525,8 @@ var ScheduleManagementActions = function () {
         url: '/api/schedule/admin/character',
         data: data
       }).done(function (result) {
-        console.log(result);
         _this4.addCharacterToScheduleBossSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this4.addCharacterToScheduleBossFailure(jqXhr);
       });
       return 0;
@@ -1599,10 +1543,8 @@ var ScheduleManagementActions = function () {
         url: '/api/schedule/admin/character',
         data: data
       }).done(function (result) {
-        console.log(result);
         _this5.removeCharacterFromScheduleBossSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this5.removeCharacterFromScheduleBossFailure(jqXhr);
       });
       return 0;
@@ -1616,10 +1558,8 @@ var ScheduleManagementActions = function () {
         method: 'PUT',
         url: '/api/schedule/admin/publish/' + scheduleBossId
       }).done(function (result) {
-        console.log(result);
         _this6.invertScheduleBossPublishedStateSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this6.invertScheduleBossPublishedStateFailure(jqXhr);
       });
     }
@@ -1633,12 +1573,11 @@ var ScheduleManagementActions = function () {
         method: 'DELETE',
         url: '/api/schedule/admin/boss/' + scheduleBossId
       }).done(function (result) {
-        console.log(result);
         _this7.deleteScheduleBossSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this7.deleteScheduleBossFailure(jqXhr);
       });
+      return 0;
     }
   }, {
     key: 'addScheduleRaidBosses',
@@ -1650,12 +1589,11 @@ var ScheduleManagementActions = function () {
         url: '/api/schedule/admin/raid',
         data: { raidId: raidId, scheduleId: scheduleId }
       }).done(function (result) {
-        console.log(result);
         _this8.addScheduleRaidBossesSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this8.addScheduleRaidBossesFailure(jqXhr);
       });
+      return 0;
     }
   }]);
 
@@ -1697,10 +1635,8 @@ var ViewAttendanceActions = function () {
         method: 'GET',
         url: '/api/attendance/admin/view'
       }).done(function (result) {
-        console.log(result);
         _this.loadComponentDataSuccess(result);
       }).fail(function (jqXhr) {
-        console.log(jqXhr);
         _this.loadComponentDataFailure(jqXhr);
       });
       return 0;
