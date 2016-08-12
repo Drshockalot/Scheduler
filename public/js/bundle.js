@@ -8624,7 +8624,7 @@ var RaidWeekManagement = function (_React$Component) {
     value: function dayIsLogged(day, list) {
       for (var i = 0; i < list.length; ++i) {
         var sStart = (0, _moment2.default)(list[i].start);
-        if (day.isSameOrAfter(sStart.subtract('hours', 2)) && day.isSameOrBefore(list[i].end)) return true;
+        if (day.isSameOrAfter(sStart.subtract(2, 'hours')) && day.isSameOrBefore(list[i].end)) return true;
       }
       return false;
     }
@@ -8639,32 +8639,32 @@ var RaidWeekManagement = function (_React$Component) {
       var weekBeginning, weekEnd;
       switch (chosenDay) {
         case 1:
-          weekBeginning = copyToSub.subtract('days', 5);
-          weekEnd = copyToAdd.add('days', 1);
+          weekBeginning = copyToSub.subtract(5, 'days');
+          weekEnd = copyToAdd.add(1, 'days');
           break;
         case 2:
-          weekBeginning = copyToSub.subtract('days', 6);
-          weekEnd = copyToAdd.add('days', 0);
+          weekBeginning = copyToSub.subtract(6, 'days');
+          weekEnd = copyToAdd.add(0, 'days');
           break;
         case 3:
-          weekBeginning = copyToSub.subtract('days', 0);
-          weekEnd = copyToAdd.add('days', 6);
+          weekBeginning = copyToSub.subtract(0, 'days');
+          weekEnd = copyToAdd.add(1, 'days');
           break;
         case 4:
-          weekBeginning = copyToSub.subtract('days', 1);
-          weekEnd = copyToAdd.add('days', 5);
+          weekBeginning = copyToSub.subtract(1, 'days');
+          weekEnd = copyToAdd.add(5, 'days');
           break;
         case 5:
-          weekBeginning = copyToSub.subtract('days', 2);
-          weekEnd = copyToAdd.add('days', 4);
+          weekBeginning = copyToSub.subtract(2, 'days');
+          weekEnd = copyToAdd.add(4, 'days');
           break;
         case 6:
-          weekBeginning = copyToSub.subtract('days', 3);
-          weekEnd = copyToAdd.add('days', 3);
+          weekBeginning = copyToSub.subtract(3, 'days');
+          weekEnd = copyToAdd.add(3, 'days');
           break;
         case 7:
-          weekBeginning = copyToSub.subtract('days', 4);
-          weekEnd = copyToAdd.add('days', 2);
+          weekBeginning = copyToSub.subtract(4, 'days');
+          weekEnd = copyToAdd.add(2, 'days');
           break;
       }
 
@@ -8691,7 +8691,7 @@ var RaidWeekManagement = function (_React$Component) {
 
             sortedWeeks[month].push(_react2.default.createElement(
               'div',
-              { key: raidweek.id, className: 'row margin-bottom-5 raidweek-row', sortOrder: 1 },
+              { key: 'header', className: 'row margin-bottom-5 raidweek-row', sortOrder: 1 },
               _react2.default.createElement(
                 'div',
                 { className: 'col-md-1 raidweek-header-cell' },
@@ -8788,7 +8788,7 @@ var RaidWeekManagement = function (_React$Component) {
           }
           sortedWeeks[month].push(_react2.default.createElement(
             'div',
-            { key: raidweek.id, className: 'row margin-bottom-5 raidweek-row', sortOrder: (0, _moment2.default)(raidweek.start).format('W') },
+            { key: raidweek.id + '-' + index, className: 'row margin-bottom-5 raidweek-row', sortOrder: (0, _moment2.default)(raidweek.start).format('W') },
             _react2.default.createElement(
               'div',
               { className: 'col-md-1 raidweek-cell margin-top-5' },
@@ -9073,7 +9073,7 @@ var RosterManagement = function (_React$Component) {
       var includedCaracters = this.state.includedRosterCaracters.map(function (character, index) {
         return _react2.default.createElement(
           'tr',
-          { key: roster.id },
+          { key: character.id },
           _react2.default.createElement(
             'td',
             { key: character.name },

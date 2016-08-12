@@ -43,7 +43,7 @@ class RosterManagement extends React.Component {
 
     var includedCaracters = this.state.includedRosterCaracters.map(function(character, index) {
       return (
-        <tr key={roster.id}>
+        <tr key={character.id}>
           <td key={character.name}>{character.name}</td>
           <td key={character.main_role + 'main'}>{character.main_role}</td>
           <td key={character.off_role + 'off'}>{character.off_role}</td>

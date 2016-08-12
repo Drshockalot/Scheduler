@@ -37,7 +37,7 @@ class RaidWeekManagement extends React.Component {
   dayIsLogged(day, list) {
     for(var i = 0; i < list.length; ++i) {
       var sStart = moment(list[i].start);
-      if (day.isSameOrAfter(sStart.subtract('hours', 2)) && day.isSameOrBefore(list[i].end))
+      if (day.isSameOrAfter(sStart.subtract(2, 'hours')) && day.isSameOrBefore(list[i].end))
         return true;
     }
     return false;
@@ -50,32 +50,32 @@ class RaidWeekManagement extends React.Component {
     var weekBeginning, weekEnd;
     switch(chosenDay) {
       case 1:
-        weekBeginning = copyToSub.subtract('days', 5);
-        weekEnd = copyToAdd.add('days', 1);
+        weekBeginning = copyToSub.subtract(5, 'days');
+        weekEnd = copyToAdd.add(1, 'days');
         break;
       case 2:
-        weekBeginning = copyToSub.subtract('days', 6);
-        weekEnd = copyToAdd.add('days', 0);
+        weekBeginning = copyToSub.subtract(6, 'days');
+        weekEnd = copyToAdd.add(0, 'days');
         break;
       case 3:
-        weekBeginning = copyToSub.subtract('days', 0);
-        weekEnd = copyToAdd.add('days', 6);
+        weekBeginning = copyToSub.subtract(0, 'days');
+        weekEnd = copyToAdd.add(1, 'days');
         break;
       case 4:
-        weekBeginning = copyToSub.subtract('days', 1);
-        weekEnd = copyToAdd.add('days', 5);
+        weekBeginning = copyToSub.subtract(1, 'days');
+        weekEnd = copyToAdd.add(5, 'days');
         break;
       case 5:
-        weekBeginning = copyToSub.subtract('days', 2);
-        weekEnd = copyToAdd.add('days', 4);
+        weekBeginning = copyToSub.subtract(2, 'days');
+        weekEnd = copyToAdd.add(4, 'days');
         break;
       case 6:
-        weekBeginning = copyToSub.subtract('days', 3);
-        weekEnd = copyToAdd.add('days', 3);
+        weekBeginning = copyToSub.subtract(3, 'days');
+        weekEnd = copyToAdd.add(3, 'days');
         break;
       case 7:
-        weekBeginning = copyToSub.subtract('days', 4);
-        weekEnd = copyToAdd.add('days', 2);
+        weekBeginning = copyToSub.subtract(4, 'days');
+        weekEnd = copyToAdd.add(2, 'days');
         break;
     }
 
@@ -97,7 +97,7 @@ class RaidWeekManagement extends React.Component {
           sortedWeeks[month] = [];
 
           sortedWeeks[month].push (
-            <div key={raidweek.id} className='row margin-bottom-5 raidweek-row' sortOrder={1}>
+            <div key={'header'} className='row margin-bottom-5 raidweek-row' sortOrder={1}>
               <div className='col-md-1 raidweek-header-cell'><strong>Start</strong></div>
               <div className='col-md-1 raidweek-header-cell'><strong>End</strong></div>
               <div className='col-md-1 raidweek-header-cell'><strong>Week No.</strong></div>
@@ -114,7 +114,7 @@ class RaidWeekManagement extends React.Component {
           );
         }
         sortedWeeks[month].push(
-          <div key={raidweek.id} className='row margin-bottom-5 raidweek-row' sortOrder={moment(raidweek.start).format('W')}>
+          <div key={raidweek.id + '-' + index} className='row margin-bottom-5 raidweek-row' sortOrder={moment(raidweek.start).format('W')}>
             <div className='col-md-1 raidweek-cell margin-top-5'>{moment(raidweek.start).format('DD[/]MM[/]YYYY')}</div>
             <div className='col-md-1 raidweek-cell margin-top-5'>{moment(raidweek.end).format('DD[/]MM[/]YYYY')}</div>
             <div className='col-md-1 raidweek-cell margin-top-5'>{moment(raidweek.start).format('W')}</div>
