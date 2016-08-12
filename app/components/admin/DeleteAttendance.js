@@ -53,7 +53,7 @@ class DeleteAttendance extends React.Component {
         var recordRows = raidRows.map(function(row) {
           var characterRows = row.user.characters.map(function(character) {
             return (
-              <div className='clearfix hand-cursor'>{character.name}<strong></strong></div>
+              <div key={character.id} className='clearfix hand-cursor'>{character.name}<strong></strong></div>
             );
           });
 
@@ -70,7 +70,7 @@ class DeleteAttendance extends React.Component {
           );
 
           return (
-            <tr>
+            <tr key={row.id}>
               <td className='col-xs-2 vert-align text-center'>{moment(row.raid_week.start).format('W')}</td>
               <td className='col-xs-2 vert-align text-center'>{this.capitalize(row.week_day)}</td>
               <td className='col-xs-5 vert-align text-center'>{trigger}</td>
@@ -80,7 +80,7 @@ class DeleteAttendance extends React.Component {
         }, this);
 
         return (
-          <div className='row'>
+          <div key={raidRows[0].raid.id} className='row'>
             <div className='col-xs-10'>
               <h3>{raidRows[0].raid.name}</h3>
               <table className='table'>

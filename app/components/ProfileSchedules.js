@@ -70,7 +70,7 @@ class ProfileSchedules extends React.Component {
                 continue;
               }
               scheduleGroup.push(
-                <tr sortOrder={moment(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W')} scheduleName={bossesBySchedule[schedule][i].schedule.name} scheduleId={bossesBySchedule[schedule][i].schedule.id}>
+                <tr key={bossesBySchedule[schedule][i].schedule.id} sortOrder={moment(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W')} scheduleName={bossesBySchedule[schedule][i].schedule.name} scheduleId={bossesBySchedule[schedule][i].schedule.id}>
                   <td className='col-xs-2 vert-align text-center'>{moment(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W')}</td>
                   <td className='col-xs-2 vert-align text-center'>{bossesBySchedule[schedule][i].raid.name}</td>
                   <td className='col-xs-2 vert-align text-center'>{bossesBySchedule[schedule][i].boss.name}</td>
@@ -91,7 +91,7 @@ class ProfileSchedules extends React.Component {
             }
             var scheduleLink = '/schedule?type=1&schedule=' + tableContent[i][0].props.scheduleId;
             finalContent.push(
-              <div className='row'>
+              <div key={tableContent[i][0].props.scheduleId} className='row'>
                 <div className='col-xs-10 col-xs-offset-1'>
                   <Link to={scheduleLink}><h4>{tableContent[i][0].props.scheduleName}</h4></Link>
                   <table className='table'>
@@ -110,7 +110,7 @@ class ProfileSchedules extends React.Component {
           }
 
           return (
-            <div className='row'>
+            <div key={character.id} className='row'>
               <div className='col-xs-12'>
                 <div className='row'>
                   <div className='col-xs-6'>

@@ -43,7 +43,7 @@ class RaidManagement extends React.Component {
           if(raid.bosses && raid.bosses.length > 0) {
             raidBossList = raid.bosses.map(function(boss, index) {
               return (
-                <tr>
+                <tr key={boss.id}>
                   <td className='col-md-2'>{boss.name}</td>
                   <td className='col-md-1'>{boss.tank_count}</td>
                   <td className='col-md-1'>{boss.healer_count}</td>

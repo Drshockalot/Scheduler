@@ -103,7 +103,7 @@ class AttendancePublicView extends React.Component {
 
         var characterRows = userCharacters.map(function(character) {
           return (
-            <div className='clearfix hand-cursor'>{character.name}<strong></strong></div>
+            <div key={character.id} className='clearfix hand-cursor'>{character.name}<strong></strong></div>
           );
         });
 
@@ -120,7 +120,7 @@ class AttendancePublicView extends React.Component {
         );
 
         return (
-          <tr sortOrder={isNaN(lifetimeAttendancePercentage) ? 0 : lifetimeAttendancePercentage}>
+          <tr key={user.id} sortOrder={isNaN(lifetimeAttendancePercentage) ? 0 : lifetimeAttendancePercentage}>
             <td className='col-xs-2 text-center vert-align'>{trigger}</td>
             <td className='col-xs-2 text-center vert-align'>{isNaN(since30DaysAttendancePercentage) ? 0 : since30DaysAttendancePercentage.toFixed(1)}%&nbsp;({userAttendanceCount30Days ? userAttendanceCount30Days : 0}/{totalAttendanceCount30Days})</td>
             <td className='col-xs-2 text-center vert-align'>{isNaN(since60DaysAttendancePercentage) ? 0 : since60DaysAttendancePercentage.toFixed(1)}%&nbsp;({userAttendanceCount60Days ? userAttendanceCount60Days : 0}/{totalAttendanceCount60Days})</td>

@@ -43,7 +43,7 @@ class RosterManagement extends React.Component {
 
     var includedCaracters = this.state.includedRosterCaracters.map(function(character, index) {
       return (
-        <tr>
+        <tr key={roster.id}>
           <td key={character.name}>{character.name}</td>
           <td key={character.main_role + 'main'}>{character.main_role}</td>
           <td key={character.off_role + 'off'}>{character.off_role}</td>
@@ -57,7 +57,7 @@ class RosterManagement extends React.Component {
     var excludedCharacters = this.state.excludedRosterCharacters.map(function(character, index) {
       if(character.confirmed == 1)
         return (
-          <tr>
+          <tr key={character.id}>
             <td key={character.name}>{character.name}</td>
             <td key={character.main_role + 'main'}>{character.main_role}</td>
             <td key={character.off_role + 'off'}>{character.off_role}</td>

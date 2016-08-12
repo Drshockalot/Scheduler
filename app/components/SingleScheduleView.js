@@ -88,7 +88,7 @@ class SingleScheduleView extends React.Component {
             tankCount++;
             var classCSS = this.classColour(character);
             tankRows.push(
-              <tr>
+              <tr key={character.id}>
                 <td className={classCSS} />
                 <td className='col-sm-11 vert-align' >
                   {character.name}
@@ -99,7 +99,7 @@ class SingleScheduleView extends React.Component {
             healerCount++;
             var classCSS = this.classColour(character);
             healerRows.push(
-              <tr>
+              <tr key={character.id}>
                 <td className={classCSS} />
                 <td className='col-sm-11 vert-align' >
                   {character.name}
@@ -110,7 +110,7 @@ class SingleScheduleView extends React.Component {
             dpsCount++;
             var classCSS = this.classColour(character);
             dpsRows.push(
-              <tr>
+              <tr key={character.id}>
                 <td className={classCSS} />
                 <td className='col-sm-11 vert-align' >
                   {character.name}
@@ -133,7 +133,7 @@ class SingleScheduleView extends React.Component {
           standbyCount++;
           var classCSS = this.classColour(character);
           standbyRows.push(
-            <tr>
+            <tr key={character.id}>
               <td className={classCSS} />
               <td className='col-sm-11 vert-align' >
                 {character.name}
@@ -143,7 +143,7 @@ class SingleScheduleView extends React.Component {
         }, this);
 
         return (
-          <div className='row'>
+          <div key={schedule_boss.id} className='row'>
             <div className='row schedule-boss-header'>
               <h3><b>{schedule_boss.boss.name} ({schedule_boss.raid.name})</b></h3>
             </div>

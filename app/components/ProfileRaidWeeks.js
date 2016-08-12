@@ -38,7 +38,7 @@ class ProfileRaidWeeks extends React.Component {
         var user_availability = _.findWhere(this.state.user_availability, { raid_week_id: raidweek.id });
         if(user_availability) {
           user_availabilityRow = (
-            <tr>
+            <tr key={raidweek.id}>
               <td className='col-xs-2'>Your availability:</td>
               <td className='col-xs-1'><input type='checkbox' disabled={!raidweek.wednesday} checked={user_availability.wednesday} onChange={() => ProfileRaidWeeksActions.toggleUserAvailabilityDay(user_availability.id, 'wednesday')} /></td>
               <td className='col-xs-1'><input type='checkbox' disabled={!raidweek.thursday} checked={user_availability.thursday} onChange={() => ProfileRaidWeeksActions.toggleUserAvailabilityDay(user_availability.id, 'thursday')} /></td>
@@ -55,7 +55,7 @@ class ProfileRaidWeeks extends React.Component {
           );
         } else {
           user_availabilityRow = (
-            <tr>
+            <tr key={raidweek.id}>
               <td className='col-xs-2'>Your availability:</td>
               <td className='col-xs-1'></td>
               <td className='col-xs-1'></td>
@@ -72,7 +72,7 @@ class ProfileRaidWeeks extends React.Component {
           );
         }
         return (
-          <div className='row'>
+          <div key={raidweek.id} className='row'>
             <div className='col-xs-12'>
               <h3>{moment(raidweek.start).format('DD[/]MM[/]YYYY')} - {moment(raidweek.end).format('DD[/]MM[/]YYYY')} ({moment(raidweek.start).format('W')})</h3>
               <table className='table'>

@@ -227,7 +227,7 @@ class ScheduleManagement extends React.Component {
 
             var classCSS = this.classColour(character);
             return (
-              <tr className={classNames(backgroundColor)}>
+              <tr key={character.id} className={classNames(backgroundColor)}>
                 <td className={classCSS} />
                 <td className='col-sm-4 vert-align' >
                   {availabilityPopover}
@@ -271,7 +271,7 @@ class ScheduleManagement extends React.Component {
 
             var classCSS = this.classColour(character);
             return (
-              <tr className={classNames(backgroundColor)}>
+              <tr key={character.id} className={classNames(backgroundColor)}>
                 <td className={classCSS} />
                 <td className='col-sm-4 vert-align'>
                   {availabilityPopover}
@@ -315,7 +315,7 @@ class ScheduleManagement extends React.Component {
 
             var classCSS = this.classColour(character);
             return (
-              <tr className={classNames(backgroundColor)}>
+              <tr key={character.id} className={classNames(backgroundColor)}>
                 <td className={classCSS} />
                 <td className='col-sm-4 vert-align'>
                   {availabilityPopover}
@@ -344,7 +344,7 @@ class ScheduleManagement extends React.Component {
         }
 
         return (
-          <div className='row'>
+          <div key={schedule_boss.id} className='row'>
             <table className='table'>
               <tbody>
                 <tr>

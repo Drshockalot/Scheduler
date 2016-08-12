@@ -14,7 +14,7 @@ import classNames from 'classnames';
 
 class RosterControlPanel extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = RosterControlPanelStore.getState();
     this.onChange = this.onChange.bind(this);
   }
@@ -49,7 +49,7 @@ class RosterControlPanel extends React.Component {
     var ret = '';
     for (var i = 0; i < arr.length; ++i) {
       ret += arr[i].toLowerCase();
-      ret += '-'
+      ret += '-';
     }
 
     ret += 'color';

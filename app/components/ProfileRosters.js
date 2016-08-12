@@ -36,7 +36,7 @@ class ProfileRosters extends React.Component {
         if(character.rosters.length > 0) {
           rosters = character.rosters.map(function(roster, index) {
             return (
-              <div className='text-center'><i>{roster.name}</i></div>
+              <div key={roster.id} className='text-center'><i>{roster.name}</i></div>
             );
           });
         } else {
@@ -46,7 +46,7 @@ class ProfileRosters extends React.Component {
         }
 
         return (
-          <div className='col-md-4'>
+          <div key={character.id} className='col-md-4'>
             <h4 className='text-center'><strong>{character.name}</strong></h4>
             <br />
             {rosters}

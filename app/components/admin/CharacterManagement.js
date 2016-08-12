@@ -51,7 +51,7 @@ class CharacterManagement extends React.Component {
             }}>Unconfirm</button>;
           }
           return (
-            <tr>
+            <tr key={character.id}>
               <td key={character.name}>{character.name}</td>
               <td key={characterClass}>{characterClass}</td>
               <td key={character.realm}>{character.realm}</td>
@@ -63,7 +63,7 @@ class CharacterManagement extends React.Component {
           );
         });
         return (
-          <div className='row'>
+          <div key={user.id} className='row'>
             <h4><strong>{user.battletag}</strong></h4>
             <table className='table'>
               <tbody>

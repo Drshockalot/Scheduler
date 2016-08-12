@@ -97,7 +97,7 @@ class RaidWeekManagement extends React.Component {
           sortedWeeks[month] = [];
 
           sortedWeeks[month].push (
-            <div className='row margin-bottom-5 raidweek-row' sortOrder={1}>
+            <div key={raidweek.id} className='row margin-bottom-5 raidweek-row' sortOrder={1}>
               <div className='col-md-1 raidweek-header-cell'><strong>Start</strong></div>
               <div className='col-md-1 raidweek-header-cell'><strong>End</strong></div>
               <div className='col-md-1 raidweek-header-cell'><strong>Week No.</strong></div>
@@ -114,7 +114,7 @@ class RaidWeekManagement extends React.Component {
           );
         }
         sortedWeeks[month].push(
-          <div className='row margin-bottom-5 raidweek-row' sortOrder={moment(raidweek.start).format('W')}>
+          <div key={raidweek.id} className='row margin-bottom-5 raidweek-row' sortOrder={moment(raidweek.start).format('W')}>
             <div className='col-md-1 raidweek-cell margin-top-5'>{moment(raidweek.start).format('DD[/]MM[/]YYYY')}</div>
             <div className='col-md-1 raidweek-cell margin-top-5'>{moment(raidweek.end).format('DD[/]MM[/]YYYY')}</div>
             <div className='col-md-1 raidweek-cell margin-top-5'>{moment(raidweek.start).format('W')}</div>
@@ -140,7 +140,7 @@ class RaidWeekManagement extends React.Component {
     var index = 1;
     for(var key in sortedWeeks) {
       panels.push(
-        <Panel header={key} sortOrder={_.findWhere(monthOrders, {name: key}).order} eventKey={index} collapsable={true} expanded={this.state.panelState[key]} onSelect={() => RaidWeekManagementActions.togglePanel(key)}>
+        <Panel key={key} header={key} sortOrder={_.findWhere(monthOrders, {name: key}).order} eventKey={index} collapsable={true} expanded={this.state.panelState[key]} onSelect={() => RaidWeekManagementActions.togglePanel(key)}>
           {_.sortBy(sortedWeeks[key], function(row) { return row.props.sortOrder; })}
         </Panel>
       );

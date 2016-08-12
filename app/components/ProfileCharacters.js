@@ -90,7 +90,7 @@ class ProfileCharacters extends React.Component {
     if(this.state.chosenCharacters.length > 0) {
       chosenCharactersList = this.state.chosenCharacters.map((character, index) => {
         return (
-          <div className='col-md-4'>
+          <div key={character.id} className='col-md-4'>
             <div className='col-sm-offset-4 col-xs-8 text-center'>
               <h3><strong>{character.rank}</strong></h3>
             </div>

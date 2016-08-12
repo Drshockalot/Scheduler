@@ -1872,7 +1872,7 @@ var AttendancePublicView = function (_React$Component) {
           var characterRows = userCharacters.map(function (character) {
             return _react2.default.createElement(
               'div',
-              { className: 'clearfix hand-cursor' },
+              { key: character.id, className: 'clearfix hand-cursor' },
               character.name,
               _react2.default.createElement('strong', null)
             );
@@ -1897,7 +1897,7 @@ var AttendancePublicView = function (_React$Component) {
 
           return _react2.default.createElement(
             'tr',
-            { sortOrder: isNaN(lifetimeAttendancePercentage) ? 0 : lifetimeAttendancePercentage },
+            { key: user.id, sortOrder: isNaN(lifetimeAttendancePercentage) ? 0 : lifetimeAttendancePercentage },
             _react2.default.createElement(
               'td',
               { className: 'col-xs-2 text-center vert-align' },
@@ -3958,7 +3958,7 @@ var ProfileCharacters = function (_React$Component) {
         chosenCharactersList = this.state.chosenCharacters.map(function (character, index) {
           return _react2.default.createElement(
             'div',
-            { className: 'col-md-4' },
+            { key: character.id, className: 'col-md-4' },
             _react2.default.createElement(
               'div',
               { className: 'col-sm-offset-4 col-xs-8 text-center' },
@@ -4392,7 +4392,7 @@ var ProfileRaidWeeks = function (_React$Component) {
           if (user_availability) {
             user_availabilityRow = _react2.default.createElement(
               'tr',
-              null,
+              { key: raidweek.id },
               _react2.default.createElement(
                 'td',
                 { className: 'col-xs-2' },
@@ -4469,7 +4469,7 @@ var ProfileRaidWeeks = function (_React$Component) {
           } else {
             user_availabilityRow = _react2.default.createElement(
               'tr',
-              null,
+              { key: raidweek.id },
               _react2.default.createElement(
                 'td',
                 { className: 'col-xs-2' },
@@ -4498,7 +4498,7 @@ var ProfileRaidWeeks = function (_React$Component) {
           }
           return _react2.default.createElement(
             'div',
-            { className: 'row' },
+            { key: raidweek.id, className: 'row' },
             _react2.default.createElement(
               'div',
               { className: 'col-xs-12' },
@@ -4748,7 +4748,7 @@ var ProfileRosters = function (_React$Component) {
             rosters = character.rosters.map(function (roster, index) {
               return _react2.default.createElement(
                 'div',
-                { className: 'text-center' },
+                { key: roster.id, className: 'text-center' },
                 _react2.default.createElement(
                   'i',
                   null,
@@ -4770,7 +4770,7 @@ var ProfileRosters = function (_React$Component) {
 
           return _react2.default.createElement(
             'div',
-            { className: 'col-md-4' },
+            { key: character.id, className: 'col-md-4' },
             _react2.default.createElement(
               'h4',
               { className: 'text-center' },
@@ -4945,7 +4945,7 @@ var ProfileSchedules = function (_React$Component) {
                 }
                 scheduleGroup.push(_react2.default.createElement(
                   'tr',
-                  { sortOrder: (0, _moment2.default)(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W'), scheduleName: bossesBySchedule[schedule][i].schedule.name, scheduleId: bossesBySchedule[schedule][i].schedule.id },
+                  { key: bossesBySchedule[schedule][i].schedule.id, sortOrder: (0, _moment2.default)(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W'), scheduleName: bossesBySchedule[schedule][i].schedule.name, scheduleId: bossesBySchedule[schedule][i].schedule.id },
                   _react2.default.createElement(
                     'td',
                     { className: 'col-xs-2 vert-align text-center' },
@@ -4977,7 +4977,7 @@ var ProfileSchedules = function (_React$Component) {
               var scheduleLink = '/schedule?type=1&schedule=' + tableContent[i][0].props.scheduleId;
               finalContent.push(_react2.default.createElement(
                 'div',
-                { className: 'row' },
+                { key: tableContent[i][0].props.scheduleId, className: 'row' },
                 _react2.default.createElement(
                   'div',
                   { className: 'col-xs-10 col-xs-offset-1' },
@@ -5036,7 +5036,7 @@ var ProfileSchedules = function (_React$Component) {
 
             return _react2.default.createElement(
               'div',
-              { className: 'row' },
+              { key: character.id, className: 'row' },
               _react2.default.createElement(
                 'div',
                 { className: 'col-xs-12' },
@@ -5490,7 +5490,7 @@ var SingleScheduleView = function (_React$Component) {
               var classCSS = this.classColour(character);
               tankRows.push(_react2.default.createElement(
                 'tr',
-                null,
+                { key: character.id },
                 _react2.default.createElement('td', { className: classCSS }),
                 _react2.default.createElement(
                   'td',
@@ -5503,7 +5503,7 @@ var SingleScheduleView = function (_React$Component) {
               var classCSS = this.classColour(character);
               healerRows.push(_react2.default.createElement(
                 'tr',
-                null,
+                { key: character.id },
                 _react2.default.createElement('td', { className: classCSS }),
                 _react2.default.createElement(
                   'td',
@@ -5516,7 +5516,7 @@ var SingleScheduleView = function (_React$Component) {
               var classCSS = this.classColour(character);
               dpsRows.push(_react2.default.createElement(
                 'tr',
-                null,
+                { key: character.id },
                 _react2.default.createElement('td', { className: classCSS }),
                 _react2.default.createElement(
                   'td',
@@ -5541,7 +5541,7 @@ var SingleScheduleView = function (_React$Component) {
             var classCSS = this.classColour(character);
             standbyRows.push(_react2.default.createElement(
               'tr',
-              null,
+              { key: character.id },
               _react2.default.createElement('td', { className: classCSS }),
               _react2.default.createElement(
                 'td',
@@ -5553,7 +5553,7 @@ var SingleScheduleView = function (_React$Component) {
 
           return _react2.default.createElement(
             'div',
-            { className: 'row' },
+            { key: schedule_boss.id, className: 'row' },
             _react2.default.createElement(
               'div',
               { className: 'row schedule-boss-header' },
@@ -6024,7 +6024,7 @@ var AddAttendance = function (_React$Component) {
             }
             tankRows.push(_react2.default.createElement(
               'tr',
-              null,
+              { key: character.id },
               _react2.default.createElement('td', { className: classCSS }),
               _react2.default.createElement(
                 'td',
@@ -6056,7 +6056,7 @@ var AddAttendance = function (_React$Component) {
             }
             healerRows.push(_react2.default.createElement(
               'tr',
-              null,
+              { key: character.id },
               _react2.default.createElement('td', { className: classCSS }),
               _react2.default.createElement(
                 'td',
@@ -6088,7 +6088,7 @@ var AddAttendance = function (_React$Component) {
             }
             dpsRows.push(_react2.default.createElement(
               'tr',
-              null,
+              { key: character.id },
               _react2.default.createElement('td', { className: classCSS }),
               _react2.default.createElement(
                 'td',
@@ -6120,7 +6120,7 @@ var AddAttendance = function (_React$Component) {
             }
             standbyRows.push(_react2.default.createElement(
               'tr',
-              null,
+              { key: character.id },
               _react2.default.createElement('td', { className: classCSS }),
               _react2.default.createElement(
                 'td',
@@ -7167,7 +7167,7 @@ var CharacterManagement = function (_React$Component) {
             }
             return _react2.default.createElement(
               'tr',
-              null,
+              { key: character.id },
               _react2.default.createElement(
                 'td',
                 { key: character.name },
@@ -7207,7 +7207,7 @@ var CharacterManagement = function (_React$Component) {
           });
           return _react2.default.createElement(
             'div',
-            { className: 'row' },
+            { key: user.id, className: 'row' },
             _react2.default.createElement(
               'h4',
               null,
@@ -7424,7 +7424,7 @@ var DeleteAttendance = function (_React$Component) {
             var characterRows = row.user.characters.map(function (character) {
               return _react2.default.createElement(
                 'div',
-                { className: 'clearfix hand-cursor' },
+                { key: character.id, className: 'clearfix hand-cursor' },
                 character.name,
                 _react2.default.createElement('strong', null)
               );
@@ -7449,7 +7449,7 @@ var DeleteAttendance = function (_React$Component) {
 
             return _react2.default.createElement(
               'tr',
-              null,
+              { key: row.id },
               _react2.default.createElement(
                 'td',
                 { className: 'col-xs-2 vert-align text-center' },
@@ -7481,7 +7481,7 @@ var DeleteAttendance = function (_React$Component) {
 
           return _react2.default.createElement(
             'div',
-            { className: 'row' },
+            { key: raidRows[0].raid.id, className: 'row' },
             _react2.default.createElement(
               'div',
               { className: 'col-xs-10' },
@@ -7677,7 +7677,7 @@ var RaidManagement = function (_React$Component) {
               raidBossList = raid.bosses.map(function (boss, index) {
                 return _react2.default.createElement(
                   'tr',
-                  null,
+                  { key: boss.id },
                   _react2.default.createElement(
                     'td',
                     { className: 'col-md-2' },
@@ -8691,7 +8691,7 @@ var RaidWeekManagement = function (_React$Component) {
 
             sortedWeeks[month].push(_react2.default.createElement(
               'div',
-              { className: 'row margin-bottom-5 raidweek-row', sortOrder: 1 },
+              { key: raidweek.id, className: 'row margin-bottom-5 raidweek-row', sortOrder: 1 },
               _react2.default.createElement(
                 'div',
                 { className: 'col-md-1 raidweek-header-cell' },
@@ -8788,7 +8788,7 @@ var RaidWeekManagement = function (_React$Component) {
           }
           sortedWeeks[month].push(_react2.default.createElement(
             'div',
-            { className: 'row margin-bottom-5 raidweek-row', sortOrder: (0, _moment2.default)(raidweek.start).format('W') },
+            { key: raidweek.id, className: 'row margin-bottom-5 raidweek-row', sortOrder: (0, _moment2.default)(raidweek.start).format('W') },
             _react2.default.createElement(
               'div',
               { className: 'col-md-1 raidweek-cell margin-top-5' },
@@ -8884,7 +8884,7 @@ var RaidWeekManagement = function (_React$Component) {
       for (var key in sortedWeeks) {
         panels.push(_react2.default.createElement(
           _reactBootstrap.Panel,
-          { header: key, sortOrder: _underscore2.default.findWhere(_MonthOrders2.default, { name: key }).order, eventKey: index, collapsable: true, expanded: this.state.panelState[key], onSelect: function onSelect() {
+          { key: key, header: key, sortOrder: _underscore2.default.findWhere(_MonthOrders2.default, { name: key }).order, eventKey: index, collapsable: true, expanded: this.state.panelState[key], onSelect: function onSelect() {
               return _RaidWeekManagementActions2.default.togglePanel(key);
             } },
           _underscore2.default.sortBy(sortedWeeks[key], function (row) {
@@ -9073,7 +9073,7 @@ var RosterManagement = function (_React$Component) {
       var includedCaracters = this.state.includedRosterCaracters.map(function (character, index) {
         return _react2.default.createElement(
           'tr',
-          null,
+          { key: roster.id },
           _react2.default.createElement(
             'td',
             { key: character.name },
@@ -9106,7 +9106,7 @@ var RosterManagement = function (_React$Component) {
       var excludedCharacters = this.state.excludedRosterCharacters.map(function (character, index) {
         if (character.confirmed == 1) return _react2.default.createElement(
           'tr',
-          null,
+          { key: character.id },
           _react2.default.createElement(
             'td',
             { key: character.name },
@@ -9696,7 +9696,7 @@ var ScheduleManagement = function (_React$Component) {
               var classCSS = this.classColour(character);
               return _react2.default.createElement(
                 'tr',
-                { className: (0, _classnames2.default)(backgroundColor) },
+                { key: character.id, className: (0, _classnames2.default)(backgroundColor) },
                 _react2.default.createElement('td', { className: classCSS }),
                 _react2.default.createElement(
                   'td',
@@ -9749,7 +9749,7 @@ var ScheduleManagement = function (_React$Component) {
               var classCSS = this.classColour(character);
               return _react2.default.createElement(
                 'tr',
-                { className: (0, _classnames2.default)(backgroundColor) },
+                { key: character.id, className: (0, _classnames2.default)(backgroundColor) },
                 _react2.default.createElement('td', { className: classCSS }),
                 _react2.default.createElement(
                   'td',
@@ -9802,7 +9802,7 @@ var ScheduleManagement = function (_React$Component) {
               var classCSS = this.classColour(character);
               return _react2.default.createElement(
                 'tr',
-                { className: (0, _classnames2.default)(backgroundColor) },
+                { key: character.id, className: (0, _classnames2.default)(backgroundColor) },
                 _react2.default.createElement('td', { className: classCSS }),
                 _react2.default.createElement(
                   'td',
@@ -9845,7 +9845,7 @@ var ScheduleManagement = function (_React$Component) {
 
           return _react2.default.createElement(
             'div',
-            { className: 'row' },
+            { key: schedule_boss.id, className: 'row' },
             _react2.default.createElement(
               'table',
               { className: 'table' },
@@ -10439,7 +10439,7 @@ var ViewAttendance = function (_React$Component) {
           var characterRows = userCharacters.map(function (character) {
             return _react2.default.createElement(
               'div',
-              { className: 'clearfix hand-cursor' },
+              { key: character.id, className: 'clearfix hand-cursor' },
               character.name,
               _react2.default.createElement('strong', null)
             );
@@ -10447,7 +10447,7 @@ var ViewAttendance = function (_React$Component) {
 
           var popover = _react2.default.createElement(
             _reactBootstrap.Popover,
-            { id: user.id, title: 'Characters' },
+            { key: user.id, id: user.id, title: 'Characters' },
             characterRows
           );
 
@@ -10464,7 +10464,7 @@ var ViewAttendance = function (_React$Component) {
 
           return _react2.default.createElement(
             'tr',
-            { sortOrder: isNaN(lifetimeAttendancePercentage) ? 0 : lifetimeAttendancePercentage },
+            { key: user.id, sortOrder: isNaN(lifetimeAttendancePercentage) ? 0 : lifetimeAttendancePercentage },
             _react2.default.createElement(
               'td',
               { className: 'col-xs-2 text-center vert-align' },

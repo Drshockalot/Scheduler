@@ -145,7 +145,7 @@ class AddAttendance extends React.Component {
             );
           }
           tankRows.push(
-            <tr>
+            <tr key={character.id}>
               <td className={classCSS} />
               <td className='col-sm-11 vert-align' >
                 {character.name}
@@ -169,7 +169,7 @@ class AddAttendance extends React.Component {
             );
           }
           healerRows.push(
-            <tr>
+            <tr key={character.id}>
               <td className={classCSS} />
               <td className='col-sm-11 vert-align' >
                 {character.name}
@@ -193,7 +193,7 @@ class AddAttendance extends React.Component {
             );
           }
           dpsRows.push(
-            <tr>
+            <tr key={character.id}>
               <td className={classCSS} />
               <td className='col-sm-11 vert-align' >
                 {character.name}
@@ -217,7 +217,7 @@ class AddAttendance extends React.Component {
             );
           }
           standbyRows.push(
-            <tr>
+            <tr key={character.id}>
               <td className={classCSS} />
               <td className='col-sm-11 vert-align' >
                 {character.name}
