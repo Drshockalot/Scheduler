@@ -7,5 +7,14 @@ module.exports = {
                    ssl : true,
                    password : process.env.HEROKU_POSTGRESQL_BRONZE_PASSWORD,
                    database : process.env.HEROKU_POSTGRESQL_BRONZE_DATABASE }
+  },
+  production: {
+    client : 'postgresql',
+    connection : { host : process.env.HEROKU_POSTGRESQL_MAROON_HOST,
+                   user : process.env.HEROKU_POSTGRESQL_MAROON_USER,
+                   port : 5432,
+                   ssl : true,
+                   password : process.env.HEROKU_POSTGRESQL_MAROON_PASSWORD,
+                   database : process.env.HEROKU_POSTGRESQL_MAROON_DATABASE }
   }
 };
