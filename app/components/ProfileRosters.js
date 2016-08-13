@@ -16,7 +16,11 @@ class ProfileRosters extends React.Component {
     ProfileRostersStore.listen(this.onChange);
     if(sessionStorage.profileRosters)
       ProfileRostersActions.restoreState(JSON.parse(sessionStorage.profileRosters));
-    ProfileRostersActions.getComponentData();
+    if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+      if(data.role && data.role != '') {
+        ProfileRostersActions.loadComponentData();
+      }
+    }));
   }
 
   componentWillUnmount() {

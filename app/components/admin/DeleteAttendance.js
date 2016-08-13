@@ -20,7 +20,11 @@ class DeleteAttendance extends React.Component {
     DeleteAttendanceStore.listen(this.onChange);
     if(sessionStorage.deleteAttendance)
       DeleteAttendanceActions.restoreState(JSON.parse(sessionStorage.deleteAttendance));
-    DeleteAttendanceActions.loadComponentData();
+    if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+      if(data.role && data.role == 'admin') {
+        DeleteAttendanceActions.loadComponentData();
+      }
+    }));
   }
 
   componentWillUnmount() {

@@ -18,7 +18,11 @@ class RosterManagement extends React.Component {
     RosterManagementStore.listen(this.onChange);
     if(sessionStorage.rosterManagement)
       RosterManagementActions.restoreState(JSON.parse(sessionStorage.rosterManagement));
-    RosterManagementActions.getAllRosters();
+    if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+      if(data.role && data.role == 'admin') {
+        RosterManagementActions.getAllRosters();
+      }
+    }));
   }
 
   componentWillUnmount() {

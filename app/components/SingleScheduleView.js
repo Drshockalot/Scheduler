@@ -16,8 +16,11 @@ class SingleScheduleView extends React.Component {
 
   componentDidMount() {
     SingleScheduleViewStore.listen(this.onChange);
-    SingleScheduleViewActions.loadSingleSchedule(this.props.schedule);
-    //SingleScheduleViewActions.loadUserCharacters();
+    if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+      if(data.role && data.role != '') {
+        SingleScheduleViewActions.loadSingleSchedule(this.props.schedule);
+      }
+    }));
   }
 
   componentWillUnmount() {

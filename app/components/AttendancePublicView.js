@@ -19,7 +19,11 @@ class AttendancePublicView extends React.Component {
     AttendancePublicViewStore.listen(this.onChange);
     if(sessionStorage.attendancePublicView)
       AttendancePublicViewActions.restoreState(JSON.parse(sessionStorage.attendancePublicView));
-    AttendancePublicViewActions.loadComponentData();
+    if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+      if(data.role && data.role != '') {
+        AttendancePublicViewActions.loadComponentData();
+      }
+    }));
   }
 
   componentWillUnmount() {
