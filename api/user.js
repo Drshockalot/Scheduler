@@ -22,8 +22,8 @@ router.post('/log', function(req, res, next) {
               });
         }
         else {
-          req.user.role = req.body.role;
-          req.session.role = req.body.role;
+          req.user.role = user.toJSON().role;
+          req.session.role = user.toJSON().role;
           res.json({error: false, data: { message: 'User ' + user.get('battletag') + ' already exists', user: user.toJSON()}});
         }
       })
