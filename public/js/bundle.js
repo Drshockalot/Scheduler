@@ -4730,7 +4730,7 @@ var ProfileRosters = function (_React$Component) {
       if (sessionStorage.profileRosters) _ProfileRostersActions2.default.restoreState(JSON.parse(sessionStorage.profileRosters));
       if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
         if (data.role && data.role != '') {
-          _ProfileRostersActions2.default.loadComponentData();
+          _ProfileRostersActions2.default.getComponentData();
         }
       })) ;
     }
