@@ -11,6 +11,7 @@ router.get('/bnet/callback', passport.authenticate('bnet', { failureRedirect: '/
 
 router.get('/bnet/logout', function(req, res, next) {
   req.logout();
+  delete req.session.role;
   res.redirect('/');
 });
 
