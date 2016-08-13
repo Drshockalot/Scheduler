@@ -9637,6 +9637,12 @@ var ScheduleManagement = function (_React$Component) {
             );
           }
         })();
+      } else {
+        selectedScheduleOptions = _react2.default.createElement(
+          'option',
+          null,
+          'No Schedules'
+        );
       }
 
       var formRaidOptions;

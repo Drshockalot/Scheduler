@@ -169,6 +169,10 @@ class ScheduleManagement extends React.Component {
           <option>No Schedules</option>
         );
       }
+    } else {
+      selectedScheduleOptions = (
+        <option>No Schedules</option>
+      );
     }
 
     var formRaidOptions;
