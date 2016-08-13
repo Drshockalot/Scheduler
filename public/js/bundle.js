@@ -4972,7 +4972,6 @@ var ProfileSchedules = function (_React$Component) {
               tableContent.push(scheduleGroup);
             }
             var finalContent = [];
-            console.log(tableContent);
             tableContent = _underscore2.default.sortBy(tableContent, function (schedule) {
               if (schedule.length > 0) return Number(schedule[0].props.sortOrder);
             }).reverse();
@@ -9380,11 +9379,11 @@ var ScheduleManagement = function (_React$Component) {
     value: function componentDidMount() {
       _ScheduleManagementStore2.default.listen(this.onChange);
       if (sessionStorage.scheduleManagement) _ScheduleManagementActions2.default.restoreState(JSON.parse(sessionStorage.scheduleManagement));
-      // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
-      //   if(data.role && data.role == 'admin') {
-      _ScheduleManagementActions2.default.loadComponentData();
-      //   }
-      // }));
+      if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
+        if (data.role && data.role == 'admin') {
+          _ScheduleManagementActions2.default.loadComponentData();
+        }
+      })) ;
     }
   }, {
     key: 'componentWillUnmount',

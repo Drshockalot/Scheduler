@@ -80,7 +80,6 @@ class ProfileSchedules extends React.Component {
             tableContent.push(scheduleGroup);
           }
           var finalContent = [];
-          console.log(tableContent);
           tableContent = _.sortBy(tableContent, function(schedule) {
             if(schedule.length > 0)
               return Number(schedule[0].props.sortOrder);
