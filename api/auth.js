@@ -10,8 +10,8 @@ router.get('/bnet/callback', passport.authenticate('bnet', { failureRedirect: '/
 });
 
 router.get('/bnet/logout', function(req, res, next) {
+  delete req.session[req.session.passport.user.token];
   req.logout();
-  delete req.session.role;
   res.redirect('/');
 });
 
@@ -32,8 +32,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/role', function(req, res, next) {
-  if(req.session.role) {
-    res.json({role: req.session.role});
+  if(req.session[req.session.passport.user.token]) {
+    res.json({role: req.session[req.session.passport.user.token].role});
   } else {
     res.json(null);
   }

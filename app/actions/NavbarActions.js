@@ -32,7 +32,7 @@ class NavbarActions {
         $.ajax({
           method: 'POST',
           url: '/api/user/log',
-          data: { battletag: data.battletag, role: 'member'}
+          data: { battletag: data.battletag, role: 'member', token: data.token}
         }).done((result) => {
           this.checkUserSuccess(result.data.user.role);
           sessionStorage.role = result.data.user.role;

@@ -14,7 +14,7 @@ router.post('/log', function(req, res, next) {
               .save()
               .then(function(user) {
                 req.user.role = req.body.role;
-                req.session.role = req.user.role;
+                req.session[req.body.token].role = req.user.role;
                 res.json({error: false, data: {message: 'New User saved', user: user.toJSON()}});
               })
               .catch(function(err) {
@@ -23,7 +23,7 @@ router.post('/log', function(req, res, next) {
         }
         else {
           req.user.role = req.body.role;
-          req.session.role = req.user.role;
+          req.session[req.body.token].role = req.user.role;
           res.json({error: false, data: { message: 'User ' + user.get('battletag') + ' already exists', user: user.toJSON()}});
         }
       })
