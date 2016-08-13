@@ -26,11 +26,11 @@ class AddAttendance extends React.Component {
     AddAttendanceStore.listen(this.onChange);
     if(sessionStorage.addAttendance)
       AddAttendanceActions.restoreState(JSON.parse(sessionStorage.addAttendance));
-      if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
-        if(data.role && data.role == 'admin') {
+      // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+      //   if(data.role && data.role == 'admin') {
           AddAttendanceActions.loadComponentData();
-        }
-      }));
+      //   }
+      // }));
   }
 
   componentWillUnmount() {
