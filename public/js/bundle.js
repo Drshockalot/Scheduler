@@ -167,7 +167,7 @@ var NavbarActions = function () {
           $.ajax({
             method: 'POST',
             url: '/api/user/log',
-            data: { battletag: data.battletag, role: 'member', token: data.token }
+            data: { battletag: data.battletag, role: 'member' }
           }).done(function (result) {
             _this.checkUserSuccess(result.data.user.role);
             sessionStorage.role = result.data.user.role;
