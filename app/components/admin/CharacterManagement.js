@@ -21,11 +21,7 @@ class CharacterManagement extends React.Component {
     CharacterManagementStore.listen(this.onChange);
     if(sessionStorage.characterManagement)
       CharacterManagementActions.restoreState(JSON.parse(sessionStorage.characterManagement));
-    if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
-      if(data.role && data.role == 'admin') {
-        CharacterManagementActions.getCharactersForConfirmation();
-      }
-    }));
+    CharacterManagementActions.getCharactersForConfirmation();
   }
 
   componentWillUnmount() {
@@ -87,7 +83,7 @@ class CharacterManagement extends React.Component {
         );
       });
     }
-    
+
     return (
       <div id='wrapper'>
         <AdminSideNav></AdminSideNav>

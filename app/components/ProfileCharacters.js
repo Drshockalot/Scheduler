@@ -169,7 +169,7 @@ class ProfileCharacters extends React.Component {
         );
       });
     }
-    
+
     return (
       <div id='wrapper'>
       <ProfileSideNav />

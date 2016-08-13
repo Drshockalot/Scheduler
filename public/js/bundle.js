@@ -7134,11 +7134,7 @@ var CharacterManagement = function (_React$Component) {
     value: function componentDidMount() {
       _CharacterManagementStore2.default.listen(this.onChange);
       if (sessionStorage.characterManagement) _CharacterManagementActions2.default.restoreState(JSON.parse(sessionStorage.characterManagement));
-      if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
-        if (data.role && data.role == 'admin') {
-          _CharacterManagementActions2.default.getCharactersForConfirmation();
-        }
-      })) ;
+      _CharacterManagementActions2.default.getCharactersForConfirmation();
     }
   }, {
     key: 'componentWillUnmount',
@@ -38331,6 +38327,12 @@ module.exports = [{
     "powerType": "energy",
     "name": "Monk",
     "token": "prot"
+}, {
+    "id": 11,
+    "mask": 1024,
+    "powerType": "fury",
+    "name": "Demon Hunter",
+    "token": "conq"
 }];
 
 },{}],360:[function(require,module,exports){

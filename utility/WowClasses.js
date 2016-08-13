@@ -65,4 +65,10 @@ module.exports = [
         "powerType": "energy",
         "name": "Monk",
         "token": "prot"
+    }, {
+        "id": 11,
+        "mask": 1024,
+        "powerType": "fury",
+        "name": "Demon Hunter",
+        "token": "conq"
     }];
