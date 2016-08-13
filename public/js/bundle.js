@@ -4390,7 +4390,7 @@ var ProfileRaidWeeks = function (_React$Component) {
     value: function render() {
       var raidweeklist;
       if (this.state.raidweeks.length > 0) {
-        raidweeklist = _.sortBy(this.state.raidweeks, 'start').reverse().map(function (raidweek, index) {
+        raidweeklist = _.sortBy(this.state.raidweeks, 'start').map(function (raidweek, index) {
           var _this2 = this;
 
           var user_availabilityRow;
