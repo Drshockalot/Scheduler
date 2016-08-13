@@ -7170,7 +7170,7 @@ var CharacterManagement = function (_React$Component) {
               { key: character.id },
               _react2.default.createElement(
                 'td',
-                { className: 'col-xs-3 vert-align', key: character.name },
+                { className: 'col-xs-2 vert-align', key: character.name },
                 character.name
               ),
               _react2.default.createElement(
@@ -7200,7 +7200,7 @@ var CharacterManagement = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'td',
-                { className: 'col-xs-2 vert-align', key: 'buttons' },
+                { className: 'col-xs-3 vert-align', key: 'buttons' },
                 btn
               )
             );
@@ -7228,7 +7228,7 @@ var CharacterManagement = function (_React$Component) {
                   null,
                   _react2.default.createElement(
                     'td',
-                    { className: 'col-xs-3 vert-align' },
+                    { className: 'col-xs-2 vert-align' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -7279,7 +7279,8 @@ var CharacterManagement = function (_React$Component) {
                       null,
                       'Off Role'
                     )
-                  )
+                  ),
+                  _react2.default.createElement('td', { className: 'col-xs-3' })
                 ),
                 characterList
               )
