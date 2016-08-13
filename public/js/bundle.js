@@ -3858,7 +3858,7 @@ var ProfileCharacters = function (_React$Component) {
       _ProfileCharactersStore2.default.listen(this.onChange);
       if (sessionStorage.profileCharacters) _ProfileCharactersActions2.default.restoreState(JSON.parse(sessionStorage.profileCharacters));
       if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
-        if (data.role && data.role != '') {
+        if (data && data.role != '') {
           _ProfileCharactersActions2.default.getChosenCharacters();
         }
       })) ;
@@ -38328,8 +38328,8 @@ module.exports = [{
     "name": "Monk",
     "token": "prot"
 }, {
-    "id": 11,
-    "mask": 1024,
+    "id": 12,
+    "mask": 2048,
     "powerType": "fury",
     "name": "Demon Hunter",
     "token": "conq"

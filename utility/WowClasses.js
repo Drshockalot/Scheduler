@@ -66,8 +66,8 @@ module.exports = [
         "name": "Monk",
         "token": "prot"
     }, {
-        "id": 11,
-        "mask": 1024,
+        "id": 12,
+        "mask": 2048,
         "powerType": "fury",
         "name": "Demon Hunter",
         "token": "conq"
