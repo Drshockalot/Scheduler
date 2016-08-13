@@ -41,10 +41,6 @@ class DeleteAttendance extends React.Component {
   }
 
   render() {
-    if(typeof(Storage) === 'undefined' || (sessionStorage.role != 'admin' || NavbarStore.getState().userRole != 'admin')) {
-      return null;
-    }
-
     var attendanceRecordTables = null;
     if(this.state.attendanceRecords.length > 0) {
       var groupedAttendanceRecords = _.groupBy(this.state.attendanceRecords, 'raid_id');

@@ -38,9 +38,6 @@ class ScheduleView extends React.Component {
         break;
     }
 
-    if(typeof(Storage) === 'undefined' || (sessionStorage.role === '' || NavbarStore.getState().userRole === ''))
-      return null;
-
     return (
       <div id='page-content-wrapper'>
         <div className='container-fluid'>

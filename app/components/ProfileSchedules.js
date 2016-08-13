@@ -52,10 +52,6 @@ class ProfileSchedules extends React.Component {
   }
 
   render() {
-    if(typeof(Storage) === 'undefined' || (sessionStorage.role === '' || NavbarStore.getState().userRole === '')) {
-      return null;
-    }
-
     var pageContent;
     if(this.state.user) {
       if(this.state.user.characters.length > 0) {

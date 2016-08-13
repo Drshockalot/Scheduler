@@ -59,9 +59,6 @@ class ProfileRosters extends React.Component {
       }, this);
     }
 
-    if(typeof(Storage) === 'undefined' || (sessionStorage.role === '' || NavbarStore.getState().userRole === ''))
-      return null;
-
     return (
       <div id='wrapper'>
       <ProfileSideNav />

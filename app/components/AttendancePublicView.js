@@ -36,10 +36,6 @@ class AttendancePublicView extends React.Component {
   }
 
   render() {
-    if(typeof(Storage) === 'undefined' || (sessionStorage.role === '' || NavbarStore.getState().userRole === '')) {
-      return null;
-    }
-
     var selectRaidOptions, generalAttendanceRows;
 
     if(this.state.raids.length > 0) {

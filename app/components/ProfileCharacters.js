@@ -169,10 +169,7 @@ class ProfileCharacters extends React.Component {
         );
       });
     }
-
-    if(typeof(Storage) === 'undefined' || (sessionStorage.role === '' || NavbarStore.getState().userRole === ''))
-      return null;
-
+    
     return (
       <div id='wrapper'>
       <ProfileSideNav />

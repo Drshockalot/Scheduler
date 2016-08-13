@@ -235,9 +235,6 @@ class AddAttendance extends React.Component {
       }, this);
     }
 
-    if(typeof(Storage) === 'undefined' || (sessionStorage.role != 'admin' || NavbarStore.getState().userRole != 'admin'))
-      return null;
-
     return (
       <div className='row'>
         <div className='col-md-12'>

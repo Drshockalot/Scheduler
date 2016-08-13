@@ -37,9 +37,6 @@ class AttendanceManagement extends React.Component {
   }
 
   render() {
-    if(typeof(Storage) === 'undefined' || (sessionStorage.role != 'admin' || NavbarStore.getState().userRole != 'admin'))
-      return null;
-
     return (
       <div id='wrapper'>
       <AdminSideNav />

@@ -1802,10 +1802,6 @@ var AttendancePublicView = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      if (typeof Storage === 'undefined' || sessionStorage.role === '' || _NavbarStore2.default.getState().userRole === '') {
-        return null;
-      }
-
       var selectRaidOptions, generalAttendanceRows;
 
       if (this.state.raids.length > 0) {
@@ -4185,8 +4181,6 @@ var ProfileCharacters = function (_React$Component) {
         });
       }
 
-      if (typeof Storage === 'undefined' || sessionStorage.role === '' || _NavbarStore2.default.getState().userRole === '') return null;
-
       return _react2.default.createElement(
         'div',
         { id: 'wrapper' },
@@ -4650,8 +4644,6 @@ var ProfileRaidWeeks = function (_React$Component) {
         }, this);
       }
 
-      if (typeof Storage === 'undefined' || sessionStorage.role === '' || _NavbarStore2.default.getState().userRole === '') return null;
-
       return _react2.default.createElement(
         'div',
         { id: 'wrapper' },
@@ -4802,8 +4794,6 @@ var ProfileRosters = function (_React$Component) {
         }, this);
       }
 
-      if (typeof Storage === 'undefined' || sessionStorage.role === '' || _NavbarStore2.default.getState().userRole === '') return null;
-
       return _react2.default.createElement(
         'div',
         { id: 'wrapper' },
@@ -4942,10 +4932,6 @@ var ProfileSchedules = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      if (typeof Storage === 'undefined' || sessionStorage.role === '' || _NavbarStore2.default.getState().userRole === '') {
-        return null;
-      }
-
       var pageContent;
       if (this.state.user) {
         if (this.state.user.characters.length > 0) {
@@ -5324,8 +5310,6 @@ var ScheduleView = function (_React$Component) {
             filter: this.state });
           break;
       }
-
-      if (typeof Storage === 'undefined' || sessionStorage.role === '' || _NavbarStore2.default.getState().userRole === '') return null;
 
       return _react2.default.createElement(
         'div',
@@ -6165,8 +6149,6 @@ var AddAttendance = function (_React$Component) {
           }
         }, this);
       }
-
-      if (typeof Storage === 'undefined' || sessionStorage.role != 'admin' || _NavbarStore2.default.getState().userRole != 'admin') return null;
 
       return _react2.default.createElement(
         'div',
@@ -7037,8 +7019,6 @@ var AttendanceManagement = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      if (typeof Storage === 'undefined' || sessionStorage.role != 'admin' || _NavbarStore2.default.getState().userRole != 'admin') return null;
-
       return _react2.default.createElement(
         'div',
         { id: 'wrapper' },
@@ -7322,8 +7302,6 @@ var CharacterManagement = function (_React$Component) {
         });
       }
 
-      if (typeof Storage === 'undefined' || sessionStorage.role != 'admin' || _NavbarStore2.default.getState().userRole != 'admin') return null;
-
       return _react2.default.createElement(
         'div',
         { id: 'wrapper' },
@@ -7444,10 +7422,6 @@ var DeleteAttendance = function (_React$Component) {
     key: 'render',
     value: function render() {
       var _this2 = this;
-
-      if (typeof Storage === 'undefined' || sessionStorage.role != 'admin' || _NavbarStore2.default.getState().userRole != 'admin') {
-        return null;
-      }
 
       var attendanceRecordTables = null;
       if (this.state.attendanceRecords.length > 0) {
@@ -7788,8 +7762,6 @@ var RaidManagement = function (_React$Component) {
           );
         }, this);
       }
-
-      if (typeof Storage === 'undefined' || sessionStorage.role != 'admin' || _NavbarStore2.default.getState().userRole != 'admin') return null;
 
       return _react2.default.createElement(
         'div',
@@ -8948,8 +8920,6 @@ var RaidWeekManagement = function (_React$Component) {
         }).reverse()
       );
 
-      if (typeof Storage === 'undefined' || sessionStorage.role != 'admin' || _NavbarStore2.default.getState().userRole != 'admin') return null;
-
       return _react2.default.createElement(
         'div',
         { id: 'wrapper' },
@@ -9185,8 +9155,6 @@ var RosterManagement = function (_React$Component) {
           )
         );
       });
-
-      if (typeof Storage === 'undefined' || sessionStorage.role != 'admin' || _NavbarStore2.default.getState().userRole != 'admin') return null;
 
       return _react2.default.createElement(
         'div',
@@ -10427,10 +10395,6 @@ var ViewAttendance = function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      if (typeof Storage === 'undefined' || sessionStorage.role != 'admin' || _NavbarStore2.default.getState().userRole != 'admin') {
-        return null;
-      }
-
       var selectRaidOptions, generalAttendanceRows;
 
       if (this.state.raids.length > 0) {

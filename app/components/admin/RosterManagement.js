@@ -72,9 +72,6 @@ class RosterManagement extends React.Component {
         );
     });
 
-    if(typeof(Storage) === 'undefined' || (sessionStorage.role != 'admin' || NavbarStore.getState().userRole != 'admin'))
-      return null;
-
     return (
       <div id='wrapper'>
         <AdminSideNav></AdminSideNav>

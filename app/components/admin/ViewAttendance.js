@@ -37,10 +37,6 @@ class ViewAttendance extends React.Component {
   }
 
   render() {
-    if(typeof(Storage) === 'undefined' || (sessionStorage.role != 'admin' || NavbarStore.getState().userRole != 'admin')) {
-      return null;
-    }
-
     var selectRaidOptions, generalAttendanceRows;
 
     if(this.state.raids.length > 0) {
