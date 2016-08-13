@@ -30,4 +30,12 @@ router.get('/', function(req, res, next) {
   }
 });
 
+router.get('/role', function(req, res, next) {
+  if(req.session.role) {
+    res.json({role: req.session.role});
+  } else {
+    res.json(null);
+  }
+});
+
 module.exports = router;

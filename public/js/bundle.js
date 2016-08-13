@@ -9367,7 +9367,11 @@ var ScheduleManagement = function (_React$Component) {
     value: function componentDidMount() {
       _ScheduleManagementStore2.default.listen(this.onChange);
       if (sessionStorage.scheduleManagement) _ScheduleManagementActions2.default.restoreState(JSON.parse(sessionStorage.scheduleManagement));
-      _ScheduleManagementActions2.default.loadComponentData();
+      if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
+        if (data.role && data.role == 'admin') {
+          _ScheduleManagementActions2.default.loadComponentData();
+        }
+      })) ;
     }
   }, {
     key: 'componentWillUnmount',
@@ -10037,8 +10041,6 @@ var ScheduleManagement = function (_React$Component) {
           );
         }, this);
       }
-
-      if (typeof Storage === 'undefined' || sessionStorage.role != 'admin' || _NavbarStore2.default.getState().userRole != 'admin') return null;
 
       return _react2.default.createElement(
         'div',

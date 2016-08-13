@@ -23,7 +23,11 @@ class ScheduleManagement extends React.Component {
     ScheduleManagementStore.listen(this.onChange);
     if(sessionStorage.scheduleManagement)
       ScheduleManagementActions.restoreState(JSON.parse(sessionStorage.scheduleManagement));
-    ScheduleManagementActions.loadComponentData();
+    if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+      if(data.role && data.role == 'admin') {
+        ScheduleManagementActions.loadComponentData();
+      }
+    }));
   }
 
   componentWillUnmount() {
@@ -394,9 +398,6 @@ class ScheduleManagement extends React.Component {
         );
       }, this);
     }
-
-    if(typeof(Storage) === 'undefined' || (sessionStorage.role != 'admin' || NavbarStore.getState().userRole != 'admin'))
-      return null;
 
     return (
       <div id='wrapper'>
