@@ -5849,11 +5849,11 @@ var AddAttendance = function (_React$Component) {
     value: function componentDidMount() {
       _AddAttendanceStore2.default.listen(this.onChange);
       if (sessionStorage.addAttendance) _AddAttendanceActions2.default.restoreState(JSON.parse(sessionStorage.addAttendance));
-      // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
-      //   if(data.role && data.role == 'admin') {
-      _AddAttendanceActions2.default.loadComponentData();
-      //   }
-      // }));
+      if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
+        if (data.role && data.role == 'admin') {
+          _AddAttendanceActions2.default.loadComponentData();
+        }
+      })) ;
     }
   }, {
     key: 'componentWillUnmount',
@@ -7133,7 +7133,11 @@ var CharacterManagement = function (_React$Component) {
     value: function componentDidMount() {
       _CharacterManagementStore2.default.listen(this.onChange);
       if (sessionStorage.characterManagement) _CharacterManagementActions2.default.restoreState(JSON.parse(sessionStorage.characterManagement));
-      _CharacterManagementActions2.default.getCharactersForConfirmation();
+      if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
+        if (data.role && data.role == 'admin') {
+          _CharacterManagementActions2.default.getCharactersForConfirmation();
+        }
+      })) ;
     }
   }, {
     key: 'componentWillUnmount',
@@ -7391,11 +7395,11 @@ var DeleteAttendance = function (_React$Component) {
     value: function componentDidMount() {
       _DeleteAttendanceStore2.default.listen(this.onChange);
       if (sessionStorage.deleteAttendance) _DeleteAttendanceActions2.default.restoreState(JSON.parse(sessionStorage.deleteAttendance));
-      // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
-      //   if(data.role && data.role == 'admin') {
-      _DeleteAttendanceActions2.default.loadComponentData();
-      //   }
-      // }));
+      if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
+        if (data.role && data.role == 'admin') {
+          _DeleteAttendanceActions2.default.loadComponentData();
+        }
+      })) ;
     }
   }, {
     key: 'componentWillUnmount',
@@ -7654,11 +7658,11 @@ var RaidManagement = function (_React$Component) {
     value: function componentDidMount() {
       _RaidManagementStore2.default.listen(this.onChange);
       if (sessionStorage.raidManagement) _RaidManagementActions2.default.restoreState(JSON.parse(sessionStorage.raidManagement));
-      // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
-      //   if(data.role && data.role == 'admin') {
-      _RaidManagementActions2.default.loadRaids();
-      //   }
-      // }));
+      if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
+        if (data.role && data.role == 'admin') {
+          _RaidManagementActions2.default.loadRaids();
+        }
+      })) ;
     }
   }, {
     key: 'componentWillUnmount',
@@ -8615,11 +8619,11 @@ var RaidWeekManagement = function (_React$Component) {
     value: function componentDidMount() {
       _RaidWeekManagementStore2.default.listen(this.onChange);
       if (sessionStorage.raidweekManagement) _RaidWeekManagementActions2.default.restoreState(JSON.parse(sessionStorage.raidweekManagement));
-      // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
-      //   if(data.role && data.role == 'admin') {
-      _RaidWeekManagementActions2.default.getAllRaidWeeks();
-      //   }
-      // }));
+      if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
+        if (data.role && data.role == 'admin') {
+          _RaidWeekManagementActions2.default.getAllRaidWeeks();
+        }
+      })) ;
     }
   }, {
     key: 'componentWillUnmount',
@@ -9051,11 +9055,11 @@ var RosterManagement = function (_React$Component) {
     value: function componentDidMount() {
       _RosterManagementStore2.default.listen(this.onChange);
       if (sessionStorage.rosterManagement) _RosterManagementActions2.default.restoreState(JSON.parse(sessionStorage.rosterManagement));
-      // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
-      //   if(data.role && data.role == 'admin') {
-      _RosterManagementActions2.default.getAllRosters();
-      //   }
-      // }));
+      if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
+        if (data.role && data.role == 'admin') {
+          _RosterManagementActions2.default.getAllRosters();
+        }
+      })) ;
     }
   }, {
     key: 'componentWillUnmount',
@@ -9380,12 +9384,10 @@ var ScheduleManagement = function (_React$Component) {
       _ScheduleManagementStore2.default.listen(this.onChange);
       if (sessionStorage.scheduleManagement) _ScheduleManagementActions2.default.restoreState(JSON.parse(sessionStorage.scheduleManagement));
       if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
-        // if(data.role && data.role == 'admin') {
-        //
-        // }
-        console.log(data);
+        if (data.role && data.role == 'admin') {
+          _ScheduleManagementActions2.default.loadComponentData();
+        }
       })) ;
-      _ScheduleManagementActions2.default.loadComponentData();
     }
   }, {
     key: 'componentWillUnmount',
@@ -10372,11 +10374,11 @@ var ViewAttendance = function (_React$Component) {
     value: function componentDidMount() {
       _ViewAttendanceStore2.default.listen(this.onChange);
       if (sessionStorage.viewAttendance) _ViewAttendanceActions2.default.restoreState(JSON.parse(sessionStorage.viewAttendance));
-      // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
-      //   if(data.role && data.role == 'admin') {
-      _ViewAttendanceActions2.default.loadComponentData();
-      //   }
-      // }));
+      if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
+        if (data.role && data.role == 'admin') {
+          _ViewAttendanceActions2.default.loadComponentData();
+        }
+      })) ;
     }
   }, {
     key: 'componentWillUnmount',

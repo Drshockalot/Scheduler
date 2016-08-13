@@ -19,11 +19,11 @@ class RaidManagement extends React.Component {
     RaidManagementStore.listen(this.onChange);
     if(sessionStorage.raidManagement)
       RaidManagementActions.restoreState(JSON.parse(sessionStorage.raidManagement));
-    // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
-    //   if(data.role && data.role == 'admin') {
+    if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+      if(data.role && data.role == 'admin') {
         RaidManagementActions.loadRaids();
-    //   }
-    // }));
+      }
+    }));
   }
 
   componentWillUnmount() {
