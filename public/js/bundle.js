@@ -7170,37 +7170,37 @@ var CharacterManagement = function (_React$Component) {
               { key: character.id },
               _react2.default.createElement(
                 'td',
-                { key: character.name },
+                { className: 'col-xs-3 vert-align', key: character.name },
                 character.name
               ),
               _react2.default.createElement(
                 'td',
-                { key: characterClass },
+                { className: 'col-xs-2 vert-align', key: characterClass },
                 characterClass
               ),
               _react2.default.createElement(
                 'td',
-                { key: character.realm },
+                { className: 'col-xs-2 vert-align', key: character.realm },
                 character.realm
               ),
               _react2.default.createElement(
                 'td',
-                { key: character.rank },
+                { className: 'col-xs-1 vert-align', key: character.rank },
                 character.rank
               ),
               _react2.default.createElement(
                 'td',
-                { key: character.main_role + 'main' },
+                { className: 'col-xs-1 vert-align', key: character.main_role + 'main' },
                 character.main_role
               ),
               _react2.default.createElement(
                 'td',
-                { key: character.off_role + 'off' },
+                { className: 'col-xs-1 vert-align', key: character.off_role + 'off' },
                 character.off_role
               ),
               _react2.default.createElement(
                 'td',
-                { key: 'buttons' },
+                { className: 'col-xs-2 vert-align', key: 'buttons' },
                 btn
               )
             );
@@ -7228,7 +7228,7 @@ var CharacterManagement = function (_React$Component) {
                   null,
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-3 vert-align' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -7237,7 +7237,7 @@ var CharacterManagement = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-2 vert-align' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -7246,7 +7246,7 @@ var CharacterManagement = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-2 vert-align' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -7255,7 +7255,7 @@ var CharacterManagement = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-1 vert-align' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -7264,7 +7264,7 @@ var CharacterManagement = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-1 vert-align' },
                     _react2.default.createElement(
                       'strong',
                       null,
@@ -7273,7 +7273,7 @@ var CharacterManagement = function (_React$Component) {
                   ),
                   _react2.default.createElement(
                     'td',
-                    null,
+                    { className: 'col-xs-1 vert-align' },
                     _react2.default.createElement(
                       'strong',
                       null,

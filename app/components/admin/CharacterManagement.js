@@ -52,13 +52,13 @@ class CharacterManagement extends React.Component {
           }
           return (
             <tr key={character.id}>
-              <td key={character.name}>{character.name}</td>
-              <td key={characterClass}>{characterClass}</td>
-              <td key={character.realm}>{character.realm}</td>
-              <td key={character.rank}>{character.rank}</td>
-              <td key={character.main_role + 'main'}>{character.main_role}</td>
-              <td key={character.off_role + 'off'}>{character.off_role}</td>
-              <td key='buttons'>{btn}</td>
+              <td className='col-xs-3 vert-align' key={character.name}>{character.name}</td>
+              <td className='col-xs-2 vert-align' key={characterClass}>{characterClass}</td>
+              <td className='col-xs-2 vert-align' key={character.realm}>{character.realm}</td>
+              <td className='col-xs-1 vert-align' key={character.rank}>{character.rank}</td>
+              <td className='col-xs-1 vert-align' key={character.main_role + 'main'}>{character.main_role}</td>
+              <td className='col-xs-1 vert-align' key={character.off_role + 'off'}>{character.off_role}</td>
+              <td className='col-xs-2 vert-align' key='buttons'>{btn}</td>
             </tr>
           );
         });
@@ -68,12 +68,12 @@ class CharacterManagement extends React.Component {
             <table className='table'>
               <tbody>
                 <tr>
-                  <td><strong>Name</strong></td>
-                  <td><strong>Class</strong></td>
-                  <td><strong>Realm</strong></td>
-                  <td><strong>Rank</strong></td>
-                  <td><strong>Main Role</strong></td>
-                  <td><strong>Off Role</strong></td>
+                  <td className='col-xs-3 vert-align'><strong>Name</strong></td>
+                  <td className='col-xs-2 vert-align'><strong>Class</strong></td>
+                  <td className='col-xs-2 vert-align'><strong>Realm</strong></td>
+                  <td className='col-xs-1 vert-align'><strong>Rank</strong></td>
+                  <td className='col-xs-1 vert-align'><strong>Main Role</strong></td>
+                  <td className='col-xs-1 vert-align'><strong>Off Role</strong></td>
                 </tr>
                 {characterList}
               </tbody>
