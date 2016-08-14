@@ -31,6 +31,12 @@ var passport = require('./passport');
 
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
+const KnexSessionStore = require('connect-session-knex')(session);
+var knex = require('./db/database').knex;
+const store = new KnexSessionStore({
+  knex: knex,
+  tablename: 'sessions'
+});
 
 var app = express();
 
@@ -43,7 +49,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 app.use(cookieParser());
-app.use(session({ secret: 'blizzard',
+app.use(session({ store: store,
+                  secret: 'blizzard',
                   saveUninitialized: true,
                   resave: true,
                   maxAge: 3600000
