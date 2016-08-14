@@ -2540,6 +2540,64 @@ var Home = function (_React$Component) {
                       _react2.default.createElement(
                         'h4',
                         null,
+                        (0, _moment2.default)('2016-08-14').format('MMM Do YYYY')
+                      ),
+                      _react2.default.createElement(
+                        'ul',
+                        null,
+                        _react2.default.createElement(
+                          'li',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
+                            'General Website'
+                          ),
+                          _react2.default.createElement(
+                            'ul',
+                            null,
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'Your login session should now save by default, not requiring you to reauthenticate so often'
+                            )
+                          )
+                        ),
+                        _react2.default.createElement(
+                          'li',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
+                            'Profile Schedules'
+                          ),
+                          _react2.default.createElement(
+                            'ul',
+                            null,
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'All characters are now listed, regardless whether or not they are assigned to bosses'
+                            ),
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'A message will appear under the character if there are no bosses published that have scheduled that character'
+                            )
+                          )
+                        )
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'h4',
+                        null,
                         (0, _moment2.default)('2016-08-05').format('MMM Do YYYY')
                       ),
                       _react2.default.createElement(

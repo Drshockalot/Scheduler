@@ -124,6 +124,26 @@ class Home extends React.Component {
                 <tbody>
                   <tr>
                     <td>
+                      <h4>{moment('2016-08-14').format('MMM Do YYYY')}</h4>
+                      <ul>
+                        <li>
+                          <h5>General Website</h5>
+                          <ul>
+                            <li>Your login session should now save by default, not requiring you to reauthenticate so often</li>
+                          </ul>
+                        </li>
+                        <li>
+                          <h5>Profile Schedules</h5>
+                          <ul>
+                            <li>All characters are now listed, regardless whether or not they are assigned to bosses</li>
+                            <li>A message will appear under the character if there are no bosses published that have scheduled that character</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       <h4>{moment('2016-08-05').format('MMM Do YYYY')}</h4>
                       <ul>
                         <li>
