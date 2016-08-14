@@ -4936,10 +4936,6 @@ var ProfileSchedules = function (_React$Component) {
       if (this.state.user) {
         if (this.state.user.characters.length > 0) {
           pageContent = this.state.user.characters.map(function (character, index) {
-            if (character.schedule_bosses.length == 0) {
-              return null;
-            }
-
             var bossesBySchedule = _underscore2.default.groupBy(character.schedule_bosses, 'schedule_id');
             var tableContent = [];
             for (var schedule in bossesBySchedule) {
@@ -5037,6 +5033,22 @@ var ProfileSchedules = function (_React$Component) {
                   )
                 )
               ));
+            }
+
+            if (finalContent.length == 0) {
+              finalContent = _react2.default.createElement(
+                'div',
+                { className: 'col-xs-12 text-center' },
+                _react2.default.createElement(
+                  'h3',
+                  null,
+                  _react2.default.createElement(
+                    'b',
+                    null,
+                    'No bosses have been published for this character'
+                  )
+                )
+              );
             }
 
             return _react2.default.createElement(
