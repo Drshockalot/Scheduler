@@ -51,8 +51,8 @@ class ProfileRaidWeeks extends React.Component {
               <td className='col-xs-1'><input type='checkbox' disabled={!raidweek.sunday} checked={user_availability.sunday} onChange={() => ProfileRaidWeeksActions.toggleUserAvailabilityDay(user_availability.id, 'sunday')} /></td>
               <td className='col-xs-1'><input type='checkbox' disabled={!raidweek.monday} checked={user_availability.monday} onChange={() => ProfileRaidWeeksActions.toggleUserAvailabilityDay(user_availability.id, 'monday')} /></td>
               <td className='col-xs-1'><input type='checkbox' disabled={!raidweek.tuesday} checked={user_availability.tuesday} onChange={() => ProfileRaidWeeksActions.toggleUserAvailabilityDay(user_availability.id, 'tuesday')} /></td>
-              <td className='col-xs-3'><textarea value={user_availability.user_note} onChange={e => ProfileRaidWeeksActions.updateUserAvailabilityNote(user_availability.id, e.target.value)} /></td>
-              <td className='col-xs-2'>
+              <td className='col-xs-2'><textarea value={user_availability.user_note} onChange={e => ProfileRaidWeeksActions.updateUserAvailabilityNote(user_availability.id, e.target.value)} /></td>
+              <td className='col-xs-1'>
                 <button className='btn btn-success' onClick={() => ProfileRaidWeeksActions.saveUserAvailability(_.findWhere(this.state.user_availability, { raid_week_id: raidweek.id }))}>Save</button>
               </td>
             </tr>
@@ -90,6 +90,8 @@ class ProfileRaidWeeks extends React.Component {
                     <td className='col-xs-1'><strong>S</strong></td>
                     <td className='col-xs-1'><strong>M</strong></td>
                     <td className='col-xs-1'><strong>T</strong></td>
+                    <td className='col-xs-2'><strong>Note</strong></td>
+                    <td className='col-xs-1'></td>
                   </tr>
                   <tr>
                     <td className='col-xs-2'>Raiding Days:</td>

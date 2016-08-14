@@ -4513,14 +4513,14 @@ var ProfileRaidWeeks = function (_React$Component) {
               ),
               _react2.default.createElement(
                 'td',
-                { className: 'col-xs-3' },
+                { className: 'col-xs-2' },
                 _react2.default.createElement('textarea', { value: user_availability.user_note, onChange: function onChange(e) {
                     return _ProfileRaidWeeksActions2.default.updateUserAvailabilityNote(user_availability.id, e.target.value);
                   } })
               ),
               _react2.default.createElement(
                 'td',
-                { className: 'col-xs-2' },
+                { className: 'col-xs-1' },
                 _react2.default.createElement(
                   'button',
                   { className: 'btn btn-success', onClick: function onClick() {
@@ -4648,7 +4648,17 @@ var ProfileRaidWeeks = function (_React$Component) {
                         null,
                         'T'
                       )
-                    )
+                    ),
+                    _react2.default.createElement(
+                      'td',
+                      { className: 'col-xs-2' },
+                      _react2.default.createElement(
+                        'strong',
+                        null,
+                        'Note'
+                      )
+                    ),
+                    _react2.default.createElement('td', { className: 'col-xs-1' })
                   ),
                   _react2.default.createElement(
                     'tr',
