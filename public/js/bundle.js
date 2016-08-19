@@ -10604,7 +10604,7 @@ var ViewAttendance = function (_React$Component) {
 
           return _react2.default.createElement(
             'tr',
-            { key: user.id, sortOrder: isNaN(lifetimeAttendancePercentage) ? 0 : lifetimeAttendancePercentage },
+            { key: user.id, 'data-sort-order': isNaN(lifetimeAttendancePercentage) ? 0 : lifetimeAttendancePercentage },
             _react2.default.createElement(
               'td',
               { className: 'col-xs-2 text-center vert-align' },
@@ -10775,7 +10775,7 @@ var ViewAttendance = function (_React$Component) {
                   )
                 ),
                 _underscore2.default.sortBy(generalAttendanceRows, function (row) {
-                  return row.props.sortOrder;
+                  return row.props['data-sort-order'];
                 }).reverse()
               )
             )
