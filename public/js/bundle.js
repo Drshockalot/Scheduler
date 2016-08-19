@@ -2540,6 +2540,41 @@ var Home = function (_React$Component) {
                       _react2.default.createElement(
                         'h4',
                         null,
+                        (0, _moment2.default)('2016-08-19').format('MMM Do YYYY')
+                      ),
+                      _react2.default.createElement(
+                        'ul',
+                        null,
+                        _react2.default.createElement(
+                          'li',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
+                            'General Website'
+                          ),
+                          _react2.default.createElement(
+                            'ul',
+                            null,
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'Your login session now persists for a greater duration.'
+                            )
+                          )
+                        )
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'h4',
+                        null,
                         (0, _moment2.default)('2016-08-14').format('MMM Do YYYY')
                       ),
                       _react2.default.createElement(
