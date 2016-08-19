@@ -53,7 +53,7 @@ app.use(session({ store: store,
                   secret: 'blizzard',
                   saveUninitialized: true,
                   resave: true,
-                  maxAge: 3600000
+                  maxAge: 31*24*60*60*1000
                 }));
 
 app.use(passport.initialize());
