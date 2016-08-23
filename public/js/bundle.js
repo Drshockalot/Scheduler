@@ -2320,14 +2320,29 @@ var Home = function (_React$Component) {
               'div',
               { className: 'row', key: schedule.id },
               _react2.default.createElement(
-                _reactRouter.Link,
-                { to: '/schedule?type=1&schedule=' + schedule.id },
-                schedule.name
+                'div',
+                { className: 'col-xs-8' },
+                _react2.default.createElement(
+                  _reactRouter.Link,
+                  { to: '/schedule?type=1&schedule=' + schedule.id },
+                  schedule.name
+                ),
+                _react2.default.createElement(
+                  'ul',
+                  null,
+                  raidListItems
+                )
               ),
               _react2.default.createElement(
-                'ul',
-                null,
-                raidListItems
+                'div',
+                { className: 'col-xs-4' },
+                _react2.default.createElement(
+                  'button',
+                  { className: 'btn btn-success', onClick: function onClick() {
+                      window.location = '/schedule?type=1&schedule=' + schedule.id;
+                    } },
+                  'View'
+                )
               )
             );
           }, this);
@@ -2456,12 +2471,12 @@ var Home = function (_React$Component) {
             { key: raidweek.id },
             _react2.default.createElement(
               'td',
-              { className: 'col-md-4 vert-align text-center' },
+              { className: 'col-xs-4 vert-align text-center' },
               trigger
             ),
             _react2.default.createElement(
               'td',
-              { className: 'col-md-8 vert-align' },
+              { className: 'col-xs-8 vert-align' },
               schedules
             )
           );
@@ -32912,6 +32927,9 @@ function remove(name, opt) {
   } else if (typeof opt === 'string') {
     // Will be deprecated in future versions
     opt = { path: opt };
+  } else {
+    // Prevent mutation of opt below
+    opt = Object.assign({}, opt);
   }
 
   if (typeof document !== 'undefined') {
@@ -36743,9 +36761,7 @@ function serialize(obj) {
   if (!isObject(obj)) return obj;
   var pairs = [];
   for (var key in obj) {
-    if (null != obj[key]) {
-      pushEncodedKeyValuePair(pairs, key, obj[key]);
-    }
+    pushEncodedKeyValuePair(pairs, key, obj[key]);
   }
   return pairs.join('&');
 }
@@ -36760,18 +36776,22 @@ function serialize(obj) {
  */
 
 function pushEncodedKeyValuePair(pairs, key, val) {
-  if (Array.isArray(val)) {
-    return val.forEach(function(v) {
-      pushEncodedKeyValuePair(pairs, key, v);
-    });
-  } else if (isObject(val)) {
-    for(var subkey in val) {
-      pushEncodedKeyValuePair(pairs, key + '[' + subkey + ']', val[subkey]);
+  if (val != null) {
+    if (Array.isArray(val)) {
+      val.forEach(function(v) {
+        pushEncodedKeyValuePair(pairs, key, v);
+      });
+    } else if (isObject(val)) {
+      for(var subkey in val) {
+        pushEncodedKeyValuePair(pairs, key + '[' + subkey + ']', val[subkey]);
+      }
+    } else {
+      pairs.push(encodeURIComponent(key)
+        + '=' + encodeURIComponent(val));
     }
-    return;
+  } else if (val === null) {
+    pairs.push(encodeURIComponent(key));
   }
-  pairs.push(encodeURIComponent(key)
-    + '=' + encodeURIComponent(val));
 }
 
 /**

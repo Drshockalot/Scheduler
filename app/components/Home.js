@@ -51,10 +51,15 @@ class Home extends React.Component {
           });
           return (
             <div className='row' key={schedule.id}>
-              <Link to={'/schedule?type=1&schedule=' + schedule.id}>{schedule.name}</Link>
-                <ul>
-                  {raidListItems}
-                </ul>
+              <div className='col-xs-8'>
+                <Link to={'/schedule?type=1&schedule=' + schedule.id}>{schedule.name}</Link>
+                  <ul>
+                    {raidListItems}
+                  </ul>
+              </div>
+              <div className='col-xs-4'>
+                <button className='btn btn-success' onClick={() => {window.location= '/schedule?type=1&schedule=' + schedule.id;}}>View</button>
+              </div>
             </div>
           );
         }, this);
@@ -87,10 +92,10 @@ class Home extends React.Component {
 
         return (
           <tr key={raidweek.id}>
-            <td className='col-md-4 vert-align text-center'>
+            <td className='col-xs-4 vert-align text-center'>
               {trigger}
             </td>
-            <td className='col-md-8 vert-align'>
+            <td className='col-xs-8 vert-align'>
               {schedules}
             </td>
           </tr>
