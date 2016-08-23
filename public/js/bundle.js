@@ -2338,7 +2338,7 @@ var Home = function (_React$Component) {
                 { className: 'col-xs-4' },
                 _react2.default.createElement(
                   'button',
-                  { style: { 'margin-top': '5px' }, className: 'btn btn-success center-block', onClick: function onClick() {
+                  { style: { 'margin-top': '10px' }, className: 'btn btn-success center-block', onClick: function onClick() {
                       _reactRouter.browserHistory.push('/schedule?type=1&schedule=' + schedule.id);
                     } },
                   'View'

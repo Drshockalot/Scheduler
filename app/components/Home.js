@@ -59,7 +59,7 @@ class Home extends React.Component {
                   </ul>
               </div>
               <div className='col-xs-4'>
-                <button style={{'margin-top': '5px'}} className='btn btn-success center-block' onClick={() => {browserHistory.push('/schedule?type=1&schedule=' + schedule.id);}}>View</button>
+                <button style={{'margin-top': '10px'}} className='btn btn-success center-block' onClick={() => {browserHistory.push('/schedule?type=1&schedule=' + schedule.id);}}>View</button>
               </div>
             </div>
           );
