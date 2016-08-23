@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import HomeStore from '../stores/HomeStore';
 import HomeActions from '../actions/HomeActions';
 import NavbarStore from '../stores/NavbarStore';
+import {browserHistory} from 'react-router';
 
 import moment from 'moment';
 import _ from 'underscore';
@@ -58,7 +59,7 @@ class Home extends React.Component {
                   </ul>
               </div>
               <div className='col-xs-4'>
-                <button className='btn btn-success' onClick={() => {window.location= '/schedule?type=1&schedule=' + schedule.id;}}>View</button>
+                <button style={{'margin-top': '5px'}} className='btn btn-success' onClick={() => {browserHistory.push('/schedule?type=1&schedule=' + schedule.id);}}>View</button>
               </div>
             </div>
           );
