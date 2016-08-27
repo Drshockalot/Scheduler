@@ -152,6 +152,7 @@ class ProfileSchedules extends React.Component {
           <div className='container-fluid'>
             <div className='row'>
               <div className='col-xs-12'>
+                <h2>Schedules</h2>
                 {pageContent}
               </div>
             </div>

@@ -48,7 +48,7 @@ class NavbarActions {
   }
 
   navigateProfile() {
-    browserHistory.push('/profile');
+    browserHistory.push('/profile/schedule');
     return 0;
   }
 }

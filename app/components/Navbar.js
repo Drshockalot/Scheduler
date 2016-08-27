@@ -109,7 +109,7 @@ class Navbar extends React.Component {
           <ul className='nav navbar-nav'>
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/attendance'>Attendance</Link></li>
-            <li><Link to='/admin'>Admin</Link></li>
+            <li><Link to='/admin/schedule'>Admin</Link></li>
             {profilePane}
           </ul>
         </div>

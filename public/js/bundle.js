@@ -184,7 +184,7 @@ var NavbarActions = function () {
   }, {
     key: 'navigateProfile',
     value: function navigateProfile() {
-      _reactRouter.browserHistory.push('/profile');
+      _reactRouter.browserHistory.push('/profile/schedule');
       return 0;
     }
   }]);
@@ -3789,7 +3789,7 @@ var Navbar = function (_React$Component) {
               null,
               _react2.default.createElement(
                 _reactRouter.Link,
-                { to: '/admin' },
+                { to: '/admin/schedule' },
                 'Admin'
               )
             ),
@@ -5246,6 +5246,11 @@ var ProfileSchedules = function (_React$Component) {
               _react2.default.createElement(
                 'div',
                 { className: 'col-xs-12' },
+                _react2.default.createElement(
+                  'h2',
+                  null,
+                  'Schedules'
+                ),
                 pageContent
               )
             )
@@ -6974,7 +6979,7 @@ var AdminSideNav = function (_React$Component) {
             null,
             _react2.default.createElement(
               _reactRouter.Link,
-              { to: '/admin' },
+              { to: '/admin/schedule' },
               _react2.default.createElement(
                 'strong',
                 null,
