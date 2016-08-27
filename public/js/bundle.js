@@ -4503,6 +4503,8 @@ var ProfileRaidWeeks = function (_React$Component) {
 
           var user_availabilityRow;
           var user_availability = _.findWhere(this.state.user_availability, { raid_week_id: raidweek.id });
+          if ((0, _moment2.default)(raidweek.start).isBefore((0, _moment2.default)())) return null;
+
           if (user_availability) {
             user_availabilityRow = _react2.default.createElement(
               'tr',
