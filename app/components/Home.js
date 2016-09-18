@@ -130,12 +130,25 @@ class Home extends React.Component {
                 <tbody>
                   <tr>
                     <td>
+                      <h4>{moment('2016-08-27').format('MMM Do YYYY')}</h4>
+                      <ul>
+                        <li>
+                          <h5>Profile Raidweeks</h5>
+                          <ul>
+                            <li>Past raidweeks are no longer listed</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       <h4>{moment('2016-08-19').format('MMM Do YYYY')}</h4>
                       <ul>
                         <li>
                           <h5>General Website</h5>
                           <ul>
-                            <li>Your login session now persists for a greater duration.</li>
+                            <li>Your login session now persists for a greater duration</li>
                           </ul>
                         </li>
                       </ul>

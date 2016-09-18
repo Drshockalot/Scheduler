@@ -40,7 +40,7 @@ class ProfileRaidWeeks extends React.Component {
       raidweeklist = _.sortBy(this.state.raidweeks, 'start').map(function(raidweek, index) {
         var user_availabilityRow;
         var user_availability = _.findWhere(this.state.user_availability, { raid_week_id: raidweek.id });
-        if(moment(raidweek.start).isBefore(moment()))
+        if(moment(raidweek.end).isBefore(moment()))
           return null;
 
         if(user_availability) {
