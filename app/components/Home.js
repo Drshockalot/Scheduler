@@ -130,6 +130,19 @@ class Home extends React.Component {
                 <tbody>
                   <tr>
                     <td>
+                      <h4>{moment('2016-10-01').format('MMM Do YYYY')}</h4>
+                      <ul>
+                        <li>
+                          <h5>Profile Schedules</h5>
+                          <ul>
+                            <li>You should now be able to correctly see listed bosses that your characters are assigned to</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       <h4>{moment('2016-08-27').format('MMM Do YYYY')}</h4>
                       <ul>
                         <li>
