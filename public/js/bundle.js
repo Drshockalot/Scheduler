@@ -2586,6 +2586,34 @@ var Home = function (_React$Component) {
                               'Schedules are now displayed in ascending order (earliest at the top), the current week will be displayed at the top'
                             )
                           )
+                        ),
+                        _react2.default.createElement(
+                          'li',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
+                            'Profile RaidWeeks'
+                          ),
+                          _react2.default.createElement(
+                            'ul',
+                            null,
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'Raid week notes are now limited to 255 characters'
+                            ),
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'An indication is now given for how many characters you have currently entered into a note'
+                            ),
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'The note text area is now larger by default'
+                            )
+                          )
                         )
                       )
                     )
@@ -4691,7 +4719,7 @@ var ProfileRaidWeeks = function (_React$Component) {
               _react2.default.createElement(
                 'td',
                 { className: 'col-xs-3' },
-                _react2.default.createElement('textarea', { maxLength: '255', value: user_availability.user_note, onChange: function onChange(e) {
+                _react2.default.createElement('textarea', { maxLength: '255', style: 'min-height: 200px;', value: user_availability.user_note, onChange: function onChange(e) {
                     return _ProfileRaidWeeksActions2.default.updateUserAvailabilityNote(user_availability.id, e.target.value);
                   } })
               ),

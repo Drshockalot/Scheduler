@@ -143,6 +143,14 @@ class Home extends React.Component {
                             <li>Schedules are now displayed in ascending order (earliest at the top), the current week will be displayed at the top</li>
                           </ul>
                         </li>
+                        <li>
+                          <h5>Profile RaidWeeks</h5>
+                          <ul>
+                            <li>Raid week notes are now limited to 255 characters</li>
+                            <li>An indication is now given for how many characters you have currently entered into a note</li>
+                            <li>The note text area is now larger by default</li>
+                          </ul>
+                        </li>
                       </ul>
                     </td>
                   </tr>
