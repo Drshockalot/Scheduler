@@ -66,7 +66,7 @@ class ProfileSchedules extends React.Component {
                 continue;
               }
               scheduleGroup.push(
-                <tr key={bossesBySchedule[schedule][i].schedule.id + '-' + index} sortOrder={moment(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W')} scheduleName={bossesBySchedule[schedule][i].schedule.name} scheduleId={bossesBySchedule[schedule][i].schedule.id}>
+                <tr key={bossesBySchedule[schedule][i].id + '-' + index} data-sortOrder={moment(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W')} scheduleName={bossesBySchedule[schedule][i].schedule.name} scheduleId={bossesBySchedule[schedule][i].schedule.id}>
                   <td className='col-xs-2 vert-align text-center'>{moment(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W')}</td>
                   <td className='col-xs-2 vert-align text-center'>{bossesBySchedule[schedule][i].raid.name}</td>
                   <td className='col-xs-2 vert-align text-center'>{bossesBySchedule[schedule][i].boss.name}</td>
@@ -78,7 +78,7 @@ class ProfileSchedules extends React.Component {
           var finalContent = [];
           tableContent = _.sortBy(tableContent, function(schedule) {
             if(schedule.length > 0)
-              return Number(schedule[0].props.sortOrder);
+              return Number(schedule[0].props['data-sortOrder']);
           }).reverse();
           for(var i = 0; i < tableContent.length; ++i) {
             if(tableContent[i].length  == 0) {

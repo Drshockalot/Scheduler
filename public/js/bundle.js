@@ -5221,7 +5221,7 @@ var ProfileSchedules = function (_React$Component) {
                 }
                 scheduleGroup.push(_react2.default.createElement(
                   'tr',
-                  { key: bossesBySchedule[schedule][i].schedule.id + '-' + index, sortOrder: (0, _moment2.default)(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W'), scheduleName: bossesBySchedule[schedule][i].schedule.name, scheduleId: bossesBySchedule[schedule][i].schedule.id },
+                  { key: bossesBySchedule[schedule][i].id + '-' + index, 'data-sortOrder': (0, _moment2.default)(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W'), scheduleName: bossesBySchedule[schedule][i].schedule.name, scheduleId: bossesBySchedule[schedule][i].schedule.id },
                   _react2.default.createElement(
                     'td',
                     { className: 'col-xs-2 vert-align text-center' },
@@ -5243,7 +5243,7 @@ var ProfileSchedules = function (_React$Component) {
             }
             var finalContent = [];
             tableContent = _underscore2.default.sortBy(tableContent, function (schedule) {
-              if (schedule.length > 0) return Number(schedule[0].props.sortOrder);
+              if (schedule.length > 0) return Number(schedule[0].props['data-sortOrder']);
             }).reverse();
             for (var i = 0; i < tableContent.length; ++i) {
               if (tableContent[i].length == 0) {
