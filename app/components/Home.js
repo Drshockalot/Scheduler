@@ -39,7 +39,11 @@ class Home extends React.Component {
   render() {
     var schedules;
     if (this.state.raidweeks.length > 0) {
-      schedules = _.sortBy(this.state.raidweeks, 'start').reverse().map(function (raidweek, index) {
+      schedules = _.sortBy(this.state.raidweeks, 'start').map(function (raidweek, index) {
+        var now = moment();
+        if (moment(raidweek.end).isBefore(now)) {
+            return null;
+        }
         var schedules;
         schedules = raidweek.schedules.map(function (schedule) {
           var countResult = _.countBy(schedule.schedule_bosses, function (data) {return data.raid.name;});
@@ -128,6 +132,20 @@ class Home extends React.Component {
               <h2>Website Updates</h2>
               <table className='table table-striped'>
                 <tbody>
+                  <tr>
+                    <td>
+                      <h4>{moment('2016-10-06').format('MMM Do YYYY')}</h4>
+                      <ul>
+                        <li>
+                          <h5>Home Page</h5>
+                          <ul>
+                            <li>Past Schedules are no longer visible</li>
+                            <li>Schedules are now displayed in ascending order (earliest at the top), the current week will be displayed at the top</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
                   <tr>
                     <td>
                       <h4>{moment('2016-10-01').format('MMM Do YYYY')}</h4>

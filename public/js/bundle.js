@@ -2301,7 +2301,11 @@ var Home = function (_React$Component) {
     value: function render() {
       var schedules;
       if (this.state.raidweeks.length > 0) {
-        schedules = _underscore2.default.sortBy(this.state.raidweeks, 'start').reverse().map(function (raidweek, index) {
+        schedules = _underscore2.default.sortBy(this.state.raidweeks, 'start').map(function (raidweek, index) {
+          var now = (0, _moment2.default)();
+          if ((0, _moment2.default)(raidweek.end).isBefore(now)) {
+            return null;
+          }
           var schedules;
           schedules = raidweek.schedules.map(function (schedule) {
             var countResult = _underscore2.default.countBy(schedule.schedule_bosses, function (data) {
@@ -2546,6 +2550,46 @@ var Home = function (_React$Component) {
                 _react2.default.createElement(
                   'tbody',
                   null,
+                  _react2.default.createElement(
+                    'tr',
+                    null,
+                    _react2.default.createElement(
+                      'td',
+                      null,
+                      _react2.default.createElement(
+                        'h4',
+                        null,
+                        (0, _moment2.default)('2016-10-06').format('MMM Do YYYY')
+                      ),
+                      _react2.default.createElement(
+                        'ul',
+                        null,
+                        _react2.default.createElement(
+                          'li',
+                          null,
+                          _react2.default.createElement(
+                            'h5',
+                            null,
+                            'Home Page'
+                          ),
+                          _react2.default.createElement(
+                            'ul',
+                            null,
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'Past Schedules are no longer visible'
+                            ),
+                            _react2.default.createElement(
+                              'li',
+                              null,
+                              'Schedules are now displayed in ascending order (earliest at the top), the current week will be displayed at the top'
+                            )
+                          )
+                        )
+                      )
+                    )
+                  ),
                   _react2.default.createElement(
                     'tr',
                     null,
