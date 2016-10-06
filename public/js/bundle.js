@@ -2342,7 +2342,7 @@ var Home = function (_React$Component) {
                 { className: 'col-xs-4' },
                 _react2.default.createElement(
                   'button',
-                  { style: { 'margin-top': '8px' }, className: 'btn btn-info center-block', onClick: function onClick() {
+                  { style: { 'marginTop': '8px' }, className: 'btn btn-info center-block', onClick: function onClick() {
                       _reactRouter.browserHistory.push('/schedule?type=1&schedule=' + schedule.id);
                     } },
                   'View'
@@ -4719,7 +4719,7 @@ var ProfileRaidWeeks = function (_React$Component) {
               _react2.default.createElement(
                 'td',
                 { className: 'col-xs-3' },
-                _react2.default.createElement('textarea', { maxLength: '255', style: { 'min-height': 200 + 'px' }, value: user_availability.user_note, onChange: function onChange(e) {
+                _react2.default.createElement('textarea', { maxLength: '255', style: { 'minHeight': 200 + 'px' }, value: user_availability.user_note, onChange: function onChange(e) {
                     return _ProfileRaidWeeksActions2.default.updateUserAvailabilityNote(user_availability.id, e.target.value);
                   } })
               ),
@@ -5221,7 +5221,7 @@ var ProfileSchedules = function (_React$Component) {
                 }
                 scheduleGroup.push(_react2.default.createElement(
                   'tr',
-                  { key: bossesBySchedule[schedule][i].schedule.id, sortOrder: (0, _moment2.default)(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W'), scheduleName: bossesBySchedule[schedule][i].schedule.name, scheduleId: bossesBySchedule[schedule][i].schedule.id },
+                  { key: bossesBySchedule[schedule][i].schedule.id + '-' + index, sortOrder: (0, _moment2.default)(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W'), scheduleName: bossesBySchedule[schedule][i].schedule.name, scheduleId: bossesBySchedule[schedule][i].schedule.id },
                   _react2.default.createElement(
                     'td',
                     { className: 'col-xs-2 vert-align text-center' },

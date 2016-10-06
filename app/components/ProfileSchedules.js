@@ -66,7 +66,7 @@ class ProfileSchedules extends React.Component {
                 continue;
               }
               scheduleGroup.push(
-                <tr key={bossesBySchedule[schedule][i].schedule.id} sortOrder={moment(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W')} scheduleName={bossesBySchedule[schedule][i].schedule.name} scheduleId={bossesBySchedule[schedule][i].schedule.id}>
+                <tr key={bossesBySchedule[schedule][i].schedule.id + '-' + index} sortOrder={moment(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W')} scheduleName={bossesBySchedule[schedule][i].schedule.name} scheduleId={bossesBySchedule[schedule][i].schedule.id}>
                   <td className='col-xs-2 vert-align text-center'>{moment(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W')}</td>
                   <td className='col-xs-2 vert-align text-center'>{bossesBySchedule[schedule][i].raid.name}</td>
                   <td className='col-xs-2 vert-align text-center'>{bossesBySchedule[schedule][i].boss.name}</td>
