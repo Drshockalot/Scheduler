@@ -5221,7 +5221,7 @@ var ProfileSchedules = function (_React$Component) {
                 }
                 scheduleGroup.push(_react2.default.createElement(
                   'tr',
-                  { key: bossesBySchedule[schedule][i].id + '-' + index, 'data-sortOrder': (0, _moment2.default)(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W'), scheduleName: bossesBySchedule[schedule][i].schedule.name, scheduleId: bossesBySchedule[schedule][i].schedule.id },
+                  { key: bossesBySchedule[schedule][i].id + '-' + index, 'data-sortOrder': (0, _moment2.default)(bossesBySchedule[schedule][i].schedule.raid_week.start).format('W'), 'data-scheduleName': bossesBySchedule[schedule][i].schedule.name, 'data-scheduleId': bossesBySchedule[schedule][i].schedule.id },
                   _react2.default.createElement(
                     'td',
                     { className: 'col-xs-2 vert-align text-center' },
@@ -5249,10 +5249,10 @@ var ProfileSchedules = function (_React$Component) {
               if (tableContent[i].length == 0) {
                 continue;
               }
-              var scheduleLink = '/schedule?type=1&schedule=' + tableContent[i][0].props.scheduleId;
+              var scheduleLink = '/schedule?type=1&schedule=' + tableContent[i][0].props['data-scheduleId'];
               finalContent.push(_react2.default.createElement(
                 'div',
-                { key: tableContent[i][0].props.scheduleId, className: 'row' },
+                { key: tableContent[i][0].props['data-scheduleId'], className: 'row' },
                 _react2.default.createElement(
                   'div',
                   { className: 'col-xs-10 col-xs-offset-1' },
@@ -5262,7 +5262,7 @@ var ProfileSchedules = function (_React$Component) {
                     _react2.default.createElement(
                       'h4',
                       null,
-                      tableContent[i][0].props.scheduleName
+                      tableContent[i][0].props['data-scheduleName']
                     )
                   ),
                   _react2.default.createElement(
