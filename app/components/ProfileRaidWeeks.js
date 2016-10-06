@@ -42,8 +42,9 @@ class ProfileRaidWeeks extends React.Component {
         var user_availability = _.findWhere(this.state.user_availability, { raid_week_id: raidweek.id });
         if(moment(raidweek.end).isBefore(moment()))
           return null;
-
+        var noteHeader;
         if(user_availability) {
+          noteHeader = <td className='col-xs-3'><strong>Note ({user_availability.user_note.length}/255)</strong></td>;
           user_availabilityRow = (
             <tr key={raidweek.id}>
               <td className='col-xs-2'>Your availability:</td>
@@ -61,6 +62,7 @@ class ProfileRaidWeeks extends React.Component {
             </tr>
           );
         } else {
+          noteHeader = noteHeader = <td className='col-xs-3'><strong>Note</strong></td>;
           user_availabilityRow = (
             <tr key={raidweek.id}>
               <td className='col-xs-2'>Your availability:</td>
@@ -93,7 +95,7 @@ class ProfileRaidWeeks extends React.Component {
                     <td><strong>S</strong></td>
                     <td><strong>M</strong></td>
                     <td><strong>T</strong></td>
-                    <td className='col-xs-3'><strong>Note ({user_availability.user_note.length}/255)</strong></td>
+                    {noteHeader}
                     <td className='col-xs-1'></td>
                   </tr>
                   <tr>

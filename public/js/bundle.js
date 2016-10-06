@@ -4618,8 +4618,19 @@ var ProfileRaidWeeks = function (_React$Component) {
           var user_availabilityRow;
           var user_availability = _.findWhere(this.state.user_availability, { raid_week_id: raidweek.id });
           if ((0, _moment2.default)(raidweek.end).isBefore((0, _moment2.default)())) return null;
-
+          var noteHeader;
           if (user_availability) {
+            noteHeader = _react2.default.createElement(
+              'td',
+              { className: 'col-xs-3' },
+              _react2.default.createElement(
+                'strong',
+                null,
+                'Note (',
+                user_availability.user_note.length,
+                '/255)'
+              )
+            );
             user_availabilityRow = _react2.default.createElement(
               'tr',
               { key: raidweek.id },
@@ -4697,6 +4708,15 @@ var ProfileRaidWeeks = function (_React$Component) {
               )
             );
           } else {
+            noteHeader = noteHeader = _react2.default.createElement(
+              'td',
+              { className: 'col-xs-3' },
+              _react2.default.createElement(
+                'strong',
+                null,
+                'Note'
+              )
+            );
             user_availabilityRow = _react2.default.createElement(
               'tr',
               { key: raidweek.id },
@@ -4815,17 +4835,7 @@ var ProfileRaidWeeks = function (_React$Component) {
                         'T'
                       )
                     ),
-                    _react2.default.createElement(
-                      'td',
-                      { className: 'col-xs-3' },
-                      _react2.default.createElement(
-                        'strong',
-                        null,
-                        'Note (',
-                        user_availability.user_note.length,
-                        '/255)'
-                      )
-                    ),
+                    noteHeader,
                     _react2.default.createElement('td', { className: 'col-xs-1' })
                   ),
                   _react2.default.createElement(
