@@ -194,7 +194,7 @@ var NavbarActions = function () {
 
 exports.default = _alt2.default.createActions(NavbarActions);
 
-},{"../alt":24,"react-cookie":314,"react-router":"react-router","underscore":"underscore"}],5:[function(require,module,exports){
+},{"../alt":24,"react-cookie":315,"react-router":"react-router","underscore":"underscore"}],5:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -783,7 +783,7 @@ var AddAttendanceActions = function () {
 
 exports.default = _alt2.default.createActions(AddAttendanceActions);
 
-},{"../../alt":24,"superagent":348,"underscore":"underscore"}],13:[function(require,module,exports){
+},{"../../alt":24,"superagent":351,"underscore":"underscore"}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -910,7 +910,7 @@ var AttendaceManagementActions = function AttendaceManagementActions() {
 
 exports.default = _alt2.default.createActions(AttendaceManagementActions);
 
-},{"../../alt":24,"superagent":348,"underscore":"underscore"}],17:[function(require,module,exports){
+},{"../../alt":24,"superagent":351,"underscore":"underscore"}],17:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -1698,7 +1698,7 @@ var App = function (_React$Component) {
   function App() {
     _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(App).apply(this, arguments));
+    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
   }
 
   _createClass(App, [{
@@ -1770,7 +1770,7 @@ var AttendancePublicView = function (_React$Component) {
   function AttendancePublicView(props, context) {
     _classCallCheck(this, AttendancePublicView);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AttendancePublicView).call(this, props));
+    var _this = _possibleConstructorReturn(this, (AttendancePublicView.__proto__ || Object.getPrototypeOf(AttendancePublicView)).call(this, props));
 
     _this.state = _AttendancePublicViewStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
@@ -1891,7 +1891,7 @@ var AttendancePublicView = function (_React$Component) {
               'span',
               { className: 'hand-cursor' },
               user.battletag,
-              '    ❯'
+              '\xA0\xA0\xA0\xA0\u276F'
             )
           );
 
@@ -1907,7 +1907,7 @@ var AttendancePublicView = function (_React$Component) {
               'td',
               { className: 'col-xs-2 text-center vert-align' },
               isNaN(since30DaysAttendancePercentage) ? 0 : since30DaysAttendancePercentage.toFixed(1),
-              '% (',
+              '%\xA0(',
               userAttendanceCount30Days ? userAttendanceCount30Days : 0,
               '/',
               totalAttendanceCount30Days,
@@ -1917,7 +1917,7 @@ var AttendancePublicView = function (_React$Component) {
               'td',
               { className: 'col-xs-2 text-center vert-align' },
               isNaN(since60DaysAttendancePercentage) ? 0 : since60DaysAttendancePercentage.toFixed(1),
-              '% (',
+              '%\xA0(',
               userAttendanceCount60Days ? userAttendanceCount60Days : 0,
               '/',
               totalAttendanceCount60Days,
@@ -1927,7 +1927,7 @@ var AttendancePublicView = function (_React$Component) {
               'td',
               { className: 'col-xs-2 text-center vert-align' },
               isNaN(since90DaysAttendancePercentage) ? 0 : since90DaysAttendancePercentage.toFixed(1),
-              '% (',
+              '%\xA0(',
               userAttendanceCount90Days ? userAttendanceCount90Days : 0,
               '/',
               totalAttendanceCount90Days,
@@ -1937,7 +1937,7 @@ var AttendancePublicView = function (_React$Component) {
               'td',
               { className: 'col-xs-2 text-center vert-align' },
               isNaN(lifetimeAttendancePercentage) ? 0 : lifetimeAttendancePercentage.toFixed(1),
-              '% (',
+              '%\xA0(',
               totalUserAttendanceCount,
               '/',
               totalAttendanceCount,
@@ -1947,7 +1947,7 @@ var AttendancePublicView = function (_React$Component) {
               'td',
               { className: 'col-xs-2 text-center vert-align' },
               isNaN(byRaidAttendancePercentage) ? 0 : byRaidAttendancePercentage.toFixed(1),
-              '% (',
+              '%\xA0(',
               userByRaidAttendanceCount,
               '/',
               totalByRaidCount,
@@ -2128,7 +2128,7 @@ var Footer = function (_React$Component) {
   function Footer(props) {
     _classCallCheck(this, Footer);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Footer).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
 
     _this.state = _FooterStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
@@ -2268,7 +2268,7 @@ var Home = function (_React$Component) {
   function Home(props) {
     _classCallCheck(this, Home);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Home).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
 
     _this.state = _HomeStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
@@ -2464,7 +2464,7 @@ var Home = function (_React$Component) {
               _react2.default.createElement(
                 'u',
                 null,
-                '❮   ',
+                '\u276E   ',
                 (0, _moment2.default)(raidweek.start).format('MMM Do YYYY')
               )
             )
@@ -3746,7 +3746,7 @@ var Navbar = function (_React$Component) {
   function Navbar(props) {
     _classCallCheck(this, Navbar);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Navbar).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Navbar.__proto__ || Object.getPrototypeOf(Navbar)).call(this, props));
 
     _this.state = _NavbarStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
@@ -3947,7 +3947,7 @@ var Navbar = function (_React$Component) {
 
 exports.default = Navbar;
 
-},{"../actions/NavbarActions":4,"../stores/NavbarStore":55,"react":"react","react-cookie":314,"react-router":"react-router"}],30:[function(require,module,exports){
+},{"../actions/NavbarActions":4,"../stores/NavbarStore":55,"react":"react","react-cookie":315,"react-router":"react-router"}],30:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -3992,7 +3992,7 @@ var Profile = function (_React$Component) {
   function Profile(props, context) {
     _classCallCheck(this, Profile);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Profile).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Profile.__proto__ || Object.getPrototypeOf(Profile)).call(this, props));
 
     _this.state = _ProfileStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
@@ -4095,7 +4095,7 @@ var ProfileCharacters = function (_React$Component) {
   function ProfileCharacters(props) {
     _classCallCheck(this, ProfileCharacters);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ProfileCharacters).call(this, props));
+    var _this = _possibleConstructorReturn(this, (ProfileCharacters.__proto__ || Object.getPrototypeOf(ProfileCharacters)).call(this, props));
 
     _this.state = _ProfileCharactersStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
@@ -4194,7 +4194,7 @@ var ProfileCharacters = function (_React$Component) {
                   } },
                 'Main'
               ),
-              '  ',
+              '\xA0\xA0',
               _react2.default.createElement(
                 'button',
                 { className: 'btn btn-default', onClick: function onClick() {
@@ -4408,7 +4408,7 @@ var ProfileCharacters = function (_React$Component) {
                       } },
                     'Save'
                   ),
-                  '  ',
+                  '\xA0\xA0',
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-info', onClick: function onClick() {
@@ -4416,7 +4416,7 @@ var ProfileCharacters = function (_React$Component) {
                       } },
                     'Update ilvl'
                   ),
-                  '  ',
+                  '\xA0\xA0',
                   _react2.default.createElement(
                     'button',
                     { className: 'btn btn-danger', onClick: function onClick() {
@@ -4555,7 +4555,7 @@ var ProfileCharacters = function (_React$Component) {
 
 exports.default = ProfileCharacters;
 
-},{"../../utility/WowClasses":358,"../../utility/WowRaces":359,"../actions/ProfileCharactersActions":6,"../stores/NavbarStore":55,"../stores/ProfileCharactersStore":56,"./ProfileSidenav":35,"classnames":75,"react":"react","react-router":"react-router","underscore":"underscore"}],32:[function(require,module,exports){
+},{"../../utility/WowClasses":360,"../../utility/WowRaces":361,"../actions/ProfileCharactersActions":6,"../stores/NavbarStore":55,"../stores/ProfileCharactersStore":56,"./ProfileSidenav":35,"classnames":75,"react":"react","react-router":"react-router","underscore":"underscore"}],32:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -4606,7 +4606,7 @@ var ProfileRaidWeeks = function (_React$Component) {
   function ProfileRaidWeeks(props) {
     _classCallCheck(this, ProfileRaidWeeks);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ProfileRaidWeeks).call(this, props));
+    var _this = _possibleConstructorReturn(this, (ProfileRaidWeeks.__proto__ || Object.getPrototypeOf(ProfileRaidWeeks)).call(this, props));
 
     _this.state = _ProfileRaidWeeksStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
@@ -4656,7 +4656,7 @@ var ProfileRaidWeeks = function (_React$Component) {
                 null,
                 'Note (',
                 user_availability.user_note.length,
-                '/255)'
+                '/500)'
               )
             );
             user_availabilityRow = _react2.default.createElement(
@@ -4719,7 +4719,7 @@ var ProfileRaidWeeks = function (_React$Component) {
               _react2.default.createElement(
                 'td',
                 { className: 'col-xs-3' },
-                _react2.default.createElement('textarea', { maxLength: '255', style: { 'minHeight': 200 + 'px' }, value: user_availability.user_note, onChange: function onChange(e) {
+                _react2.default.createElement('textarea', { maxLength: '500', style: { 'minHeight': 200 + 'px' }, value: user_availability.user_note, onChange: function onChange(e) {
                     return _ProfileRaidWeeksActions2.default.updateUserAvailabilityNote(user_availability.id, e.target.value);
                   } })
               ),
@@ -4990,7 +4990,7 @@ var ProfileRosters = function (_React$Component) {
   function ProfileRosters(props) {
     _classCallCheck(this, ProfileRosters);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ProfileRosters).call(this, props));
+    var _this = _possibleConstructorReturn(this, (ProfileRosters.__proto__ || Object.getPrototypeOf(ProfileRosters)).call(this, props));
 
     _this.state = _ProfileRostersStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
@@ -5158,7 +5158,7 @@ var ProfileSchedules = function (_React$Component) {
   function ProfileSchedules(props, context) {
     _classCallCheck(this, ProfileSchedules);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ProfileSchedules).call(this, props));
+    var _this = _possibleConstructorReturn(this, (ProfileSchedules.__proto__ || Object.getPrototypeOf(ProfileSchedules)).call(this, props));
 
     _this.state = _ProfileSchedulesStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
@@ -5421,7 +5421,7 @@ var ProfileSchedules = function (_React$Component) {
 
 exports.default = ProfileSchedules;
 
-},{"../../utility/WowClasses":358,"../actions/ProfileSchedulesActions":9,"../stores/NavbarStore":55,"../stores/ProfileSchedulesStore":59,"./ProfileSidenav":35,"classnames":75,"moment":176,"react":"react","react-router":"react-router","underscore":"underscore"}],35:[function(require,module,exports){
+},{"../../utility/WowClasses":360,"../actions/ProfileSchedulesActions":9,"../stores/NavbarStore":55,"../stores/ProfileSchedulesStore":59,"./ProfileSidenav":35,"classnames":75,"moment":176,"react":"react","react-router":"react-router","underscore":"underscore"}],35:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -5450,7 +5450,7 @@ var ProfileSidenav = function (_React$Component) {
   function ProfileSidenav() {
     _classCallCheck(this, ProfileSidenav);
 
-    return _possibleConstructorReturn(this, Object.getPrototypeOf(ProfileSidenav).apply(this, arguments));
+    return _possibleConstructorReturn(this, (ProfileSidenav.__proto__ || Object.getPrototypeOf(ProfileSidenav)).apply(this, arguments));
   }
 
   _createClass(ProfileSidenav, [{
@@ -5566,7 +5566,7 @@ var ScheduleView = function (_React$Component) {
   function ScheduleView(props) {
     _classCallCheck(this, ScheduleView);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ScheduleView).call(this, props));
+    var _this = _possibleConstructorReturn(this, (ScheduleView.__proto__ || Object.getPrototypeOf(ScheduleView)).call(this, props));
 
     _this.state = _ScheduleViewStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
@@ -5669,7 +5669,7 @@ var SingleScheduleView = function (_React$Component) {
   function SingleScheduleView(props) {
     _classCallCheck(this, SingleScheduleView);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(SingleScheduleView).call(this, props));
+    var _this = _possibleConstructorReturn(this, (SingleScheduleView.__proto__ || Object.getPrototypeOf(SingleScheduleView)).call(this, props));
 
     _this.state = _SingleScheduleViewStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
@@ -6061,7 +6061,7 @@ var SingleScheduleView = function (_React$Component) {
 
 exports.default = SingleScheduleView;
 
-},{"../actions/SingleScheduleViewActions":11,"../stores/NavbarStore":55,"../stores/SingleScheduleViewStore":62,"./../../utility/WowClasses":358,"classnames":75,"react":"react","react-router":"react-router","underscore":"underscore"}],38:[function(require,module,exports){
+},{"../actions/SingleScheduleViewActions":11,"../stores/NavbarStore":55,"../stores/SingleScheduleViewStore":62,"./../../utility/WowClasses":360,"classnames":75,"react":"react","react-router":"react-router","underscore":"underscore"}],38:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6128,7 +6128,7 @@ var AddAttendance = function (_React$Component) {
   function AddAttendance(props) {
     _classCallCheck(this, AddAttendance);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AddAttendance).call(this, props));
+    var _this = _possibleConstructorReturn(this, (AddAttendance.__proto__ || Object.getPrototypeOf(AddAttendance)).call(this, props));
 
     _this.state = _AddAttendanceStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
@@ -6318,7 +6318,7 @@ var AddAttendance = function (_React$Component) {
                 { className: 'btn btn-success btn-circle', onClick: function onClick() {
                     return _AddAttendanceActions2.default.toggleCharacterState(character.name, character.main_role);
                   } },
-                '✓'
+                '\u2713'
               );
             } else {
               actionButton = _react2.default.createElement('button', { className: 'btn btn-default btn-circle', onClick: function onClick() {
@@ -6350,7 +6350,7 @@ var AddAttendance = function (_React$Component) {
                 { className: 'btn btn-success btn-circle', onClick: function onClick() {
                     return _AddAttendanceActions2.default.toggleCharacterState(character.name, character.main_role);
                   } },
-                '✓'
+                '\u2713'
               );
             } else {
               actionButton = _react2.default.createElement('button', { className: 'btn btn-default btn-circle', onClick: function onClick() {
@@ -6382,7 +6382,7 @@ var AddAttendance = function (_React$Component) {
                 { className: 'btn btn-success btn-circle', onClick: function onClick() {
                     return _AddAttendanceActions2.default.toggleCharacterState(character.name, character.main_role);
                   } },
-                '✓'
+                '\u2713'
               );
             } else {
               actionButton = _react2.default.createElement('button', { className: 'btn btn-default btn-circle', onClick: function onClick() {
@@ -6414,7 +6414,7 @@ var AddAttendance = function (_React$Component) {
                 { className: 'btn btn-success btn-circle', onClick: function onClick() {
                     return _AddAttendanceActions2.default.toggleCharacterState(character.name, character.main_role);
                   } },
-                '✓'
+                '\u2713'
               );
             } else {
               actionButton = _react2.default.createElement('button', { className: 'btn btn-default btn-circle', onClick: function onClick() {
@@ -6820,7 +6820,7 @@ var AddAttendance = function (_React$Component) {
                 }, disabled: this.state.confirmUploadDisabled },
               'Upload'
             ),
-            '  ',
+            '\xA0\xA0',
             _react2.default.createElement(
               'button',
               { className: 'btn btn-danger', onClick: function onClick() {
@@ -6839,7 +6839,7 @@ var AddAttendance = function (_React$Component) {
 
 exports.default = AddAttendance;
 
-},{"../../actions/admin/AddAttendanceActions":12,"../../stores/admin/AddAttendanceStore":63,"./../../../utility/WowClasses":358,"./../../stores/NavbarStore":55,"./AdminSideNav":41,"classnames":75,"moment":176,"react":"react","react-bootstrap":269,"react-dropzone":316,"react-radio-group":341,"react-router":"react-router","underscore":"underscore"}],39:[function(require,module,exports){
+},{"../../actions/admin/AddAttendanceActions":12,"../../stores/admin/AddAttendanceStore":63,"./../../../utility/WowClasses":360,"./../../stores/NavbarStore":55,"./AdminSideNav":41,"classnames":75,"moment":176,"react":"react","react-bootstrap":269,"react-dropzone":317,"react-radio-group":344,"react-router":"react-router","underscore":"underscore"}],39:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6876,7 +6876,7 @@ var AddRoster = function (_React$Component) {
   function AddRoster(props) {
     _classCallCheck(this, AddRoster);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AddRoster).call(this, props));
+    var _this = _possibleConstructorReturn(this, (AddRoster.__proto__ || Object.getPrototypeOf(AddRoster)).call(this, props));
 
     _this.state = _AddRosterStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
@@ -7013,7 +7013,7 @@ var Admin = function (_React$Component) {
   function Admin(props) {
     _classCallCheck(this, Admin);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Admin).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Admin.__proto__ || Object.getPrototypeOf(Admin)).call(this, props));
 
     _this.state = _AdminStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
@@ -7099,7 +7099,7 @@ var AdminSideNav = function (_React$Component) {
   function AdminSideNav(props) {
     _classCallCheck(this, AdminSideNav);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AdminSideNav).call(this, props));
+    var _this = _possibleConstructorReturn(this, (AdminSideNav.__proto__ || Object.getPrototypeOf(AdminSideNav)).call(this, props));
 
     _this.state = _AdminSideNavStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
@@ -7284,7 +7284,7 @@ var AttendanceManagement = function (_React$Component) {
   function AttendanceManagement(props) {
     _classCallCheck(this, AttendanceManagement);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AttendanceManagement).call(this, props));
+    var _this = _possibleConstructorReturn(this, (AttendanceManagement.__proto__ || Object.getPrototypeOf(AttendanceManagement)).call(this, props));
 
     _this.state = _AttendanceManagementStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
@@ -7329,7 +7329,7 @@ var AttendanceManagement = function (_React$Component) {
                   } },
                 'Add Attendance'
               ),
-              '   ',
+              '\xA0\xA0\xA0',
               _react2.default.createElement(
                 'button',
                 { className: (0, _classnames2.default)('btn', { 'btn-default': this.state.viewMode != 2, 'btn-success': this.state.viewMode == 2 }), onClick: function onClick() {
@@ -7337,7 +7337,7 @@ var AttendanceManagement = function (_React$Component) {
                   } },
                 'View Attendance'
               ),
-              '   ',
+              '\xA0\xA0\xA0',
               _react2.default.createElement(
                 'button',
                 { className: (0, _classnames2.default)('btn', { 'btn-default': this.state.viewMode != 3, 'btn-success': this.state.viewMode == 3 }), onClick: function onClick() {
@@ -7360,7 +7360,7 @@ var AttendanceManagement = function (_React$Component) {
 
 exports.default = AttendanceManagement;
 
-},{"../../actions/admin/AttendanceManagementActions":16,"../../stores/admin/AttendanceManagementStore":67,"./../../../utility/WowClasses":358,"./../../stores/NavbarStore":55,"./AddAttendance":38,"./AdminSideNav":41,"./DeleteAttendance":44,"./ViewAttendance":49,"classnames":75,"moment":176,"react":"react","react-dropzone":316,"react-radio-group":341,"react-router":"react-router","underscore":"underscore"}],43:[function(require,module,exports){
+},{"../../actions/admin/AttendanceManagementActions":16,"../../stores/admin/AttendanceManagementStore":67,"./../../../utility/WowClasses":360,"./../../stores/NavbarStore":55,"./AddAttendance":38,"./AdminSideNav":41,"./DeleteAttendance":44,"./ViewAttendance":49,"classnames":75,"moment":176,"react":"react","react-dropzone":317,"react-radio-group":344,"react-router":"react-router","underscore":"underscore"}],43:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -7412,7 +7412,7 @@ var CharacterManagement = function (_React$Component) {
   function CharacterManagement(props) {
     _classCallCheck(this, CharacterManagement);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(CharacterManagement).call(this, props));
+    var _this = _possibleConstructorReturn(this, (CharacterManagement.__proto__ || Object.getPrototypeOf(CharacterManagement)).call(this, props));
 
     _this.state = _CharacterManagementStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
@@ -7623,7 +7623,7 @@ var CharacterManagement = function (_React$Component) {
 
 exports.default = CharacterManagement;
 
-},{"./../../../utility/WowClasses":358,"./../../../utility/WowRaces":359,"./../../actions/admin/CharacterManagementActions":17,"./../../stores/NavbarStore":55,"./../../stores/admin/CharacterManagementStore":68,"./AdminSideNav":41,"react":"react","react-router":"react-router","underscore":"underscore"}],44:[function(require,module,exports){
+},{"./../../../utility/WowClasses":360,"./../../../utility/WowRaces":361,"./../../actions/admin/CharacterManagementActions":17,"./../../stores/NavbarStore":55,"./../../stores/admin/CharacterManagementStore":68,"./AdminSideNav":41,"react":"react","react-router":"react-router","underscore":"underscore"}],44:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -7674,7 +7674,7 @@ var DeleteAttendance = function (_React$Component) {
   function DeleteAttendance(props) {
     _classCallCheck(this, DeleteAttendance);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(DeleteAttendance).call(this, props));
+    var _this = _possibleConstructorReturn(this, (DeleteAttendance.__proto__ || Object.getPrototypeOf(DeleteAttendance)).call(this, props));
 
     _this.state = _DeleteAttendanceStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
@@ -7745,7 +7745,7 @@ var DeleteAttendance = function (_React$Component) {
                 'span',
                 { className: 'hand-cursor' },
                 row.user.battletag,
-                '    ❯'
+                '\xA0\xA0\xA0\xA0\u276F'
               )
             );
 
@@ -7937,7 +7937,7 @@ var RaidManagement = function (_React$Component) {
   function RaidManagement(props) {
     _classCallCheck(this, RaidManagement);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(RaidManagement).call(this, props));
+    var _this = _possibleConstructorReturn(this, (RaidManagement.__proto__ || Object.getPrototypeOf(RaidManagement)).call(this, props));
 
     _this.state = _RaidManagementStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
@@ -8898,7 +8898,7 @@ var RaidWeekManagement = function (_React$Component) {
   function RaidWeekManagement(props) {
     _classCallCheck(this, RaidWeekManagement);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(RaidWeekManagement).call(this, props));
+    var _this = _possibleConstructorReturn(this, (RaidWeekManagement.__proto__ || Object.getPrototypeOf(RaidWeekManagement)).call(this, props));
 
     _this.state = _RaidWeekManagementStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
@@ -9285,7 +9285,7 @@ var RaidWeekManagement = function (_React$Component) {
 
 exports.default = RaidWeekManagement;
 
-},{"./../../../utility/MonthOrders":357,"./../../actions/admin/RaidWeekManagementActions":20,"./../../stores/NavbarStore":55,"./../../stores/admin/RaidWeekManagementStore":71,"./AdminSideNav":41,"moment":176,"react":"react","react-bootstrap":269,"react-router":"react-router","react-yearly-calendar":346,"underscore":"underscore"}],47:[function(require,module,exports){
+},{"./../../../utility/MonthOrders":359,"./../../actions/admin/RaidWeekManagementActions":20,"./../../stores/NavbarStore":55,"./../../stores/admin/RaidWeekManagementStore":71,"./AdminSideNav":41,"moment":176,"react":"react","react-bootstrap":269,"react-router":"react-router","react-yearly-calendar":349,"underscore":"underscore"}],47:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -9334,7 +9334,7 @@ var RosterManagement = function (_React$Component) {
   function RosterManagement(props) {
     _classCallCheck(this, RosterManagement);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(RosterManagement).call(this, props));
+    var _this = _possibleConstructorReturn(this, (RosterManagement.__proto__ || Object.getPrototypeOf(RosterManagement)).call(this, props));
 
     _this.state = _RosterManagementStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
@@ -9662,7 +9662,7 @@ var ScheduleManagement = function (_React$Component) {
   function ScheduleManagement(props) {
     _classCallCheck(this, ScheduleManagement);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ScheduleManagement).call(this, props));
+    var _this = _possibleConstructorReturn(this, (ScheduleManagement.__proto__ || Object.getPrototypeOf(ScheduleManagement)).call(this, props));
 
     _this.state = _ScheduleManagementStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
@@ -10001,7 +10001,7 @@ var ScheduleManagement = function (_React$Component) {
                   { className: 'btn btn-success btn-circle', onClick: function onClick() {
                       return _ScheduleManagementActions2.default.removeCharacterFromScheduleBoss(schedule_boss.id, character.id);
                     } },
-                  '✓'
+                  '\u2713'
                 );
               } else {
                 actionButton = _react2.default.createElement('button', { className: 'btn btn-default btn-circle', onClick: function onClick() {
@@ -10054,7 +10054,7 @@ var ScheduleManagement = function (_React$Component) {
                   { className: 'btn btn-success btn-circle', onClick: function onClick() {
                       return _ScheduleManagementActions2.default.removeCharacterFromScheduleBoss(schedule_boss.id, character.id);
                     } },
-                  '✓'
+                  '\u2713'
                 );
               } else {
                 actionButton = _react2.default.createElement('button', { className: 'btn btn-default btn-circle', onClick: function onClick() {
@@ -10107,7 +10107,7 @@ var ScheduleManagement = function (_React$Component) {
                   { className: 'btn btn-success btn-circle', onClick: function onClick() {
                       return _ScheduleManagementActions2.default.removeCharacterFromScheduleBoss(schedule_boss.id, character.id);
                     } },
-                  '✓'
+                  '\u2713'
                 );
               } else {
                 actionButton = _react2.default.createElement('button', { className: 'btn btn-default btn-circle', onClick: function onClick() {
@@ -10153,7 +10153,7 @@ var ScheduleManagement = function (_React$Component) {
               { className: 'btn btn-success btn-circle', onClick: function onClick() {
                   return _ScheduleManagementActions2.default.invertScheduleBossPublishedState(schedule_boss.id);
                 } },
-              '✓'
+              '\u2713'
             );
           } else {
             publishedButton = _react2.default.createElement('button', { className: 'btn btn-default btn-circle', onClick: function onClick() {
@@ -10602,7 +10602,7 @@ var ScheduleManagement = function (_React$Component) {
 
 exports.default = ScheduleManagement;
 
-},{"./../../../utility/WowClasses":358,"./../../actions/admin/ScheduleManagementActions":22,"./../../stores/NavbarStore":55,"./../../stores/admin/ScheduleManagementStore":73,"./AdminSideNav":41,"classnames":75,"moment":176,"react":"react","react-bootstrap":269,"react-router":"react-router","underscore":"underscore"}],49:[function(require,module,exports){
+},{"./../../../utility/WowClasses":360,"./../../actions/admin/ScheduleManagementActions":22,"./../../stores/NavbarStore":55,"./../../stores/admin/ScheduleManagementStore":73,"./AdminSideNav":41,"classnames":75,"moment":176,"react":"react","react-bootstrap":269,"react-router":"react-router","underscore":"underscore"}],49:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -10653,7 +10653,7 @@ var ViewAttendance = function (_React$Component) {
   function ViewAttendance(props) {
     _classCallCheck(this, ViewAttendance);
 
-    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ViewAttendance).call(this, props));
+    var _this = _possibleConstructorReturn(this, (ViewAttendance.__proto__ || Object.getPrototypeOf(ViewAttendance)).call(this, props));
 
     _this.state = _ViewAttendanceStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
@@ -10774,7 +10774,7 @@ var ViewAttendance = function (_React$Component) {
               'span',
               { className: 'hand-cursor' },
               user.battletag,
-              '    ❯'
+              '\xA0\xA0\xA0\xA0\u276F'
             )
           );
 
@@ -10790,7 +10790,7 @@ var ViewAttendance = function (_React$Component) {
               'td',
               { className: 'col-xs-2 text-center vert-align' },
               isNaN(since30DaysAttendancePercentage) ? 0 : since30DaysAttendancePercentage.toFixed(1),
-              '% (',
+              '%\xA0(',
               userAttendanceCount30Days ? userAttendanceCount30Days : 0,
               '/',
               totalAttendanceCount30Days,
@@ -10800,7 +10800,7 @@ var ViewAttendance = function (_React$Component) {
               'td',
               { className: 'col-xs-2 text-center vert-align' },
               isNaN(since60DaysAttendancePercentage) ? 0 : since60DaysAttendancePercentage.toFixed(1),
-              '% (',
+              '%\xA0(',
               userAttendanceCount60Days ? userAttendanceCount60Days : 0,
               '/',
               totalAttendanceCount60Days,
@@ -10810,7 +10810,7 @@ var ViewAttendance = function (_React$Component) {
               'td',
               { className: 'col-xs-2 text-center vert-align' },
               isNaN(since90DaysAttendancePercentage) ? 0 : since90DaysAttendancePercentage.toFixed(1),
-              '% (',
+              '%\xA0(',
               userAttendanceCount90Days ? userAttendanceCount90Days : 0,
               '/',
               totalAttendanceCount90Days,
@@ -10820,7 +10820,7 @@ var ViewAttendance = function (_React$Component) {
               'td',
               { className: 'col-xs-2 text-center vert-align' },
               isNaN(lifetimeAttendancePercentage) ? 0 : lifetimeAttendancePercentage.toFixed(1),
-              '% (',
+              '%\xA0(',
               totalUserAttendanceCount,
               '/',
               totalAttendanceCount,
@@ -10830,7 +10830,7 @@ var ViewAttendance = function (_React$Component) {
               'td',
               { className: 'col-xs-2 text-center vert-align' },
               isNaN(byRaidAttendancePercentage) ? 0 : byRaidAttendancePercentage.toFixed(1),
-              '% (',
+              '%\xA0(',
               userByRaidAttendanceCount,
               '/',
               totalByRaidCount,
@@ -16456,7 +16456,7 @@ module.exports = property;
 
 },{"../internal/baseProperty":131,"../internal/basePropertyDeep":132,"../internal/isKey":152}],176:[function(require,module,exports){
 //! moment.js
-//! version : 2.14.1
+//! version : 2.15.1
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
 //! license : MIT
 //! momentjs.com
@@ -16484,7 +16484,9 @@ module.exports = property;
     }
 
     function isObject(input) {
-        return Object.prototype.toString.call(input) === '[object Object]';
+        // IE8 will treat undefined and null as object if it wasn't for
+        // input != null
+        return input != null && Object.prototype.toString.call(input) === '[object Object]';
     }
 
     function isObjectEmpty(obj) {
@@ -16583,7 +16585,7 @@ module.exports = property;
             var parsedParts = some.call(flags.parsedDateParts, function (i) {
                 return i != null;
             });
-            m._isValid = !isNaN(m._d.getTime()) &&
+            var isNowValid = !isNaN(m._d.getTime()) &&
                 flags.overflow < 0 &&
                 !flags.empty &&
                 !flags.invalidMonth &&
@@ -16594,10 +16596,17 @@ module.exports = property;
                 (!flags.meridiem || (flags.meridiem && parsedParts));
 
             if (m._strict) {
-                m._isValid = m._isValid &&
+                isNowValid = isNowValid &&
                     flags.charsLeftOver === 0 &&
                     flags.unusedTokens.length === 0 &&
                     flags.bigHour === undefined;
+            }
+
+            if (Object.isFrozen == null || !Object.isFrozen(m)) {
+                m._isValid = isNowValid;
+            }
+            else {
+                return isNowValid;
             }
         }
         return m._isValid;
@@ -16739,7 +16748,22 @@ module.exports = property;
                 utils_hooks__hooks.deprecationHandler(null, msg);
             }
             if (firstTime) {
-                warn(msg + '\nArguments: ' + Array.prototype.slice.call(arguments).join(', ') + '\n' + (new Error()).stack);
+                var args = [];
+                var arg;
+                for (var i = 0; i < arguments.length; i++) {
+                    arg = '';
+                    if (typeof arguments[i] === 'object') {
+                        arg += '\n[' + i + '] ';
+                        for (var key in arguments[0]) {
+                            arg += key + ': ' + arguments[0][key] + ', ';
+                        }
+                        arg = arg.slice(0, -2); // Remove trailing comma and space
+                    } else {
+                        arg = arguments[i];
+                    }
+                    args.push(arg);
+                }
+                warn(msg + '\nArguments: ' + Array.prototype.slice.call(args).join('') + '\n' + (new Error()).stack);
                 firstTime = false;
             }
             return fn.apply(this, arguments);
@@ -17266,12 +17290,18 @@ module.exports = property;
     var MONTHS_IN_FORMAT = /D[oD]?(\[[^\[\]]*\]|\s+)+MMMM?/;
     var defaultLocaleMonths = 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_');
     function localeMonths (m, format) {
+        if (!m) {
+            return this._months;
+        }
         return isArray(this._months) ? this._months[m.month()] :
             this._months[(this._months.isFormat || MONTHS_IN_FORMAT).test(format) ? 'format' : 'standalone'][m.month()];
     }
 
     var defaultLocaleMonthsShort = 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_');
     function localeMonthsShort (m, format) {
+        if (!m) {
+            return this._monthsShort;
+        }
         return isArray(this._monthsShort) ? this._monthsShort[m.month()] :
             this._monthsShort[MONTHS_IN_FORMAT.test(format) ? 'format' : 'standalone'][m.month()];
     }
@@ -17768,18 +17798,21 @@ module.exports = property;
 
     var defaultLocaleWeekdays = 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split('_');
     function localeWeekdays (m, format) {
+        if (!m) {
+            return this._weekdays;
+        }
         return isArray(this._weekdays) ? this._weekdays[m.day()] :
             this._weekdays[this._weekdays.isFormat.test(format) ? 'format' : 'standalone'][m.day()];
     }
 
     var defaultLocaleWeekdaysShort = 'Sun_Mon_Tue_Wed_Thu_Fri_Sat'.split('_');
     function localeWeekdaysShort (m) {
-        return this._weekdaysShort[m.day()];
+        return (m) ? this._weekdaysShort[m.day()] : this._weekdaysShort;
     }
 
     var defaultLocaleWeekdaysMin = 'Su_Mo_Tu_We_Th_Fr_Sa'.split('_');
     function localeWeekdaysMin (m) {
-        return this._weekdaysMin[m.day()];
+        return (m) ? this._weekdaysMin[m.day()] : this._weekdaysMin;
     }
 
     function day_of_week__handleStrictParse(weekdayName, format, strict) {
@@ -18474,9 +18507,9 @@ module.exports = property;
     }
 
     utils_hooks__hooks.createFromInputFallback = deprecate(
-        'moment construction falls back to js Date. This is ' +
-        'discouraged and will be removed in upcoming major ' +
-        'release. Please refer to ' +
+        'value provided is not in a recognized ISO format. moment construction falls back to js Date(), ' +
+        'which is not reliable across all browsers and versions. Non ISO date formats are ' +
+        'discouraged and will be removed in an upcoming major release. Please refer to ' +
         'http://momentjs.com/guides/#/warnings/js-date/ for more info.',
         function (config) {
             config._d = new Date(config._i + (config._useUTC ? ' UTC' : ''));
@@ -18975,6 +19008,14 @@ module.exports = property;
         return obj instanceof Duration;
     }
 
+    function absRound (number) {
+        if (number < 0) {
+            return Math.round(-1 * number) * -1;
+        } else {
+            return Math.round(number);
+        }
+    }
+
     // FORMATTING
 
     function offset (token, separator) {
@@ -19125,7 +19166,13 @@ module.exports = property;
         if (this._tzm) {
             this.utcOffset(this._tzm);
         } else if (typeof this._i === 'string') {
-            this.utcOffset(offsetFromString(matchOffset, this._i));
+            var tZone = offsetFromString(matchOffset, this._i);
+
+            if (tZone === 0) {
+                this.utcOffset(0, true);
+            } else {
+                this.utcOffset(offsetFromString(matchOffset, this._i));
+            }
         }
         return this;
     }
@@ -19180,7 +19227,7 @@ module.exports = property;
     }
 
     // ASP.NET json date format regex
-    var aspNetRegex = /^(\-)?(?:(\d*)[. ])?(\d+)\:(\d+)(?:\:(\d+)\.?(\d{3})?\d*)?$/;
+    var aspNetRegex = /^(\-)?(?:(\d*)[. ])?(\d+)\:(\d+)(?:\:(\d+)(\.\d*)?)?$/;
 
     // from http://docs.closure-library.googlecode.com/git/closure_goog_date_date.js.source.html
     // somewhat more in line with 4.4.3.2 2004 spec, but allows decimal anywhere
@@ -19212,11 +19259,11 @@ module.exports = property;
             sign = (match[1] === '-') ? -1 : 1;
             duration = {
                 y  : 0,
-                d  : toInt(match[DATE])        * sign,
-                h  : toInt(match[HOUR])        * sign,
-                m  : toInt(match[MINUTE])      * sign,
-                s  : toInt(match[SECOND])      * sign,
-                ms : toInt(match[MILLISECOND]) * sign
+                d  : toInt(match[DATE])                         * sign,
+                h  : toInt(match[HOUR])                         * sign,
+                m  : toInt(match[MINUTE])                       * sign,
+                s  : toInt(match[SECOND])                       * sign,
+                ms : toInt(absRound(match[MILLISECOND] * 1000)) * sign // the millisecond decimal point is included in the match
             };
         } else if (!!(match = isoRegex.exec(input))) {
             sign = (match[1] === '-') ? -1 : 1;
@@ -19289,14 +19336,6 @@ module.exports = property;
         }
 
         return res;
-    }
-
-    function absRound (number) {
-        if (number < 0) {
-            return Math.round(-1 * number) * -1;
-        } else {
-            return Math.round(number);
-        }
     }
 
     // TODO: remove 'name' arg after deprecation is removed
@@ -20613,7 +20652,7 @@ module.exports = property;
     // Side effect imports
 
 
-    utils_hooks__hooks.version = '2.14.1';
+    utils_hooks__hooks.version = '2.15.1';
 
     setHookCallback(local__createLocal);
 
@@ -20947,7 +20986,7 @@ var Alert = _react2['default'].createClass({
 
 exports['default'] = _utilsBootstrapUtils.bsStyles(_styleMaps.State.values(), _styleMaps.State.INFO, _utilsBootstrapUtils.bsClass('alert', Alert));
 module.exports = exports['default'];
-},{"./styleMaps":270,"./utils/bootstrapUtils":274,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/deprecated":337}],180:[function(require,module,exports){
+},{"./styleMaps":270,"./utils/bootstrapUtils":274,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/deprecated":339}],180:[function(require,module,exports){
 'use strict';
 
 var _extends = require('babel-runtime/helpers/extends')['default'];
@@ -21318,7 +21357,7 @@ Button.types = types;
 
 exports['default'] = _utilsBootstrapUtils.bsStyles(ButtonStyles, _styleMaps.DEFAULT, _utilsBootstrapUtils.bsSizes([_styleMaps.Sizes.LARGE, _styleMaps.Sizes.SMALL, _styleMaps.Sizes.XSMALL], _utilsBootstrapUtils.bsClass('btn', Button)));
 module.exports = exports['default'];
-},{"./SafeAnchor":257,"./styleMaps":270,"./utils/bootstrapUtils":274,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/elementType":338}],184:[function(require,module,exports){
+},{"./SafeAnchor":257,"./styleMaps":270,"./utils/bootstrapUtils":274,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/elementType":340}],184:[function(require,module,exports){
 'use strict';
 
 var _extends = require('babel-runtime/helpers/extends')['default'];
@@ -21392,7 +21431,7 @@ var ButtonGroup = _react2['default'].createClass({
 
 exports['default'] = _utilsBootstrapUtils.bsClass('btn-group', ButtonGroup);
 module.exports = exports['default'];
-},{"./Button":183,"./utils/bootstrapUtils":274,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/all":335}],185:[function(require,module,exports){
+},{"./Button":183,"./utils/bootstrapUtils":274,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/all":337}],185:[function(require,module,exports){
 'use strict';
 
 var _inherits = require('babel-runtime/helpers/inherits')['default'];
@@ -21937,7 +21976,7 @@ var CarouselCaption = _react2['default'].createClass({
 
 exports['default'] = CarouselCaption;
 module.exports = exports['default'];
-},{"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/elementType":338}],189:[function(require,module,exports){
+},{"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/elementType":340}],189:[function(require,module,exports){
 'use strict';
 
 var _extends = require('babel-runtime/helpers/extends')['default'];
@@ -22186,7 +22225,7 @@ exports['default'] = _utilsBootstrapUtils.bsClass('checkbox', Checkbox);
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./utils/bootstrapUtils":274,"_process":177,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","warning":356}],191:[function(require,module,exports){
+},{"./utils/bootstrapUtils":274,"_process":177,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","warning":314}],191:[function(require,module,exports){
 'use strict';
 
 var _extends = require('babel-runtime/helpers/extends')['default'];
@@ -22284,7 +22323,7 @@ var Clearfix = _react2['default'].createClass({
 
 exports['default'] = Clearfix;
 module.exports = exports['default'];
-},{"./styleMaps":270,"babel-runtime/core-js/object/keys":283,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/elementType":338}],192:[function(require,module,exports){
+},{"./styleMaps":270,"babel-runtime/core-js/object/keys":283,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/elementType":340}],192:[function(require,module,exports){
 'use strict';
 
 var _extends = require('babel-runtime/helpers/extends')['default'];
@@ -22533,7 +22572,7 @@ var Col = _react2['default'].createClass({
 
 exports['default'] = Col;
 module.exports = exports['default'];
-},{"./styleMaps":270,"babel-runtime/core-js/object/keys":283,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/elementType":338}],193:[function(require,module,exports){
+},{"./styleMaps":270,"babel-runtime/core-js/object/keys":283,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/elementType":340}],193:[function(require,module,exports){
 'use strict';
 
 var _inherits = require('babel-runtime/helpers/inherits')['default'];
@@ -22770,7 +22809,7 @@ Collapse.defaultProps = {
 
 exports['default'] = Collapse;
 module.exports = exports['default'];
-},{"./utils/createChainedFunction":277,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"dom-helpers/style":95,"react":"react","react-overlays/lib/Transition":323}],194:[function(require,module,exports){
+},{"./utils/createChainedFunction":277,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"dom-helpers/style":95,"react":"react","react-overlays/lib/Transition":324}],194:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -22862,7 +22901,7 @@ exports['default'] = _utilsBootstrapUtils.bsClass('control-label', ControlLabel)
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./utils/bootstrapUtils":274,"_process":177,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","warning":356}],195:[function(require,module,exports){
+},{"./utils/bootstrapUtils":274,"_process":177,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","warning":314}],195:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -23290,7 +23329,7 @@ exports['default'] = Dropdown;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./ButtonGroup":184,"./DropdownMenu":197,"./DropdownToggle":198,"./utils/CustomPropTypes":271,"./utils/ValidComponentChildren":273,"./utils/bootstrapUtils":274,"./utils/createChainedFunction":277,"_process":177,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"dom-helpers/activeElement":76,"dom-helpers/query/contains":86,"keycode":106,"lodash-compat/collection/find":108,"lodash-compat/object/omit":170,"react":"react","react-dom":"react-dom","react-prop-types/lib/all":335,"react-prop-types/lib/elementType":338,"react-prop-types/lib/isRequiredForA11y":339,"uncontrollable":354,"warning":356}],196:[function(require,module,exports){
+},{"./ButtonGroup":184,"./DropdownMenu":197,"./DropdownToggle":198,"./utils/CustomPropTypes":271,"./utils/ValidComponentChildren":273,"./utils/bootstrapUtils":274,"./utils/createChainedFunction":277,"_process":177,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"dom-helpers/activeElement":76,"dom-helpers/query/contains":86,"keycode":106,"lodash-compat/collection/find":108,"lodash-compat/object/omit":170,"react":"react","react-dom":"react-dom","react-prop-types/lib/all":337,"react-prop-types/lib/elementType":340,"react-prop-types/lib/isRequiredForA11y":341,"uncontrollable":357,"warning":314}],196:[function(require,module,exports){
 'use strict';
 
 var _inherits = require('babel-runtime/helpers/inherits')['default'];
@@ -23592,7 +23631,7 @@ DropdownMenu.propTypes = {
 
 exports['default'] = DropdownMenu;
 module.exports = exports['default'];
-},{"./utils/ValidComponentChildren":273,"./utils/bootstrapUtils":274,"./utils/createChainedFunction":277,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"keycode":106,"react":"react","react-dom":"react-dom","react-overlays/lib/RootCloseWrapper":322}],198:[function(require,module,exports){
+},{"./utils/ValidComponentChildren":273,"./utils/bootstrapUtils":274,"./utils/createChainedFunction":277,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"keycode":106,"react":"react","react-dom":"react-dom","react-overlays/lib/RootCloseWrapper":323}],198:[function(require,module,exports){
 'use strict';
 
 var _inherits = require('babel-runtime/helpers/inherits')['default'];
@@ -23795,7 +23834,7 @@ Fade.defaultProps = {
 
 exports['default'] = Fade;
 module.exports = exports['default'];
-},{"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-overlays/lib/Transition":323}],200:[function(require,module,exports){
+},{"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-overlays/lib/Transition":324}],200:[function(require,module,exports){
 'use strict';
 
 var _inherits = require('babel-runtime/helpers/inherits')['default'];
@@ -23875,7 +23914,7 @@ Form.defaultProps = defaultProps;
 
 exports['default'] = _utilsBootstrapUtils.bsClass('form', Form);
 module.exports = exports['default'];
-},{"./utils/bootstrapUtils":274,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-prop-types/lib/elementType":338}],201:[function(require,module,exports){
+},{"./utils/bootstrapUtils":274,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-prop-types/lib/elementType":340}],201:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -23990,7 +24029,7 @@ exports['default'] = _utilsBootstrapUtils.bsClass('form-control', FormControl);
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./FormControlFeedback":202,"./FormControlStatic":203,"./utils/bootstrapUtils":274,"_process":177,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-prop-types/lib/elementType":338,"warning":356}],202:[function(require,module,exports){
+},{"./FormControlFeedback":202,"./FormControlStatic":203,"./utils/bootstrapUtils":274,"_process":177,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-prop-types/lib/elementType":340,"warning":314}],202:[function(require,module,exports){
 'use strict';
 
 var _inherits = require('babel-runtime/helpers/inherits')['default'];
@@ -24158,7 +24197,7 @@ FormControlStatic.defaultProps = defaultProps;
 
 exports['default'] = _utilsBootstrapUtils.bsClass('form-control-static', FormControlStatic);
 module.exports = exports['default'];
-},{"./utils/bootstrapUtils":274,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-prop-types/lib/elementType":338}],204:[function(require,module,exports){
+},{"./utils/bootstrapUtils":274,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-prop-types/lib/elementType":340}],204:[function(require,module,exports){
 'use strict';
 
 var _inherits = require('babel-runtime/helpers/inherits')['default'];
@@ -24245,7 +24284,7 @@ Static.defaultProps = {
 
 exports['default'] = _utilsDeprecationWarning2['default'].wrapper(Static, '`<FormControls.Static>`', '`<FormControl.Static>`');
 module.exports = exports['default'];
-},{"../InputBase":212,"../utils/childrenValueInputValidation":276,"../utils/deprecationWarning":278,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-prop-types/lib/elementType":338}],205:[function(require,module,exports){
+},{"../InputBase":212,"../utils/childrenValueInputValidation":276,"../utils/deprecationWarning":278,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-prop-types/lib/elementType":340}],205:[function(require,module,exports){
 'use strict';
 
 var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
@@ -24393,7 +24432,7 @@ FormGroup.childContextTypes = childContextTypes;
 
 exports['default'] = _utilsBootstrapUtils.bsClass('form-group', _utilsBootstrapUtils.bsSizes([_styleMaps.Sizes.LARGE, _styleMaps.Sizes.SMALL], FormGroup));
 module.exports = exports['default'];
-},{"./styleMaps":270,"./utils/ValidComponentChildren":273,"./utils/bootstrapUtils":274,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-prop-types/lib/deprecated":337}],207:[function(require,module,exports){
+},{"./styleMaps":270,"./utils/ValidComponentChildren":273,"./utils/bootstrapUtils":274,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-prop-types/lib/deprecated":339}],207:[function(require,module,exports){
 'use strict';
 
 var _extends = require('babel-runtime/helpers/extends')['default'];
@@ -24455,7 +24494,7 @@ var Glyphicon = _react2['default'].createClass({
 
 exports['default'] = Glyphicon;
 module.exports = exports['default'];
-},{"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/deprecated":337}],208:[function(require,module,exports){
+},{"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/deprecated":339}],208:[function(require,module,exports){
 'use strict';
 
 var _extends = require('babel-runtime/helpers/extends')['default'];
@@ -24514,7 +24553,7 @@ var Grid = _react2['default'].createClass({
 
 exports['default'] = Grid;
 module.exports = exports['default'];
-},{"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/elementType":338}],209:[function(require,module,exports){
+},{"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/elementType":340}],209:[function(require,module,exports){
 'use strict';
 
 var _inherits = require('babel-runtime/helpers/inherits')['default'];
@@ -25271,7 +25310,7 @@ var Jumbotron = _react2['default'].createClass({
 
 exports['default'] = Jumbotron;
 module.exports = exports['default'];
-},{"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/elementType":338}],218:[function(require,module,exports){
+},{"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/elementType":340}],218:[function(require,module,exports){
 'use strict';
 
 var _inherits = require('babel-runtime/helpers/inherits')['default'];
@@ -25667,7 +25706,7 @@ Media = _Object$assign(Media, { Heading: _MediaHeading2['default'], Body: _Media
 
 exports['default'] = Media;
 module.exports = exports['default'];
-},{"./MediaBody":222,"./MediaHeading":223,"./MediaLeft":224,"./MediaList":225,"./MediaListItem":226,"./MediaRight":227,"babel-runtime/core-js/object/assign":281,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-prop-types/lib/elementType":338}],222:[function(require,module,exports){
+},{"./MediaBody":222,"./MediaHeading":223,"./MediaLeft":224,"./MediaList":225,"./MediaListItem":226,"./MediaRight":227,"babel-runtime/core-js/object/assign":281,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-prop-types/lib/elementType":340}],222:[function(require,module,exports){
 'use strict';
 
 var _objectWithoutProperties = require('babel-runtime/helpers/object-without-properties')['default'];
@@ -25718,7 +25757,7 @@ var MediaBody = _react2['default'].createClass({
 
 exports['default'] = MediaBody;
 module.exports = exports['default'];
-},{"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-prop-types/lib/elementType":338}],223:[function(require,module,exports){
+},{"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-prop-types/lib/elementType":340}],223:[function(require,module,exports){
 'use strict';
 
 var _objectWithoutProperties = require('babel-runtime/helpers/object-without-properties')['default'];
@@ -25769,7 +25808,7 @@ var MediaHeading = _react2['default'].createClass({
 
 exports['default'] = MediaHeading;
 module.exports = exports['default'];
-},{"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-prop-types/lib/elementType":338}],224:[function(require,module,exports){
+},{"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-prop-types/lib/elementType":340}],224:[function(require,module,exports){
 'use strict';
 
 var _objectWithoutProperties = require('babel-runtime/helpers/object-without-properties')['default'];
@@ -26122,7 +26161,7 @@ MenuItem.defaultProps = {
 
 exports['default'] = _utilsBootstrapUtils.bsClass('dropdown', MenuItem);
 module.exports = exports['default'];
-},{"./SafeAnchor":257,"./utils/bootstrapUtils":274,"./utils/createChainedFunction":277,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-prop-types/lib/all":335}],229:[function(require,module,exports){
+},{"./SafeAnchor":257,"./utils/bootstrapUtils":274,"./utils/createChainedFunction":277,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-prop-types/lib/all":337}],229:[function(require,module,exports){
 'use strict';
 
 var _extends = require('babel-runtime/helpers/extends')['default'];
@@ -26454,7 +26493,7 @@ Modal.BACKDROP_TRANSITION_DURATION = 150;
 
 exports['default'] = _utilsBootstrapUtils.bsSizes([_styleMaps.Sizes.LARGE, _styleMaps.Sizes.SMALL], _utilsBootstrapUtils.bsClass('modal', Modal));
 module.exports = exports['default'];
-},{"./Fade":199,"./ModalBody":230,"./ModalDialog":231,"./ModalFooter":232,"./ModalHeader":233,"./ModalTitle":234,"./styleMaps":270,"./utils/bootstrapUtils":274,"babel-runtime/core-js/object/keys":283,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"dom-helpers/events":82,"dom-helpers/ownerDocument":85,"dom-helpers/util/inDOM":103,"dom-helpers/util/scrollbarSize":104,"lodash-compat/object/pick":172,"react":"react","react-dom":"react-dom","react-overlays/lib/Modal":317,"react-overlays/lib/utils/isOverflowing":328,"react-prop-types/lib/deprecated":337,"react-prop-types/lib/elementType":338}],230:[function(require,module,exports){
+},{"./Fade":199,"./ModalBody":230,"./ModalDialog":231,"./ModalFooter":232,"./ModalHeader":233,"./ModalTitle":234,"./styleMaps":270,"./utils/bootstrapUtils":274,"babel-runtime/core-js/object/keys":283,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"dom-helpers/events":82,"dom-helpers/ownerDocument":85,"dom-helpers/util/inDOM":103,"dom-helpers/util/scrollbarSize":104,"lodash-compat/object/pick":172,"react":"react","react-dom":"react-dom","react-overlays/lib/Modal":318,"react-overlays/lib/utils/isOverflowing":329,"react-prop-types/lib/deprecated":339,"react-prop-types/lib/elementType":340}],230:[function(require,module,exports){
 'use strict';
 
 var _inherits = require('babel-runtime/helpers/inherits')['default'];
@@ -27122,7 +27161,7 @@ exports['default'] = _utilsBootstrapUtils.bsClass('nav', _utilsBootstrapUtils.bs
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./utils/ValidComponentChildren":273,"./utils/bootstrapUtils":274,"./utils/createChainedFunction":277,"./utils/tabUtils":280,"_process":177,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"keycode":106,"react":"react","react-dom":"react-dom","react-prop-types/lib/all":335,"warning":356}],236:[function(require,module,exports){
+},{"./utils/ValidComponentChildren":273,"./utils/bootstrapUtils":274,"./utils/createChainedFunction":277,"./utils/tabUtils":280,"_process":177,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"keycode":106,"react":"react","react-dom":"react-dom","react-prop-types/lib/all":337,"warning":314}],236:[function(require,module,exports){
 'use strict';
 
 var _inherits = require('babel-runtime/helpers/inherits')['default'];
@@ -27518,7 +27557,7 @@ Navbar.Link = createSimpleWrapper('a', 'link', 'NavbarLink');
 
 exports['default'] = Navbar;
 module.exports = exports['default'];
-},{"./Grid":208,"./NavbarBrand":239,"./NavbarCollapse":240,"./NavbarHeader":241,"./NavbarToggle":242,"./styleMaps":270,"./utils/bootstrapUtils":274,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-prop-types/lib/elementType":338,"uncontrollable":354}],239:[function(require,module,exports){
+},{"./Grid":208,"./NavbarBrand":239,"./NavbarCollapse":240,"./NavbarHeader":241,"./NavbarToggle":242,"./styleMaps":270,"./utils/bootstrapUtils":274,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-prop-types/lib/elementType":340,"uncontrollable":357}],239:[function(require,module,exports){
 'use strict';
 
 var _inherits = require('babel-runtime/helpers/inherits')['default'];
@@ -27913,7 +27952,7 @@ Overlay.defaultProps = {
 
 exports['default'] = Overlay;
 module.exports = exports['default'];
-},{"./Fade":199,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-overlays/lib/Overlay":319,"react-prop-types/lib/elementType":338}],244:[function(require,module,exports){
+},{"./Fade":199,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-overlays/lib/Overlay":320,"react-prop-types/lib/elementType":340}],244:[function(require,module,exports){
 (function (process){
 /* eslint-disable react/prop-types */
 
@@ -28231,7 +28270,7 @@ exports['default'] = OverlayTrigger;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./Overlay":243,"./utils/createChainedFunction":277,"_process":177,"babel-runtime/core-js/object/keys":283,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"dom-helpers/query/contains":86,"lodash-compat/object/pick":172,"react":"react","react-dom":"react-dom","warning":356}],245:[function(require,module,exports){
+},{"./Overlay":243,"./utils/createChainedFunction":277,"_process":177,"babel-runtime/core-js/object/keys":283,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"dom-helpers/query/contains":86,"lodash-compat/object/pick":172,"react":"react","react-dom":"react-dom","warning":314}],245:[function(require,module,exports){
 'use strict';
 
 var _extends = require('babel-runtime/helpers/extends')['default'];
@@ -28707,7 +28746,7 @@ var Pagination = _react2['default'].createClass({
 
 exports['default'] = _utilsBootstrapUtils.bsClass('pagination', Pagination);
 module.exports = exports['default'];
-},{"./PaginationButton":249,"./SafeAnchor":257,"./utils/bootstrapUtils":274,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/elementType":338}],249:[function(require,module,exports){
+},{"./PaginationButton":249,"./SafeAnchor":257,"./utils/bootstrapUtils":274,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/elementType":340}],249:[function(require,module,exports){
 'use strict';
 
 var _objectWithoutProperties = require('babel-runtime/helpers/object-without-properties')['default'];
@@ -28796,7 +28835,7 @@ var PaginationButton = _react2['default'].createClass({
 
 exports['default'] = PaginationButton;
 module.exports = exports['default'];
-},{"./utils/createChainedFunction":277,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-prop-types/lib/elementType":338}],250:[function(require,module,exports){
+},{"./utils/createChainedFunction":277,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-prop-types/lib/elementType":340}],250:[function(require,module,exports){
 'use strict';
 
 var _objectWithoutProperties = require('babel-runtime/helpers/object-without-properties')['default'];
@@ -29294,7 +29333,7 @@ var Popover = _react2['default'].createClass({
 exports['default'] = Popover;
 module.exports = exports['default'];
 // we don't want to expose the `style` property
-},{"./utils/bootstrapUtils":274,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/isRequiredForA11y":339}],253:[function(require,module,exports){
+},{"./utils/bootstrapUtils":274,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/isRequiredForA11y":341}],253:[function(require,module,exports){
 'use strict';
 
 var _inherits = require('babel-runtime/helpers/inherits')['default'];
@@ -29639,7 +29678,7 @@ exports['default'] = _utilsBootstrapUtils.bsClass('radio', Radio);
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./utils/bootstrapUtils":274,"_process":177,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","warning":356}],255:[function(require,module,exports){
+},{"./utils/bootstrapUtils":274,"_process":177,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","warning":314}],255:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -29736,7 +29775,7 @@ exports['default'] = ResponsiveEmbed;
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"_process":177,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","warning":356}],256:[function(require,module,exports){
+},{"_process":177,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","warning":314}],256:[function(require,module,exports){
 'use strict';
 
 var _extends = require('babel-runtime/helpers/extends')['default'];
@@ -29786,7 +29825,7 @@ var Row = _react2['default'].createClass({
 
 exports['default'] = Row;
 module.exports = exports['default'];
-},{"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/elementType":338}],257:[function(require,module,exports){
+},{"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/elementType":340}],257:[function(require,module,exports){
 'use strict';
 
 var _inherits = require('babel-runtime/helpers/inherits')['default'];
@@ -29901,7 +29940,7 @@ SafeAnchor.propTypes = {
   componentClass: _reactPropTypesLibElementType2['default']
 };
 module.exports = exports['default'];
-},{"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"react":"react","react-prop-types/lib/elementType":338}],258:[function(require,module,exports){
+},{"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"react":"react","react-prop-types/lib/elementType":340}],258:[function(require,module,exports){
 'use strict';
 
 var _inherits = require('babel-runtime/helpers/inherits')['default'];
@@ -30269,7 +30308,7 @@ var TabContainer = _react2['default'].createClass({
 
 exports['default'] = _uncontrollable2['default'](TabContainer, { activeKey: 'onSelect' });
 module.exports = exports['default'];
-},{"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"react":"react","uncontrollable":354}],262:[function(require,module,exports){
+},{"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"react":"react","uncontrollable":357}],262:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -30461,7 +30500,7 @@ exports['default'] = _utilsBootstrapUtils.bsClass('tab', TabContent);
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./utils/bootstrapUtils":274,"_process":177,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"invariant":105,"react":"react","react-prop-types/lib/elementType":338}],263:[function(require,module,exports){
+},{"./utils/bootstrapUtils":274,"_process":177,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"invariant":105,"react":"react","react-prop-types/lib/elementType":340}],263:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -30762,7 +30801,7 @@ exports['default'] = _utilsBootstrapUtils.bsClass('tab', TabPane);
 module.exports = exports['default'];
 }).call(this,require('_process'))
 
-},{"./Fade":199,"./utils/bootstrapUtils":274,"./utils/createChainedFunction":277,"./utils/tabUtils":280,"_process":177,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"dom-helpers/class/addClass":77,"react":"react","react-prop-types/lib/elementType":338,"warning":356}],264:[function(require,module,exports){
+},{"./Fade":199,"./utils/bootstrapUtils":274,"./utils/createChainedFunction":277,"./utils/tabUtils":280,"_process":177,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"dom-helpers/class/addClass":77,"react":"react","react-prop-types/lib/elementType":340,"warning":314}],264:[function(require,module,exports){
 'use strict';
 
 var _extends = require('babel-runtime/helpers/extends')['default'];
@@ -31162,7 +31201,7 @@ var Tabs = _react2['default'].createClass({
 
 exports['default'] = _uncontrollable2['default'](Tabs, { activeKey: 'onSelect' });
 module.exports = exports['default'];
-},{"./Col":192,"./Nav":235,"./NavItem":237,"./TabContainer":261,"./TabContent":262,"./styleMaps":270,"./utils/ValidComponentChildren":273,"./utils/deprecationWarning":278,"babel-runtime/core-js/object/keys":283,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-prop-types/lib/isRequiredForA11y":339,"uncontrollable":354}],266:[function(require,module,exports){
+},{"./Col":192,"./Nav":235,"./NavItem":237,"./TabContainer":261,"./TabContent":262,"./styleMaps":270,"./utils/ValidComponentChildren":273,"./utils/deprecationWarning":278,"babel-runtime/core-js/object/keys":283,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"babel-runtime/helpers/object-without-properties":290,"classnames":75,"react":"react","react-prop-types/lib/isRequiredForA11y":341,"uncontrollable":357}],266:[function(require,module,exports){
 'use strict';
 
 var _extends = require('babel-runtime/helpers/extends')['default'];
@@ -31331,7 +31370,7 @@ var Tooltip = _react2['default'].createClass({
 
 exports['default'] = Tooltip;
 module.exports = exports['default'];
-},{"./utils/bootstrapUtils":274,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/isRequiredForA11y":339}],268:[function(require,module,exports){
+},{"./utils/bootstrapUtils":274,"babel-runtime/helpers/extends":286,"babel-runtime/helpers/interop-require-default":288,"classnames":75,"react":"react","react-prop-types/lib/isRequiredForA11y":341}],268:[function(require,module,exports){
 'use strict';
 
 var _inherits = require('babel-runtime/helpers/inherits')['default'];
@@ -31953,7 +31992,7 @@ exports['default'] = {
   }
 };
 module.exports = exports['default'];
-},{"./childrenToArray":275,"babel-runtime/helpers/interop-require-default":288,"react-prop-types/lib/common":336}],272:[function(require,module,exports){
+},{"./childrenToArray":275,"babel-runtime/helpers/interop-require-default":288,"react-prop-types/lib/common":338}],272:[function(require,module,exports){
 /**
  * Copyright 2013-2014, Facebook, Inc.
  * All rights reserved.
@@ -32450,7 +32489,7 @@ function valueValidation(props, propName, componentName) {
 }
 
 module.exports = exports['default'];
-},{"babel-runtime/helpers/interop-require-default":288,"react":"react","react-prop-types/lib/singlePropFrom":340}],277:[function(require,module,exports){
+},{"babel-runtime/helpers/interop-require-default":288,"react":"react","react-prop-types/lib/singlePropFrom":342}],277:[function(require,module,exports){
 /**
  * Safe chained function
  *
@@ -32571,7 +32610,7 @@ function _resetWarned() {
 }
 }).call(this,require('_process'))
 
-},{"_process":177,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"warning":356}],279:[function(require,module,exports){
+},{"_process":177,"babel-runtime/helpers/class-call-check":285,"babel-runtime/helpers/inherits":287,"babel-runtime/helpers/interop-require-default":288,"warning":314}],279:[function(require,module,exports){
 'use strict';
 
 var _interopRequireWildcard = require('babel-runtime/helpers/interop-require-wildcard')['default'];
@@ -32996,6 +33035,71 @@ require('./$.object-sap')('keys', function($keys){
 var $export = require('./$.export');
 $export($export.S, 'Object', {setPrototypeOf: require('./$.set-proto').set});
 },{"./$.export":301,"./$.set-proto":309}],314:[function(require,module,exports){
+(function (process){
+/**
+ * Copyright 2014-2015, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
+
+'use strict';
+
+/**
+ * Similar to invariant but only logs a warning if the condition is not met.
+ * This can be used to log issues in development environments in critical
+ * paths. Removing the logging code for production environments will keep the
+ * same logic and follow the same code paths.
+ */
+
+var warning = function() {};
+
+if (process.env.NODE_ENV !== 'production') {
+  warning = function(condition, format, args) {
+    var len = arguments.length;
+    args = new Array(len > 2 ? len - 2 : 0);
+    for (var key = 2; key < len; key++) {
+      args[key - 2] = arguments[key];
+    }
+    if (format === undefined) {
+      throw new Error(
+        '`warning(condition, format, ...args)` requires a warning ' +
+        'message argument'
+      );
+    }
+
+    if (format.length < 10 || (/^[s\W]*$/).test(format)) {
+      throw new Error(
+        'The warning format should be able to uniquely identify this ' +
+        'warning. Please, use a more descriptive format than: ' + format
+      );
+    }
+
+    if (!condition) {
+      var argIndex = 0;
+      var message = 'Warning: ' +
+        format.replace(/%s/g, function() {
+          return args[argIndex++];
+        });
+      if (typeof console !== 'undefined') {
+        console.error(message);
+      }
+      try {
+        // This error was thrown as a convenience so that you can use this stack
+        // to find the callsite that caused this warning to fire.
+        throw new Error(message);
+      } catch(x) {}
+    }
+  };
+}
+
+module.exports = warning;
+
+}).call(this,require('_process'))
+
+},{"_process":177}],315:[function(require,module,exports){
 var cookie = require('cookie');
 
 if (typeof Object.assign != 'function') {
@@ -33144,7 +33248,7 @@ if (typeof window !== 'undefined') {
 
 module.exports = reactCookie;
 
-},{"cookie":315}],315:[function(require,module,exports){
+},{"cookie":316}],316:[function(require,module,exports){
 /*!
  * cookie
  * Copyright(c) 2012-2014 Roman Shtylman
@@ -33302,7 +33406,7 @@ function tryDecode(str, decode) {
   }
 }
 
-},{}],316:[function(require,module,exports){
+},{}],317:[function(require,module,exports){
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory(require("react"));
@@ -33451,6 +33555,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function onDragOver(e) {
 	      e.preventDefault();
 	      e.stopPropagation();
+	      e.dataTransfer.dropEffect = 'copy'; // eslint-disable-line no-param-reassign
 	      return false;
 	    }
 	  }, {
@@ -33498,7 +33603,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        files.push(file);
 	      }
 	
-	      if (this.allFilesAccepted(files)) {
+	      if (this.allFilesAccepted(files) && this.allFilesMatchSize(files)) {
 	        if (this.props.onDrop) {
 	          this.props.onDrop.call(this, files, e);
 	        }
@@ -33529,6 +33634,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	      });
 	    }
 	  }, {
+	    key: 'allFilesMatchSize',
+	    value: function allFilesMatchSize(files) {
+	      var _this3 = this;
+	
+	      return files.every(function (file) {
+	        return file.size <= _this3.props.maxSize && file.size >= _this3.props.minSize;
+	      });
+	    }
+	  }, {
 	    key: 'open',
 	    value: function open() {
 	      this.fileInputEl.value = null;
@@ -33537,7 +33651,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var _this3 = this;
+	      var _this4 = this;
 	
 	      var _props = this.props;
 	      var accept = _props.accept;
@@ -33604,7 +33718,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        style: { display: 'none' },
 	        multiple: supportMultiple && multiple,
 	        ref: function ref(el) {
-	          return _this3.fileInputEl = el;
+	          return _this4.fileInputEl = el;
 	        }, // eslint-disable-line
 	        onChange: this.onDrop
 	      };
@@ -33614,7 +33728,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	
 	      // Remove custom properties before passing them to the wrapper div element
-	      var customProps = ['disablePreview', 'disableClick', 'onDropAccepted', 'onDropRejected'];
+	      var customProps = ['disablePreview', 'disableClick', 'onDropAccepted', 'onDropRejected', 'maxSize', 'minSize'];
 	      var divProps = _extends({}, props);
 	      customProps.forEach(function (prop) {
 	        return delete divProps[prop];
@@ -33645,7 +33759,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	Dropzone.defaultProps = {
 	  disablePreview: false,
 	  disableClick: false,
-	  multiple: true
+	  multiple: true,
+	  maxSize: Infinity,
+	  minSize: 0
 	};
 	
 	Dropzone.propTypes = {
@@ -33673,7 +33789,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	  inputProps: _react2.default.PropTypes.object, // Pass additional attributes to the <input type="file"/> tag
 	  multiple: _react2.default.PropTypes.bool, // Allow dropping multiple files
 	  accept: _react2.default.PropTypes.string, // Allow specific types of files. See https://github.com/okonet/attr-accept for more information
-	  name: _react2.default.PropTypes.string // name attribute for the input tag
+	  name: _react2.default.PropTypes.string, // name attribute for the input tag
+	  maxSize: _react2.default.PropTypes.number,
+	  minSize: _react2.default.PropTypes.number
 	};
 	
 	exports.default = Dropzone;
@@ -33696,7 +33814,7 @@ return /******/ (function(modules) { // webpackBootstrap
 });
 ;
 
-},{"react":"react"}],317:[function(require,module,exports){
+},{"react":"react"}],318:[function(require,module,exports){
 /*eslint-disable react/prop-types */
 'use strict';
 
@@ -34206,7 +34324,7 @@ Modal.manager = modalManager;
 
 exports['default'] = Modal;
 module.exports = exports['default'];
-},{"./ModalManager":318,"./Portal":320,"./utils/addEventListener":324,"./utils/addFocusListener":325,"./utils/getContainer":327,"./utils/ownerDocument":331,"dom-helpers/activeElement":76,"dom-helpers/query/contains":86,"dom-helpers/util/inDOM":103,"react":"react","react-prop-types/lib/elementType":333,"react-prop-types/lib/mountable":334,"warning":356}],318:[function(require,module,exports){
+},{"./ModalManager":319,"./Portal":321,"./utils/addEventListener":325,"./utils/addFocusListener":326,"./utils/getContainer":328,"./utils/ownerDocument":332,"dom-helpers/activeElement":76,"dom-helpers/query/contains":86,"dom-helpers/util/inDOM":103,"react":"react","react-prop-types/lib/elementType":334,"react-prop-types/lib/mountable":335,"warning":336}],319:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -34363,7 +34481,7 @@ var ModalManager = (function () {
 
 exports['default'] = ModalManager;
 module.exports = exports['default'];
-},{"./utils/isOverflowing":328,"./utils/manageAriaHidden":329,"dom-helpers/class":79,"dom-helpers/style":95,"dom-helpers/util/scrollbarSize":104}],319:[function(require,module,exports){
+},{"./utils/isOverflowing":329,"./utils/manageAriaHidden":330,"dom-helpers/class":79,"dom-helpers/style":95,"dom-helpers/util/scrollbarSize":104}],320:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -34571,7 +34689,7 @@ Overlay.propTypes = _extends({}, _Portal2['default'].propTypes, _Position2['defa
 
 exports['default'] = Overlay;
 module.exports = exports['default'];
-},{"./Portal":320,"./Position":321,"./RootCloseWrapper":322,"react":"react","react-prop-types/lib/elementType":333}],320:[function(require,module,exports){
+},{"./Portal":321,"./Position":322,"./RootCloseWrapper":323,"react":"react","react-prop-types/lib/elementType":334}],321:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -34702,7 +34820,7 @@ var Portal = _react2['default'].createClass({
 
 exports['default'] = Portal;
 module.exports = exports['default'];
-},{"./utils/getContainer":327,"./utils/ownerDocument":331,"react":"react","react-dom":"react-dom","react-prop-types/lib/mountable":334}],321:[function(require,module,exports){
+},{"./utils/getContainer":328,"./utils/ownerDocument":332,"react":"react","react-dom":"react-dom","react-prop-types/lib/mountable":335}],322:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -34901,7 +35019,7 @@ Position.defaultProps = {
 
 exports['default'] = Position;
 module.exports = exports['default'];
-},{"./utils/getContainer":327,"./utils/overlayPositionUtils":330,"./utils/ownerDocument":331,"classnames":75,"react":"react","react-dom":"react-dom","react-prop-types/lib/mountable":334}],322:[function(require,module,exports){
+},{"./utils/getContainer":328,"./utils/overlayPositionUtils":331,"./utils/ownerDocument":332,"classnames":75,"react":"react","react-dom":"react-dom","react-prop-types/lib/mountable":335}],323:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -35073,7 +35191,7 @@ RootCloseWrapper.propTypes = {
   noWrap: _react2['default'].PropTypes.bool
 };
 module.exports = exports['default'];
-},{"./utils/addEventListener":324,"./utils/createChainedFunction":326,"./utils/ownerDocument":331,"react":"react","react-dom":"react-dom"}],323:[function(require,module,exports){
+},{"./utils/addEventListener":325,"./utils/createChainedFunction":327,"./utils/ownerDocument":332,"react":"react","react-dom":"react-dom"}],324:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -35421,7 +35539,7 @@ Transition.defaultProps = {
 };
 
 exports['default'] = Transition;
-},{"classnames":75,"dom-helpers/events/on":84,"dom-helpers/transition/properties":97,"react":"react","react-dom":"react-dom"}],324:[function(require,module,exports){
+},{"classnames":75,"dom-helpers/events/on":84,"dom-helpers/transition/properties":97,"react":"react","react-dom":"react-dom"}],325:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -35446,7 +35564,7 @@ exports['default'] = function (node, event, handler) {
 };
 
 module.exports = exports['default'];
-},{"dom-helpers/events/off":83,"dom-helpers/events/on":84}],325:[function(require,module,exports){
+},{"dom-helpers/events/off":83,"dom-helpers/events/on":84}],326:[function(require,module,exports){
 /**
  * Firefox doesn't have a focusin event so using capture is easiest way to get bubbling
  * IE8 can't do addEventListener, but does have onfocusin, so we use that in ie8
@@ -35478,9 +35596,9 @@ function addFocusListener(handler) {
 }
 
 module.exports = exports['default'];
-},{}],326:[function(require,module,exports){
+},{}],327:[function(require,module,exports){
 arguments[4][277][0].apply(exports,arguments)
-},{"dup":277}],327:[function(require,module,exports){
+},{"dup":277}],328:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -35498,7 +35616,7 @@ function getContainer(container, defaultContainer) {
 }
 
 module.exports = exports['default'];
-},{"react-dom":"react-dom"}],328:[function(require,module,exports){
+},{"react-dom":"react-dom"}],329:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -35539,7 +35657,7 @@ function isOverflowing(container) {
 }
 
 module.exports = exports['default'];
-},{"dom-helpers/ownerDocument":85,"dom-helpers/query/isWindow":87}],329:[function(require,module,exports){
+},{"dom-helpers/ownerDocument":85,"dom-helpers/query/isWindow":87}],330:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -35587,7 +35705,7 @@ function showSiblings(container, mountNode) {
     return ariaHidden(false, node);
   });
 }
-},{}],330:[function(require,module,exports){
+},{}],331:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -35722,7 +35840,7 @@ function getLeftDelta(left, overlayWidth, container, padding) {
 }
 exports['default'] = utils;
 module.exports = exports['default'];
-},{"./ownerDocument":331,"dom-helpers/query/offset":88,"dom-helpers/query/position":90,"dom-helpers/query/scrollTop":93}],331:[function(require,module,exports){
+},{"./ownerDocument":332,"dom-helpers/query/offset":88,"dom-helpers/query/position":90,"dom-helpers/query/scrollTop":93}],332:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -35742,7 +35860,7 @@ exports['default'] = function (componentOrElement) {
 };
 
 module.exports = exports['default'];
-},{"dom-helpers/ownerDocument":85,"react-dom":"react-dom"}],332:[function(require,module,exports){
+},{"dom-helpers/ownerDocument":85,"react-dom":"react-dom"}],333:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -35777,7 +35895,7 @@ function createChainableTypeChecker(validate) {
 
   return chainedCheckType;
 }
-},{}],333:[function(require,module,exports){
+},{}],334:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -35819,7 +35937,7 @@ function validate(props, propName, componentName) {
 
 exports['default'] = _common.createChainableTypeChecker(validate);
 module.exports = exports['default'];
-},{"./common":332,"react":"react"}],334:[function(require,module,exports){
+},{"./common":333,"react":"react"}],335:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -35847,7 +35965,72 @@ function validate(props, propName, componentName) {
 
 exports['default'] = _common.createChainableTypeChecker(validate);
 module.exports = exports['default'];
-},{"./common":332}],335:[function(require,module,exports){
+},{"./common":333}],336:[function(require,module,exports){
+(function (process){
+/**
+ * Copyright 2014-2015, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
+
+'use strict';
+
+/**
+ * Similar to invariant but only logs a warning if the condition is not met.
+ * This can be used to log issues in development environments in critical
+ * paths. Removing the logging code for production environments will keep the
+ * same logic and follow the same code paths.
+ */
+
+var warning = function() {};
+
+if (process.env.NODE_ENV !== 'production') {
+  warning = function(condition, format, args) {
+    var len = arguments.length;
+    args = new Array(len > 2 ? len - 2 : 0);
+    for (var key = 2; key < len; key++) {
+      args[key - 2] = arguments[key];
+    }
+    if (format === undefined) {
+      throw new Error(
+        '`warning(condition, format, ...args)` requires a warning ' +
+        'message argument'
+      );
+    }
+
+    if (format.length < 10 || (/^[s\W]*$/).test(format)) {
+      throw new Error(
+        'The warning format should be able to uniquely identify this ' +
+        'warning. Please, use a more descriptive format than: ' + format
+      );
+    }
+
+    if (!condition) {
+      var argIndex = 0;
+      var message = 'Warning: ' +
+        format.replace(/%s/g, function() {
+          return args[argIndex++];
+        });
+      if (typeof console !== 'undefined') {
+        console.error(message);
+      }
+      try {
+        // This error was thrown as a convenience so that you can use this stack
+        // to find the callsite that caused this warning to fire.
+        throw new Error(message);
+      } catch(x) {}
+    }
+  };
+}
+
+module.exports = warning;
+
+}).call(this,require('_process'))
+
+},{"_process":177}],337:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -35888,9 +36071,9 @@ function all() {
 }
 
 module.exports = exports['default'];
-},{"./common":336}],336:[function(require,module,exports){
-arguments[4][332][0].apply(exports,arguments)
-},{"dup":332}],337:[function(require,module,exports){
+},{"./common":338}],338:[function(require,module,exports){
+arguments[4][333][0].apply(exports,arguments)
+},{"dup":333}],339:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -35924,9 +36107,9 @@ function _resetWarned() {
 
 deprecated._resetWarned = _resetWarned;
 module.exports = exports['default'];
-},{"warning":356}],338:[function(require,module,exports){
-arguments[4][333][0].apply(exports,arguments)
-},{"./common":336,"dup":333,"react":"react"}],339:[function(require,module,exports){
+},{"warning":343}],340:[function(require,module,exports){
+arguments[4][334][0].apply(exports,arguments)
+},{"./common":338,"dup":334,"react":"react"}],341:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -35943,7 +36126,7 @@ function isRequiredForA11y(propType) {
 }
 
 module.exports = exports["default"];
-},{}],340:[function(require,module,exports){
+},{}],342:[function(require,module,exports){
 /**
  * Checks if only one of the listed properties is in use. An error is given
  * if multiple have a value
@@ -35982,7 +36165,72 @@ function createSinglePropFromChecker() {
 }
 
 module.exports = exports['default'];
-},{}],341:[function(require,module,exports){
+},{}],343:[function(require,module,exports){
+(function (process){
+/**
+ * Copyright 2014-2015, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
+
+'use strict';
+
+/**
+ * Similar to invariant but only logs a warning if the condition is not met.
+ * This can be used to log issues in development environments in critical
+ * paths. Removing the logging code for production environments will keep the
+ * same logic and follow the same code paths.
+ */
+
+var warning = function() {};
+
+if (process.env.NODE_ENV !== 'production') {
+  warning = function(condition, format, args) {
+    var len = arguments.length;
+    args = new Array(len > 2 ? len - 2 : 0);
+    for (var key = 2; key < len; key++) {
+      args[key - 2] = arguments[key];
+    }
+    if (format === undefined) {
+      throw new Error(
+        '`warning(condition, format, ...args)` requires a warning ' +
+        'message argument'
+      );
+    }
+
+    if (format.length < 10 || (/^[s\W]*$/).test(format)) {
+      throw new Error(
+        'The warning format should be able to uniquely identify this ' +
+        'warning. Please, use a more descriptive format than: ' + format
+      );
+    }
+
+    if (!condition) {
+      var argIndex = 0;
+      var message = 'Warning: ' +
+        format.replace(/%s/g, function() {
+          return args[argIndex++];
+        });
+      if (typeof console !== 'undefined') {
+        console.error(message);
+      }
+      try {
+        // This error was thrown as a convenience so that you can use this stack
+        // to find the callsite that caused this warning to fire.
+        throw new Error(message);
+      } catch(x) {}
+    }
+  };
+}
+
+module.exports = warning;
+
+}).call(this,require('_process'))
+
+},{"_process":177}],344:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -36080,7 +36328,7 @@ var RadioGroup = _react2['default'].createClass({
   }
 });
 exports.RadioGroup = RadioGroup;
-},{"react":"react"}],342:[function(require,module,exports){
+},{"react":"react"}],345:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36287,7 +36535,7 @@ exports.default = Calendar;
 
 Calendar.propTypes = propTypes;
 Calendar.defaultProps = defaultProps;
-},{"./Month":345,"./utils":347,"moment":176,"react":"react"}],343:[function(require,module,exports){
+},{"./Month":348,"./utils":350,"moment":176,"react":"react"}],346:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36388,7 +36636,7 @@ exports.default = CalendarControls;
 
 
 CalendarControls.propTypes = propTypes;
-},{"react":"react"}],344:[function(require,module,exports){
+},{"react":"react"}],347:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36481,7 +36729,7 @@ var Day = exports.Day = function (_React$Component) {
 
 Day.propTypes = propTypes;
 Day.defaultProps = defaultProps;
-},{"react":"react"}],345:[function(require,module,exports){
+},{"react":"react"}],348:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36799,7 +37047,7 @@ var Month = exports.Month = function (_React$Component) {
 
 Month.propTypes = propTypes;
 Month.defaultProps = defaultProps;
-},{"./Day":344,"./utils":347,"moment":176,"react":"react"}],346:[function(require,module,exports){
+},{"./Day":347,"./utils":350,"moment":176,"react":"react"}],349:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36825,7 +37073,7 @@ Object.defineProperty(exports, 'CalendarControls', {
 });
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./Calendar":342,"./CalendarControls":343}],347:[function(require,module,exports){
+},{"./Calendar":345,"./CalendarControls":346}],350:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -36849,7 +37097,7 @@ function range(start, stop, step) {
 
   return range;
 };
-},{}],348:[function(require,module,exports){
+},{}],351:[function(require,module,exports){
 /**
  * Root reference for iframes.
  */
@@ -37625,24 +37873,24 @@ Request.prototype.end = function(fn){
   };
 
   // progress
-  var handleProgress = function(e){
+  var handleProgress = function(direction, e) {
     if (e.total > 0) {
       e.percent = e.loaded / e.total * 100;
     }
-    e.direction = 'download';
+    e.direction = direction;
     self.emit('progress', e);
-  };
-  if (this.hasListeners('progress')) {
-    xhr.onprogress = handleProgress;
   }
-  try {
-    if (xhr.upload && this.hasListeners('progress')) {
-      xhr.upload.onprogress = handleProgress;
+  if (this.hasListeners('progress')) {
+    try {
+      xhr.onprogress = handleProgress.bind(null, 'download');
+      if (xhr.upload) {
+        xhr.upload.onprogress = handleProgress.bind(null, 'upload');
+      }
+    } catch(e) {
+      // Accessing xhr.upload fails in IE from a web worker, so just pretend it doesn't exist.
+      // Reported here:
+      // https://connect.microsoft.com/IE/feedback/details/837245/xmlhttprequest-upload-throws-invalid-argument-when-used-from-web-worker-context
     }
-  } catch(e) {
-    // Accessing xhr.upload fails in IE from a web worker, so just pretend it doesn't exist.
-    // Reported here:
-    // https://connect.microsoft.com/IE/feedback/details/837245/xmlhttprequest-upload-throws-invalid-argument-when-used-from-web-worker-context
   }
 
   // timeout
@@ -37827,7 +38075,7 @@ request.put = function(url, data, fn){
   return req;
 };
 
-},{"./is-object":349,"./request":351,"./request-base":350,"emitter":352}],349:[function(require,module,exports){
+},{"./is-object":352,"./request":354,"./request-base":353,"emitter":355}],352:[function(require,module,exports){
 /**
  * Check if `obj` is an object.
  *
@@ -37842,7 +38090,7 @@ function isObject(obj) {
 
 module.exports = isObject;
 
-},{}],350:[function(require,module,exports){
+},{}],353:[function(require,module,exports){
 /**
  * Module of mixed-in functions shared between node and client code
  */
@@ -37921,6 +38169,10 @@ exports.then = function then(resolve, reject) {
   }
   return this._fullfilledPromise.then(resolve, reject);
 }
+
+exports.catch = function(cb) {
+  return this.then(undefined, cb);
+};
 
 /**
  * Allow for extension
@@ -38011,21 +38263,42 @@ exports.unset = function(field){
 };
 
 /**
- * Write the field `name` and `val` for "multipart/form-data"
- * request bodies.
+ * Write the field `name` and `val`, or multiple fields with one object
+ * for "multipart/form-data" request bodies.
  *
  * ``` js
  * request.post('/upload')
  *   .field('foo', 'bar')
  *   .end(callback);
+ *
+ * request.post('/upload')
+ *   .field({ foo: 'bar', baz: 'qux' })
+ *   .end(callback);
  * ```
  *
- * @param {String} name
+ * @param {String|Object} name
  * @param {String|Blob|File|Buffer|fs.ReadStream} val
  * @return {Request} for chaining
  * @api public
  */
 exports.field = function(name, val) {
+
+  // name should be either a string or an object.
+  if (null === name ||  undefined === name) {
+    throw new Error('.field(name, val) name can not be empty');
+  }
+
+  if (isObject(name)) {
+    for (var key in name) {
+      this.field(key, name[key]);
+    }
+    return this;
+  }
+
+  // val should be defined now
+  if (null === val || undefined === val) {
+    throw new Error('.field(name, val) val can not be empty');
+  }
   this._getFormData().append(name, val);
   return this;
 };
@@ -38191,7 +38464,7 @@ exports.send = function(data){
   return this;
 };
 
-},{"./is-object":349}],351:[function(require,module,exports){
+},{"./is-object":352}],354:[function(require,module,exports){
 // The node and browser modules expose versions of this with the
 // appropriate constructor function bound as first argument
 /**
@@ -38225,7 +38498,7 @@ function request(RequestConstructor, method, url) {
 
 module.exports = request;
 
-},{}],352:[function(require,module,exports){
+},{}],355:[function(require,module,exports){
 
 /**
  * Expose `Emitter`.
@@ -38390,7 +38663,7 @@ Emitter.prototype.hasListeners = function(event){
   return !! this.listeners(event).length;
 };
 
-},{}],353:[function(require,module,exports){
+},{}],356:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -38542,7 +38815,7 @@ function createUncontrollable(mixins, set) {
   }
 }
 module.exports = exports['default'];
-},{"./utils":355,"invariant":105,"react":"react"}],354:[function(require,module,exports){
+},{"./utils":358,"invariant":105,"react":"react"}],357:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -38574,7 +38847,7 @@ function set(component, propName, handler, value, args) {
 
 exports.default = (0, _createUncontrollable2.default)([mixin], set);
 module.exports = exports['default'];
-},{"./createUncontrollable":353}],355:[function(require,module,exports){
+},{"./createUncontrollable":356}],358:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -38703,77 +38976,12 @@ function has(o, k) {
 }
 }).call(this,require('_process'))
 
-},{"_process":177,"invariant":105,"react":"react"}],356:[function(require,module,exports){
-(function (process){
-/**
- * Copyright 2014-2015, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- */
-
-'use strict';
-
-/**
- * Similar to invariant but only logs a warning if the condition is not met.
- * This can be used to log issues in development environments in critical
- * paths. Removing the logging code for production environments will keep the
- * same logic and follow the same code paths.
- */
-
-var warning = function() {};
-
-if (process.env.NODE_ENV !== 'production') {
-  warning = function(condition, format, args) {
-    var len = arguments.length;
-    args = new Array(len > 2 ? len - 2 : 0);
-    for (var key = 2; key < len; key++) {
-      args[key - 2] = arguments[key];
-    }
-    if (format === undefined) {
-      throw new Error(
-        '`warning(condition, format, ...args)` requires a warning ' +
-        'message argument'
-      );
-    }
-
-    if (format.length < 10 || (/^[s\W]*$/).test(format)) {
-      throw new Error(
-        'The warning format should be able to uniquely identify this ' +
-        'warning. Please, use a more descriptive format than: ' + format
-      );
-    }
-
-    if (!condition) {
-      var argIndex = 0;
-      var message = 'Warning: ' +
-        format.replace(/%s/g, function() {
-          return args[argIndex++];
-        });
-      if (typeof console !== 'undefined') {
-        console.error(message);
-      }
-      try {
-        // This error was thrown as a convenience so that you can use this stack
-        // to find the callsite that caused this warning to fire.
-        throw new Error(message);
-      } catch(x) {}
-    }
-  };
-}
-
-module.exports = warning;
-
-}).call(this,require('_process'))
-
-},{"_process":177}],357:[function(require,module,exports){
+},{"_process":177,"invariant":105,"react":"react"}],359:[function(require,module,exports){
 'use strict';
 
 module.exports = [{ name: 'January', order: 1 }, { name: 'February', order: 2 }, { name: 'March', order: 3 }, { name: 'April', order: 4 }, { name: 'May', order: 5 }, { name: 'June', order: 6 }, { name: 'July', order: 7 }, { name: 'August', order: 8 }, { name: 'September', order: 9 }, { name: 'October', order: 10 }, { name: 'November', order: 11 }, { name: 'December', order: 12 }];
 
-},{}],358:[function(require,module,exports){
+},{}],360:[function(require,module,exports){
 "use strict";
 
 module.exports = [{
@@ -38850,7 +39058,7 @@ module.exports = [{
     "token": "conq"
 }];
 
-},{}],359:[function(require,module,exports){
+},{}],361:[function(require,module,exports){
 "use strict";
 
 module.exports = [{
