@@ -137,6 +137,19 @@ class Home extends React.Component {
                       <h4>{moment('2016-10-06').format('MMM Do YYYY')}</h4>
                       <ul>
                         <li>
+                          <h5>Profile Raid Weeks</h5>
+                          <ul>
+                            <li>The limit for raid notes has been increased from 255 to 500 characters</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h4>{moment('2016-10-06').format('MMM Do YYYY')}</h4>
+                      <ul>
+                        <li>
                           <h5>Home Page</h5>
                           <ul>
                             <li>Past Schedules are no longer visible</li>
