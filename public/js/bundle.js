@@ -1818,7 +1818,7 @@ var AttendancePublicView = function (_React$Component) {
         generalAttendanceRows = _underscore2.default.filter(this.state.users, function (user) {
           return _underscore2.default.filter(user.characters, function (character) {
             return character.confirmed;
-          });
+          }).length > 0;
         }).map(function (user) {
           var userCharacters = user.characters;
 
@@ -10738,7 +10738,7 @@ var ViewAttendance = function (_React$Component) {
         generalAttendanceRows = _underscore2.default.filter(this.state.users, function (user) {
           return _underscore2.default.filter(user.characters, function (character) {
             return character.confirmed;
-          });
+          }).length > 0;
         }).map(function (user) {
           var userCharacters = user.characters;
 

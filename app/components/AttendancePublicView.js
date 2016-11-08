@@ -50,7 +50,7 @@ class AttendancePublicView extends React.Component {
       generalAttendanceRows = _.filter(this.state.users, function(user) {
         return _.filter(user.characters, function(character) {
           return character.confirmed;
-        });
+        }).length > 0;
       }).map(function(user) {
         var userCharacters = user.characters;
 
