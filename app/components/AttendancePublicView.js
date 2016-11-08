@@ -48,7 +48,9 @@ class AttendancePublicView extends React.Component {
 
     if(this.state.attendanceRecords.length > 0 && this.state.attendanceCount.length > 0) {
       generalAttendanceRows = _.filter(this.state.users, function(user) {
-        return user.characters.length > 0;
+        return _.filter(user.characters, function(character) {
+          return character.confirmed;
+        });
       }).map(function(user) {
         var userCharacters = user.characters;
 
