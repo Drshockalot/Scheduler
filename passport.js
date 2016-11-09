@@ -14,7 +14,7 @@ passport.use(
     { clientID: process.env.BNET_ID,
       clientSecret: process.env.BNET_SECRET,
       scope: "wow.profile",
-      callbackURL: "https://darkstormschedule.herokuapp.com/auth/bnet/callback" },
+      callbackURL: "https://www.darkstormschedule.com/auth/bnet/callback" },
     function(accessToken, refreshToken, profile, done) {
       process.nextTick(function () {
         return done(null, profile);

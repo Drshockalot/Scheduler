@@ -87,10 +87,16 @@ app.use(function(req, res) {
   });
 });
 
+var options = {
+key: fs.readFileSync('pvt.key'),
+cert: fs.readFileSync('cert.crt'),
+passphrase: 'xenorie'
+};
+
 /**
  * Socket.io stuff.
  */
-var server = require('http').createServer(app);
+var server = require('https').createServer(options, app);
 var io = require('socket.io')(server);
 var onlineUsers = 0;
 

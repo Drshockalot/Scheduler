@@ -1,6 +1,6 @@
 var config = require('./../knexfile');
 
-var knex = require('knex')(config['production']);
+var knex = require('knex')(config['amazon']);
 
 var bookshelf = require('bookshelf')(knex);
 bookshelf.plugin('registry');
