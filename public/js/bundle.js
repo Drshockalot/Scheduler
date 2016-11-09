@@ -5209,6 +5209,7 @@ var ProfileSchedules = function (_React$Component) {
       _ProfileSchedulesStore2.default.listen(this.onChange);
       if (sessionStorage.profileSchedules) _ProfileSchedulesActions2.default.restoreState(JSON.parse(sessionStorage.profileSchedules));
       if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
+        console.log(data);
         if (data.role && data.role != '') {
           _ProfileSchedulesActions2.default.loadComponentData();
         }
