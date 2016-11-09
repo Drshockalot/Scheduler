@@ -22,6 +22,7 @@ class ProfileSchedules extends React.Component {
     if(sessionStorage.profileSchedules)
       ProfileSchedulesActions.restoreState(JSON.parse(sessionStorage.profileSchedules));
     if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+      console.log(data);
       if(data.role && data.role != '') {
         ProfileSchedulesActions.loadComponentData();
       }

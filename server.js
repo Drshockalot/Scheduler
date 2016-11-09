@@ -110,12 +110,6 @@ io.sockets.on('connection', function(socket) {
   });
 });
 
-var http = require('http');
-http.createServer(function (req, res) {
-    res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
-    res.end();
-}).listen(8080);
-
 server.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
 });
