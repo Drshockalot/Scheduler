@@ -18,18 +18,18 @@ class ProfileCharacters extends React.Component {
 
   componentDidMount() {
     ProfileCharactersStore.listen(this.onChange);
-    if(sessionStorage.profileCharacters)
-      ProfileCharactersActions.restoreState(JSON.parse(sessionStorage.profileCharacters));
-    if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
-      if(data && data.role != '') {
+    // if(sessionStorage.profileCharacters)
+    //   ProfileCharactersActions.restoreState(JSON.parse(sessionStorage.profileCharacters));
+    // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+    //   if(data && data.role != '') {
         ProfileCharactersActions.getChosenCharacters();
-      }
-    }));
+    //   }
+    // }));
   }
 
   componentWillUnmount() {
     NavbarStore.unlisten(this.onChange);
-    sessionStorage.profileCharacters = JSON.stringify(this.state);
+    // sessionStorage.profileCharacters = JSON.stringify(this.state);
   }
 
   onChange(state) {

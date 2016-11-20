@@ -21,18 +21,18 @@ class ScheduleManagement extends React.Component {
 
   componentDidMount() {
     ScheduleManagementStore.listen(this.onChange);
-    if(sessionStorage.scheduleManagement)
-      ScheduleManagementActions.restoreState(JSON.parse(sessionStorage.scheduleManagement));
-    if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
-      if(data.role && data.role == 'admin') {
+    // if(sessionStorage.scheduleManagement)
+    //   ScheduleManagementActions.restoreState(JSON.parse(sessionStorage.scheduleManagement));
+    // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+    //   if(data.role && data.role == 'admin') {
         ScheduleManagementActions.loadComponentData();
-      }
-    }));
+    //   }
+    // }));
   }
 
   componentWillUnmount() {
     ScheduleManagementStore.unlisten(this.onChange);
-    sessionStorage.scheduleManagement = JSON.stringify(this.state);
+    // sessionStorage.scheduleManagement = JSON.stringify(this.state);
   }
 
   onChange(state) {

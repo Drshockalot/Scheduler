@@ -20,18 +20,18 @@ class RaidWeekManagement extends React.Component {
 
   componentDidMount() {
     RaidWeekManagementStore.listen(this.onChange);
-    if(sessionStorage.raidweekManagement)
-      RaidWeekManagementActions.restoreState(JSON.parse(sessionStorage.raidweekManagement));
-    if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
-      if(data.role && data.role == 'admin') {
+    // if(sessionStorage.raidweekManagement)
+    //   RaidWeekManagementActions.restoreState(JSON.parse(sessionStorage.raidweekManagement));
+    // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+    //   if(data.role && data.role == 'admin') {
         RaidWeekManagementActions.getAllRaidWeeks();
-      }
-    }));
+    //   }
+    // }));
   }
 
   componentWillUnmount() {
     RaidWeekManagementStore.unlisten(this.onChange);
-    sessionStorage.raidweekManagement = JSON.stringify(this.state);
+    // sessionStorage.raidweekManagement = JSON.stringify(this.state);
   }
 
   onChange(state) {

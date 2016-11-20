@@ -19,18 +19,18 @@ class CharacterManagement extends React.Component {
 
   componentDidMount() {
     CharacterManagementStore.listen(this.onChange);
-    if(sessionStorage.characterManagement)
-      CharacterManagementActions.restoreState(JSON.parse(sessionStorage.characterManagement));
-    if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
-      if(data.role && data.role == 'admin') {
+    // if(sessionStorage.characterManagement)
+    //   CharacterManagementActions.restoreState(JSON.parse(sessionStorage.characterManagement));
+    // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+    //   if(data.role && data.role == 'admin') {
         CharacterManagementActions.getCharactersForConfirmation();
-      }
-    }));
+    //   }
+    // }));
   }
 
   componentWillUnmount() {
     CharacterManagementStore.unlisten(this.onChange);
-    sessionStorage.characterManagement = JSON.stringify(this.state);
+    // sessionStorage.characterManagement = JSON.stringify(this.state);
   }
 
   onChange(state) {

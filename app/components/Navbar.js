@@ -30,14 +30,14 @@ class Navbar extends React.Component {
       }, 750);
     });
 
-    if(sessionStorage.navbar)
-      NavbarActions.restoreState(JSON.parse(sessionStorage.navbar));
+    // if(sessionStorage.navbar)
+    //   NavbarActions.restoreState(JSON.parse(sessionStorage.navbar));
     NavbarActions.checkLogin();
   }
 
   componentWillUnmount() {
     NavbarStore.unlisten(this.onChange);
-    sessionStorage.navbar = JSON.stringify(this.state);
+    //sessionStorage.navbar = JSON.stringify(this.state);
   }
 
   onChange(state) {

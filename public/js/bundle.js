@@ -1781,18 +1781,19 @@ var AttendancePublicView = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _AttendancePublicViewStore2.default.listen(this.onChange);
-      if (sessionStorage.attendancePublicView) _AttendancePublicViewActions2.default.restoreState(JSON.parse(sessionStorage.attendancePublicView));
-      if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
-        if (data.role && data.role != '') {
-          _AttendancePublicViewActions2.default.loadComponentData();
-        }
-      })) ;
+      // if(sessionStorage.attendancePublicView)
+      //   AttendancePublicViewActions.restoreState(JSON.parse(sessionStorage.attendancePublicView));
+      // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+      //   if(data.role && data.role != '') {
+      _AttendancePublicViewActions2.default.loadComponentData();
+      //   }
+      // }));
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _AttendancePublicViewStore2.default.unlisten(this.onChange);
-      sessionStorage.attendancePublicView = JSON.stringify(this.state);
+      //sessionStorage.attendancePublicView = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -2281,7 +2282,8 @@ var Home = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _HomeStore2.default.listen(this.onChange);
-      if (sessionStorage.home) _HomeActions2.default.restoreState(JSON.parse(sessionStorage.home));
+      // if(sessionStorage.home)
+      //   HomeActions.restoreState(JSON.parse(sessionStorage.home));
       _HomeActions2.default.loadComponentData();
       if (this.props.location.query.somesneakyguy) {
         toastr.error('You do not have authorization to access this page, please log in', 'YOU SHALL NOT PASS!!');
@@ -2291,7 +2293,7 @@ var Home = function (_React$Component) {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _HomeStore2.default.unlisten(this.onChange);
-      sessionStorage.home = JSON.stringify(this.state);
+      //sessionStorage.home = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -3811,14 +3813,15 @@ var Navbar = function (_React$Component) {
         }, 750);
       });
 
-      if (sessionStorage.navbar) _NavbarActions2.default.restoreState(JSON.parse(sessionStorage.navbar));
+      // if(sessionStorage.navbar)
+      //   NavbarActions.restoreState(JSON.parse(sessionStorage.navbar));
       _NavbarActions2.default.checkLogin();
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _NavbarStore2.default.unlisten(this.onChange);
-      sessionStorage.navbar = JSON.stringify(this.state);
+      //sessionStorage.navbar = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -4143,18 +4146,19 @@ var ProfileCharacters = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _ProfileCharactersStore2.default.listen(this.onChange);
-      if (sessionStorage.profileCharacters) _ProfileCharactersActions2.default.restoreState(JSON.parse(sessionStorage.profileCharacters));
-      if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
-        if (data && data.role != '') {
-          _ProfileCharactersActions2.default.getChosenCharacters();
-        }
-      })) ;
+      // if(sessionStorage.profileCharacters)
+      //   ProfileCharactersActions.restoreState(JSON.parse(sessionStorage.profileCharacters));
+      // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+      //   if(data && data.role != '') {
+      _ProfileCharactersActions2.default.getChosenCharacters();
+      //   }
+      // }));
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _NavbarStore2.default.unlisten(this.onChange);
-      sessionStorage.profileCharacters = JSON.stringify(this.state);
+      // sessionStorage.profileCharacters = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -4654,18 +4658,19 @@ var ProfileRaidWeeks = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _ProfileRaidWeeksStore2.default.listen(this.onChange);
-      if (sessionStorage.profileRaidweeks) _ProfileRaidWeeksActions2.default.restoreState(JSON.parse(sessionStorage.profileRaidweeks));
-      if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
-        if (data.role && data.role != '') {
-          _ProfileRaidWeeksActions2.default.getAllRaidWeekInfo();
-        }
-      })) ;
+      // if(sessionStorage.profileRaidweeks)
+      //   ProfileRaidWeeksActions.restoreState(JSON.parse(sessionStorage.profileRaidweeks));
+      // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+      //   if(data.role && data.role != '') {
+      _ProfileRaidWeeksActions2.default.getAllRaidWeekInfo();
+      //   }
+      // }));
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _ProfileRaidWeeksStore2.default.unlisten(this.onChange);
-      sessionStorage.profileRaidweeks = JSON.stringify(this.state);
+      // sessionStorage.profileRaidweeks = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -5038,18 +5043,19 @@ var ProfileRosters = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _ProfileRostersStore2.default.listen(this.onChange);
-      if (sessionStorage.profileRosters) _ProfileRostersActions2.default.restoreState(JSON.parse(sessionStorage.profileRosters));
-      if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
-        if (data.role && data.role != '') {
-          _ProfileRostersActions2.default.getComponentData();
-        }
-      })) ;
+      // if(sessionStorage.profileRosters)
+      //   ProfileRostersActions.restoreState(JSON.parse(sessionStorage.profileRosters));
+      // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+      //   if(data.role && data.role != '') {
+      _ProfileRostersActions2.default.getComponentData();
+      //   }
+      // }));
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _ProfileRostersStore2.default.unlisten(this.onChange);
-      sessionStorage.profileRosters = JSON.stringify(this.state);
+      // sessionStorage.profileRosters = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -5717,14 +5723,12 @@ var SingleScheduleView = function (_React$Component) {
   _createClass(SingleScheduleView, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      var _this2 = this;
-
       _SingleScheduleViewStore2.default.listen(this.onChange);
-      if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
-        if (data.role && data.role != '') {
-          _SingleScheduleViewActions2.default.loadSingleSchedule(_this2.props.schedule);
-        }
-      })) ;
+      // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+      //   if(data.role && data.role != '') {
+      _SingleScheduleViewActions2.default.loadSingleSchedule(this.props.schedule);
+      //   }
+      // }));
     }
   }, {
     key: 'componentWillUnmount',
@@ -6177,18 +6181,19 @@ var AddAttendance = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _AddAttendanceStore2.default.listen(this.onChange);
-      if (sessionStorage.addAttendance) _AddAttendanceActions2.default.restoreState(JSON.parse(sessionStorage.addAttendance));
-      if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
-        if (data.role && data.role == 'admin') {
-          _AddAttendanceActions2.default.loadComponentData();
-        }
-      })) ;
+      // if(sessionStorage.addAttendance)
+      //   AddAttendanceActions.restoreState(JSON.parse(sessionStorage.addAttendance));
+      //   if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+      //     if(data.role && data.role == 'admin') {
+      _AddAttendanceActions2.default.loadComponentData();
+      //   }
+      // }));
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _AddAttendanceStore2.default.unlisten(this.onChange);
-      sessionStorage.addAttendance = JSON.stringify(this.state);
+      // sessionStorage.addAttendance = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -7461,18 +7466,19 @@ var CharacterManagement = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _CharacterManagementStore2.default.listen(this.onChange);
-      if (sessionStorage.characterManagement) _CharacterManagementActions2.default.restoreState(JSON.parse(sessionStorage.characterManagement));
-      if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
-        if (data.role && data.role == 'admin') {
-          _CharacterManagementActions2.default.getCharactersForConfirmation();
-        }
-      })) ;
+      // if(sessionStorage.characterManagement)
+      //   CharacterManagementActions.restoreState(JSON.parse(sessionStorage.characterManagement));
+      // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+      //   if(data.role && data.role == 'admin') {
+      _CharacterManagementActions2.default.getCharactersForConfirmation();
+      //   }
+      // }));
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _CharacterManagementStore2.default.unlisten(this.onChange);
-      sessionStorage.characterManagement = JSON.stringify(this.state);
+      // sessionStorage.characterManagement = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -7723,18 +7729,19 @@ var DeleteAttendance = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _DeleteAttendanceStore2.default.listen(this.onChange);
-      if (sessionStorage.deleteAttendance) _DeleteAttendanceActions2.default.restoreState(JSON.parse(sessionStorage.deleteAttendance));
-      if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
-        if (data.role && data.role == 'admin') {
-          _DeleteAttendanceActions2.default.loadComponentData();
-        }
-      })) ;
+      // if(sessionStorage.deleteAttendance)
+      //   DeleteAttendanceActions.restoreState(JSON.parse(sessionStorage.deleteAttendance));
+      // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+      //   if(data.role && data.role == 'admin') {
+      _DeleteAttendanceActions2.default.loadComponentData();
+      //   }
+      // }));
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _DeleteAttendanceStore2.default.unlisten(this.onChange);
-      sessionStorage.deleteAttendance = JSON.stringify(this.state);
+      // sessionStorage.deleteAttendance = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -7986,18 +7993,19 @@ var RaidManagement = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _RaidManagementStore2.default.listen(this.onChange);
-      if (sessionStorage.raidManagement) _RaidManagementActions2.default.restoreState(JSON.parse(sessionStorage.raidManagement));
-      if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
-        if (data.role && data.role == 'admin') {
-          _RaidManagementActions2.default.loadRaids();
-        }
-      })) ;
+      // if(sessionStorage.raidManagement)
+      //   RaidManagementActions.restoreState(JSON.parse(sessionStorage.raidManagement));
+      // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+      //   if(data.role && data.role == 'admin') {
+      _RaidManagementActions2.default.loadRaids();
+      //   }
+      // }));
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _RaidManagementStore2.default.unlisten(this.onChange);
-      sessionStorage.raidManagement = JSON.stringify(this.state);
+      // sessionStorage.raidManagement = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -8947,18 +8955,19 @@ var RaidWeekManagement = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _RaidWeekManagementStore2.default.listen(this.onChange);
-      if (sessionStorage.raidweekManagement) _RaidWeekManagementActions2.default.restoreState(JSON.parse(sessionStorage.raidweekManagement));
-      if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
-        if (data.role && data.role == 'admin') {
-          _RaidWeekManagementActions2.default.getAllRaidWeeks();
-        }
-      })) ;
+      // if(sessionStorage.raidweekManagement)
+      //   RaidWeekManagementActions.restoreState(JSON.parse(sessionStorage.raidweekManagement));
+      // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+      //   if(data.role && data.role == 'admin') {
+      _RaidWeekManagementActions2.default.getAllRaidWeeks();
+      //   }
+      // }));
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _RaidWeekManagementStore2.default.unlisten(this.onChange);
-      sessionStorage.raidweekManagement = JSON.stringify(this.state);
+      // sessionStorage.raidweekManagement = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -9383,18 +9392,19 @@ var RosterManagement = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _RosterManagementStore2.default.listen(this.onChange);
-      if (sessionStorage.rosterManagement) _RosterManagementActions2.default.restoreState(JSON.parse(sessionStorage.rosterManagement));
-      if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
-        if (data.role && data.role == 'admin') {
-          _RosterManagementActions2.default.getAllRosters();
-        }
-      })) ;
+      // if(sessionStorage.rosterManagement)
+      //   RosterManagementActions.restoreState(JSON.parse(sessionStorage.rosterManagement));
+      // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+      //   if(data.role && data.role == 'admin') {
+      _RosterManagementActions2.default.getAllRosters();
+      //   }
+      // }));
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _RosterManagementStore2.default.unlisten(this.onChange);
-      sessionStorage.rosterManagement = JSON.stringify(this.state);
+      // sessionStorage.rosterManagement = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -9711,18 +9721,19 @@ var ScheduleManagement = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _ScheduleManagementStore2.default.listen(this.onChange);
-      if (sessionStorage.scheduleManagement) _ScheduleManagementActions2.default.restoreState(JSON.parse(sessionStorage.scheduleManagement));
-      if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
-        if (data.role && data.role == 'admin') {
-          _ScheduleManagementActions2.default.loadComponentData();
-        }
-      })) ;
+      // if(sessionStorage.scheduleManagement)
+      //   ScheduleManagementActions.restoreState(JSON.parse(sessionStorage.scheduleManagement));
+      // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+      //   if(data.role && data.role == 'admin') {
+      _ScheduleManagementActions2.default.loadComponentData();
+      //   }
+      // }));
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _ScheduleManagementStore2.default.unlisten(this.onChange);
-      sessionStorage.scheduleManagement = JSON.stringify(this.state);
+      // sessionStorage.scheduleManagement = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
@@ -10702,18 +10713,19 @@ var ViewAttendance = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _ViewAttendanceStore2.default.listen(this.onChange);
-      if (sessionStorage.viewAttendance) _ViewAttendanceActions2.default.restoreState(JSON.parse(sessionStorage.viewAttendance));
-      if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
-        if (data.role && data.role == 'admin') {
-          _ViewAttendanceActions2.default.loadComponentData();
-        }
-      })) ;
+      // if(sessionStorage.viewAttendance)
+      //   ViewAttendanceActions.restoreState(JSON.parse(sessionStorage.viewAttendance));
+      // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+      //   if(data.role && data.role == 'admin') {
+      _ViewAttendanceActions2.default.loadComponentData();
+      //   }
+      // }));
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _ViewAttendanceStore2.default.unlisten(this.onChange);
-      sessionStorage.viewAttendance = JSON.stringify(this.state);
+      // sessionStorage.viewAttendance = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',

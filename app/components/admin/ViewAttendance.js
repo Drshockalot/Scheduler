@@ -18,18 +18,18 @@ class ViewAttendance extends React.Component {
 
   componentDidMount() {
     ViewAttendanceStore.listen(this.onChange);
-    if(sessionStorage.viewAttendance)
-      ViewAttendanceActions.restoreState(JSON.parse(sessionStorage.viewAttendance));
-    if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
-      if(data.role && data.role == 'admin') {
+    // if(sessionStorage.viewAttendance)
+    //   ViewAttendanceActions.restoreState(JSON.parse(sessionStorage.viewAttendance));
+    // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+    //   if(data.role && data.role == 'admin') {
         ViewAttendanceActions.loadComponentData();
-      }
-    }));
+    //   }
+    // }));
   }
 
   componentWillUnmount() {
     ViewAttendanceStore.unlisten(this.onChange);
-    sessionStorage.viewAttendance = JSON.stringify(this.state);
+    // sessionStorage.viewAttendance = JSON.stringify(this.state);
   }
 
   onChange(state) {

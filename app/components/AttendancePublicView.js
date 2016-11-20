@@ -17,18 +17,18 @@ class AttendancePublicView extends React.Component {
 
   componentDidMount() {
     AttendancePublicViewStore.listen(this.onChange);
-    if(sessionStorage.attendancePublicView)
-      AttendancePublicViewActions.restoreState(JSON.parse(sessionStorage.attendancePublicView));
-    if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
-      if(data.role && data.role != '') {
+    // if(sessionStorage.attendancePublicView)
+    //   AttendancePublicViewActions.restoreState(JSON.parse(sessionStorage.attendancePublicView));
+    // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+    //   if(data.role && data.role != '') {
         AttendancePublicViewActions.loadComponentData();
-      }
-    }));
+    //   }
+    // }));
   }
 
   componentWillUnmount() {
     AttendancePublicViewStore.unlisten(this.onChange);
-    sessionStorage.attendancePublicView = JSON.stringify(this.state);
+    //sessionStorage.attendancePublicView = JSON.stringify(this.state);
   }
 
   onChange(state) {

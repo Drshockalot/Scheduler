@@ -16,18 +16,18 @@ class ProfileRaidWeeks extends React.Component {
 
   componentDidMount() {
     ProfileRaidWeeksStore.listen(this.onChange);
-    if(sessionStorage.profileRaidweeks)
-      ProfileRaidWeeksActions.restoreState(JSON.parse(sessionStorage.profileRaidweeks));
-    if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
-      if(data.role && data.role != '') {
+    // if(sessionStorage.profileRaidweeks)
+    //   ProfileRaidWeeksActions.restoreState(JSON.parse(sessionStorage.profileRaidweeks));
+    // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+    //   if(data.role && data.role != '') {
         ProfileRaidWeeksActions.getAllRaidWeekInfo();
-      }
-    }));
+    //   }
+    // }));
   }
 
   componentWillUnmount() {
     ProfileRaidWeeksStore.unlisten(this.onChange);
-    sessionStorage.profileRaidweeks = JSON.stringify(this.state);
+    // sessionStorage.profileRaidweeks = JSON.stringify(this.state);
   }
 
   onChange(state) {

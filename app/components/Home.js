@@ -19,8 +19,8 @@ class Home extends React.Component {
 
   componentDidMount() {
     HomeStore.listen(this.onChange);
-    if(sessionStorage.home)
-      HomeActions.restoreState(JSON.parse(sessionStorage.home));
+    // if(sessionStorage.home)
+    //   HomeActions.restoreState(JSON.parse(sessionStorage.home));
     HomeActions.loadComponentData();
     if(this.props.location.query.somesneakyguy) {
       toastr.error('You do not have authorization to access this page, please log in', 'YOU SHALL NOT PASS!!');
@@ -29,7 +29,7 @@ class Home extends React.Component {
 
   componentWillUnmount() {
     HomeStore.unlisten(this.onChange);
-    sessionStorage.home = JSON.stringify(this.state);
+    //sessionStorage.home = JSON.stringify(this.state);
   }
 
   onChange(state) {
