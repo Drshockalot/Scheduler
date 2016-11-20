@@ -35,8 +35,7 @@ const KnexSessionStore = require('connect-session-knex')(session);
 var knex = require('./db/database').knex;
 const store = new KnexSessionStore({
   knex: knex,
-  tablename: 'sessions',
-  clearInterval: 2678400000
+  tablename: 'sessions'
 });
 
 var app = express();
