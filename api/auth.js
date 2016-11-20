@@ -32,7 +32,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/role', function(req, res, next) {
-  console.log(req.session);
   if(req.session.role) {
     res.json({role: req.session.role});
   } else {

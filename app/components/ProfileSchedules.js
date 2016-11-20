@@ -19,19 +19,18 @@ class ProfileSchedules extends React.Component {
 
   componentDidMount() {
     ProfileSchedulesStore.listen(this.onChange);
-    if(sessionStorage.profileSchedules)
-      ProfileSchedulesActions.restoreState(JSON.parse(sessionStorage.profileSchedules));
-    if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
-      console.log(data);
-      if(data.role && data.role != '') {
+    // if(sessionStorage.profileSchedules)
+    //   ProfileSchedulesActions.restoreState(JSON.parse(sessionStorage.profileSchedules));
+    // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+    //   if(data.role && data.role != '') {
         ProfileSchedulesActions.loadComponentData();
-      }
-    }));
+    //  }
+    //}));
   }
 
   componentWillUnmount() {
     ProfileSchedulesStore.unlisten(this.onChange);
-    sessionStorage.profileSchedules = JSON.stringify(this.state);
+    //sessionStorage.profileSchedules = JSON.stringify(this.state);
   }
 
   onChange(state) {

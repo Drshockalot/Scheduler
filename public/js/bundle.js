@@ -5207,19 +5207,19 @@ var ProfileSchedules = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _ProfileSchedulesStore2.default.listen(this.onChange);
-      if (sessionStorage.profileSchedules) _ProfileSchedulesActions2.default.restoreState(JSON.parse(sessionStorage.profileSchedules));
-      if ($.ajax({ method: 'GET', url: '/auth/role' }).then(function (data) {
-        console.log(data);
-        if (data.role && data.role != '') {
-          _ProfileSchedulesActions2.default.loadComponentData();
-        }
-      })) ;
+      // if(sessionStorage.profileSchedules)
+      //   ProfileSchedulesActions.restoreState(JSON.parse(sessionStorage.profileSchedules));
+      // if($.ajax({method: 'GET', url: '/auth/role'}).then((data) => {
+      //   if(data.role && data.role != '') {
+      _ProfileSchedulesActions2.default.loadComponentData();
+      //  }
+      //}));
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       _ProfileSchedulesStore2.default.unlisten(this.onChange);
-      sessionStorage.profileSchedules = JSON.stringify(this.state);
+      //sessionStorage.profileSchedules = JSON.stringify(this.state);
     }
   }, {
     key: 'onChange',
