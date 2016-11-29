@@ -4192,7 +4192,7 @@ var ProfileCharacters = function (_React$Component) {
         var retrievedCharactersCopy = this.state.retrievedCharacters;
         var arr = [];
         Object.keys(retrievedCharactersCopy).map(function (i) {
-          if (retrievedCharactersCopy[i].level >= 100 && retrievedCharactersCopy[i].guild === "DarkStorm") {
+          if (retrievedCharactersCopy[i].level == 110) {
             arr.push(retrievedCharactersCopy[i]);
           }
         });
