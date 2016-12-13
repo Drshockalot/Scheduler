@@ -92,7 +92,7 @@ class AddAttendance extends React.Component {
 
       selectRaidWeekOptions = _.sortBy(this.state.raidweeks, 'start').reverse().map(function(raidweek) {
         return (
-          <option key={raidweek.id} value={raidweek.id}>{moment(raidweek.start).format('W')}</option>
+          <option key={raidweek.id} value={raidweek.id}>{moment(raidweek.start).format('W') + ' : ' + moment(raidweek.start).format('D[/]M[/]YYYY') + ' - ' + moment(raidweek.end).format('D[/]M[/]YYYY')}</option>
         );
       }, this);
 

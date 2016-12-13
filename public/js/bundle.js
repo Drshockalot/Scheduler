@@ -6259,7 +6259,7 @@ var AddAttendance = function (_React$Component) {
           return _react2.default.createElement(
             'option',
             { key: raidweek.id, value: raidweek.id },
-            (0, _moment2.default)(raidweek.start).format('W')
+            (0, _moment2.default)(raidweek.start).format('W') + ' : ' + (0, _moment2.default)(raidweek.start).format('D[/]M[/]YYYY') + ' - ' + (0, _moment2.default)(raidweek.end).format('D[/]M[/]YYYY')
           );
         }, this);
 
@@ -9940,7 +9940,7 @@ var ScheduleManagement = function (_React$Component) {
           return _react2.default.createElement(
             'option',
             { key: raidweek.id, value: raidweek.id },
-            (0, _moment2.default)(raidweek.start).format('W')
+            (0, _moment2.default)(raidweek.start).format('W') + ' : ' + (0, _moment2.default)(raidweek.start).format('D[/]M[/]YYYY') + ' - ' + (0, _moment2.default)(raidweek.end).format('D[/]M[/]YYYY')
           );
         }, this);
 
